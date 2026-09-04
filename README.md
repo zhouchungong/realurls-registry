@@ -29,11 +29,11 @@ curl -s https://api.github.com/orgs/anthropics | jq '{name, blog, is_verified}'
 
 ## 现在的状态
 
-**M0 —— 地基。** 定案引擎与回归测试已就位，尚未开始采集数据。
+**M1 —— 采集流水线已跑通。** 尚未开始批量冷启动。
 
 ```
 ✅ M0  TRUST.md / POLICY.md / policy.py / 正负样本回归测试
-⬜ M1  证据采集流水线（GitHub / RDAP / DNS / Wayback / Wikidata / npm / crt.sh / GSB）
+✅ M1  证据采集流水线 + `python -m src.verify <domain>` 端到端跑通
 ⬜ M2  冷启动数据 ≥1,200 verified，抽样 precision ≥99.5%
 ⬜ M3  Cloudflare Workers API + MCP Server（发布点）
 ⬜ M4  realurls.com 证据页 + 浏览器扩展 + 生态回写
@@ -50,6 +50,10 @@ pip install -e ".[dev]"
 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 pytest tests -q
 
 python -m src.validate      # 校验 entities/：schema + 状态复算 + 中性措辞 + 唯一性
+
+# 端到端验证一个域名，打印完整证据链与复现命令
+python -m src.verify anthropic.com
+python -m src.verify claude.ai --anchor anthropic.com     # 锚点扩散
 ```
 
 ```python

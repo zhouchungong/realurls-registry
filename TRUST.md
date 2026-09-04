@@ -65,7 +65,7 @@ curl -sL https://rdap.org/domain/anthropic.com \
 # 期望: MarkMonitor Inc. / registration 2001-10-02 / expiration 2033-10-02 / 三把 client*Prohibited 锁
 
 # B1 —— Wikidata P856
-curl -s "https://www.wikidata.org/w/api.php?action=wbgetclaims&entity=Q108862201&property=P856&format=json"
+curl -s "https://www.wikidata.org/w/api.php?action=wbgetclaims&entity=Q116758847&property=P856&format=json"
 
 # B4 —— Wayback 连续性
 curl -s "http://web.archive.org/cdx/search/cdx?url=anthropic.com&limit=1&output=json"

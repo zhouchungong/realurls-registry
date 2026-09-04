@@ -13,7 +13,7 @@ aliases:
 category:
   - ai
   - developer-tools
-wikidata: Q108862201
+wikidata: Q116758847
 
 domains:
   - domain: anthropic.com
@@ -42,7 +42,7 @@ domains:
           locks: [delete, transfer, update]
       - code: B1
         checked_at: "2026-09-05T00:00:00Z"
-        source: https://www.wikidata.org/wiki/Q108862201
+        source: https://www.wikidata.org/wiki/Q116758847
         data: {}
       - code: B4
         checked_at: "2026-09-05T00:00:00Z"
