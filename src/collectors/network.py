@@ -114,12 +114,14 @@ def structural_links(domain: str, other: str) -> Result:
         r.note(f"link: NS 比对失败：{exc}")
 
     cert = certificate(domain)
-    sans = {s.lstrip("*.").lower() for s in cert.extra.get("cert_sans", [])}
+    raw_sans = cert.extra.get("cert_sans", [])
+    sans = {s.lstrip("*.").lower() for s in raw_sans}
     if any(s == other or s.endswith(f".{other}") for s in sans):
         links.append("cert_san")
-        r.note(f"link: {domain} 的证书 SAN 覆盖 {other}")
+        r.note(f"link: {domain} 的证书 SAN 覆盖 {other}（共 {len(raw_sans)} 个 SAN）")
 
     r.extra["structural_links"] = links
+    r.extra["san_count"] = len(raw_sans)   # policy 用它识别 CDN 共享证书
     if not links:
         r.note(f"link: {domain} 与 {other} 无结构性关联 —— 不能扩散")
     return r

@@ -40,8 +40,9 @@ def wikidata(domain: str) -> Result:
     # 必须限定实体类型。实测 claude.ai 的 P856 上挂着一个标题是中文报纸标题的垃圾条目
     # （Q116755258）—— Wikidata 任何人可编辑，往某条目加一条 P856 指向钓鱼域名的成本为零。
     # 不做类型过滤的话，B1 就是一条可被任意人凭空制造的「佐证」。这是 SECURITY.md T7。
+    # P2037 = GitHub 用户名，P1324 = 源码仓库。二者是实体锚定（src/anchor.py）的 canonical 来源。
     query = f"""
-    SELECT ?item ?itemLabel ?site ?sitelinks WHERE {{
+    SELECT ?item ?itemLabel ?site ?sitelinks ?github ?repo WHERE {{
       VALUES ?site {{ {variants} }}
       ?item wdt:P856 ?site .
       FILTER EXISTS {{
@@ -49,6 +50,8 @@ def wikidata(domain: str) -> Result:
         VALUES ?class {{ wd:Q43229 wd:Q4830453 wd:Q7397 wd:Q35127 wd:Q1058914 }}
       }}
       OPTIONAL {{ ?item wikibase:sitelinks ?sitelinks }}
+      OPTIONAL {{ ?item wdt:P2037 ?github }}
+      OPTIONAL {{ ?item wdt:P1324 ?repo }}
       SERVICE wikibase:label {{ bd:serviceParam wikibase:language "en,zh". }}
     }} ORDER BY DESC(?sitelinks) LIMIT 5
     """
@@ -70,6 +73,11 @@ def wikidata(domain: str) -> Result:
     label = top.get("itemLabel", {}).get("value", "")
     sitelinks = int(top.get("sitelinks", {}).get("value", 0))
     r.extra["wikidata"] = qid
+    r.extra["wikidata_item"] = {
+        "qid": qid, "label": label, "sitelinks": sitelinks,
+        "github_username": top.get("github", {}).get("value"),
+        "repo": top.get("repo", {}).get("value"),
+    }
     r.evidence.append(Evidence(
         code="B1",
         data={"qid": qid, "label": label, "site": top["site"]["value"],

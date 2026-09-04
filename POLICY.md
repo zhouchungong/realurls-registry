@@ -5,6 +5,34 @@
 
 ---
 
+## 0. 先锚定实体，再验证域名
+
+**控制权 ≠ 身份。** A1（GitHub 组织已验证域名）、A2（包 provenance）、A5（DNS 自证）证明的都是
+「某个主体控制这个域名」，而不是「这个域名属于实体 X」。攻击者完全可以为 `claude-desktop.io`
+建一个叫 "Claude" 的组织并验证它——控制权是真的，身份是假的。
+（评审时构造过这条链，修复前被判 verified 0.85，见 `tests/negative_corpus.yaml` 的 `attacker-controlled-verified-org`。）
+
+所以判定分两个阶段：
+
+```
+阶段 1  实体锚定（src/anchor.py）
+        从独立权威确立实体的 canonical 标识：
+          Wikidata 条目（P856 指向本域名、类型 ∈ 组织/企业/软件/网站、站点链接 ≥ 3）
+          → canonical GitHub 组织 = 该条目的 P2037 或 P1324
+          → canonical Wikidata = 该条目的 QID
+        或由人工审核指定（来源记为 human:*，随实体记录落盘供 reviewer 核对）
+
+阶段 2  域名验证（src/policy.py）
+        A1 / A2 只有在组织 == canonical GitHub 组织时才算数
+        B1     只有在 QID  == canonical Wikidata 时才算数
+```
+
+**锚定失败的实体最多 provisional。** 一个在 Wikidata、应用商店、npm 都查无此人的"公司"，我们凭什么替它背书。
+门槛用站点链接数而非条目存在性：建一个 Wikidata 条目零成本，让三种语言的 Wikipedia 都为你写文章不是。
+
+锚点扩散（A6）场景下，目标域名**继承锚点域名的实体**：claude.ai 属于 Anthropic（Q116758847），
+而不是属于"Claude"这个产品条目。
+
 ## 1. 证据分级
 
 ### 1.1 锚点证据（Tier A）—— 至少需要 1 条
@@ -14,11 +42,19 @@
 | 代号 | 证据 | 权重 | 有效性条件 |
 |---|---|---|---|
 | **A5** | DNS TXT 自证 `_realurls.<domain>` | 0.90 | token 匹配 |
-| **A1** | GitHub 组织已验证域名 | 0.80 | `is_verified == true` 且 `blog` 的可注册域 == 目标域 |
-| **A2** | 包 provenance → 仓库 → 已验证组织 | 0.75 | provenance 通过验证 **且** 链末端组织已验证 **且** 其 blog 域匹配 |
+| **A1** | GitHub 组织已验证域名 | 0.80 | `is_verified == true` 且 `blog` 的可注册域 == 目标域 **且 org == canonical GitHub 组织** |
+| **A7** | 受限政府 TLD | 0.80 | 后缀 ∈ `.gov` `.gov.uk` `.gov.cn` `.gouv.fr` `.go.jp` … （注册局仅允许政府机构注册；只证明"是政府站"，不证明"是哪个部门"） |
+| **A2** | 包 provenance → 仓库 → 已验证组织 | 0.75 | provenance 通过验证 **且** 链末端组织已验证 **且** 其 blog 域匹配 **且 链末端 == canonical GitHub 组织** |
 | **A4** | 证书 Subject `O=` | 0.70 | 证书为 **OV/EV** 且 `O=` 非空 |
-| **A6** | 锚点扩散：来自已 verified 域名的一方声明 | 0.65 | 源域名自身 `verified` **且** 存在结构性关联 |
-| **A3** | 企业注册指纹 | 0.55 | 企业级注册商 **且** 剩余期 ≥1095 天 **且** 注册局锁 ≥2 把 **且** 域龄 ≥730 天 |
+| **A6** | 锚点扩散 | 0.65 | 源域名自身 `verified` **且 源域名页面链接到本域名（一方声明）** **且** ≥1 条结构性关联；仅靠 `cert_san` 时 SAN 数 ≤ 25 |
+| **A3** | 企业注册指纹 | 0.55 | **品牌保护类**注册商 **且** 剩余期 ≥1095 天 **且** 注册局锁 ≥2 把 **且** 域龄 ≥730 天 |
+
+**A6 为什么两个条件缺一不可**：只有结构性关联——Cloudflare 等从共享池分配 NS，攻击者反复建账号能碰到同一对；
+只有一方声明——已 verified 域名的页脚里也有 linkedin.com / x.com，那不是自家资产。
+攻击者要同时做到「让 anthropic.com 首页链接到我」和「NS 碰撞」，前者做不到。
+
+**A3 的注册商名单只含品牌保护类**（MarkMonitor、CSC、Com Laude、Safenames、Nom-IQ、IP Mirror、GoDaddy Corporate 等）。
+评审时剔除了 Amazon Registrar（Route53，任何人 12 美元/年）、Google LLC、InterNetX、Ascio 等零售/批发商。
 
 **为什么 A3 权重最低**：企业注册指纹只证明对方「买得起」（企业级注册商年费数百美元且需企业实名），是**成本壁垒**而非**身份证明**。它能挡住 99% 的黑产，但挡不住有预算的定向攻击。
 
@@ -36,7 +72,7 @@ GitHub 的域名验证）**是同一量级，而非密码学证明**。补上真
 
 | 代号 | 证据 | 权重 | 有效性条件 |
 |---|---|---|---|
-| B1 | Wikidata P856 | 0.12 | 实体必须是组织/企业/软件/网站类（`P31/P279*`）|
+| B1 | Wikidata P856 | 0.12 | 实体类型 ∈ 组织/企业/软件/网站（`P31/P279*`）**且 QID == canonical Wikidata** |
 | B4 | Wayback 首次快照 + 连续性 | 0.12 | 历史跨度 ≥365 天 |
 | B3 | 应用商店开发者官网字段 | 0.10 | — |
 | B6 | 官方社媒公示链接 | 0.10 | — |
@@ -72,8 +108,12 @@ GitHub 的域名验证）**是同一量级，而非密码学证明**。补上真
 
 ③ 证据校验 → 剔除无效证据 → 合并关联证据
 
-④ 新域名门槛
-   └── 域龄 < 180 天 且 无 A5                          → unverified
+④ 新域名门槛（未知按最坏情况处理）
+   ├── 域龄 < 180 天 且 无 A5                          → unverified
+   └── 域龄未知 且 无 A5/A7                            → 最多 provisional
+       （rdap.org 对 .de/.io/.cn/.so/.ch/.jp 等大量 ccTLD 返回 404。
+         流水线会用 Wayback 首次快照作为域龄**下界**兜底——一个域名不可能
+         比它的第一次快照更年轻；兜底也失败才算未知。）
 
 ⑤ 定案
    ├── 锚点 ≥1 且 佐证 ≥2  → verified

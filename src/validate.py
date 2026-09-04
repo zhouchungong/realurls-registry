@@ -62,9 +62,14 @@ def _check_status_matches_policy(errors: list[str], path: Path, doc: dict) -> No
             Evidence(code=e["code"], data=e.get("data", {}), source=e.get("source"))
             for e in rec.get("evidence", [])
         ]
+        canonical = doc.get("canonical") or {}
         facts = DomainFacts(
             domain=rec["domain"],
             age_days=_age_days(rec),
+            age_source="rdap" if _age_days(rec) is not None else None,
+            expected_github_org=canonical.get("github_org"),
+            expected_wikidata=canonical.get("wikidata"),
+            anchor_sources=tuple(canonical.get("sources", [])),
             ttl_days=rec.get("ttl_days", 30),
         )
         got = decide(facts, evidence, now=datetime.now(timezone.utc))

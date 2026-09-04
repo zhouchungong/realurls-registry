@@ -129,6 +129,62 @@ cases:
       - {code: B4, data: {history_days: 1900}}
       - {code: B5, data: {rank: 90000}}
 
+  # ---- 以下五条来自 REVIEW-RESULT.md（Fable 5.1 评审）----
+
+  - id: attacker-controlled-verified-org
+    technique: >
+      评审 §0 的完整绕过链：二级市场买 2 年历史的 .io 域名（RDAP 404 → 域龄未知），
+      自建 GitHub 组织、name 填 "Claude"、验证自己的域名（A1 证明的是控制权不是身份），
+      建 Wikidata 条目指向它，买流量进 Tranco。修复前此链被判 verified 0.85。
+    facts: {domain: "claude-desktop[.]io", age_days: null}
+    evidence:
+      - {code: A1, data: {org_verified: true, blog: "https://claude-desktop[.]io", org: "claude-desktop", org_name: "Claude"}}
+      - {code: B1, data: {qid: "Q999999999", label: "Claude Desktop"}}
+      - {code: B4, data: {history_days: 700}}
+      - {code: B5, data: {rank: 850000}}
+
+  - id: attacker-org-even-when-entity-anchored
+    technique: 实体已锚定（canonical=anthropics），但 A1 来自另一个已验证的组织
+    facts: {domain: "claude-desktop[.]io", age_days: 700, expected_github_org: anthropics, expected_wikidata: Q116758847}
+    evidence:
+      - {code: A1, data: {org_verified: true, blog: "https://claude-desktop[.]io", org: "claude-desktop"}}
+      - {code: B1, data: {qid: "Q116758847"}}
+      - {code: B4, data: {history_days: 700}}
+      - {code: B5, data: {rank: 850000}}
+
+  - id: rdap-unavailable-otherwise-complete
+    technique: 域龄未知（ccTLD 无 RDAP、无 Wayback 下界）+ 证据齐全 → 必须 fail-closed
+    facts: {domain: "legit-looking[.]so", age_days: null, expected_github_org: legitorg, expected_wikidata: Q123}
+    evidence:
+      - {code: A1, data: {org_verified: true, blog: "https://legit-looking[.]so", org: legitorg}}
+      - {code: B1, data: {qid: "Q123"}}
+      - {code: B4, data: {history_days: 100}}
+      - {code: B5, data: {rank: 500000}}
+
+  - id: retail-registrar-posing-as-corporate
+    technique: Route53 注册 + 10 年预付 + 锁 —— 任何人 12 美元/年就能做到，不是企业指纹
+    facts: {domain: "hashicorp-vault[.]net", age_days: 900}
+    evidence:
+      - {code: A3, data: {registrar: "Amazon Registrar, Inc.", remaining_days: 3500, locks: ["delete", "transfer", "update"]}}
+      - {code: B4, data: {history_days: 850}}
+      - {code: B5, data: {rank: 300000}}
+
+  - id: propagation-structural-only-no-first-party-link
+    technique: NS 碰撞成功（同一 Cloudflare NS 对），但锚点页面并没有链接到本域名
+    facts: {domain: "anthropic-console[.]com", age_days: 800, expected_github_org: anthropics, expected_wikidata: Q116758847}
+    evidence:
+      - {code: A6, data: {from: "anthropic.com", from_status: "verified", first_party_link: false, structural_links: ["shared_ns"]}}
+      - {code: B4, data: {history_days: 750}}
+      - {code: B5, data: {rank: 400000}}
+
+  - id: propagation-via-shared-cdn-certificate
+    technique: 锚点链接到本域名（页脚外链），且证书 SAN 命中 —— 但那是一张 80 个 SAN 的 CDN 共享证书
+    facts: {domain: "some-partner[.]com", age_days: 800, expected_github_org: anthropics, expected_wikidata: Q116758847}
+    evidence:
+      - {code: A6, data: {from: "anthropic.com", from_status: "verified", first_party_link: true, structural_links: ["cert_san"], san_count: 80}}
+      - {code: B4, data: {history_days: 750}}
+      - {code: B5, data: {rank: 400000}}
+
   - id: stale-b7-used-as-positive
     technique: 拿一条「Safe Browsing 已标记」的记录当正向佐证
     facts: {domain: "sketchy-mirror[.]site", age_days: 700}

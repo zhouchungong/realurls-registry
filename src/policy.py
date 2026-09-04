@@ -34,14 +34,27 @@ __all__ = [
 # --------------------------------------------------------------------------------------
 
 #: 锚点证据（Tier A）。至少需要 1 条有效锚点才可能达到 verified。
+#:
+#: 一个容易漏掉的区分：**控制权 ≠ 身份**。A1/A2/A5 证明的都是「某个主体控制这个域名」，
+#: 而不是「这个域名属于实体 X」。攻击者完全可以为自己的域名建组织、做验证。
+#: 所以 A1/A2/B1 必须与**预先锚定的实体身份**（``DomainFacts.expected_*``）匹配才算数，
+#: 实体锚定由 ``src/anchor.py`` 从独立权威（Wikidata 等）确立。
 ANCHOR_CODES: dict[str, str] = {
-    "A1": "GitHub 组织已验证域名（is_verified=true 且 blog 匹配）",
-    "A2": "包 provenance（sigstore）→ GitHub 仓库 → 已验证组织",
-    "A3": "企业注册指纹（企业级注册商 + 长期续费 + 注册局锁 + 域龄）",
+    "A1": "GitHub 组织已验证域名（is_verified=true 且 blog 匹配 且 org == 实体 canonical）",
+    "A2": "包 provenance → GitHub 仓库 → 已验证组织（链末端 == 实体 canonical）",
+    "A3": "企业注册指纹（品牌保护类注册商 + 长期续费 + 注册局锁 + 域龄）",
     "A4": "证书 Subject O= 匹配（OV/EV 证书）",
     "A5": "DNS TXT 自证（_realurls.<domain>）",
-    "A6": "锚点扩散：来自已 verified 域名的一方声明 + 结构性关联",
+    "A6": "锚点扩散：已 verified 域名页面上的一方声明 + 结构性关联",
+    "A7": "受限 TLD：注册局仅允许政府机构注册（.gov / .gov.cn / .gouv.fr …）",
 }
+
+#: 受限 TLD：后缀本身就是锚点。只证明「是政府站」，不证明「是哪个部门」。
+RESTRICTED_GOV_SUFFIXES: frozenset[str] = frozenset({
+    "gov", "mil", "gov.uk", "gov.cn", "gouv.fr", "go.jp", "gov.au", "gc.ca", "gov.br",
+    "gov.in", "gov.sg", "gov.hk", "gov.tw", "gov.kr", "gov.it", "gov.za", "govt.nz",
+    "gov.ie", "gob.es", "gob.mx", "gov.pl", "gov.se", "admin.ch", "gov.nl", "gov.be",
+})
 
 #: 佐证证据（Tier B）。verified 需要 >= 2 条独立佐证。
 CORROBORATION_CODES: dict[str, str] = {
@@ -63,7 +76,11 @@ IMPLIED_CORROBORATIONS: dict[str, set[str]] = {
     "A2": {"B2"},  # provenance 已经比 homepage 字段强，homepage 不再额外加分
 }
 
-#: 企业级注册商。年费与实名门槛高到黑产用不起 —— 这是成本壁垒，不是身份证明。
+#: 品牌保护类注册商。年费数百美元起 + 企业实名，黑产用不起 —— 这是成本壁垒，不是身份证明。
+#:
+#: 评审时剔除了几家混进来的零售/批发注册商：Amazon Registrar（Route53，任何人 12 美元/年）、
+#: Google LLC（原 Google Domains 零售）、InterNetX / Ascio（批发商，大量转售给个人）。
+#: 它们在名单里时 A3 比 POLICY.md 声称的弱得多。
 CORPORATE_REGISTRARS: frozenset[str] = frozenset(
     {
         "markmonitor",
@@ -75,14 +92,11 @@ CORPORATE_REGISTRARS: frozenset[str] = frozenset(
         "brandsight",
         "nom-iq",
         "ipmirror",
+        "ip mirror",
         "gandi corporate",
         "godaddy corporate domains",
-        "aws / amazon registrar",
-        "amazon registrar",
-        "google llc",
-        "cloudflare registrar for enterprise",
-        "internetx",
-        "ascio",
+        "101domain corporate",
+        "lexsynergy",
     }
 )
 
@@ -93,7 +107,7 @@ CORPORATE_REGISTRARS: frozenset[str] = frozenset(
 #:   A1/A2 次之 —— GitHub 已经代做了 DNS 级域名验证，且有 sigstore 链。
 #:   A3 最弱 —— 企业注册指纹只证明「买得起」，是成本壁垒而非身份证明。
 WEIGHTS: dict[str, float] = {
-    "A5": 0.90, "A1": 0.80, "A2": 0.75, "A4": 0.70, "A6": 0.65, "A3": 0.55,
+    "A5": 0.90, "A1": 0.80, "A7": 0.80, "A2": 0.75, "A4": 0.70, "A6": 0.65, "A3": 0.55,
     "B1": 0.12, "B2": 0.08, "B3": 0.10, "B4": 0.12, "B5": 0.06, "B6": 0.10, "B7": 0.05,
 }
 
@@ -137,6 +151,12 @@ class DomainFacts:
 
     domain: str
     age_days: int | None = None
+    age_source: str | None = None           # rdap | wayback_lower_bound | None
+    # ---- 实体锚定（由 src/anchor.py 从独立权威确立；None = 未锚定）----
+    expected_github_org: str | None = None
+    expected_wikidata: str | None = None
+    anchor_sources: tuple[str, ...] = ()    # 锚定依据，如 ("wikidata:Q116758847/P2037",)
+    # ---- 外部信号 ----
     gsb_flagged: bool = False
     vt_malicious: int = 0
     has_conflict: bool = False          # 与另一个已 verified 实体的断言冲突
@@ -167,8 +187,13 @@ class Decision:
 
 #: 常见多段后缀。真实实现应接入 Public Suffix List；此处覆盖测试与主流场景。
 _MULTI_PART_SUFFIXES = frozenset(
-    {"co.uk", "org.uk", "ac.uk", "co.jp", "com.cn", "net.cn", "org.cn", "gov.cn",
-     "com.au", "com.br", "co.in", "com.hk", "com.tw", "co.kr"}
+    {"co.uk", "org.uk", "ac.uk", "co.jp", "com.cn", "net.cn", "org.cn",
+     "com.au", "com.br", "co.in", "com.hk", "com.tw", "co.kr",
+     # 平台后缀：把 x.pages.dev 折成 pages.dev 是安全方向（永远不会把平台验证成某品牌）
+     "github.io", "pages.dev", "vercel.app", "netlify.app", "web.app", "herokuapp.com"}
+    | {s for s in ("gov.uk", "gov.cn", "gouv.fr", "go.jp", "gov.au", "gc.ca", "gov.br", "gov.in",
+                   "gov.sg", "gov.hk", "gov.tw", "gov.kr", "gov.it", "gov.za", "govt.nz", "gov.ie",
+                   "gob.es", "gob.mx", "gov.pl", "gov.se", "admin.ch", "gov.nl", "gov.be")}
 )
 
 
@@ -216,6 +241,20 @@ def _validator(code: str) -> Callable[[Validator], Validator]:
     return wrap
 
 
+def _require_anchored_org(org: str, facts: DomainFacts) -> str:
+    """A1/A2 共用：组织必须等于实体的 canonical GitHub 组织。
+
+    没有这一步，攻击者为自己的域名建组织、做验证，就能拿到一条「锚点」——
+    因为 GitHub 验证证明的只是控制权。返回空串表示通过。
+    """
+    if not facts.expected_github_org:
+        return "实体未锚定：没有从独立权威确立的 canonical GitHub 组织，控制权证明不能当归属证明"
+    if (org or "").lower() != facts.expected_github_org.lower():
+        return (f"组织 {org} ≠ 实体 canonical 组织 {facts.expected_github_org}"
+                f"（依据 {', '.join(facts.anchor_sources) or '无'}）")
+    return ""
+
+
 @_validator("A1")
 def _v_a1(ev: Evidence, facts: DomainFacts) -> tuple[bool, str]:
     if not ev.data.get("org_verified"):
@@ -223,18 +262,22 @@ def _v_a1(ev: Evidence, facts: DomainFacts) -> tuple[bool, str]:
     blog = ev.data.get("blog", "")
     if not _same_site(blog, facts.domain):
         return False, f"GitHub 组织 blog（{blog}）与目标域名不是同一可注册域"
+    if why := _require_anchored_org(ev.data.get("org", ""), facts):
+        return False, why
     return True, ""
 
 
 @_validator("A2")
 def _v_a2(ev: Evidence, facts: DomainFacts) -> tuple[bool, str]:
     if not ev.data.get("provenance_verified"):
-        return False, "包缺少可验证的 sigstore provenance"
+        return False, "包缺少可验证的 provenance"
     if not ev.data.get("chain_org_verified"):
         return False, "provenance 指向的 GitHub 组织未通过域名验证"
     blog = ev.data.get("chain_blog", "")
     if not _same_site(blog, facts.domain):
         return False, f"provenance 链末端域名（{blog}）与目标域名不匹配"
+    if why := _require_anchored_org(ev.data.get("chain_org", ""), facts):
+        return False, why
     return True, ""
 
 
@@ -268,14 +311,46 @@ def _v_a5(ev: Evidence, facts: DomainFacts) -> tuple[bool, str]:
     return True, ""
 
 
+MAX_SAN_FOR_PROPAGATION = 25  # 超过此数的证书多半是 CDN 共享证书，SAN 共现不再说明同一所有者
+
+
 @_validator("A6")
 def _v_a6(ev: Evidence, facts: DomainFacts) -> tuple[bool, str]:
-    """锚点扩散：只有已 verified 的源域名的一方声明才算数，且需结构性关联佐证。"""
+    """锚点扩散 = 一方声明（必需）+ 结构性关联（至少一条）。
+
+    两者缺一不可，原因各不相同：
+    * 只有结构性关联：Cloudflare 等从共享池分配 NS，攻击者反复建账号能碰到同一对；
+    * 只有一方声明：已 verified 域名的页脚里也有 linkedin.com / x.com，那不是自家资产。
+    攻击者要同时做到「让 anthropic.com 首页链接到我」和「NS 碰撞」，前者做不到。
+    """
     if ev.data.get("from_status") != "verified":
         return False, f"扩散来源 {ev.data.get('from')} 自身不是 verified，不能作为锚点"
+    if not ev.data.get("first_party_link"):
+        return False, f"锚点 {ev.data.get('from')} 的页面没有链接到本域名，缺少一方声明"
     links = set(ev.data.get("structural_links", []))
     if not links & {"shared_ns", "cert_san", "shared_registrar"}:
         return False, "缺少结构性关联（shared_ns / cert_san / shared_registrar 至少一项）"
+    if links == {"cert_san"} and int(ev.data.get("san_count", 0)) > MAX_SAN_FOR_PROPAGATION:
+        return False, f"证书 SAN 数 {ev.data.get('san_count')} > {MAX_SAN_FOR_PROPAGATION}，疑似 CDN 共享证书"
+    return True, ""
+
+
+@_validator("A7")
+def _v_a7(ev: Evidence, facts: DomainFacts) -> tuple[bool, str]:
+    d = facts.domain.lower().rstrip(".")
+    if not any(d == s or d.endswith(f".{s}") for s in RESTRICTED_GOV_SUFFIXES):
+        return False, f"{d} 不在受限政府 TLD 名单内"
+    return True, ""
+
+
+@_validator("B1")
+def _v_b1(ev: Evidence, facts: DomainFacts) -> tuple[bool, str]:
+    """Wikidata 条目必须就是实体锚定时确立的那一个。任何人都能建一个条目指向任何域名。"""
+    if not facts.expected_wikidata:
+        return False, "实体未锚定：没有 canonical Wikidata 条目，任意条目的 P856 不能当佐证"
+    qid = ev.data.get("qid", "")
+    if qid != facts.expected_wikidata:
+        return False, f"条目 {qid} ≠ 实体 canonical 条目 {facts.expected_wikidata}"
     return True, ""
 
 
@@ -399,7 +474,7 @@ def decide(
             valid_corrob_codes -= implied
             reasons.append(f"{anchor} 已蕴含 {'/'.join(sorted(implied))}，佐证不重复计数")
 
-    # ---- 阶段 4：新域名门槛 ----
+    # ---- 阶段 4：新域名门槛（未知域龄 fail-closed）----
     young = facts.age_days is not None and facts.age_days < MIN_AGE_DAYS_FOR_VERIFIED
     if young and "A5" not in anchors:
         return Decision(
@@ -409,14 +484,23 @@ def decide(
              f"新域名仅接受 A5（DNS TXT 自证）作为锚点"] + reasons,
             sorted(anchors), sorted(valid_corrob_codes), rejected,
         )
+    # rdap.org 对 .de/.io/.cn/.so/.ch/.jp 等大量 ccTLD 返回 404。「查不到」不等于「够老」，
+    # 在 precision 优先的系统里未知必须 fail-closed：最多 provisional，且 A5/A7 除外。
+    age_unknown = facts.age_days is None and not (anchors & {"A5", "A7"})
+    if age_unknown:
+        reasons.append("域龄未知（RDAP 不可用且无 Wayback 下界），不能达到 verified —— 未知按最坏情况处理")
 
     # ---- 阶段 5：定案 ----
     n_anchor, n_corrob = len(anchors), len(valid_corrob_codes)
     confidence = _combine([WEIGHTS[c] for c in anchors | valid_corrob_codes])
 
-    if n_anchor >= 1 and n_corrob >= 2:
+    if n_anchor >= 1 and n_corrob >= 2 and not age_unknown:
         status = "verified"
         reasons.append(f"{n_anchor} 条独立锚点 + {n_corrob} 条独立佐证，达到 verified 门槛")
+    elif n_anchor >= 1 and n_corrob >= 2 and age_unknown:
+        status = "provisional"
+        confidence = min(confidence, 0.75)
+        reasons.append("证据本已达标，但域龄未知，降为 provisional")
     elif n_anchor >= 1:
         status = "provisional"
         confidence = min(confidence, 0.75)

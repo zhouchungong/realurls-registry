@@ -29,11 +29,15 @@ curl -s https://api.github.com/orgs/anthropics | jq '{name, blog, is_verified}'
 
 ## 现在的状态
 
-**M1 —— 采集流水线已跑通。** 尚未开始批量冷启动。
+**M1 完成 + 评审修复完成。** 尚未开始批量冷启动。
+
+评审（`REVIEW-RESULT.md`，私有）构造出一条能骗过初版规则的攻击链——为自己的域名建 GitHub 组织并验证，
+控制权是真的、身份是假的。修复引入了"先锚定实体，再验证域名"的两阶段结构，见 [POLICY.md §0](POLICY.md)。
 
 ```
 ✅ M0  TRUST.md / POLICY.md / policy.py / 正负样本回归测试
 ✅ M1  证据采集流水线 + `python -m src.verify <domain>` 端到端跑通
+✅ 评审修复  实体锚定 / 域龄 fail-closed / A6 一方声明 / A3 名单 / A7 政府 TLD / +6 负样本
 ⬜ M2  冷启动数据 ≥1,200 verified，抽样 precision ≥99.5%
 ⬜ M3  Cloudflare Workers API + MCP Server（发布点）
 ⬜ M4  realurls.com 证据页 + 浏览器扩展 + 生态回写

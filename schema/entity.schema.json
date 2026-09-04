@@ -33,6 +33,22 @@
       }
     },
     "wikidata": { "type": ["string", "null"], "pattern": "^Q[0-9]+$" },
+    "canonical": {
+      "type": "object",
+      "description": "实体锚定结果（src/anchor.py）。A1/A2/B1 只有匹配这里的值才算数。人类 reviewer 应能一眼核对。",
+      "additionalProperties": false,
+      "required": ["sources"],
+      "properties": {
+        "github_org": { "type": ["string", "null"] },
+        "wikidata": { "type": ["string", "null"], "pattern": "^Q[0-9]+$" },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string" },
+          "description": "如 wikidata:Q116758847/P2037、human:github_org"
+        }
+      }
+    },
     "domains": {
       "type": "array",
       "minItems": 1,

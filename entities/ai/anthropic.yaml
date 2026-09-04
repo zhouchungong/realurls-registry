@@ -15,6 +15,14 @@ category:
   - developer-tools
 wikidata: Q116758847
 
+# 实体锚定：先于任何域名证据确立。A1 的 org 必须等于这里的 github_org 才算数。
+canonical:
+  github_org: anthropics
+  wikidata: Q116758847
+  sources:
+    - wikidata:Q116758847/P856
+    - wikidata:Q116758847/P2037
+
 domains:
   - domain: anthropic.com
     role: primary
@@ -28,7 +36,7 @@ domains:
         checked_at: "2026-09-05T00:00:00Z"
         source: https://api.github.com/orgs/anthropics
         data:
-          org: anthropics
+          org: anthropics          # == canonical.github_org，否则 A1 不计
           org_verified: true
           blog: https://anthropic.com
       - code: A3
@@ -43,7 +51,9 @@ domains:
       - code: B1
         checked_at: "2026-09-05T00:00:00Z"
         source: https://www.wikidata.org/wiki/Q116758847
-        data: {}
+        data:
+          qid: Q116758847          # == canonical.wikidata，否则 B1 不计
+          sitelinks: 40
       - code: B4
         checked_at: "2026-09-05T00:00:00Z"
         source: http://web.archive.org/cdx/search/cdx?url=anthropic.com

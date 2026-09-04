@@ -19,6 +19,7 @@ import sys
 from dataclasses import asdict
 from typing import Any
 
+from src.anchor import EntityAnchor, anchor
 from src.collectors import github, network, npm, rdap, site, thirdparty
 from src.collectors.base import Result
 from src.policy import Decision, DomainFacts, Evidence, decide, registrable_domain
@@ -39,58 +40,104 @@ def gather(
     *,
     github_org: str | None = None,
     packages: list[str] | None = None,
-    anchor: str | None = None,
+    anchor_domain: str | None = None,
     token: str | None = None,
+    canonical_github_org: str | None = None,
+    canonical_wikidata: str | None = None,
+    inherited_anchor: EntityAnchor | None = None,
 ) -> Result:
-    """跑完整条采集流水线。顺序有讲究：先 site 拿线索，再让其他采集器用上。"""
+    """跑完整条采集流水线。
+
+    顺序有讲究：**先锚定实体，再采集域名证据**（REVIEW-RESULT §0）。
+    锚定结果作为 ``expected_*`` 进入 DomainFacts，A1/A2/B1 只有匹配它才算数。
+    """
     domain = registrable_domain(domain)
     out = Result(facts={"domain": domain})
 
+    # ---- 阶段 1：实体锚定 ----
+    # 扩散场景下，目标域名**继承锚点域名的实体**（claude.ai 属于 Anthropic，不是属于"Claude"这个产品条目）。
+    # 锚点域名自己独立锚定，绝不能反过来把目标的锚定塞给它。
+    prop: Result | None = None
+    if anchor_domain:
+        prop = _propagate_from(anchor_domain, domain)
+        ent = prop.extra["entity_anchor"]
+    else:
+        ent = inherited_anchor or anchor(
+            domain, github_org_override=canonical_github_org, wikidata_override=canonical_wikidata,
+        )
+    out.notes.extend(ent.notes)
+    out.facts.update(ent.as_facts())
+    out.extra["entity_anchor"] = ent
+
+    # ---- 阶段 2：域名证据 ----
     hints = site.collect(domain)
     _merge(out, hints)
 
-    org_hints = ([github_org] if github_org else []) + hints.extra.get("github_orgs", [])
-    gh = github.collect(domain, hints=org_hints)
-    _merge(out, gh)
+    # canonical 组织放在候选最前面；猜测只是搜索启发式，判定由 policy 把关
+    org_hints = [o for o in (ent.github_org, github_org) if o] + hints.extra.get("github_orgs", [])
+    _merge(out, github.collect(domain, hints=org_hints))
 
     pkgs = (packages or []) + hints.extra.get("npm_packages", [])
     _merge(out, npm.collect(domain, packages=pkgs, github_org=out.extra.get("github_org")))
 
     _merge(out, rdap.collect(domain))
+    if out.facts.get("age_days") is not None:
+        out.facts["age_source"] = "rdap"
     _merge(out, network.certificate(domain))
     _merge(out, network.self_attestation(domain, expected_token=token))
     _merge(out, thirdparty.wikidata(domain))
-    _merge(out, thirdparty.wayback(domain))
+    wb = thirdparty.wayback(domain)
+    _merge(out, wb)
     _merge(out, thirdparty.tranco(domain))
     _merge(out, thirdparty.safebrowsing(domain))
 
-    if anchor:
-        _merge(out, _propagate_from(anchor, domain))
+    # 域龄兜底：RDAP 对很多 ccTLD 返回 404。一个域名不可能比它的第一次 Wayback 快照更年轻，
+    # 所以快照跨度是域龄的**下界**——够用来过 180 天门槛，且不会把新域名误判成老域名。
+    if out.facts.get("age_days") is None:
+        for e in wb.evidence:
+            if e.code == "B4" and e.data.get("history_days"):
+                out.facts["age_days"] = int(e.data["history_days"])
+                out.facts["age_source"] = "wayback_lower_bound"
+                out.note(f"age: RDAP 无域龄，取 Wayback 下界 {e.data['history_days']} 天")
+                break
+
+    if prop is not None:
+        _merge(out, prop)
 
     return out
 
 
-def _propagate_from(anchor: str, domain: str) -> Result:
+def _propagate_from(anchor_domain: str, domain: str) -> Result:
     """A6：从一个已 verified 的锚点域名扩散归属。
 
-    这里只负责**采集**扩散所需的两个前提（源域名状态、结构性关联），
-    「够不够格」由 policy.py 的 A6 校验器判断。
+    这里只负责**采集**扩散所需的三个前提（源域名状态、一方声明、结构性关联），
+    「够不够格」由 policy.py 的 A6 校验器判断。锚点域名独立完成自己的实体锚定，
+    并通过 ``extra["entity_anchor"]`` 交给目标域名继承。
     """
     r = Result()
-    anchor_decision = decide(*_facts_and_evidence(gather(anchor)))
-    links = network.structural_links(anchor, domain)
+    anchor_result = gather(anchor_domain)
+    anchor_decision = decide(*_facts_and_evidence(anchor_result))
+    r.extra["entity_anchor"] = anchor_result.extra["entity_anchor"]
+
+    # 一方声明：锚点自己的页面是否链接到目标域名。数据来自 site.collect 的出站域名。
+    first_party = domain in anchor_result.extra.get("outbound_domains", [])
+
+    links = network.structural_links(anchor_domain, domain)
     _merge(r, links)
 
     r.evidence.append(Evidence(
         code="A6",
         data={
-            "from": anchor,
+            "from": anchor_domain,
             "from_status": anchor_decision.status,
+            "first_party_link": first_party,
             "structural_links": links.extra.get("structural_links", []),
+            "san_count": links.extra.get("san_count", 0),
         },
-        source=f"propagate from {anchor}",
+        source=f"propagate from {anchor_domain}",
     ))
-    r.note(f"propagate: 锚点 {anchor} 状态={anchor_decision.status}，"
+    r.note(f"propagate: 锚点 {anchor_domain} 状态={anchor_decision.status}，"
+           f"一方声明={'有' if first_party else '无'}，"
            f"结构性关联={links.extra.get('structural_links') or '无'}")
     return r
 
@@ -113,6 +160,14 @@ def _print_report(domain: str, d: Decision, r: Result) -> None:
 
     print(f"\n{mark}  {domain} → {d.status}  (confidence {d.confidence})")
     print("=" * 72)
+
+    ent = r.extra.get("entity_anchor")
+    print("\n【实体锚定】")
+    if ent and ent.anchored:
+        print(f"  {ent.wikidata or '—'}  {ent.label}  canonical GitHub = {ent.github_org or '未知'}")
+        print(f"  依据：{', '.join(ent.sources)}")
+    else:
+        print("  未锚定 —— 控制权类证据（A1/A2）与 B1 一律不计，最多 provisional")
 
     print("\n【采集过程】")
     for note in r.notes:
@@ -148,11 +203,15 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--npm", action="append", default=[], help="显式指定 npm 包名，可重复")
     p.add_argument("--anchor", help="从这个已 verified 的域名做锚点扩散")
     p.add_argument("--token", help="校验 A5 自证时的期望 token")
+    p.add_argument("--canonical-github-org", help="人工审核过的 canonical GitHub 组织（来源记为 human）")
+    p.add_argument("--canonical-wikidata", help="人工审核过的 canonical Wikidata QID")
     p.add_argument("--json", action="store_true", help="输出 JSON 而非报告")
     args = p.parse_args(argv)
 
     d, r = verify(args.domain, github_org=args.github_org, packages=args.npm,
-                  anchor=args.anchor, token=args.token)
+                  anchor_domain=args.anchor, token=args.token,
+                  canonical_github_org=args.canonical_github_org,
+                  canonical_wikidata=args.canonical_wikidata)
 
     if args.json:
         print(json.dumps({
