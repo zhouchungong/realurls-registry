@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# 构建产物由流水线生成并签名，不进版本库
+dist/
+
+# 采集缓存（原始 API 响应快照，用于离线重放）
+.cache/
+
+# CI 中即时拉取的第三方钓鱼语料 —— 绝不入库，绝不分发（TRUST.md §6）
+tests/_external_corpus/

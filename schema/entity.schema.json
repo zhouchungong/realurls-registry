@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://realurls.com/schema/entity-1.0.json",
+  "title": "realurls entity",
+  "description": "一个组织及其域名归属断言。由流水线生成，不接受人类直接编辑（见 SECURITY.md）。",
+  "type": "object",
+  "required": ["schema_version", "entity_id", "names", "category", "domains"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "entity_id": {
+      "type": "string",
+      "pattern": "^org:[a-z0-9][a-z0-9-]*$",
+      "description": "稳定标识符，一经分配不得变更（品牌改名也不变）"
+    },
+    "names": {
+      "type": "object",
+      "required": ["en"],
+      "additionalProperties": { "type": "string" },
+      "properties": { "en": { "type": "string", "minLength": 1 } }
+    },
+    "aliases": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "用户可能输入的说法：产品名、俗称、缩写"
+    },
+    "category": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "enum": ["ai", "developer-tools", "saas", "security", "infrastructure",
+                 "open-source", "hardware", "finance", "government", "other"]
+      }
+    },
+    "wikidata": { "type": ["string", "null"], "pattern": "^Q[0-9]+$" },
+    "domains": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/domainRecord" }
+    },
+    "non_affiliated": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/nonAffiliated" },
+      "description": "与本实体无关联的相似域名。只罗列客观信号，不作定性（见 TRUST.md §6）"
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "generated_by": { "type": "string", "description": "生成本记录的流水线版本" },
+        "policy_version": { "type": "string" },
+        "reviewed_by": { "type": "array", "items": { "type": "string" } },
+        "source_issue": { "type": ["string", "null"] }
+      }
+    }
+  },
+  "$defs": {
+    "domainRecord": {
+      "type": "object",
+      "required": ["domain", "role", "status", "last_verified", "evidence"],
+      "additionalProperties": false,
+      "properties": {
+        "domain": {
+          "type": "string",
+          "pattern": "^(?!-)[a-z0-9-]{1,63}(\\.[a-z0-9-]{1,63})+$",
+          "description": "小写、无协议、无路径。IDN 必须存 punycode 形式"
+        },
+        "role": {
+          "enum": ["primary", "product", "docs", "download", "regional", "legacy", "redirect"]
+        },
+        "status": {
+          "enum": ["verified", "provisional", "community", "unverified",
+                   "stale", "review_required", "disputed", "flagged"],
+          "description": "只有 verified 会让 API 给出肯定答复。语义见 TRUST.md §3"
+        },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "first_seen": { "type": "string", "format": "date" },
+        "last_verified": { "type": "string", "format": "date-time" },
+        "ttl_days": { "type": "integer", "minimum": 1, "default": 30 },
+        "evidence": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/evidence" }
+        },
+        "rejected_evidence": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "被判定为无效的证据及原因。必须保留并对外展示 —— 可解释性是对外承诺"
+        },
+        "reasons": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "required": ["code", "checked_at"],
+      "additionalProperties": false,
+      "properties": {
+        "code": { "enum": ["A1", "A2", "A3", "A4", "A5", "A6",
+                           "B1", "B2", "B3", "B4", "B5", "B6", "B7"] },
+        "data": { "type": "object", "description": "该证据类型自己的字段，由 policy.py 中的校验器解释" },
+        "checked_at": { "type": "string", "format": "date-time" },
+        "source": { "type": ["string", "null"], "description": "可复现该证据的 URL 或命令" }
+      }
+    },
+    "nonAffiliated": {
+      "type": "object",
+      "required": ["domain", "signals"],
+      "additionalProperties": false,
+      "properties": {
+        "domain": { "type": "string" },
+        "relation": { "const": "not_affiliated" },
+        "signals": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string" },
+          "description": "客观信号，如 levenshtein=3、age_days=11、gsb_flagged。禁止出现「钓鱼」「诈骗」等定性词汇"
+        },
+        "reported_to": { "type": "array", "items": { "type": "string" } },
+        "evidence_snapshot": { "type": ["string", "null"] },
+        "observed_at": { "type": "string", "format": "date-time" }
+      }
+    }
+  }
+}

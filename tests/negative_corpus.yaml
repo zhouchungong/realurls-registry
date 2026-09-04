@@ -1,0 +1,138 @@
+# realurls 负样本回归语料
+#
+# 用途：precision >= 99.5% 是本项目的硬约束，而**没有负样本就测不出误报率**。
+# 本文件中的每一条，跑过 policy.decide() 之后都**不允许**得到 verified。
+#
+# 重要说明
+# --------
+# 1. 本文件中的域名全部为**合成样例**，按真实仿冒手法的形态构造，不指控任何真实主体。
+#    真实仿冒语料在 CI 中从公开钓鱼源即时拉取比对（见 §3.4「引用，不收录」），
+#    **不落地、不入库、不随 dist/ 分发** —— 我们不镜像别人的指控，也不继承别人的误判。
+# 2. 新增用例的唯一标准：它必须代表一类**我们的规则可能被骗过去**的手法。
+#    每修一个误报 bug，就往这里加一条对应用例。
+# 3. 域名统一写成 example[.]tld 形态，防止在文档渲染中被自动变成可点击链接。
+
+cases:
+  - id: homograph-cyrillic
+    technique: IDN 同形异义字（西里尔 а 冒充拉丁 a）
+    facts: {domain: "аnthropic[.]com", age_days: 9}
+    evidence:
+      - {code: B5, data: {rank: 940000}}
+      - {code: B7, data: {flagged: false}}
+
+  - id: typosquat-hyphen-insert
+    technique: 连字符插入 + 新注册
+    facts: {domain: "anthropic-claude[.]app", age_days: 11}
+    evidence:
+      - {code: B2, data: {}}
+      - {code: B6, data: {}}
+      - {code: B7, data: {flagged: false}}
+
+  - id: fake-github-org-unverified
+    technique: 注册同名 GitHub 组织，但未做域名验证
+    facts: {domain: "cursor-ide[.]dev", age_days: 400}
+    evidence:
+      - {code: A1, data: {org_verified: false, blog: "https://cursor-ide[.]dev"}}
+      - {code: B2, data: {}}
+      - {code: B4, data: {history_days: 380}}
+
+  - id: github-org-verified-but-other-domain
+    technique: 真的有已验证 GitHub 组织，但 blog 指向的是另一个域名
+    facts: {domain: "ollama-download[.]net", age_days: 900}
+    evidence:
+      - {code: A1, data: {org_verified: true, blog: "https://ollama.com"}}
+      - {code: B4, data: {history_days: 800}}
+      - {code: B5, data: {rank: 500000}}
+
+  - id: cheap-registrar-posing-corporate
+    technique: 伪装企业注册指纹，但注册商是零售商且续费只买 1 年
+    facts: {domain: "supabase-cloud[.]io", age_days: 800}
+    evidence:
+      - {code: A3, data: {registrar: "NameCheap, Inc.", remaining_days: 300, locks: ["transfer"]}}
+      - {code: B2, data: {}}
+      - {code: B5, data: {rank: 700000}}
+
+  - id: corporate-registrar-but-too-young
+    technique: 用企业注册商注册的**新**域名（黑产偶尔为之，靠域龄拦住）
+    facts: {domain: "n8n-enterprise[.]com", age_days: 120}
+    evidence:
+      - {code: A3, data: {registrar: "MarkMonitor Inc.", remaining_days: 1500, locks: ["delete", "transfer", "update"]}}
+      - {code: B4, data: {history_days: 100}}
+      - {code: B7, data: {flagged: false}}
+
+  - id: propagation-from-unverified-source
+    technique: 锚点扩散攻击 —— 从一个自身未 verified 的域名做一方声明
+    facts: {domain: "lmstudio-app[.]org", age_days: 600}
+    evidence:
+      - {code: A6, data: {from: "lmstudio-mirror[.]org", from_status: "community", structural_links: ["shared_ns"]}}
+      - {code: B2, data: {}}
+      - {code: B5, data: {rank: 600000}}
+
+  - id: propagation-without-structural-link
+    technique: 已 verified 域名页面上出现的第三方外链（广告位、被入侵的友链）
+    facts: {domain: "totally-unrelated-vendor[.]com", age_days: 1200}
+    evidence:
+      - {code: A6, data: {from: "anthropic.com", from_status: "verified", structural_links: []}}
+      - {code: B4, data: {history_days: 1100}}
+      - {code: B5, data: {rank: 300000}}
+
+  - id: dv-cert-with-forged-org-claim
+    technique: 声称证书带组织名，实为 DV 证书
+    facts: {domain: "vercel-deploy[.]app", age_days: 500}
+    evidence:
+      - {code: A4, data: {validation_type: "DV", subject_org: "Vercel Inc."}}
+      - {code: B2, data: {}}
+      - {code: B5, data: {rank: 450000}}
+
+  - id: fake-provenance-chain
+    technique: 包里写了 provenance 字段但未通过 sigstore 验证
+    facts: {domain: "huggingface-hub[.]co", age_days: 700}
+    evidence:
+      - {code: A2, data: {provenance_verified: false, chain_org_verified: true, chain_blog: "https://huggingface-hub[.]co"}}
+      - {code: B2, data: {}}
+      - {code: B3, data: {}}
+      - {code: B4, data: {history_days: 650}}
+
+  - id: provenance-chain-ends-elsewhere
+    technique: provenance 真实，但链末端组织的 blog 是别的域名
+    facts: {domain: "pytorch-install[.]com", age_days: 900}
+    evidence:
+      - {code: A2, data: {provenance_verified: true, chain_org_verified: true, chain_blog: "https://pytorch.org"}}
+      - {code: B2, data: {}}
+      - {code: B5, data: {rank: 400000}}
+
+  - id: many-weak-corroborations-no-anchor
+    technique: 堆砌大量弱佐证试图凑够门槛（佐证再多也不能替代锚点）
+    facts: {domain: "openai-tools[.]net", age_days: 1000}
+    evidence:
+      - {code: B1, data: {}}
+      - {code: B2, data: {}}
+      - {code: B3, data: {}}
+      - {code: B5, data: {rank: 200000}}
+      - {code: B6, data: {}}
+      - {code: B7, data: {flagged: false}}
+
+  - id: expired-domain-resurrected
+    technique: 抢注过期的旧域名 —— 域龄很老，但关键属性突变
+    facts: {domain: "old-abandoned-tool[.]com", age_days: 4000, mutation_detected: true}
+    evidence:
+      - {code: A3, data: {registrar: "MarkMonitor Inc.", remaining_days: 1200, locks: ["delete", "transfer", "update"]}}
+      - {code: B4, data: {history_days: 3800}}
+      - {code: B5, data: {rank: 150000}}
+
+  - id: flagged-but-otherwise-perfect
+    technique: 证据齐全但已被安全情报标记（硬否决必须压过一切证据）
+    facts: {domain: "compromised-vendor[.]com", age_days: 2000, gsb_flagged: true}
+    evidence:
+      - {code: A1, data: {org_verified: true, blog: "https://compromised-vendor[.]com"}}
+      - {code: B1, data: {}}
+      - {code: B4, data: {history_days: 1900}}
+      - {code: B5, data: {rank: 90000}}
+
+  - id: stale-b7-used-as-positive
+    technique: 拿一条「Safe Browsing 已标记」的记录当正向佐证
+    facts: {domain: "sketchy-mirror[.]site", age_days: 700}
+    evidence:
+      - {code: A3, data: {registrar: "MarkMonitor Inc.", remaining_days: 1200, locks: ["delete", "transfer"]}}
+      - {code: B7, data: {flagged: true}}
+      - {code: B5, data: {rank: 800000}}

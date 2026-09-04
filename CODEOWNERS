@@ -1,0 +1,7 @@
+# 定案规则与信任承诺 —— 必须双人审批（POLICY.md §4）
+/src/policy.py        @maintainer1 @maintainer2
+/POLICY.md            @maintainer1 @maintainer2
+/TRUST.md             @maintainer1 @maintainer2
+/SECURITY.md          @maintainer1 @maintainer2
+/tests/negative_corpus.yaml  @maintainer1 @maintainer2
+/.github/workflows/   @maintainer1 @maintainer2

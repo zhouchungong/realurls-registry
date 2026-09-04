@@ -1,0 +1,65 @@
+# 本文件由流水线生成，请勿手工编辑（见 SECURITY.md §1）。
+# M0 阶段的示例记录：证据为 2026-09-05 实测，用于验证 schema 与定案引擎。
+schema_version: "1.0"
+entity_id: org:anthropic
+names:
+  en: Anthropic
+  zh: Anthropic
+aliases:
+  - Claude
+  - Claude Code
+  - Claude Desktop
+  - claude.ai
+category:
+  - ai
+  - developer-tools
+wikidata: Q108862201
+
+domains:
+  - domain: anthropic.com
+    role: primary
+    status: verified
+    confidence: 0.9303
+    first_seen: "2026-09-05"
+    last_verified: "2026-09-05T00:00:00Z"
+    ttl_days: 30
+    evidence:
+      - code: A1
+        checked_at: "2026-09-05T00:00:00Z"
+        source: https://api.github.com/orgs/anthropics
+        data:
+          org: anthropics
+          org_verified: true
+          blog: https://anthropic.com
+      - code: A3
+        checked_at: "2026-09-05T00:00:00Z"
+        source: https://rdap.org/domain/anthropic.com
+        data:
+          registrar: MarkMonitor Inc.
+          created: "2001-10-02"
+          expires: "2033-10-02"
+          remaining_days: 2584
+          locks: [delete, transfer, update]
+      - code: B1
+        checked_at: "2026-09-05T00:00:00Z"
+        source: https://www.wikidata.org/wiki/Q108862201
+        data: {}
+      - code: B4
+        checked_at: "2026-09-05T00:00:00Z"
+        source: http://web.archive.org/cdx/search/cdx?url=anthropic.com
+        data:
+          history_days: 1800
+    reasons:
+      - 2 条独立锚点 + 2 条独立佐证，达到 verified 门槛
+
+  # 说明：claude.ai 走锚点扩散（A6）。M1 实现 propagate.py 之前，
+  # 此条的 structural_links 需由采集器填入，当前留作示例。
+  - domain: claude.ai
+    role: product
+    status: unverified
+    first_seen: "2026-09-05"
+    last_verified: "2026-09-05T00:00:00Z"
+    ttl_days: 30
+    evidence: []
+    reasons:
+      - M0 阶段尚未运行采集流水线，等待 M1 的 propagate.py 补齐 A6 证据
