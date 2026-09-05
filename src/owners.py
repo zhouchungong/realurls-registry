@@ -84,10 +84,11 @@ def check(issue_no: int | None, domain: str | None) -> list[dict]:
             item["entity_id"] = record["entity_id"]
         else:
             from src.verify import verify
-            d, _ = verify(seed["domain"], github_org=seed.get("github_org"), token=seed.get("token"))
+            d, res = verify(seed["domain"], github_org=seed.get("github_org"), token=seed.get("token"))
             item["status"] = d.status
             item["rejected"] = d.rejected
             item["reasons"] = d.reasons
+            item["dns"] = next((n for n in res.notes if n.startswith("dns:")), "")
         out.append(item)
     return out
 

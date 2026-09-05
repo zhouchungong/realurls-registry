@@ -83,12 +83,12 @@ def self_attestation(domain: str, expected_token: str | None = None) -> Result:
     try:
         records = _dns(f"_realurls.{domain}", "TXT")
     except FetchError as exc:
-        r.note(f"dns: _realurls TXT 查询失败：{exc}")
+        r.note(f"dns: _realurls TXT lookup failed: {exc}")
         return r
 
     tokens = [t.split("=", 1)[1] for t in records if t.startswith("realurls-site-verification=")]
     if not tokens:
-        r.note("dns: 无 _realurls TXT 记录（A5 未启用；冷启动阶段属常态）")
+        r.note("dns: no _realurls TXT record found (A5 not in use)")
         return r
 
     match = expected_token in tokens if expected_token else False
@@ -98,7 +98,7 @@ def self_attestation(domain: str, expected_token: str | None = None) -> Result:
         checked_at=now(),
         source=f"_realurls.{domain} TXT",
     ))
-    r.note(f"dns: 发现 {len(tokens)} 条自证 token，匹配={match}")
+    r.note(f"dns: {len(tokens)} self-attestation token(s) found, match={match}")
     return r
 
 
