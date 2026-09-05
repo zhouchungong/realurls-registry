@@ -18,13 +18,12 @@ permissions:
   contents: write
   issues: write
 
-concurrency:
-  group: entities-writer
-  cancel-in-progress: false
-
 jobs:
   token:
     if: github.event_name == 'issues' && github.event.label.name == 'owner-verification'
+    concurrency:
+      group: entities-writer
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
@@ -100,6 +99,9 @@ jobs:
     if: >-
       (github.event_name == 'issue_comment' && contains(github.event.issue.labels.*.name, 'owner-verification') && contains(github.event.comment.body, '/verify'))
       || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    concurrency:
+      group: entities-writer
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4

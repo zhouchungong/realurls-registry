@@ -12,13 +12,12 @@ permissions:
   contents: write
   issues: write
 
-concurrency:
-  group: entities-writer
-  cancel-in-progress: false
-
 jobs:
   lead:
     if: github.event.label.name == 'lead'
+    concurrency:
+      group: entities-writer
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
