@@ -97,6 +97,7 @@ d = decide(DomainFacts(domain="anthropic.com", age_days=9104), [...])
 ```
 TRUST.md              ← read this first: what we verify, what we don't, how to reproduce, how to dispute
 POLICY.md             ← human-readable mirror of the decision rules
+CHANGELOG.md          ← rule changes with their effect on records; API and integration changes
 SECURITY.md           ← threat model, including threats to this repository itself
 entities/             ← data (YAML, one file per entity). Never hand-edited; written only by the pipeline
 src/policy.py         ← the decision engine: the single source of truth

@@ -1,0 +1,15 @@
+# Smithery (smithery.ai) configuration for @realurls/mcp. Stdio server, no configuration required.
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties:
+      apiBase:
+        type: string
+        description: "Realurls API root. Leave empty for https://api.realurls.org."
+  commandFunction: |-
+    (config) => ({
+      command: "node",
+      args: ["server.mjs"],
+      env: config.apiBase ? { REALURLS_API: config.apiBase } : {}
+    })
