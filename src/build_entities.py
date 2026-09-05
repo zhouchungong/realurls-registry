@@ -78,7 +78,11 @@ def _categories(topics: list[str], source: str | None = None) -> list[str]:
             cats.append(c)
     if cats:
         return cats
-    return ["saas"] if source == "wikidata" else ["open-source"] if source == "github" else ["developer-tools"]
+    if source == "wikidata":
+        return ["saas"]
+    if source == "github":
+        return ["open-source"]
+    return ["developer-tools"] if source in (None, "topics") else ["other"]   # cold-start topic seeds only
 
 
 def _iso(dt: datetime | None) -> str:
