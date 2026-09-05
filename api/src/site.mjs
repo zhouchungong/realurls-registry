@@ -13,29 +13,12 @@
  * The evidence page *is* the product: a list says "trust me", we say "here are the commands, run them".
  */
 
-import { registrableDomain } from "../../packages/core/resolve.mjs";
+import { registrableDomain, EVIDENCE_LABELS } from "../../packages/core/resolve.mjs";
 
 const REPO = "https://github.com/zhouchungong/realurls-registry";
 const API = "https://api.realurls.org";
 const SITE = "https://realurls.org";
 
-const EVIDENCE_LABELS = {
-  A1: "GitHub verified this organization's domain (DNS-level check performed by GitHub)",
-  A2: "Package provenance → repository → verified organization",
-  A3: "Corporate registrar fingerprint (brand-protection registrar, long prepaid term, registry locks)",
-  A4: "TLS certificate carries the organization name (OV/EV)",
-  A5: "DNS TXT self-attestation (_realurls.<domain>)",
-  A6: "Propagated from a verified sibling domain (first-party link + shared infrastructure)",
-  A7: "Restricted government TLD",
-  A8: "Anchored repository's homepage points here, and this site links back",
-  B1: "Wikidata official-website claim (P856) on the anchored item",
-  B2: "Package registry homepage field",
-  B3: "App-store developer website field",
-  B4: "Wayback Machine history",
-  B5: "Tranco top-1M ranking",
-  B6: "Official social profile links here",
-  B7: "Google Safe Browsing: no record",
-};
 
 
 const CATEGORY_LABELS = {
@@ -162,7 +145,8 @@ ${block("3d. MCP, local: one line for Claude Code", `claude mcp add realurls -- 
 <tr><td><code>official</code></td><td>Give these URLs, as plain links, no tracking parameters. Optionally cite the evidence page.</td></tr>
 <tr><td><code>not_official</code></td><td>"That is not a known domain of X. X's verified site is Y." Do not call the domain malicious; we do not know that.</td></tr>
 <tr><td><code>insufficient_evidence</code></td><td>"I could not confirm the official site." Do not present any URL as official, including ones you remember.</td></tr>
-<tr><td><code>unknown</code></td><td>"I could not confirm the official site." Suggest the user verify through a source they already trust.</td></tr></table>
+<tr><td><code>unknown</code></td><td>"I could not confirm the official site." Suggest the user verify through a source they already trust. Read <code>examination</code>: <code>queued</code> means the pipeline will examine the domain within about fifteen minutes (ask again); <code>checked_at</code> means it was examined and fell short, with the reasons.</td></tr></table>
+<p class="muted">Fields worth reading: <code>evidence</code> (each anchor code with its meaning, so the agent can say <em>why</em>), <code>freshness</code> (records are re-verified daily), <code>missing</code> (for insufficient_evidence: what the rules rejected and why), and <code>confidence</code> with its note: it ranks verified records among themselves and never upgrades a non-official answer.</p>
 
 <h2>The dataset itself</h2>
 <p class="muted">Every release is signed (cosign, keyless) and published at <a href="${REPO}/releases/tag/latest">GitHub Releases</a> with a manifest of file hashes; the current version is <code>${esc(manifest.dataset_version)}</code>. License CC BY-SA 4.0. The source records are YAML files in <a href="${REPO}/tree/main/entities">entities/</a>, generated only by the pipeline, each with the full evidence and the commands to reproduce it. If you ship a product on top of it, <a href="mailto:security@realurls.org">tell us</a> so we can warn you before any breaking change.</p>

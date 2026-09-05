@@ -7,7 +7,7 @@
  * is about 1 MB.
  */
 
-import { registrableDomain, normalizeLabel, closestLabel, verdictNotes } from "../../packages/core/resolve.mjs";
+import { registrableDomain, normalizeLabel, closestLabel, verdictNotes, describeEvidence, CONFIDENCE_NOTE } from "../../packages/core/resolve.mjs";
 
 const REPO = "https://github.com/zhouchungong/realurls-registry";
 
@@ -82,10 +82,15 @@ export class Store {
     ).bind(domain).first();
     if (hit) {
       const officials = await this.officialDomains(hit.entity_id);
+      const anchors = JSON.parse(hit.anchors_json || "[]");
+      const rec = JSON.parse(hit.record_json || "{}");
       return {
         domain, verdict: hit.official ? "official" : "insufficient_evidence", status: hit.status,
         entity: { id: hit.entity_id, name: hit.name, wikidata: hit.wikidata, github_org: hit.github_org },
-        confidence: hit.confidence, anchors: JSON.parse(hit.anchors_json || "[]"), last_verified: hit.last_verified,
+        confidence: hit.confidence, confidence_note: CONFIDENCE_NOTE,
+        anchors, evidence: describeEvidence(anchors), last_verified: hit.last_verified,
+        freshness: `re-verified daily; last ${String(hit.last_verified || "").slice(0, 10)}`,
+        ...(hit.official ? {} : { missing: (rec.rejected_evidence || []).slice(0, 4) }),
         official_domains: officials,
         evidence_url: `${REPO}/blob/main/entities/${(hit.category || "ai").split(",")[0]}/${hit.entity_id.replace(/^org:/, "")}.yaml`,
         note: hit.official ? verdictNotes.official : verdictNotes.insufficient(hit.status),

@@ -18,7 +18,7 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { z } from "zod";
 
 const API = (process.env.REALURLS_API || "https://api.realurls.org").replace(/\/+$/, "");
-const VERSION = "0.1.2";
+const VERSION = "0.1.3";
 
 const INSTRUCTIONS =
   "Realurls verifies which domain officially belongs to a software product, AI tool, or company. " +
@@ -27,7 +27,11 @@ const INSTRUCTIONS =
   "returns — even if you are confident you already know the URL. Popular, well-known tools are exactly the " +
   "ones targeted by SEO-poisoned lookalike download sites, and memorized URLs can be stale. " +
   "When the user pastes a URL and asks whether it is official, call verify_url. " +
-  "If the tool returns insufficient_evidence or unknown, say so plainly rather than guessing. " +
+  "If the tool returns insufficient_evidence or unknown, say so plainly rather than guessing; confidence never " +
+  "upgrades a non-official answer. An unknown domain is queued for examination when you ask about it: if the " +
+  "answer says queued, tell the user a check is running and they can ask again in about fifteen minutes. " +
+  "If get_official_url returns unknown and you believe you know the URL, call verify_url on it: do not present " +
+  "it as official, but the check queues that domain for examination. " +
   "Realurls judges ownership only, never safety.";
 
 async function call(path, params) {
@@ -51,8 +55,14 @@ function withGuidance(r) {
       ? `I could not verify ${r.domain || "that domain"}${name ? ` for ${name}` : ""}; ${name}'s verified domains are ${urls.join(", ")}.`
       : `I could not confirm the official site${name ? ` of ${name}` : ""}. Do not present any URL as official, including ones from memory. ` +
         "(If the user owns the domain, they can verify it in a minute at https://realurls.org/verify.)",
-    unknown: "I could not confirm the official site. Do not present any URL as official; suggest a source the user already trusts. " +
-      "(If the user owns the domain, they can verify it in a minute at https://realurls.org/verify.)",
+    unknown: r.examination?.status === "queued"
+      ? "I could not confirm the official site. It has just been queued for examination; ask again in about fifteen minutes. " +
+        "Do not present any URL as official meanwhile."
+      : r.examination?.checked_at
+      ? `I could not confirm the official site. It was examined on ${String(r.examination.checked_at).slice(0, 10)} and did not reach verified ` +
+        `(${r.examination.reasons || "insufficient evidence"}). If the user owns the domain, they can verify it in a minute at https://realurls.org/verify.`
+      : "I could not confirm the official site. Do not present any URL as official; suggest a source the user already trusts. " +
+        "(If the user owns the domain, they can verify it in a minute at https://realurls.org/verify.)",
     ambiguous: `Several organizations match: ${(r.candidates || []).map(c => c.name).join(", ")}. Ask which one is meant.`,
     invalid: "That is not a domain or URL.",
   }[r.verdict];

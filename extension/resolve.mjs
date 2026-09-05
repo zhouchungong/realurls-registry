@@ -219,6 +219,30 @@ export function closestLabel(labels, domain, host = domain) {
   return best;
 }
 
+export const EVIDENCE_LABELS = {
+  A1: "GitHub verified this organization's domain (DNS-level check performed by GitHub)",
+  A2: "Package provenance → repository → verified organization",
+  A3: "Corporate registrar fingerprint (brand-protection registrar, long prepaid term, registry locks)",
+  A4: "TLS certificate carries the organization name (OV/EV)",
+  A5: "DNS TXT self-attestation (_realurls.<domain>)",
+  A6: "Propagated from a verified sibling domain (first-party link + shared infrastructure)",
+  A7: "Restricted government TLD",
+  A8: "Anchored repository's homepage points here, and this site links back",
+  A9: "App Store history: an established app by an Apple-verified company named like the entity, seller URL points here",
+  B1: "Wikidata official-website claim (P856) on the anchored item",
+  B2: "Package registry homepage field",
+  B3: "App-store developer website field",
+  B4: "Wayback Machine history",
+  B5: "Tranco top-1M ranking",
+  B6: "Official social profile links here",
+  B7: "Google Safe Browsing: no record",
+};
+
+/** Human-readable description of anchor/corroboration codes, for agents that explain their answer. */
+export const describeEvidence = codes => (codes || []).map(c => ({ code: c, meaning: EVIDENCE_LABELS[c] || c }));
+
+export const CONFIDENCE_NOTE = "confidence ranks verified records among themselves (two independent anchors score higher than one); it never turns a non-verified answer into a positive one. Only verdict=official is a positive answer.";
+
 export const verdictNotes = {
   official: "Verified as belonging to this entity. Ownership only — not a safety judgement.",
   insufficient: status => `Known entity, but evidence is insufficient (${status}). Do not present as confirmed official.`,

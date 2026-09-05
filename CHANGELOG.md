@@ -24,6 +24,12 @@ The dataset itself is released continuously as the rolling `latest` GitHub Relea
   on the A5 record and re-checked daily. First owner request: kagi.com.
 
 ### API and integrations
+- **Answers explain themselves to agents.** `/v1/resolve` and the MCP tools now return `evidence` (each
+  anchor code with its meaning), `freshness`, `missing` (for insufficient_evidence: what was rejected and
+  why), `confidence_note` (confidence ranks verified records; it never upgrades a non-official answer) and
+  `examination` (queued / examined-on). `@realurls/mcp` 0.1.3: `say_to_user` covers the queued and
+  examined cases, and the instructions tell the agent to retry after a queued answer and to run
+  `verify_url` on a remembered URL when a name lookup is unknown (which queues that domain).
 - **On-demand examination.** A domain that is asked about and was never examined is queued
   (`/v1/examine-queue`) and run through the pipeline within about fifteen minutes; verified records are
   merged after the corpus and AI review pass, other outcomes are stored so `/v1/resolve` answers
