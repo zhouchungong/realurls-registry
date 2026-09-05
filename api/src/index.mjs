@@ -109,6 +109,10 @@ export default {
         return json({ ...r, dataset_version: meta.dataset_version }, meta.dataset_version);
       }
 
+      case "/v1/examine-queue":
+        // Consumed by the on-demand examination workflow every ten minutes. Aggregate, domains only.
+        return json({ items: await store.examineQueue() }, meta.dataset_version, 200, { "Cache-Control": "no-store" });
+
       case "/v1/demand": {
         // What people ask for that we cannot answer yet: aggregate counts, 30 days, floor of 3 (TRUST.md).
         const days = Math.min(90, Math.max(1, +url.searchParams.get("days") || 30));

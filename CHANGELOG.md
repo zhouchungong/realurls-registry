@@ -24,6 +24,10 @@ The dataset itself is released continuously as the rolling `latest` GitHub Relea
   on the A5 record and re-checked daily. First owner request: kagi.com.
 
 ### API and integrations
+- **On-demand examination.** A domain that is asked about and was never examined is queued
+  (`/v1/examine-queue`) and run through the pipeline within about fifteen minutes; verified records are
+  merged after the corpus and AI review pass, other outcomes are stored so `/v1/resolve` answers
+  `examination: {status, checked_at, reasons}` instead of plain "unknown".
 - **Aggregate query demand.** Each query adds one to a per-day counter for its key and verdict; nothing
   about who asked is stored (TRUST.md 6a). `GET /v1/demand` publishes the most-asked keys of the last 30
   days with a floor of three, and `python -m src.seeds --source demand` turns the unanswered domains into

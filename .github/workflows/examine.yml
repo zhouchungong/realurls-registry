@@ -1,0 +1,91 @@
+name: On-demand examination
+
+# Domains people asked about and we had never examined (from the aggregate query counters) go through the
+# same pipeline within minutes. verified → record written by build_entities, rules + AI review, merged to
+# main (deploy follows); otherwise an `examined` row so the API says "examined on <date>" instead of
+# "never looked". POLICY.md §3.5.
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+    inputs:
+      domains:
+        description: "Comma-separated domains to examine now (optional; default: the queue)"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: examine
+  cancel-in-progress: false
+
+jobs:
+  examine:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.11"
+      - run: pip install -e ".[review]"
+
+      - name: Fetch the queue
+        id: queue
+        run: |
+          mkdir -p .cache
+          if [ -n "${{ inputs.domains }}" ]; then
+            echo "domains=${{ inputs.domains }}" >> "$GITHUB_OUTPUT"
+          else
+            n=$(curl -fsS "https://api.realurls.org/v1/examine-queue" | python -c "import sys,json; print(len(json.load(sys.stdin).get('items', [])))")
+            echo "queued: $n"
+            echo "count=$n" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Examine
+        if: inputs.domains != '' || steps.queue.outputs.count != '0'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GSB_API_KEY: ${{ secrets.GSB_API_KEY }}
+        run: |
+          if [ -n "${{ inputs.domains }}" ]; then
+            python -m src.examine --domains "${{ inputs.domains }}" --json .cache/examine.json --sql .cache/examined.sql
+          else
+            python -m src.examine --queue "https://api.realurls.org/v1/examine-queue" --max 20 --json .cache/examine.json --sql .cache/examined.sql
+          fi
+
+      - name: Rules regression and AI review on anything written
+        if: hashFiles('.cache/examine.json') != ''
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python -m src.validate
+          PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 pytest tests -q
+          set +e
+          python -m src.review_ai --changed-since HEAD --json .cache/review.json
+          echo "AI review exit: $?"
+          python -m src.validate
+
+      - name: Merge verified records
+        if: hashFiles('.cache/examine.json') != ''
+        run: |
+          git config user.name  "realurls-bot"
+          git config user.email "bot@realurls.org"
+          git add entities/
+          if git diff --cached --quiet; then echo "nothing verified"; exit 0; fi
+          domains=$(python -c "import json;print(', '.join(r['domain'] for r in json.load(open('.cache/examine.json')) if r['status']=='verified'))")
+          git commit -m "data(examine): $domains" -m "On-demand examination from the query queue; rules regression and AI review passed in this run."
+          git pull --rebase origin main
+          git push
+
+      - name: Record non-verified outcomes in D1
+        if: hashFiles('.cache/examined.sql') != ''
+        uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd # v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: 2ba9b41856a8e2ff38d2c6630adb10f0
+          workingDirectory: api
+          command: d1 execute realurls-registry --remote --yes --file=../.cache/examined.sql

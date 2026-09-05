@@ -240,6 +240,9 @@ def write_sql(path: Path, entities: list[dict], index: dict, verified: list[str]
         # outside the swap so it survives every dataset load. See TRUST.md "What we log".
         "CREATE TABLE IF NOT EXISTS queries(day TEXT NOT NULL, kind TEXT NOT NULL, key TEXT NOT NULL, "
         "verdict TEXT, n INTEGER NOT NULL DEFAULT 0, PRIMARY KEY(day, kind, key));",
+        # On-demand examinations that did not reach verified: lets the API say "examined on <date>".
+        "CREATE TABLE IF NOT EXISTS examined(domain TEXT PRIMARY KEY, status TEXT NOT NULL, checked_at TEXT NOT NULL, "
+        "reasons TEXT, dataset_version TEXT);",
         "DROP TABLE IF EXISTS entities_new; DROP TABLE IF EXISTS domains_new; "
         "DROP TABLE IF EXISTS aliases_new; DROP TABLE IF EXISTS meta_new;",
         "DROP INDEX IF EXISTS idx_domains_entity; DROP INDEX IF EXISTS idx_aliases_alias; "

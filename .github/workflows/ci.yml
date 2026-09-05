@@ -54,7 +54,7 @@ jobs:
           # SECURITY.md §1：entities/ 的唯一合法写入路径是流水线。
           # 如果数据可以被 PR 直接改，本仓库就是黑产洗白钓鱼站的最高价值目标。
           changed=$(git diff --name-only "$BASE" "$HEAD" -- entities/)
-          if [ -n "$changed" ] && [ "$AUTHOR" != "realurls-bot" ]; then
+          if [ -n "$changed" ] && [ "$AUTHOR" != "realurls-bot" ] && [ "$AUTHOR" != "github-actions[bot]" ]; then
             echo "::error::$AUTHOR 试图直接修改 entities/："
             echo "$changed"
             echo "数据只能由流水线生成。请改为提交收录线索 Issue，见 CONTRIBUTING.md。"

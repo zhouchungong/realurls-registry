@@ -101,7 +101,34 @@ export class Store {
         note: verdictNotes.lookalike(e?.name, near.domain),
       };
     }
-    return { domain, verdict: "unknown", status: "unverified", note: verdictNotes.unknown };
+    const ex = await this.examined(domain);
+    if (ex) {
+      return { domain, verdict: "unknown", status: ex.status, note: verdictNotes.unknown,
+               examination: { status: ex.status, checked_at: ex.checked_at, reasons: ex.reasons,
+                              note: `Examined on ${ex.checked_at.slice(0, 10)}: the rules reached "${ex.status}", not verified. Owners can verify at https://realurls.org/verify.` } };
+    }
+    return { domain, verdict: "unknown", status: "unverified", note: verdictNotes.unknown,
+             examination: { status: "queued", note: "Never examined; queued for the pipeline. Ask again in about fifteen minutes." } };
+  }
+
+  async examined(domain) {
+    try { return await this.db.prepare("SELECT status, checked_at, reasons FROM examined WHERE domain = ?").bind(domain).first(); }
+    catch { return null; }
+  }
+
+  /** Domains asked about (last 7 days) that are neither in the registry nor examined in the last 30 days. */
+  async examineQueue(limit = 50) {
+    const since = new Date(Date.now() - 7 * 86400000).toISOString().slice(0, 10);
+    const stale = new Date(Date.now() - 30 * 86400000).toISOString();
+    try {
+      const { results } = await this.db.prepare(
+        "SELECT q.key AS domain, SUM(q.n) AS n FROM queries q " +
+        "LEFT JOIN domains d ON d.domain = q.key LEFT JOIN examined e ON e.domain = q.key " +
+        "WHERE q.kind = 'domain' AND q.day >= ? AND q.key LIKE '%.%' AND d.domain IS NULL AND (e.domain IS NULL OR e.checked_at < ?) " +
+        "GROUP BY q.key ORDER BY n DESC LIMIT ?"
+      ).bind(since, stale, limit).all();
+      return results;
+    } catch { return []; }
   }
 
   async lookup(name) {
