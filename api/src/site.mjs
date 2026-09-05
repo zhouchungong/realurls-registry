@@ -99,7 +99,7 @@ function layout(meta, title, body, { description = "", jsonld = null, canonical 
 ${canonical ? `<link rel="canonical" href="${esc(canonical)}">` : ""}${robots ? `<meta name="robots" content="${esc(robots)}">` : ""}
 <meta name="realurls-dataset" content="${esc(manifest.dataset_version)}">
 <style>${CSS}</style>${jsonld ? `<script type="application/ld+json">${JSON.stringify(jsonld)}</script>` : ""}</head>
-<body>${home ? "" : `<header><div class="bar"><a class="brand" href="/">Realurls</a>${searchForm(query)}<nav><a href="${REPO}/blob/main/TRUST.md">Trust model</a><a href="${API}">API</a><a href="${REPO}">GitHub</a></nav></div></header>`}
+<body>${home ? "" : `<header><div class="bar"><a class="brand" href="/">Realurls</a>${searchForm(query)}<nav><a href="/builders">For AI builders</a><a href="${REPO}/blob/main/TRUST.md">Trust model</a><a href="${API}">API</a><a href="${REPO}">GitHub</a></nav></div></header>`}
 <main>${body}
 <footer>Ownership only, never safety. Every verdict is reproducible — the commands are on each page.<br>Dataset <code>${esc(manifest.dataset_version)}</code> · <a href="${REPO}/releases/tag/latest">signed download</a> · data CC BY-SA 4.0 · disputes: <a href="mailto:dispute@realurls.org">dispute@realurls.org</a></footer>
 </main><script>${SEARCH_JS}</script></body></html>`;
@@ -113,19 +113,60 @@ async function home(store, manifest) {
     `<a class="card" href="/c/${esc(x.category)}"><div>${esc(categoryLabel(x.category))}</div><div class="d">${x.n} organization${x.n === 1 ? "" : "s"}</div></a>`
   ).join("");
   return layout(manifest, "Realurls — which domain is really the official one?", `
-<div class="topnav"><a href="${REPO}/blob/main/TRUST.md">Trust model</a><a href="${API}">API</a><a href="${REPO}">GitHub</a></div>
+<div class="topnav"><a href="/builders">For AI builders</a><a href="${REPO}/blob/main/TRUST.md">Trust model</a><a href="${API}">API</a><a href="${REPO}">GitHub</a></div>
 <div class="hero"><a class="brand" href="/">Realurls</a>${searchForm("", true)}
 <p>Which domain really belongs to which company. Ownership only — never a safety judgement — and only when the evidence is reproducible.</p></div>
 <div class="stats"><div><b>${c.entities}</b>organizations</div><div><b>${c.verified}</b>verified domains</div><div><b>≥ 99.5%</b>precision target</div><div><b>${esc(manifest.generated_at.slice(0, 10))}</b>dataset date</div></div>
 <h2>For AI agents</h2>
 <div class="copy"><button type="button">Copy</button><pre>claude mcp add realurls -- npx -y @realurls/mcp</pre></div>
-<p class="muted">Any MCP host: <code>{ "command": "npx", "args": ["-y", "@realurls/mcp"] }</code>. Plain HTTP: <code>${API}/v1/resolve?domain=…</code>. The server ships <em>instructions</em> telling the agent to call it before handing out any download or login link — in our tests that single line is what turns "answers from memory" into "verifies first".</p>
+<p class="muted">Any MCP host: <code>{ "command": "npx", "args": ["-y", "@realurls/mcp"] }</code>. Plain HTTP: <code>${API}/v1/resolve?domain=…</code>. The server ships <em>instructions</em> telling the agent to call it before handing out any download or login link — in our tests that single line is what turns "answers from memory" into "verifies first". No MCP? <a href="/builders">Three other ways in</a>, down to a one-line allowlist.</p>
 <h2>Browse by category</h2>
 <div class="grid">${cats}</div>
 <p class="muted"><a href="/browse">All ${c.entities} organizations, A–Z →</a></p>
 <h2>What "verified" means</h2>
 <p class="muted">At least one <b>anchor</b> — something only the real owner can produce: a GitHub-verified organization, a DNS self-attestation, a restricted government TLD, a long-lived repository whose homepage points here — <b>and</b> at least two independent corroborations. Anything less is reported as insufficient evidence. We would rather say "don't know" than be wrong. Full rules: <a href="${REPO}/blob/main/POLICY.md">POLICY.md</a>.</p>
 `, { description: "Open, reproducible registry of which domain belongs to which organization. For AI agents and people. Ownership only, never safety.", canonical: `${SITE}/`, home: true });
+}
+
+// ------------------------------------------------------------------ for AI builders
+
+const AGENT_RULE = `Before giving the user any URL for downloading, installing, logging into, or visiting the official site of a software product or company, look the domain up in Realurls and use ONLY the URLs it returns, even if you are confident you already know the URL. Well-known tools are exactly the ones targeted by lookalike download sites, and memorised URLs go stale. If Realurls answers insufficient_evidence or unknown, tell the user the official site could not be confirmed instead of guessing. Realurls judges ownership only, never safety.`;
+
+function buildersPage(manifest) {
+  const block = (title, code, note = "") => `<h2>${esc(title)}</h2><div class="copy"><button type="button">Copy</button><pre>${esc(code)}</pre></div>${note ? `<p class="muted">${note}</p>` : ""}`;
+  return layout(manifest, "For AI builders — Realurls", `
+<p class="sub"><a href="/">Realurls</a> › For AI builders</p>
+<h1>Put a verified official-domain check into your agent</h1>
+<p class="sub">Three ways in, from zero integration to a full tool. All free, no key, ${manifest.counts.verified} verified domains, refreshed daily, every verdict reproducible.</p>
+
+${block("1. Zero integration: the allowlist in your prompt or RAG", `curl -s ${API}/v1/domains.txt`,
+  `A plain-text list of every verified domain, one per line, tens of KB. Drop it into a system prompt, a retrieval index, or a URL filter. <code>${API}/v1/domains.json</code> carries the same list with the owning organization, status and evidence codes per domain. Both are cached at the edge; fetch once an hour or once a day.`)}
+
+${block("2. The behaviour rule (copy into your system prompt)", AGENT_RULE,
+  `This is the sentence that changes behaviour. In our tests an agent that merely <em>had</em> the tool still answered well-known products from memory; an agent given this rule verified first. Use it with whichever integration below you pick.`)}
+
+${block("3a. HTTP tool: check a URL the user pasted", `curl "${API}/v1/resolve?domain=claude-desktop.io"`,
+  `Returns <code>official</code>, <code>not_official</code> (with the real verified domains of the organization it resembles), <code>insufficient_evidence</code> or <code>unknown</code>. Every response includes a <code>note</code> written for the agent: what to tell the user. Only <code>official</code> is a positive answer.`)}
+
+${block("3b. HTTP tool: find the official site by name", `curl "${API}/v1/entity?q=ollama"`,
+  `<code>official_urls</code> is the list to hand the user, as plain links. <code>insufficient_evidence</code> means we know the organization but could not verify a domain: say so, do not fill the gap from memory. <code>ambiguous</code> lists candidates: ask the user which they mean.`)}
+
+${block("3c. MCP: one line for Claude Code", `claude mcp add realurls -- npx -y @realurls/mcp`,
+  `Any MCP host: <code>{ "command": "npx", "args": ["-y", "@realurls/mcp"] }</code>. The server ships the rule above as its <em>instructions</em>, so hosts that honour instructions get the behaviour without prompt changes. Tools: <code>get_official_url(name)</code>, <code>verify_url(url)</code>. Source and README: <a href="${REPO}/tree/main/mcp">mcp/</a>.`)}
+
+<h2>How to phrase the answer</h2>
+<table><tr><th>verdict</th><th>what the agent should say</th></tr>
+<tr><td><code>official</code></td><td>Give these URLs, as plain links, no tracking parameters. Optionally cite the evidence page.</td></tr>
+<tr><td><code>not_official</code></td><td>"That is not a known domain of X. X's verified site is Y." Do not call the domain malicious; we do not know that.</td></tr>
+<tr><td><code>insufficient_evidence</code></td><td>"I could not confirm the official site." Do not present any URL as official, including ones you remember.</td></tr>
+<tr><td><code>unknown</code></td><td>"I could not confirm the official site." Suggest the user verify through a source they already trust.</td></tr></table>
+
+<h2>The dataset itself</h2>
+<p class="muted">Every release is signed (cosign, keyless) and published at <a href="${REPO}/releases/tag/latest">GitHub Releases</a> with a manifest of file hashes; the current version is <code>${esc(manifest.dataset_version)}</code>. License CC BY-SA 4.0. The source records are YAML files in <a href="${REPO}/tree/main/entities">entities/</a>, generated only by the pipeline, each with the full evidence and the commands to reproduce it. If you ship a product on top of it, <a href="mailto:security@realurls.org">tell us</a> so we can warn you before any breaking change.</p>
+
+<h2>What you get and what you do not</h2>
+<p class="muted">You get: ownership, with evidence, at ≥ 99.5% target precision, or an honest "don't know". You do not get: a safety score, a blacklist, a reputation. A domain we cannot verify is not "bad", it is unverified. Full rules: <a href="${REPO}/blob/main/POLICY.md">POLICY.md</a>; what we promise and what we do not: <a href="${REPO}/blob/main/TRUST.md">TRUST.md</a>.</p>
+`, { description: "How to add a verified official-domain check to an AI agent: allowlist, HTTP API, or MCP. Free, reproducible, ownership only.", canonical: `${SITE}/builders` });
 }
 
 // ------------------------------------------------------------------ category / browse listings
@@ -277,14 +318,14 @@ ${ex}
 <tr><td><code>unknown</code></td><td>Not in the registry. "Don't know", not "bad".</td></tr></table>
 <h2>MCP</h2>
 <div class="copy"><button type="button">Copy</button><pre>claude mcp add realurls -- npx -y @realurls/mcp</pre></div>
-<p class="muted">Trust model: <a href="${REPO}/blob/main/TRUST.md">TRUST.md</a> · Rules: <a href="${REPO}/blob/main/POLICY.md">POLICY.md</a> · Rate limits: none yet; be reasonable.</p>
+<p class="muted">Building an agent? <a href="${SITE}/builders">For AI builders</a>: allowlist, behaviour rule, tool shapes. Trust model: <a href="${REPO}/blob/main/TRUST.md">TRUST.md</a> · Rules: <a href="${REPO}/blob/main/POLICY.md">POLICY.md</a> · Rate limits: none yet; be reasonable.</p>
 `, { description: "Realurls API: which domain officially belongs to which organization. Free, no key.", canonical: `${API}/` });
 }
 
 // ------------------------------------------------------------------ misc
 
 async function sitemap(store, manifest) {
-  const urls = [`${SITE}/`, `${SITE}/browse`, ...(await store.categories()).map(x => `${SITE}/c/${x.category}`)];
+  const urls = [`${SITE}/`, `${SITE}/builders`, `${SITE}/browse`, ...(await store.categories()).map(x => `${SITE}/c/${x.category}`)];
   for (let offset = 0; ; offset += 5000) {
     const batch = await store.list({ limit: 5000, offset });
     urls.push(...batch.map(e => `${SITE}/e/${e.entity_id.replace(/^org:/, "")}`));
@@ -297,7 +338,9 @@ const LLMS_TXT = `# Realurls
 
 > Which domain officially belongs to which software product or company. Ownership only, never safety. Every verdict is backed by reproducible machine evidence.
 
+- For AI builders (allowlist, behaviour rule, tool shapes): ${SITE}/builders
 - API: ${API}/v1/resolve?domain=<domain>  and  ${API}/v1/entity?q=<name>
+- Allowlist of verified domains, one per line: ${API}/v1/domains.txt
 - MCP server: npx -y @realurls/mcp  (ships instructions: call before giving any download/login URL)
 - Trust model: ${REPO}/blob/main/TRUST.md
 - Rules: ${REPO}/blob/main/POLICY.md
@@ -312,6 +355,7 @@ export async function handleSite(request, store, manifest) {
   const html = body => new Response(body, { headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "public, max-age=300", "X-Realurls-Dataset": manifest.dataset_version } });
 
   if (path === "/") return html(await home(store, manifest));
+  if (path === "/builders") return html(buildersPage(manifest));
   if (path === "/browse") return html(await listing(store, manifest, { page: +url.searchParams.get("page") || 1 }));
   if (path.startsWith("/c/")) {
     const category = decodeURIComponent(path.slice(3));

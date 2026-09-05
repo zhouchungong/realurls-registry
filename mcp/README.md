@@ -15,6 +15,8 @@ Ownership only. Never a safety judgement. Read [TRUST.md](../TRUST.md) for exact
 The server ships **`instructions`** telling the host to call `get_official_url` *even when it thinks it already knows the URL*.
 In our tests that single line is what makes the difference: without it, agents answer well-known tools from memory and never verify.
 
+Every result also carries `say_to_user`: the sentence the agent should give for that verdict ("I could not confirm the official site", "X is not a known domain of Y; Y's verified site is …"). Only `official` results contain URLs the agent may hand out.
+
 ## Install
 
 Claude Desktop — `claude_desktop_config.json`:

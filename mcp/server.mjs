@@ -1,13 +1,16 @@
 #!/usr/bin/env node
 /**
- * realurls MCP server（正式版）。
+ * Realurls MCP server.
  *
- * 与 mcp-experiment 的区别：不再内置数据，而是调 realurls API；`instructions` 用实验证明有效的
- * 中性写法（v3，不点名任何产品）——实验表明在延迟加载工具的 host 上，只有 instructions 能在
- * 模型"自以为知道"时被读到。
+ * Holds no data: every tool call goes to the Realurls API. The `instructions` string is the lever that
+ * matters — in our experiments it is the only text a host reads at the moment the model "already knows"
+ * a URL, so it tells the model to verify first and to say "could not confirm" rather than guess.
  *
- * 环境变量：
- *   REALURLS_API   API 根地址，默认 https://api.realurls.org（本地开发：http://127.0.0.1:8787）
+ * Every non-positive verdict is returned with a `say_to_user` line so the agent has the wording ready;
+ * only `official` carries URLs the agent may hand out.
+ *
+ * Environment:
+ *   REALURLS_API   API root, default https://api.realurls.org (local development: http://127.0.0.1:8787)
  */
 
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
@@ -15,25 +18,43 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { z } from "zod";
 
 const API = (process.env.REALURLS_API || "https://api.realurls.org").replace(/\/+$/, "");
-const VERSION = "0.1.1";
+const VERSION = "0.1.2";
 
 const INSTRUCTIONS =
-  "realurls verifies which domain officially belongs to a software product, AI tool, or company. " +
+  "Realurls verifies which domain officially belongs to a software product, AI tool, or company. " +
   "Whenever you are about to give the user a URL for downloading, installing, logging into, or visiting the " +
   "official site of ANY software product or company, call get_official_url first and use ONLY the URLs it " +
   "returns — even if you are confident you already know the URL. Popular, well-known tools are exactly the " +
   "ones targeted by SEO-poisoned lookalike download sites, and memorized URLs can be stale. " +
   "When the user pastes a URL and asks whether it is official, call verify_url. " +
   "If the tool returns insufficient_evidence or unknown, say so plainly rather than guessing. " +
-  "realurls judges ownership only, never safety.";
+  "Realurls judges ownership only, never safety.";
 
 async function call(path, params) {
   const url = new URL(API + path);
   for (const [k, v] of Object.entries(params)) url.searchParams.set(k, v);
   const res = await fetch(url, { headers: { "User-Agent": `realurls-mcp/${VERSION}` } });
   const body = await res.json().catch(() => ({ error: `HTTP ${res.status}` }));
-  if (!res.ok) return { verdict: "error", note: `realurls API ${res.status}: ${body.error || "unavailable"}. Tell the user verification is unavailable; do not guess.` };
-  return body;
+  if (!res.ok) return { verdict: "error", note: `Realurls API ${res.status}: ${body.error || "unavailable"}.`,
+                        say_to_user: "Official-site verification is unavailable right now, so I cannot confirm any URL as official." };
+  return withGuidance(body);
+}
+
+/** Wording for the agent, per verdict. The API's `note` says what the verdict means; this says what to tell the user. */
+function withGuidance(r) {
+  const name = r.entity?.name || r.looks_like?.name;
+  const urls = (r.official_urls || (r.official_domains || []).map(d => `https://${d}`));
+  const say = {
+    official: `These are the verified official URLs${name ? ` of ${name}` : ""}: ${urls.join(", ")}. Give them as plain links.`,
+    not_official: `${r.domain} is not a known domain of ${name}. ${name}'s verified site is ${urls.join(", ") || "not yet verified"}. This is about ownership, not safety.`,
+    insufficient_evidence: urls.length
+      ? `I could not verify ${r.domain || "that domain"}${name ? ` for ${name}` : ""}; ${name}'s verified domains are ${urls.join(", ")}.`
+      : `I could not confirm the official site${name ? ` of ${name}` : ""}. Do not present any URL as official, including ones from memory.`,
+    unknown: "I could not confirm the official site. Do not present any URL as official; suggest a source the user already trusts.",
+    ambiguous: `Several organizations match: ${(r.candidates || []).map(c => c.name).join(", ")}. Ask which one is meant.`,
+    invalid: "That is not a domain or URL.",
+  }[r.verdict];
+  return say ? { ...r, say_to_user: say } : r;
 }
 
 const server = new McpServer({ name: "realurls", version: VERSION }, { instructions: INSTRUCTIONS });

@@ -1,6 +1,6 @@
 {
   "name": "@realurls/mcp",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "mcpName": "io.github.zhouchungong/realurls",
   "description": "MCP server: which domain officially belongs to which software product or company. Ownership only, never safety.",
   "license": "MIT",
