@@ -8,17 +8,14 @@ on:
 permissions:
   contents: read
 
-# TODO(上线前必做)：按 SECURITY.md T3，所有 action 必须 pin 到 commit SHA 而非浮动 tag。
-#   gh api repos/actions/checkout/git/ref/tags/v4 --jq .object.sha
-# 现阶段用 tag 是为了让骨架能跑起来，这是一笔明确记录在案的技术债。
 
 jobs:
   policy:
     name: 定案引擎回归（含负样本）
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         with:
           python-version: "3.11"
       - run: pip install -e ".[dev]"
@@ -32,8 +29,8 @@ jobs:
     name: 数据校验
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         with:
           python-version: "3.11"
       - run: pip install -e "."
@@ -45,7 +42,7 @@ jobs:
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           fetch-depth: 0
       - name: 拒绝非机器人对 entities/ 的改动

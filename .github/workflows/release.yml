@@ -10,14 +10,13 @@ permissions:
   contents: write
   id-token: write        # cosign keyless 签名需要 OIDC
 
-# TODO(上线前必做)：SECURITY.md T3 —— 所有 action pin 到 commit SHA。
 
 jobs:
   build-sign:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         with:
           python-version: "3.11"
       - run: pip install -e "."
@@ -33,7 +32,7 @@ jobs:
           python -m src.build > /dev/null
           cmp dist/domains.json /tmp/a.json && echo "reproducible"
 
-      - uses: sigstore/cosign-installer@v3
+      - uses: sigstore/cosign-installer@398d4b0eeef1380460a10c8013a76f728fb906ac # v3
 
       # keyless：用本 workflow 的 OIDC 身份签名。验证者能确认「这份数据是本仓库 main 分支
       # 在 GitHub Actions 里生成的」，我们不保管任何私钥（SECURITY.md T6）。
