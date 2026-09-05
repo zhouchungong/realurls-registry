@@ -20,6 +20,7 @@
 import { Store } from "./store.mjs";
 import { handleSite, apiLanding } from "./site.mjs";
 import { handleMcp } from "./mcp.mjs";
+import { handleSubmit } from "./submit.mjs";
 
 const CORS = {
   "Access-Control-Allow-Origin": "*",
@@ -46,6 +47,10 @@ export default {
       try { mcpMeta = await mcpStore.meta(); }
       catch (e) { return json({ error: "dataset not loaded", detail: String(e.message || e) }, null, 503, { "Cache-Control": "no-store" }); }
       return handleMcp(request, mcpStore, mcpMeta, CORS, ctx);
+    }
+    if (new URL(request.url).pathname.replace(/\/+$/, "") === "/v1/submit") {
+      // Site forms: create the lead / owner-verification issue without a GitHub account (needs GITHUB_ISSUES_TOKEN).
+      return handleSubmit(request, env, new Store(env.DB), CORS);
     }
     if (request.method !== "GET") return json({ error: "GET only" }, null, 405);
 

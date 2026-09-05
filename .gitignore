@@ -17,3 +17,6 @@ tests/_external_corpus/
 node_modules/
 .wrangler/
 mcp/mcp-publisher.exe
+
+# local secrets for wrangler dev
+api/.dev.vars

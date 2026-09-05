@@ -70,7 +70,7 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 `;
 
 const SEARCH_JS = `document.querySelectorAll('form[data-check]').forEach(f=>f.addEventListener('submit',e=>{e.preventDefault();const v=f.q.value.trim();if(v)location.href='/d/'+encodeURIComponent(v)}));
-document.querySelectorAll('form[data-issue]').forEach(f=>f.addEventListener('submit',e=>{e.preventDefault();const d=(f.dataset.domain||f.domain?.value||'').trim().toLowerCase().replace(/^https?:\\/\\//,'').split('/')[0];const o=(f.org?.value||'').trim();const t=f.dataset.issue==='verify'?'verify-domain.yml':'submit-domain.yml';const u=new URL('${REPO}/issues/new');u.searchParams.set('template',t);u.searchParams.set('title',(f.dataset.issue==='verify'?'[verify] ':'[lead] ')+(f.dataset.issue==='verify'?d:o||d));if(d)u.searchParams.set('domain',d);if(o)u.searchParams.set('org',o);location.href=u.toString()}));
+document.querySelectorAll('form[data-issue]').forEach(f=>f.addEventListener('submit',async e=>{e.preventDefault();const d=(f.dataset.domain||f.domain?.value||'').trim().toLowerCase().replace(/^https?:\\/\\//,'').split('/')[0];const o=(f.org?.value||'').trim();const kind=f.dataset.issue;const fallback=()=>{const t=kind==='verify'?'verify-domain.yml':'submit-domain.yml';const u=new URL('${REPO}/issues/new');u.searchParams.set('template',t);u.searchParams.set('title',(kind==='verify'?'[verify] ':'[lead] ')+(kind==='verify'?d:o||d));if(d)u.searchParams.set('domain',d);if(o)u.searchParams.set('org',o);location.href=u.toString()};const btn=f.querySelector('button');btn.disabled=true;try{const r=await fetch('${API}/v1/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({kind,domain:d,org:o,website:f.website?.value||''})});const j=await r.json();if(r.ok&&j.url){f.innerHTML='<p>Submitted: <a href="'+j.url+'">'+j.url+'</a>. '+(kind==='verify'?'Your DNS TXT record is in the first comment there; publish it, then comment <code>/verify</code> on the issue.':'The bot replies there within minutes.')+'</p>';return}if(r.status===503){fallback();return}f.insertAdjacentHTML('beforeend','<p class="muted">'+(j.error||'Could not submit')+'</p>');btn.disabled=false}catch{fallback()}}));
 document.querySelectorAll('.copy button').forEach(b=>b.addEventListener('click',()=>{navigator.clipboard.writeText(b.parentNode.querySelector('pre').innerText).then(()=>{b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1200)})}));`;
 
 function searchForm(value = "", big = false) {
@@ -168,8 +168,8 @@ function verifyPage(manifest) {
 <p class="sub">You control the domain. Prove it once, and every AI agent that asks Realurls gets your real site instead of a lookalike. No human in the loop; the result is a public record with the evidence.</p>
 
 <h2>Option A: one DNS TXT record</h2>
-<form class="mini" data-issue="verify"><input name="domain" placeholder="your-domain.com" aria-label="Domain" required><input name="org" placeholder="Organization name" aria-label="Organization" required><button type="submit">Get my token</button></form>
-<p class="muted">This opens a GitHub issue with both fields already filled in; press Submit there. A bot replies with a token within a minute (<a href="${issue}">or open the form directly</a>).</p>
+<form class="mini" data-issue="verify"><input name="domain" placeholder="your-domain.com" aria-label="Domain" required><input name="org" placeholder="Organization name" aria-label="Organization" required><input name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true"><button type="submit">Get my token</button></form>
+<p class="muted">No GitHub account needed: this files the request for you and shows the link. A bot replies there with your token within a minute. Prefer GitHub yourself? <a href="${issue}">Open the form directly</a>.</p>
 <ol>
 <li>Publish the token in your DNS zone:</li>
 </ol>
@@ -319,7 +319,7 @@ async function domainPage(input, store, manifest, ctx = null) {
 ${exLine}
 <p class="sub">We have no verdict for this domain — neither positive nor negative. "Don't know" is the honest answer here. The registry holds ${manifest.counts.entities} organizations today and grows in reviewed batches; not being listed means not yet examined, nothing more.</p>
 <p class="muted">Know who owns it? <a href="${esc(issueLinks(domain).lead)}">Submit a lead</a> (the domain is already filled in). If you <em>are</em> the owner, <a href="${esc(issueLinks(domain).verify)}">one DNS TXT record settles it</a>.</p>
-<form class="mini" data-issue="lead" data-domain="${esc(domain)}"><input name="org" placeholder="Which organization owns it?" aria-label="Organization" required><button type="submit">Submit a lead</button></form>`, { robots: "noindex" });
+<form class="mini" data-issue="lead" data-domain="${esc(domain)}"><input name="org" placeholder="Which organization owns it?" aria-label="Organization" required><input name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true"><button type="submit">Submit a lead</button></form>`, { robots: "noindex" });
 }
 
 // ------------------------------------------------------------------ API landing (browsers only)

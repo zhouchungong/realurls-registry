@@ -198,6 +198,15 @@ export class Store {
     } catch { /* the table may not exist on a fresh database; demand is best-effort */ }
   }
 
+  /** Submissions made today through the site form (abuse cap), kept in the same aggregate table. */
+  async submissionsToday() {
+    const day = new Date().toISOString().slice(0, 10);
+    try {
+      const row = await this.db.prepare("SELECT SUM(n) AS n FROM queries WHERE day = ? AND kind = 'submit'").bind(day).first();
+      return row?.n || 0;
+    } catch { return 0; }
+  }
+
   /** Most-asked keys over the last `days`, with a floor so rare (possibly personal) queries never surface. */
   async demand({ days = 30, limit = 200, floor = 3, onlyUnverified = true } = {}) {
     const since = new Date(Date.now() - days * 86400000).toISOString().slice(0, 10);
