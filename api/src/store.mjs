@@ -152,6 +152,30 @@ export class Store {
     return out;
   }
 
+  /** Aggregate demand: one row per (day, kind, key). Nothing about who asked is stored; keys that look
+   *  like personal data (an @, a long token) are dropped. */
+  async count(kind, key, verdict) {
+    key = String(key || "").trim().toLowerCase().slice(0, 80);
+    if (!key || key.includes("@") || /^[a-z0-9_-]{32,}$/.test(key)) return;
+    const day = new Date().toISOString().slice(0, 10);
+    try {
+      await this.db.prepare(
+        "INSERT INTO queries(day, kind, key, verdict, n) VALUES (?, ?, ?, ?, 1) " +
+        "ON CONFLICT(day, kind, key) DO UPDATE SET n = n + 1, verdict = excluded.verdict"
+      ).bind(day, kind, key, verdict || null).run();
+    } catch { /* the table may not exist on a fresh database; demand is best-effort */ }
+  }
+
+  /** Most-asked keys over the last `days`, with a floor so rare (possibly personal) queries never surface. */
+  async demand({ days = 30, limit = 200, floor = 3, onlyUnverified = true } = {}) {
+    const since = new Date(Date.now() - days * 86400000).toISOString().slice(0, 10);
+    const { results } = await this.db.prepare(
+      "SELECT kind, key, verdict, SUM(n) AS n FROM queries WHERE day >= ? GROUP BY kind, key " +
+      "HAVING SUM(n) >= ? ORDER BY n DESC LIMIT ?"
+    ).bind(since, floor, limit).all();
+    return results.filter(r => !onlyUnverified || r.verdict !== "official");
+  }
+
   async verifiedText() {
     const { results } = await this.db.prepare("SELECT domain FROM domains WHERE official = 1 ORDER BY domain").all();
     return results.map(r => r.domain).join("\n") + "\n";

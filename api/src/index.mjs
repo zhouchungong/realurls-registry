@@ -45,7 +45,7 @@ export default {
       let mcpMeta;
       try { mcpMeta = await mcpStore.meta(); }
       catch (e) { return json({ error: "dataset not loaded", detail: String(e.message || e) }, null, 503, { "Cache-Control": "no-store" }); }
-      return handleMcp(request, mcpStore, mcpMeta, CORS);
+      return handleMcp(request, mcpStore, mcpMeta, CORS, ctx);
     }
     if (request.method !== "GET") return json({ error: "GET only" }, null, 405);
 
@@ -96,13 +96,24 @@ export default {
       case "/v1/resolve": {
         const q = url.searchParams.get("domain") || url.searchParams.get("url");
         if (!q) return json({ error: "missing ?domain=" }, meta.dataset_version, 400);
-        return json({ ...(await store.resolve(q)), dataset_version: meta.dataset_version }, meta.dataset_version);
+        const r = await store.resolve(q);
+        ctx.waitUntil(store.count("domain", r.domain, r.verdict));
+        return json({ ...r, dataset_version: meta.dataset_version }, meta.dataset_version);
       }
 
       case "/v1/entity": {
         const q = url.searchParams.get("q") || url.searchParams.get("name");
         if (!q) return json({ error: "missing ?q=" }, meta.dataset_version, 400);
-        return json({ ...(await store.lookup(q)), dataset_version: meta.dataset_version }, meta.dataset_version);
+        const r = await store.lookup(q);
+        ctx.waitUntil(store.count("name", q, r.verdict));
+        return json({ ...r, dataset_version: meta.dataset_version }, meta.dataset_version);
+      }
+
+      case "/v1/demand": {
+        // What people ask for that we cannot answer yet: aggregate counts, 30 days, floor of 3 (TRUST.md).
+        const days = Math.min(90, Math.max(1, +url.searchParams.get("days") || 30));
+        return json({ days, floor: 3, note: "Aggregate query counts; nothing about who asked is stored.",
+                      items: await store.demand({ days }) }, meta.dataset_version, 200, { "Cache-Control": "public, max-age=3600" });
       }
 
       case "/":
@@ -112,7 +123,7 @@ export default {
         }
         return json({
           name: "realurls", what: "Which domain officially belongs to which organization. Ownership only, never safety.",
-          endpoints: ["/v1/resolve?domain=", "/v1/entity?q=", "/v1/manifest", "/v1/domains.txt", "/v1/domains.json", "/healthz", "POST /mcp"],
+          endpoints: ["/v1/resolve?domain=", "/v1/entity?q=", "/v1/manifest", "/v1/domains.txt", "/v1/domains.json", "/v1/demand", "/healthz", "POST /mcp"],
           trust: TRUST, ...meta,
         }, meta.dataset_version);
 

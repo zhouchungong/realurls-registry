@@ -207,6 +207,24 @@ def wikidata_seeds() -> list[dict]:
     return sorted(out, key=lambda r: -r["sitelinks"])
 
 
+# ------------------------------------------------------------------ source: demand (what people ask for)
+
+DEMAND = "https://api.realurls.org/v1/demand"
+
+
+def demand_seeds(days: int = 30) -> list[dict]:
+    """Domains people asked about and got no positive answer for. Names are printed for manual seeding:
+    a name alone does not tell us which domain to examine."""
+    doc = fetch_json(f"{DEMAND}?days={days}", ttl_hours=1)
+    out = []
+    for item in doc.get("items", []):
+        if item["kind"] == "domain":
+            out.append({"domain": item["key"], "org_name": "", "topics": [], "source": "demand", "asked": item["n"]})
+        else:
+            print(f"# asked {item['n']}x by name, no domain to seed: {item['key']!r}", file=sys.stderr)
+    return out
+
+
 # ------------------------------------------------------------------ source: topics (cold start)
 
 def _search(topic: str, min_stars: int, page: int) -> list[dict]:
@@ -285,7 +303,7 @@ def write_batches(seeds: list[dict], out_dir: Path, prefix: str, batch_size: int
 
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser()
-    p.add_argument("--source", choices=["github", "wikidata", "topics"], default="topics")
+    p.add_argument("--source", choices=["github", "wikidata", "topics", "demand"], default="topics")
     p.add_argument("--min-stars", type=int, default=3000)
     p.add_argument("--max-stars", type=int, default=1_000_000)
     p.add_argument("--limit", type=int, default=250, help="topics source only")
@@ -299,6 +317,8 @@ def main(argv: list[str] | None = None) -> int:
         seeds = github_seeds(args.min_stars, args.max_stars)
     elif args.source == "wikidata":
         seeds = wikidata_seeds()
+    elif args.source == "demand":
+        seeds = demand_seeds()
     else:
         seeds = collect_seeds(args.min_stars, args.limit, args.pages)
 

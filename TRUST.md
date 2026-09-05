@@ -106,6 +106,10 @@ The `non_affiliated` field — "similar domains not linked to this entity" — i
 
 We query those sources **at decision time, as a veto signal only**, and discard the result.
 
+## 6a. What we log
+
+Per query we keep one aggregate counter: the day, the query key (a domain or a name, lowercased) and the verdict we gave. **No IP address, no user agent, no session, no timestamp finer than the day.** Keys that look like personal data (containing `@`, or a long opaque token) are dropped before counting. The aggregate is public at `api.realurls.org/v1/demand` with a floor of three queries, so a rare query never surfaces. Its purpose is to point the pipeline at what people actually ask for and cannot yet get an answer to.
+
 ## 7. We will be wrong, and what happens then
 
 We will make mistakes. Our commitments:

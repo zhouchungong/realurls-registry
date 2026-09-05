@@ -57,7 +57,7 @@ export function withGuidance(r) {
 const rpc = (id, result) => ({ jsonrpc: "2.0", id, result });
 const rpcError = (id, code, message) => ({ jsonrpc: "2.0", id: id ?? null, error: { code, message } });
 
-async function handleMessage(msg, store, meta) {
+async function handleMessage(msg, store, meta, ctx) {
   const { id, method, params = {} } = msg;
   switch (method) {
     case "initialize":
@@ -73,9 +73,13 @@ async function handleMessage(msg, store, meta) {
     case "tools/call": {
       const args = params.arguments || {};
       let body;
-      if (params.name === "verify_url") body = withGuidance(await store.resolve(String(args.url || "")));
-      else if (params.name === "get_official_url") body = withGuidance(await store.lookup(String(args.name || "")));
-      else return rpcError(id, -32602, `unknown tool ${params.name}`);
+      if (params.name === "verify_url") {
+        body = withGuidance(await store.resolve(String(args.url || "")));
+        ctx?.waitUntil(store.count("domain", body.domain, body.verdict));
+      } else if (params.name === "get_official_url") {
+        body = withGuidance(await store.lookup(String(args.name || "")));
+        ctx?.waitUntil(store.count("name", String(args.name || ""), body.verdict));
+      } else return rpcError(id, -32602, `unknown tool ${params.name}`);
       body.dataset_version = meta.dataset_version;
       return rpc(id, { content: [{ type: "text", text: JSON.stringify(body, null, 2) }], structuredContent: body });
     }
@@ -85,7 +89,7 @@ async function handleMessage(msg, store, meta) {
   }
 }
 
-export async function handleMcp(request, store, meta, cors) {
+export async function handleMcp(request, store, meta, cors, ctx = null) {
   const headers = { "Content-Type": "application/json", "Cache-Control": "no-store", "X-Realurls-Dataset": meta.dataset_version, ...cors };
   if (request.method === "GET") {
     // No server-initiated stream in this stateless deployment; hosts fall back to plain POST.
@@ -100,7 +104,7 @@ export async function handleMcp(request, store, meta, cors) {
   const out = [];
   for (const msg of batch) {
     if (!msg || msg.jsonrpc !== "2.0") { out.push(rpcError(msg?.id, -32600, "invalid request")); continue; }
-    const res = await handleMessage(msg, store, meta);
+    const res = await handleMessage(msg, store, meta, ctx);
     if (res) out.push(res);
   }
   if (!out.length) return new Response(null, { status: 202, headers });

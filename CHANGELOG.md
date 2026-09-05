@@ -19,6 +19,12 @@ The dataset itself is released continuously as the rolling `latest` GitHub Relea
 - **Owner self-attestation (A5) end to end.** Seeds may carry the token we issued, the matched token is stored
   on the A5 record and re-checked daily. First owner request: kagi.com.
 
+### API and integrations
+- **Aggregate query demand.** Each query adds one to a per-day counter for its key and verdict; nothing
+  about who asked is stored (TRUST.md 6a). `GET /v1/demand` publishes the most-asked keys of the last 30
+  days with a floor of three, and `python -m src.seeds --source demand` turns the unanswered domains into
+  seeds, so coverage follows demand rather than star counts.
+
 ## 2026-09-05
 
 ### Rules
