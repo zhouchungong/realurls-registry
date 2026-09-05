@@ -40,7 +40,7 @@ curl -s https://api.github.com/orgs/anthropics | jq '{name, blog, is_verified}'
 ✅ M0  TRUST.md / POLICY.md / policy.py / 正负样本回归测试
 ✅ M1  证据采集流水线 + `python -m src.verify <domain>` 端到端跑通
 ✅ 评审修复  实体锚定 / 域龄 fail-closed / A6 一方声明 / A3 名单 / A7 政府 TLD / +6 负样本
-🔄 M2  220 条摸底 → 52 条 verified 经人工抽查后由流水线生成 entities/（+anthropic.com）；剩：每日重验 workflow、签名发布
+✅ M2  220 条摸底 → 53 个实体由流水线生成；每日重验（采集失败≠降级、突变→review）；dist/ 可复现构建 + cosign keyless 签名
 ⬜ M3  Cloudflare Workers API + MCP Server（发布点）
 ⬜ M4  realurls.com 证据页 + 浏览器扩展 + 生态回写
 ```
@@ -56,6 +56,8 @@ pip install -e ".[dev]"
 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 pytest tests -q
 
 python -m src.validate      # 校验 entities/：schema + 状态复算 + 中性措辞 + 唯一性
+python -m src.revalidate    # 每日重验（CI 定时跑；本地可 --dry-run --only 域名）
+python -m src.build         # entities/ → dist/（registry.json / domains.json / domains.txt / sqlite / manifest）
 
 # 端到端验证一个域名，打印完整证据链与复现命令
 python -m src.verify anthropic.com

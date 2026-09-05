@@ -68,7 +68,8 @@
         "label_source": { "type": "string",
                           "description": "names.en 从哪来：wikidata:Qxx | github_org_name(self-declared) | github_repo_name | fallback。自填来源必须如实标注" },
         "reviewed_by": { "type": "array", "items": { "type": "string" } },
-        "source_issue": { "type": ["string", "null"] }
+        "source_issue": { "type": ["string", "null"] },
+        "last_revalidated_by": { "type": "string" }
       }
     }
   },
@@ -109,7 +110,22 @@
           "items": { "type": "string" },
           "description": "被判定为无效的证据及原因。必须保留并对外展示 —— 可解释性是对外承诺"
         },
-        "reasons": { "type": "array", "items": { "type": "string" } }
+        "reasons": { "type": "array", "items": { "type": "string" } },
+        "history": {
+          "type": "array",
+          "description": "状态变更记录，append-only，永不静默覆盖",
+          "items": {
+            "type": "object",
+            "required": ["at", "from", "to"],
+            "additionalProperties": false,
+            "properties": {
+              "at": { "type": "string", "format": "date-time" },
+              "from": { "type": "string" },
+              "to": { "type": "string" },
+              "why": { "type": "string" }
+            }
+          }
+        }
       }
     },
     "evidence": {

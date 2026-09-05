@@ -125,8 +125,14 @@ def anchor_from_github_history(org_candidates: list[str]) -> EntityAnchor:
 
 def anchor(domain: str, *, github_org_override: str | None = None,
            wikidata_override: str | None = None,
-           github_org_candidates: list[str] | None = None) -> EntityAnchor:
-    """锚定入口：先 Wikidata，失败再试 GitHub 项目史。override 用于人类审核过的值（来源标为 ``human``）。"""
+           github_org_candidates: list[str] | None = None,
+           override_source: str = "human") -> EntityAnchor:
+    """锚定入口：先 Wikidata，失败再试 GitHub 项目史。
+
+    override 用于两种情况：人类审核过的值（``override_source="human"``），
+    或每日重验时沿用已落盘的 canonical（``override_source="stored"``）——身份一旦确立就该稳定，
+    不能因为 Wikidata 今天被人改了一笔就换掉。
+    """
     a = anchor_from_wikidata(domain)
     if not a.github_org and github_org_candidates:
         gh = anchor_from_github_history(github_org_candidates)
@@ -138,10 +144,14 @@ def anchor(domain: str, *, github_org_override: str | None = None,
             a.sources = a.sources + gh.sources
             a.repo_info = gh.repo_info
     if github_org_override:
+        if a.github_org and a.github_org.lower() != github_org_override.lower():
+            a.notes.append(f"anchor: ⚠ 权威给出的组织 {a.github_org} ≠ 指定值 {github_org_override}，以指定值为准但需人工留意")
         a.github_org = github_org_override
-        a.sources = a.sources + ("human:github_org",)
-        a.notes.append(f"anchor: canonical GitHub 组织由人工指定为 {github_org_override}")
+        a.sources = a.sources + (f"{override_source}:github_org",)
+        a.notes.append(f"anchor: canonical GitHub 组织由 {override_source} 指定为 {github_org_override}")
     if wikidata_override:
+        if a.wikidata and a.wikidata != wikidata_override:
+            a.notes.append(f"anchor: ⚠ 权威给出的条目 {a.wikidata} ≠ 指定值 {wikidata_override}，需人工留意")
         a.wikidata = wikidata_override
-        a.sources = a.sources + ("human:wikidata",)
+        a.sources = a.sources + (f"{override_source}:wikidata",)
     return a

@@ -44,6 +44,7 @@ def gather(
     token: str | None = None,
     canonical_github_org: str | None = None,
     canonical_wikidata: str | None = None,
+    canonical_source: str = "human",
     inherited_anchor: EntityAnchor | None = None,
 ) -> Result:
     """跑完整条采集流水线。
@@ -69,7 +70,7 @@ def gather(
     else:
         ent = inherited_anchor or anchor(
             domain, github_org_override=canonical_github_org, wikidata_override=canonical_wikidata,
-            github_org_candidates=org_candidates,
+            github_org_candidates=org_candidates, override_source=canonical_source,
         )
     out.notes.extend(ent.notes)
     out.facts.update(ent.as_facts())
