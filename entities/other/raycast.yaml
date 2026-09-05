@@ -3,7 +3,7 @@
 schema_version: '1.0'
 entity_id: org:raycast
 names:
-  en: extensions
+  en: Raycast
 aliases:
 - raycast/extensions
 category:
@@ -20,14 +20,14 @@ domains:
   status: verified
   confidence: 0.8346
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T21:38:05Z'
+  last_verified: '2026-09-05T21:45:09Z'
   ttl_days: 30
   age_days: 9741
   age_source: rdap
   collection_incomplete: false
   evidence:
   - code: A1
-    checked_at: '2026-09-05T21:38:06Z'
+    checked_at: '2026-09-05T21:45:22Z'
     source: https://api.github.com/orgs/raycast
     data:
       org: raycast
@@ -36,7 +36,7 @@ domains:
       org_name: Raycast
       created_at: '2019-11-23T17:37:03Z'
   - code: A8
-    checked_at: '2026-09-05T21:38:06Z'
+    checked_at: '2026-09-05T21:45:22Z'
     source: https://api.github.com/repos/raycast/extensions
     data:
       repo: raycast/extensions
@@ -48,7 +48,7 @@ domains:
       age_days: 1810
       contributors: 3919
   - code: A9
-    checked_at: '2026-09-05T21:38:08Z'
+    checked_at: '2026-09-05T21:45:23Z'
     source: https://itunes.apple.com/search?term=raycast&entity=software
     data:
       app: 'Raycast: AI, Notes and more'
@@ -67,7 +67,7 @@ domains:
         age_days: 493
         ratings: 241
   - code: A3
-    checked_at: '2026-09-05T21:38:07Z'
+    checked_at: '2026-09-05T21:45:23Z'
     source: https://rdap.org/domain/raycast.com
     data:
       registrar: NameCheap, Inc.
@@ -77,7 +77,7 @@ domains:
       locks:
       - transfer
   - code: A4
-    checked_at: '2026-09-05T21:38:06Z'
+    checked_at: '2026-09-05T21:45:23Z'
     source: TLS handshake raycast.com:443
     data:
       subject_org: ''
@@ -85,7 +85,7 @@ domains:
       issuer: Let's Encrypt
       san_count: 1
   - code: B1
-    checked_at: '2026-09-05T21:38:06Z'
+    checked_at: '2026-09-05T21:45:23Z'
     source: https://www.wikidata.org/wiki/Q124372806
     data:
       qid: Q124372806
@@ -94,13 +94,13 @@ domains:
       sitelinks: 2
       competing_items: 0
   - code: B5
-    checked_at: '2026-09-05T21:38:07Z'
+    checked_at: '2026-09-05T21:45:26Z'
     source: https://tranco-list.eu/download/daily/top-1m.csv.zip
     data:
       rank: 18161
       source: top-1m list
   - code: B4
-    checked_at: '2026-09-05T21:38:08Z'
+    checked_at: '2026-09-05T21:45:23Z'
     source: http://web.archive.org/cdx/search/cdx?url=raycast.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2000-04-07'
@@ -114,14 +114,9 @@ domains:
   reasons:
   - 'correlated anchors merged: A8 not independent of the kept one, counted once'
   - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
-  ai_review:
-    at: '2026-09-05T21:38:22Z'
-    model: claude-sonnet-5
-    verdict: pass
-    reason: 'review unavailable: TypeError'
 provenance:
   generated_by: build_entities/0.2
-  policy_version: policy.py@63e0ea0
-  label_source: github_repo_name
+  policy_version: policy.py@b38ad85
+  label_source: seed_org_name(self-declared)
   reviewed_by: []
   source_issue: null

@@ -38,7 +38,7 @@ def _sql_str(s: str) -> str:
     return "'" + str(s).replace("'", "''") + "'"
 
 
-def examine(domains: list[str], github_org: str | None = None) -> list[dict]:
+def examine(domains: list[str], github_org: str | None = None, org_name: str | None = None) -> list[dict]:
     now = datetime.now(UTC)
     out = []
     for raw in domains:
@@ -47,7 +47,8 @@ def examine(domains: list[str], github_org: str | None = None) -> list[dict]:
             continue
         item = {"domain": domain, "checked_at": now.strftime("%Y-%m-%dT%H:%M:%SZ")}
         try:
-            record, msg = build_one({"domain": domain, "topics": ["other"], "source": "demand", "github_org": github_org}, now)
+            record, msg = build_one({"domain": domain, "topics": ["other"], "source": "demand", "github_org": github_org,
+                                     "org_name": org_name or ""}, now)
         except Exception as exc:
             item.update({"status": "error", "reasons": [f"{type(exc).__name__}: {exc}"]})
             out.append(item)
@@ -84,6 +85,7 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--domains", help="comma-separated domains (instead of the queue)")
     p.add_argument("--max", type=int, default=MAX_PER_RUN)
     p.add_argument("--github-org", help="GitHub organisation hint applied to every listed domain (a lead's clue)")
+    p.add_argument("--org-name", help="organisation name as the submitter stated it (label fallback when no authority names it)")
     p.add_argument("--json", type=Path)
     p.add_argument("--sql", type=Path, help="write the examined-table upsert here")
     args = p.parse_args(argv)
@@ -96,7 +98,7 @@ def main(argv: list[str] | None = None) -> int:
     else:
         p.error("--queue or --domains required")
     print(f"# examining {len(domains)} domain(s)", file=sys.stderr)
-    results = examine(domains, args.github_org)
+    results = examine(domains, args.github_org, args.org_name)
     if args.json:
         args.json.write_text(json.dumps(results, ensure_ascii=False, indent=2), encoding="utf-8")
     if args.sql:

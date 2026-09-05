@@ -40,10 +40,12 @@ jobs:
               v = (m.group(1).strip() if m else "")
               return "" if v in ("", "_No response_") else v
           domain = field("Domain you believe is the official site").lower().strip()
+          org = field("Organization / company").strip()
           how = field("How do you know this is the official site? (optional)")
           gh = re.search(r"github\.com/([A-Za-z0-9-]+)", how)
           print(f"domain={domain}")
           print(f"github_org={gh.group(1) if gh else ''}")
+          print(f"org={org}")
           PY
 
       - name: Examine
@@ -55,6 +57,7 @@ jobs:
           mkdir -p .cache
           args=(--domains "${{ steps.lead.outputs.domain }}" --json .cache/examine.json --sql .cache/examined.sql)
           [ -n "${{ steps.lead.outputs.github_org }}" ] && args+=(--github-org "${{ steps.lead.outputs.github_org }}")
+          [ -n "${{ steps.lead.outputs.org }}" ] && args+=(--org-name "${{ steps.lead.outputs.org }}")
           python -m src.examine "${args[@]}"
 
       - name: Rules regression and AI review

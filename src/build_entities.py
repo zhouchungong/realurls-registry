@@ -104,10 +104,15 @@ def build_one(seed: dict, now: datetime) -> tuple[dict | None, str]:
     # 标签来源（POLICY.md §0）：Wikidata 标签 > GitHub 组织显示名（自填，仅用于展示，来源如实标注）。
     # 项目史锚定得到的 "org/repo" 不适合当展示名，但完整保留在 canonical.sources 里供核对。
     org_name = (seed.get("org_name") or "").strip()
+    gh_display = next((str(e.data.get("org_name") or "").strip() for e in result.evidence if e.code == "A1"), "")
     if ent.wikidata and ent.label and not re.fullmatch(r"Q\d+", ent.label):
         label, label_source = ent.label, f"wikidata:{ent.wikidata}"
     elif org_name and org_name.lower() != (seed.get("github_org") or "").lower():
-        label, label_source = org_name, "github_org_name(self-declared)"
+        label, label_source = org_name, "seed_org_name(self-declared)"
+    elif gh_display and gh_display.lower() != (ent.github_org or "").lower():
+        label, label_source = gh_display, "github_org_display_name(self-declared)"
+    elif ent.github_org:
+        label, label_source = ent.github_org, "github_org_login"
     elif ent.label and "/" in ent.label:
         label, label_source = ent.label.split("/", 1)[1], "github_repo_name"
     else:
