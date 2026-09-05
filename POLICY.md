@@ -137,7 +137,7 @@ Caps: `provisional` 0.75, `community` 0.50, `unverified` 0.30; hard vetoes are 0
 How it is enforced:
 
 1. **Adversarial regression** (`tests/negative_corpus.yaml`): every case asserts `!= verified`. Any case turning green is a P0 incident.
-2. **Manual sampling**: before each dataset release, 200 `verified` records are checked by hand. Below 99.5%, the rules are rolled back and nothing ships.
+2. **Manual sampling**: before each dataset release, 200 `verified` records are checked by hand. Below 99.5%, the rules are rolled back and nothing ships. The draw is reproducible (`python -m src.audit_sample draw --batch <name>`), the filled checklist is committed under `audits/` so anyone can re-check it, and `score` computes the number the decision is made on.
 3. **Every fixed false positive adds a case to the adversarial corpus.**
 4. **AI review, a second audit layer** (`src/review_ai.py`): every `verified` record is read by a language model that is asked one question — is there any sign in the stored evidence that this domain does *not* belong to this entity? A flag moves the record to `review_required` and holds it there until a human clears it. **This layer can only take verification away; it never grants it.** Nothing becomes `verified` because a model said so — the counting rules above remain the only path. The manual sample in point 2 is what proves the layer itself is trustworthy, which is why its size does not shrink as the dataset grows.
 
