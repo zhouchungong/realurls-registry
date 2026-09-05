@@ -41,7 +41,7 @@ jobs:
           COSIGN_YES: "true"
         run: |
           cd dist
-          for f in registry.json domains.json entities.json domains.txt registry.sqlite manifest.json; do
+          for f in registry.json domains.json entities.json domains.txt registry.sqlite registry.sql manifest.json; do
             cosign sign-blob --yes --bundle "$f.sigstore.json" "$f"
           done
           ls -la

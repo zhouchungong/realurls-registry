@@ -43,6 +43,16 @@ jobs:
       - name: Query core tests
         run: node --test packages/core/resolve.test.mjs
 
+      # Data first, code second: the Worker reads D1, so the dataset must be in place before the new
+      # code goes live. registry.sql builds *_new tables and swaps them at the end (no half-loaded reads).
+      - name: Load dataset into D1
+        uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd # v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: 2ba9b41856a8e2ff38d2c6630adb10f0
+          workingDirectory: api
+          command: d1 execute realurls-registry --remote --yes --file=../dist/registry.sql
+
       - name: Deploy
         uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd # v3
         with:

@@ -1,108 +1,108 @@
 /**
- * realurls API —— Cloudflare Worker。
+ * realurls Worker — API on api.realurls.org, HTML site on realurls.org, selected by Host.
  *
- * 零运维：数据集在构建时打进 Worker（dist/domains.json + entities.json + manifest.json），
- * 没有数据库、没有外部调用、每次请求纯内存查表。数据更新 = 重新部署（release.yml 之后触发）。
- * 数据集 <1MB 内这是最简单也最稳的做法；超过再迁 D1/KV。
+ * All data lives in D1 (binding DB); the Worker bundle contains code only, so it does not grow with the
+ * dataset. The lookalike index is the single in-memory cache (see store.mjs).
  *
- * 端点（全部 GET、无鉴权、CORS 开放）：
- *   /v1/resolve?domain=<domain or url>   正查：这个域名属于谁 / 像谁
- *   /v1/entity?q=<name>                  反查：这个名字的官网
- *   /v1/manifest                         数据集版本、条数、各文件 sha256
- *   /v1/domains.txt                      verified 白名单
+ * Endpoints (GET only, no auth, CORS open):
+ *   /v1/resolve?domain=<domain or url>   who owns this domain / what it resembles
+ *   /v1/entity?q=<name>                  official site(s) by name
+ *   /v1/manifest                         dataset version and counts
+ *   /v1/domains.txt                      plain-text allowlist of verified domains
+ *   /v1/domains.json                     full domain index (the browser extension downloads it daily)
  *   /healthz
  *
- * 每个响应都带 X-Realurls-Dataset: <git rev>，调用方能对上签名的 manifest。
+ * Every response carries X-Realurls-Dataset (git revision of the data) so callers can match it to the
+ * signed release.
  */
 
-import { Resolver } from "../../packages/core/resolve.mjs";
-import domains from "../../dist/domains.json";
-import entities from "../../dist/entities.json";
-import manifest from "../../dist/manifest.json";
+import { Store } from "./store.mjs";
 import { handleSite, apiLanding } from "./site.mjs";
-
-const resolver = new Resolver({ domains, entities, manifest });
-const VERIFIED_TXT = Object.entries(domains).filter(([, v]) => v.official).map(([d]) => d).sort().join("\n") + "\n";
 
 const CORS = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "GET, OPTIONS",
   "Access-Control-Allow-Headers": "Content-Type",
 };
+const TRUST = "https://github.com/zhouchungong/realurls-registry/blob/main/TRUST.md";
 
-function json(body, status = 200, extra = {}) {
+function json(body, version, status = 200, extra = {}) {
   return new Response(JSON.stringify(body, null, 2), {
     status,
-    headers: {
-      "Content-Type": "application/json; charset=utf-8",
-      "Cache-Control": "public, max-age=300",
-      "X-Realurls-Dataset": manifest.dataset_version,
-      "X-Realurls-Trust": "https://github.com/zhouchungong/realurls-registry/blob/main/TRUST.md",
-      ...CORS, ...extra,
-    },
+    headers: { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "public, max-age=300",
+               "X-Realurls-Dataset": version || "", "X-Realurls-Trust": TRUST, ...CORS, ...extra },
   });
 }
 
 export default {
-  async fetch(request) {
+  async fetch(request, env, ctx) {
     if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: CORS });
-    if (request.method !== "GET") return json({ error: "GET only" }, 405);
+    if (request.method !== "GET") return json({ error: "GET only" }, null, 405);
 
+    const store = new Store(env.DB);
     const url = new URL(request.url);
     const path = url.pathname.replace(/\/+$/, "") || "/";
-
-    // realurls.org（及 www）出 HTML；api.realurls.org / workers.dev 出 JSON。
-    // 站点域上的 /v1/* 仍走 API，方便页面里的 fetch 同源。
-    // wrangler dev 会把 url.hostname 改写成 localhost，但 Host 头保留原值——以头为准便于本地用 -H Host 测试
+    // wrangler dev rewrites url.hostname but keeps the Host header; prefer the header so -H Host works locally
     const host = (request.headers.get("host") || url.hostname).split(":")[0].toLowerCase();
+
+    let meta;
+    try { meta = await store.meta(); }
+    catch (e) { return json({ error: "dataset not loaded", detail: String(e.message || e) }, null, 503, { "Cache-Control": "no-store" }); }
+
     if (host === "realurls.org" || host === "www.realurls.org") {
-      const page = handleSite(request, resolver);
+      const page = await handleSite(request, store, meta);
       if (page) return page;
     }
 
+    // Large, slow-changing responses go through the edge cache for an hour.
+    const cached = async (key, produce) => {
+      const cache = caches.default;
+      const req = new Request(`https://cache.realurls.internal${key}?v=${meta.dataset_version}`);
+      let res = await cache.match(req);
+      if (!res) { res = await produce(); ctx.waitUntil(cache.put(req, res.clone())); }
+      return res;
+    };
+
     switch (path) {
       case "/healthz":
-        return json({ ok: true, ...resolver.meta() });
+        return json({ ok: true, ...meta }, meta.dataset_version, 200, { "Cache-Control": "no-store" });
 
       case "/v1/manifest":
-        return json(manifest);
+        return json(meta, meta.dataset_version);
 
-      // 浏览器扩展每日拉一次，本地判定，不逐页请求 API（隐私：浏览记录不离开本机）
       case "/v1/domains.json":
-        return json(domains, 200, { "Cache-Control": "public, max-age=3600" });
+        return cached("/domains.json", async () => json(await store.domainsIndex(), meta.dataset_version, 200, { "Cache-Control": "public, max-age=3600" }));
 
       case "/v1/domains.txt":
-        return new Response(VERIFIED_TXT, {
-          headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "public, max-age=3600",
-                     "X-Realurls-Dataset": manifest.dataset_version, ...CORS },
-        });
+        return cached("/domains.txt", async () => new Response(await store.verifiedText(), {
+          headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "public, max-age=3600", "X-Realurls-Dataset": meta.dataset_version, ...CORS },
+        }));
 
       case "/v1/resolve": {
         const q = url.searchParams.get("domain") || url.searchParams.get("url");
-        if (!q) return json({ error: "missing ?domain=" }, 400);
-        return json({ ...resolver.resolve(q), dataset_version: manifest.dataset_version });
+        if (!q) return json({ error: "missing ?domain=" }, meta.dataset_version, 400);
+        return json({ ...(await store.resolve(q)), dataset_version: meta.dataset_version }, meta.dataset_version);
       }
 
       case "/v1/entity": {
         const q = url.searchParams.get("q") || url.searchParams.get("name");
-        if (!q) return json({ error: "missing ?q=" }, 400);
-        return json({ ...resolver.lookup(q), dataset_version: manifest.dataset_version });
+        if (!q) return json({ error: "missing ?q=" }, meta.dataset_version, 400);
+        return json({ ...(await store.lookup(q)), dataset_version: meta.dataset_version }, meta.dataset_version);
       }
 
       case "/":
-        // A browser gets a copy-friendly landing page; curl / fetch / agents get JSON.
+        // Browsers get a copy-friendly landing page; curl / fetch / agents get JSON.
         if ((request.headers.get("accept") || "").includes("text/html")) {
-          return new Response(apiLanding(), { headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "public, max-age=300", ...CORS } });
+          return new Response(apiLanding(meta), { headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "public, max-age=300", ...CORS } });
         }
         return json({
           name: "realurls", what: "Which domain officially belongs to which organization. Ownership only, never safety.",
-          endpoints: ["/v1/resolve?domain=", "/v1/entity?q=", "/v1/manifest", "/v1/domains.txt", "/healthz"],
-          trust: "https://github.com/zhouchungong/realurls-registry/blob/main/TRUST.md",
-          ...resolver.meta(),
-        });
+          endpoints: ["/v1/resolve?domain=", "/v1/entity?q=", "/v1/manifest", "/v1/domains.txt", "/v1/domains.json", "/healthz"],
+          trust: TRUST, ...meta,
+        }, meta.dataset_version);
 
       default:
-        return json({ error: "not found" }, 404);
+        return json({ error: "not found" }, meta.dataset_version, 404);
     }
   },
 };

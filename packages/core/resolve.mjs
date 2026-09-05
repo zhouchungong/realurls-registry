@@ -24,10 +24,10 @@ export function registrableDomain(input) {
   return PLATFORM_SUFFIXES.has(two) ? parts.slice(-3).join(".") : two;
 }
 
-/** Punycode / 同形字的粗略归一：把常见混淆字符折到 ASCII，只用于相似度提示。 */
+/** Rough homograph normalisation: fold common confusables to ASCII. Used only for the lookalike hint. */
 const CONFUSABLES = { "а": "a", "е": "e", "о": "o", "р": "p", "с": "c", "х": "x", "у": "y", "і": "i", "ј": "j",
                       "0": "o", "1": "l", "3": "e", "5": "s", "vv": "w", "rn": "m" };
-function normalizeLabel(s) {
+export function normalizeLabel(s) {
   let out = s.toLowerCase();
   for (const [k, v] of Object.entries(CONFUSABLES)) out = out.split(k).join(v);
   return out.replace(/[^a-z0-9]/g, "");
@@ -137,17 +137,33 @@ export class Resolver {
   }
 
   closest(domain) {
-    const label = normalizeLabel(domain.split(".")[0]);
-    if (label.length < 3) return null;
-    let best = null;
-    for (const v of this.verifiedLabels) {
-      if (v.domain === domain) continue;
-      const contains = label.includes(v.label) || v.label.includes(label);
-      const dist = levenshtein(label, v.label);
-      // 包含关系（claude-desktop ⊃ claude）按 2 算；纯编辑距离 ≤ 2 才算像
-      const score = contains && v.label.length >= 4 ? Math.min(dist, 2) : dist;
-      if (score <= 2 && (!best || score < best.distance)) best = { ...v, distance: score };
-    }
-    return best;
+    return closestLabel(this.verifiedLabels, domain);
   }
 }
+
+/**
+ * Lookalike hint against a list of verified labels [{domain, label, entity_id}].
+ * Shared by the in-memory Resolver (extension) and the D1-backed store (Worker).
+ * Only verified domains may serve as the baseline — never an unverified one.
+ */
+export function closestLabel(labels, domain) {
+  const label = normalizeLabel(domain.split(".")[0]);
+  if (label.length < 3) return null;
+  let best = null;
+  for (const v of labels) {
+    if (v.domain === domain) continue;
+    const contains = label.includes(v.label) || v.label.includes(label);
+    const dist = levenshtein(label, v.label);
+    // containment (claude-desktop ⊃ claude) scores 2; otherwise plain edit distance ≤ 2 counts as similar
+    const score = contains && v.label.length >= 4 ? Math.min(dist, 2) : dist;
+    if (score <= 2 && (!best || score < best.distance)) best = { ...v, distance: score };
+  }
+  return best;
+}
+
+export const verdictNotes = {
+  official: "Verified as belonging to this entity. Ownership only — not a safety judgement.",
+  insufficient: status => `Known entity, but evidence is insufficient (${status}). Do not present as confirmed official.`,
+  lookalike: (name, near) => `Not a known domain of ${name}. Resembles ${near}. Offer the verified domain(s) instead. This is an attribution signal, not a malware verdict.`,
+  unknown: "Not in the registry. Say you cannot confirm it is official; do not guess.",
+};

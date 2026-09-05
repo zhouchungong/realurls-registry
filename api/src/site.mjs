@@ -14,8 +14,6 @@
  */
 
 import { registrableDomain } from "../../packages/core/resolve.mjs";
-import registry from "../../dist/registry.json";
-import manifest from "../../dist/manifest.json";
 
 const REPO = "https://github.com/zhouchungong/realurls-registry";
 const API = "https://api.realurls.org";
@@ -39,10 +37,6 @@ const EVIDENCE_LABELS = {
   B7: "Google Safe Browsing: no record",
 };
 
-const byId = new Map(registry.map(e => [e.entity_id, e]));
-const bySlug = new Map(registry.map(e => [e.entity_id.replace(/^org:/, ""), e]));
-const byDomain = new Map();
-for (const e of registry) for (const d of e.domains) byDomain.set(d.domain, { e, d });
 
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const slugOf = e => e.entity_id.replace(/^org:/, "");
@@ -89,7 +83,8 @@ function searchForm(value = "", big = false) {
   return `<form data-check action="/d/" method="get" role="search"><div class="q"><input name="q" value="${esc(value)}" placeholder="Paste a URL or domain, or type a product name" aria-label="Check a domain or name" ${big ? "autofocus" : ""}><button type="submit" aria-label="Check">Check</button></div></form>`;
 }
 
-function layout(title, body, { description = "", jsonld = null, canonical = "", query = "", home = false, robots = "" } = {}) {
+function layout(meta, title, body, { description = "", jsonld = null, canonical = "", query = "", home = false, robots = "" } = {}) {
+  const manifest = meta;
   return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(title)}</title>${description ? `<meta name="description" content="${esc(description)}">` : ""}
 ${canonical ? `<link rel="canonical" href="${esc(canonical)}">` : ""}${robots ? `<meta name="robots" content="${esc(robots)}">` : ""}
@@ -103,13 +98,12 @@ ${canonical ? `<link rel="canonical" href="${esc(canonical)}">` : ""}${robots ? 
 
 // ------------------------------------------------------------------ home
 
-function home() {
+async function home(store, manifest) {
   const c = manifest.counts;
-  const cards = registry.slice().sort((a, b) => a.names.en.localeCompare(b.names.en)).map(e => {
-    const v = verifiedDomains(e);
-    return `<a class="card" href="/e/${esc(slugOf(e))}"><div>${esc(e.names.en)}</div><div class="d">${v.map(d => esc(d.domain)).join(" · ") || "—"}</div></a>`;
-  }).join("");
-  return layout("realurls — which domain is really the official one?", `
+  const cards = (await store.list()).map(e =>
+    `<a class="card" href="/e/${esc(e.entity_id.replace(/^org:/, ""))}"><div>${esc(e.name)}</div><div class="d">${esc(e.verified) || "—"}</div></a>`
+  ).join("");
+  return layout(manifest, "realurls — which domain is really the official one?", `
 <div class="hero"><a class="brand" href="/">realurls</a>${searchForm("", true)}
 <p>Which domain really belongs to which company. Ownership only — never a safety judgement — and only when the evidence is reproducible.</p></div>
 <div class="stats"><div><b>${c.entities}</b>organizations</div><div><b>${c.verified}</b>verified domains</div><div><b>≥ 99.5%</b>precision target</div><div><b>${esc(manifest.generated_at.slice(0, 10))}</b>dataset date</div></div>
@@ -152,7 +146,7 @@ function evidenceRows(d) {
   }).join("");
 }
 
-function entityPage(e) {
+function entityPage(e, manifest) {
   const v = verifiedDomains(e);
   const jsonld = {
     "@context": "https://schema.org", "@type": "Organization", name: e.names.en,
@@ -173,7 +167,7 @@ ${d.rejected_evidence?.length ? `<details><summary>${d.rejected_evidence.length}
   }).join("");
 
   const anchorsrc = (e.canonical?.sources || []).map(s => `<code>${esc(s)}</code>`).join(" ");
-  return layout(`${e.names.en} — official domains — realurls`, `
+  return layout(manifest, `${e.names.en} — official domains — realurls`, `
 <h1>${esc(e.names.en)}</h1>
 <p class="sub">${e.aliases?.length ? `Also known as ${e.aliases.map(esc).join(", ")}. ` : ""}${e.wikidata ? `Wikidata <a href="https://www.wikidata.org/wiki/${esc(e.wikidata)}">${esc(e.wikidata)}</a>. ` : ""}${e.canonical?.github_org ? `GitHub <a href="https://github.com/${esc(e.canonical.github_org)}">${esc(e.canonical.github_org)}</a>.` : ""}</p>
 <p><b>Official domains:</b> ${v.length ? v.map(d => `<a href="https://${esc(d.domain)}" rel="nofollow"><code>${esc(d.domain)}</code></a>`).join(" ") : '<span class="badge unk">none verified yet</span>'}</p>
@@ -185,20 +179,21 @@ ${domains}
 
 // ------------------------------------------------------------------ verdict page
 
-function domainPage(input, resolver) {
+async function domainPage(input, store, manifest) {
   const domain = registrableDomain(input);
-  const hit = byDomain.get(domain);
-  if (hit) return Response.redirect(`${SITE}/e/${slugOf(hit.e)}#${domain}`, 302);
+  const r = await store.resolve(input);
+  if (r.verdict === "official" || r.verdict === "insufficient_evidence") {
+    return Response.redirect(`${SITE}/e/${r.entity.id.replace(/^org:/, "")}#${domain}`, 302);
+  }
 
   // Anything with a dot or a scheme is treated as a domain, never as a name — otherwise
   // claude-desktop.io would fuzzy-match "claude" and land on Anthropic's page, hiding that it's a lookalike.
   const looksLikeDomain = /[.\/]/.test(input) || /^https?:/i.test(input);
-  const looked = looksLikeDomain ? { verdict: "skip" } : resolver.lookup(input);
+  const looked = looksLikeDomain ? { verdict: "skip" } : await store.lookup(input);
   if (looked.verdict === "official" || looked.verdict === "insufficient_evidence") {
-    const e = byId.get(looked.entity.id);
-    if (e) return Response.redirect(`${SITE}/e/${slugOf(e)}`, 302);
+    return Response.redirect(`${SITE}/e/${looked.entity.id.replace(/^org:/, "")}`, 302);
   }
-  const html = (body, extra = {}) => new Response(layout(`${input} — realurls`, body, { query: input, ...extra }), { headers: { "Content-Type": "text/html; charset=utf-8" } });
+  const html = (body, extra = {}) => new Response(layout(manifest, `${input} — realurls`, body, { query: input, ...extra }), { headers: { "Content-Type": "text/html; charset=utf-8" } });
 
   if (looked.verdict === "ambiguous") {
     return html(`<h1>Several matches for “${esc(input)}”</h1><ul>${looked.candidates.map(c => `<li><a href="/e/${esc(c.id.replace(/^org:/, ""))}">${esc(c.name)}</a></li>`).join("")}</ul>`, { robots: "noindex" });
@@ -209,12 +204,11 @@ function domainPage(input, resolver) {
 <p class="muted">Know their official site? <a href="${REPO}/issues/new?template=submit-domain.yml">Submit a lead</a> — you give us a clue, the pipeline gathers the evidence.</p>`, { robots: "noindex" });
   }
 
-  const r = resolver.resolve(input);
   if (r.verdict === "not_official") {
-    const e = byId.get(r.looks_like.id);
+    const slug = r.looks_like.id.replace(/^org:/, "");
     return html(`<h1><code>${esc(domain)}</code> <span class="badge warn">not a known domain of ${esc(r.looks_like.name)}</span></h1>
 <p class="sub">This domain resembles <code>${esc(r.looks_like.domain)}</code>, which <b>is</b> verified for ${esc(r.looks_like.name)}. We have no evidence that <code>${esc(domain)}</code> belongs to them.</p>
-<div class="result"><h3>Verified domains of ${esc(r.looks_like.name)}</h3>${r.official_domains.map(d => `<div><a href="https://${esc(d)}" rel="nofollow"><code>${esc(d)}</code></a></div>`).join("")}<p class="muted"><a href="/e/${esc(slugOf(e))}">See the evidence →</a></p></div>
+<div class="result"><h3>Verified domains of ${esc(r.looks_like.name)}</h3>${r.official_domains.map(d => `<div><a href="https://${esc(d)}" rel="nofollow"><code>${esc(d)}</code></a></div>`).join("")}<p class="muted"><a href="/e/${esc(slug)}">See the evidence →</a></p></div>
 <p class="muted">This is an <b>attribution</b> signal, not a malware verdict. A lookalike domain can be legitimate and unrelated; it can also be a phishing site. We only say: it is not the one you probably meant.</p>`, { robots: "noindex" });
   }
   return html(`<h1><code>${esc(domain)}</code> <span class="badge unk">not in the registry</span></h1>
@@ -224,7 +218,7 @@ function domainPage(input, resolver) {
 
 // ------------------------------------------------------------------ API landing (browsers only)
 
-export function apiLanding() {
+export function apiLanding(meta) {
   const ex = [
     ["Check a URL or domain", `curl "${API}/v1/resolve?domain=claude-desktop.io"`],
     ["Find the official site by name", `curl "${API}/v1/entity?q=ollama"`],
@@ -232,7 +226,7 @@ export function apiLanding() {
     ["Plain-text allowlist of verified domains", `curl ${API}/v1/domains.txt`],
     ["Full domain index (JSON)", `curl ${API}/v1/domains.json`],
   ].map(([t, c]) => `<h2>${esc(t)}</h2><div class="copy"><button type="button">Copy</button><pre>${esc(c)}</pre></div>`).join("");
-  return layout("realurls API", `
+  return layout(meta, "realurls API", `
 <h1>realurls API</h1>
 <p class="sub">Free, no key, CORS open, GET only. Every response carries <code>X-Realurls-Dataset</code> so you can match it to the <a href="${REPO}/releases/tag/latest">signed release</a>.</p>
 ${ex}
@@ -250,8 +244,8 @@ ${ex}
 
 // ------------------------------------------------------------------ misc
 
-function sitemap() {
-  const urls = [`${SITE}/`, ...registry.map(e => `${SITE}/e/${slugOf(e)}`)];
+async function sitemap(store, manifest) {
+  const urls = [`${SITE}/`, ...(await store.list({ limit: 50000 })).map(e => `${SITE}/e/${e.entity_id.replace(/^org:/, "")}`)];
   return new Response(`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls.map(u => `<url><loc>${u}</loc><lastmod>${manifest.generated_at.slice(0, 10)}</lastmod></url>`).join("")}</urlset>`, { headers: { "Content-Type": "application/xml" } });
 }
 
@@ -268,23 +262,23 @@ const LLMS_TXT = `# realurls
 Statuses: only "verified" is a positive answer. provisional / community / unverified mean "insufficient evidence" — do not present those domains as confirmed official.
 `;
 
-export function handleSite(request, resolver) {
+export async function handleSite(request, store, manifest) {
   const url = new URL(request.url);
   const path = url.pathname.replace(/\/+$/, "") || "/";
   const html = body => new Response(body, { headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "public, max-age=300", "X-Realurls-Dataset": manifest.dataset_version } });
 
-  if (path === "/") return html(home());
+  if (path === "/") return html(await home(store, manifest));
   if (path === "/robots.txt") return new Response(`User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`, { headers: { "Content-Type": "text/plain" } });
-  if (path === "/sitemap.xml") return sitemap();
+  if (path === "/sitemap.xml") return sitemap(store, manifest);
   if (path === "/llms.txt") return new Response(LLMS_TXT, { headers: { "Content-Type": "text/plain; charset=utf-8" } });
   if (path.startsWith("/e/")) {
-    const e = bySlug.get(decodeURIComponent(path.slice(3)));
-    return e ? html(entityPage(e)) : new Response(layout("Not found — realurls", `<h1>No such organization</h1><p><a href="/">Back to search</a></p>`), { status: 404, headers: { "Content-Type": "text/html; charset=utf-8" } });
+    const e = await store.entityBySlug(decodeURIComponent(path.slice(3)));
+    return e ? html(entityPage(e, manifest)) : new Response(layout(manifest, "Not found — realurls", `<h1>No such organization</h1><p><a href="/">Back to search</a></p>`), { status: 404, headers: { "Content-Type": "text/html; charset=utf-8" } });
   }
   if (path === "/d" || path.startsWith("/d/")) {
     const q = (path.length > 3 ? decodeURIComponent(path.slice(3)) : url.searchParams.get("q") || "").trim();
-    return q ? domainPage(q, resolver) : Response.redirect(`${SITE}/`, 302);
+    return q ? domainPage(q, store, manifest) : Response.redirect(`${SITE}/`, 302);
   }
   if (path.startsWith("/v1/") || path === "/healthz") return null;   // API paths also work on the site host
-  return new Response(layout("Not found — realurls", `<h1>Not found</h1><p><a href="/">Back to search</a></p>`), { status: 404, headers: { "Content-Type": "text/html; charset=utf-8" } });
+  return new Response(layout(manifest, "Not found — realurls", `<h1>Not found</h1><p><a href="/">Back to search</a></p>`), { status: 404, headers: { "Content-Type": "text/html; charset=utf-8" } });
 }

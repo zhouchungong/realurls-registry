@@ -152,6 +152,11 @@ def build(out_dir: Path = DIST) -> dict:
     con.commit()
     con.close()
 
+    # registry.sql — loads the whole dataset into Cloudflare D1 (wrangler d1 execute --file).
+    # Built into *_new tables and swapped at the end so readers never see a half-loaded set.
+    # Multi-row INSERTs keep the statement count small (D1 batches per statement).
+    write_sql(out_dir / "registry.sql", entities, index, verified, _git_rev())
+
     manifest = {
         "schema_version": "1.0",
         "dataset_version": _git_rev(),
@@ -164,13 +169,98 @@ def build(out_dir: Path = DIST) -> dict:
                           for s in sorted({v["status"] for v in index.values()})},
         },
         "files": {name: {"sha256": _sha256(out_dir / name), "bytes": (out_dir / name).stat().st_size}
-                  for name in ("registry.json", "domains.json", "entities.json", "domains.txt", "registry.sqlite")},
+                  for name in ("registry.json", "domains.json", "entities.json", "domains.txt", "registry.sqlite", "registry.sql")},
         "license": "CC-BY-SA-4.0",
         "trust": "https://github.com/zhouchungong/realurls-registry/blob/main/TRUST.md",
     }
     (out_dir / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2),
                                            encoding="utf-8")
     return manifest
+
+
+def _q(v) -> str:
+    """SQL literal. Only strings/ints/floats/None/bools reach here."""
+    if v is None:
+        return "NULL"
+    if isinstance(v, bool):
+        return "1" if v else "0"
+    if isinstance(v, (int, float)):
+        return repr(v)
+    return "'" + str(v).replace("'", "''") + "'"
+
+
+def write_sql(path: Path, entities: list[dict], index: dict, verified: list[str], version: str) -> None:
+    from datetime import UTC, datetime
+
+    rows_e, rows_d, rows_a = [], [], []
+    for e in entities:
+        canonical = e.get("canonical") or {}
+        aliases = sorted({e["names"]["en"].lower(), *[x.lower() for x in e.get("aliases", [])]})
+        # derived aliases, same rule as entities.json
+        for d in e["domains"]:
+            if d["status"] == OFFICIAL:
+                aliases.append(d["domain"].split(".")[0])
+        for s in canonical.get("sources", []):
+            if s.startswith("github-history:"):
+                repo = s.split(":", 1)[1].split("(")[0].split("/")[-1]
+                aliases += [repo.lower(), repo.replace("_", " ").replace("-", " ").lower()]
+        rows_e.append((e["entity_id"], e["names"]["en"], e.get("wikidata"), canonical.get("github_org"),
+                       ",".join(e.get("category", [])), json.dumps(canonical, ensure_ascii=False),
+                       json.dumps(sorted(set(aliases) - {e["names"]["en"].lower()}), ensure_ascii=False),
+                       (e.get("provenance") or {}).get("label_source")))
+        for a in sorted(set(aliases)):
+            rows_a.append((a, e["entity_id"]))
+        for d in e["domains"]:
+            rows_d.append((d["domain"], e["entity_id"], d.get("role", "primary"), d["status"],
+                           int(d["status"] == OFFICIAL), d.get("confidence"), d.get("last_verified"),
+                           json.dumps(index[d["domain"]]["anchors"]),
+                           json.dumps({"evidence": d.get("evidence", []), "rejected_evidence": d.get("rejected_evidence", []),
+                                       "reasons": d.get("reasons", []), "age_days": d.get("age_days"),
+                                       "age_source": d.get("age_source"), "first_seen": d.get("first_seen"),
+                                       "ttl_days": d.get("ttl_days"), "history": d.get("history", [])}, ensure_ascii=False)))
+
+    def inserts(table: str, cols: str, rows: list[tuple], max_bytes: int = 60_000) -> list[str]:
+        """Multi-row INSERTs, each kept under D1's per-statement size limit (SQLITE_TOOBIG near 100 KB)."""
+        out: list[str] = []
+        cur: list[str] = []
+        size = 0
+        for r in rows:
+            v = "(" + ", ".join(_q(x) for x in r) + ")"
+            if cur and size + len(v.encode()) > max_bytes:
+                out.append(f"INSERT INTO {table} ({cols}) VALUES\n" + ",\n".join(cur) + ";")
+                cur, size = [], 0
+            cur.append(v)
+            size += len(v.encode()) + 2
+        if cur:
+            out.append(f"INSERT INTO {table} ({cols}) VALUES\n" + ",\n".join(cur) + ";")
+        return out
+
+    stmts = [
+        "DROP TABLE IF EXISTS entities_new; DROP TABLE IF EXISTS domains_new; "
+        "DROP TABLE IF EXISTS aliases_new; DROP TABLE IF EXISTS meta_new;",
+        "CREATE TABLE entities_new(entity_id TEXT PRIMARY KEY, name TEXT NOT NULL, wikidata TEXT, github_org TEXT, "
+        "category TEXT, canonical_json TEXT, aliases_json TEXT, label_source TEXT);",
+        "CREATE TABLE domains_new(domain TEXT PRIMARY KEY, entity_id TEXT NOT NULL, role TEXT, status TEXT NOT NULL, "
+        "official INTEGER NOT NULL, confidence REAL, last_verified TEXT, anchors_json TEXT, record_json TEXT);",
+        "CREATE TABLE aliases_new(alias TEXT NOT NULL, entity_id TEXT NOT NULL);",
+        "CREATE TABLE meta_new(key TEXT PRIMARY KEY, value TEXT);",
+        *inserts("entities_new", "entity_id, name, wikidata, github_org, category, canonical_json, aliases_json, label_source", rows_e),
+        *inserts("domains_new", "domain, entity_id, role, status, official, confidence, last_verified, anchors_json, record_json", rows_d),
+        *inserts("aliases_new", "alias, entity_id", rows_a),
+        "INSERT INTO meta_new (key, value) VALUES " + ", ".join(
+            f"({_q(k)}, {_q(v)})" for k, v in {
+                "dataset_version": version,
+                "generated_at": datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ"),
+                "entities": len(entities), "domains": len(index), "verified": len(verified),
+            }.items()) + ";",
+        "CREATE INDEX idx_domains_new_entity ON domains_new(entity_id); CREATE INDEX idx_aliases_new_alias ON aliases_new(alias); "
+        "CREATE INDEX idx_domains_new_official ON domains_new(official);",
+        # swap
+        "DROP TABLE IF EXISTS entities; DROP TABLE IF EXISTS domains; DROP TABLE IF EXISTS aliases; DROP TABLE IF EXISTS meta;",
+        "ALTER TABLE entities_new RENAME TO entities; ALTER TABLE domains_new RENAME TO domains; "
+        "ALTER TABLE aliases_new RENAME TO aliases; ALTER TABLE meta_new RENAME TO meta;",
+    ]
+    path.write_text("\n".join(stmts) + "\n", encoding="utf-8")
 
 
 def main() -> int:
