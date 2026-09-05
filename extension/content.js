@@ -1,4 +1,4 @@
-// 只在后台判定为"相似但未收录"时收到消息；其余页面这个脚本什么都不做。
+// Receives a message only when the background judged "lookalike, not listed"; on every other page this script does nothing.
 chrome.runtime.onMessage.addListener(msg => {
   if (msg?.type !== "realurls:lookalike" || document.getElementById("realurls-banner")) return;
 

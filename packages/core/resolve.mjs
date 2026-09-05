@@ -1,11 +1,11 @@
 /**
- * realurls 查询核心 —— Workers API 与 MCP server 共用。
+ * Realurls query core — shared by the Workers API, the MCP server and the browser extension.
  *
- * 只做查询，不做判定：数据里 status 是什么就回什么。判定在 Python 侧的 policy.py，
- * 这里唯一的"计算"是相似域名提示（编辑距离），而它只产生 not_official 的**提示**，
- * 永远不会把一个域名说成 official。
+ * Lookup only, no judgement: whatever status the data holds is what is returned. Decisions live in policy.py (Python);
+ * the only computation here is the lookalike hint (edit distance), and it can only produce a not_official *hint* —
+ * it never turns a domain into official.
  *
- * 对外语义（TRUST.md §3）：只有 status === "verified" 才 official=true。
+ * Public semantics (TRUST.md §3): official=true only when status === "verified".
  */
 
 const PLATFORM_SUFFIXES = new Set([
@@ -54,12 +54,12 @@ export class Resolver {
     this.domains = dataset.domains || {};
     this.entities = dataset.entities || {};
     this.manifest = dataset.manifest || {};
-    // 名字/别名 → entity_id（小写）
+    // name / alias → entity_id (lowercased)
     this.byName = new Map();
     for (const [id, e] of Object.entries(this.entities)) {
       for (const n of [e.name, ...(e.aliases || [])]) if (n) this.byName.set(n.toLowerCase(), id);
     }
-    // 只拿 verified 域名做相似度基准——不能拿未验证的当"真身"
+    // only verified domains serve as the lookalike baseline — an unverified domain must not pose as the real one
     this.verifiedLabels = Object.entries(this.domains)
       .filter(([, v]) => v.official)
       .map(([d, v]) => ({ domain: d, label: normalizeLabel(d.split(".")[0]), entity_id: v.entity_id }));
@@ -70,7 +70,7 @@ export class Resolver {
              counts: this.manifest.counts };
   }
 
-  /** 正查：域名/URL → 归属判定 */
+  /** Forward lookup: domain / URL → ownership verdict */
   resolve(input) {
     const domain = registrableDomain(input);
     if (!domain || !domain.includes(".")) return { domain, verdict: "invalid", note: "Not a domain." };
@@ -105,13 +105,13 @@ export class Resolver {
              note: "Not in the registry. Say you cannot confirm it is official; do not guess." };
   }
 
-  /** 反查：名字 → 官网 */
+  /** Reverse lookup: name → official domains */
   lookup(name) {
     const q = String(name || "").trim().toLowerCase();
     if (!q) return { query: name, verdict: "invalid" };
     let id = this.byName.get(q);
     if (!id) {
-      // 宽松匹配：包含关系，但要求 ≥3 字符，避免 "ai" 命中一切
+      // loose match: substring, but at least 3 characters so "ai" does not match everything
       if (q.length >= 3) {
         const cands = [...this.byName.entries()].filter(([n]) => n.includes(q) || q.includes(n));
         if (cands.length === 1) id = cands[0][1];

@@ -48,7 +48,7 @@ test("resolve: lookalike → not_official with the real domain", () => {
 });
 
 test("resolve: cyrillic homograph is caught", () => {
-  const out = r.resolve("аnthropic.com"); // 西里尔 а
+  const out = r.resolve("аnthropic.com"); // Cyrillic а
   assert.equal(out.verdict, "not_official");
 });
 
@@ -57,7 +57,7 @@ test("resolve: unrelated domain → unknown, never guesses", () => {
 });
 
 test("resolve: lookalike baseline uses only verified domains", () => {
-  // cursor.com 只是 community，cursor-ide.dev 不能被说成"像 Cursor 官网"——因为我们没确认 cursor.com 是官网
+  // cursor.com is only community, so cursor-ide.dev must not be called "like Cursor's official site" — we never confirmed cursor.com is
   const out = r.resolve("cursor-ide.dev");
   assert.equal(out.verdict, "unknown");
 });

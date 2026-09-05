@@ -1,13 +1,13 @@
 /**
  * Realurls browser extension — background service worker.
  *
- * 隐私设计：每天从 api.realurls.org 拉一次 domains.json（几十 KB），之后**所有判定在本机完成**，
- * 不会把你访问的域名发给任何服务器。弹窗里的"查证据"是你主动点击才会打开网页。
+ * Privacy: domains.json (tens of KB) is fetched from api.realurls.org once a day; after that every verdict
+ * is computed locally. The domains you visit are never sent anywhere. "See evidence" opens a page only when you click it.
  *
- * 只做三件事：
- *   verified 域名   → 工具栏图标显示绿色 ✓
- *   相似但未收录    → 图标显示 !，并让内容脚本在页面顶部弹一条提示（附真官网链接）
- *   其它            → 什么都不做。"不知道"就是不知道，不制造噪音。
+ * It does exactly three things:
+ *   verified domain          → green ✓ on the toolbar icon
+ *   lookalike, not listed    → ! on the icon, and the content script shows a banner with the real official domains
+ *   anything else            → nothing. "Don't know" means don't know; no noise.
  */
 
 import { Resolver, registrableDomain } from "./resolve.mjs";
@@ -29,12 +29,12 @@ async function loadDataset(force = false) {
       fetch(`${API}/v1/domains.json`).then(r => r.json()),
       fetch(`${API}/v1/manifest`).then(r => r.json()),
     ]);
-    // entities.json 不需要：扩展只做域名判定，不做名字查询
+    // entities.json is not needed: the extension only judges domains, it does not look up names
     const ds = { domains, entities: {}, manifest };
     await chrome.storage.local.set({ dataset: ds, fetchedAt: Date.now() });
     resolver = new Resolver(ds);
   } catch (e) {
-    if (dataset) resolver = new Resolver(dataset);   // 离线时用旧数据，不报错
+    if (dataset) resolver = new Resolver(dataset);   // offline: keep the previous dataset, no error
   }
 }
 
