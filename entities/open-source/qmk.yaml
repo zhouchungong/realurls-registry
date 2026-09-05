@@ -1,0 +1,103 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:qmk
+names:
+  en: qmk_firmware
+aliases:
+- QMK
+- qmk
+- qmk/qmk_firmware
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: qmk
+  wikidata: null
+  sources:
+  - github-history:qmk/qmk_firmware(age=11y,contrib=3601,stars=20679)
+domains:
+- domain: qmk.fm
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:49Z'
+  ttl_days: 30
+  age_days: 3726
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:24:52Z'
+    source: https://api.github.com/orgs/qmk
+    data:
+      org: qmk
+      org_verified: true
+      blog: https://qmk.fm
+      org_name: QMK
+      created_at: '2017-01-26T02:42:23Z'
+  - code: A8
+    checked_at: '2026-09-05T19:24:52Z'
+    source: https://api.github.com/repos/qmk/qmk_firmware
+    data:
+      repo: qmk/qmk_firmware
+      org: qmk
+      repo_anchored: true
+      homepage: https://qmk.fm
+      backlink: true
+      stars: 20679
+      age_days: 4288
+      contributors: 3601
+  - code: A3
+    checked_at: '2026-09-05T19:24:53Z'
+    source: https://rdap.org/domain/qmk.fm
+    data:
+      registrar: Name.com, Inc.
+      created: '2016-06-22'
+      expires: '2027-06-22'
+      remaining_days: 290
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T19:24:53Z'
+    source: TLS handshake qmk.fm:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T19:24:53Z'
+    source: https://www.wikidata.org/wiki/Q117230916
+    data:
+      qid: Q117230916
+      label: QMK
+      site: https://qmk.fm/
+      sitelinks: 2
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T19:24:53Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 223761
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:25:22Z'
+    source: http://web.archive.org/cdx/search/cdx?url=qmk.fm&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2016-07-02'
+      history_days: 3717
+  rejected_evidence:
+  - 'A3: registrar (Name.com, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_repo_name
+  reviewed_by: []
+  source_issue: null

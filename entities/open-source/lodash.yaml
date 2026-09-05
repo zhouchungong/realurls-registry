@@ -1,0 +1,107 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:lodash
+names:
+  en: Lodash
+aliases:
+- Lodash Utilities
+- lodash
+category:
+- open-source
+wikidata: Q24033787
+canonical:
+  github_org: lodash
+  wikidata: Q24033787
+  sources:
+  - wikidata:Q24033787/P856
+  - wikidata:Q24033787/P2037
+domains:
+- domain: lodash.com
+  role: primary
+  status: verified
+  confidence: 0.8661
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:59Z'
+  ttl_days: 30
+  age_days: 5234
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:33:59Z'
+    source: https://api.github.com/orgs/lodash
+    data:
+      org: lodash
+      org_verified: true
+      blog: https://lodash.com/
+      org_name: Lodash Utilities
+      created_at: '2012-10-15T15:56:25Z'
+  - code: B2
+    checked_at: '2026-09-05T18:34:00Z'
+    source: https://registry.npmjs.org/lodash
+    data:
+      package: lodash
+      homepage: https://lodash.com/
+  - code: B2
+    checked_at: '2026-09-05T18:34:00Z'
+    source: https://registry.npmjs.org/lodash-amd
+    data:
+      package: lodash-amd
+      homepage: https://lodash.com/custom-builds
+  - code: B2
+    checked_at: '2026-09-05T18:34:00Z'
+    source: https://registry.npmjs.org/lodash-es
+    data:
+      package: lodash-es
+      homepage: https://lodash.com/custom-builds
+  - code: A3
+    checked_at: '2026-09-05T18:34:01Z'
+    source: https://rdap.org/domain/lodash.com
+    data:
+      registrar: NameCheap, Inc.
+      created: '2012-05-07'
+      expires: '2029-05-07'
+      remaining_days: 974
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:34:01Z'
+    source: TLS handshake lodash.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 4
+  - code: B1
+    checked_at: '2026-09-05T18:34:01Z'
+    source: https://www.wikidata.org/wiki/Q24033787
+    data:
+      qid: Q24033787
+      label: Lodash
+      site: https://lodash.com/
+      sitelinks: 4
+      competing_items: 4
+  - code: B5
+    checked_at: '2026-09-05T18:34:01Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 107808
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:34:40Z'
+    source: http://web.archive.org/cdx/search/cdx?url=lodash.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2012-05-12'
+      history_days: 5229
+  rejected_evidence:
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 4 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q24033787
+  reviewed_by: []
+  source_issue: null

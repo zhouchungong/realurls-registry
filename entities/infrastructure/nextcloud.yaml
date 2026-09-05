@@ -1,0 +1,102 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:nextcloud
+names:
+  en: Nextcloud
+aliases:
+- nextcloud
+category:
+- infrastructure
+- saas
+wikidata: Q25874683
+canonical:
+  github_org: nextcloud
+  wikidata: Q25874683
+  sources:
+  - wikidata:Q25874683/P856
+  - wikidata:Q25874683/P2037
+domains:
+- domain: nextcloud.com
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:19:08Z'
+  ttl_days: 30
+  age_days: 7865
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:58:02Z'
+    source: https://api.github.com/orgs/nextcloud
+    data:
+      org: nextcloud
+      org_verified: true
+      blog: https://nextcloud.com
+      org_name: Nextcloud
+      created_at: '2016-05-05T17:12:23Z'
+  - code: A8
+    checked_at: '2026-09-05T18:58:03Z'
+    source: https://api.github.com/repos/nextcloud/server
+    data:
+      repo: nextcloud/server
+      org: nextcloud
+      repo_anchored: true
+      homepage: https://nextcloud.com
+      backlink: true
+      stars: 36725
+      age_days: 3747
+      contributors: 1443
+  - code: A3
+    checked_at: '2026-09-05T18:58:03Z'
+    source: https://rdap.org/domain/nextcloud.com
+    data:
+      registrar: INWX GmbH
+      created: '2005-02-22'
+      expires: '2027-02-22'
+      remaining_days: 169
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:58:04Z'
+    source: TLS handshake nextcloud.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:58:04Z'
+    source: https://www.wikidata.org/wiki/Q25874683
+    data:
+      qid: Q25874683
+      label: Nextcloud
+      site: https://nextcloud.com/
+      sitelinks: 25
+      competing_items: 2
+  - code: B5
+    checked_at: '2026-09-05T18:58:04Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 1024
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:58:36Z'
+    source: http://web.archive.org/cdx/search/cdx?url=nextcloud.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2002-03-25'
+      history_days: 8930
+  rejected_evidence:
+  - 'A3: registrar (INWX GmbH) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q25874683
+  reviewed_by: []
+  source_issue: null

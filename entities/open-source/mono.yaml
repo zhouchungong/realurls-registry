@@ -1,0 +1,92 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:mono
+names:
+  en: Mono Project
+aliases:
+- mono
+- mono/mono
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: mono
+  wikidata: null
+  sources:
+  - github-history:mono/mono(age=16y,contrib=1328,stars=11465)
+domains:
+- domain: mono-project.com
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 8249
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T21:28:40Z'
+    source: https://api.github.com/orgs/mono
+    data:
+      org: mono
+      org_verified: false
+      blog: http://mono-project.com
+  - code: A8
+    checked_at: '2026-09-05T21:28:40Z'
+    source: https://api.github.com/repos/mono/mono
+    data:
+      repo: mono/mono
+      org: mono
+      repo_anchored: true
+      homepage: https://www.mono-project.com
+      backlink: true
+      stars: 11465
+      age_days: 5889
+      contributors: 1328
+  - code: A3
+    checked_at: '2026-09-05T21:28:46Z'
+    source: https://rdap.org/domain/mono-project.com
+    data:
+      registrar: Nom-iq Ltd. dba COM LAUDE
+      created: '2004-02-03'
+      expires: '2027-02-03'
+      remaining_days: 151
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T21:28:46Z'
+    source: TLS handshake mono-project.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-05T21:28:46Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 33972
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T21:28:49Z'
+    source: http://web.archive.org/cdx/search/cdx?url=mono-project.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2004-05-18'
+      history_days: 8145
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_name(self-declared)
+  reviewed_by: []
+  source_issue: null

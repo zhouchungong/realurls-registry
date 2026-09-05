@@ -1,0 +1,94 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:teamnewpipe
+names:
+  en: NewPipe
+aliases:
+- Team NewPipe
+- TeamNewPipe
+category:
+- open-source
+wikidata: Q42851406
+canonical:
+  github_org: TeamNewPipe
+  wikidata: Q42851406
+  sources:
+  - wikidata:Q42851406/P856
+  - wikidata:Q42851406/P2037
+domains:
+- domain: newpipe.net
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:55Z'
+  ttl_days: 30
+  age_days: 2953
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:47:10Z'
+    source: https://api.github.com/orgs/TeamNewPipe
+    data:
+      org: TeamNewPipe
+      org_verified: false
+      blog: https://newpipe.net
+  - code: A8
+    checked_at: '2026-09-05T18:47:10Z'
+    source: https://api.github.com/repos/TeamNewPipe/NewPipe
+    data:
+      repo: TeamNewPipe/NewPipe
+      org: TeamNewPipe
+      repo_anchored: true
+      homepage: https://newpipe.net
+      backlink: true
+      stars: 39604
+      age_days: 4019
+      contributors: 1044
+  - code: A3
+    checked_at: '2026-09-05T18:47:10Z'
+    source: https://rdap.org/domain/newpipe.net
+    data:
+      registrar: INWX GmbH
+      created: '2018-08-05'
+      expires: '2027-08-05'
+      remaining_days: 333
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:47:11Z'
+    source: TLS handshake newpipe.net:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:47:11Z'
+    source: https://www.wikidata.org/wiki/Q42851406
+    data:
+      qid: Q42851406
+      label: NewPipe
+      site: https://newpipe.net/
+      sitelinks: 15
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:47:11Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 105830
+      source: top-1m list
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (INWX GmbH) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q42851406
+  reviewed_by: []
+  source_issue: null

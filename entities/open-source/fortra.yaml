@@ -1,0 +1,93 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:fortra
+names:
+  en: impacket
+aliases:
+- Fortra
+- fortra
+- fortra/impacket
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: fortra
+  wikidata: null
+  sources:
+  - github-history:fortra/impacket(age=11y,contrib=331,stars=16069)
+domains:
+- domain: fortra.com
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:59Z'
+  ttl_days: 30
+  age_days: 10147
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:01:09Z'
+    source: https://api.github.com/orgs/fortra
+    data:
+      org: fortra
+      org_verified: true
+      blog: fortra.com
+      org_name: Fortra
+      created_at: '2022-11-07T16:25:50Z'
+  - code: A8
+    checked_at: '2026-09-05T20:01:09Z'
+    source: https://api.github.com/repos/fortra/impacket
+    data:
+      repo: fortra/impacket
+      org: fortra
+      repo_anchored: true
+      homepage: https://www.coresecurity.com
+      backlink: false
+      stars: 16069
+      age_days: 4161
+      contributors: 331
+  - code: A3
+    checked_at: '2026-09-05T20:01:10Z'
+    source: https://rdap.org/domain/fortra.com
+    data:
+      registrar: Amazon Registrar, Inc.
+      created: '1998-11-24'
+      expires: '2026-11-23'
+      remaining_days: 78
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T20:01:10Z'
+    source: TLS handshake fortra.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-05T20:01:10Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 19398
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:01:46Z'
+    source: http://web.archive.org/cdx/search/cdx?url=fortra.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2011-12-27'
+      history_days: 5366
+  rejected_evidence:
+  - 'A8: repository homepage (https://www.coresecurity.com) does not point to this domain'
+  - 'A3: registrar (Amazon Registrar, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_repo_name
+  reviewed_by: []
+  source_issue: null

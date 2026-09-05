@@ -1,0 +1,102 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:woocommerce
+names:
+  en: WooCommerce
+aliases:
+- Woo
+- woocommerce
+category:
+- saas
+wikidata: Q15855099
+canonical:
+  github_org: woocommerce
+  wikidata: Q15855099
+  sources:
+  - wikidata:Q15855099/P856
+  - wikidata:Q15855099/P1324
+domains:
+- domain: woocommerce.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:56Z'
+  ttl_days: 30
+  age_days: 6083
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T21:10:18Z'
+    source: https://api.github.com/orgs/woocommerce
+    data:
+      org: woocommerce
+      org_verified: false
+      blog: https://woocommerce.com/
+  - code: A8
+    checked_at: '2026-09-05T21:10:18Z'
+    source: https://api.github.com/repos/woocommerce/woocommerce
+    data:
+      repo: woocommerce/woocommerce
+      org: woocommerce
+      repo_anchored: true
+      homepage: https://woocommerce.com
+      backlink: false
+      stars: 10493
+      age_days: 5506
+      contributors: 2099
+  - code: A3
+    checked_at: '2026-09-05T21:10:41Z'
+    source: https://rdap.org/domain/woocommerce.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2010-01-09'
+      expires: '2034-01-09'
+      remaining_days: 2682
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T21:10:41Z'
+    source: TLS handshake woocommerce.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 7
+  - code: B1
+    checked_at: '2026-09-05T21:10:41Z'
+    source: https://www.wikidata.org/wiki/Q15855099
+    data:
+      qid: Q15855099
+      label: WooCommerce
+      site: https://woocommerce.com/
+      sitelinks: 19
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T21:10:41Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 2633
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T21:10:55Z'
+    source: http://web.archive.org/cdx/search/cdx?url=woocommerce.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2011-02-03'
+      history_days: 5693
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A8: this site does not link back to the GitHub organization; no reverse confirmation'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q15855099
+  reviewed_by: []
+  source_issue: null

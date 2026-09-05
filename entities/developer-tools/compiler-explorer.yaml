@@ -1,0 +1,102 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:compiler-explorer
+names:
+  en: Compiler Explorer
+aliases:
+- compiler-explorer
+- compiler-explorer/compiler-explorer
+category:
+- developer-tools
+wikidata: null
+canonical:
+  github_org: compiler-explorer
+  wikidata: null
+  sources:
+  - github-history:compiler-explorer/compiler-explorer(age=14y,contrib=690,stars=19047)
+domains:
+- domain: godbolt.org
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:52Z'
+  ttl_days: 30
+  age_days: 8134
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:30:13Z'
+    source: https://api.github.com/orgs/compiler-explorer
+    data:
+      org: compiler-explorer
+      org_verified: true
+      blog: https://godbolt.org/
+      org_name: Compiler Explorer
+      created_at: '2019-11-12T05:11:37Z'
+  - code: A8
+    checked_at: '2026-09-05T19:30:13Z'
+    source: https://api.github.com/repos/compiler-explorer/compiler-explorer
+    data:
+      repo: compiler-explorer/compiler-explorer
+      org: compiler-explorer
+      repo_anchored: true
+      homepage: https://godbolt.org
+      backlink: true
+      stars: 19047
+      age_days: 5218
+      contributors: 690
+  - code: A3
+    checked_at: '2026-09-05T19:30:14Z'
+    source: https://rdap.org/domain/godbolt.org
+    data:
+      registrar: Amazon Registrar, Inc.
+      created: '2004-05-29'
+      expires: '2027-05-29'
+      remaining_days: 265
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T19:30:14Z'
+    source: TLS handshake godbolt.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 6
+  - code: B1
+    checked_at: '2026-09-05T19:30:14Z'
+    source: https://www.wikidata.org/wiki/Q114970374
+    data:
+      qid: Q114970374
+      label: Compiler Explorer
+      site: https://godbolt.org/
+      sitelinks: 0
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T19:30:14Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 74712
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:30:33Z'
+    source: http://web.archive.org/cdx/search/cdx?url=godbolt.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2008-08-20'
+      history_days: 6590
+  rejected_evidence:
+  - 'A3: registrar (Amazon Registrar, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_name(self-declared)
+  reviewed_by: []
+  source_issue: null

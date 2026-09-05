@@ -1,0 +1,81 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:webdriverio
+names:
+  en: webdriverio
+aliases:
+- WebdriverIO
+- webdriverio/webdriverio
+category:
+- developer-tools
+wikidata: null
+canonical:
+  github_org: webdriverio
+  wikidata: null
+  sources:
+  - github-history:webdriverio/webdriverio(age=15y,contrib=745,stars=9836)
+domains:
+- domain: webdriver.io
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:52Z'
+  ttl_days: 30
+  age_days: 4609
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:49:27Z'
+    source: https://api.github.com/orgs/webdriverio
+    data:
+      org: webdriverio
+      org_verified: true
+      blog: https://webdriver.io/
+      org_name: WebdriverIO
+      created_at: '2014-01-27T08:44:15Z'
+  - code: A8
+    checked_at: '2026-09-05T20:49:27Z'
+    source: https://api.github.com/repos/webdriverio/webdriverio
+    data:
+      repo: webdriverio/webdriverio
+      org: webdriverio
+      repo_anchored: true
+      homepage: http://webdriver.io
+      backlink: true
+      stars: 9836
+      age_days: 5485
+      contributors: 745
+  - code: A4
+    checked_at: '2026-09-05T20:49:27Z'
+    source: TLS handshake webdriver.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 1
+  - code: B5
+    checked_at: '2026-09-05T20:49:27Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 417453
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:49:37Z'
+    source: http://web.archive.org/cdx/search/cdx?url=webdriver.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2014-01-22'
+      history_days: 4609
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_repo_name
+  reviewed_by: []
+  source_issue: null

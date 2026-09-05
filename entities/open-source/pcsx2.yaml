@@ -1,0 +1,101 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:pcsx2
+names:
+  en: PCSX2
+aliases:
+- PCSX2 Team
+category:
+- open-source
+wikidata: Q1140432
+canonical:
+  github_org: PCSX2
+  wikidata: Q1140432
+  sources:
+  - wikidata:Q1140432/P856
+  - wikidata:Q1140432/P2037
+domains:
+- domain: pcsx2.net
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:57Z'
+  ttl_days: 30
+  age_days: 8606
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:54:50Z'
+    source: https://api.github.com/orgs/PCSX2
+    data:
+      org: PCSX2
+      org_verified: true
+      blog: https://pcsx2.net/
+      org_name: PCSX2 Team
+      created_at: '2013-12-29T00:46:27Z'
+  - code: A8
+    checked_at: '2026-09-05T19:54:51Z'
+    source: https://api.github.com/repos/PCSX2/pcsx2
+    data:
+      repo: PCSX2/pcsx2
+      org: PCSX2
+      repo_anchored: true
+      homepage: https://pcsx2.net
+      backlink: true
+      stars: 15495
+      age_days: 4640
+      contributors: 478
+  - code: A3
+    checked_at: '2026-09-05T19:54:51Z'
+    source: https://rdap.org/domain/pcsx2.net
+    data:
+      registrar: Cloudflare, Inc.
+      created: '2003-02-11'
+      expires: '2027-02-11'
+      remaining_days: 159
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T19:54:51Z'
+    source: TLS handshake pcsx2.net:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T19:54:51Z'
+    source: https://www.wikidata.org/wiki/Q1140432
+    data:
+      qid: Q1140432
+      label: PCSX2
+      site: https://pcsx2.net/
+      sitelinks: 19
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T19:54:51Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 72873
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:54:58Z'
+    source: http://web.archive.org/cdx/search/cdx?url=pcsx2.net&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2003-04-08'
+      history_days: 8551
+  rejected_evidence:
+  - 'A3: registrar (Cloudflare, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q1140432
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,103 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:sourcegraph
+names:
+  en: sourcegraph-public-snapshot
+aliases:
+- Sourcegraph
+- sourcegraph
+- sourcegraph/sourcegraph-public-snapshot
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: sourcegraph
+  wikidata: null
+  sources:
+  - github-history:sourcegraph/sourcegraph-public-snapshot(age=11y,contrib=418,stars=10298)
+domains:
+- domain: sourcegraph.com
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:53Z'
+  ttl_days: 30
+  age_days: 5032
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:27:08Z'
+    source: https://api.github.com/orgs/sourcegraph
+    data:
+      org: sourcegraph
+      org_verified: true
+      blog: https://sourcegraph.com
+      org_name: Sourcegraph
+      created_at: '2013-03-26T22:29:42Z'
+  - code: A8
+    checked_at: '2026-09-05T20:27:08Z'
+    source: https://api.github.com/repos/sourcegraph/sourcegraph-public-snapshot
+    data:
+      repo: sourcegraph/sourcegraph-public-snapshot
+      org: sourcegraph
+      repo_anchored: true
+      homepage: https://sourcegraph.com
+      backlink: true
+      stars: 10298
+      age_days: 4030
+      contributors: 418
+  - code: A3
+    checked_at: '2026-09-05T20:27:08Z'
+    source: https://rdap.org/domain/sourcegraph.com
+    data:
+      registrar: NameCheap, Inc.
+      created: '2012-11-25'
+      expires: '2026-11-25'
+      remaining_days: 80
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T20:27:09Z'
+    source: TLS handshake sourcegraph.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T20:27:09Z'
+    source: https://www.wikidata.org/wiki/Q108106907
+    data:
+      qid: Q108106907
+      label: Sourcegraph
+      site: https://sourcegraph.com
+      sitelinks: 1
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:27:09Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 26863
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:27:25Z'
+    source: http://web.archive.org/cdx/search/cdx?url=sourcegraph.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2007-11-02'
+      history_days: 6882
+  rejected_evidence:
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_repo_name
+  reviewed_by: []
+  source_issue: null

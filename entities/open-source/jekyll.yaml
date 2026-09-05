@@ -1,0 +1,101 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:jekyll
+names:
+  en: Jekyll
+aliases:
+- jekyll
+category:
+- open-source
+wikidata: Q17067385
+canonical:
+  github_org: jekyll
+  wikidata: Q17067385
+  sources:
+  - wikidata:Q17067385/P856
+  - wikidata:Q17067385/P2037
+domains:
+- domain: jekyllrb.com
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:57Z'
+  ttl_days: 30
+  age_days: 6339
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:41:11Z'
+    source: https://api.github.com/orgs/jekyll
+    data:
+      org: jekyll
+      org_verified: true
+      blog: https://jekyllrb.com
+      org_name: Jekyll
+      created_at: '2012-12-19T19:37:35Z'
+  - code: A8
+    checked_at: '2026-09-05T18:41:12Z'
+    source: https://api.github.com/repos/jekyll/jekyll
+    data:
+      repo: jekyll/jekyll
+      org: jekyll
+      repo_anchored: true
+      homepage: https://jekyllrb.com
+      backlink: true
+      stars: 51661
+      age_days: 6529
+      contributors: 1259
+  - code: A3
+    checked_at: '2026-09-05T18:41:12Z'
+    source: https://rdap.org/domain/jekyllrb.com
+    data:
+      registrar: NameCheap, Inc.
+      created: '2009-04-28'
+      expires: '2027-04-28'
+      remaining_days: 234
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:41:12Z'
+    source: TLS handshake jekyllrb.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T18:41:12Z'
+    source: https://www.wikidata.org/wiki/Q17067385
+    data:
+      qid: Q17067385
+      label: Jekyll
+      site: https://jekyllrb.com
+      sitelinks: 14
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:41:12Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 12755
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:42:16Z'
+    source: http://web.archive.org/cdx/search/cdx?url=jekyllrb.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2009-04-30'
+      history_days: 6337
+  rejected_evidence:
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q17067385
+  reviewed_by: []
+  source_issue: null

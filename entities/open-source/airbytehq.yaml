@@ -1,0 +1,81 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:airbytehq
+names:
+  en: Airbyte
+aliases:
+- airbytehq
+- airbytehq/airbyte
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: airbytehq
+  wikidata: null
+  sources:
+  - github-history:airbytehq/airbyte(age=6y,contrib=1234,stars=21995)
+domains:
+- domain: airbyte.io
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:19:08Z'
+  ttl_days: 30
+  age_days: 3030
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:49:01Z'
+    source: https://api.github.com/orgs/airbytehq
+    data:
+      org: airbytehq
+      org_verified: true
+      blog: https://airbyte.io
+      org_name: Airbyte
+      created_at: '2020-01-11T06:27:48Z'
+  - code: A8
+    checked_at: '2026-09-05T19:49:01Z'
+    source: https://api.github.com/repos/airbytehq/airbyte
+    data:
+      repo: airbytehq/airbyte
+      org: airbytehq
+      repo_anchored: true
+      homepage: https://airbyte.com
+      backlink: true
+      stars: 21995
+      age_days: 2230
+      contributors: 1234
+  - code: A4
+    checked_at: '2026-09-05T19:49:22Z'
+    source: TLS handshake airbyte.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-05T19:49:22Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 669352
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:49:56Z'
+    source: http://web.archive.org/cdx/search/cdx?url=airbyte.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2018-05-20'
+      history_days: 3030
+  rejected_evidence:
+  - 'A8: repository homepage (https://airbyte.com) does not point to this domain'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_name(self-declared)
+  reviewed_by: []
+  source_issue: null

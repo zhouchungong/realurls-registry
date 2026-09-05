@@ -1,0 +1,91 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:istio
+names:
+  en: istio
+aliases:
+- Istio
+- istio/istio
+category:
+- infrastructure
+wikidata: null
+canonical:
+  github_org: istio
+  wikidata: null
+  sources:
+  - github-history:istio/istio(age=9y,contrib=1461,stars=38371)
+domains:
+- domain: istio.io
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:49Z'
+  ttl_days: 30
+  age_days: 3391
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:51:37Z'
+    source: https://api.github.com/orgs/istio
+    data:
+      org: istio
+      org_verified: true
+      blog: https://istio.io
+      org_name: Istio
+      created_at: '2016-11-17T23:27:34Z'
+  - code: A8
+    checked_at: '2026-09-05T18:51:37Z'
+    source: https://api.github.com/repos/istio/istio
+    data:
+      repo: istio/istio
+      org: istio
+      repo_anchored: true
+      homepage: https://istio.io
+      backlink: true
+      stars: 38371
+      age_days: 3577
+      contributors: 1461
+  - code: A4
+    checked_at: '2026-09-05T18:51:37Z'
+    source: TLS handshake istio.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 3
+  - code: B1
+    checked_at: '2026-09-05T18:51:37Z'
+    source: https://www.wikidata.org/wiki/Q88464464
+    data:
+      qid: Q88464464
+      label: Istio
+      site: https://istio.io/
+      sitelinks: 0
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:51:37Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 59397
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:51:41Z'
+    source: http://web.archive.org/cdx/search/cdx?url=istio.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2017-05-24'
+      history_days: 3391
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_repo_name
+  reviewed_by: []
+  source_issue: null

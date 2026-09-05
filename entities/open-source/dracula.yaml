@@ -1,0 +1,82 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:dracula
+names:
+  en: Dracula
+aliases:
+- Dracula Theme
+- dracula
+category:
+- open-source
+wikidata: Q110147190
+canonical:
+  github_org: dracula
+  wikidata: Q110147190
+  sources:
+  - wikidata:Q110147190/P856
+  - wikidata:Q110147190/P1324
+domains:
+- domain: draculatheme.com
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:56Z'
+  ttl_days: 30
+  age_days: 3774
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:33:04Z'
+    source: https://api.github.com/orgs/dracula
+    data:
+      org: dracula
+      org_verified: true
+      blog: https://draculatheme.com
+      org_name: Dracula Theme
+      created_at: '2016-05-18T19:12:48Z'
+  - code: A3
+    checked_at: '2026-09-05T19:33:05Z'
+    source: https://rdap.org/domain/draculatheme.com
+    data:
+      registrar: Squarespace Domains II LLC
+      created: '2016-05-06'
+      expires: '2027-05-06'
+      remaining_days: 242
+      locks: []
+  - code: A4
+    checked_at: '2026-09-05T19:33:05Z'
+    source: TLS handshake draculatheme.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T19:33:05Z'
+    source: https://www.wikidata.org/wiki/Q110147190
+    data:
+      qid: Q110147190
+      label: Dracula
+      site: https://draculatheme.com
+      sitelinks: 3
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T19:33:05Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 453759
+      source: top-1m list
+  rejected_evidence:
+  - 'A3: registrar (Squarespace Domains II LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q110147190
+  reviewed_by: []
+  source_issue: null

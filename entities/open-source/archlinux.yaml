@@ -1,0 +1,101 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:archlinux
+names:
+  en: 아치 리눅스
+aliases:
+- Arch Linux
+- archlinux
+category:
+- open-source
+wikidata: Q185576
+canonical:
+  github_org: archlinux
+  wikidata: Q185576
+  sources:
+  - wikidata:Q185576/P856
+  - wikidata:Q185576/P2037
+domains:
+- domain: archlinux.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:52Z'
+  ttl_days: 30
+  age_days: 8950
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:57:23Z'
+    source: https://api.github.com/orgs/archlinux
+    data:
+      org: archlinux
+      org_verified: true
+      blog: https://www.archlinux.org/
+      org_name: Arch Linux
+      created_at: '2013-06-11T20:13:04Z'
+  - code: A8
+    checked_at: '2026-09-05T20:57:23Z'
+    source: https://api.github.com/repos/archlinux/archinstall
+    data:
+      repo: archlinux/archinstall
+      org: archlinux
+      repo_anchored: true
+      homepage: ''
+      backlink: false
+      stars: 8409
+      age_days: 3074
+      contributors: 332
+  - code: A3
+    checked_at: '2026-09-05T20:57:24Z'
+    source: https://rdap.org/domain/archlinux.org
+    data:
+      registrar: Vautron Rechenzentrum AG
+      created: '2002-03-05'
+      expires: '2027-03-05'
+      remaining_days: 180
+      locks: []
+  - code: A4
+    checked_at: '2026-09-05T20:57:25Z'
+    source: TLS handshake archlinux.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T20:57:25Z'
+    source: https://www.wikidata.org/wiki/Q185576
+    data:
+      qid: Q185576
+      label: 아치 리눅스
+      site: https://archlinux.org
+      sitelinks: 63
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:57:25Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 2691
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:57:30Z'
+    source: http://web.archive.org/cdx/search/cdx?url=archlinux.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2002-03-28'
+      history_days: 8927
+  rejected_evidence:
+  - 'A8: repository homepage () does not point to this domain'
+  - 'A3: registrar (Vautron Rechenzentrum AG) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q185576
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,100 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:django-cms
+names:
+  en: django CMS
+aliases:
+- django CMS Association
+- django-cms
+category:
+- saas
+wikidata: Q3032791
+canonical:
+  github_org: django-cms
+  wikidata: Q3032791
+  sources:
+  - wikidata:Q3032791/P856
+  - wikidata:Q3032791/P1324
+domains:
+- domain: django-cms.org
+  role: primary
+  status: verified
+  confidence: 0.7088
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:19:00Z'
+  ttl_days: 30
+  age_days: 6991
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T21:15:13Z'
+    source: https://api.github.com/orgs/django-cms
+    data:
+      org: django-cms
+      org_verified: false
+      blog: https://www.django-cms.org/
+  - code: A8
+    checked_at: '2026-09-05T21:15:13Z'
+    source: https://api.github.com/repos/django-cms/django-cms
+    data:
+      repo: django-cms/django-cms
+      org: django-cms
+      repo_anchored: true
+      homepage: http://www.django-cms.org
+      backlink: true
+      stars: 10668
+      age_days: 6393
+      contributors: 604
+  - code: A3
+    checked_at: '2026-09-05T21:15:14Z'
+    source: https://rdap.org/domain/django-cms.org
+    data:
+      registrar: 1API GmbH
+      created: '2007-07-16'
+      expires: '2028-07-16'
+      remaining_days: 679
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T21:15:14Z'
+    source: TLS handshake django-cms.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T21:15:14Z'
+    source: https://www.wikidata.org/wiki/Q3032791
+    data:
+      qid: Q3032791
+      label: django CMS
+      site: http://django-cms.org/
+      sitelinks: 5
+      competing_items: 2
+  - code: B5
+    checked_at: '2026-09-05T21:15:14Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 483314
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T21:15:17Z'
+    source: http://web.archive.org/cdx/search/cdx?url=django-cms.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2008-01-12'
+      history_days: 6811
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (1API GmbH) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q3032791
+  reviewed_by: []
+  source_issue: null

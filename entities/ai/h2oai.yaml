@@ -1,0 +1,88 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:h2oai
+names:
+  en: H2O
+aliases:
+- H2O.ai
+- h2oai
+category:
+- ai
+wikidata: Q16972732
+canonical:
+  github_org: h2oai
+  wikidata: Q16972732
+  sources:
+  - wikidata:Q16972732/P856
+  - wikidata:Q16972732/P1324
+domains:
+- domain: h2o.ai
+  role: primary
+  status: verified
+  confidence: 0.9563
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:52Z'
+  ttl_days: 30
+  age_days: 3185
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T21:08:40Z'
+    source: https://api.github.com/orgs/h2oai
+    data:
+      org: h2oai
+      org_verified: true
+      blog: https://h2o.ai
+      org_name: H2O.ai
+      created_at: '2012-02-02T17:57:22Z'
+  - code: A3
+    checked_at: '2026-09-05T21:08:41Z'
+    source: https://rdap.org/domain/h2o.ai
+    data:
+      registrar: Key-Systems GmbH
+      created: '2017-12-16'
+      expires: '2029-11-05'
+      remaining_days: 1156
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T21:08:41Z'
+    source: TLS handshake h2o.ai:443
+    data:
+      subject_org: H2O.ai
+      validation_type: OV
+      issuer: Sectigo Limited
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T21:08:42Z'
+    source: https://www.wikidata.org/wiki/Q16972732
+    data:
+      qid: Q16972732
+      label: H2O
+      site: http://www.h2o.ai/
+      sitelinks: 3
+      competing_items: 2
+  - code: B5
+    checked_at: '2026-09-05T21:08:42Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 76694
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T21:09:09Z'
+    source: http://web.archive.org/cdx/search/cdx?url=h2o.ai&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2014-03-08'
+      history_days: 4564
+  rejected_evidence:
+  - 'A3: registrar (Key-Systems GmbH) is not a brand-protection registrar'
+  reasons:
+  - '2 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q16972732
+  reviewed_by: []
+  source_issue: null

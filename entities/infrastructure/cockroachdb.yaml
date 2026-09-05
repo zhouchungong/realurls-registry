@@ -1,0 +1,104 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:cockroachdb
+names:
+  en: cockroach
+aliases:
+- CockroachDB
+- cockroachdb
+- cockroachdb/cockroach
+category:
+- infrastructure
+wikidata: null
+canonical:
+  github_org: cockroachdb
+  wikidata: null
+  sources:
+  - github-history:cockroachdb/cockroach(age=12y,contrib=1123,stars=32442)
+domains:
+- domain: cockroachlabs.com
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:54Z'
+  ttl_days: 30
+  age_days: 4242
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:55:38Z'
+    source: https://api.github.com/orgs/cockroachdb
+    data:
+      org: cockroachdb
+      org_verified: true
+      blog: https://www.cockroachlabs.com/
+      org_name: CockroachDB
+      created_at: '2014-02-21T13:26:24Z'
+  - code: A8
+    checked_at: '2026-09-05T18:55:38Z'
+    source: https://api.github.com/repos/cockroachdb/cockroach
+    data:
+      repo: cockroachdb/cockroach
+      org: cockroachdb
+      repo_anchored: true
+      homepage: https://www.cockroachlabs.com
+      backlink: true
+      stars: 32442
+      age_days: 4594
+      contributors: 1123
+  - code: A3
+    checked_at: '2026-09-05T18:55:38Z'
+    source: https://rdap.org/domain/cockroachlabs.com
+    data:
+      registrar: Squarespace Domains II LLC
+      created: '2015-01-23'
+      expires: '2033-01-23'
+      remaining_days: 2332
+      locks:
+      - delete
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:55:38Z'
+    source: TLS handshake cockroachlabs.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 4
+  - code: B1
+    checked_at: '2026-09-05T18:55:38Z'
+    source: https://www.wikidata.org/wiki/Q98731903
+    data:
+      qid: Q98731903
+      label: CockroachDB
+      site: https://www.cockroachlabs.com/
+      sitelinks: 2
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-05T18:55:38Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 78443
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:55:58Z'
+    source: http://web.archive.org/cdx/search/cdx?url=cockroachlabs.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2015-02-22'
+      history_days: 4213
+  rejected_evidence:
+  - 'A3: registrar (Squarespace Domains II LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_repo_name
+  reviewed_by: []
+  source_issue: null

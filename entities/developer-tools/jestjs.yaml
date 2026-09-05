@@ -1,0 +1,94 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:jestjs
+names:
+  en: Jest
+aliases:
+- jestjs
+category:
+- developer-tools
+wikidata: Q65121527
+canonical:
+  github_org: jestjs
+  wikidata: Q65121527
+  sources:
+  - wikidata:Q65121527/P856
+  - wikidata:Q65121527/P1324
+domains:
+- domain: jestjs.io
+  role: primary
+  status: verified
+  confidence: 0.7321
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:55Z'
+  ttl_days: 30
+  age_days: 2993
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:40:40Z'
+    source: https://api.github.com/orgs/jestjs
+    data:
+      org: jestjs
+      org_verified: false
+      blog: https://jestjs.io
+  - code: A8
+    checked_at: '2026-09-05T18:40:41Z'
+    source: https://api.github.com/repos/jestjs/jest
+    data:
+      repo: jestjs/jest
+      org: jestjs
+      repo_anchored: true
+      homepage: https://jestjs.io
+      backlink: true
+      stars: 45475
+      age_days: 4652
+      contributors: 1767
+  - code: B2
+    checked_at: '2026-09-05T18:40:41Z'
+    source: https://registry.npmjs.org/jest
+    data:
+      package: jest
+      homepage: https://jestjs.io/
+  - code: A4
+    checked_at: '2026-09-05T18:40:41Z'
+    source: TLS handshake jestjs.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:40:41Z'
+    source: https://www.wikidata.org/wiki/Q65121527
+    data:
+      qid: Q65121527
+      label: Jest
+      site: https://jestjs.io/
+      sitelinks: 3
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:40:41Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 62185
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:40:43Z'
+    source: http://web.archive.org/cdx/search/cdx?url=jestjs.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2018-06-26'
+      history_days: 2993
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 4 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q65121527
+  reviewed_by: []
+  source_issue: null

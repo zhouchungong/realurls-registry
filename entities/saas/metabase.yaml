@@ -1,0 +1,105 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:metabase
+names:
+  en: metabase
+aliases:
+- Metabase
+- metabase/metabase
+category:
+- saas
+- infrastructure
+wikidata: null
+canonical:
+  github_org: metabase
+  wikidata: null
+  sources:
+  - github-history:metabase/metabase(age=11y,contrib=518,stars=49098)
+domains:
+- domain: metabase.com
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:55Z'
+  ttl_days: 30
+  age_days: 11131
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:39:17Z'
+    source: https://api.github.com/orgs/metabase
+    data:
+      org: metabase
+      org_verified: true
+      blog: https://metabase.com/
+      org_name: Metabase
+      created_at: '2015-01-13T19:28:35Z'
+  - code: A8
+    checked_at: '2026-09-05T18:39:17Z'
+    source: https://api.github.com/repos/metabase/metabase
+    data:
+      repo: metabase/metabase
+      org: metabase
+      repo_anchored: true
+      homepage: https://metabase.com
+      backlink: true
+      stars: 49098
+      age_days: 4232
+      contributors: 518
+  - code: A3
+    checked_at: '2026-09-05T18:39:18Z'
+    source: https://rdap.org/domain/metabase.com
+    data:
+      registrar: SafeNames Ltd.
+      created: '1996-03-15'
+      expires: '2027-03-16'
+      remaining_days: 191
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T18:39:18Z'
+    source: TLS handshake metabase.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:39:18Z'
+    source: https://www.wikidata.org/wiki/Q1322989
+    data:
+      qid: Q1322989
+      label: MetaBase
+      site: https://www.metabase.com/
+      sitelinks: 1
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-05T18:39:18Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 54302
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:39:22Z'
+    source: http://web.archive.org/cdx/search/cdx?url=metabase.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1996-12-19'
+      history_days: 10852
+  rejected_evidence:
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_repo_name
+  reviewed_by: []
+  source_issue: null

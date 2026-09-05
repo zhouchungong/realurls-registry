@@ -1,0 +1,138 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:directus
+names:
+  en: directus
+aliases:
+- Directus
+- directus/directus
+category:
+- infrastructure
+- saas
+wikidata: null
+canonical:
+  github_org: directus
+  wikidata: null
+  sources:
+  - github-history:directus/directus(age=13y,contrib=580,stars=37764)
+domains:
+- domain: directus.com
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:54Z'
+  ttl_days: 30
+  age_days: 10803
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:54:42Z'
+    source: https://api.github.com/orgs/directus
+    data:
+      org: directus
+      org_verified: false
+      blog: https://directus.com
+  - code: A8
+    checked_at: '2026-09-05T18:54:42Z'
+    source: https://api.github.com/repos/directus/directus
+    data:
+      repo: directus/directus
+      org: directus
+      repo_anchored: true
+      homepage: https://directus.com
+      backlink: true
+      stars: 37764
+      age_days: 5015
+      contributors: 580
+  - code: A3
+    checked_at: '2026-09-05T18:54:42Z'
+    source: https://rdap.org/domain/directus.com
+    data:
+      registrar: Squarespace Domains LLC
+      created: '1997-02-06'
+      expires: '2028-02-07'
+      remaining_days: 519
+      locks:
+      - delete
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:54:42Z'
+    source: TLS handshake directus.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-05T18:54:42Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 256009
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:54:46Z'
+    source: http://web.archive.org/cdx/search/cdx?url=directus.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1999-11-28'
+      history_days: 9778
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Squarespace Domains LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+- domain: directus.io
+  role: product
+  status: verified
+  confidence: 0.7105
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:54Z'
+  ttl_days: 30
+  age_days: 2876
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A4
+    checked_at: '2026-09-05T18:54:54Z'
+    source: TLS handshake directus.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-05T18:54:55Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 226713
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:55:00Z'
+    source: http://web.archive.org/cdx/search/cdx?url=directus.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2018-10-21'
+      history_days: 2876
+  - code: A6
+    checked_at: '2026-09-05T18:55:00Z'
+    source: propagate from directus.com
+    data:
+      from: directus.com
+      from_status: verified
+      first_party_link: true
+      structural_links:
+      - shared_ns
+      san_count: 2
+      backlink: true
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_repo_name
+  reviewed_by: []
+  source_issue: null

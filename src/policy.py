@@ -103,6 +103,16 @@ IMPLIED_CORROBORATIONS: dict[str, set[str]] = {
     "A2": {"B2"},  # provenance 已经比 homepage 字段强，homepage 不再额外加分
 }
 
+#: Evidence that names the entity (its validator compares against ``DomainFacts.expected_*`` / the anchor
+#: domain). Everything else — A3 (some corporation pays a brand-protection registrar), A7 (some government
+#: body), B4/B5/B7 (old, popular, not flagged), B2 (a package's homepage field, unchecked) — says nothing about
+#: *which* entity. In the first full-category batch A3+B4+B5 "verified" anthropic.com for the Python project,
+#: digitalocean.com for five projects it sponsors and vmware.com for RabbitMQ: three entity-agnostic facts do
+#: not add up to an identity. So an entity-agnostic anchor only counts when at least one identity-bearing
+#: piece of evidence passed as well.
+IDENTITY_BEARING_CODES: frozenset[str] = frozenset({"A1", "A2", "A4", "A5", "A6", "A8", "A9", "B1"})
+ENTITY_AGNOSTIC_ANCHORS: frozenset[str] = frozenset({"A3", "A7"})
+
 #: 品牌保护类注册商。年费数百美元起 + 企业实名，黑产用不起 —— 这是成本壁垒，不是身份证明。
 #:
 #: 评审时剔除了几家混进来的零售/批发注册商：Amazon Registrar（Route53，任何人 12 美元/年）、
@@ -575,6 +585,17 @@ def decide(
             rejected.append(f"{ev.code}: {why}")
             continue
         (valid_anchor_codes if ev.tier == "A" else valid_corrob_codes).add(ev.code)
+
+    if not (valid_anchor_codes | valid_corrob_codes) & IDENTITY_BEARING_CODES:
+        # A7 stays a standalone anchor for entities that *are* the government body (no other identity to
+        # match against); it is gated only when the entity has an independent identity it should have matched.
+        gated = ENTITY_AGNOSTIC_ANCHORS if (facts.expected_github_org or facts.expected_wikidata) else {"A3"}
+        agnostic = sorted(valid_anchor_codes & gated)
+        if agnostic:
+            valid_anchor_codes -= gated
+            rejected.append(f"{'/'.join(agnostic)}: nothing that passed names the entity (need one of "
+                            f"{'/'.join(sorted(IDENTITY_BEARING_CODES))}); a corporate or government fingerprint "
+                            f"alone proves that *someone* substantial holds the domain, not who")
 
     anchors = _collapse_anchors(valid_anchor_codes)
     if anchors != valid_anchor_codes:

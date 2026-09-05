@@ -1,0 +1,102 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:syncthing
+names:
+  en: Syncthing
+aliases:
+- The Syncthing Project
+- syncthing
+category:
+- open-source
+wikidata: Q17089344
+canonical:
+  github_org: syncthing
+  wikidata: Q17089344
+  sources:
+  - wikidata:Q17089344/P856
+  - wikidata:Q17089344/P2037
+domains:
+- domain: syncthing.net
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:57Z'
+  ttl_days: 30
+  age_days: 4570
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:22:06Z'
+    source: https://api.github.com/orgs/syncthing
+    data:
+      org: syncthing
+      org_verified: true
+      blog: https://syncthing.net/
+      org_name: The Syncthing Project
+      created_at: '2014-05-19T07:50:08Z'
+  - code: A8
+    checked_at: '2026-09-05T18:22:06Z'
+    source: https://api.github.com/repos/syncthing/syncthing
+    data:
+      repo: syncthing/syncthing
+      org: syncthing
+      repo_anchored: true
+      homepage: https://syncthing.net/
+      backlink: true
+      stars: 88317
+      age_days: 4666
+      contributors: 396
+  - code: A3
+    checked_at: '2026-09-05T18:22:06Z'
+    source: https://rdap.org/domain/syncthing.net
+    data:
+      registrar: Ascio Technologies, Inc. Danmark - Filial af Ascio technologies, Inc. USA
+      created: '2014-03-02'
+      expires: '2027-03-02'
+      remaining_days: 177
+      locks: []
+  - code: A4
+    checked_at: '2026-09-05T18:22:06Z'
+    source: TLS handshake syncthing.net:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:22:07Z'
+    source: https://www.wikidata.org/wiki/Q17089344
+    data:
+      qid: Q17089344
+      label: Syncthing
+      site: https://syncthing.net/
+      sitelinks: 16
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:22:07Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 4415
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:22:22Z'
+    source: http://web.archive.org/cdx/search/cdx?url=syncthing.net&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2014-03-30'
+      history_days: 4542
+  rejected_evidence:
+  - 'A3: registrar (Ascio Technologies, Inc. Danmark - Filial af Ascio technologies, Inc. USA) is not a brand-protection
+    registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q17089344
+  reviewed_by: []
+  source_issue: null

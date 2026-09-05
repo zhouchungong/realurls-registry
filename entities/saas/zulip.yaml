@@ -1,0 +1,96 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:zulip
+names:
+  en: زوليب
+aliases:
+- Zulip
+- zulip
+category:
+- saas
+wikidata: Q23680052
+canonical:
+  github_org: zulip
+  wikidata: Q23680052
+  sources:
+  - wikidata:Q23680052/P856
+  - wikidata:Q23680052/P2037
+domains:
+- domain: zulip.com
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:56Z'
+  ttl_days: 30
+  age_days: 5757
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:21:54Z'
+    source: https://api.github.com/orgs/zulip
+    data:
+      org: zulip
+      org_verified: true
+      blog: https://zulip.com
+      org_name: Zulip
+      created_at: '2013-07-02T14:38:35Z'
+  - code: A8
+    checked_at: '2026-09-05T19:21:54Z'
+    source: https://api.github.com/repos/zulip/zulip
+    data:
+      repo: zulip/zulip
+      org: zulip
+      repo_anchored: true
+      homepage: https://zulip.com
+      backlink: true
+      stars: 25844
+      age_days: 3998
+      contributors: 1336
+  - code: A3
+    checked_at: '2026-09-05T19:22:38Z'
+    source: https://rdap.org/domain/zulip.com
+    data:
+      registrar: NameCheap, Inc.
+      created: '2010-12-01'
+      expires: '2026-12-01'
+      remaining_days: 86
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T19:22:38Z'
+    source: TLS handshake zulip.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T19:22:38Z'
+    source: https://www.wikidata.org/wiki/Q23680052
+    data:
+      qid: Q23680052
+      label: زوليب
+      site: https://zulip.com/
+      sitelinks: 9
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T19:22:38Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 59989
+      source: top-1m list
+  rejected_evidence:
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q23680052
+  reviewed_by: []
+  source_issue: null

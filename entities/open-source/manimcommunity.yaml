@@ -1,0 +1,91 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:manimcommunity
+names:
+  en: Manim Community
+aliases:
+- ManimCommunity
+- ManimCommunity/manim
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: ManimCommunity
+  wikidata: null
+  sources:
+  - github-history:ManimCommunity/manim(age=6y,contrib=522,stars=40651)
+domains:
+- domain: manim.community
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:19:08Z'
+  ttl_days: 30
+  age_days: 2144
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:45:04Z'
+    source: https://api.github.com/orgs/ManimCommunity
+    data:
+      org: ManimCommunity
+      org_verified: true
+      blog: https://www.manim.community
+      org_name: Manim Community
+      created_at: '2020-05-19T02:25:01Z'
+  - code: A8
+    checked_at: '2026-09-05T18:45:04Z'
+    source: https://api.github.com/repos/ManimCommunity/manim
+    data:
+      repo: ManimCommunity/manim
+      org: ManimCommunity
+      repo_anchored: true
+      homepage: https://www.manim.community
+      backlink: true
+      stars: 40651
+      age_days: 2300
+      contributors: 522
+  - code: A3
+    checked_at: '2026-09-05T18:45:09Z'
+    source: https://rdap.org/domain/manim.community
+    data:
+      registrar: Register4Less, Inc.
+      created: '2020-10-22'
+      expires: '2028-10-22'
+      remaining_days: 777
+      locks: []
+  - code: A4
+    checked_at: '2026-09-05T18:45:10Z'
+    source: TLS handshake manim.community:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-05T18:45:10Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 714064
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:45:30Z'
+    source: http://web.archive.org/cdx/search/cdx?url=manim.community&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2020-10-23'
+      history_days: 2143
+  rejected_evidence:
+  - 'A3: registrar (Register4Less, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_name(self-declared)
+  reviewed_by: []
+  source_issue: null

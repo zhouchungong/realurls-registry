@@ -1,0 +1,83 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:projectdiscovery
+names:
+  en: nuclei-templates
+aliases:
+- ProjectDiscovery
+- projectdiscovery
+- projectdiscovery/nuclei-templates
+category:
+- developer-tools
+- security
+wikidata: null
+canonical:
+  github_org: projectdiscovery
+  wikidata: null
+  sources:
+  - github-history:projectdiscovery/nuclei-templates(age=6y,contrib=1428,stars=12912)
+domains:
+- domain: projectdiscovery.io
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 2486
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:01:51Z'
+    source: https://api.github.com/orgs/projectdiscovery
+    data:
+      org: projectdiscovery
+      org_verified: true
+      blog: https://projectdiscovery.io/
+      org_name: ProjectDiscovery
+      created_at: '2019-05-24T14:33:32Z'
+  - code: A8
+    checked_at: '2026-09-05T19:01:51Z'
+    source: https://api.github.com/repos/projectdiscovery/nuclei-templates
+    data:
+      repo: projectdiscovery/nuclei-templates
+      org: projectdiscovery
+      repo_anchored: true
+      homepage: https://github.com/projectdiscovery/nuclei
+      backlink: true
+      stars: 12912
+      age_days: 2345
+      contributors: 1428
+  - code: A4
+    checked_at: '2026-09-05T19:02:34Z'
+    source: TLS handshake projectdiscovery.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B5
+    checked_at: '2026-09-05T19:02:34Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 146175
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:02:48Z'
+    source: http://web.archive.org/cdx/search/cdx?url=projectdiscovery.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2019-11-15'
+      history_days: 2486
+  rejected_evidence:
+  - 'A8: repository homepage (https://github.com/projectdiscovery/nuclei) does not point to this domain'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_repo_name
+  reviewed_by: []
+  source_issue: null

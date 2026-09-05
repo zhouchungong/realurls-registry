@@ -1,0 +1,94 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:dart-lang
+names:
+  en: Dart
+aliases:
+- dart-lang
+- dart-lang/sdk
+category:
+- developer-tools
+wikidata: null
+canonical:
+  github_org: dart-lang
+  wikidata: null
+  sources:
+  - github-history:dart-lang/sdk(age=11y,contrib=758,stars=11273)
+domains:
+- domain: dart.dev
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:52Z'
+  ttl_days: 30
+  age_days: 2793
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:42:41Z'
+    source: https://api.github.com/orgs/dart-lang
+    data:
+      org: dart-lang
+      org_verified: true
+      blog: https://dart.dev
+      org_name: Dart
+      created_at: '2012-04-03T23:36:55Z'
+  - code: A8
+    checked_at: '2026-09-05T20:42:41Z'
+    source: https://api.github.com/repos/dart-lang/sdk
+    data:
+      repo: dart-lang/sdk
+      org: dart-lang
+      repo_anchored: true
+      homepage: https://dart.dev
+      backlink: true
+      stars: 11273
+      age_days: 4130
+      contributors: 758
+  - code: A3
+    checked_at: '2026-09-05T20:42:42Z'
+    source: https://rdap.org/domain/dart.dev
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2019-01-11'
+      expires: '2027-01-11'
+      remaining_days: 128
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T20:42:42Z'
+    source: TLS handshake dart.dev:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 1
+  - code: B5
+    checked_at: '2026-09-05T20:42:42Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 38279
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:42:46Z'
+    source: http://web.archive.org/cdx/search/cdx?url=dart.dev&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2019-05-08'
+      history_days: 2677
+  rejected_evidence:
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_name(self-declared)
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,81 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:open-telemetry
+names:
+  en: OpenTelemetry - CNCF
+aliases:
+- open-telemetry
+- open-telemetry/opentelemetry-collector
+category:
+- infrastructure
+wikidata: null
+canonical:
+  github_org: open-telemetry
+  wikidata: null
+  sources:
+  - github-history:open-telemetry/opentelemetry-collector(age=7y,contrib=635,stars=7496)
+domains:
+- domain: opentelemetry.io
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:49Z'
+  ttl_days: 30
+  age_days: 2664
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:55:19Z'
+    source: https://api.github.com/orgs/open-telemetry
+    data:
+      org: open-telemetry
+      org_verified: true
+      blog: https://opentelemetry.io
+      org_name: OpenTelemetry - CNCF
+      created_at: '2019-04-25T20:20:57Z'
+  - code: A8
+    checked_at: '2026-09-05T20:55:19Z'
+    source: https://api.github.com/repos/open-telemetry/opentelemetry-collector
+    data:
+      repo: open-telemetry/opentelemetry-collector
+      org: open-telemetry
+      repo_anchored: true
+      homepage: https://opentelemetry.io
+      backlink: true
+      stars: 7496
+      age_days: 2676
+      contributors: 635
+  - code: A4
+    checked_at: '2026-09-05T20:55:19Z'
+    source: TLS handshake opentelemetry.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-05T20:55:19Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 38553
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:55:29Z'
+    source: http://web.archive.org/cdx/search/cdx?url=opentelemetry.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2019-05-21'
+      history_days: 2664
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_name(self-declared)
+  reviewed_by: []
+  source_issue: null

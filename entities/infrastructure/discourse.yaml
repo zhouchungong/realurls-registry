@@ -1,0 +1,95 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:discourse
+names:
+  en: Discourse
+aliases:
+- discourse
+category:
+- infrastructure
+wikidata: Q15054354
+canonical:
+  github_org: discourse
+  wikidata: Q15054354
+  sources:
+  - wikidata:Q15054354/P856
+  - wikidata:Q15054354/P2037
+domains:
+- domain: discourse.org
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:19:08Z'
+  ttl_days: 30
+  age_days: 9034
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:34:31Z'
+    source: https://api.github.com/orgs/discourse
+    data:
+      org: discourse
+      org_verified: true
+      blog: https://www.discourse.org
+      org_name: Discourse
+      created_at: '2013-01-08T22:17:42Z'
+  - code: A8
+    checked_at: '2026-09-05T18:34:31Z'
+    source: https://api.github.com/repos/discourse/discourse
+    data:
+      repo: discourse/discourse
+      org: discourse
+      repo_anchored: true
+      homepage: https://www.discourse.org
+      backlink: true
+      stars: 47792
+      age_days: 4984
+      contributors: 1195
+  - code: A3
+    checked_at: '2026-09-05T18:34:53Z'
+    source: https://rdap.org/domain/discourse.org
+    data:
+      registrar: Amazon Registrar, Inc.
+      created: '2001-12-10'
+      expires: '2026-12-10'
+      remaining_days: 96
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:34:53Z'
+    source: TLS handshake discourse.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:34:53Z'
+    source: https://www.wikidata.org/wiki/Q15054354
+    data:
+      qid: Q15054354
+      label: Discourse
+      site: https://www.discourse.org
+      sitelinks: 13
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:34:53Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 11241
+      source: top-1m list
+  rejected_evidence:
+  - 'A3: registrar (Amazon Registrar, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q15054354
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,89 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:nasa
+names:
+  en: National Aeronautics and Space Administration
+aliases:
+- NASA
+- nasa
+category:
+- hardware
+wikidata: Q23548
+canonical:
+  github_org: nasa
+  wikidata: Q23548
+  sources:
+  - wikidata:Q23548/P856
+  - wikidata:Q23548/P2037
+domains:
+- domain: nasa.gov
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 10565
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:38:17Z'
+    source: https://api.github.com/orgs/nasa
+    data:
+      org: nasa
+      org_verified: true
+      blog: https://www.nasa.gov/software
+      org_name: NASA
+      created_at: '2011-06-13T22:19:22Z'
+  - code: A3
+    checked_at: '2026-09-05T20:38:19Z'
+    source: https://rdap.org/domain/nasa.gov
+    data:
+      registrar: get.gov
+      created: '1997-10-02'
+      expires: '2027-07-31'
+      remaining_days: 328
+      locks:
+      - server transfer
+  - code: A4
+    checked_at: '2026-09-05T20:38:19Z'
+    source: TLS handshake nasa.gov:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T20:38:19Z'
+    source: https://www.wikidata.org/wiki/Q23548
+    data:
+      qid: Q23548
+      label: National Aeronautics and Space Administration
+      site: https://www.nasa.gov/
+      sitelinks: 183
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-05T20:38:19Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 400
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:38:23Z'
+    source: http://web.archive.org/cdx/search/cdx?url=nasa.gov&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1996-12-31'
+      history_days: 10840
+  rejected_evidence:
+  - 'A3: registrar (get.gov) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q23548
+  reviewed_by: []
+  source_issue: null

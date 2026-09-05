@@ -1,0 +1,94 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:activiti
+names:
+  en: Activiti
+aliases: []
+category:
+- infrastructure
+wikidata: Q344370
+canonical:
+  github_org: Activiti
+  wikidata: Q344370
+  sources:
+  - wikidata:Q344370/P856
+  - wikidata:Q344370/P1324
+domains:
+- domain: activiti.org
+  role: primary
+  status: verified
+  confidence: 0.6902
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 6030
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T21:08:57Z'
+    source: https://api.github.com/orgs/Activiti
+    data:
+      org: Activiti
+      org_verified: false
+      blog: https://www.activiti.org
+  - code: A8
+    checked_at: '2026-09-05T21:08:58Z'
+    source: https://api.github.com/repos/Activiti/Activiti
+    data:
+      repo: Activiti/Activiti
+      org: Activiti
+      repo_anchored: true
+      homepage: https://www.activiti.org
+      backlink: true
+      stars: 10533
+      age_days: 5105
+      contributors: 330
+  - code: A3
+    checked_at: '2026-09-05T21:09:07Z'
+    source: https://rdap.org/domain/activiti.org
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2010-03-03'
+      expires: '2027-03-03'
+      remaining_days: 178
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T21:09:07Z'
+    source: TLS handshake activiti.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T21:09:07Z'
+    source: https://www.wikidata.org/wiki/Q344370
+    data:
+      qid: Q344370
+      label: Activiti
+      site: https://www.activiti.org
+      sitelinks: 4
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-05T21:09:22Z'
+    source: http://web.archive.org/cdx/search/cdx?url=activiti.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2010-05-20'
+      history_days: 5952
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q344370
+  reviewed_by: []
+  source_issue: null

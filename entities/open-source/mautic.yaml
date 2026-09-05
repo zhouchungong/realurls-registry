@@ -1,0 +1,99 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:mautic
+names:
+  en: mautic
+aliases:
+- Mautic
+category:
+- open-source
+wikidata: Q99374512
+canonical:
+  github_org: mautic
+  wikidata: Q99374512
+  sources:
+  - wikidata:Q99374512/P856
+  - wikidata:Q99374512/P2037
+domains:
+- domain: mautic.org
+  role: primary
+  status: verified
+  confidence: 0.7088
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 4658
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T21:10:41Z'
+    source: https://api.github.com/orgs/mautic
+    data:
+      org: mautic
+      org_verified: false
+      blog: https://www.mautic.org
+  - code: A8
+    checked_at: '2026-09-05T21:10:42Z'
+    source: https://api.github.com/repos/mautic/mautic
+    data:
+      repo: mautic/mautic
+      org: mautic
+      repo_anchored: true
+      homepage: https://www.mautic.org
+      backlink: true
+      stars: 10445
+      age_days: 4765
+      contributors: 519
+  - code: A3
+    checked_at: '2026-09-05T21:10:43Z'
+    source: https://rdap.org/domain/mautic.org
+    data:
+      registrar: NameCheap, Inc.
+      created: '2013-12-04'
+      expires: '2026-12-04'
+      remaining_days: 89
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T21:10:43Z'
+    source: TLS handshake mautic.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 3
+  - code: B1
+    checked_at: '2026-09-05T21:10:43Z'
+    source: https://www.wikidata.org/wiki/Q99374512
+    data:
+      qid: Q99374512
+      label: mautic
+      site: https://www.mautic.org
+      sitelinks: 3
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-05T21:10:43Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 164703
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T21:10:51Z'
+    source: http://web.archive.org/cdx/search/cdx?url=mautic.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2014-07-12'
+      history_days: 4438
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q99374512
+  reviewed_by: []
+  source_issue: null

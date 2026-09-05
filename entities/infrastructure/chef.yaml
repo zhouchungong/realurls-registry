@@ -1,0 +1,91 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:chef
+names:
+  en: Progress Chef
+aliases:
+- chef
+- chef/chef
+category:
+- infrastructure
+wikidata: null
+canonical:
+  github_org: chef
+  wikidata: null
+  sources:
+  - github-history:chef/chef(age=17y,contrib=1062,stars=8235)
+domains:
+- domain: chef.io
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:49Z'
+  ttl_days: 30
+  age_days: 4280
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:51:06Z'
+    source: https://api.github.com/orgs/chef
+    data:
+      org: chef
+      org_verified: true
+      blog: https://www.chef.io/
+      org_name: Progress Chef
+      created_at: '2008-10-18T21:56:20Z'
+  - code: A8
+    checked_at: '2026-09-05T20:51:06Z'
+    source: https://api.github.com/repos/chef/chef
+    data:
+      repo: chef/chef
+      org: chef
+      repo_anchored: true
+      homepage: http://www.chef.io/chef/
+      backlink: true
+      stars: 8235
+      age_days: 6442
+      contributors: 1062
+  - code: A4
+    checked_at: '2026-09-05T20:51:06Z'
+    source: TLS handshake chef.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T20:51:06Z'
+    source: https://www.wikidata.org/wiki/Q7098706
+    data:
+      qid: Q7098706
+      label: Chef
+      site: https://www.chef.io/
+      sitelinks: 1
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:51:06Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 39990
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:51:30Z'
+    source: http://web.archive.org/cdx/search/cdx?url=chef.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2014-12-17'
+      history_days: 4280
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_name(self-declared)
+  reviewed_by: []
+  source_issue: null

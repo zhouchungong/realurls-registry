@@ -1,0 +1,90 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:electronicarts
+names:
+  en: Electronic Arts
+aliases:
+- electronicarts
+category:
+- open-source
+wikidata: Q173941
+canonical:
+  github_org: electronicarts
+  wikidata: Q173941
+  sources:
+  - wikidata:Q173941/P856
+  - wikidata:Q173941/P2037
+domains:
+- domain: ea.com
+  role: primary
+  status: verified
+  confidence: 0.9563
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:53Z'
+  ttl_days: 30
+  age_days: 12197
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:35:00Z'
+    source: https://api.github.com/orgs/electronicarts
+    data:
+      org: electronicarts
+      org_verified: true
+      blog: https://ea.com
+      org_name: Electronic Arts
+      created_at: '2012-04-12T17:51:18Z'
+  - code: A3
+    checked_at: '2026-09-05T20:35:01Z'
+    source: https://rdap.org/domain/ea.com
+    data:
+      registrar: CSC Corporate Domains, Inc.
+      created: '1993-04-14'
+      expires: '2027-04-15'
+      remaining_days: 221
+      locks:
+      - transfer
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-05T20:35:01Z'
+    source: TLS handshake ea.com:443
+    data:
+      subject_org: Electronic Arts Inc.
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 100
+  - code: B1
+    checked_at: '2026-09-05T20:35:01Z'
+    source: https://www.wikidata.org/wiki/Q173941
+    data:
+      qid: Q173941
+      label: Electronic Arts
+      site: https://www.ea.com
+      sitelinks: 71
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:35:01Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 310
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:35:03Z'
+    source: http://web.archive.org/cdx/search/cdx?url=ea.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1997-02-21'
+      history_days: 10788
+  rejected_evidence:
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  reasons:
+  - '2 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q173941
+  reviewed_by: []
+  source_issue: null

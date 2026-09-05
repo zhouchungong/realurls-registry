@@ -1,0 +1,90 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:vectordotdev
+names:
+  en: Vector
+aliases:
+- vectordotdev
+- vectordotdev/vector
+category:
+- infrastructure
+wikidata: null
+canonical:
+  github_org: vectordotdev
+  wikidata: null
+  sources:
+  - github-history:vectordotdev/vector(age=8y,contrib=662,stars=22513)
+domains:
+- domain: vector.dev
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 2625
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:34:10Z'
+    source: https://api.github.com/orgs/vectordotdev
+    data:
+      org: vectordotdev
+      org_verified: false
+      blog: https://vector.dev
+  - code: A8
+    checked_at: '2026-09-05T19:34:10Z'
+    source: https://api.github.com/repos/vectordotdev/vector
+    data:
+      repo: vectordotdev/vector
+      org: vectordotdev
+      repo_anchored: true
+      homepage: https://vector.dev
+      backlink: true
+      stars: 22513
+      age_days: 2931
+      contributors: 662
+  - code: A3
+    checked_at: '2026-09-05T19:34:10Z'
+    source: https://rdap.org/domain/vector.dev
+    data:
+      registrar: Namecheap Inc.
+      created: '2019-06-28'
+      expires: '2027-06-28'
+      remaining_days: 296
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T19:34:10Z'
+    source: TLS handshake vector.dev:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-05T19:34:10Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 35752
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:34:23Z'
+    source: http://web.archive.org/cdx/search/cdx?url=vector.dev&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2019-07-22'
+      history_days: 2602
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Namecheap Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_name(self-declared)
+  reviewed_by: []
+  source_issue: null

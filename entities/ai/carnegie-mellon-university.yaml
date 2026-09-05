@@ -1,0 +1,74 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:carnegie-mellon-university
+names:
+  en: Carnegie Mellon University
+aliases:
+- cmusatyalab
+category:
+- ai
+wikidata: Q190080
+canonical:
+  github_org: null
+  wikidata: Q190080
+  sources:
+  - wikidata:Q190080/P856
+domains:
+- domain: cmu.edu
+  role: primary
+  status: verified
+  confidence: 0.7816
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 10832
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:35:25Z'
+    source: https://api.github.com/orgs/cmusatyalab
+    data:
+      org: cmusatyalab
+      org_verified: false
+      blog: http://www.cs.cmu.edu/~satya/
+  - code: A4
+    checked_at: '2026-09-05T20:35:26Z'
+    source: TLS handshake cmu.edu:443
+    data:
+      subject_org: Carnegie Mellon University
+      validation_type: OV
+      issuer: Internet2
+      san_count: 112
+  - code: B1
+    checked_at: '2026-09-05T20:35:26Z'
+    source: https://www.wikidata.org/wiki/Q190080
+    data:
+      qid: Q190080
+      label: Carnegie Mellon University
+      site: https://cmu.edu
+      sitelinks: 55
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:35:26Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 1782
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:35:26Z'
+    source: http://web.archive.org/cdx/search/cdx?url=cmu.edu&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1997-01-08'
+      history_days: 10832
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q190080
+  reviewed_by: []
+  source_issue: null

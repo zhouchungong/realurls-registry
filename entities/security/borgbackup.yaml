@@ -1,0 +1,101 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:borgbackup
+names:
+  en: borg
+aliases:
+- BorgBackup
+- borgbackup
+- borgbackup/borg
+category:
+- security
+wikidata: null
+canonical:
+  github_org: borgbackup
+  wikidata: null
+  sources:
+  - github-history:borgbackup/borg(age=11y,contrib=365,stars=13691)
+domains:
+- domain: borgbackup.org
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:55Z'
+  ttl_days: 30
+  age_days: 3466
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:18:21Z'
+    source: https://api.github.com/orgs/borgbackup
+    data:
+      org: borgbackup
+      org_verified: false
+      blog: https://www.borgbackup.org
+  - code: A8
+    checked_at: '2026-09-05T20:18:21Z'
+    source: https://api.github.com/repos/borgbackup/borg
+    data:
+      repo: borgbackup/borg
+      org: borgbackup
+      repo_anchored: true
+      homepage: https://www.borgbackup.org/
+      backlink: true
+      stars: 13691
+      age_days: 4133
+      contributors: 365
+  - code: A3
+    checked_at: '2026-09-05T20:18:21Z'
+    source: https://rdap.org/domain/borgbackup.org
+    data:
+      registrar: http.net Internet GmbH
+      created: '2017-03-10'
+      expires: '2027-03-10'
+      remaining_days: 185
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T20:18:22Z'
+    source: TLS handshake borgbackup.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T20:18:22Z'
+    source: https://www.wikidata.org/wiki/Q28941676
+    data:
+      qid: Q28941676
+      label: BorgBackup
+      site: https://www.borgbackup.org/
+      sitelinks: 2
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:18:22Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 232069
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:18:33Z'
+    source: http://web.archive.org/cdx/search/cdx?url=borgbackup.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2017-07-17'
+      history_days: 3337
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (http.net Internet GmbH) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_repo_name
+  reviewed_by: []
+  source_issue: null

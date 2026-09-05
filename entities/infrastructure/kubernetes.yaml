@@ -1,0 +1,90 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:kubernetes
+names:
+  en: Kubernetes
+aliases:
+- kubernetes
+category:
+- infrastructure
+wikidata: Q22661306
+canonical:
+  github_org: kubernetes
+  wikidata: Q22661306
+  sources:
+  - wikidata:Q22661306/P856
+  - wikidata:Q22661306/P2037
+domains:
+- domain: kubernetes.io
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:56Z'
+  ttl_days: 30
+  age_days: 4325
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:23:07Z'
+    source: https://api.github.com/orgs/kubernetes
+    data:
+      org: kubernetes
+      org_verified: true
+      blog: https://kubernetes.io
+      org_name: Kubernetes
+      created_at: '2015-08-03T17:55:43Z'
+  - code: A8
+    checked_at: '2026-09-05T18:23:07Z'
+    source: https://api.github.com/repos/kubernetes/kubernetes
+    data:
+      repo: kubernetes/kubernetes
+      org: kubernetes
+      repo_anchored: true
+      homepage: https://kubernetes.io
+      backlink: true
+      stars: 126373
+      age_days: 4473
+      contributors: 5866
+  - code: A4
+    checked_at: '2026-09-05T18:23:07Z'
+    source: TLS handshake kubernetes.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:23:08Z'
+    source: https://www.wikidata.org/wiki/Q22661306
+    data:
+      qid: Q22661306
+      label: Kubernetes
+      site: https://kubernetes.io
+      sitelinks: 43
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-05T18:23:08Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 5139
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:23:10Z'
+    source: http://web.archive.org/cdx/search/cdx?url=kubernetes.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2014-11-02'
+      history_days: 4325
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q22661306
+  reviewed_by: []
+  source_issue: null

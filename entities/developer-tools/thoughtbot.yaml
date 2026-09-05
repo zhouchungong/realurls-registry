@@ -1,0 +1,92 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:thoughtbot
+names:
+  en: thoughtbot, inc.
+aliases:
+- thoughtbot
+- thoughtbot/paperclip
+category:
+- developer-tools
+wikidata: null
+canonical:
+  github_org: thoughtbot
+  wikidata: null
+  sources:
+  - github-history:thoughtbot/paperclip(age=18y,contrib=454,stars=9014)
+domains:
+- domain: thoughtbot.com
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:57Z'
+  ttl_days: 30
+  age_days: 8540
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:56:14Z'
+    source: https://api.github.com/orgs/thoughtbot
+    data:
+      org: thoughtbot
+      org_verified: true
+      blog: https://thoughtbot.com
+      org_name: thoughtbot, inc.
+      created_at: '2008-04-10T18:00:20Z'
+  - code: A8
+    checked_at: '2026-09-05T20:56:14Z'
+    source: https://api.github.com/repos/thoughtbot/paperclip
+    data:
+      repo: thoughtbot/paperclip
+      org: thoughtbot
+      repo_anchored: true
+      homepage: https://thoughtbot.com
+      backlink: true
+      stars: 9014
+      age_days: 6722
+      contributors: 454
+  - code: A3
+    checked_at: '2026-09-05T20:56:14Z'
+    source: https://rdap.org/domain/thoughtbot.com
+    data:
+      registrar: 1API GmbH
+      created: '2003-04-18'
+      expires: '2027-04-18'
+      remaining_days: 225
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T20:56:14Z'
+    source: TLS handshake thoughtbot.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-05T20:56:14Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 65397
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:56:46Z'
+    source: http://web.archive.org/cdx/search/cdx?url=thoughtbot.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1999-11-27'
+      history_days: 9779
+  rejected_evidence:
+  - 'A3: registrar (1API GmbH) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_name(self-declared)
+  reviewed_by: []
+  source_issue: null

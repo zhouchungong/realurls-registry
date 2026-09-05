@@ -1,0 +1,88 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:vapor
+names:
+  en: Vapor
+aliases:
+- vapor
+category:
+- developer-tools
+wikidata: Q55636966
+canonical:
+  github_org: vapor
+  wikidata: Q55636966
+  sources:
+  - wikidata:Q55636966/P856
+  - wikidata:Q55636966/P2037
+domains:
+- domain: vapor.codes
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:19:00Z'
+  ttl_days: 30
+  age_days: 3705
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:24:38Z'
+    source: https://api.github.com/orgs/vapor
+    data:
+      org: vapor
+      org_verified: true
+      blog: https://vapor.codes
+      org_name: Vapor
+      created_at: '2016-02-20T21:11:55Z'
+  - code: A3
+    checked_at: '2026-09-05T19:24:39Z'
+    source: https://rdap.org/domain/vapor.codes
+    data:
+      registrar: Gandi SAS
+      created: '2016-07-14'
+      expires: '2027-07-14'
+      remaining_days: 311
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T19:24:39Z'
+    source: TLS handshake vapor.codes:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T19:24:39Z'
+    source: https://www.wikidata.org/wiki/Q55636966
+    data:
+      qid: Q55636966
+      label: Vapor
+      site: https://vapor.codes/
+      sitelinks: 3
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T19:24:39Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 882841
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:24:45Z'
+    source: http://web.archive.org/cdx/search/cdx?url=vapor.codes&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2016-08-11'
+      history_days: 3677
+  rejected_evidence:
+  - 'A3: registrar (Gandi SAS) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q55636966
+  reviewed_by: []
+  source_issue: null

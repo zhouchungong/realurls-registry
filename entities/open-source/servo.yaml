@@ -1,0 +1,102 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:servo
+names:
+  en: سروو (موتور چیدمان)
+aliases:
+- Servo
+- servo
+category:
+- open-source
+wikidata: Q7455927
+canonical:
+  github_org: servo
+  wikidata: Q7455927
+  sources:
+  - wikidata:Q7455927/P856
+  - wikidata:Q7455927/P2037
+domains:
+- domain: servo.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:19:08Z'
+  ttl_days: 30
+  age_days: 9565
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:50:35Z'
+    source: https://api.github.com/orgs/servo
+    data:
+      org: servo
+      org_verified: true
+      blog: https://servo.org
+      org_name: Servo
+      created_at: '2012-10-15T17:38:39Z'
+  - code: A8
+    checked_at: '2026-09-05T18:50:36Z'
+    source: https://api.github.com/repos/servo/servo
+    data:
+      repo: servo/servo
+      org: servo
+      repo_anchored: true
+      homepage: https://servo.org
+      backlink: true
+      stars: 37923
+      age_days: 5322
+      contributors: 1748
+  - code: A3
+    checked_at: '2026-09-05T18:50:57Z'
+    source: https://rdap.org/domain/servo.org
+    data:
+      registrar: Key-Systems GmbH
+      created: '2000-06-28'
+      expires: '2027-06-28'
+      remaining_days: 295
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:50:58Z'
+    source: TLS handshake servo.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:50:58Z'
+    source: https://www.wikidata.org/wiki/Q7455927
+    data:
+      qid: Q7455927
+      label: سروو (موتور چیدمان)
+      site: https://servo.org/
+      sitelinks: 19
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:50:58Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 180154
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:51:26Z'
+    source: http://web.archive.org/cdx/search/cdx?url=servo.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2003-07-24'
+      history_days: 8444
+  rejected_evidence:
+  - 'A3: registrar (Key-Systems GmbH) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q7455927
+  reviewed_by: []
+  source_issue: null

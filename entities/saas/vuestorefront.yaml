@@ -1,0 +1,91 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:vuestorefront
+names:
+  en: Alokai
+aliases:
+- vuestorefront
+- vuestorefront/vue-storefront
+category:
+- saas
+wikidata: null
+canonical:
+  github_org: vuestorefront
+  wikidata: null
+  sources:
+  - github-history:vuestorefront/vue-storefront(age=9y,contrib=432,stars=10940)
+domains:
+- domain: alokai.com
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:53Z'
+  ttl_days: 30
+  age_days: 5884
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:25:41Z'
+    source: https://api.github.com/orgs/vuestorefront
+    data:
+      org: vuestorefront
+      org_verified: false
+      blog: https://www.alokai.com
+  - code: A8
+    checked_at: '2026-09-05T20:25:41Z'
+    source: https://api.github.com/repos/vuestorefront/vue-storefront
+    data:
+      repo: vuestorefront/vue-storefront
+      org: vuestorefront
+      repo_anchored: true
+      homepage: https://www.alokai.com
+      backlink: true
+      stars: 10940
+      age_days: 3308
+      contributors: 432
+  - code: A3
+    checked_at: '2026-09-05T20:25:41Z'
+    source: https://rdap.org/domain/alokai.com
+    data:
+      registrar: OVH sas
+      created: '2010-07-27'
+      expires: '2028-07-27'
+      remaining_days: 690
+      locks:
+      - delete
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T20:25:41Z'
+    source: TLS handshake alokai.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-05T20:25:41Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 481082
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:25:46Z'
+    source: http://web.archive.org/cdx/search/cdx?url=alokai.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2013-05-22'
+      history_days: 4854
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (OVH sas) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_name(self-declared)
+  reviewed_by: []
+  source_issue: null

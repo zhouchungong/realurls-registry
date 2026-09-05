@@ -1,0 +1,98 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:espressif
+names:
+  en: Espressif Systems
+aliases:
+- espressif
+category:
+- hardware
+wikidata: Q21095035
+canonical:
+  github_org: espressif
+  wikidata: Q21095035
+  sources:
+  - wikidata:Q21095035/P856
+  - github-history:espressif/esp-idf(age=10y,contrib=1295,stars=18951)
+domains:
+- domain: espressif.com
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:19:08Z'
+  ttl_days: 30
+  age_days: 6966
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:00:39Z'
+    source: https://api.github.com/orgs/espressif
+    data:
+      org: espressif
+      org_verified: true
+      blog: http://espressif.com
+      org_name: Espressif Systems
+      created_at: '2014-10-30T09:42:08Z'
+  - code: A8
+    checked_at: '2026-09-05T20:00:39Z'
+    source: https://api.github.com/repos/espressif/esp-idf
+    data:
+      repo: espressif/esp-idf
+      org: espressif
+      repo_anchored: true
+      homepage: ''
+      backlink: true
+      stars: 18951
+      age_days: 3671
+      contributors: 1295
+  - code: A3
+    checked_at: '2026-09-05T20:01:01Z'
+    source: https://rdap.org/domain/espressif.com
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2007-08-10'
+      expires: '2027-08-10'
+      remaining_days: 338
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T20:01:01Z'
+    source: TLS handshake espressif.com:443
+    data:
+      subject_org: 乐鑫信息科技（上海）股份有限公司
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T20:01:01Z'
+    source: https://www.wikidata.org/wiki/Q21095035
+    data:
+      qid: Q21095035
+      label: Espressif Systems
+      site: http://espressif.com/
+      sitelinks: 10
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:01:01Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 5151
+      source: top-1m list
+  rejected_evidence:
+  - 'A8: repository homepage () does not point to this domain'
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: certificate organization (乐鑫信息科技（上海）股份有限公司) is not the anchored entity (Espressif Systems, espressif)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q21095035
+  reviewed_by: []
+  source_issue: null

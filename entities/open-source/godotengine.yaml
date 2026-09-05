@@ -1,0 +1,96 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:godotengine
+names:
+  en: Godot
+aliases:
+- Godot Engine
+- godotengine
+category:
+- open-source
+wikidata: Q16972633
+canonical:
+  github_org: godotengine
+  wikidata: Q16972633
+  sources:
+  - wikidata:Q16972633/P856
+  - wikidata:Q16972633/P2037
+domains:
+- domain: godotengine.org
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 6638
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:24:10Z'
+    source: https://api.github.com/orgs/godotengine
+    data:
+      org: godotengine
+      org_verified: true
+      blog: https://godotengine.org
+      org_name: Godot Engine
+      created_at: '2014-01-04T16:03:17Z'
+  - code: A8
+    checked_at: '2026-09-05T18:24:10Z'
+    source: https://api.github.com/repos/godotengine/godot
+    data:
+      repo: godotengine/godot
+      org: godotengine
+      repo_anchored: true
+      homepage: https://godotengine.org
+      backlink: true
+      stars: 116639
+      age_days: 4627
+      contributors: 3929
+  - code: A3
+    checked_at: '2026-09-05T18:24:12Z'
+    source: https://rdap.org/domain/godotengine.org
+    data:
+      registrar: NameWeb BVBA
+      created: '2008-07-02'
+      expires: '2027-07-02'
+      remaining_days: 300
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:24:12Z'
+    source: TLS handshake godotengine.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:24:12Z'
+    source: https://www.wikidata.org/wiki/Q16972633
+    data:
+      qid: Q16972633
+      label: Godot
+      site: https://godotengine.org/
+      sitelinks: 44
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:24:12Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 15550
+      source: top-1m list
+  rejected_evidence:
+  - 'A3: registrar (NameWeb BVBA) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q16972633
+  reviewed_by: []
+  source_issue: null

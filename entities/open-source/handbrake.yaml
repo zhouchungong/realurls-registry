@@ -1,0 +1,87 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:handbrake
+names:
+  en: HandBrake
+aliases: []
+category:
+- open-source
+wikidata: Q607119
+canonical:
+  github_org: HandBrake
+  wikidata: Q607119
+  sources:
+  - wikidata:Q607119/P856
+  - wikidata:Q607119/P1324
+domains:
+- domain: handbrake.fr
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:19:00Z'
+  ttl_days: 30
+  age_days: 6834
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:35:24Z'
+    source: https://api.github.com/orgs/HandBrake
+    data:
+      org: HandBrake
+      org_verified: true
+      blog: https://handbrake.fr
+      org_name: HandBrake
+      created_at: '2011-02-19T17:29:56Z'
+  - code: A3
+    checked_at: '2026-09-05T19:35:26Z'
+    source: https://rdap.org/domain/handbrake.fr
+    data:
+      registrar: GANDI
+      created: '2007-12-20'
+      expires: '2026-12-20'
+      remaining_days: 105
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T19:35:26Z'
+    source: TLS handshake handbrake.fr:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 3
+  - code: B1
+    checked_at: '2026-09-05T19:35:26Z'
+    source: https://www.wikidata.org/wiki/Q607119
+    data:
+      qid: Q607119
+      label: HandBrake
+      site: https://handbrake.fr
+      sitelinks: 22
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T19:35:26Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 19502
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:35:58Z'
+    source: http://web.archive.org/cdx/search/cdx?url=handbrake.fr&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2008-01-02'
+      history_days: 6821
+  rejected_evidence:
+  - 'A3: registrar (GANDI) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q607119
+  reviewed_by: []
+  source_issue: null

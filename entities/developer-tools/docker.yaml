@@ -1,0 +1,103 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:docker
+names:
+  en: داکر
+aliases:
+- Docker
+- docker
+category:
+- developer-tools
+- infrastructure
+wikidata: Q15206305
+canonical:
+  github_org: docker
+  wikidata: Q15206305
+  sources:
+  - wikidata:Q15206305/P856
+  - wikidata:Q15206305/P2037
+domains:
+- domain: docker.com
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:49Z'
+  ttl_days: 30
+  age_days: 11546
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:43:30Z'
+    source: https://api.github.com/orgs/docker
+    data:
+      org: docker
+      org_verified: true
+      blog: https://www.docker.com
+      org_name: Docker
+      created_at: '2013-09-10T17:53:43Z'
+  - code: A8
+    checked_at: '2026-09-05T18:43:31Z'
+    source: https://api.github.com/repos/docker/docker-py
+    data:
+      repo: docker/docker-py
+      org: docker
+      repo_anchored: true
+      homepage: https://docker-py.readthedocs.io/
+      backlink: true
+      stars: 7211
+      age_days: 4853
+      contributors: 465
+  - code: A3
+    checked_at: '2026-09-05T18:43:31Z'
+    source: https://rdap.org/domain/docker.com
+    data:
+      registrar: Gandi SAS
+      created: '1995-01-25'
+      expires: '2027-01-26'
+      remaining_days: 142
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:43:31Z'
+    source: TLS handshake docker.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:43:31Z'
+    source: https://www.wikidata.org/wiki/Q15206305
+    data:
+      qid: Q15206305
+      label: داکر
+      site: https://www.docker.com
+      sitelinks: 52
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-05T18:43:31Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 485
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:43:34Z'
+    source: http://web.archive.org/cdx/search/cdx?url=docker.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1996-12-21'
+      history_days: 10850
+  rejected_evidence:
+  - 'A8: repository homepage (https://docker-py.readthedocs.io/) does not point to this domain'
+  - 'A3: registrar (Gandi SAS) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q15206305
+  reviewed_by: []
+  source_issue: null

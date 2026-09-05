@@ -1,0 +1,102 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:flameshot-org
+names:
+  en: Flameshot
+aliases:
+- flameshot-org
+- flameshot-org/flameshot
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: flameshot-org
+  wikidata: null
+  sources:
+  - github-history:flameshot-org/flameshot(age=9y,contrib=352,stars=30780)
+domains:
+- domain: flameshot.org
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:56Z'
+  ttl_days: 30
+  age_days: 2187
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:04:15Z'
+    source: https://api.github.com/orgs/flameshot-org
+    data:
+      org: flameshot-org
+      org_verified: true
+      blog: https://flameshot.org/
+      org_name: Flameshot
+      created_at: '2018-03-01T08:56:21Z'
+  - code: A8
+    checked_at: '2026-09-05T19:04:15Z'
+    source: https://api.github.com/repos/flameshot-org/flameshot
+    data:
+      repo: flameshot-org/flameshot
+      org: flameshot-org
+      repo_anchored: true
+      homepage: https://flameshot.org
+      backlink: true
+      stars: 30780
+      age_days: 3404
+      contributors: 352
+  - code: A3
+    checked_at: '2026-09-05T19:04:37Z'
+    source: https://rdap.org/domain/flameshot.org
+    data:
+      registrar: NameCheap, Inc.
+      created: '2020-09-09'
+      expires: '2027-09-09'
+      remaining_days: 368
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T19:04:37Z'
+    source: TLS handshake flameshot.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T19:04:37Z'
+    source: https://www.wikidata.org/wiki/Q66978303
+    data:
+      qid: Q66978303
+      label: Flameshot
+      site: https://flameshot.org/
+      sitelinks: 1
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T19:04:37Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 353430
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:04:48Z'
+    source: http://web.archive.org/cdx/search/cdx?url=flameshot.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2020-11-27'
+      history_days: 2108
+  rejected_evidence:
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_name(self-declared)
+  reviewed_by: []
+  source_issue: null

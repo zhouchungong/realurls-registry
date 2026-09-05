@@ -1,0 +1,90 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:typescript-eslint
+names:
+  en: typescript-eslint
+aliases:
+- typescript-eslint/typescript-eslint
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: typescript-eslint
+  wikidata: null
+  sources:
+  - github-history:typescript-eslint/typescript-eslint(age=7y,contrib=824,stars=16382)
+domains:
+- domain: typescript-eslint.io
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:53Z'
+  ttl_days: 30
+  age_days: 1719
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:47:38Z'
+    source: https://api.github.com/orgs/typescript-eslint
+    data:
+      org: typescript-eslint
+      org_verified: true
+      blog: https://typescript-eslint.io
+      org_name: typescript-eslint
+      created_at: '2019-01-12T21:02:28Z'
+  - code: A8
+    checked_at: '2026-09-05T19:47:38Z'
+    source: https://api.github.com/repos/typescript-eslint/typescript-eslint
+    data:
+      repo: typescript-eslint/typescript-eslint
+      org: typescript-eslint
+      repo_anchored: true
+      homepage: https://typescript-eslint.io
+      backlink: true
+      stars: 16382
+      age_days: 2792
+      contributors: 824
+  - code: A4
+    checked_at: '2026-09-05T19:47:38Z'
+    source: TLS handshake typescript-eslint.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 6
+  - code: B1
+    checked_at: '2026-09-05T19:47:38Z'
+    source: https://www.wikidata.org/wiki/Q95971135
+    data:
+      qid: Q95971135
+      label: '@typescript-eslint/typescript-estree'
+      site: https://typescript-eslint.io/
+      sitelinks: 0
+      competing_items: 4
+  - code: B5
+    checked_at: '2026-09-05T19:47:38Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 867961
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:48:12Z'
+    source: http://web.archive.org/cdx/search/cdx?url=typescript-eslint.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2021-12-21'
+      history_days: 1719
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_repo_name
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,91 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:getgrav
+names:
+  en: Grav
+aliases:
+- getgrav
+category:
+- saas
+wikidata: Q56313389
+canonical:
+  github_org: getgrav
+  wikidata: Q56313389
+  sources:
+  - wikidata:Q56313389/P856
+  - wikidata:Q56313389/P1324
+domains:
+- domain: getgrav.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:56Z'
+  ttl_days: 30
+  age_days: 4578
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:19:34Z'
+    source: https://api.github.com/orgs/getgrav
+    data:
+      org: getgrav
+      org_verified: true
+      blog: https://getgrav.org
+      org_name: Grav
+      created_at: '2014-07-22T16:42:43Z'
+  - code: A3
+    checked_at: '2026-09-05T20:19:36Z'
+    source: https://rdap.org/domain/getgrav.org
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2014-02-22'
+      expires: '2027-02-22'
+      remaining_days: 169
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T20:19:36Z'
+    source: TLS handshake getgrav.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T20:19:36Z'
+    source: https://www.wikidata.org/wiki/Q56313389
+    data:
+      qid: Q56313389
+      label: Grav
+      site: https://getgrav.org/
+      sitelinks: 4
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:19:36Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 33667
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:19:54Z'
+    source: http://web.archive.org/cdx/search/cdx?url=getgrav.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2014-08-17'
+      history_days: 4402
+  rejected_evidence:
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q56313389
+  reviewed_by: []
+  source_issue: null

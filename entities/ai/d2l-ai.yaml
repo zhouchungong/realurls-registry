@@ -1,0 +1,90 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:d2l-ai
+names:
+  en: Dive into Deep Learning (D2L.ai)
+aliases:
+- d2l-ai
+- d2l-ai/d2l-en
+category:
+- ai
+wikidata: null
+canonical:
+  github_org: d2l-ai
+  wikidata: null
+  sources:
+  - github-history:d2l-ai/d2l-en(age=7y,contrib=320,stars=29538)
+domains:
+- domain: d2l.ai
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 2809
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:36:34Z'
+    source: https://api.github.com/orgs/d2l-ai
+    data:
+      org: d2l-ai
+      org_verified: false
+      blog: https://D2L.ai
+  - code: A8
+    checked_at: '2026-09-05T18:36:34Z'
+    source: https://api.github.com/repos/d2l-ai/d2l-en
+    data:
+      repo: d2l-ai/d2l-en
+      org: d2l-ai
+      repo_anchored: true
+      homepage: https://D2L.ai
+      backlink: true
+      stars: 29538
+      age_days: 2888
+      contributors: 320
+  - code: A3
+    checked_at: '2026-09-05T18:36:35Z'
+    source: https://rdap.org/domain/d2l.ai
+    data:
+      registrar: NameCheap, Inc.
+      created: '2018-12-26'
+      expires: '2030-12-26'
+      remaining_days: 1573
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:36:35Z'
+    source: TLS handshake d2l.ai:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-05T18:36:35Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 68855
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:36:42Z'
+    source: http://web.archive.org/cdx/search/cdx?url=d2l.ai&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2019-01-14'
+      history_days: 2791
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_name(self-declared)
+  reviewed_by: []
+  source_issue: null

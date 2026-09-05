@@ -1,0 +1,96 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:primefaces
+names:
+  en: PrimeFaces
+aliases:
+- PrimeTek
+- primefaces
+category:
+- open-source
+wikidata: Q1240306
+canonical:
+  github_org: primefaces
+  wikidata: Q1240306
+  sources:
+  - wikidata:Q1240306/P856
+  - wikidata:Q1240306/P1324
+domains:
+- domain: primefaces.org
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:52Z'
+  ttl_days: 30
+  age_days: 6284
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:21:11Z'
+    source: https://api.github.com/orgs/primefaces
+    data:
+      org: primefaces
+      org_verified: true
+      blog: https://www.primefaces.org
+      org_name: PrimeTek
+      created_at: '2013-02-06T17:54:25Z'
+  - code: A8
+    checked_at: '2026-09-05T20:21:11Z'
+    source: https://api.github.com/repos/primefaces/primevue
+    data:
+      repo: primefaces/primevue
+      org: primefaces
+      repo_anchored: true
+      homepage: https://primevue.org
+      backlink: true
+      stars: 14458
+      age_days: 2832
+      contributors: 456
+  - code: A3
+    checked_at: '2026-09-05T20:21:11Z'
+    source: https://rdap.org/domain/primefaces.org
+    data:
+      registrar: PDR Ltd. d/b/a PublicDomainRegistry.com
+      created: '2009-06-22'
+      expires: '2036-06-22'
+      remaining_days: 3577
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T20:21:11Z'
+    source: TLS handshake primefaces.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T20:21:12Z'
+    source: https://www.wikidata.org/wiki/Q1240306
+    data:
+      qid: Q1240306
+      label: PrimeFaces
+      site: http://www.primefaces.org
+      sitelinks: 5
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:21:12Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 86438
+      source: top-1m list
+  rejected_evidence:
+  - 'A8: repository homepage (https://primevue.org) does not point to this domain'
+  - 'A3: registrar (PDR Ltd. d/b/a PublicDomainRegistry.com) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q1240306
+  reviewed_by: []
+  source_issue: null

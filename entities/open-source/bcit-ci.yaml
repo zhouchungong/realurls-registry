@@ -1,0 +1,95 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:bcit-ci
+names:
+  en: British Columbia Institute of Technology
+aliases:
+- B.C. Institute of Technology
+- bcit-ci
+category:
+- open-source
+wikidata: Q820796
+canonical:
+  github_org: bcit-ci
+  wikidata: Q820796
+  sources:
+  - wikidata:Q820796/P856
+  - github-history:bcit-ci/CodeIgniter(age=15y,contrib=621,stars=18164)
+domains:
+- domain: bcit.ca
+  role: primary
+  status: verified
+  confidence: 0.7518
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:53Z'
+  ttl_days: 30
+  age_days: 9451
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:36:37Z'
+    source: https://api.github.com/orgs/bcit-ci
+    data:
+      org: bcit-ci
+      org_verified: false
+      blog: http://www.bcit.ca/cas/computing/
+  - code: A8
+    checked_at: '2026-09-05T19:36:37Z'
+    source: https://api.github.com/repos/bcit-ci/CodeIgniter
+    data:
+      repo: bcit-ci/CodeIgniter
+      org: bcit-ci
+      repo_anchored: true
+      homepage: https://codeigniter.com/
+      backlink: false
+      stars: 18164
+      age_days: 5496
+      contributors: 621
+  - code: A3
+    checked_at: '2026-09-05T19:36:37Z'
+    source: https://rdap.org/domain/bcit.ca
+    data:
+      registrar: Internic.ca Inc.
+      created: '2000-10-19'
+      expires: '2027-04-19'
+      remaining_days: 225
+      locks:
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T19:36:37Z'
+    source: TLS handshake bcit.ca:443
+    data:
+      subject_org: British Columbia Institute of Technology
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T19:36:37Z'
+    source: https://www.wikidata.org/wiki/Q820796
+    data:
+      qid: Q820796
+      label: British Columbia Institute of Technology
+      site: https://www.bcit.ca/
+      sitelinks: 10
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T19:36:37Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 37744
+      source: top-1m list
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A8: repository homepage (https://codeigniter.com/) does not point to this domain'
+  - 'A3: registrar (Internic.ca Inc.) is not a brand-protection registrar'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q820796
+  reviewed_by: []
+  source_issue: null

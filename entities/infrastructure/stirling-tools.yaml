@@ -1,0 +1,90 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:stirling-tools
+names:
+  en: Stirling Tools
+aliases:
+- Stirling-Tools
+- Stirling-Tools/Stirling-PDF
+category:
+- infrastructure
+wikidata: null
+canonical:
+  github_org: Stirling-Tools
+  wikidata: null
+  sources:
+  - github-history:Stirling-Tools/Stirling-PDF(age=3y,contrib=311,stars=91350)
+domains:
+- domain: stirling.com
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:55Z'
+  ttl_days: 30
+  age_days: 10243
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:24:48Z'
+    source: https://api.github.com/orgs/Stirling-Tools
+    data:
+      org: Stirling-Tools
+      org_verified: false
+      blog: https://stirling.com
+  - code: A8
+    checked_at: '2026-09-05T18:24:48Z'
+    source: https://api.github.com/repos/Stirling-Tools/Stirling-PDF
+    data:
+      repo: Stirling-Tools/Stirling-PDF
+      org: Stirling-Tools
+      repo_anchored: true
+      homepage: https://stirling.com
+      backlink: true
+      stars: 91350
+      age_days: 1317
+      contributors: 311
+  - code: A3
+    checked_at: '2026-09-05T18:24:48Z'
+    source: https://rdap.org/domain/stirling.com
+    data:
+      registrar: Cloudflare, Inc.
+      created: '1998-08-20'
+      expires: '2029-08-19'
+      remaining_days: 1078
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:24:48Z'
+    source: TLS handshake stirling.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-05T18:24:48Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 486926
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:25:51Z'
+    source: http://web.archive.org/cdx/search/cdx?url=stirling.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1997-02-11'
+      history_days: 10798
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Cloudflare, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_name(self-declared)
+  reviewed_by: []
+  source_issue: null

@@ -291,3 +291,22 @@ cases:
       - {code: A6, data: {from: "python[.]org", from_status: verified, first_party_link: true, structural_links: ["shared_ns"], san_count: 0, backlink: null}}
       - {code: B4, data: {history_days: 5800}}
       - {code: B5, data: {rank: 900}}
+
+  - id: sponsor-domain-corporate-fingerprint-only
+    technique: 开源项目首页链接到赞助商大站；大站有品牌保护注册商、长历史、高排名，但没有任何证据指名本实体（gh-01 批次真实误报：anthropic.com 判给 python，digitalocean.com 判给 gogs/phalcon/nodejs）
+    facts: {domain: "big-sponsor[.]example", age_days: 6000, expected_github_org: "python", expected_wikidata: "Q599384", anchor_sources: ["wikidata:Q599384/P856"], expected_names: ["Python", "python"]}
+    evidence:
+      - {code: A1, data: {org: "sponsorcorp", is_verified: true}}
+      - {code: A3, data: {registrar: "MarkMonitor Inc.", remaining_days: 2000, locks: ["clientDeleteProhibited", "clientTransferProhibited"]}}
+      - {code: A6, data: {from: "python[.]org", from_status: verified, first_party_link: true, structural_links: [], san_count: 3, backlink: false}}
+      - {code: B1, data: {qid: "Q116758847"}}
+      - {code: B4, data: {history_days: 5800}}
+      - {code: B5, data: {rank: 900}}
+
+  - id: gov-tld-fingerprint-only
+    technique: 政府域名（受限 TLD）被问到与它无关的实体名下：A7 + 历史 + 排名，没有任何证据指名实体
+    facts: {domain: "some-agency.gov", age_days: 8000, expected_github_org: "python", expected_wikidata: "Q599384", anchor_sources: ["wikidata:Q599384/P856"], expected_names: ["Python"]}
+    evidence:
+      - {code: A7, data: {}}
+      - {code: B4, data: {history_days: 7000}}
+      - {code: B5, data: {rank: 5000}}

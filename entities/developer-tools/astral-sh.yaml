@@ -1,0 +1,91 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:astral-sh
+names:
+  en: Astral
+aliases:
+- astral-sh
+- astral-sh/ruff
+category:
+- developer-tools
+wikidata: null
+canonical:
+  github_org: astral-sh
+  wikidata: null
+  sources:
+  - github-history:astral-sh/ruff(age=4y,contrib=966,stars=49498)
+domains:
+- domain: astral.sh
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 1744
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:40:20Z'
+    source: https://api.github.com/orgs/astral-sh
+    data:
+      org: astral-sh
+      org_verified: true
+      blog: https://astral.sh
+      org_name: Astral
+      created_at: '2022-10-17T02:12:50Z'
+  - code: A8
+    checked_at: '2026-09-05T18:40:20Z'
+    source: https://api.github.com/repos/astral-sh/ruff
+    data:
+      repo: astral-sh/ruff
+      org: astral-sh
+      repo_anchored: true
+      homepage: https://docs.astral.sh/ruff
+      backlink: true
+      stars: 49498
+      age_days: 1488
+      contributors: 966
+  - code: A4
+    checked_at: '2026-09-05T18:40:20Z'
+    source: TLS handshake astral.sh:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:40:20Z'
+    source: https://www.wikidata.org/wiki/Q137907742
+    data:
+      qid: Q137907742
+      label: Astral
+      site: https://astral.sh/
+      sitelinks: 0
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:40:20Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 25626
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:40:30Z'
+    source: http://web.archive.org/cdx/search/cdx?url=astral.sh&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2021-11-26'
+      history_days: 1744
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_name(self-declared)
+  reviewed_by: []
+  source_issue: null

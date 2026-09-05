@@ -1,0 +1,110 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:mantinedev
+names:
+  en: Mantine
+aliases:
+- mantinedev
+- mantinedev/mantine
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: mantinedev
+  wikidata: null
+  sources:
+  - github-history:mantinedev/mantine(age=5y,contrib=786,stars=31666)
+domains:
+- domain: mantine.dev
+  role: primary
+  status: verified
+  confidence: 0.8478
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:54Z'
+  ttl_days: 30
+  age_days: 2026
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:56:29Z'
+    source: https://api.github.com/orgs/mantinedev
+    data:
+      org: mantinedev
+      org_verified: true
+      blog: https://mantine.dev/
+      org_name: Mantine
+      created_at: '2021-02-16T12:09:32Z'
+  - code: A8
+    checked_at: '2026-09-05T18:56:29Z'
+    source: https://api.github.com/repos/mantinedev/mantine
+    data:
+      repo: mantinedev/mantine
+      org: mantinedev
+      repo_anchored: true
+      homepage: https://mantine.dev
+      backlink: true
+      stars: 31666
+      age_days: 2067
+      contributors: 786
+  - code: B2
+    checked_at: '2026-09-05T18:56:29Z'
+    source: https://registry.npmjs.org/@mantine/hooks
+    data:
+      package: '@mantine/hooks'
+      homepage: https://mantine.dev
+  - code: A2
+    checked_at: '2026-09-05T18:56:29Z'
+    source: https://registry.npmjs.org/-/npm/v1/attestations/@mantine/hooks@9.6.0
+    data:
+      package: '@mantine/hooks'
+      version: 9.6.0
+      provenance_verified: true
+      provenance_check: registry-tls
+      chain_org: npm
+      chain_org_verified: false
+      chain_blog: ''
+  - code: A3
+    checked_at: '2026-09-05T18:56:29Z'
+    source: https://rdap.org/domain/mantine.dev
+    data:
+      registrar: Dynadot LLC.
+      created: '2021-02-17'
+      expires: '2033-02-17'
+      remaining_days: 2356
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:56:29Z'
+    source: TLS handshake mantine.dev:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-05T18:56:30Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 461328
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:56:31Z'
+    source: http://web.archive.org/cdx/search/cdx?url=mantine.dev&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2021-05-03'
+      history_days: 1951
+  rejected_evidence:
+  - 'A2: GitHub organization at the end of the provenance chain has not verified this domain'
+  - 'A3: registrar (Dynadot LLC.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_name(self-declared)
+  reviewed_by: []
+  source_issue: null

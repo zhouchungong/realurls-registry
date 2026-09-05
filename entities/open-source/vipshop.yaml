@@ -1,0 +1,86 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:vipshop
+names:
+  en: Vipshop
+aliases:
+- vipshop
+- 唯品会
+category:
+- open-source
+wikidata: Q19854317
+canonical:
+  github_org: null
+  wikidata: Q19854317
+  sources:
+  - wikidata:Q19854317/P856
+domains:
+- domain: vip.com
+  role: primary
+  status: verified
+  confidence: 0.7816
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:52Z'
+  ttl_days: 30
+  age_days: 11692
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T21:25:40Z'
+    source: https://api.github.com/orgs/vipshop
+    data:
+      org: vipshop
+      org_verified: false
+      blog: www.vip.com
+  - code: A3
+    checked_at: '2026-09-05T21:26:23Z'
+    source: https://rdap.org/domain/vip.com
+    data:
+      registrar: Alibaba Cloud Computing (Beijing) Co., Ltd.
+      created: '1994-09-01'
+      expires: '2034-10-23'
+      remaining_days: 2969
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T21:26:24Z'
+    source: TLS handshake vip.com:443
+    data:
+      subject_org: Guangzhou Vipshop E-Commerce Co., Ltd.
+      validation_type: OV
+      issuer: DigiCert, Inc.
+      san_count: 21
+  - code: B1
+    checked_at: '2026-09-05T21:26:24Z'
+    source: https://www.wikidata.org/wiki/Q19854317
+    data:
+      qid: Q19854317
+      label: Vipshop
+      site: https://www.vip.com/
+      sitelinks: 7
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T21:26:24Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 20092
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T21:26:26Z'
+    source: http://web.archive.org/cdx/search/cdx?url=vip.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1996-12-19'
+      history_days: 10852
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Alibaba Cloud Computing (Beijing) Co., Ltd.) is not a brand-protection registrar'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q19854317
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,95 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:forem
+names:
+  en: forem
+aliases:
+- Forem
+- forem/forem
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: forem
+  wikidata: null
+  sources:
+  - github-history:forem/forem(age=9y,contrib=803,stars=22774)
+domains:
+- domain: forem.com
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:19:00Z'
+  ttl_days: 30
+  age_days: 10472
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:39:53Z'
+    source: https://api.github.com/orgs/forem
+    data:
+      org: forem
+      org_verified: true
+      blog: https://forem.com
+      org_name: Forem
+      created_at: '2020-05-08T15:10:05Z'
+  - code: A8
+    checked_at: '2026-09-05T19:39:53Z'
+    source: https://api.github.com/repos/forem/forem
+    data:
+      repo: forem/forem
+      org: forem
+      repo_anchored: true
+      homepage: https://forem.com
+      backlink: true
+      stars: 22774
+      age_days: 3582
+      contributors: 803
+  - code: A3
+    checked_at: '2026-09-05T19:39:59Z'
+    source: https://rdap.org/domain/forem.com
+    data:
+      registrar: GoDaddy Online Services Cayman Islands Ltd.
+      created: '1998-01-03'
+      expires: '2027-01-02'
+      remaining_days: 118
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T19:39:59Z'
+    source: TLS handshake forem.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-05T19:39:59Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 113881
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:40:39Z'
+    source: http://web.archive.org/cdx/search/cdx?url=forem.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1998-12-06'
+      history_days: 10135
+  rejected_evidence:
+  - 'A3: registrar (GoDaddy Online Services Cayman Islands Ltd.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_repo_name
+  reviewed_by: []
+  source_issue: null

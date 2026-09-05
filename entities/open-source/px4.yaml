@@ -1,0 +1,91 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:px4
+names:
+  en: PX4 autopilot
+aliases:
+- PX4
+- PX4 Autopilot
+category:
+- open-source
+wikidata: Q17076943
+canonical:
+  github_org: PX4
+  wikidata: Q17076943
+  sources:
+  - wikidata:Q17076943/P856
+  - wikidata:Q17076943/P1324
+domains:
+- domain: px4.io
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:49Z'
+  ttl_days: 30
+  age_days: 3897
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:11:12Z'
+    source: https://api.github.com/orgs/PX4
+    data:
+      org: PX4
+      org_verified: true
+      blog: https://px4.io
+      org_name: PX4 Autopilot
+      created_at: '2012-08-04T21:17:49Z'
+  - code: A8
+    checked_at: '2026-09-05T20:11:12Z'
+    source: https://api.github.com/repos/PX4/PX4-Autopilot
+    data:
+      repo: PX4/PX4-Autopilot
+      org: PX4
+      repo_anchored: true
+      homepage: https://px4.io
+      backlink: true
+      stars: 12552
+      age_days: 5144
+      contributors: 1187
+  - code: A4
+    checked_at: '2026-09-05T20:11:12Z'
+    source: TLS handshake px4.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T20:11:13Z'
+    source: https://www.wikidata.org/wiki/Q17076943
+    data:
+      qid: Q17076943
+      label: PX4 autopilot
+      site: http://px4.io
+      sitelinks: 4
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:11:13Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 71517
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:11:48Z'
+    source: http://web.archive.org/cdx/search/cdx?url=px4.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2016-01-04'
+      history_days: 3897
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q17076943
+  reviewed_by: []
+  source_issue: null

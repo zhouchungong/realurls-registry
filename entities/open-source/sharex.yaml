@@ -1,0 +1,100 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:sharex
+names:
+  en: ShareX
+aliases: []
+category:
+- open-source
+wikidata: Q17048664
+canonical:
+  github_org: ShareX
+  wikidata: Q17048664
+  sources:
+  - wikidata:Q17048664/P856
+  - wikidata:Q17048664/P2037
+domains:
+- domain: getsharex.com
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:56Z'
+  ttl_days: 30
+  age_days: 4714
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:48:44Z'
+    source: https://api.github.com/orgs/ShareX
+    data:
+      org: ShareX
+      org_verified: true
+      blog: https://getsharex.com
+      org_name: ShareX
+      created_at: '2013-09-26T10:27:37Z'
+  - code: A8
+    checked_at: '2026-09-05T18:48:44Z'
+    source: https://api.github.com/repos/ShareX/ShareX
+    data:
+      repo: ShareX/ShareX
+      org: ShareX
+      repo_anchored: true
+      homepage: https://getsharex.com
+      backlink: true
+      stars: 39452
+      age_days: 4714
+      contributors: 300
+  - code: A3
+    checked_at: '2026-09-05T18:48:45Z'
+    source: https://rdap.org/domain/getsharex.com
+    data:
+      registrar: NameCheap, Inc.
+      created: '2013-10-08'
+      expires: '2027-10-08'
+      remaining_days: 398
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:48:45Z'
+    source: TLS handshake getsharex.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:48:45Z'
+    source: https://www.wikidata.org/wiki/Q17048664
+    data:
+      qid: Q17048664
+      label: ShareX
+      site: https://getsharex.com
+      sitelinks: 11
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:48:45Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 79588
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:49:02Z'
+    source: http://web.archive.org/cdx/search/cdx?url=getsharex.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2013-10-18'
+      history_days: 4705
+  rejected_evidence:
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q17048664
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,99 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:chartjs
+names:
+  en: Chart.js
+aliases:
+- chartjs
+category:
+- open-source
+wikidata: Q83624620
+canonical:
+  github_org: chartjs
+  wikidata: Q83624620
+  sources:
+  - wikidata:Q83624620/P856
+  - wikidata:Q83624620/P1324
+domains:
+- domain: chartjs.org
+  role: primary
+  status: verified
+  confidence: 0.7088
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:52Z'
+  ttl_days: 30
+  age_days: 4949
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:27:31Z'
+    source: https://api.github.com/orgs/chartjs
+    data:
+      org: chartjs
+      org_verified: false
+      blog: http://www.chartjs.org/
+  - code: A8
+    checked_at: '2026-09-05T18:27:32Z'
+    source: https://api.github.com/repos/chartjs/Chart.js
+    data:
+      repo: chartjs/Chart.js
+      org: chartjs
+      repo_anchored: true
+      homepage: https://www.chartjs.org/
+      backlink: true
+      stars: 67684
+      age_days: 4919
+      contributors: 527
+  - code: A3
+    checked_at: '2026-09-05T18:27:32Z'
+    source: https://rdap.org/domain/chartjs.org
+    data:
+      registrar: Cloudflare, Inc.
+      created: '2013-02-16'
+      expires: '2027-02-16'
+      remaining_days: 163
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:27:32Z'
+    source: TLS handshake chartjs.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:27:32Z'
+    source: https://www.wikidata.org/wiki/Q83624620
+    data:
+      qid: Q83624620
+      label: Chart.js
+      site: https://www.chartjs.org/
+      sitelinks: 7
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:27:32Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 38726
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:28:42Z'
+    source: http://web.archive.org/cdx/search/cdx?url=chartjs.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2013-03-19'
+      history_days: 4918
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Cloudflare, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q83624620
+  reviewed_by: []
+  source_issue: null

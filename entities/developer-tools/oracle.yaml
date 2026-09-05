@@ -1,0 +1,100 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:oracle
+names:
+  en: Oracle Corporation
+aliases:
+- Oracle
+- oracle
+category:
+- developer-tools
+- infrastructure
+wikidata: Q19900
+canonical:
+  github_org: oracle
+  wikidata: Q19900
+  sources:
+  - wikidata:Q19900/P856
+  - wikidata:Q19900/P2037
+domains:
+- domain: oracle.com
+  role: primary
+  status: verified
+  confidence: 0.7518
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:54Z'
+  ttl_days: 30
+  age_days: 13791
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:23:06Z'
+    source: https://api.github.com/orgs/oracle
+    data:
+      org: oracle
+      org_verified: false
+      blog: https://developer.oracle.com/open-source.html
+  - code: A8
+    checked_at: '2026-09-05T19:23:06Z'
+    source: https://api.github.com/repos/oracle/graal
+    data:
+      repo: oracle/graal
+      org: oracle
+      repo_anchored: true
+      homepage: https://www.graalvm.org
+      backlink: false
+      stars: 21686
+      age_days: 3887
+      contributors: 461
+  - code: A3
+    checked_at: '2026-09-05T19:23:06Z'
+    source: https://rdap.org/domain/oracle.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '1988-12-02'
+      expires: '2026-12-01'
+      remaining_days: 86
+      locks:
+      - delete
+      - transfer
+      - update
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-05T19:23:06Z'
+    source: TLS handshake oracle.com:443
+    data:
+      subject_org: Oracle Corporation
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 85
+  - code: B1
+    checked_at: '2026-09-05T19:23:06Z'
+    source: https://www.wikidata.org/wiki/Q19900
+    data:
+      qid: Q19900
+      label: Oracle Corporation
+      site: https://www.oracle.com/
+      sitelinks: 78
+      competing_items: 2
+  - code: B5
+    checked_at: '2026-09-05T19:23:06Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 197
+      source: top-1m list
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A8: repository homepage (https://www.graalvm.org) does not point to this domain'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q19900
+  reviewed_by: []
+  source_issue: null

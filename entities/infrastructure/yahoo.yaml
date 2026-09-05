@@ -1,0 +1,161 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:yahoo
+names:
+  en: Yahoo
+aliases:
+- yahoo
+category:
+- infrastructure
+wikidata: Q37093
+canonical:
+  github_org: null
+  wikidata: Q37093
+  sources:
+  - wikidata:Q37093/P856
+domains:
+- domain: yahoo.com
+  role: primary
+  status: verified
+  confidence: 0.7816
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 11553
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:48:03Z'
+    source: https://api.github.com/orgs/yahoo
+    data:
+      org: yahoo
+      org_verified: false
+      blog: https://developer.yahoo.com/opensource
+  - code: A3
+    checked_at: '2026-09-05T20:48:03Z'
+    source: https://rdap.org/domain/yahoo.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '1995-01-18'
+      expires: '2027-01-19'
+      remaining_days: 135
+      locks:
+      - delete
+      - transfer
+      - update
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-05T20:48:03Z'
+    source: TLS handshake yahoo.com:443
+    data:
+      subject_org: Yahoo Holdings Inc.
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 16
+  - code: B1
+    checked_at: '2026-09-05T20:48:03Z'
+    source: https://www.wikidata.org/wiki/Q37093
+    data:
+      qid: Q37093
+      label: Yahoo
+      site: https://www.yahoo.com/
+      sitelinks: 124
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:48:03Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 60
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:48:26Z'
+    source: http://web.archive.org/cdx/search/cdx?url=yahoo.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1996-10-17'
+      history_days: 10915
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+- domain: yahooinc.com
+  role: product
+  status: verified
+  confidence: 0.9131
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 9434
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A3
+    checked_at: '2026-09-05T20:49:20Z'
+    source: https://rdap.org/domain/yahooinc.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2000-11-06'
+      expires: '2026-11-06'
+      remaining_days: 61
+      locks:
+      - delete
+      - transfer
+      - update
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-05T20:49:20Z'
+    source: TLS handshake yahooinc.com:443
+    data:
+      subject_org: Yahoo Holdings Inc.
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 63
+  - code: B1
+    checked_at: '2026-09-05T20:49:21Z'
+    source: https://www.wikidata.org/wiki/Q29231846
+    data:
+      qid: Q29231846
+      label: Yahoo Inc.
+      site: https://www.yahooinc.com/
+      sitelinks: 16
+      competing_items: 2
+  - code: B5
+    checked_at: '2026-09-05T20:49:21Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 33740
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:50:24Z'
+    source: http://web.archive.org/cdx/search/cdx?url=yahooinc.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2002-05-23'
+      history_days: 8871
+  - code: A6
+    checked_at: '2026-09-05T20:50:24Z'
+    source: propagate from yahoo.com
+    data:
+      from: yahoo.com
+      from_status: verified
+      first_party_link: true
+      structural_links:
+      - shared_ns
+      san_count: 16
+      backlink: true
+  rejected_evidence:
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'B1: item Q29231846 != entity canonical item Q37093'
+  reasons:
+  - '2 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q37093
+  reviewed_by: []
+  source_issue: null

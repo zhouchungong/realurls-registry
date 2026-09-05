@@ -1,0 +1,101 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:rollup
+names:
+  en: rollup
+aliases:
+- Rollup
+- rollup/rollup
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: rollup
+  wikidata: null
+  sources:
+  - github-history:rollup/rollup(age=11y,contrib=461,stars=26308)
+domains:
+- domain: rollupjs.org
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:55Z'
+  ttl_days: 30
+  age_days: 4049
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:10:06Z'
+    source: https://api.github.com/orgs/rollup
+    data:
+      org: rollup
+      org_verified: false
+      blog: https://rollupjs.org
+  - code: A8
+    checked_at: '2026-09-05T19:10:06Z'
+    source: https://api.github.com/repos/rollup/rollup
+    data:
+      repo: rollup/rollup
+      org: rollup
+      repo_anchored: true
+      homepage: https://rollupjs.org
+      backlink: true
+      stars: 26308
+      age_days: 4131
+      contributors: 461
+  - code: A3
+    checked_at: '2026-09-05T19:10:07Z'
+    source: https://rdap.org/domain/rollupjs.org
+    data:
+      registrar: Squarespace Domains II LLC
+      created: '2015-08-04'
+      expires: '2027-08-04'
+      remaining_days: 333
+      locks:
+      - delete
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T19:10:07Z'
+    source: TLS handshake rollupjs.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T19:10:07Z'
+    source: https://www.wikidata.org/wiki/Q114900810
+    data:
+      qid: Q114900810
+      label: Rollup
+      site: https://rollupjs.org/
+      sitelinks: 0
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T19:10:07Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 141799
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:11:00Z'
+    source: http://web.archive.org/cdx/search/cdx?url=rollupjs.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2015-10-14'
+      history_days: 3979
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Squarespace Domains II LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_repo_name
+  reviewed_by: []
+  source_issue: null

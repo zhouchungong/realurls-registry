@@ -1,0 +1,79 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:delta-io
+names:
+  en: Delta Lake
+aliases:
+- delta-io
+- delta-io/delta
+category:
+- saas
+wikidata: null
+canonical:
+  github_org: delta-io
+  wikidata: null
+  sources:
+  - github-history:delta-io/delta(age=7y,contrib=482,stars=8985)
+domains:
+- domain: delta.io
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:52Z'
+  ttl_days: 30
+  age_days: 3111
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T21:13:06Z'
+    source: https://api.github.com/orgs/delta-io
+    data:
+      org: delta-io
+      org_verified: false
+      blog: https://delta.io
+  - code: A8
+    checked_at: '2026-09-05T21:13:06Z'
+    source: https://api.github.com/repos/delta-io/delta
+    data:
+      repo: delta-io/delta
+      org: delta-io
+      repo_anchored: true
+      homepage: https://delta.io
+      backlink: true
+      stars: 8985
+      age_days: 2693
+      contributors: 482
+  - code: A4
+    checked_at: '2026-09-05T21:13:07Z'
+    source: TLS handshake delta.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-05T21:13:07Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 236790
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T21:13:07Z'
+    source: http://web.archive.org/cdx/search/cdx?url=delta.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2018-02-28'
+      history_days: 3111
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_name(self-declared)
+  reviewed_by: []
+  source_issue: null

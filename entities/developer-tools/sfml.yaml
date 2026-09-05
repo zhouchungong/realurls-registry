@@ -1,0 +1,88 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:sfml
+names:
+  en: SFML
+aliases:
+- Simple and Fast Multimedia Library
+category:
+- developer-tools
+wikidata: Q919155
+canonical:
+  github_org: SFML
+  wikidata: Q919155
+  sources:
+  - wikidata:Q919155/P856
+  - wikidata:Q919155/P2037
+domains:
+- domain: sfml-dev.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:55Z'
+  ttl_days: 30
+  age_days: 6766
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:30:40Z'
+    source: https://api.github.com/orgs/SFML
+    data:
+      org: SFML
+      org_verified: true
+      blog: https://www.sfml-dev.org
+      org_name: Simple and Fast Multimedia Library
+      created_at: '2013-04-22T17:05:39Z'
+  - code: A3
+    checked_at: '2026-09-05T20:31:03Z'
+    source: https://rdap.org/domain/sfml-dev.org
+    data:
+      registrar: NameCheap, Inc.
+      created: '2008-02-26'
+      expires: '2027-02-26'
+      remaining_days: 173
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T20:31:03Z'
+    source: TLS handshake sfml-dev.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 5
+  - code: B1
+    checked_at: '2026-09-05T20:31:03Z'
+    source: https://www.wikidata.org/wiki/Q919155
+    data:
+      qid: Q919155
+      label: SFML
+      site: https://www.sfml-dev.org/
+      sitelinks: 15
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:31:03Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 110501
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:31:17Z'
+    source: http://web.archive.org/cdx/search/cdx?url=sfml-dev.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2008-03-05'
+      history_days: 6758
+  rejected_evidence:
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q919155
+  reviewed_by: []
+  source_issue: null

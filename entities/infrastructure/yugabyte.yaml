@@ -1,0 +1,102 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:yugabyte
+names:
+  en: yugabyte-db
+aliases:
+- yugabyte
+- yugabyte/yugabyte-db
+category:
+- infrastructure
+wikidata: null
+canonical:
+  github_org: yugabyte
+  wikidata: null
+  sources:
+  - github-history:yugabyte/yugabyte-db(age=8y,contrib=1195,stars=10514)
+domains:
+- domain: yugabyte.com
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:19:08Z'
+  ttl_days: 30
+  age_days: 3931
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:58:02Z'
+    source: https://api.github.com/orgs/yugabyte
+    data:
+      org: yugabyte
+      org_verified: true
+      blog: https://www.yugabyte.com
+      org_name: yugabyte
+      created_at: '2016-02-04T23:36:01Z'
+  - code: A8
+    checked_at: '2026-09-05T20:58:02Z'
+    source: https://api.github.com/repos/yugabyte/yugabyte-db
+    data:
+      repo: yugabyte/yugabyte-db
+      org: yugabyte
+      repo_anchored: true
+      homepage: https://www.yugabyte.com
+      backlink: true
+      stars: 10514
+      age_days: 3256
+      contributors: 1195
+  - code: A3
+    checked_at: '2026-09-05T20:58:46Z'
+    source: https://rdap.org/domain/yugabyte.com
+    data:
+      registrar: Cloudflare, Inc.
+      created: '2015-12-01'
+      expires: '2033-12-01'
+      remaining_days: 2643
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T20:58:46Z'
+    source: TLS handshake yugabyte.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T20:58:46Z'
+    source: https://www.wikidata.org/wiki/Q97187861
+    data:
+      qid: Q97187861
+      label: YugabyteDB
+      site: https://www.yugabyte.com
+      sitelinks: 1
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:58:46Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 64704
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:58:51Z'
+    source: http://web.archive.org/cdx/search/cdx?url=yugabyte.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2016-05-21'
+      history_days: 3759
+  rejected_evidence:
+  - 'A3: registrar (Cloudflare, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_repo_name
+  reviewed_by: []
+  source_issue: null

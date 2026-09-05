@@ -1,0 +1,105 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:ibm
+names:
+  en: IBM
+aliases:
+- International Business Machines
+category:
+- infrastructure
+wikidata: Q37156
+canonical:
+  github_org: ibm
+  wikidata: Q37156
+  sources:
+  - wikidata:Q37156/P856
+  - wikidata:Q37156/P2037
+domains:
+- domain: ibm.com
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:57Z'
+  ttl_days: 30
+  age_days: 14780
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:27:52Z'
+    source: https://api.github.com/orgs/ibm
+    data:
+      org: ibm
+      org_verified: true
+      blog: https://www.ibm.com/opensource/
+      org_name: International Business Machines
+      created_at: '2012-02-21T22:13:01Z'
+  - code: A8
+    checked_at: '2026-09-05T20:27:53Z'
+    source: https://api.github.com/repos/IBM/sarama
+    data:
+      repo: IBM/sarama
+      org: ibm
+      repo_anchored: true
+      homepage: ''
+      backlink: true
+      stars: 12512
+      age_days: 4810
+      contributors: 332
+  - code: A3
+    checked_at: '2026-09-05T20:27:54Z'
+    source: https://rdap.org/domain/ibm.com
+    data:
+      registrar: CSC Corporate Domains, Inc.
+      created: '1986-03-19'
+      expires: '2027-03-20'
+      remaining_days: 195
+      locks:
+      - transfer
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-05T20:27:54Z'
+    source: TLS handshake ibm.com:443
+    data:
+      subject_org: International Business Machines Corporation
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 24
+  - code: B1
+    checked_at: '2026-09-05T20:27:54Z'
+    source: https://www.wikidata.org/wiki/Q37156
+    data:
+      qid: Q37156
+      label: IBM
+      site: https://www.ibm.com/
+      sitelinks: 113
+      competing_items: 3
+  - code: B5
+    checked_at: '2026-09-05T20:27:54Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 266
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:29:07Z'
+    source: http://web.archive.org/cdx/search/cdx?url=ibm.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1996-10-22'
+      history_days: 10910
+  rejected_evidence:
+  - 'A8: repository homepage () does not point to this domain'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: certificate organization (International Business Machines Corporation) is not the anchored entity (IBM,
+    ibm)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q37156
+  reviewed_by: []
+  source_issue: null

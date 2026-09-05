@@ -1,0 +1,82 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:arangodb
+names:
+  en: ArangoDB
+aliases:
+- arangodb
+category:
+- infrastructure
+wikidata: Q20072115
+canonical:
+  github_org: arangodb
+  wikidata: Q20072115
+  sources:
+  - wikidata:Q20072115/P856
+  - wikidata:Q20072115/P2037
+domains:
+- domain: arangodb.com
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:54Z'
+  ttl_days: 30
+  age_days: 5238
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:12:25Z'
+    source: https://api.github.com/orgs/arangodb
+    data:
+      org: arangodb
+      org_verified: true
+      blog: https://www.arangodb.com
+      org_name: ArangoDB
+      created_at: '2013-09-26T08:12:16Z'
+  - code: A3
+    checked_at: '2026-09-05T20:12:25Z'
+    source: https://rdap.org/domain/arangodb.com
+    data:
+      registrar: 1API GmbH
+      created: '2012-05-03'
+      expires: '2027-05-03'
+      remaining_days: 239
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T20:12:25Z'
+    source: TLS handshake arangodb.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 3
+  - code: B1
+    checked_at: '2026-09-05T20:12:25Z'
+    source: https://www.wikidata.org/wiki/Q20072115
+    data:
+      qid: Q20072115
+      label: ArangoDB
+      site: https://www.arangodb.com
+      sitelinks: 6
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:12:25Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 222409
+      source: top-1m list
+  rejected_evidence:
+  - 'A3: registrar (1API GmbH) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q20072115
+  reviewed_by: []
+  source_issue: null

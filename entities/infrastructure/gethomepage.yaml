@@ -1,0 +1,91 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:gethomepage
+names:
+  en: Homepage
+aliases:
+- gethomepage
+- gethomepage/homepage
+category:
+- infrastructure
+wikidata: null
+canonical:
+  github_org: gethomepage
+  wikidata: null
+  sources:
+  - github-history:gethomepage/homepage(age=4y,contrib=515,stars=32423)
+domains:
+- domain: gethomepage.dev
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:19:00Z'
+  ttl_days: 30
+  age_days: 1425
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:06:20Z'
+    source: https://api.github.com/orgs/gethomepage
+    data:
+      org: gethomepage
+      org_verified: false
+      blog: https://gethomepage.dev/
+  - code: A8
+    checked_at: '2026-09-05T19:06:20Z'
+    source: https://api.github.com/repos/gethomepage/homepage
+    data:
+      repo: gethomepage/homepage
+      org: gethomepage
+      repo_anchored: true
+      homepage: https://gethomepage.dev
+      backlink: true
+      stars: 32423
+      age_days: 1473
+      contributors: 515
+  - code: A3
+    checked_at: '2026-09-05T19:07:01Z'
+    source: https://rdap.org/domain/gethomepage.dev
+    data:
+      registrar: Squarespace Domains II LLC.
+      created: '2022-10-11'
+      expires: '2026-10-11'
+      remaining_days: 35
+      locks:
+      - delete
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T19:07:01Z'
+    source: TLS handshake gethomepage.dev:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-05T19:07:01Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 656630
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:07:05Z'
+    source: http://web.archive.org/cdx/search/cdx?url=gethomepage.dev&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2022-10-26'
+      history_days: 1410
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Squarespace Domains II LLC.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_name(self-declared)
+  reviewed_by: []
+  source_issue: null

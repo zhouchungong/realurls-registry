@@ -1,0 +1,95 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:nuxt
+names:
+  en: Nuxt
+aliases:
+- nuxt
+category:
+- open-source
+wikidata: Q55641291
+canonical:
+  github_org: nuxt
+  wikidata: Q55641291
+  sources:
+  - wikidata:Q55641291/P856
+  - wikidata:Q55641291/P2037
+domains:
+- domain: nuxt.com
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:52Z'
+  ttl_days: 30
+  age_days: 8311
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:30:55Z'
+    source: https://api.github.com/orgs/nuxt
+    data:
+      org: nuxt
+      org_verified: true
+      blog: https://nuxt.com
+      org_name: Nuxt
+      created_at: '2016-11-09T14:48:11Z'
+  - code: A8
+    checked_at: '2026-09-05T18:30:55Z'
+    source: https://api.github.com/repos/nuxt/nuxt
+    data:
+      repo: nuxt/nuxt
+      org: nuxt
+      repo_anchored: true
+      homepage: https://nuxt.com
+      backlink: true
+      stars: 60818
+      age_days: 3601
+      contributors: 1353
+  - code: A3
+    checked_at: '2026-09-05T18:30:55Z'
+    source: https://rdap.org/domain/nuxt.com
+    data:
+      registrar: Cloudflare, Inc.
+      created: '2003-12-04'
+      expires: '2026-12-04'
+      remaining_days: 89
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:30:55Z'
+    source: TLS handshake nuxt.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T18:30:55Z'
+    source: https://www.wikidata.org/wiki/Q55641291
+    data:
+      qid: Q55641291
+      label: Nuxt
+      site: https://nuxt.com/
+      sitelinks: 14
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:30:55Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 36882
+      source: top-1m list
+  rejected_evidence:
+  - 'A3: registrar (Cloudflare, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q55641291
+  reviewed_by: []
+  source_issue: null

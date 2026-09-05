@@ -1,0 +1,98 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:seleniumhq
+names:
+  en: Selenium
+aliases:
+- SeleniumHQ
+category:
+- infrastructure
+wikidata: Q752522
+canonical:
+  github_org: SeleniumHQ
+  wikidata: Q752522
+  sources:
+  - wikidata:Q752522/P856
+  - wikidata:Q752522/P1324
+domains:
+- domain: selenium.dev
+  role: primary
+  status: verified
+  confidence: 0.7088
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:52Z'
+  ttl_days: 30
+  age_days: 2752
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:56:02Z'
+    source: https://api.github.com/orgs/SeleniumHQ
+    data:
+      org: SeleniumHQ
+      org_verified: false
+      blog: https://selenium.dev/
+  - code: A8
+    checked_at: '2026-09-05T18:56:02Z'
+    source: https://api.github.com/repos/SeleniumHQ/selenium
+    data:
+      repo: SeleniumHQ/selenium
+      org: SeleniumHQ
+      repo_anchored: true
+      homepage: https://selenium.dev
+      backlink: true
+      stars: 34468
+      age_days: 4981
+      contributors: 945
+  - code: A3
+    checked_at: '2026-09-05T18:56:10Z'
+    source: https://rdap.org/domain/selenium.dev
+    data:
+      registrar: Gandi SAS
+      created: '2019-02-22'
+      expires: '2027-02-22'
+      remaining_days: 169
+      locks: []
+  - code: A4
+    checked_at: '2026-09-05T18:56:10Z'
+    source: TLS handshake selenium.dev:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:56:10Z'
+    source: https://www.wikidata.org/wiki/Q752522
+    data:
+      qid: Q752522
+      label: Selenium
+      site: https://selenium.dev/
+      sitelinks: 23
+      competing_items: 2
+  - code: B5
+    checked_at: '2026-09-05T18:56:10Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 44746
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:56:13Z'
+    source: http://web.archive.org/cdx/search/cdx?url=selenium.dev&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2019-11-19'
+      history_days: 2482
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Gandi SAS) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q752522
+  reviewed_by: []
+  source_issue: null

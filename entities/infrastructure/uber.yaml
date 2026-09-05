@@ -1,0 +1,90 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:uber
+names:
+  en: Uber
+aliases:
+- Uber Open Source
+- uber
+category:
+- infrastructure
+- ai
+wikidata: Q780442
+canonical:
+  github_org: uber
+  wikidata: Q780442
+  sources:
+  - wikidata:Q780442/P856
+  - wikidata:Q780442/P2037
+domains:
+- domain: uber.com
+  role: primary
+  status: verified
+  confidence: 0.7816
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:59Z'
+  ttl_days: 30
+  age_days: 11376
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T21:23:59Z'
+    source: https://api.github.com/orgs/uber
+    data:
+      org: uber
+      org_verified: false
+      blog: http://www.uber.com
+  - code: A3
+    checked_at: '2026-09-05T21:24:02Z'
+    source: https://rdap.org/domain/uber.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '1995-07-14'
+      expires: '2028-07-13'
+      remaining_days: 676
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T21:24:02Z'
+    source: TLS handshake uber.com:443
+    data:
+      subject_org: Uber Technologies, Inc.
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T21:24:02Z'
+    source: https://www.wikidata.org/wiki/Q780442
+    data:
+      qid: Q780442
+      label: Uber
+      site: https://www.uber.com/
+      sitelinks: 73
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T21:24:02Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 737
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T21:24:08Z'
+    source: http://web.archive.org/cdx/search/cdx?url=uber.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1998-12-05'
+      history_days: 10136
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q780442
+  reviewed_by: []
+  source_issue: null

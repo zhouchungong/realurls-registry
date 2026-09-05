@@ -1,0 +1,146 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:curl
+names:
+  en: curl
+aliases: []
+category:
+- open-source
+wikidata: Q286306
+canonical:
+  github_org: curl
+  wikidata: Q286306
+  sources:
+  - wikidata:Q286306/P856
+  - wikidata:Q286306/P1324
+domains:
+- domain: curl.se
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:19:00Z'
+  ttl_days: 30
+  age_days: 8407
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:58:22Z'
+    source: https://api.github.com/orgs/curl
+    data:
+      org: curl
+      org_verified: true
+      blog: https://curl.se/
+      org_name: curl
+      created_at: '2016-01-27T22:34:53Z'
+  - code: A8
+    checked_at: '2026-09-05T18:58:22Z'
+    source: https://api.github.com/repos/curl/curl
+    data:
+      repo: curl/curl
+      org: curl
+      repo_anchored: true
+      homepage: https://curl.se/
+      backlink: true
+      stars: 42760
+      age_days: 6014
+      contributors: 1563
+  - code: A4
+    checked_at: '2026-09-05T18:58:23Z'
+    source: TLS handshake curl.se:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T18:58:23Z'
+    source: https://www.wikidata.org/wiki/Q286306
+    data:
+      qid: Q286306
+      label: curl
+      site: https://curl.se/
+      sitelinks: 31
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:58:23Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 3083
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:59:03Z'
+    source: http://web.archive.org/cdx/search/cdx?url=curl.se&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2003-08-30'
+      history_days: 8407
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+- domain: curl.dev
+  role: product
+  status: verified
+  confidence: 0.7105
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:19:00Z'
+  ttl_days: 30
+  age_days: 2110
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A3
+    checked_at: '2026-09-05T19:00:03Z'
+    source: https://rdap.org/domain/curl.dev
+    data:
+      registrar: 1API GmbH
+      created: '2020-11-25'
+      expires: '2027-11-25'
+      remaining_days: 445
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T19:00:04Z'
+    source: TLS handshake curl.dev:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B5
+    checked_at: '2026-09-05T19:00:04Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 295479
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:00:15Z'
+    source: http://web.archive.org/cdx/search/cdx?url=curl.dev&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2021-01-20'
+      history_days: 2054
+  - code: A6
+    checked_at: '2026-09-05T19:00:15Z'
+    source: propagate from curl.se
+    data:
+      from: curl.se
+      from_status: verified
+      first_party_link: true
+      structural_links:
+      - shared_ns
+      san_count: 1
+      backlink: true
+  rejected_evidence:
+  - 'A3: registrar (1API GmbH) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q286306
+  reviewed_by: []
+  source_issue: null

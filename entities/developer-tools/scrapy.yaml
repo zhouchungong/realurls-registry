@@ -1,0 +1,100 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:scrapy
+names:
+  en: Scrapy
+aliases:
+- Scrapy project
+- scrapy
+category:
+- developer-tools
+wikidata: Q368367
+canonical:
+  github_org: scrapy
+  wikidata: Q368367
+  sources:
+  - wikidata:Q368367/P856
+  - wikidata:Q368367/P2037
+domains:
+- domain: scrapy.org
+  role: primary
+  status: verified
+  confidence: 0.7088
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:52Z'
+  ttl_days: 30
+  age_days: 6931
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:28:45Z'
+    source: https://api.github.com/orgs/scrapy
+    data:
+      org: scrapy
+      org_verified: false
+      blog: https://scrapy.org
+  - code: A8
+    checked_at: '2026-09-05T18:28:45Z'
+    source: https://api.github.com/repos/scrapy/scrapy
+    data:
+      repo: scrapy/scrapy
+      org: scrapy
+      repo_anchored: true
+      homepage: https://scrapy.org
+      backlink: true
+      stars: 64207
+      age_days: 6039
+      contributors: 744
+  - code: A3
+    checked_at: '2026-09-05T18:28:46Z'
+    source: https://rdap.org/domain/scrapy.org
+    data:
+      registrar: NameCheap, Inc.
+      created: '2007-09-13'
+      expires: '2027-09-13'
+      remaining_days: 373
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:28:46Z'
+    source: TLS handshake scrapy.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T18:28:46Z'
+    source: https://www.wikidata.org/wiki/Q368367
+    data:
+      qid: Q368367
+      label: Scrapy
+      site: https://scrapy.org
+      sitelinks: 23
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:28:46Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 120155
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:30:16Z'
+    source: http://web.archive.org/cdx/search/cdx?url=scrapy.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2008-10-15'
+      history_days: 6534
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q368367
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,104 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:sylius
+names:
+  en: Sylius eCommerce
+aliases:
+- Sylius
+- Sylius/Sylius
+category:
+- saas
+- developer-tools
+wikidata: null
+canonical:
+  github_org: Sylius
+  wikidata: null
+  sources:
+  - github-history:Sylius/Sylius(age=14y,contrib=943,stars=8522)
+domains:
+- domain: sylius.com
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:56Z'
+  ttl_days: 30
+  age_days: 8300
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T21:29:46Z'
+    source: https://api.github.com/orgs/Sylius
+    data:
+      org: Sylius
+      org_verified: true
+      blog: https://sylius.com
+      org_name: Sylius eCommerce
+      created_at: '2011-04-09T16:44:43Z'
+  - code: A8
+    checked_at: '2026-09-05T21:29:46Z'
+    source: https://api.github.com/repos/Sylius/Sylius
+    data:
+      repo: Sylius/Sylius
+      org: Sylius
+      repo_anchored: true
+      homepage: https://sylius.com
+      backlink: true
+      stars: 8522
+      age_days: 5417
+      contributors: 943
+  - code: A3
+    checked_at: '2026-09-05T21:30:09Z'
+    source: https://rdap.org/domain/sylius.com
+    data:
+      registrar: OVH sas
+      created: '2003-12-15'
+      expires: '2026-12-15'
+      remaining_days: 100
+      locks:
+      - delete
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T21:30:09Z'
+    source: TLS handshake sylius.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T21:30:09Z'
+    source: https://www.wikidata.org/wiki/Q97379963
+    data:
+      qid: Q97379963
+      label: Sylius
+      site: https://sylius.com/
+      sitelinks: 1
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T21:30:09Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 377903
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T21:31:12Z'
+    source: http://web.archive.org/cdx/search/cdx?url=sylius.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2004-03-28'
+      history_days: 8196
+  rejected_evidence:
+  - 'A3: registrar (OVH sas) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_name(self-declared)
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,82 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:rethinkdb
+names:
+  en: RethinkDB
+aliases:
+- rethinkdb
+category:
+- open-source
+wikidata: Q20890659
+canonical:
+  github_org: rethinkdb
+  wikidata: Q20890659
+  sources:
+  - wikidata:Q20890659/P856
+  - wikidata:Q20890659/P2037
+domains:
+- domain: rethinkdb.com
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:54Z'
+  ttl_days: 30
+  age_days: 6273
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:04:01Z'
+    source: https://api.github.com/orgs/rethinkdb
+    data:
+      org: rethinkdb
+      org_verified: true
+      blog: https://rethinkdb.com/
+      org_name: RethinkDB
+      created_at: '2011-11-30T01:45:00Z'
+  - code: A3
+    checked_at: '2026-09-05T19:04:02Z'
+    source: https://rdap.org/domain/rethinkdb.com
+    data:
+      registrar: 1API GmbH
+      created: '2009-07-02'
+      expires: '2027-07-02'
+      remaining_days: 300
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T19:04:02Z'
+    source: TLS handshake rethinkdb.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T19:04:03Z'
+    source: https://www.wikidata.org/wiki/Q20890659
+    data:
+      qid: Q20890659
+      label: RethinkDB
+      site: https://rethinkdb.com
+      sitelinks: 6
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T19:04:03Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 397339
+      source: top-1m list
+  rejected_evidence:
+  - 'A3: registrar (1API GmbH) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q20890659
+  reviewed_by: []
+  source_issue: null

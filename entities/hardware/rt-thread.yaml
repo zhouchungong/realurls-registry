@@ -1,0 +1,72 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:rt-thread
+names:
+  en: RT-Thread
+aliases: []
+category:
+- hardware
+wikidata: Q7277800
+canonical:
+  github_org: RT-Thread
+  wikidata: Q7277800
+  sources:
+  - wikidata:Q7277800/P856
+  - wikidata:Q7277800/P2037
+domains:
+- domain: rt-thread.io
+  role: primary
+  status: verified
+  confidence: 0.6902
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 2300
+  age_source: wayback_lower_bound
+  collection_incomplete: true
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T21:08:01Z'
+    source: https://api.github.com/orgs/RT-Thread
+    data:
+      org: RT-Thread
+      org_verified: false
+      blog: http://www.rt-thread.io
+  - code: A8
+    checked_at: '2026-09-05T21:08:02Z'
+    source: https://api.github.com/repos/RT-Thread/rt-thread
+    data:
+      repo: RT-Thread/rt-thread
+      org: RT-Thread
+      repo_anchored: true
+      homepage: https://www.rt-thread.io
+      backlink: true
+      stars: 12191
+      age_days: 4994
+      contributors: 1159
+  - code: B1
+    checked_at: '2026-09-05T21:08:45Z'
+    source: https://www.wikidata.org/wiki/Q7277800
+    data:
+      qid: Q7277800
+      label: RT-Thread
+      site: https://www.rt-thread.io/
+      sitelinks: 5
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-05T21:08:46Z'
+    source: http://web.archive.org/cdx/search/cdx?url=rt-thread.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2020-05-19'
+      history_days: 2300
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q7277800
+  reviewed_by: []
+  source_issue: null

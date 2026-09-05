@@ -1,0 +1,93 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:plotly
+names:
+  en: plotly.py
+aliases:
+- Plotly
+- plotly
+- plotly/plotly.py
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: plotly
+  wikidata: null
+  sources:
+  - github-history:plotly/plotly.py(age=12y,contrib=332,stars=18764)
+domains:
+- domain: plotly.com
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:19:08Z'
+  ttl_days: 30
+  age_days: 5716
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:27:58Z'
+    source: https://api.github.com/orgs/plotly
+    data:
+      org: plotly
+      org_verified: true
+      blog: https://plotly.com/
+      org_name: Plotly
+      created_at: '2013-11-21T05:41:13Z'
+  - code: A8
+    checked_at: '2026-09-05T19:27:58Z'
+    source: https://api.github.com/repos/plotly/plotly.py
+    data:
+      repo: plotly/plotly.py
+      org: plotly
+      repo_anchored: true
+      homepage: https://plotly.com/python/
+      backlink: true
+      stars: 18764
+      age_days: 4671
+      contributors: 332
+  - code: A3
+    checked_at: '2026-09-05T19:27:59Z'
+    source: https://rdap.org/domain/plotly.com
+    data:
+      registrar: NameCheap, Inc.
+      created: '2011-01-11'
+      expires: '2028-01-11'
+      remaining_days: 492
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T19:27:59Z'
+    source: TLS handshake plotly.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B5
+    checked_at: '2026-09-05T19:27:59Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 25959
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:28:08Z'
+    source: http://web.archive.org/cdx/search/cdx?url=plotly.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2020-03-23'
+      history_days: 2357
+  rejected_evidence:
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_repo_name
+  reviewed_by: []
+  source_issue: null

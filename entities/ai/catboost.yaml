@@ -1,0 +1,104 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:catboost
+names:
+  en: Catboost
+aliases:
+- CatBoost
+- catboost
+category:
+- ai
+wikidata: Q55656976
+canonical:
+  github_org: catboost
+  wikidata: Q55656976
+  sources:
+  - wikidata:Q55656976/P856
+  - github-history:catboost/catboost(age=9y,contrib=1433,stars=9090)
+domains:
+- domain: catboost.ai
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:19:08Z'
+  ttl_days: 30
+  age_days: 2971
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T21:10:49Z'
+    source: https://api.github.com/orgs/catboost
+    data:
+      org: catboost
+      org_verified: true
+      blog: catboost.ai
+      org_name: CatBoost
+      created_at: '2017-05-29T14:05:22Z'
+  - code: A8
+    checked_at: '2026-09-05T21:10:49Z'
+    source: https://api.github.com/repos/catboost/catboost
+    data:
+      repo: catboost/catboost
+      org: catboost
+      repo_anchored: true
+      homepage: https://catboost.ai
+      backlink: true
+      stars: 9090
+      age_days: 3336
+      contributors: 1433
+  - code: A3
+    checked_at: '2026-09-05T21:10:49Z'
+    source: https://rdap.org/domain/catboost.ai
+    data:
+      registrar: SafeNames Ltd.
+      created: '2018-07-18'
+      expires: '2028-07-18'
+      remaining_days: 681
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T21:10:50Z'
+    source: TLS handshake catboost.ai:443
+    data:
+      subject_org: YANDEX LLC
+      validation_type: OV
+      issuer: GlobalSign nv-sa
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T21:10:50Z'
+    source: https://www.wikidata.org/wiki/Q55656976
+    data:
+      qid: Q55656976
+      label: Catboost
+      site: https://catboost.ai/
+      sitelinks: 5
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-05T21:10:50Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 937357
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T21:11:46Z'
+    source: http://web.archive.org/cdx/search/cdx?url=catboost.ai&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2018-08-26'
+      history_days: 2932
+  rejected_evidence:
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: certificate organization (YANDEX LLC) is not the anchored entity (Catboost, catboost)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q55656976
+  reviewed_by: []
+  source_issue: null

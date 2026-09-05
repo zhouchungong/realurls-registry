@@ -1,0 +1,99 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:prestashop
+names:
+  en: PrestaShop
+aliases:
+- The PrestaShop Project
+category:
+- saas
+wikidata: Q1080982
+canonical:
+  github_org: PrestaShop
+  wikidata: Q1080982
+  sources:
+  - wikidata:Q1080982/P856
+  - wikidata:Q1080982/P1324
+domains:
+- domain: prestashop-project.org
+  role: primary
+  status: verified
+  confidence: 0.7088
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:59Z'
+  ttl_days: 30
+  age_days: 1943
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T21:21:50Z'
+    source: https://api.github.com/orgs/PrestaShop
+    data:
+      org: PrestaShop
+      org_verified: false
+      blog: https://prestashop-project.org/
+  - code: A8
+    checked_at: '2026-09-05T21:21:51Z'
+    source: https://api.github.com/repos/PrestaShop/PrestaShop
+    data:
+      repo: PrestaShop/PrestaShop
+      org: PrestaShop
+      repo_anchored: true
+      homepage: https://www.prestashop-project.org/
+      backlink: true
+      stars: 9202
+      age_days: 5038
+      contributors: 1343
+  - code: A3
+    checked_at: '2026-09-05T21:22:12Z'
+    source: https://rdap.org/domain/prestashop-project.org
+    data:
+      registrar: SafeBrands SAS
+      created: '2021-05-11'
+      expires: '2027-05-11'
+      remaining_days: 247
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T21:22:12Z'
+    source: TLS handshake prestashop-project.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T21:22:13Z'
+    source: https://www.wikidata.org/wiki/Q1080982
+    data:
+      qid: Q1080982
+      label: PrestaShop
+      site: https://prestashop-project.org
+      sitelinks: 21
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-05T21:22:13Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 19058
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T21:22:49Z'
+    source: http://web.archive.org/cdx/search/cdx?url=prestashop-project.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2021-10-19'
+      history_days: 1782
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (SafeBrands SAS) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q1080982
+  reviewed_by: []
+  source_issue: null

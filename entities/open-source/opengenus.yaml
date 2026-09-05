@@ -1,0 +1,83 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:opengenus
+names:
+  en: OpenGenus Foundation
+aliases:
+- OpenGenus
+- OpenGenus/cosmos
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: OpenGenus
+  wikidata: null
+  sources:
+  - github-history:OpenGenus/cosmos(age=8y,contrib=1262,stars=13743)
+domains:
+- domain: opengenus.org
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:52Z'
+  ttl_days: 30
+  age_days: 3286
+  age_source: rdap
+  collection_incomplete: true
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:16:16Z'
+    source: https://api.github.com/orgs/OpenGenus
+    data:
+      org: OpenGenus
+      org_verified: true
+      blog: http://internship.opengenus.org/
+      org_name: OpenGenus Foundation
+      created_at: '2016-04-16T20:52:41Z'
+  - code: A8
+    checked_at: '2026-09-05T20:16:16Z'
+    source: https://api.github.com/repos/OpenGenus/cosmos
+    data:
+      repo: OpenGenus/cosmos
+      org: OpenGenus
+      repo_anchored: true
+      homepage: http://internship.opengenus.org
+      backlink: false
+      stars: 13743
+      age_days: 3276
+      contributors: 1262
+  - code: A3
+    checked_at: '2026-09-05T20:16:38Z'
+    source: https://rdap.org/domain/opengenus.org
+    data:
+      registrar: NameCheap, Inc.
+      created: '2017-09-06'
+      expires: '2028-09-06'
+      remaining_days: 731
+      locks:
+      - transfer
+  - code: B5
+    checked_at: '2026-09-05T20:17:08Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 923908
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:17:10Z'
+    source: http://web.archive.org/cdx/search/cdx?url=opengenus.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2017-09-16'
+      history_days: 3276
+  rejected_evidence:
+  - 'A8: this site does not link back to the GitHub organization; no reverse confirmation'
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_name(self-declared)
+  reviewed_by: []
+  source_issue: null

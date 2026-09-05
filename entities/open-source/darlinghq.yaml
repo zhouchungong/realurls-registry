@@ -1,0 +1,83 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:darlinghq
+names:
+  en: Darling
+aliases:
+- Darling Project
+- darlinghq
+category:
+- open-source
+wikidata: Q16989129
+canonical:
+  github_org: darlinghq
+  wikidata: Q16989129
+  sources:
+  - wikidata:Q16989129/P856
+  - wikidata:Q16989129/P1324
+domains:
+- domain: darlinghq.org
+  role: primary
+  status: verified
+  confidence: 0.8451
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:55Z'
+  ttl_days: 30
+  age_days: 4625
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:23:39Z'
+    source: https://api.github.com/orgs/darlinghq
+    data:
+      org: darlinghq
+      org_verified: true
+      blog: https://www.darlinghq.org
+      org_name: Darling Project
+      created_at: '2015-10-07T20:47:22Z'
+  - code: A3
+    checked_at: '2026-09-05T20:23:52Z'
+    source: https://rdap.org/domain/darlinghq.org
+    data:
+      registrar: NameCheap, Inc.
+      created: '2014-01-06'
+      expires: '2027-01-06'
+      remaining_days: 122
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T20:23:52Z'
+    source: TLS handshake darlinghq.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 6
+  - code: B1
+    checked_at: '2026-09-05T20:23:52Z'
+    source: https://www.wikidata.org/wiki/Q16989129
+    data:
+      qid: Q16989129
+      label: Darling
+      site: http://www.darlinghq.org
+      sitelinks: 11
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-05T20:24:00Z'
+    source: http://web.archive.org/cdx/search/cdx?url=darlinghq.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2014-01-07'
+      history_days: 4624
+  rejected_evidence:
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q16989129
+  reviewed_by: []
+  source_issue: null

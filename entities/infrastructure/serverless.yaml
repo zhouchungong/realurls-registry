@@ -1,0 +1,109 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:serverless
+names:
+  en: Serverless Framework
+aliases:
+- Serverless
+- serverless
+category:
+- infrastructure
+wikidata: Q22952981
+canonical:
+  github_org: serverless
+  wikidata: Q22952981
+  sources:
+  - wikidata:Q22952981/P856
+  - wikidata:Q22952981/P1324
+domains:
+- domain: serverless.com
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 8761
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:58:49Z'
+    source: https://api.github.com/orgs/serverless
+    data:
+      org: serverless
+      org_verified: false
+      blog: https://serverless.com
+  - code: A8
+    checked_at: '2026-09-05T18:58:49Z'
+    source: https://api.github.com/repos/serverless/serverless
+    data:
+      repo: serverless/serverless
+      org: serverless
+      repo_anchored: true
+      homepage: https://serverless.com
+      backlink: true
+      stars: 46918
+      age_days: 4155
+      contributors: 1240
+  - code: A2
+    checked_at: '2026-09-05T18:58:50Z'
+    source: https://registry.npmjs.org/-/npm/v1/attestations/serverless@4.41.1
+    data:
+      package: serverless
+      version: 4.41.1
+      provenance_verified: true
+      provenance_check: registry-tls
+      chain_org: npm
+      chain_org_verified: false
+      chain_blog: ''
+  - code: A3
+    checked_at: '2026-09-05T18:59:34Z'
+    source: https://rdap.org/domain/serverless.com
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2002-09-10'
+      expires: '2032-09-10'
+      remaining_days: 2196
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T18:59:34Z'
+    source: TLS handshake serverless.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:59:34Z'
+    source: https://www.wikidata.org/wiki/Q22952981
+    data:
+      qid: Q22952981
+      label: Serverless Framework
+      site: http://www.serverless.com/
+      sitelinks: 3
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:59:34Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 145517
+      source: top-1m list
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A2: GitHub organization at the end of the provenance chain has not verified this domain'
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q22952981
+  reviewed_by: []
+  source_issue: null

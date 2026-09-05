@@ -1,0 +1,82 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:jasmine
+names:
+  en: Jasmine
+aliases:
+- jasmine
+category:
+- developer-tools
+wikidata: Q6161738
+canonical:
+  github_org: Jasmine
+  wikidata: Q6161738
+  sources:
+  - wikidata:Q6161738/P856
+  - wikidata:Q6161738/P1324
+domains:
+- domain: jasmine.github.io
+  role: primary
+  status: verified
+  confidence: 0.6902
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:52Z'
+  ttl_days: 30
+  age_days: 4691
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:11:44Z'
+    source: https://api.github.com/orgs/Jasmine
+    data:
+      org: Jasmine
+      org_verified: false
+      blog: http://jasmine.github.io
+  - code: A8
+    checked_at: '2026-09-05T20:11:45Z'
+    source: https://api.github.com/repos/jasmine/jasmine
+    data:
+      repo: jasmine/jasmine
+      org: Jasmine
+      repo_anchored: true
+      homepage: http://jasmine.github.io/
+      backlink: true
+      stars: 15819
+      age_days: 6485
+      contributors: 360
+  - code: A4
+    checked_at: '2026-09-05T20:11:45Z'
+    source: TLS handshake jasmine.github.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 6
+  - code: B1
+    checked_at: '2026-09-05T20:11:45Z'
+    source: https://www.wikidata.org/wiki/Q6161738
+    data:
+      qid: Q6161738
+      label: Jasmine
+      site: https://jasmine.github.io
+      sitelinks: 7
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-05T20:12:36Z'
+    source: http://web.archive.org/cdx/search/cdx?url=jasmine.github.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2013-11-01'
+      history_days: 4691
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q6161738
+  reviewed_by: []
+  source_issue: null

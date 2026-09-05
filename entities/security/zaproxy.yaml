@@ -1,0 +1,89 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:zaproxy
+names:
+  en: OWASP ZAP
+aliases:
+- ZAP
+- zaproxy
+category:
+- security
+wikidata: Q18385319
+canonical:
+  github_org: zaproxy
+  wikidata: Q18385319
+  sources:
+  - wikidata:Q18385319/P856
+  - wikidata:Q18385319/P1324
+domains:
+- domain: zaproxy.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:19:08Z'
+  ttl_days: 30
+  age_days: 3958
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:20:53Z'
+    source: https://api.github.com/orgs/zaproxy
+    data:
+      org: zaproxy
+      org_verified: true
+      blog: https://zaproxy.org
+      org_name: ZAP
+      created_at: '2014-02-18T14:48:24Z'
+  - code: A3
+    checked_at: '2026-09-05T20:20:55Z'
+    source: https://rdap.org/domain/zaproxy.org
+    data:
+      registrar: NameCheap, Inc.
+      created: '2015-11-04'
+      expires: '2026-11-04'
+      remaining_days: 59
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T20:20:55Z'
+    source: TLS handshake zaproxy.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T20:20:55Z'
+    source: https://www.wikidata.org/wiki/Q18385319
+    data:
+      qid: Q18385319
+      label: OWASP ZAP
+      site: https://www.zaproxy.org/
+      sitelinks: 8
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:20:55Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 119838
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:21:41Z'
+    source: http://web.archive.org/cdx/search/cdx?url=zaproxy.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2016-06-08'
+      history_days: 3741
+  rejected_evidence:
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q18385319
+  reviewed_by: []
+  source_issue: null

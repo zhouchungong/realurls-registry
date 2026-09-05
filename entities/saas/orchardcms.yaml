@@ -1,0 +1,91 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:orchardcms
+names:
+  en: OrchardCore
+aliases:
+- OrchardCMS
+- OrchardCMS/OrchardCore
+category:
+- saas
+wikidata: null
+canonical:
+  github_org: OrchardCMS
+  wikidata: null
+  sources:
+  - github-history:OrchardCMS/OrchardCore(age=11y,contrib=347,stars=8172)
+domains:
+- domain: orchardcore.net
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:59Z'
+  ttl_days: 30
+  age_days: 2469
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T21:33:58Z'
+    source: https://api.github.com/orgs/OrchardCMS
+    data:
+      org: OrchardCMS
+      org_verified: false
+      blog: https://orchardcore.net/
+  - code: A8
+    checked_at: '2026-09-05T21:33:58Z'
+    source: https://api.github.com/repos/OrchardCMS/OrchardCore
+    data:
+      repo: OrchardCMS/OrchardCore
+      org: OrchardCMS
+      repo_anchored: true
+      homepage: https://orchardcore.net
+      backlink: true
+      stars: 8172
+      age_days: 4307
+      contributors: 347
+  - code: A3
+    checked_at: '2026-09-05T21:34:19Z'
+    source: https://rdap.org/domain/orchardcore.net
+    data:
+      registrar: OVH sas
+      created: '2019-12-02'
+      expires: '2026-12-02'
+      remaining_days: 87
+      locks:
+      - delete
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T21:34:19Z'
+    source: TLS handshake orchardcore.net:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: DigiCert Inc
+      san_count: 1
+  - code: B5
+    checked_at: '2026-09-05T21:34:19Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 722243
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T21:34:31Z'
+    source: http://web.archive.org/cdx/search/cdx?url=orchardcore.net&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2019-12-11'
+      history_days: 2460
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (OVH sas) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_repo_name
+  reviewed_by: []
+  source_issue: null

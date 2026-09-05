@@ -1,0 +1,79 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:kedacore
+names:
+  en: KEDA
+aliases:
+- kedacore
+- kedacore/keda
+category:
+- infrastructure
+wikidata: null
+canonical:
+  github_org: kedacore
+  wikidata: null
+  sources:
+  - github-history:kedacore/keda(age=7y,contrib=514,stars=10495)
+domains:
+- domain: keda.sh
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:59Z'
+  ttl_days: 30
+  age_days: 2455
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:55:16Z'
+    source: https://api.github.com/orgs/kedacore
+    data:
+      org: kedacore
+      org_verified: false
+      blog: http://keda.sh/
+  - code: A8
+    checked_at: '2026-09-05T20:55:16Z'
+    source: https://api.github.com/repos/kedacore/keda
+    data:
+      repo: kedacore/keda
+      org: kedacore
+      repo_anchored: true
+      homepage: https://keda.sh
+      backlink: true
+      stars: 10495
+      age_days: 2761
+      contributors: 514
+  - code: A4
+    checked_at: '2026-09-05T20:55:38Z'
+    source: TLS handshake keda.sh:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-05T20:55:38Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 445923
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:55:59Z'
+    source: http://web.archive.org/cdx/search/cdx?url=keda.sh&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2019-12-16'
+      history_days: 2455
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_name(self-declared)
+  reviewed_by: []
+  source_issue: null

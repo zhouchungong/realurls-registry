@@ -1,0 +1,101 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:emscripten-core
+names:
+  en: Emscripten
+aliases:
+- emscripten-core
+category:
+- open-source
+wikidata: Q2814113
+canonical:
+  github_org: emscripten-core
+  wikidata: Q2814113
+  sources:
+  - wikidata:Q2814113/P856
+  - wikidata:Q2814113/P1324
+domains:
+- domain: emscripten.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:56Z'
+  ttl_days: 30
+  age_days: 5851
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:09:51Z'
+    source: https://api.github.com/orgs/emscripten-core
+    data:
+      org: emscripten-core
+      org_verified: true
+      blog: http://emscripten.org
+      org_name: emscripten-core
+      created_at: '2018-12-20T00:43:15Z'
+  - code: A8
+    checked_at: '2026-09-05T19:09:52Z'
+    source: https://api.github.com/repos/emscripten-core/emscripten
+    data:
+      repo: emscripten-core/emscripten
+      org: emscripten-core
+      repo_anchored: true
+      homepage: ''
+      backlink: true
+      stars: 27594
+      age_days: 5684
+      contributors: 1049
+  - code: A3
+    checked_at: '2026-09-05T19:09:53Z'
+    source: https://rdap.org/domain/emscripten.org
+    data:
+      registrar: Gandi SAS
+      created: '2010-08-29'
+      expires: '2027-08-29'
+      remaining_days: 357
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T19:09:53Z'
+    source: TLS handshake emscripten.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T19:09:53Z'
+    source: https://www.wikidata.org/wiki/Q2814113
+    data:
+      qid: Q2814113
+      label: Emscripten
+      site: https://emscripten.org/
+      sitelinks: 10
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T19:09:53Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 184168
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:10:11Z'
+    source: http://web.archive.org/cdx/search/cdx?url=emscripten.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2019-02-12'
+      history_days: 2762
+  rejected_evidence:
+  - 'A8: repository homepage () does not point to this domain'
+  - 'A3: registrar (Gandi SAS) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q2814113
+  reviewed_by: []
+  source_issue: null

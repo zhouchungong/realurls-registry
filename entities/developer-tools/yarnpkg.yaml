@@ -1,0 +1,101 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:yarnpkg
+names:
+  en: Yarn
+aliases:
+- yarnpkg
+category:
+- developer-tools
+wikidata: Q28518314
+canonical:
+  github_org: yarnpkg
+  wikidata: Q28518314
+  sources:
+  - wikidata:Q28518314/P856
+  - wikidata:Q28518314/P2037
+domains:
+- domain: yarnpkg.com
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:57Z'
+  ttl_days: 30
+  age_days: 3634
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:43:48Z'
+    source: https://api.github.com/orgs/yarnpkg
+    data:
+      org: yarnpkg
+      org_verified: true
+      blog: https://yarnpkg.com
+      org_name: Yarn
+      created_at: '2016-09-16T21:24:31Z'
+  - code: A8
+    checked_at: '2026-09-05T18:43:49Z'
+    source: https://api.github.com/repos/yarnpkg/yarn
+    data:
+      repo: yarnpkg/yarn
+      org: yarnpkg
+      repo_anchored: true
+      homepage: https://classic.yarnpkg.com
+      backlink: true
+      stars: 41483
+      age_days: 3882
+      contributors: 536
+  - code: A3
+    checked_at: '2026-09-05T18:43:49Z'
+    source: https://rdap.org/domain/yarnpkg.com
+    data:
+      registrar: Cloudflare, Inc.
+      created: '2016-09-22'
+      expires: '2027-09-22'
+      remaining_days: 382
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:43:49Z'
+    source: TLS handshake yarnpkg.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:43:49Z'
+    source: https://www.wikidata.org/wiki/Q28518314
+    data:
+      qid: Q28518314
+      label: Yarn
+      site: https://yarnpkg.com
+      sitelinks: 12
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:43:49Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 12247
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:43:51Z'
+    source: http://web.archive.org/cdx/search/cdx?url=yarnpkg.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2016-10-11'
+      history_days: 3616
+  rejected_evidence:
+  - 'A3: registrar (Cloudflare, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q28518314
+  reviewed_by: []
+  source_issue: null

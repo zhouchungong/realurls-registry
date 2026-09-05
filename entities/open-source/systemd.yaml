@@ -1,0 +1,87 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:systemd
+names:
+  en: systemd
+aliases: []
+category:
+- open-source
+wikidata: Q286124
+canonical:
+  github_org: systemd
+  wikidata: Q286124
+  sources:
+  - wikidata:Q286124/P856
+  - wikidata:Q286124/P2037
+domains:
+- domain: systemd.io
+  role: primary
+  status: verified
+  confidence: 0.7088
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:19:00Z'
+  ttl_days: 30
+  age_days: 2605
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:09:00Z'
+    source: https://api.github.com/orgs/systemd
+    data:
+      org: systemd
+      org_verified: false
+      blog: https://systemd.io
+  - code: A8
+    checked_at: '2026-09-05T20:09:01Z'
+    source: https://api.github.com/repos/systemd/systemd
+    data:
+      repo: systemd/systemd
+      org: systemd
+      repo_anchored: true
+      homepage: https://systemd.io
+      backlink: true
+      stars: 16661
+      age_days: 4182
+      contributors: 3433
+  - code: A4
+    checked_at: '2026-09-05T20:09:44Z'
+    source: TLS handshake systemd.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T20:09:45Z'
+    source: https://www.wikidata.org/wiki/Q286124
+    data:
+      qid: Q286124
+      label: systemd
+      site: https://systemd.io/
+      sitelinks: 28
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:09:45Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 144265
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:10:20Z'
+    source: http://web.archive.org/cdx/search/cdx?url=systemd.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2019-07-19'
+      history_days: 2605
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q286124
+  reviewed_by: []
+  source_issue: null

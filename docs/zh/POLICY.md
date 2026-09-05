@@ -71,6 +71,8 @@ homepage 字段填的是 discord.gg。反向链接要求防的是域名易主：
 只有一方声明——已 verified 域名的页脚里也有 linkedin.com / x.com，那不是自家资产。
 攻击者要同时做到「让 anthropic.com 首页链接到我」和「NS 碰撞」，前者做不到。
 
+**A3 永远不能单独作为锚点；实体自身有独立身份（Wikidata 条目或 GitHub 组织）时 A7 也不能。** 它们只说明"某个"有实力的企业或"某个"政府机构持有该域名，说不出是哪一个。只有当至少一条指名实体的证据（A1、A2、A4、A5、A6、A8、A9 或 B1）同时通过时才计数。没有这条规则，A3 + B4 + B5 会把任何知名企业域名判给我们恰好询问的任何实体；首个全类别批次里 anthropic.com（判给 Python 项目）、digitalocean.com（判给它赞助的五个项目）、vmware.com（判给 RabbitMQ）正是这样出错的。
+
 **A3 的注册商名单只含品牌保护类**（MarkMonitor、CSC、Com Laude、Safenames、Nom-IQ、IP Mirror、GoDaddy Corporate 等）。
 评审时剔除了 Amazon Registrar（Route53，任何人 12 美元/年）、Google LLC、InterNetX、Ascio 等零售/批发商。
 

@@ -1,0 +1,99 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:marlinfirmware
+names:
+  en: Marlin
+aliases:
+- MarlinFirmware
+category:
+- hardware
+wikidata: Q56290151
+canonical:
+  github_org: MarlinFirmware
+  wikidata: Q56290151
+  sources:
+  - wikidata:Q56290151/P856
+  - wikidata:Q56290151/P1324
+domains:
+- domain: marlinfw.org
+  role: primary
+  status: verified
+  confidence: 0.7088
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 3825
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:27:35Z'
+    source: https://api.github.com/orgs/MarlinFirmware
+    data:
+      org: MarlinFirmware
+      org_verified: false
+      blog: marlinfw.org
+  - code: A8
+    checked_at: '2026-09-05T20:27:35Z'
+    source: https://api.github.com/repos/MarlinFirmware/Marlin
+    data:
+      repo: MarlinFirmware/Marlin
+      org: MarlinFirmware
+      repo_anchored: true
+      homepage: https://marlinfw.org
+      backlink: true
+      stars: 17570
+      age_days: 5502
+      contributors: 1320
+  - code: A3
+    checked_at: '2026-09-05T20:27:36Z'
+    source: https://rdap.org/domain/marlinfw.org
+    data:
+      registrar: Cloudflare, Inc.
+      created: '2016-03-16'
+      expires: '2028-03-16'
+      remaining_days: 557
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T20:27:36Z'
+    source: TLS handshake marlinfw.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T20:27:36Z'
+    source: https://www.wikidata.org/wiki/Q56290151
+    data:
+      qid: Q56290151
+      label: Marlin
+      site: https://marlinfw.org/
+      sitelinks: 5
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:27:36Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 332959
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:28:16Z'
+    source: http://web.archive.org/cdx/search/cdx?url=marlinfw.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2016-04-23'
+      history_days: 3787
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Cloudflare, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q56290151
+  reviewed_by: []
+  source_issue: null

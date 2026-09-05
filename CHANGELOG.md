@@ -7,6 +7,12 @@ The dataset itself is released continuously as the rolling `latest` GitHub Relea
 ## 2026-09-06
 
 ### Rules
+- **A3 never anchors on its own; nor does A7 when the entity has an identity of its own.** A brand-protection registrar or a restricted TLD proves that
+  *someone* substantial holds the domain, not who; together with B4 (history) and B5 (rank), neither of which
+  names the entity either, they verified anthropic.com under the Python project, digitalocean.com under five
+  projects it sponsors and vmware.com under RabbitMQ in the first full-category batch. An entity-agnostic anchor
+  now counts only when at least one identity-bearing piece of evidence (A1/A2/A4/A5/A6/A8/A9/B1) passed too.
+  Existing records: none change (checked with revalidate). New adversarial cases.
 - **A6 (propagation): shared name servers alone now need a backlink that was actually seen.** The first
   full-category batch propagated anthropic.com, digitalocean.com, alibabacloud.com, vmware.com and others
   from open-source projects that merely link to their sponsors, because those sites answer 403 to the

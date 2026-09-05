@@ -1,0 +1,92 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:golang
+names:
+  en: Go
+aliases:
+- golang
+- golang/go
+category:
+- developer-tools
+wikidata: null
+canonical:
+  github_org: golang
+  wikidata: null
+  sources:
+  - github-history:golang/go(age=12y,contrib=2984,stars=137520)
+domains:
+- domain: go.dev
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 2761
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:19:30Z'
+    source: https://api.github.com/orgs/golang
+    data:
+      org: golang
+      org_verified: false
+      blog: https://go.dev
+  - code: A8
+    checked_at: '2026-09-05T18:19:30Z'
+    source: https://api.github.com/repos/golang/go
+    data:
+      repo: golang/go
+      org: golang
+      repo_anchored: true
+      homepage: https://go.dev
+      backlink: true
+      stars: 137520
+      age_days: 4400
+      contributors: 2984
+  - code: A3
+    checked_at: '2026-09-05T18:19:31Z'
+    source: https://rdap.org/domain/go.dev
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2019-02-13'
+      expires: '2027-02-13'
+      remaining_days: 160
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T18:19:31Z'
+    source: TLS handshake go.dev:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 1
+  - code: B5
+    checked_at: '2026-09-05T18:19:31Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 3245
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:19:45Z'
+    source: http://web.archive.org/cdx/search/cdx?url=go.dev&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2019-11-13'
+      history_days: 2488
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_name(self-declared)
+  reviewed_by: []
+  source_issue: null

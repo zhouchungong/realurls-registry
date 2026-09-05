@@ -1,0 +1,91 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:go-gorm
+names:
+  en: gorm
+aliases:
+- go-gorm
+- go-gorm/gorm
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: go-gorm
+  wikidata: null
+  sources:
+  - github-history:go-gorm/gorm(age=12y,contrib=476,stars=39943)
+domains:
+- domain: gorm.io
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:52Z'
+  ttl_days: 30
+  age_days: 3134
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:46:03Z'
+    source: https://api.github.com/orgs/go-gorm
+    data:
+      org: go-gorm
+      org_verified: true
+      blog: https://gorm.io/
+      org_name: go-gorm
+      created_at: '2015-10-14T15:54:07Z'
+  - code: A8
+    checked_at: '2026-09-05T18:46:03Z'
+    source: https://api.github.com/repos/go-gorm/gorm
+    data:
+      repo: go-gorm/gorm
+      org: go-gorm
+      repo_anchored: true
+      homepage: https://gorm.io
+      backlink: true
+      stars: 39943
+      age_days: 4698
+      contributors: 476
+  - code: A4
+    checked_at: '2026-09-05T18:46:03Z'
+    source: TLS handshake gorm.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:46:03Z'
+    source: https://www.wikidata.org/wiki/Q115300105
+    data:
+      qid: Q115300105
+      label: gorm
+      site: https://gorm.io
+      sitelinks: 0
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:46:03Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 329782
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:46:20Z'
+    source: http://web.archive.org/cdx/search/cdx?url=gorm.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2018-02-05'
+      history_days: 3134
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_repo_name
+  reviewed_by: []
+  source_issue: null

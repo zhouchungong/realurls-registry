@@ -1,0 +1,87 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:zen-browser
+names:
+  en: Zen
+aliases:
+- zen-browser
+category:
+- open-source
+wikidata: Q130541359
+canonical:
+  github_org: zen-browser
+  wikidata: Q130541359
+  sources:
+  - wikidata:Q130541359/P856
+  - wikidata:Q130541359/P2037
+domains:
+- domain: zen-browser.app
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:53Z'
+  ttl_days: 30
+  age_days: 760
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:38:10Z'
+    source: https://api.github.com/orgs/zen-browser
+    data:
+      org: zen-browser
+      org_verified: true
+      blog: https://zen-browser.app
+      org_name: Zen
+      created_at: '2024-03-28T00:04:32Z'
+  - code: A3
+    checked_at: '2026-09-05T18:38:10Z'
+    source: https://rdap.org/domain/zen-browser.app
+    data:
+      registrar: Hosting Concepts B.V. d/b/a Registrar.eu
+      created: '2024-08-06'
+      expires: '2027-08-06'
+      remaining_days: 334
+      locks: []
+  - code: A4
+    checked_at: '2026-09-05T18:38:10Z'
+    source: TLS handshake zen-browser.app:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T18:38:10Z'
+    source: https://www.wikidata.org/wiki/Q130541359
+    data:
+      qid: Q130541359
+      label: Zen
+      site: https://zen-browser.app/
+      sitelinks: 13
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:38:10Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 54824
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:38:21Z'
+    source: http://web.archive.org/cdx/search/cdx?url=zen-browser.app&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2024-08-06'
+      history_days: 760
+  rejected_evidence:
+  - 'A3: registrar (Hosting Concepts B.V. d/b/a Registrar.eu) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q130541359
+  reviewed_by: []
+  source_issue: null

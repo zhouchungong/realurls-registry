@@ -1,0 +1,89 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:homebrew
+names:
+  en: Homebrew
+aliases: []
+category:
+- developer-tools
+wikidata: Q11223506
+canonical:
+  github_org: Homebrew
+  wikidata: Q11223506
+  sources:
+  - wikidata:Q11223506/P856
+  - wikidata:Q11223506/P2037
+domains:
+- domain: brew.sh
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:52Z'
+  ttl_days: 30
+  age_days: 4909
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:41:54Z'
+    source: https://api.github.com/orgs/Homebrew
+    data:
+      org: Homebrew
+      org_verified: true
+      blog: https://brew.sh
+      org_name: Homebrew
+      created_at: '2012-03-05T16:21:25Z'
+  - code: A8
+    checked_at: '2026-09-05T18:41:55Z'
+    source: https://api.github.com/repos/Homebrew/brew
+    data:
+      repo: Homebrew/brew
+      org: Homebrew
+      repo_anchored: true
+      homepage: https://brew.sh
+      backlink: true
+      stars: 49412
+      age_days: 3835
+      contributors: 1403
+  - code: A4
+    checked_at: '2026-09-05T18:41:55Z'
+    source: TLS handshake brew.sh:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:41:55Z'
+    source: https://www.wikidata.org/wiki/Q11223506
+    data:
+      qid: Q11223506
+      label: Homebrew
+      site: https://brew.sh
+      sitelinks: 18
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:41:55Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 6560
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:41:59Z'
+    source: http://web.archive.org/cdx/search/cdx?url=brew.sh&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2013-03-28'
+      history_days: 4909
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q11223506
+  reviewed_by: []
+  source_issue: null

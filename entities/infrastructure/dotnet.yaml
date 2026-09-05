@@ -1,0 +1,96 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:dotnet
+names:
+  en: .NET Platform
+aliases:
+- dotnet
+- dotnet/aspnetcore
+category:
+- infrastructure
+- hardware
+- ai
+wikidata: null
+canonical:
+  github_org: dotnet
+  wikidata: null
+  sources:
+  - github-history:dotnet/aspnetcore(age=12y,contrib=1625,stars=38423)
+domains:
+- domain: dot.net
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:52Z'
+  ttl_days: 30
+  age_days: 11547
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:45:45Z'
+    source: https://api.github.com/orgs/dotnet
+    data:
+      org: dotnet
+      org_verified: true
+      blog: https://dot.net
+      org_name: .NET Platform
+      created_at: '2014-10-10T20:31:36Z'
+  - code: A8
+    checked_at: '2026-09-05T18:45:45Z'
+    source: https://api.github.com/repos/dotnet/aspnetcore
+    data:
+      repo: dotnet/aspnetcore
+      org: dotnet
+      repo_anchored: true
+      homepage: https://asp.net
+      backlink: true
+      stars: 38423
+      age_days: 4561
+      contributors: 1625
+  - code: A3
+    checked_at: '2026-09-05T18:45:46Z'
+    source: https://rdap.org/domain/dot.net
+    data:
+      registrar: MarkMonitor Inc.
+      created: '1995-01-24'
+      expires: '2027-01-25'
+      remaining_days: 141
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T18:45:46Z'
+    source: TLS handshake dot.net:443
+    data:
+      subject_org: Microsoft Corporation
+      validation_type: OV
+      issuer: Microsoft Corporation
+      san_count: 175
+  - code: B5
+    checked_at: '2026-09-05T18:45:46Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 104017
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:46:05Z'
+    source: http://web.archive.org/cdx/search/cdx?url=dot.net&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2011-07-12'
+      history_days: 5534
+  rejected_evidence:
+  - 'A8: repository homepage (https://asp.net) does not point to this domain'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: certificate organization (Microsoft Corporation) is not the anchored entity (dotnet, aspnetcore)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_name(self-declared)
+  reviewed_by: []
+  source_issue: null

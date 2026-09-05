@@ -1,0 +1,91 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:osquery
+names:
+  en: osquery
+aliases:
+- osquery/osquery
+category:
+- infrastructure
+- security
+wikidata: null
+canonical:
+  github_org: osquery
+  wikidata: null
+  sources:
+  - github-history:osquery/osquery(age=12y,contrib=519,stars=23544)
+domains:
+- domain: osquery.io
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:52Z'
+  ttl_days: 30
+  age_days: 4326
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:11:55Z'
+    source: https://api.github.com/orgs/osquery
+    data:
+      org: osquery
+      org_verified: true
+      blog: https://osquery.io
+      org_name: osquery
+      created_at: '2014-07-31T02:12:45Z'
+  - code: A8
+    checked_at: '2026-09-05T19:11:55Z'
+    source: https://api.github.com/repos/osquery/osquery
+    data:
+      repo: osquery/osquery
+      org: osquery
+      repo_anchored: true
+      homepage: https://osquery.io
+      backlink: false
+      stars: 23544
+      age_days: 4420
+      contributors: 519
+  - code: A4
+    checked_at: '2026-09-05T19:11:55Z'
+    source: TLS handshake osquery.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T19:11:55Z'
+    source: https://www.wikidata.org/wiki/Q94719119
+    data:
+      qid: Q94719119
+      label: osquery
+      site: https://www.osquery.io/
+      sitelinks: 0
+      competing_items: 3
+  - code: B5
+    checked_at: '2026-09-05T19:11:55Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 262920
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:12:56Z'
+    source: http://web.archive.org/cdx/search/cdx?url=osquery.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2014-11-01'
+      history_days: 4326
+  rejected_evidence:
+  - 'A8: this site does not link back to the GitHub organization; no reverse confirmation'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_repo_name
+  reviewed_by: []
+  source_issue: null

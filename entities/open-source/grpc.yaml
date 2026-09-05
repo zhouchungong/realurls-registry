@@ -1,0 +1,90 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:grpc
+names:
+  en: gRPC
+aliases:
+- grpc
+category:
+- open-source
+wikidata: Q26356541
+canonical:
+  github_org: grpc
+  wikidata: Q26356541
+  sources:
+  - wikidata:Q26356541/P856
+  - wikidata:Q26356541/P2037
+domains:
+- domain: grpc.io
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:59Z'
+  ttl_days: 30
+  age_days: 4208
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:43:26Z'
+    source: https://api.github.com/orgs/grpc
+    data:
+      org: grpc
+      org_verified: true
+      blog: https://grpc.io
+      org_name: grpc
+      created_at: '2014-06-05T07:19:10Z'
+  - code: A8
+    checked_at: '2026-09-05T18:43:27Z'
+    source: https://api.github.com/repos/grpc/grpc
+    data:
+      repo: grpc/grpc
+      org: grpc
+      repo_anchored: true
+      homepage: https://grpc.io
+      backlink: true
+      stars: 45297
+      age_days: 4288
+      contributors: 1197
+  - code: A4
+    checked_at: '2026-09-05T18:43:28Z'
+    source: TLS handshake grpc.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:43:28Z'
+    source: https://www.wikidata.org/wiki/Q26356541
+    data:
+      qid: Q26356541
+      label: gRPC
+      site: https://grpc.io
+      sitelinks: 16
+      competing_items: 4
+  - code: B5
+    checked_at: '2026-09-05T18:43:28Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 52488
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:43:32Z'
+    source: http://web.archive.org/cdx/search/cdx?url=grpc.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2015-02-27'
+      history_days: 4208
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q26356541
+  reviewed_by: []
+  source_issue: null

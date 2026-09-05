@@ -1,0 +1,89 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:knex
+names:
+  en: knex
+aliases:
+- knex/knex
+category:
+- infrastructure
+wikidata: null
+canonical:
+  github_org: knex
+  wikidata: null
+  sources:
+  - github-history:knex/knex(age=13y,contrib=622,stars=20344)
+domains:
+- domain: knexjs.org
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:49Z'
+  ttl_days: 30
+  age_days: 4925
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:25:23Z'
+    source: https://api.github.com/orgs/knex
+    data:
+      org: knex
+      org_verified: false
+      blog: http://knexjs.org
+  - code: A8
+    checked_at: '2026-09-05T19:25:23Z'
+    source: https://api.github.com/repos/knex/knex
+    data:
+      repo: knex/knex
+      org: knex
+      repo_anchored: true
+      homepage: https://knexjs.org/
+      backlink: true
+      stars: 20344
+      age_days: 4998
+      contributors: 622
+  - code: A3
+    checked_at: '2026-09-05T19:25:23Z'
+    source: https://rdap.org/domain/knexjs.org
+    data:
+      registrar: NameCheap, Inc.
+      created: '2013-03-11'
+      expires: '2027-03-11'
+      remaining_days: 187
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T19:25:23Z'
+    source: TLS handshake knexjs.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-05T19:25:23Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 951361
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:26:11Z'
+    source: http://web.archive.org/cdx/search/cdx?url=knexjs.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2013-06-08'
+      history_days: 4837
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_repo_name
+  reviewed_by: []
+  source_issue: null

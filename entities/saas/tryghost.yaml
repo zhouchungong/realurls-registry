@@ -1,0 +1,101 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:tryghost
+names:
+  en: Ghost
+aliases:
+- TryGhost
+category:
+- saas
+wikidata: Q16251204
+canonical:
+  github_org: TryGhost
+  wikidata: Q16251204
+  sources:
+  - wikidata:Q16251204/P856
+  - wikidata:Q16251204/P2037
+domains:
+- domain: ghost.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:59Z'
+  ttl_days: 30
+  age_days: 7741
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:36:51Z'
+    source: https://api.github.com/orgs/TryGhost
+    data:
+      org: TryGhost
+      org_verified: true
+      blog: https://ghost.org
+      org_name: Ghost
+      created_at: '2012-08-19T13:28:58Z'
+  - code: A8
+    checked_at: '2026-09-05T18:36:51Z'
+    source: https://api.github.com/repos/TryGhost/Ghost
+    data:
+      repo: TryGhost/Ghost
+      org: TryGhost
+      repo_anchored: true
+      homepage: https://ghost.org
+      backlink: true
+      stars: 55178
+      age_days: 4872
+      contributors: 922
+  - code: A3
+    checked_at: '2026-09-05T18:37:14Z'
+    source: https://rdap.org/domain/ghost.org
+    data:
+      registrar: 1API GmbH
+      created: '2005-06-25'
+      expires: '2029-06-25'
+      remaining_days: 1024
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:37:14Z'
+    source: TLS handshake ghost.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:37:14Z'
+    source: https://www.wikidata.org/wiki/Q16251204
+    data:
+      qid: Q16251204
+      label: Ghost
+      site: https://ghost.org
+      sitelinks: 8
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:37:14Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 4101
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:38:05Z'
+    source: http://web.archive.org/cdx/search/cdx?url=ghost.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1998-12-02'
+      history_days: 10139
+  rejected_evidence:
+  - 'A3: registrar (1API GmbH) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q16251204
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,89 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:akka
+names:
+  en: Akka
+aliases:
+- Akka Project
+- akka
+category:
+- open-source
+wikidata: Q16002307
+canonical:
+  github_org: akka
+  wikidata: Q16002307
+  sources:
+  - wikidata:Q16002307/P856
+  - wikidata:Q16002307/P2037
+domains:
+- domain: akka.io
+  role: primary
+  status: verified
+  confidence: 0.7088
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:19:00Z'
+  ttl_days: 30
+  age_days: 5720
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:48:36Z'
+    source: https://api.github.com/orgs/akka
+    data:
+      org: akka
+      org_verified: false
+      blog: https://akka.io
+  - code: A8
+    checked_at: '2026-09-05T20:48:37Z'
+    source: https://api.github.com/repos/akka/akka-core
+    data:
+      repo: akka/akka-core
+      org: akka
+      repo_anchored: true
+      homepage: https://doc.akka.io/libraries/
+      backlink: true
+      stars: 13279
+      age_days: 6410
+      contributors: 1067
+  - code: A4
+    checked_at: '2026-09-05T20:48:38Z'
+    source: TLS handshake akka.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T20:48:38Z'
+    source: https://www.wikidata.org/wiki/Q16002307
+    data:
+      qid: Q16002307
+      label: Akka
+      site: https://akka.io
+      sitelinks: 5
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:48:38Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 116565
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:49:22Z'
+    source: http://web.archive.org/cdx/search/cdx?url=akka.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2011-01-07'
+      history_days: 5720
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q16002307
+  reviewed_by: []
+  source_issue: null

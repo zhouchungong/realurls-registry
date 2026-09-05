@@ -1,0 +1,104 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:ccxt
+names:
+  en: ccxt
+aliases:
+- ccxt/ccxt
+category:
+- infrastructure
+- finance
+wikidata: null
+canonical:
+  github_org: ccxt
+  wikidata: null
+  sources:
+  - github-history:ccxt/ccxt(age=9y,contrib=934,stars=43874)
+domains:
+- domain: ccxt.com
+  role: primary
+  status: verified
+  confidence: 0.8381
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:55Z'
+  ttl_days: 30
+  age_days: 8720
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:41:56Z'
+    source: https://api.github.com/orgs/ccxt
+    data:
+      org: ccxt
+      org_verified: true
+      blog: https://ccxt.com
+      org_name: ccxt
+      created_at: '2017-09-12T19:21:50Z'
+  - code: A8
+    checked_at: '2026-09-05T18:41:56Z'
+    source: https://api.github.com/repos/ccxt/ccxt
+    data:
+      repo: ccxt/ccxt
+      org: ccxt
+      repo_anchored: true
+      homepage: https://docs.ccxt.com
+      backlink: true
+      stars: 43874
+      age_days: 3401
+      contributors: 934
+  - code: B2
+    checked_at: '2026-09-05T18:41:57Z'
+    source: https://registry.npmjs.org/ccxt
+    data:
+      package: ccxt
+      homepage: https://ccxt.com
+  - code: A2
+    checked_at: '2026-09-05T18:41:57Z'
+    source: https://registry.npmjs.org/-/npm/v1/attestations/ccxt@4.5.77
+    data:
+      package: ccxt
+      version: 4.5.77
+      provenance_verified: true
+      provenance_check: registry-tls
+      chain_org: npm
+      chain_org_verified: false
+      chain_blog: ''
+  - code: A3
+    checked_at: '2026-09-05T18:41:57Z'
+    source: https://rdap.org/domain/ccxt.com
+    data:
+      registrar: Cloudflare, Inc.
+      created: '2002-10-21'
+      expires: '2027-10-21'
+      remaining_days: 410
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:41:57Z'
+    source: TLS handshake ccxt.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B4
+    checked_at: '2026-09-05T18:42:10Z'
+    source: http://web.archive.org/cdx/search/cdx?url=ccxt.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2002-11-20'
+      history_days: 8690
+  rejected_evidence:
+  - 'A2: GitHub organization at the end of the provenance chain has not verified this domain'
+  - 'A3: registrar (Cloudflare, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_repo_name
+  reviewed_by: []
+  source_issue: null

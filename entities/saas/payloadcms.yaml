@@ -1,0 +1,93 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:payloadcms
+names:
+  en: Payload
+aliases:
+- payloadcms
+- payloadcms/payload
+category:
+- saas
+wikidata: null
+canonical:
+  github_org: payloadcms
+  wikidata: null
+  sources:
+  - github-history:payloadcms/payload(age=5y,contrib=575,stars=44583)
+domains:
+- domain: payloadcms.com
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 3077
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:58:54Z'
+    source: https://api.github.com/orgs/payloadcms
+    data:
+      org: payloadcms
+      org_verified: false
+      blog: https://payloadcms.com
+  - code: A8
+    checked_at: '2026-09-05T18:58:54Z'
+    source: https://api.github.com/repos/payloadcms/payload
+    data:
+      repo: payloadcms/payload
+      org: payloadcms
+      repo_anchored: true
+      homepage: https://payloadcms.com
+      backlink: true
+      stars: 44583
+      age_days: 2069
+      contributors: 575
+  - code: A3
+    checked_at: '2026-09-05T18:59:37Z'
+    source: https://rdap.org/domain/payloadcms.com
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2018-04-02'
+      expires: '2027-04-02'
+      remaining_days: 209
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T18:59:38Z'
+    source: TLS handshake payloadcms.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B5
+    checked_at: '2026-09-05T18:59:38Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 133988
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:59:46Z'
+    source: http://web.archive.org/cdx/search/cdx?url=payloadcms.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2018-08-20'
+      history_days: 2938
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_name(self-declared)
+  reviewed_by: []
+  source_issue: null

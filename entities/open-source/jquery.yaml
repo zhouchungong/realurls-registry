@@ -1,0 +1,229 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:jquery
+names:
+  en: jQuery
+aliases:
+- jquery
+category:
+- open-source
+wikidata: Q230036
+canonical:
+  github_org: jquery
+  wikidata: Q230036
+  sources:
+  - wikidata:Q230036/P856
+  - wikidata:Q230036/P2037
+domains:
+- domain: jquery.com
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:53Z'
+  ttl_days: 30
+  age_days: 7573
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:26:21Z'
+    source: https://api.github.com/orgs/jquery
+    data:
+      org: jquery
+      org_verified: true
+      blog: https://jquery.com
+      org_name: jQuery
+      created_at: '2009-04-03T15:18:52Z'
+  - code: A8
+    checked_at: '2026-09-05T18:26:22Z'
+    source: https://api.github.com/repos/jquery/jquery
+    data:
+      repo: jquery/jquery
+      org: jquery
+      repo_anchored: true
+      homepage: https://jquery.com
+      backlink: true
+      stars: 59783
+      age_days: 6364
+      contributors: 349
+  - code: A3
+    checked_at: '2026-09-05T18:26:22Z'
+    source: https://rdap.org/domain/jquery.com
+    data:
+      registrar: 1API GmbH
+      created: '2005-12-10'
+      expires: '2026-12-08'
+      remaining_days: 93
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:26:22Z'
+    source: TLS handshake jquery.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:26:22Z'
+    source: https://www.wikidata.org/wiki/Q230036
+    data:
+      qid: Q230036
+      label: jQuery
+      site: https://jquery.com
+      sitelinks: 58
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-05T18:26:22Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 542
+      source: top-1m list
+  rejected_evidence:
+  - 'A3: registrar (1API GmbH) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+- domain: jquerymobile.com
+  role: product
+  status: verified
+  confidence: 0.7105
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:53Z'
+  ttl_days: 30
+  age_days: 6211
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A3
+    checked_at: '2026-09-05T18:31:04Z'
+    source: https://rdap.org/domain/jquerymobile.com
+    data:
+      registrar: 1API GmbH
+      created: '2009-09-03'
+      expires: '2027-09-03'
+      remaining_days: 362
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:31:04Z'
+    source: TLS handshake jquerymobile.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:31:04Z'
+    source: https://www.wikidata.org/wiki/Q1955464
+    data:
+      qid: Q1955464
+      label: jQuery Mobile
+      site: http://jquerymobile.com/
+      sitelinks: 13
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-05T18:31:04Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 46935
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:31:09Z'
+    source: http://web.archive.org/cdx/search/cdx?url=jquerymobile.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2010-07-02'
+      history_days: 5909
+  - code: A6
+    checked_at: '2026-09-05T18:31:09Z'
+    source: propagate from jquery.com
+    data:
+      from: jquery.com
+      from_status: verified
+      first_party_link: true
+      structural_links:
+      - shared_ns
+      san_count: 2
+      backlink: true
+  rejected_evidence:
+  - 'A3: registrar (1API GmbH) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: item Q1955464 != entity canonical item Q230036'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+- domain: jqueryui.com
+  role: product
+  status: verified
+  confidence: 0.7105
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:53Z'
+  ttl_days: 30
+  age_days: 6784
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A3
+    checked_at: '2026-09-05T18:31:10Z'
+    source: https://rdap.org/domain/jqueryui.com
+    data:
+      registrar: 1API GmbH
+      created: '2008-02-07'
+      expires: '2027-02-07'
+      remaining_days: 155
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:31:11Z'
+    source: TLS handshake jqueryui.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:31:11Z'
+    source: https://www.wikidata.org/wiki/Q285960
+    data:
+      qid: Q285960
+      label: jQuery UI
+      site: https://jqueryui.com/
+      sitelinks: 14
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:31:11Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 7316
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:31:18Z'
+    source: http://web.archive.org/cdx/search/cdx?url=jqueryui.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2008-12-05'
+      history_days: 6483
+  - code: A6
+    checked_at: '2026-09-05T18:31:18Z'
+    source: propagate from jquery.com
+    data:
+      from: jquery.com
+      from_status: verified
+      first_party_link: true
+      structural_links:
+      - shared_ns
+      san_count: 2
+      backlink: true
+  rejected_evidence:
+  - 'A3: registrar (1API GmbH) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: item Q285960 != entity canonical item Q230036'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q230036
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,106 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:adobe
+names:
+  en: Adobe
+aliases:
+- Adobe, Inc.
+- adobe
+category:
+- open-source
+wikidata: Q11463
+canonical:
+  github_org: adobe
+  wikidata: Q11463
+  sources:
+  - wikidata:Q11463/P856
+  - wikidata:Q11463/P2037
+domains:
+- domain: adobe.com
+  role: primary
+  status: verified
+  confidence: 0.9563
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 14537
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:34:34Z'
+    source: https://api.github.com/orgs/adobe
+    data:
+      org: adobe
+      org_verified: true
+      blog: https://adobe.com
+      org_name: Adobe, Inc.
+      created_at: '2010-11-10T16:36:26Z'
+  - code: A8
+    checked_at: '2026-09-05T20:34:35Z'
+    source: https://api.github.com/repos/adobe/brackets
+    data:
+      repo: adobe/brackets
+      org: adobe
+      repo_anchored: true
+      homepage: http://brackets.io
+      backlink: false
+      stars: 32998
+      age_days: 5385
+      contributors: 461
+  - code: A3
+    checked_at: '2026-09-05T20:34:35Z'
+    source: https://rdap.org/domain/adobe.com
+    data:
+      registrar: Nom-iq Ltd. dba COM LAUDE
+      created: '1986-11-17'
+      expires: '2027-05-17'
+      remaining_days: 253
+      locks:
+      - delete
+      - transfer
+      - update
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-05T20:34:35Z'
+    source: TLS handshake adobe.com:443
+    data:
+      subject_org: Adobe Inc
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T20:34:35Z'
+    source: https://www.wikidata.org/wiki/Q11463
+    data:
+      qid: Q11463
+      label: Adobe
+      site: https://www.adobe.com/
+      sitelinks: 87
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:34:35Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 68
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:34:39Z'
+    source: http://web.archive.org/cdx/search/cdx?url=adobe.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1996-10-22'
+      history_days: 10910
+  rejected_evidence:
+  - 'A8: repository homepage (http://brackets.io) does not point to this domain'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  reasons:
+  - '2 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q11463
+  reviewed_by: []
+  source_issue: null

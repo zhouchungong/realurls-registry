@@ -1,0 +1,90 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:imagemagick
+names:
+  en: 이미지매직
+aliases:
+- ImageMagick
+- ImageMagick Studio LLC
+category:
+- open-source
+wikidata: Q1047199
+canonical:
+  github_org: ImageMagick
+  wikidata: Q1047199
+  sources:
+  - wikidata:Q1047199/P856
+  - wikidata:Q1047199/P1324
+domains:
+- domain: imagemagick.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:53Z'
+  ttl_days: 30
+  age_days: 9851
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:38:04Z'
+    source: https://api.github.com/orgs/ImageMagick
+    data:
+      org: ImageMagick
+      org_verified: true
+      blog: https://imagemagick.org/
+      org_name: ImageMagick Studio LLC
+      created_at: '2015-05-17T19:57:23Z'
+  - code: A3
+    checked_at: '2026-09-05T19:38:05Z'
+    source: https://rdap.org/domain/imagemagick.org
+    data:
+      registrar: Squarespace Domains II LLC
+      created: '1999-09-16'
+      expires: '2035-09-16'
+      remaining_days: 3297
+      locks:
+      - delete
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T19:38:05Z'
+    source: TLS handshake imagemagick.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T19:38:05Z'
+    source: https://www.wikidata.org/wiki/Q1047199
+    data:
+      qid: Q1047199
+      label: 이미지매직
+      site: https://imagemagick.org
+      sitelinks: 24
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T19:38:05Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 3041
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:38:10Z'
+    source: http://web.archive.org/cdx/search/cdx?url=imagemagick.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2000-03-01'
+      history_days: 9684
+  rejected_evidence:
+  - 'A3: registrar (Squarespace Domains II LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q1047199
+  reviewed_by: []
+  source_issue: null

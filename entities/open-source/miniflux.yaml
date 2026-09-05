@@ -1,0 +1,104 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:miniflux
+names:
+  en: v2
+aliases:
+- Miniflux
+- miniflux
+- miniflux/v2
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: miniflux
+  wikidata: null
+  sources:
+  - github-history:miniflux/v2(age=8y,contrib=333,stars=9657)
+domains:
+- domain: miniflux.app
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:54Z'
+  ttl_days: 30
+  age_days: 3041
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:45:41Z'
+    source: https://api.github.com/orgs/miniflux
+    data:
+      org: miniflux
+      org_verified: true
+      blog: https://miniflux.app/
+      org_name: Miniflux
+      created_at: '2015-01-18T15:38:26Z'
+  - code: A8
+    checked_at: '2026-09-05T20:45:41Z'
+    source: https://api.github.com/repos/miniflux/v2
+    data:
+      repo: miniflux/v2
+      org: miniflux
+      repo_anchored: true
+      homepage: https://miniflux.app
+      backlink: true
+      stars: 9657
+      age_days: 3211
+      contributors: 333
+  - code: A3
+    checked_at: '2026-09-05T20:45:42Z'
+    source: https://rdap.org/domain/miniflux.app
+    data:
+      registrar: Porkbun LLC
+      created: '2018-05-09'
+      expires: '2027-05-09'
+      remaining_days: 245
+      locks:
+      - delete
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T20:45:42Z'
+    source: TLS handshake miniflux.app:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T20:45:42Z'
+    source: https://www.wikidata.org/wiki/Q16664605
+    data:
+      qid: Q16664605
+      label: Miniflux
+      site: https://miniflux.app/
+      sitelinks: 1
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:45:42Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 289695
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:45:45Z'
+    source: http://web.archive.org/cdx/search/cdx?url=miniflux.app&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2018-07-30'
+      history_days: 2959
+  rejected_evidence:
+  - 'A3: registrar (Porkbun LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_repo_name
+  reviewed_by: []
+  source_issue: null

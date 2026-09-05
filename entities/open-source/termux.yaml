@@ -1,0 +1,95 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:termux
+names:
+  en: Termux
+aliases:
+- termux
+category:
+- open-source
+wikidata: Q60572759
+canonical:
+  github_org: termux
+  wikidata: Q60572759
+  sources:
+  - wikidata:Q60572759/P856
+  - wikidata:Q60572759/P2037
+domains:
+- domain: termux.dev
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 1595
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:46:57Z'
+    source: https://api.github.com/orgs/termux
+    data:
+      org: termux
+      org_verified: true
+      blog: https://termux.dev
+      org_name: Termux
+      created_at: '2014-07-08T16:02:31Z'
+  - code: A8
+    checked_at: '2026-09-05T18:46:57Z'
+    source: https://api.github.com/repos/termux/termux-packages
+    data:
+      repo: termux/termux-packages
+      org: termux
+      repo_anchored: true
+      homepage: https://termux.dev
+      backlink: false
+      stars: 16908
+      age_days: 4102
+      contributors: 703
+  - code: A3
+    checked_at: '2026-09-05T18:46:58Z'
+    source: https://rdap.org/domain/termux.dev
+    data:
+      registrar: CloudFlare, Inc.
+      created: '2022-04-23'
+      expires: '2029-04-23'
+      remaining_days: 961
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:46:58Z'
+    source: TLS handshake termux.dev:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:46:58Z'
+    source: https://www.wikidata.org/wiki/Q60572759
+    data:
+      qid: Q60572759
+      label: Termux
+      site: https://termux.dev
+      sitelinks: 17
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:46:58Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 173470
+      source: top-1m list
+  rejected_evidence:
+  - 'A8: this site does not link back to the GitHub organization; no reverse confirmation'
+  - 'A3: registrar (CloudFlare, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q60572759
+  reviewed_by: []
+  source_issue: null

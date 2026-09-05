@@ -1,0 +1,101 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:mumble-voip
+names:
+  en: 멈블
+aliases:
+- Mumble
+- mumble-voip
+category:
+- open-source
+wikidata: Q748932
+canonical:
+  github_org: mumble-voip
+  wikidata: Q748932
+  sources:
+  - wikidata:Q748932/P856
+  - wikidata:Q748932/P2037
+domains:
+- domain: mumble.info
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:52Z'
+  ttl_days: 30
+  age_days: 6961
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T21:20:01Z'
+    source: https://api.github.com/orgs/mumble-voip
+    data:
+      org: mumble-voip
+      org_verified: true
+      blog: https://www.mumble.info
+      org_name: Mumble
+      created_at: '2011-02-26T01:23:11Z'
+  - code: A8
+    checked_at: '2026-09-05T21:20:01Z'
+    source: https://api.github.com/repos/mumble-voip/mumble
+    data:
+      repo: mumble-voip/mumble
+      org: mumble-voip
+      repo_anchored: true
+      homepage: https://www.mumble.info
+      backlink: true
+      stars: 8237
+      age_days: 5670
+      contributors: 418
+  - code: A3
+    checked_at: '2026-09-05T21:20:01Z'
+    source: https://rdap.org/domain/mumble.info
+    data:
+      registrar: Infomaniak Network SA
+      created: '2007-08-14'
+      expires: '2030-08-14'
+      remaining_days: 1439
+      locks: []
+  - code: A4
+    checked_at: '2026-09-05T21:20:02Z'
+    source: TLS handshake mumble.info:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T21:20:02Z'
+    source: https://www.wikidata.org/wiki/Q748932
+    data:
+      qid: Q748932
+      label: 멈블
+      site: https://www.mumble.info
+      sitelinks: 22
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T21:20:02Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 99152
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T21:20:26Z'
+    source: http://web.archive.org/cdx/search/cdx?url=mumble.info&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2007-02-04'
+      history_days: 7153
+  rejected_evidence:
+  - 'A3: registrar (Infomaniak Network SA) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q748932
+  reviewed_by: []
+  source_issue: null

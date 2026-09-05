@@ -1,0 +1,91 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:netty
+names:
+  en: Netty
+aliases:
+- The Netty Project
+- netty
+category:
+- open-source
+wikidata: Q6107820
+canonical:
+  github_org: netty
+  wikidata: Q6107820
+  sources:
+  - wikidata:Q6107820/P856
+  - wikidata:Q6107820/P1324
+domains:
+- domain: netty.io
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:52Z'
+  ttl_days: 30
+  age_days: 5416
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:59:51Z'
+    source: https://api.github.com/orgs/netty
+    data:
+      org: netty
+      org_verified: true
+      blog: https://netty.io
+      org_name: The Netty Project
+      created_at: '2010-11-09T09:20:31Z'
+  - code: A8
+    checked_at: '2026-09-05T18:59:51Z'
+    source: https://api.github.com/repos/netty/netty
+    data:
+      repo: netty/netty
+      org: netty
+      repo_anchored: true
+      homepage: http://netty.io
+      backlink: true
+      stars: 35045
+      age_days: 5779
+      contributors: 896
+  - code: A4
+    checked_at: '2026-09-05T18:59:52Z'
+    source: TLS handshake netty.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:59:52Z'
+    source: https://www.wikidata.org/wiki/Q6107820
+    data:
+      qid: Q6107820
+      label: Netty
+      site: https://netty.io
+      sitelinks: 8
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:59:52Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 220900
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:59:52Z'
+    source: http://web.archive.org/cdx/search/cdx?url=netty.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2011-11-07'
+      history_days: 5416
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q6107820
+  reviewed_by: []
+  source_issue: null

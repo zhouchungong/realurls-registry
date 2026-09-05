@@ -1,0 +1,101 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:eslint
+names:
+  en: ESLint
+aliases:
+- eslint
+category:
+- developer-tools
+wikidata: Q55452824
+canonical:
+  github_org: eslint
+  wikidata: Q55452824
+  sources:
+  - wikidata:Q55452824/P856
+  - wikidata:Q55452824/P2037
+domains:
+- domain: eslint.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:52Z'
+  ttl_days: 30
+  age_days: 4811
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:56:26Z'
+    source: https://api.github.com/orgs/eslint
+    data:
+      org: eslint
+      org_verified: true
+      blog: https://eslint.org
+      org_name: ESLint
+      created_at: '2013-11-23T19:50:40Z'
+  - code: A8
+    checked_at: '2026-09-05T18:56:27Z'
+    source: https://api.github.com/repos/eslint/eslint
+    data:
+      repo: eslint/eslint
+      org: eslint
+      repo_anchored: true
+      homepage: https://eslint.org
+      backlink: true
+      stars: 27495
+      age_days: 4815
+      contributors: 1246
+  - code: A3
+    checked_at: '2026-09-05T18:56:27Z'
+    source: https://rdap.org/domain/eslint.org
+    data:
+      registrar: 1API GmbH
+      created: '2013-07-04'
+      expires: '2027-07-04'
+      remaining_days: 301
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:56:28Z'
+    source: TLS handshake eslint.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:56:28Z'
+    source: https://www.wikidata.org/wiki/Q55452824
+    data:
+      qid: Q55452824
+      label: ESLint
+      site: https://eslint.org
+      sitelinks: 11
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:56:28Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 39404
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:56:43Z'
+    source: http://web.archive.org/cdx/search/cdx?url=eslint.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2014-01-16'
+      history_days: 4615
+  rejected_evidence:
+  - 'A3: registrar (1API GmbH) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q55452824
+  reviewed_by: []
+  source_issue: null

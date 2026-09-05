@@ -1,0 +1,99 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:dask
+names:
+  en: Dask library
+aliases:
+- dask
+category:
+- open-source
+wikidata: Q65065147
+canonical:
+  github_org: dask
+  wikidata: Q65065147
+  sources:
+  - wikidata:Q65065147/P856
+  - wikidata:Q65065147/P2037
+domains:
+- domain: dask.org
+  role: primary
+  status: verified
+  confidence: 0.7088
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:52Z'
+  ttl_days: 30
+  age_days: 6146
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:28:11Z'
+    source: https://api.github.com/orgs/dask
+    data:
+      org: dask
+      org_verified: false
+      blog: https://dask.org/
+  - code: A8
+    checked_at: '2026-09-05T20:28:11Z'
+    source: https://api.github.com/repos/dask/dask
+    data:
+      repo: dask/dask
+      org: dask
+      repo_anchored: true
+      homepage: https://dask.org
+      backlink: true
+      stars: 13911
+      age_days: 4262
+      contributors: 656
+  - code: A3
+    checked_at: '2026-09-05T20:28:12Z'
+    source: https://rdap.org/domain/dask.org
+    data:
+      registrar: NameCheap, Inc.
+      created: '2009-11-07'
+      expires: '2029-11-07'
+      remaining_days: 1158
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T20:28:12Z'
+    source: TLS handshake dask.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T20:28:12Z'
+    source: https://www.wikidata.org/wiki/Q65065147
+    data:
+      qid: Q65065147
+      label: Dask library
+      site: https://dask.org
+      sitelinks: 3
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:28:12Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 274686
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:28:23Z'
+    source: http://web.archive.org/cdx/search/cdx?url=dask.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2004-09-06'
+      history_days: 8034
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q65065147
+  reviewed_by: []
+  source_issue: null

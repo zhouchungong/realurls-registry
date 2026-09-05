@@ -1,0 +1,90 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:iv-org
+names:
+  en: Invidious
+aliases:
+- iv-org
+category:
+- open-source
+wikidata: Q16868796
+canonical:
+  github_org: iv-org
+  wikidata: Q16868796
+  sources:
+  - wikidata:Q16868796/P856
+  - wikidata:Q16868796/P2037
+domains:
+- domain: invidious.io
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:49Z'
+  ttl_days: 30
+  age_days: 2052
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:00:14Z'
+    source: https://api.github.com/orgs/iv-org
+    data:
+      org: iv-org
+      org_verified: true
+      blog: https://invidious.io/
+      org_name: Invidious
+      created_at: '2020-07-17T01:17:28Z'
+  - code: A8
+    checked_at: '2026-09-05T19:00:14Z'
+    source: https://api.github.com/repos/iv-org/invidious
+    data:
+      repo: iv-org/invidious
+      org: iv-org
+      repo_anchored: true
+      homepage: https://invidious.io
+      backlink: true
+      stars: 24257
+      age_days: 3132
+      contributors: 351
+  - code: A4
+    checked_at: '2026-09-05T19:00:14Z'
+    source: TLS handshake invidious.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T19:00:14Z'
+    source: https://www.wikidata.org/wiki/Q16868796
+    data:
+      qid: Q16868796
+      label: Invidious
+      site: https://invidious.io
+      sitelinks: 8
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T19:00:14Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 60307
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:00:18Z'
+    source: http://web.archive.org/cdx/search/cdx?url=invidious.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2021-01-22'
+      history_days: 2052
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q16868796
+  reviewed_by: []
+  source_issue: null

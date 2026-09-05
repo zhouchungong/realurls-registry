@@ -1,0 +1,119 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:ueberdosis
+names:
+  en: Tiptap
+aliases:
+- ueberdosis
+- ueberdosis/tiptap
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: ueberdosis
+  wikidata: null
+  sources:
+  - github-history:ueberdosis/tiptap(age=8y,contrib=529,stars=38278)
+domains:
+- domain: tiptap.dev
+  role: primary
+  status: verified
+  confidence: 0.8478
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 2364
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:05:30Z'
+    source: https://api.github.com/orgs/ueberdosis
+    data:
+      org: ueberdosis
+      org_verified: true
+      blog: https://tiptap.dev
+      org_name: Tiptap
+      created_at: '2016-01-28T14:21:50Z'
+  - code: A8
+    checked_at: '2026-09-05T19:05:30Z'
+    source: https://api.github.com/repos/ueberdosis/tiptap
+    data:
+      repo: ueberdosis/tiptap
+      org: ueberdosis
+      repo_anchored: true
+      homepage: https://tiptap.dev
+      backlink: true
+      stars: 38278
+      age_days: 2937
+      contributors: 529
+  - code: B2
+    checked_at: '2026-09-05T19:05:30Z'
+    source: https://registry.npmjs.org/@tiptap/react
+    data:
+      package: '@tiptap/react'
+      homepage: https://tiptap.dev
+  - code: A2
+    checked_at: '2026-09-05T19:05:30Z'
+    source: https://registry.npmjs.org/-/npm/v1/attestations/@tiptap/react@3.31.3
+    data:
+      package: '@tiptap/react'
+      version: 3.31.3
+      provenance_verified: true
+      provenance_check: registry-tls
+      chain_org: npm
+      chain_org_verified: false
+      chain_blog: ''
+  - code: A3
+    checked_at: '2026-09-05T19:05:34Z'
+    source: https://rdap.org/domain/tiptap.dev
+    data:
+      registrar: united-domains AG
+      created: '2020-03-16'
+      expires: '2027-03-16'
+      remaining_days: 191
+      locks: []
+  - code: A4
+    checked_at: '2026-09-05T19:05:34Z'
+    source: TLS handshake tiptap.dev:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T19:05:34Z'
+    source: https://www.wikidata.org/wiki/Q110643961
+    data:
+      qid: Q110643961
+      label: Tiptap
+      site: https://tiptap.dev/
+      sitelinks: 0
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T19:05:34Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 262330
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:06:07Z'
+    source: http://web.archive.org/cdx/search/cdx?url=tiptap.dev&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2020-09-21'
+      history_days: 2175
+  rejected_evidence:
+  - 'A2: GitHub organization at the end of the provenance chain has not verified this domain'
+  - 'A3: registrar (united-domains AG) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_name(self-declared)
+  reviewed_by: []
+  source_issue: null

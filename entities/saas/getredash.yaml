@@ -1,0 +1,79 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:getredash
+names:
+  en: Redash
+aliases:
+- getredash
+- getredash/redash
+category:
+- saas
+wikidata: null
+canonical:
+  github_org: getredash
+  wikidata: null
+  sources:
+  - github-history:getredash/redash(age=12y,contrib=550,stars=28781)
+domains:
+- domain: redash.io
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 4133
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:07:47Z'
+    source: https://api.github.com/orgs/getredash
+    data:
+      org: getredash
+      org_verified: false
+      blog: https://redash.io/
+  - code: A8
+    checked_at: '2026-09-05T19:07:47Z'
+    source: https://api.github.com/repos/getredash/redash
+    data:
+      repo: getredash/redash
+      org: getredash
+      repo_anchored: true
+      homepage: http://redash.io/
+      backlink: true
+      stars: 28781
+      age_days: 4695
+      contributors: 550
+  - code: A4
+    checked_at: '2026-09-05T19:08:09Z'
+    source: TLS handshake redash.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-05T19:08:09Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 389800
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:08:29Z'
+    source: http://web.archive.org/cdx/search/cdx?url=redash.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2015-05-13'
+      history_days: 4133
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_name(self-declared)
+  reviewed_by: []
+  source_issue: null

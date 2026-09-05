@@ -1,0 +1,101 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:bitnami
+names:
+  en: Bitnami
+aliases:
+- bitnami
+category:
+- infrastructure
+wikidata: Q749851
+canonical:
+  github_org: bitnami
+  wikidata: Q749851
+  sources:
+  - wikidata:Q749851/P856
+  - github-history:bitnami/charts(age=10y,contrib=2773,stars=10409)
+domains:
+- domain: bitnami.com
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:55Z'
+  ttl_days: 30
+  age_days: 8080
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:41:21Z'
+    source: https://api.github.com/orgs/bitnami
+    data:
+      org: bitnami
+      org_verified: true
+      blog: https://bitnami.com
+      org_name: Bitnami
+      created_at: '2013-09-12T18:32:26Z'
+  - code: A8
+    checked_at: '2026-09-05T20:41:21Z'
+    source: https://api.github.com/repos/bitnami/charts
+    data:
+      repo: bitnami/charts
+      org: bitnami
+      repo_anchored: true
+      homepage: https://bitnami.com
+      backlink: false
+      stars: 10409
+      age_days: 3848
+      contributors: 2773
+  - code: A3
+    checked_at: '2026-09-05T20:41:21Z'
+    source: https://rdap.org/domain/bitnami.com
+    data:
+      registrar: CSC Corporate Domains, Inc.
+      created: '2004-07-22'
+      expires: '2027-07-22'
+      remaining_days: 319
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T20:41:21Z'
+    source: TLS handshake bitnami.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T20:41:22Z'
+    source: https://www.wikidata.org/wiki/Q749851
+    data:
+      qid: Q749851
+      label: Bitnami
+      site: https://bitnami.com
+      sitelinks: 8
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:41:22Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 2957
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:41:24Z'
+    source: http://web.archive.org/cdx/search/cdx?url=bitnami.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2007-10-24'
+      history_days: 6891
+  rejected_evidence:
+  - 'A8: this site does not link back to the GitHub organization; no reverse confirmation'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q749851
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,89 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:ckeditor
+names:
+  en: CKEditor
+aliases:
+- CKEditor Ecosystem
+- ckeditor
+category:
+- open-source
+wikidata: Q136559
+canonical:
+  github_org: ckeditor
+  wikidata: Q136559
+  sources:
+  - wikidata:Q136559/P856
+  - wikidata:Q136559/P1324
+domains:
+- domain: ckeditor.com
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:19:00Z'
+  ttl_days: 30
+  age_days: 7044
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T21:18:44Z'
+    source: https://api.github.com/orgs/ckeditor
+    data:
+      org: ckeditor
+      org_verified: true
+      blog: https://ckeditor.com/
+      org_name: CKEditor Ecosystem
+      created_at: '2011-06-02T16:19:57Z'
+  - code: A3
+    checked_at: '2026-09-05T21:18:45Z'
+    source: https://rdap.org/domain/ckeditor.com
+    data:
+      registrar: NameCheap, Inc.
+      created: '2007-05-24'
+      expires: '2028-05-24'
+      remaining_days: 626
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T21:18:45Z'
+    source: TLS handshake ckeditor.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T21:18:45Z'
+    source: https://www.wikidata.org/wiki/Q136559
+    data:
+      qid: Q136559
+      label: CKEditor
+      site: https://ckeditor.com
+      sitelinks: 17
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T21:18:45Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 14701
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T21:19:15Z'
+    source: http://web.archive.org/cdx/search/cdx?url=ckeditor.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2009-01-31'
+      history_days: 6426
+  rejected_evidence:
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q136559
+  reviewed_by: []
+  source_issue: null

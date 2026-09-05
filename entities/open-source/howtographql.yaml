@@ -1,0 +1,90 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:howtographql
+names:
+  en: How to GraphQL
+aliases:
+- howtographql
+- howtographql/howtographql
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: howtographql
+  wikidata: null
+  sources:
+  - github-history:howtographql/howtographql(age=9y,contrib=438,stars=8697)
+domains:
+- domain: howtographql.com
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:19:08Z'
+  ttl_days: 30
+  age_days: 3388
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T21:15:39Z'
+    source: https://api.github.com/orgs/howtographql
+    data:
+      org: howtographql
+      org_verified: false
+      blog: https://www.howtographql.com
+  - code: A8
+    checked_at: '2026-09-05T21:15:39Z'
+    source: https://api.github.com/repos/howtographql/howtographql
+    data:
+      repo: howtographql/howtographql
+      org: howtographql
+      repo_anchored: true
+      homepage: https://www.howtographql.com/
+      backlink: true
+      stars: 8697
+      age_days: 3377
+      contributors: 438
+  - code: A3
+    checked_at: '2026-09-05T21:15:40Z'
+    source: https://rdap.org/domain/howtographql.com
+    data:
+      registrar: Amazon Registrar, Inc.
+      created: '2017-05-27'
+      expires: '2027-05-27'
+      remaining_days: 263
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T21:15:40Z'
+    source: TLS handshake howtographql.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-05T21:15:40Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 949509
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T21:16:20Z'
+    source: http://web.archive.org/cdx/search/cdx?url=howtographql.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2017-07-11'
+      history_days: 3343
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Amazon Registrar, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_name(self-declared)
+  reviewed_by: []
+  source_issue: null

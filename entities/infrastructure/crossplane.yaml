@@ -1,0 +1,79 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:crossplane
+names:
+  en: crossplane
+aliases:
+- Crossplane
+- crossplane/crossplane
+category:
+- infrastructure
+wikidata: null
+canonical:
+  github_org: crossplane
+  wikidata: null
+  sources:
+  - github-history:crossplane/crossplane(age=7y,contrib=333,stars=12030)
+domains:
+- domain: crossplane.io
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:52Z'
+  ttl_days: 30
+  age_days: 2825
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:24:59Z'
+    source: https://api.github.com/orgs/crossplane
+    data:
+      org: crossplane
+      org_verified: false
+      blog: https://crossplane.io
+  - code: A8
+    checked_at: '2026-09-05T20:24:59Z'
+    source: https://api.github.com/repos/crossplane/crossplane
+    data:
+      repo: crossplane/crossplane
+      org: crossplane
+      repo_anchored: true
+      homepage: https://crossplane.io
+      backlink: true
+      stars: 12030
+      age_days: 2919
+      contributors: 333
+  - code: A4
+    checked_at: '2026-09-05T20:25:00Z'
+    source: TLS handshake crossplane.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-05T20:25:00Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 282624
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:25:03Z'
+    source: http://web.archive.org/cdx/search/cdx?url=crossplane.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2018-12-11'
+      history_days: 2825
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_repo_name
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,91 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:helm
+names:
+  en: The Helm Project
+aliases:
+- helm
+- helm/helm
+category:
+- infrastructure
+wikidata: null
+canonical:
+  github_org: helm
+  wikidata: null
+  sources:
+  - github-history:helm/helm(age=10y,contrib=1032,stars=30218)
+domains:
+- domain: helm.sh
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:57Z'
+  ttl_days: 30
+  age_days: 3935
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:04:13Z'
+    source: https://api.github.com/orgs/helm
+    data:
+      org: helm
+      org_verified: true
+      blog: https://helm.sh
+      org_name: The Helm Project
+      created_at: '2015-11-15T18:03:39Z'
+  - code: A8
+    checked_at: '2026-09-05T19:04:13Z'
+    source: https://api.github.com/repos/helm/helm
+    data:
+      repo: helm/helm
+      org: helm
+      repo_anchored: true
+      homepage: https://helm.sh
+      backlink: true
+      stars: 30218
+      age_days: 3987
+      contributors: 1032
+  - code: A4
+    checked_at: '2026-09-05T19:04:13Z'
+    source: TLS handshake helm.sh:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T19:04:13Z'
+    source: https://www.wikidata.org/wiki/Q96869835
+    data:
+      qid: Q96869835
+      label: Helm
+      site: https://helm.sh
+      sitelinks: 0
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T19:04:13Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 29285
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:04:39Z'
+    source: http://web.archive.org/cdx/search/cdx?url=helm.sh&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2015-11-27'
+      history_days: 3935
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_name(self-declared)
+  reviewed_by: []
+  source_issue: null

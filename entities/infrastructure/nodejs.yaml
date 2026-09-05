@@ -1,0 +1,101 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:nodejs
+names:
+  en: Node.js
+aliases:
+- nodejs
+category:
+- infrastructure
+wikidata: Q756100
+canonical:
+  github_org: nodejs
+  wikidata: Q756100
+  sources:
+  - wikidata:Q756100/P856
+  - wikidata:Q756100/P2037
+domains:
+- domain: nodejs.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:49Z'
+  ttl_days: 30
+  age_days: 6185
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:22:55Z'
+    source: https://api.github.com/orgs/nodejs
+    data:
+      org: nodejs
+      org_verified: true
+      blog: https://nodejs.org
+      org_name: Node.js
+      created_at: '2014-11-25T17:10:50Z'
+  - code: A8
+    checked_at: '2026-09-05T18:22:56Z'
+    source: https://api.github.com/repos/nodejs/node
+    data:
+      repo: nodejs/node
+      org: nodejs
+      repo_anchored: true
+      homepage: https://nodejs.org
+      backlink: true
+      stars: 120637
+      age_days: 4300
+      contributors: 4485
+  - code: A3
+    checked_at: '2026-09-05T18:22:56Z'
+    source: https://rdap.org/domain/nodejs.org
+    data:
+      registrar: 1API GmbH
+      created: '2009-09-29'
+      expires: '2026-09-29'
+      remaining_days: 23
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:22:56Z'
+    source: TLS handshake nodejs.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Sectigo Limited
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:22:56Z'
+    source: https://www.wikidata.org/wiki/Q756100
+    data:
+      qid: Q756100
+      label: Node.js
+      site: https://nodejs.org
+      sitelinks: 58
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:22:56Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 2217
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:23:52Z'
+    source: http://web.archive.org/cdx/search/cdx?url=nodejs.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2009-10-03'
+      history_days: 6181
+  rejected_evidence:
+  - 'A3: registrar (1API GmbH) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q756100
+  reviewed_by: []
+  source_issue: null

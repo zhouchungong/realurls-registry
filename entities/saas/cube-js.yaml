@@ -1,0 +1,92 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:cube-js
+names:
+  en: Cube
+aliases:
+- cube-js
+- cube-js/cube
+category:
+- saas
+- infrastructure
+wikidata: null
+canonical:
+  github_org: cube-js
+  wikidata: null
+  sources:
+  - github-history:cube-js/cube(age=7y,contrib=387,stars=20779)
+domains:
+- domain: cube.dev
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:19:00Z'
+  ttl_days: 30
+  age_days: 2744
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:51:27Z'
+    source: https://api.github.com/orgs/cube-js
+    data:
+      org: cube-js
+      org_verified: false
+      blog: https://cube.dev
+  - code: A8
+    checked_at: '2026-09-05T19:51:27Z'
+    source: https://api.github.com/repos/cube-js/cube
+    data:
+      repo: cube-js/cube
+      org: cube-js
+      repo_anchored: true
+      homepage: https://cube.dev
+      backlink: true
+      stars: 20779
+      age_days: 2911
+      contributors: 387
+  - code: A3
+    checked_at: '2026-09-05T19:51:29Z'
+    source: https://rdap.org/domain/cube.dev
+    data:
+      registrar: Squarespace Domains II LLC.
+      created: '2019-03-02'
+      expires: '2027-03-02'
+      remaining_days: 177
+      locks:
+      - delete
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T19:51:29Z'
+    source: TLS handshake cube.dev:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-05T19:51:29Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 151046
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:52:06Z'
+    source: http://web.archive.org/cdx/search/cdx?url=cube.dev&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2013-07-12'
+      history_days: 4803
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Squarespace Domains II LLC.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_name(self-declared)
+  reviewed_by: []
+  source_issue: null

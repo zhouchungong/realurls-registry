@@ -1,0 +1,117 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:mochajs
+names:
+  en: Mocha
+aliases:
+- mochajs
+category:
+- developer-tools
+wikidata: Q18346290
+canonical:
+  github_org: mochajs
+  wikidata: Q18346290
+  sources:
+  - wikidata:Q18346290/P856
+  - wikidata:Q18346290/P2037
+domains:
+- domain: mochajs.org
+  role: primary
+  status: verified
+  confidence: 0.7321
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 4337
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:27:00Z'
+    source: https://api.github.com/orgs/mochajs
+    data:
+      org: mochajs
+      org_verified: false
+      blog: https://mochajs.org
+  - code: A8
+    checked_at: '2026-09-05T19:27:01Z'
+    source: https://api.github.com/repos/mochajs/mocha
+    data:
+      repo: mochajs/mocha
+      org: mochajs
+      repo_anchored: true
+      homepage: https://mochajs.org
+      backlink: true
+      stars: 22905
+      age_days: 5661
+      contributors: 612
+  - code: B2
+    checked_at: '2026-09-05T19:27:01Z'
+    source: https://registry.npmjs.org/mocha
+    data:
+      package: mocha
+      homepage: https://mochajs.org/
+  - code: A2
+    checked_at: '2026-09-05T19:27:01Z'
+    source: https://registry.npmjs.org/-/npm/v1/attestations/mocha@12.0.0
+    data:
+      package: mocha
+      version: 12.0.0
+      provenance_verified: true
+      provenance_check: registry-tls
+      chain_org: npm
+      chain_org_verified: false
+      chain_blog: ''
+  - code: A3
+    checked_at: '2026-09-05T19:27:23Z'
+    source: https://rdap.org/domain/mochajs.org
+    data:
+      registrar: 1API GmbH
+      created: '2014-10-20'
+      expires: '2026-10-20'
+      remaining_days: 45
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T19:27:23Z'
+    source: TLS handshake mochajs.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 4
+  - code: B1
+    checked_at: '2026-09-05T19:27:23Z'
+    source: https://www.wikidata.org/wiki/Q18346290
+    data:
+      qid: Q18346290
+      label: Mocha
+      site: https://mochajs.org
+      sitelinks: 5
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T19:27:23Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 124527
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:28:05Z'
+    source: http://web.archive.org/cdx/search/cdx?url=mochajs.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2014-10-24'
+      history_days: 4334
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A2: GitHub organization at the end of the provenance chain has not verified this domain'
+  - 'A3: registrar (1API GmbH) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 4 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q18346290
+  reviewed_by: []
+  source_issue: null

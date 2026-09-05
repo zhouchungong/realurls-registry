@@ -1,0 +1,95 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:nextauthjs
+names:
+  en: Auth.js
+aliases:
+- nextauthjs
+- nextauthjs/next-auth
+category:
+- security
+wikidata: null
+canonical:
+  github_org: nextauthjs
+  wikidata: null
+  sources:
+  - github-history:nextauthjs/next-auth(age=8y,contrib=905,stars=28365)
+domains:
+- domain: authjs.dev
+  role: primary
+  status: verified
+  confidence: 0.6956
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:19:08Z'
+  ttl_days: 30
+  age_days: 1429
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:07:13Z'
+    source: https://api.github.com/orgs/nextauthjs
+    data:
+      org: nextauthjs
+      org_verified: false
+      blog: https://authjs.dev
+  - code: A8
+    checked_at: '2026-09-05T19:07:13Z'
+    source: https://api.github.com/repos/nextauthjs/next-auth
+    data:
+      repo: nextauthjs/next-auth
+      org: nextauthjs
+      repo_anchored: true
+      homepage: https://authjs.dev
+      backlink: true
+      stars: 28365
+      age_days: 3143
+      contributors: 905
+  - code: B2
+    checked_at: '2026-09-05T19:07:13Z'
+    source: https://registry.npmjs.org/next-auth
+    data:
+      package: next-auth
+      homepage: https://authjs.dev
+  - code: A3
+    checked_at: '2026-09-05T19:07:17Z'
+    source: https://rdap.org/domain/authjs.dev
+    data:
+      registrar: Tucows Domains Inc
+      created: '2022-10-06'
+      expires: '2026-10-06'
+      remaining_days: 31
+      locks: []
+  - code: A4
+    checked_at: '2026-09-05T19:07:17Z'
+    source: TLS handshake authjs.dev:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-05T19:07:17Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 268063
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:08:17Z'
+    source: http://web.archive.org/cdx/search/cdx?url=authjs.dev&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2022-12-14'
+      history_days: 1361
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Tucows Domains Inc) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_name(self-declared)
+  reviewed_by: []
+  source_issue: null
