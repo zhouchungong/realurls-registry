@@ -31,6 +31,17 @@ jobs:
           echo "exit=$?" >> "$GITHUB_OUTPUT"
           cat .cache/revalidate.log
 
+      # Second audit layer over records that changed today (upgrades included). Flag-only: it can move
+      # verified -> review_required and sets a hold the next re-verification honours; it never promotes.
+      - name: AI review of changed records
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          pip install -e ".[review]"
+          set +e
+          python -m src.review_ai --changed-since HEAD --json .cache/review.json
+          echo "AI review exit: $?"
+
       - name: Validate the updated data
         run: python -m src.validate
 

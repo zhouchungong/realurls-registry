@@ -111,6 +111,29 @@
           "description": "被判定为无效的证据及原因。必须保留并对外展示 —— 可解释性是对外承诺"
         },
         "reasons": { "type": "array", "items": { "type": "string" } },
+        "ai_review": {
+          "type": "object",
+          "description": "Second audit layer (src/review_ai.py). Flag-only: may hold a record at review_required, never promotes",
+          "required": ["at", "model", "verdict"],
+          "additionalProperties": false,
+          "properties": {
+            "at": { "type": "string", "format": "date-time" },
+            "model": { "type": "string" },
+            "verdict": { "enum": ["pass", "flag"] },
+            "reason": { "type": "string" },
+            "hold": { "type": "boolean", "description": "true while a flag awaits human review; daily re-verification keeps review_required" },
+            "cleared": {
+              "type": "object",
+              "required": ["at", "by"],
+              "additionalProperties": false,
+              "properties": {
+                "at": { "type": "string", "format": "date-time" },
+                "by": { "type": "string" },
+                "note": { "type": "string" }
+              }
+            }
+          }
+        },
         "history": {
           "type": "array",
           "description": "状态变更记录，append-only，永不静默覆盖",

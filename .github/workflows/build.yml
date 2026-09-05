@@ -110,6 +110,17 @@ jobs:
           python -m src.validate
           PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 pytest tests -q
 
+      # Second audit layer: can only move verified -> review_required, never the other way.
+      - name: AI review of the new records
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          pip install -e ".[review]"
+          set +e
+          python -m src.review_ai --changed-since HEAD --json .cache/review.json
+          echo "AI review exit: $?"
+          python -m src.validate
+
       - name: Open a pull request for review
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -13,6 +13,9 @@ dev = [
     "pytest>=8.0",
     "ruff>=0.5",
 ]
+review = [
+    "anthropic>=0.90",   # src/review_ai.py; optional, the pipeline runs without it
+]
 
 [build-system]
 requires = ["setuptools>=68"]

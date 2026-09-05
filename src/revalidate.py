@@ -13,6 +13,8 @@
    而是停掉肯定答复，等人看。
 3. **其余情况以新判定为准**，升降都记 ``history``，永不静默覆盖。
 
+规则 0（在三条之前）：带 AI 复核 hold 的记录保持 review_required，直到人工清除（``review_ai --clear``）。
+
 身份稳定：重验沿用已落盘的 ``canonical``（来源标 ``stored``），不重新锚定——
 不能因为 Wikidata 今天被人改了一笔就换掉实体身份。权威与 canonical 不一致时记 ⚠，进 review。
 
@@ -110,6 +112,15 @@ def apply(old_rec: dict, decision: Decision, facts: dict, new_evidence: list,
             "rejected_evidence": decision.rejected,
             "reasons": decision.reasons,
         })
+
+    # Rule 0: an AI-review hold is sticky. The record stays review_required, with fresh evidence, until a
+    # human clears the hold (src/review_ai.py --clear). Without this, rule 3 would quietly restore
+    # verified the next morning and the flag would have bought nothing.
+    if (old_rec.get("ai_review") or {}).get("hold"):
+        _write_new()
+        rec["status"] = "review_required"
+        rec["reasons"] = [f"AI review hold, awaiting human review: {old_rec['ai_review'].get('reason', '')}"]                          + list(decision.reasons)
+        return rec, Outcome(domain, old_status, "review_required", "review", "AI review hold still in place", incomplete)
 
     # 规则 2：突变 → review_required（无论新判定是什么）
     if mutations or anchor_conflict:
