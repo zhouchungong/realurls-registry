@@ -72,7 +72,9 @@ jobs:
       - name: Keep only the files this shard produced
         run: |
           mkdir -p out/entities
-          git status --porcelain -- entities/ | awk '{print $2}' | while read -r f; do
+          # --untracked-files=all lists files inside new category directories (a bare "entities/hardware/" line
+          # cannot be copied and failed every shard that created a new category).
+          git status --porcelain --untracked-files=all -- entities/ | awk '{print $2}' | while read -r f; do
             mkdir -p "out/$(dirname "$f")" && cp "$f" "out/$f"
           done
           cp ".cache/build-${{ matrix.shard }}.log" out/
@@ -86,6 +88,7 @@ jobs:
 
   merge:
     needs: build
+    if: always() && needs.build.result != 'cancelled'   # merge whatever shards finished; missing ones are listed
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
@@ -103,6 +106,8 @@ jobs:
           for d in shards/shard-*; do
             [ -d "$d/entities" ] && cp -r "$d/entities/." entities/
           done
+          ls -d shards/shard-* | wc -l | xargs -I{} echo "shards with artifacts: {} of ${{ inputs.shards }}"
+          mkdir -p .cache
           cat shards/shard-*/build-*.log | grep -E '^(  ✓|  ↳)' | sort > .cache/merged.log || true
           echo "written: $(grep -c '^  ✓' .cache/merged.log || true), propagated: $(grep -c '^  ↳' .cache/merged.log || true)"
 
