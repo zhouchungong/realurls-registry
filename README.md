@@ -1,4 +1,4 @@
-# realurls / registry
+# Realurls registry
 
 **An open registry of which domain belongs to which organization. Every claim is backed by reproducible machine evidence and delivered straight into the paths AI agents actually use — MCP and a plain HTTP API.**
 
@@ -16,7 +16,7 @@ AI assistants and search engines increasingly answer "what is X's official site?
 
 The root cause is simple: **there is no open, programmable, evidence-backed source of truth for "which domain is really theirs".**
 
-The blacklist side is saturated (PhishTank, Phishing.Database, openSquat…). Those answer "is this domain bad?". realurls answers the other question: **"who does this domain belong to?"**
+The blacklist side is saturated (PhishTank, Phishing.Database, openSquat…). Those answer "is this domain bad?". Realurls answers the other question: **"who does this domain belong to?"**
 
 ## How this differs from a curated list
 
@@ -121,4 +121,4 @@ If you control a domain, a single DNS TXT record (A5) overrides any verdict of o
 
 ## Disclaimer
 
-realurls judges **domain ownership** only. It does not judge whether a site is safe, lawful, or any good. A domain marked `verified` means it really belongs to that organization — not that it is safe. For safety, rely on Google Safe Browsing, VirusTotal and similar services.
+Realurls judges **domain ownership** only. It does not judge whether a site is safe, lawful, or any good. A domain marked `verified` means it really belongs to that organization — not that it is safe. For safety, rely on Google Safe Browsing, VirusTotal and similar services.

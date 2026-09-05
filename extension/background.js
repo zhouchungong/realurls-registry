@@ -1,5 +1,5 @@
 /**
- * realurls 浏览器扩展 —— 后台。
+ * Realurls browser extension — background service worker.
  *
  * 隐私设计：每天从 api.realurls.org 拉一次 domains.json（几十 KB），之后**所有判定在本机完成**，
  * 不会把你访问的域名发给任何服务器。弹窗里的"查证据"是你主动点击才会打开网页。
@@ -51,9 +51,9 @@ async function checkTab(tabId, url) {
   const r = resolver.resolve(domain);
 
   if (r.verdict === "official") {
-    setBadge(tabId, "✓", "#0a7d32", `realurls: verified domain of ${r.entity.name}`);
+    setBadge(tabId, "✓", "#0a7d32", `Realurls: verified domain of ${r.entity.name}`);
   } else if (r.verdict === "not_official") {
-    setBadge(tabId, "!", "#9a3412", `realurls: not a known domain of ${r.looks_like.name}`);
+    setBadge(tabId, "!", "#9a3412", `Realurls: not a known domain of ${r.looks_like.name}`);
     const { dismissed = {} } = await chrome.storage.session.get("dismissed");
     if (!dismissed[domain]) {
       chrome.tabs.sendMessage(tabId, {
@@ -63,7 +63,7 @@ async function checkTab(tabId, url) {
       }).catch(() => {});
     }
   } else {
-    setBadge(tabId, "", null, "realurls: no verdict for this domain");
+    setBadge(tabId, "", null, "Realurls: no verdict for this domain");
   }
 }
 

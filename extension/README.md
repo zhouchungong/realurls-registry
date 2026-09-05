@@ -1,4 +1,4 @@
-# realurls browser extension
+# Realurls browser extension
 
 Warns you when a site *looks like* a well-known product's domain but is not verified as theirs — and tells you the verified one.
 

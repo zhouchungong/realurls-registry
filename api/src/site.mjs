@@ -66,6 +66,7 @@ header{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--
 .q input{flex:1;border:0;background:transparent;color:var(--fg);font-size:16px;padding:10px 18px;outline:0;min-width:0}
 .q button{border:0;background:transparent;color:var(--mute);padding:0 16px;cursor:pointer;font-size:15px}.q button:hover{color:var(--fg)}
 main{max-width:1000px;margin:0 auto;padding:28px 20px 60px}
+.topnav{display:flex;justify-content:flex-end;gap:18px;font-size:14px}.topnav a{color:var(--mute)}
 .hero{max-width:640px;margin:8vh auto 0;text-align:center}.hero .brand{font-size:44px;display:block;margin-bottom:22px}
 .hero .q{box-shadow:0 1px 6px rgba(32,33,36,.22);border-color:transparent}.hero .q input{font-size:18px;padding:14px 22px}
 .hero p{color:var(--mute);margin:18px 0 0}
@@ -98,7 +99,7 @@ function layout(meta, title, body, { description = "", jsonld = null, canonical 
 ${canonical ? `<link rel="canonical" href="${esc(canonical)}">` : ""}${robots ? `<meta name="robots" content="${esc(robots)}">` : ""}
 <meta name="realurls-dataset" content="${esc(manifest.dataset_version)}">
 <style>${CSS}</style>${jsonld ? `<script type="application/ld+json">${JSON.stringify(jsonld)}</script>` : ""}</head>
-<body>${home ? "" : `<header><div class="bar"><a class="brand" href="/">realurls</a>${searchForm(query)}<nav><a href="${REPO}/blob/main/TRUST.md">Trust model</a><a href="${API}">API</a><a href="${REPO}">GitHub</a></nav></div></header>`}
+<body>${home ? "" : `<header><div class="bar"><a class="brand" href="/">Realurls</a>${searchForm(query)}<nav><a href="${REPO}/blob/main/TRUST.md">Trust model</a><a href="${API}">API</a><a href="${REPO}">GitHub</a></nav></div></header>`}
 <main>${body}
 <footer>Ownership only, never safety. Every verdict is reproducible — the commands are on each page.<br>Dataset <code>${esc(manifest.dataset_version)}</code> · <a href="${REPO}/releases/tag/latest">signed download</a> · data CC BY-SA 4.0 · disputes: <a href="mailto:dispute@realurls.org">dispute@realurls.org</a></footer>
 </main><script>${SEARCH_JS}</script></body></html>`;
@@ -111,8 +112,9 @@ async function home(store, manifest) {
   const cats = (await store.categories()).map(x =>
     `<a class="card" href="/c/${esc(x.category)}"><div>${esc(categoryLabel(x.category))}</div><div class="d">${x.n} organization${x.n === 1 ? "" : "s"}</div></a>`
   ).join("");
-  return layout(manifest, "realurls — which domain is really the official one?", `
-<div class="hero"><a class="brand" href="/">realurls</a>${searchForm("", true)}
+  return layout(manifest, "Realurls — which domain is really the official one?", `
+<div class="topnav"><a href="${REPO}/blob/main/TRUST.md">Trust model</a><a href="${API}">API</a><a href="${REPO}">GitHub</a></div>
+<div class="hero"><a class="brand" href="/">Realurls</a>${searchForm("", true)}
 <p>Which domain really belongs to which company. Ownership only — never a safety judgement — and only when the evidence is reproducible.</p></div>
 <div class="stats"><div><b>${c.entities}</b>organizations</div><div><b>${c.verified}</b>verified domains</div><div><b>≥ 99.5%</b>precision target</div><div><b>${esc(manifest.generated_at.slice(0, 10))}</b>dataset date</div></div>
 <h2>For AI agents</h2>
@@ -140,10 +142,10 @@ async function listing(store, manifest, { category = null, page = 1 }) {
   ).join("");
   const nav = pages > 1 ? `<nav class="pager">${page > 1 ? `<a href="${base}?page=${page - 1}" rel="prev">← Previous</a>` : "<span></span>"}<span>Page ${page} of ${pages}</span>${page < pages ? `<a href="${base}?page=${page + 1}" rel="next">Next →</a>` : "<span></span>"}</nav>` : "";
   const crumbs = category
-    ? `<p class="sub"><a href="/">realurls</a> › <a href="/browse">All organizations</a> › ${esc(categoryLabel(category))}</p>`
-    : `<p class="sub"><a href="/">realurls</a> › All organizations</p>`;
+    ? `<p class="sub"><a href="/">Realurls</a> › <a href="/browse">All organizations</a> › ${esc(categoryLabel(category))}</p>`
+    : `<p class="sub"><a href="/">Realurls</a> › All organizations</p>`;
   const others = category ? `<p class="muted">Other categories: ${(await store.categories()).filter(x => x.category !== category).map(x => `<a href="/c/${esc(x.category)}">${esc(categoryLabel(x.category))}</a> (${x.n})`).join(" · ")}</p>` : "";
-  return layout(manifest, `${title} — realurls`, `
+  return layout(manifest, `${title} — Realurls`, `
 ${crumbs}<h1>${esc(title)}</h1>
 <p class="muted">${total} organization${total === 1 ? "" : "s"}${category ? ` in ${esc(categoryLabel(category))}` : ""}, alphabetical. Every entry links to its evidence and the commands to reproduce it.</p>
 <div class="grid">${cards || "<p class='muted'>Nothing here yet.</p>"}</div>
@@ -204,7 +206,7 @@ ${d.rejected_evidence?.length ? `<details><summary>${d.rejected_evidence.length}
   }).join("");
 
   const anchorsrc = (e.canonical?.sources || []).map(s => `<code>${esc(s)}</code>`).join(" ");
-  return layout(manifest, `${e.names.en} — official domains — realurls`, `
+  return layout(manifest, `${e.names.en} — official domains — Realurls`, `
 <h1>${esc(e.names.en)}</h1>
 <p class="sub">${e.aliases?.length ? `Also known as ${e.aliases.map(esc).join(", ")}. ` : ""}${e.wikidata ? `Wikidata <a href="https://www.wikidata.org/wiki/${esc(e.wikidata)}">${esc(e.wikidata)}</a>. ` : ""}${e.canonical?.github_org ? `GitHub <a href="https://github.com/${esc(e.canonical.github_org)}">${esc(e.canonical.github_org)}</a>.` : ""}</p>
 <p><b>Official domains:</b> ${v.length ? v.map(d => `<a href="https://${esc(d.domain)}" rel="nofollow"><code>${esc(d.domain)}</code></a>`).join(" ") : '<span class="badge unk">none verified yet</span>'}</p>
@@ -230,7 +232,7 @@ async function domainPage(input, store, manifest) {
   if (looked.verdict === "official" || looked.verdict === "insufficient_evidence") {
     return Response.redirect(`${SITE}/e/${looked.entity.id.replace(/^org:/, "")}`, 302);
   }
-  const html = (body, extra = {}) => new Response(layout(manifest, `${input} — realurls`, body, { query: input, ...extra }), { headers: { "Content-Type": "text/html; charset=utf-8" } });
+  const html = (body, extra = {}) => new Response(layout(manifest, `${input} — Realurls`, body, { query: input, ...extra }), { headers: { "Content-Type": "text/html; charset=utf-8" } });
 
   if (looked.verdict === "ambiguous") {
     return html(`<h1>Several matches for “${esc(input)}”</h1><ul>${looked.candidates.map(c => `<li><a href="/e/${esc(c.id.replace(/^org:/, ""))}">${esc(c.name)}</a></li>`).join("")}</ul>`, { robots: "noindex" });
@@ -263,8 +265,8 @@ export function apiLanding(meta) {
     ["Plain-text allowlist of verified domains", `curl ${API}/v1/domains.txt`],
     ["Full domain index (JSON)", `curl ${API}/v1/domains.json`],
   ].map(([t, c]) => `<h2>${esc(t)}</h2><div class="copy"><button type="button">Copy</button><pre>${esc(c)}</pre></div>`).join("");
-  return layout(meta, "realurls API", `
-<h1>realurls API</h1>
+  return layout(meta, "Realurls API", `
+<h1>Realurls API</h1>
 <p class="sub">Free, no key, CORS open, GET only. Every response carries <code>X-Realurls-Dataset</code> so you can match it to the <a href="${REPO}/releases/tag/latest">signed release</a>.</p>
 ${ex}
 <h2>Verdicts</h2>
@@ -276,7 +278,7 @@ ${ex}
 <h2>MCP</h2>
 <div class="copy"><button type="button">Copy</button><pre>claude mcp add realurls -- npx -y @realurls/mcp</pre></div>
 <p class="muted">Trust model: <a href="${REPO}/blob/main/TRUST.md">TRUST.md</a> · Rules: <a href="${REPO}/blob/main/POLICY.md">POLICY.md</a> · Rate limits: none yet; be reasonable.</p>
-`, { description: "realurls API: which domain officially belongs to which organization. Free, no key.", canonical: `${API}/` });
+`, { description: "Realurls API: which domain officially belongs to which organization. Free, no key.", canonical: `${API}/` });
 }
 
 // ------------------------------------------------------------------ misc
@@ -291,7 +293,7 @@ async function sitemap(store, manifest) {
   return new Response(`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls.map(u => `<url><loc>${u}</loc><lastmod>${manifest.generated_at.slice(0, 10)}</lastmod></url>`).join("")}</urlset>`, { headers: { "Content-Type": "application/xml" } });
 }
 
-const LLMS_TXT = `# realurls
+const LLMS_TXT = `# Realurls
 
 > Which domain officially belongs to which software product or company. Ownership only, never safety. Every verdict is backed by reproducible machine evidence.
 
@@ -313,7 +315,7 @@ export async function handleSite(request, store, manifest) {
   if (path === "/browse") return html(await listing(store, manifest, { page: +url.searchParams.get("page") || 1 }));
   if (path.startsWith("/c/")) {
     const category = decodeURIComponent(path.slice(3));
-    if (!CATEGORY_LABELS[category]) return new Response(layout(manifest, "Not found — realurls", `<h1>No such category</h1><p><a href="/browse">Browse all organizations</a></p>`), { status: 404, headers: { "Content-Type": "text/html; charset=utf-8" } });
+    if (!CATEGORY_LABELS[category]) return new Response(layout(manifest, "Not found — Realurls", `<h1>No such category</h1><p><a href="/browse">Browse all organizations</a></p>`), { status: 404, headers: { "Content-Type": "text/html; charset=utf-8" } });
     return html(await listing(store, manifest, { category, page: +url.searchParams.get("page") || 1 }));
   }
   if (path === "/robots.txt") return new Response(`User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`, { headers: { "Content-Type": "text/plain" } });
@@ -321,12 +323,12 @@ export async function handleSite(request, store, manifest) {
   if (path === "/llms.txt") return new Response(LLMS_TXT, { headers: { "Content-Type": "text/plain; charset=utf-8" } });
   if (path.startsWith("/e/")) {
     const e = await store.entityBySlug(decodeURIComponent(path.slice(3)));
-    return e ? html(entityPage(e, manifest)) : new Response(layout(manifest, "Not found — realurls", `<h1>No such organization</h1><p><a href="/">Back to search</a></p>`), { status: 404, headers: { "Content-Type": "text/html; charset=utf-8" } });
+    return e ? html(entityPage(e, manifest)) : new Response(layout(manifest, "Not found — Realurls", `<h1>No such organization</h1><p><a href="/">Back to search</a></p>`), { status: 404, headers: { "Content-Type": "text/html; charset=utf-8" } });
   }
   if (path === "/d" || path.startsWith("/d/")) {
     const q = (path.length > 3 ? decodeURIComponent(path.slice(3)) : url.searchParams.get("q") || "").trim();
     return q ? domainPage(q, store, manifest) : Response.redirect(`${SITE}/`, 302);
   }
   if (path.startsWith("/v1/") || path === "/healthz") return null;   // API paths also work on the site host
-  return new Response(layout(manifest, "Not found — realurls", `<h1>Not found</h1><p><a href="/">Back to search</a></p>`), { status: 404, headers: { "Content-Type": "text/html; charset=utf-8" } });
+  return new Response(layout(manifest, "Not found — Realurls", `<h1>Not found</h1><p><a href="/">Back to search</a></p>`), { status: 404, headers: { "Content-Type": "text/html; charset=utf-8" } });
 }

@@ -1,6 +1,6 @@
 # TRUST.md — why you should (or shouldn't) trust us
 
-This is the most important file in the project. realurls has exactly one product — **trust** — and trust has to be defined before it is implemented.
+This is the most important file in the project. Realurls has exactly one product — **trust** — and trust has to be defined before it is implemented.
 
 If you read only one file, read this one. 中文版：[docs/zh/TRUST.md](docs/zh/TRUST.md)
 
