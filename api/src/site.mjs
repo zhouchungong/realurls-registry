@@ -151,7 +151,10 @@ ${block("3a. HTTP tool: check a URL the user pasted", `curl "${API}/v1/resolve?d
 ${block("3b. HTTP tool: find the official site by name", `curl "${API}/v1/entity?q=ollama"`,
   `<code>official_urls</code> is the list to hand the user, as plain links. <code>insufficient_evidence</code> means we know the organization but could not verify a domain: say so, do not fill the gap from memory. <code>ambiguous</code> lists candidates: ask the user which they mean.`)}
 
-${block("3c. MCP: one line for Claude Code", `claude mcp add realurls -- npx -y @realurls/mcp`,
+${block("3c. MCP, remote: one URL for claude.ai, ChatGPT, Cursor and any host that takes a server URL", `${API}/mcp`,
+  `Streamable HTTP, no auth, stateless. Same two tools and the same instructions as the npm package below. In Claude Code: <code>claude mcp add --transport http realurls ${API}/mcp</code>.`)}
+
+${block("3d. MCP, local: one line for Claude Code", `claude mcp add realurls -- npx -y @realurls/mcp`,
   `Any MCP host: <code>{ "command": "npx", "args": ["-y", "@realurls/mcp"] }</code>. The server ships the rule above as its <em>instructions</em>, so hosts that honour instructions get the behaviour without prompt changes. Tools: <code>get_official_url(name)</code>, <code>verify_url(url)</code>. Source and README: <a href="${REPO}/tree/main/mcp">mcp/</a>.`)}
 
 <h2>How to phrase the answer</h2>
@@ -317,6 +320,7 @@ ${ex}
 <tr><td><code>insufficient_evidence</code></td><td>Known organization, but this domain has not met the threshold. Do not present as official.</td></tr>
 <tr><td><code>unknown</code></td><td>Not in the registry. "Don't know", not "bad".</td></tr></table>
 <h2>MCP</h2>
+<div class="copy"><button type="button">Copy</button><pre>claude mcp add --transport http realurls ${API}/mcp</pre></div>
 <div class="copy"><button type="button">Copy</button><pre>claude mcp add realurls -- npx -y @realurls/mcp</pre></div>
 <p class="muted">Building an agent? <a href="${SITE}/builders">For AI builders</a>: allowlist, behaviour rule, tool shapes. Trust model: <a href="${REPO}/blob/main/TRUST.md">TRUST.md</a> · Rules: <a href="${REPO}/blob/main/POLICY.md">POLICY.md</a> · Rate limits: none yet; be reasonable.</p>
 `, { description: "Realurls API: which domain officially belongs to which organization. Free, no key.", canonical: `${API}/` });
@@ -341,7 +345,7 @@ const LLMS_TXT = `# Realurls
 - For AI builders (allowlist, behaviour rule, tool shapes): ${SITE}/builders
 - API: ${API}/v1/resolve?domain=<domain>  and  ${API}/v1/entity?q=<name>
 - Allowlist of verified domains, one per line: ${API}/v1/domains.txt
-- MCP server: npx -y @realurls/mcp  (ships instructions: call before giving any download/login URL)
+- MCP server, remote (Streamable HTTP): ${API}/mcp   local: npx -y @realurls/mcp  (both ship instructions: call before giving any download/login URL)
 - Trust model: ${REPO}/blob/main/TRUST.md
 - Rules: ${REPO}/blob/main/POLICY.md
 - Signed dataset: ${REPO}/releases/tag/latest

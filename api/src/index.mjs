@@ -11,6 +11,7 @@
  *   /v1/domains.txt                      plain-text allowlist of verified domains
  *   /v1/domains.json                     full domain index (the browser extension downloads it daily)
  *   /healthz
+ *   POST /mcp                            remote MCP server (Streamable HTTP), same tools as @realurls/mcp
  *
  * Every response carries X-Realurls-Dataset (git revision of the data) so callers can match it to the
  * signed release.
@@ -18,11 +19,12 @@
 
 import { Store } from "./store.mjs";
 import { handleSite, apiLanding } from "./site.mjs";
+import { handleMcp } from "./mcp.mjs";
 
 const CORS = {
   "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Methods": "GET, OPTIONS",
-  "Access-Control-Allow-Headers": "Content-Type",
+  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type, Accept, MCP-Protocol-Version, Mcp-Session-Id",
 };
 const TRUST = "https://github.com/zhouchungong/realurls-registry/blob/main/TRUST.md";
 
@@ -37,6 +39,14 @@ function json(body, version, status = 200, extra = {}) {
 export default {
   async fetch(request, env, ctx) {
     if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: CORS });
+    if (new URL(request.url).pathname.replace(/\/+$/, "") === "/mcp") {
+      // Remote MCP (Streamable HTTP). The only non-GET endpoint.
+      const mcpStore = new Store(env.DB);
+      let mcpMeta;
+      try { mcpMeta = await mcpStore.meta(); }
+      catch (e) { return json({ error: "dataset not loaded", detail: String(e.message || e) }, null, 503, { "Cache-Control": "no-store" }); }
+      return handleMcp(request, mcpStore, mcpMeta, CORS);
+    }
     if (request.method !== "GET") return json({ error: "GET only" }, null, 405);
 
     const store = new Store(env.DB);
@@ -97,7 +107,7 @@ export default {
         }
         return json({
           name: "realurls", what: "Which domain officially belongs to which organization. Ownership only, never safety.",
-          endpoints: ["/v1/resolve?domain=", "/v1/entity?q=", "/v1/manifest", "/v1/domains.txt", "/v1/domains.json", "/healthz"],
+          endpoints: ["/v1/resolve?domain=", "/v1/entity?q=", "/v1/manifest", "/v1/domains.txt", "/v1/domains.json", "/healthz", "POST /mcp"],
           trust: TRUST, ...meta,
         }, meta.dataset_version);
 
