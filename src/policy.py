@@ -15,6 +15,7 @@
 
 from __future__ import annotations
 
+import re
 from collections.abc import Callable
 from dataclasses import dataclass, field
 from datetime import UTC, datetime, timedelta
@@ -175,6 +176,7 @@ class DomainFacts:
     expected_github_org: str | None = None
     expected_wikidata: str | None = None
     anchor_sources: tuple[str, ...] = ()    # 锚定依据，如 ("wikidata:Q116758847/P2037",)
+    expected_names: tuple[str, ...] = ()    # names the anchored entity is known by (label, GitHub org); A4 must match one
     # ---- 外部信号 ----
     gsb_flagged: bool = False
     vt_malicious: int = 0
@@ -317,12 +319,41 @@ def _v_a3(ev: Evidence, facts: DomainFacts) -> tuple[bool, str]:
     return True, ""
 
 
+_LEGAL_SUFFIXES = {"inc", "llc", "ltd", "limited", "co", "corp", "corporation", "company", "gmbh", "ag", "sa", "sas",
+                   "srl", "bv", "nv", "plc", "pty", "pte", "oy", "ab", "as", "aps", "kk", "pbc", "lp", "llp", "the"}
+
+
+def _name_key(name: str) -> str:
+    """Normalise an organisation name for matching: case, punctuation and legal-form suffixes removed."""
+    words = re.sub(r"[^a-z0-9\u4e00-\u9fff]+", " ", str(name or "").lower()).split()
+    return "".join(w for w in words if w not in _LEGAL_SUFFIXES)
+
+
+def _names_match(subject_org: str, names: tuple[str, ...]) -> bool:
+    key = _name_key(subject_org)
+    if len(key) < 3:
+        return False
+    for n in names:
+        k = _name_key(n)
+        if len(k) >= 3 and (k in key or key in k):
+            return True
+    return False
+
+
 @_validator("A4")
 def _v_a4(ev: Evidence, facts: DomainFacts) -> tuple[bool, str]:
+    """An OV/EV certificate proves that the organisation in O= controls the domain. It anchors the domain to
+    *this entity* only if that organisation is the entity. instagram.com's certificate (O=Meta Platforms) is a
+    perfect OV certificate and proved nothing about OpenShift, whose homepage merely linked to Instagram."""
     if ev.data.get("validation_type") not in {"OV", "EV"}:
         return False, "DV certificate carries no organization name (most modern tech companies use DV; this is expected)"
-    if not str(ev.data.get("subject_org", "")).strip():
+    org = str(ev.data.get("subject_org", "")).strip()
+    if not org:
         return False, "certificate Subject has no O= field"
+    if not facts.expected_names:
+        return False, "entity not anchored: certificate organization cannot be tied to an identity; proof of control is not proof of ownership"
+    if not _names_match(org, facts.expected_names):
+        return False, f"certificate organization ({org}) is not the anchored entity ({', '.join(facts.expected_names)})"
     return True, ""
 
 

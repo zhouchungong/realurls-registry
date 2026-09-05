@@ -182,6 +182,7 @@ def revalidate_file(path: Path, now: datetime, only: set[str] | None, dry_run: b
                 canonical_github_org=None if anchor_domain else canonical.get("github_org"),
                 canonical_wikidata=None if anchor_domain else canonical.get("wikidata"),
                 canonical_source="stored",
+                canonical_names=tuple(n for n in [(doc.get("names") or {}).get("en"), *(doc.get("aliases") or [])] if n),
             )
         except Exception as exc:
             outcomes.append(Outcome(domain, rec.get("status", "?"), rec.get("status", "?"),

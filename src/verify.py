@@ -47,6 +47,7 @@ def gather(
     canonical_source: str = "human",
     inherited_anchor: EntityAnchor | None = None,
     anchor_result: Result | None = None,
+    canonical_names: tuple[str, ...] = (),
 ) -> Result:
     """跑完整条采集流水线。
 
@@ -75,6 +76,8 @@ def gather(
         )
     out.notes.extend(ent.notes)
     out.facts.update(ent.as_facts())
+    if canonical_names:   # stored names of an already-anchored entity (revalidation); never self-declared ones
+        out.facts["expected_names"] = tuple(dict.fromkeys((*out.facts.get("expected_names", ()), *canonical_names)))
     out.extra["entity_anchor"] = ent
 
     # ---- 阶段 2：域名证据 ----

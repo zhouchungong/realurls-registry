@@ -29,7 +29,7 @@ from src.collectors.base import Result
 
 MIN_SITELINKS = 3   # 少于 3 种语言的 Wikipedia 收录 → 不足以作为身份权威
 
-_GH_REPO_RE = re.compile(r"github\.com/([A-Za-z0-9-]+)/")
+_GH_REPO_RE = re.compile(r"github\.com/([A-Za-z0-9-]+)(?:/|$)")
 
 
 @dataclass
@@ -47,10 +47,12 @@ class EntityAnchor:
 
     def as_facts(self) -> dict:
         """展开成 DomainFacts 的字段。"""
+        names = [n for n in (self.label or "").split("/") if n] + ([self.github_org] if self.github_org else [])
         return {
             "expected_github_org": self.github_org,
             "expected_wikidata": self.wikidata,
             "anchor_sources": self.sources,
+            "expected_names": tuple(dict.fromkeys(n for n in names if not re.fullmatch(r"Q\d+", n))),
         }
 
 

@@ -65,6 +65,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GSB_API_KEY: ${{ secrets.GSB_API_KEY }}
         run: |
+          mkdir -p .cache
           python -m src.build_entities "${{ inputs.seeds }}" \
             --shard "${{ matrix.shard }}/${{ inputs.shards }}" 2>&1 | tee ".cache/build-${{ matrix.shard }}.log"
 

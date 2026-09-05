@@ -127,11 +127,12 @@ def wikidata(domain: str) -> Result:
         # SPARQL 的 label 服务偶尔返回 QID 本身（opencv.org / tensorflow.org 都遇到过），用实体 API 兜底
         try:
             ent = fetch_json(
-                f"https://www.wikidata.org/w/api.php?action=wbgetentities&ids={qid}"
-                f"&props=labels&languages=en|zh&format=json", ttl_hours=168,
+                f"https://www.wikidata.org/w/api.php?action=wbgetentities&ids={qid}&props=labels&format=json",
+                ttl_hours=168,
             )
             labels = ent.get("entities", {}).get(qid, {}).get("labels", {})
-            label = (labels.get("en") or labels.get("zh") or {}).get("value", label)
+            pick = labels.get("en") or labels.get("en-gb") or labels.get("zh") or next(iter(labels.values()), {})
+            label = pick.get("value", label)
         except FetchError:
             pass
     sitelinks = int(top.get("sitelinks", {}).get("value", 0))

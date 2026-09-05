@@ -71,6 +71,8 @@ def _check_status_matches_policy(errors: list[str], path: Path, doc: dict) -> No
             expected_github_org=canonical.get("github_org"),
             expected_wikidata=canonical.get("wikidata"),
             anchor_sources=tuple(canonical.get("sources", [])),
+            expected_names=tuple(n for n in [(doc.get("names") or {}).get("en"), *(doc.get("aliases") or []),
+                                             canonical.get("github_org")] if n),
             ttl_days=rec.get("ttl_days", 30),
         )
         got = decide(facts, evidence, now=datetime.now(UTC))

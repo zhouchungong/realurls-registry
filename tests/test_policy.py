@@ -333,3 +333,37 @@ def test_negative_corpus_never_verified(case_id: str, facts: DomainFacts, eviden
 def test_corpus_is_not_empty():
     """防止语料被误删后测试假绿。"""
     assert len(CORPUS_CASES) >= 15
+
+
+# ------------------------------------------------------------------ A4 must name the anchored entity
+
+
+def test_a4_accepts_certificate_naming_the_entity():
+    facts = anthropic_facts(expected_names=("Anthropic", "anthropics"))
+    d = decide(facts, [ev("A4", validation_type="OV", subject_org="Anthropic, PBC"),
+                       ev("B4", history_days=3000), ev("B5", rank=500)], now=NOW)
+    assert "A4" in d.anchors
+
+
+def test_a4_rejects_certificate_of_another_organization():
+    facts = anthropic_facts(expected_names=("Anthropic", "anthropics"))
+    d = decide(facts, [ev("A4", validation_type="OV", subject_org="Meta Platforms, Inc."),
+                       ev("B4", history_days=3000), ev("B5", rank=500)], now=NOW)
+    assert "A4" not in d.anchors and not d.is_official
+    assert any(r.startswith("A4") and "not the anchored entity" in r for r in d.rejected)
+
+
+def test_a4_rejects_when_entity_not_anchored():
+    facts = DomainFacts(domain="example.com", age_days=3000)
+    d = decide(facts, [ev("A4", validation_type="EV", subject_org="Example Corp"),
+                       ev("B4", history_days=3000), ev("B5", rank=500)], now=NOW)
+    assert "A4" not in d.anchors and not d.is_official
+
+
+def test_a4_name_matching_ignores_legal_suffixes_and_punctuation():
+    from src.policy import _names_match
+    assert _names_match("Unity Technologies ApS", ("Unity Technologies",))
+    assert _names_match("Red Hat, Inc.", ("redhat",))
+    assert _names_match("supabase", ("supabase/supabase", "supabase"))
+    assert not _names_match("Meta Platforms, Inc.", ("origin", "openshift"))
+    assert not _names_match("Co", ("co",))     # too short to mean anything

@@ -234,3 +234,20 @@ cases:
       - {code: A3, data: {registrar: "MarkMonitor Inc.", remaining_days: 1200, locks: ["delete", "transfer"]}}
       - {code: B7, data: {flagged: true}}
       - {code: B5, data: {rank: 800000}}
+
+  - id: propagation-third-party-ov-cert
+    technique: 已 verified 域名的首页链接到一个大站（社交平台），该站自己的 OV 证书被当成本实体的锚点（openshift.com → instagram.com 的真实误报形态）
+    facts: {domain: "social-platform[.]example", age_days: 6000, expected_github_org: "openshift", anchor_sources: ["github-history:openshift/origin"], expected_names: ["origin", "openshift"]}
+    evidence:
+      - {code: A6, data: {from: "openshift[.]com", from_status: verified, first_party_link: true, structural_links: [], san_count: 0}}
+      - {code: A4, data: {validation_type: "OV", subject_org: "Meta Platforms, Inc.", issuer: "DigiCert Inc", san_count: 6}}
+      - {code: B4, data: {history_days: 5800}}
+      - {code: B5, data: {rank: 11}}
+
+  - id: ov-cert-without-entity-anchor
+    technique: 未锚定实体，仅凭一张真实的 OV 证书 + 流量/历史佐证
+    facts: {domain: "some-company[.]example", age_days: 3000}
+    evidence:
+      - {code: A4, data: {validation_type: "OV", subject_org: "Some Company Ltd"}}
+      - {code: B4, data: {history_days: 2900}}
+      - {code: B5, data: {rank: 50000}}
