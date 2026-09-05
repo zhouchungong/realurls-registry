@@ -28,7 +28,7 @@ import argparse
 import json
 import sys
 from dataclasses import dataclass, field
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 import yaml
@@ -195,7 +195,7 @@ def main(argv: list[str] | None = None) -> int:
     args = p.parse_args(argv)
 
     only = {d.strip() for d in args.only.split(",")} if args.only else None
-    now = datetime.now(timezone.utc)
+    now = datetime.now(UTC)
     all_out: list[Outcome] = []
     for path in sorted(ENTITIES.rglob("*.yaml")):
         for o in revalidate_file(path, now, only, args.dry_run):

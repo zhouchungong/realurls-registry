@@ -16,6 +16,7 @@ import functools
 import os
 import shutil
 import subprocess
+from datetime import UTC
 
 from src.collectors.base import FetchError, Result, fetch_json, now
 from src.policy import Evidence, registrable_domain
@@ -77,10 +78,12 @@ def repo_history(org: str, r: Result | None = None) -> dict | None:
 
     门槛定义在 policy.py（REPO_ANCHOR_*）——它们是信任承诺的一部分，不在这里改。
     """
-    from datetime import datetime, timezone
+    from datetime import datetime
 
     from src.policy import (
-        REPO_ANCHOR_MIN_AGE_DAYS, REPO_ANCHOR_MIN_CONTRIBUTORS, REPO_ANCHOR_MIN_STARS,
+        REPO_ANCHOR_MIN_AGE_DAYS,
+        REPO_ANCHOR_MIN_CONTRIBUTORS,
+        REPO_ANCHOR_MIN_STARS,
     )
     r = r or Result()
     # /orgs/{org}/repos 不支持按星排序（只支持 created/updated/pushed/full_name），
@@ -100,7 +103,7 @@ def repo_history(org: str, r: Result | None = None) -> dict | None:
         if stars < REPO_ANCHOR_MIN_STARS:
             break
         created = datetime.fromisoformat(repo["created_at"].replace("Z", "+00:00"))
-        age_days = (datetime.now(timezone.utc) - created).days
+        age_days = (datetime.now(UTC) - created).days
         if age_days < REPO_ANCHOR_MIN_AGE_DAYS:
             continue
         try:

@@ -23,7 +23,7 @@ import json
 import sqlite3
 import subprocess
 import sys
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 import yaml
@@ -81,12 +81,29 @@ def build(out_dir: Path = DIST) -> dict:
                 "last_verified": d.get("last_verified"),
                 "anchors": sorted({ev["code"] for ev in d.get("evidence", [])
                                    if ev["code"].startswith("A")
-                                   and not any(r.startswith(ev["code"] + ":") for r in d.get("rejected_evidence", []))}),
+                                   and not any(r.startswith(ev["code"] + ":")
+                                               for r in d.get("rejected_evidence", []))}),
                 "wikidata": e.get("wikidata"),
                 "github_org": (e.get("canonical") or {}).get("github_org"),
             }
     (out_dir / "domains.json").write_text(
         json.dumps(dict(sorted(index.items())), ensure_ascii=False, sort_keys=True, indent=1),
+        encoding="utf-8")
+
+    # entities.json —— 按名字/别名找实体用（API 的 /v1/entity 与 MCP 的 get_official_url）
+    ents = {}
+    for e in entities:
+        ents[e["entity_id"]] = {
+            "name": e["names"]["en"],
+            "aliases": sorted(set(e.get("aliases", []))),
+            "wikidata": e.get("wikidata"),
+            "github_org": (e.get("canonical") or {}).get("github_org"),
+            "category": e.get("category", []),
+            "domains": [{"domain": d["domain"], "role": d.get("role", "primary"), "status": d["status"]}
+                        for d in e["domains"]],
+        }
+    (out_dir / "entities.json").write_text(
+        json.dumps(dict(sorted(ents.items())), ensure_ascii=False, sort_keys=True, indent=1),
         encoding="utf-8")
 
     # domains.txt —— 白名单
@@ -127,7 +144,7 @@ def build(out_dir: Path = DIST) -> dict:
     manifest = {
         "schema_version": "1.0",
         "dataset_version": _git_rev(),
-        "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "generated_at": datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "counts": {
             "entities": len(entities),
             "domains": len(index),
@@ -136,7 +153,7 @@ def build(out_dir: Path = DIST) -> dict:
                           for s in sorted({v["status"] for v in index.values()})},
         },
         "files": {name: {"sha256": _sha256(out_dir / name), "bytes": (out_dir / name).stat().st_size}
-                  for name in ("registry.json", "domains.json", "domains.txt", "registry.sqlite")},
+                  for name in ("registry.json", "domains.json", "entities.json", "domains.txt", "registry.sqlite")},
         "license": "CC-BY-SA-4.0",
         "trust": "https://github.com/realurls/registry/blob/main/TRUST.md",
     }

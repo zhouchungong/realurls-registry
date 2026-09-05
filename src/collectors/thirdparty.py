@@ -10,7 +10,7 @@ import json
 import os
 import urllib.parse
 import urllib.request
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from src.collectors.base import USER_AGENT, FetchError, Result, fetch, fetch_json, now
 from src.policy import Evidence
@@ -121,7 +121,7 @@ def wayback(domain: str) -> Result:
         return r
 
     stamp = rows[1][0]
-    first = datetime.strptime(stamp[:8], "%Y%m%d").replace(tzinfo=timezone.utc)
+    first = datetime.strptime(stamp[:8], "%Y%m%d").replace(tzinfo=UTC)
     days = (now() - first).days
     r.evidence.append(Evidence(
         code="B4",

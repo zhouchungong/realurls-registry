@@ -25,7 +25,7 @@ import argparse
 import json
 import re
 import sys
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 import yaml
@@ -61,7 +61,7 @@ def _categories(topics: list[str]) -> list[str]:
 
 
 def _iso(dt: datetime | None) -> str:
-    return (dt or datetime.now(timezone.utc)).strftime("%Y-%m-%dT%H:%M:%SZ")
+    return (dt or datetime.now(UTC)).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
 def build_one(seed: dict, now: datetime) -> tuple[dict | None, str]:
@@ -168,16 +168,16 @@ def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser()
     p.add_argument("seeds", type=Path)
     p.add_argument("--domains", help="只处理这些域名，逗号分隔")
-    p.add_argument("--only-verified", action="store_true", help="跳过种子里 org_verified=false 且无其他线索的（省时间）")
+    p.add_argument("--only-verified", action="store_true", help="跳过无 GitHub 验证且无其他线索的种子")
     args = p.parse_args(argv)
 
-    seeds = [json.loads(l) for l in args.seeds.read_text(encoding="utf-8").splitlines()
-             if l.strip() and not l.startswith("#")]
+    seeds = [json.loads(line) for line in args.seeds.read_text(encoding="utf-8").splitlines()
+             if line.strip() and not line.startswith("#")]
     if args.domains:
         wanted = {d.strip() for d in args.domains.split(",")}
         seeds = [s for s in seeds if s["domain"] in wanted]
 
-    now = datetime.now(timezone.utc)
+    now = datetime.now(UTC)
     seen_domains: set[str] = set()
     written, skipped = 0, 0
     for seed in seeds:

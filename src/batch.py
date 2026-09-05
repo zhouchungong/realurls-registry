@@ -17,7 +17,6 @@ import sys
 import time
 import traceback
 from collections import Counter
-from dataclasses import asdict
 from pathlib import Path
 
 from src.verify import verify
@@ -32,8 +31,8 @@ def run(seeds_path: Path, out_path: Path, resume: bool = True) -> None:
             except (json.JSONDecodeError, KeyError):
                 pass
 
-    seeds = [json.loads(l) for l in seeds_path.read_text(encoding="utf-8").splitlines()
-             if l.strip() and not l.startswith("#")]
+    seeds = [json.loads(line) for line in seeds_path.read_text(encoding="utf-8").splitlines()
+             if line.strip() and not line.startswith("#")]
     todo = [s for s in seeds if s["domain"] not in done]
     print(f"# {len(seeds)} seeds, {len(done)} done, {len(todo)} to go", file=sys.stderr)
 
@@ -69,7 +68,7 @@ def run(seeds_path: Path, out_path: Path, resume: bool = True) -> None:
 
 
 def summarize(results_path: Path) -> None:
-    rows = [json.loads(l) for l in results_path.read_text(encoding="utf-8").splitlines() if l.strip()]
+    rows = [json.loads(line) for line in results_path.read_text(encoding="utf-8").splitlines() if line.strip()]
     n = len(rows)
     status = Counter(r.get("status") for r in rows)
     anchored = sum(1 for r in rows if r.get("anchored"))

@@ -15,9 +15,10 @@
 
 from __future__ import annotations
 
+from collections.abc import Callable
 from dataclasses import dataclass, field
-from datetime import datetime, timedelta, timezone
-from typing import Any, Callable
+from datetime import UTC, datetime, timedelta
+from typing import Any
 
 __all__ = [
     "Evidence",
@@ -460,7 +461,7 @@ def decide(
     ``disputed``        与另一条 verified 断言冲突，需人工裁决。
     ``flagged``         被安全情报标记，永不 verified。
     """
-    now = now or datetime.now(timezone.utc)
+    now = now or datetime.now(UTC)
     reasons: list[str] = []
     rejected: list[str] = []
 

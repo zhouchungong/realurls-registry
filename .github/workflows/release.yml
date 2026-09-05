@@ -31,36 +31,54 @@ jobs:
         run: |
           cp dist/domains.json /tmp/a.json
           python -m src.build > /dev/null
-          cmp dist/domains.json /tmp/a.json && echo "reproducible ✓"
+          cmp dist/domains.json /tmp/a.json && echo "reproducible"
 
       - uses: sigstore/cosign-installer@v3
 
-      # keyless：用本 workflow 的 OIDC 身份签名，验证者能确认「这份数据是 realurls/registry 的
-      # main 分支在 GitHub Actions 里生成的」，无需我们保管任何私钥（SECURITY.md T6）。
+      # keyless：用本 workflow 的 OIDC 身份签名。验证者能确认「这份数据是本仓库 main 分支
+      # 在 GitHub Actions 里生成的」，我们不保管任何私钥（SECURITY.md T6）。
       - name: cosign 签名
         env:
           COSIGN_YES: "true"
         run: |
           cd dist
-          for f in registry.json domains.json domains.txt registry.sqlite manifest.json; do
+          for f in registry.json domains.json entities.json domains.txt registry.sqlite manifest.json; do
             cosign sign-blob --yes --bundle "$f.sigstore.json" "$f"
           done
           ls -la
 
-      - name: 发布为 GitHub Release（滚动 tag: latest）
+      - name: 写 Release 说明
+        run: |
+          python - <<'PY'
+          import json
+          m = json.load(open("dist/manifest.json"))
+          repo = "${{ github.repository }}"
+          notes = f"""dataset `{m['dataset_version']}` · generated {m['generated_at']}
+
+          | | |
+          |---|---|
+          | entities | {m['counts']['entities']} |
+          | domains | {m['counts']['domains']} |
+          | verified | {m['counts']['verified']} |
+
+          Verify a file's signature (keyless, no key to distribute):
+
+          ```
+          cosign verify-blob --bundle domains.json.sigstore.json \\
+            --certificate-identity-regexp 'https://github.com/{repo}/' \\
+            --certificate-oidc-issuer https://token.actions.githubusercontent.com \\
+            domains.json
+          ```
+
+          Trust model: TRUST.md · License: CC BY-SA 4.0
+          """
+          open("/tmp/notes.md", "w").write("\n".join(l.strip() if l.strip().startswith(("|","```","cosign","--","domains.json")) else l.lstrip() for l in notes.splitlines()))
+          PY
+
+      - name: "发布为 GitHub Release（滚动 tag latest）"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           ver=$(python -c "import json;print(json.load(open('dist/manifest.json'))['dataset_version'])")
           gh release delete latest --yes --cleanup-tag 2>/dev/null || true
-          gh release create latest dist/* \
-            --title "dataset $ver" \
-            --notes "$(python -c "import json;m=json.load(open('dist/manifest.json'));print(json.dumps(m['counts'],ensure_ascii=False,indent=2))")
-
-验证签名：
-\`\`\`
-cosign verify-blob --bundle domains.json.sigstore.json \\
-  --certificate-identity-regexp 'https://github.com/realurls/registry/' \\
-  --certificate-oidc-issuer https://token.actions.githubusercontent.com \\
-  domains.json
-\`\`\`"
+          gh release create latest dist/* --title "dataset $ver" --notes-file /tmp/notes.md

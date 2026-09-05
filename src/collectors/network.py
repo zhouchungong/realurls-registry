@@ -38,7 +38,7 @@ def certificate(domain: str) -> Result:
     last_exc: Exception | None = None
     # 重试一次：220 条批跑里 deezer.com 因一次握手超时丢了 A4，从 verified 掉到 community。
     # 「没采到」和「采到了是否定」是两回事——采集失败不该直接变成降级（见 SECURITY.md T5 的保鲜设计）。
-    for attempt, timeout in enumerate((10, 20), 1):
+    for timeout in (10, 20):
         try:
             with socket.create_connection((domain, 443), timeout=timeout) as sock:
                 with ctx.wrap_socket(sock, server_hostname=domain) as tls:

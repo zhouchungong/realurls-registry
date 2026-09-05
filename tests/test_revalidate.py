@@ -7,7 +7,7 @@
 from __future__ import annotations
 
 import sys
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -15,7 +15,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from src.policy import Decision, Evidence  # noqa: E402
 from src.revalidate import apply  # noqa: E402
 
-NOW = datetime(2026, 9, 6, tzinfo=timezone.utc)
+NOW = datetime(2026, 9, 6, tzinfo=UTC)
 
 
 def old_record(**over) -> dict:

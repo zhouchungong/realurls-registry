@@ -14,7 +14,7 @@ CI 会跑这个。除 JSON Schema 之外，还检查若干**只有本项目才�
 from __future__ import annotations
 
 import sys
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 import yaml
@@ -73,7 +73,7 @@ def _check_status_matches_policy(errors: list[str], path: Path, doc: dict) -> No
             anchor_sources=tuple(canonical.get("sources", [])),
             ttl_days=rec.get("ttl_days", 30),
         )
-        got = decide(facts, evidence, now=datetime.now(timezone.utc))
+        got = decide(facts, evidence, now=datetime.now(UTC))
         if got.status != declared:
             errors.append(
                 f"{path}: {rec['domain']}: 声明 status={declared}，"
@@ -86,8 +86,8 @@ def _age_days(rec: dict) -> int | None:
     for e in rec.get("evidence", []):
         created = e.get("data", {}).get("created")
         if created:
-            d = datetime.fromisoformat(str(created)).replace(tzinfo=timezone.utc)
-            return (datetime.now(timezone.utc) - d).days
+            d = datetime.fromisoformat(str(created)).replace(tzinfo=UTC)
+            return (datetime.now(UTC) - d).days
     return None
 
 

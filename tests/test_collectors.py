@@ -14,7 +14,6 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from src.collectors import rdap, site  # noqa: E402
 from src.collectors.github import _candidates  # noqa: E402
 
-
 # ------------------------------------------------------------------ site
 
 SAMPLE_HTML = """

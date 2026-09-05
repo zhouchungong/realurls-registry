@@ -11,7 +11,7 @@ RDAP 响应里只剩注册商，没有任何 registrant 组织信息。所以「
 
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import datetime
 
 from src.collectors.base import FetchError, Result, fetch_json, now
 from src.policy import Evidence

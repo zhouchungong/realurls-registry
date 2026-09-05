@@ -145,7 +145,8 @@ def anchor(domain: str, *, github_org_override: str | None = None,
             a.repo_info = gh.repo_info
     if github_org_override:
         if a.github_org and a.github_org.lower() != github_org_override.lower():
-            a.notes.append(f"anchor: ⚠ 权威给出的组织 {a.github_org} ≠ 指定值 {github_org_override}，以指定值为准但需人工留意")
+            a.notes.append(f"anchor: ⚠ 权威给出的组织 {a.github_org} ≠ 指定值 {github_org_override}，"
+                           "以指定值为准但需人工留意")
         a.github_org = github_org_override
         a.sources = a.sources + (f"{override_source}:github_org",)
         a.notes.append(f"anchor: canonical GitHub 组织由 {override_source} 指定为 {github_org_override}")

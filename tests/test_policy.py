@@ -10,7 +10,7 @@
 from __future__ import annotations
 
 import sys
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
 import pytest
@@ -26,7 +26,7 @@ from src.policy import (  # noqa: E402
     registrable_domain,
 )
 
-NOW = datetime(2026, 9, 5, tzinfo=timezone.utc)
+NOW = datetime(2026, 9, 5, tzinfo=UTC)
 CORPUS = Path(__file__).parent / "negative_corpus.yaml"
 
 

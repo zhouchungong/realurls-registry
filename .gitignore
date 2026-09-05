@@ -14,3 +14,5 @@ dist/
 
 # CI 中即时拉取的第三方钓鱼语料 —— 绝不入库，绝不分发（TRUST.md §6）
 tests/_external_corpus/
+node_modules/
+.wrangler/
