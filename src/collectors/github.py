@@ -12,7 +12,10 @@
 
 from __future__ import annotations
 
+import functools
 import os
+import shutil
+import subprocess
 
 from src.collectors.base import FetchError, Result, fetch_json, now
 from src.policy import Evidence, registrable_domain
@@ -20,11 +23,34 @@ from src.policy import Evidence, registrable_domain
 API = "https://api.github.com"
 
 
+@functools.lru_cache(maxsize=1)
+def _token() -> str | None:
+    """认证顺序：环境变量 GITHUB_TOKEN → 已登录的 gh CLI。
+
+    借用 gh 的认证意味着 token 不需要出现在任何配置文件或对话里。
+    未授权 60 次/小时，授权后 5000 次/小时——冷启动跑上万条时必须二者有其一。
+    """
+    if env := os.environ.get("GITHUB_TOKEN"):
+        return env
+    if shutil.which("gh"):
+        try:
+            out = subprocess.run(["gh", "auth", "token"], capture_output=True, text=True, timeout=10)
+            if out.returncode == 0 and out.stdout.strip():
+                return out.stdout.strip()
+        except (subprocess.SubprocessError, OSError):
+            pass
+    return None
+
+
+def auth_source() -> str:
+    if os.environ.get("GITHUB_TOKEN"):
+        return "env:GITHUB_TOKEN"
+    return "gh-cli" if _token() else "none"
+
+
 def _headers() -> dict[str, str]:
-    # 未授权 60 次/小时，授权后 5000 次/小时。冷启动跑上万条时必须给 token。
-    token = os.environ.get("GITHUB_TOKEN")
     h = {"Accept": "application/vnd.github+json"}
-    if token:
+    if token := _token():
         h["Authorization"] = f"Bearer {token}"
     return h
 
@@ -43,8 +69,11 @@ def _candidates(domain: str, hints: list[str] | None) -> list[str]:
 
 def collect(domain: str, hints: list[str] | None = None) -> Result:
     r = Result()
-    if not os.environ.get("GITHUB_TOKEN"):
-        r.note("github: 未设置 GITHUB_TOKEN，速率限制 60 次/小时（冷启动前务必配置）")
+    src = auth_source()
+    if src == "none":
+        r.note("github: 无认证（未设 GITHUB_TOKEN，gh 也未登录），速率限制 60 次/小时")
+    else:
+        r.note(f"github: 认证来源 {src}，5000 次/小时")
 
     for login in _candidates(domain, hints):
         try:
