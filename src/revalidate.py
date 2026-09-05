@@ -175,10 +175,12 @@ def revalidate_file(path: Path, now: datetime, only: set[str] | None, dry_run: b
         # Re-verify it the same way — via the anchor — or it loses its anchor and its inherited identity,
         # and gets re-anchored to a product item (claude.ai → "Claude" Q118876059) that conflicts with the stored one.
         anchor_domain = next((e.get("data", {}).get("from") for e in rec.get("evidence", []) if e.get("code") == "A6"), None)
+        token = next((e.get("data", {}).get("token") for e in rec.get("evidence", []) if e.get("code") == "A5"), None)
         try:
             decision, result = verify(
                 domain,
                 anchor_domain=anchor_domain,
+                token=token,
                 canonical_github_org=None if anchor_domain else canonical.get("github_org"),
                 canonical_wikidata=None if anchor_domain else canonical.get("wikidata"),
                 canonical_source="stored",

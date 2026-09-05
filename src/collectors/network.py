@@ -94,7 +94,7 @@ def self_attestation(domain: str, expected_token: str | None = None) -> Result:
     match = expected_token in tokens if expected_token else False
     r.evidence.append(Evidence(
         code="A5",
-        data={"token_match": match, "found": len(tokens)},
+        data={"token_match": match, "found": len(tokens), "token": expected_token if match else None},
         checked_at=now(),
         source=f"_realurls.{domain} TXT",
     ))

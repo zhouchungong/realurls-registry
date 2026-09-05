@@ -1,0 +1,2 @@
+# Owner-requested verifications: the token is what the owner publishes at _realurls.<domain> TXT.
+{"domain": "kagi.com", "org_name": "Kagi", "github_org": "kagisearch", "topics": ["search-engine"], "source": "manual", "token": "kagi-8a39984513328f66ab2fcef5"}

@@ -295,7 +295,7 @@ async function domainPage(input, store, manifest) {
 <p class="muted">This is an <b>attribution</b> signal, not a malware verdict. A lookalike domain can be legitimate and unrelated; it can also be a phishing site. We only say: it is not the one you probably meant.</p>`, { robots: "noindex" });
   }
   return html(`<h1><code>${esc(domain)}</code> <span class="badge unk">not in the registry</span></h1>
-<p class="sub">We have no verdict for this domain — neither positive nor negative. "Don't know" is the honest answer here.</p>
+<p class="sub">We have no verdict for this domain — neither positive nor negative. "Don't know" is the honest answer here. The registry holds ${manifest.counts.entities} organizations today and grows in reviewed batches; not being listed means not yet examined, nothing more.</p>
 <p class="muted">Know who owns it? <a href="${REPO}/issues/new?template=submit-domain.yml">Submit a lead</a>. If you <em>are</em> the owner, one DNS TXT record settles it: <code>_realurls.${esc(domain)} TXT "realurls-site-verification=…"</code>.</p>`, { robots: "noindex" });
 }
 
