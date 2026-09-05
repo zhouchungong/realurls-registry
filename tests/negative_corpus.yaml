@@ -259,3 +259,27 @@ cases:
       - {code: A6, data: {from: "anthropic.com", from_status: verified, first_party_link: true, structural_links: ["shared_ns"], san_count: 0, backlink: false}}
       - {code: B4, data: {history_days: 5800}}
       - {code: B5, data: {rank: 11}}
+
+  - id: appstore-young-app-bought-ratings
+    technique: 攻击者注册同名公司、上架一个新应用并刷评分，卖家 URL 指向仿冒域名
+    facts: {domain: "kagi-app[.]example", age_days: 400, expected_wikidata: "Q123819301", anchor_sources: ["wikidata:Q123819301/P856"], expected_names: ["Kagi"]}
+    evidence:
+      - {code: A9, data: {app: "Kagi Search", seller: "Kagi Ltd", seller_url: "https://kagi-app[.]example", age_days: 120, ratings: 4000, apps: [{app: "Kagi Search", seller: "Kagi Ltd", age_days: 120, ratings: 4000}]}}
+      - {code: B4, data: {history_days: 380}}
+      - {code: B5, data: {rank: 300000}}
+
+  - id: appstore-established-app-of-another-company
+    technique: 已锚定实体的域名上，证据是别家公司多年的应用（卖家 URL 恰好指向本域名，例如托管/代理站）
+    facts: {domain: "hosted-brand[.]example", age_days: 3000, expected_wikidata: "Q116758847", anchor_sources: ["wikidata:Q116758847/P2037"], expected_names: ["Anthropic", "anthropics"]}
+    evidence:
+      - {code: A9, data: {app: "Other Notes App", seller: "Other Labs, Inc.", seller_url: "https://hosted-brand[.]example", age_days: 2000, ratings: 50000, apps: [{app: "Other Notes App", seller: "Other Labs, Inc.", age_days: 2000, ratings: 50000}]}}
+      - {code: B4, data: {history_days: 2900}}
+      - {code: B5, data: {rank: 20000}}
+
+  - id: appstore-without-entity-anchor
+    technique: 未锚定实体，仅凭一个多年应用 + 流量/历史佐证
+    facts: {domain: "some-app-company[.]example", age_days: 3000}
+    evidence:
+      - {code: A9, data: {app: "Some App", seller: "Some App Company Inc.", seller_url: "https://some-app-company[.]example", age_days: 2000, ratings: 50000, apps: [{app: "Some App", seller: "Some App Company Inc.", age_days: 2000, ratings: 50000}]}}
+      - {code: B4, data: {history_days: 2900}}
+      - {code: B5, data: {rank: 20000}}

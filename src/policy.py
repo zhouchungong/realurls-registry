@@ -50,6 +50,7 @@ ANCHOR_CODES: dict[str, str] = {
     "A6": "Propagation: first-party link from a verified domain + structural link",
     "A7": "Restricted TLD: registry only allows government bodies (.gov / .gov.cn / .gouv.fr …)",
     "A8": "Anchored repository homepage points here, and this site links back to the repository",
+    "A9": "App Store history: an established app sold by an Apple-verified company named like the entity, seller URL points here",
 }
 
 #: A8 的 homepage 不得指向这些平台域——yt-dlp 的 homepage 字段填的就是 discord.gg，
@@ -68,6 +69,12 @@ PLATFORM_DOMAINS: frozenset[str] = frozenset({
 REPO_ANCHOR_MIN_AGE_DAYS = 3 * 365
 REPO_ANCHOR_MIN_CONTRIBUTORS = 300
 REPO_ANCHOR_MIN_STARS = 5000
+
+#: A9 App Store history: the commercial counterpart of A8. Apple verifies an organisation's legal identity
+#: (D-U-N-S) before it can sell under a company name; what an attacker cannot buy is the years on the store.
+#: Ratings are a footprint floor (they can be bought, age cannot).
+APP_ANCHOR_MIN_AGE_DAYS = 2 * 365
+APP_ANCHOR_MIN_RATINGS = 1000
 
 #: 受限 TLD：后缀本身就是锚点。只证明「是政府站」，不证明「是哪个部门」。
 RESTRICTED_GOV_SUFFIXES: frozenset[str] = frozenset({
@@ -127,7 +134,7 @@ CORPORATE_REGISTRARS: frozenset[str] = frozenset(
 #:   A1/A2 次之 —— GitHub 已经代做了 DNS 级域名验证，且有 sigstore 链。
 #:   A3 最弱 —— 企业注册指纹只证明「买得起」，是成本壁垒而非身份证明。
 WEIGHTS: dict[str, float] = {
-    "A5": 0.90, "A1": 0.80, "A7": 0.80, "A2": 0.75, "A4": 0.70, "A6": 0.65, "A8": 0.60, "A3": 0.55,
+    "A5": 0.90, "A1": 0.80, "A7": 0.80, "A2": 0.75, "A4": 0.70, "A6": 0.65, "A8": 0.60, "A3": 0.55, "A9": 0.55,
     "B1": 0.12, "B2": 0.08, "B3": 0.10, "B4": 0.12, "B5": 0.06, "B6": 0.10, "B7": 0.05,
 }
 
@@ -418,6 +425,27 @@ def _v_a8(ev: Evidence, facts: DomainFacts) -> tuple[bool, str]:
         return False, f"repository homepage ({ev.data.get('homepage')}) does not point to this domain"
     if not ev.data.get("backlink"):
         return False, "this site does not link back to the GitHub organization; no reverse confirmation"
+    return True, ""
+
+
+@_validator("A9")
+def _v_a9(ev: Evidence, facts: DomainFacts) -> tuple[bool, str]:
+    """An app that has been on the App Store for years, sold by an Apple-verified company whose name (or
+    the app's name) is the entity's, with the seller URL pointing at this domain. Like A4 the identity
+    leg rests on a name match to an already-anchored entity, so an unanchored entity gets nothing."""
+    if not facts.expected_names:
+        return False, "entity not anchored: an app listing cannot be tied to an identity; proof of control is not proof of ownership"
+    if not _same_site(ev.data.get("seller_url", ""), facts.domain):
+        return False, f"seller URL ({ev.data.get('seller_url')}) does not point to this domain"
+    seller, app = str(ev.data.get("seller") or ""), str(ev.data.get("app") or "")
+    if not (_names_match(seller, facts.expected_names) or _names_match(app, facts.expected_names)):
+        return False, f"neither the seller ({seller}) nor the app ({app}) is named like the anchored entity ({', '.join(facts.expected_names)})"
+    # Any listing for this domain may satisfy the history bar, not only the one reported as strongest.
+    listings = ev.data.get("apps") or [ev.data]
+    ok = [a for a in listings if int(a.get("age_days") or 0) >= APP_ANCHOR_MIN_AGE_DAYS and int(a.get("ratings") or 0) >= APP_ANCHOR_MIN_RATINGS]
+    if not ok:
+        return False, (f"no listing meets the App Store history bar (at least {APP_ANCHOR_MIN_AGE_DAYS // 365} years on the store and "
+                       f"{APP_ANCHOR_MIN_RATINGS} ratings); strongest: {app} {ev.data.get('age_days')} days, {ev.data.get('ratings')} ratings")
     return True, ""
 
 

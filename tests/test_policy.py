@@ -390,3 +390,42 @@ def test_a6_unknown_backlink_is_not_a_no():
     for value in (None, True):
         d = decide(facts, [_a6(backlink=value), ev("B5", rank=120), ev("B4", history_days=1400)], now=NOW)
         assert d.anchors == ["A6"], value
+
+
+# ------------------------------------------------------------------ A9 App Store history
+
+
+def _a9(**over):
+    data = {"app": "Claude by Anthropic", "seller": "Anthropic PBC", "seller_url": "https://claude.ai",
+            "age_days": 857, "ratings": 252181}
+    data.update(over)
+    data.setdefault("apps", [{"app": data["app"], "seller": data["seller"], "age_days": data["age_days"], "ratings": data["ratings"]}])
+    return ev("A9", **data)
+
+
+def test_a9_established_app_by_the_entity_is_an_anchor():
+    facts = DomainFacts(domain="claude.ai", age_days=1500, **ANTHROPIC_ANCHOR, expected_names=("Anthropic", "anthropics"))
+    d = decide(facts, [_a9(), ev("B5", rank=120), ev("B4", history_days=1400)], now=NOW)
+    assert "A9" in d.anchors and d.status == "verified"
+
+
+def test_a9_app_name_alone_can_carry_the_match():
+    facts = DomainFacts(domain="cursor.com", age_days=3000, expected_wikidata="Q131980386",
+                        anchor_sources=("wikidata:Q131980386/P856",), expected_names=("Cursor",))
+    d = decide(facts, [_a9(app="Cursor", seller="Anysphere Incorporated", seller_url="https://cursor.com", age_days=900, ratings=5000),
+                       ev("B5", rank=3000), ev("B4", history_days=2900)], now=NOW)
+    assert "A9" in d.anchors
+
+
+def test_a9_rejects_young_or_thin_listings_and_wrong_urls():
+    facts = DomainFacts(domain="claude.ai", age_days=1500, **ANTHROPIC_ANCHOR, expected_names=("Anthropic",))
+    young = decide(facts, [_a9(age_days=200, ratings=90000)], now=NOW)
+    thin = decide(facts, [_a9(age_days=2000, ratings=300)], now=NOW)
+    elsewhere = decide(facts, [_a9(seller_url="https://anthropic.com")], now=NOW)
+    for d in (young, thin, elsewhere):
+        assert "A9" not in d.anchors and not d.is_official
+
+
+def test_a9_needs_an_anchored_entity():
+    d = decide(DomainFacts(domain="claude.ai", age_days=1500), [_a9(), ev("B5", rank=120), ev("B4", history_days=1400)], now=NOW)
+    assert "A9" not in d.anchors and not d.is_official

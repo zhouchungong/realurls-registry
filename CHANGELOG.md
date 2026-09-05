@@ -7,6 +7,10 @@ The dataset itself is released continuously as the rolling `latest` GitHub Relea
 ## 2026-09-06
 
 ### Rules
+- **New anchor A9, App Store history.** An app sold to the domain by an Apple-verified company named like
+  the (already anchored) entity, on the store at least 2 years with at least 1,000 ratings. The commercial
+  counterpart of A8 for organisations that never verify a GitHub domain. Weight 0.55. Measured before
+  adoption; see the commit for the numbers.
 - **A6 (propagation) requires a backlink when one can be observed.** A verified site links to many third
   parties, and name-server pairs come from shared pools; a candidate whose own page has outbound links but
   none back to the anchor is rejected. A page that cannot be fetched or has no links at all (a JavaScript

@@ -20,7 +20,7 @@ from dataclasses import asdict
 from typing import Any
 
 from src.anchor import EntityAnchor, anchor
-from src.collectors import github, network, npm, rdap, site, thirdparty
+from src.collectors import appstore, github, network, npm, rdap, site, thirdparty
 from src.collectors.base import Result
 from src.policy import Decision, DomainFacts, Evidence, decide, registrable_domain
 
@@ -94,6 +94,10 @@ def gather(
 
     pkgs = (packages or []) + hints.extra.get("npm_packages", [])
     _merge(out, npm.collect(domain, packages=pkgs, github_org=out.extra.get("github_org")))
+
+    # A9: only meaningful for an anchored entity (the validator needs names to match against).
+    if out.facts.get("expected_names"):
+        _merge(out, appstore.collect(domain, list(out.facts["expected_names"])))
 
     _merge(out, rdap.collect(domain))
     if out.facts.get("age_days") is not None:
