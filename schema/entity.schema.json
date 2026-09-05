@@ -111,6 +111,28 @@
           "description": "被判定为无效的证据及原因。必须保留并对外展示 —— 可解释性是对外承诺"
         },
         "reasons": { "type": "array", "items": { "type": "string" } },
+        "dispute": {
+          "type": "object",
+          "description": "A dispute hold (src/dispute.py): status stays disputed until a human clears it",
+          "required": ["at"],
+          "additionalProperties": false,
+          "properties": {
+            "at": { "type": "string", "format": "date-time" },
+            "issue": { "type": ["integer", "null"] },
+            "reason": { "type": "string" },
+            "hold": { "type": "boolean" },
+            "cleared": {
+              "type": "object",
+              "required": ["at", "by"],
+              "additionalProperties": false,
+              "properties": {
+                "at": { "type": "string", "format": "date-time" },
+                "by": { "type": "string" },
+                "note": { "type": "string" }
+              }
+            }
+          }
+        },
         "ai_review": {
           "type": "object",
           "description": "Second audit layer (src/review_ai.py). Flag-only: may hold a record at review_required, never promotes",

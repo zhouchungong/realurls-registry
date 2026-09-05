@@ -97,6 +97,16 @@ Two audits sit behind every `verified` record: a fixed manual sample before each
 
 This is not process for its own sake. If the JSON could be changed by a pull request, this repository would be the single most valuable target for anyone trying to launder a phishing domain, and "a carefully crafted PR slips past a tired reviewer" is a certainty over time. **Taking humans off the write path is the only reliable defence.**
 
+## 5a. What happens after a verdict
+
+| outcome | where it lives | how it is kept fresh | who hears about it |
+|---|---|---|---|
+| `verified` | `entities/*.yaml` in git → D1 → signed release | re-verified daily; a change writes `history` | the issue that asked (closed with the live link); API/MCP/site at once |
+| examined, not verified | the `examined` table (date, status, reasons) | re-examined when asked again after 30 days, or at once through the owner flow | API/MCP/site answer "examined on <date>"; the issue that asked gets the reasons |
+| downgraded by re-verification | `history` on the record; a maintainer issue | daily | owners on their own issue; consumers via the changed answer |
+| disputed | `dispute` hold on the record | held until cleared, with a public note | the disputing issue, within minutes |
+| rule change | POLICY.md, CHANGELOG.md, git history | full re-verification with the effect on records stated | everyone, in the changelog |
+
 ## 6. We keep no blacklist
 
 The `non_affiliated` field — "similar domains not linked to this entity" — is:
@@ -116,7 +126,7 @@ Per query we keep one aggregate counter: the day, the query key (a domain or a n
 We will make mistakes. Our commitments:
 
 1. **Dispute channel:** open an issue with the `dispute` template, or email `dispute@realurls.org`.
-2. **Response:** a dispute on a `verified` record downgrades it to `disputed` and stops positive API answers **within 48 hours** — stop the harm first, investigate second. The burden of proof is on us, not on you.
+2. **Response:** a dispute on a stored record downgrades it to `disputed` **automatically, within minutes** of the issue being filed (the bot does it; 48 hours is the outer bound we commit to if the bot fails), and positive API answers stop. It stays disputed until a maintainer clears the hold with a public note — stop the harm first, investigate second. The burden of proof is on us, not on you.
 3. **Owners win:** if you actually control the domain, a DNS TXT self-attestation (A5) overrides any verdict of ours. **You have the final say over your own domain.**
 4. **Public corrections:** every correction stays in the git history and in `CORRECTIONS.md`. Nothing is quietly deleted. A trust source that hides its own error record does not deserve trust.
 

@@ -155,6 +155,31 @@ jobs:
           gh workflow run deploy.yml --ref main
           gh workflow run release.yml --ref main
 
+
+      - name: Close open issues answered by this merge
+        if: steps.pr.outputs.url == 'merged'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python - <<'PY'
+          import json, subprocess
+          results = json.load(open("/tmp/results.json"))
+          for r in results:
+              if r.get("status", "verified" if r.get("verified") else "") != "verified":
+                  continue
+              domain = r["domain"]
+              slug = (r.get("entity_id") or "").split(":", 1)[-1]
+              out = subprocess.run(["gh", "issue", "list", "--state", "open", "--search", f"{domain} in:title", "--json", "number,title,labels"],
+                                   capture_output=True, text=True)
+              for issue in json.loads(out.stdout or "[]"):
+                  labels = {l["name"] for l in issue["labels"]}
+                  if not labels & {"lead", "owner-verification", "insufficient-evidence", "awaiting-dns"} or domain not in issue["title"]:
+                      continue
+                  body = f"**{domain}** is now `verified`: https://realurls.org/e/{slug} (live within minutes). Closing this issue."
+                  subprocess.run(["gh", "issue", "comment", str(issue["number"]), "--body", body], check=False)
+                  subprocess.run(["gh", "issue", "close", str(issue["number"]), "--reason", "completed"], check=False)
+          PY
+
       - name: Report back on each issue
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -59,6 +59,27 @@ jobs:
           GH_TOKEN=${{ secrets.GITHUB_TOKEN }} gh workflow run deploy.yml --ref main
           GH_TOKEN=${{ secrets.GITHUB_TOKEN }} gh workflow run release.yml --ref main
 
+      - name: Tell owners whose record was downgraded
+        if: steps.reval.outputs.exit == '2'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python - <<'PY'
+          import json, subprocess, pathlib
+          owners = {}
+          p = pathlib.Path("seeds/owners.jsonl")
+          if p.exists():
+              for line in p.read_text(encoding="utf-8").splitlines():
+                  if line.strip() and not line.startswith("#"):
+                      r = json.loads(line)
+                      if r.get("issue"): owners[r["domain"]] = r["issue"]
+          for o in json.load(open(".cache/revalidate.json")):
+              if o["action"] in ("downgraded", "review") and o["domain"] in owners:
+                  body = (f"Daily re-verification changed **{o['domain']}**: {o['old_status']} → {o['new_status']} ({o['reason']}). "
+                          "If the _realurls TXT record was removed or changed, restore it and comment `/verify`.")
+                  subprocess.run(["gh", "issue", "comment", str(owners[o["domain"]]), "--body", body], check=False)
+          PY
+
       - name: Open an issue on downgrades or review_required
         if: steps.reval.outputs.exit == '2'
         uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7

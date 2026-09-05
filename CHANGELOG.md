@@ -23,6 +23,13 @@ The dataset itself is released continuously as the rolling `latest` GitHub Relea
 - **Owner self-attestation (A5) end to end.** Seeds may carry the token we issued, the matched token is stored
   on the A5 record and re-checked daily. First owner request: kagi.com.
 
+### After the verdict
+- **Disputes act within minutes.** A `dispute` issue moves the record to `disputed` at once, deploys, and
+  holds it there until a maintainer clears the hold with a public note (TRUST.md 7 now says so).
+- **Feedback loops close.** When a domain verifies later, the open lead / owner issues that asked about it
+  are closed with the live link; owners are told on their own issue when daily re-verification downgrades
+  their record. TRUST.md 5a maps where every outcome lives and who hears about it.
+
 ### API and integrations
 - **Answers explain themselves to agents.** `/v1/resolve` and the MCP tools now return `evidence` (each
   anchor code with its meaning), `freshness`, `missing` (for insufficient_evidence: what was rejected and

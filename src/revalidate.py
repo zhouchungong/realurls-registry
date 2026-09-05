@@ -116,6 +116,12 @@ def apply(old_rec: dict, decision: Decision, facts: dict, new_evidence: list,
     # Rule 0: an AI-review hold is sticky. The record stays review_required, with fresh evidence, until a
     # human clears the hold (src/review_ai.py --clear). Without this, rule 3 would quietly restore
     # verified the next morning and the flag would have bought nothing.
+    if (old_rec.get("dispute") or {}).get("hold"):
+        _write_new()
+        rec["status"] = "disputed"
+        rec["reasons"] = [f"disputed (#{old_rec['dispute'].get('issue')}): positive answers stopped while the dispute is investigated"] \
+                         + list(decision.reasons)
+        return rec, Outcome(domain, old_status, "disputed", "review", "dispute hold still in place", incomplete)
     if (old_rec.get("ai_review") or {}).get("hold"):
         _write_new()
         rec["status"] = "review_required"

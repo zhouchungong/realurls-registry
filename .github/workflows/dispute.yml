@@ -1,0 +1,81 @@
+name: Dispute
+
+# A dispute issue downgrades the record to `disputed` at once and deploys, so positive answers stop within
+# minutes (TRUST.md 7 promises 48 hours). The hold stays until a human clears it (src/dispute.py clear).
+
+on:
+  issues:
+    types: [labeled]
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: entities-writer
+  cancel-in-progress: false
+
+jobs:
+  dispute:
+    if: github.event.label.name == 'dispute'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.11"
+      - run: pip install -e "."
+
+      - name: Read the dispute
+        id: d
+        env:
+          BODY: ${{ github.event.issue.body }}
+        run: |
+          python - <<'PY' >> "$GITHUB_OUTPUT"
+          import os, re
+          body = os.environ["BODY"]
+          def field(label):
+              m = re.search(r"### " + re.escape(label) + r"\s*\n+(.*?)(?:\n###|\Z)", body, re.S)
+              v = (m.group(1).strip() if m else "")
+              return "" if v in ("", "_No response_") else v
+          print("domain=" + field("Domain in question").lower().strip())
+          print("kind=" + field("What kind of error?").replace("\n", " ")[:120])
+          PY
+
+      - name: Downgrade the record
+        id: apply
+        if: steps.d.outputs.domain != ''
+        run: |
+          set +e
+          python -m src.dispute apply "${{ steps.d.outputs.domain }}" --issue ${{ github.event.issue.number }} --reason "${{ steps.d.outputs.kind }}" --json /tmp/dispute.json
+          echo "found=$(python -c "import json;print(int(json.load(open('/tmp/dispute.json'))['found']))")" >> "$GITHUB_OUTPUT"
+          python -m src.validate
+
+      - name: Commit and deploy
+        if: steps.apply.outputs.found == '1'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name  "realurls-bot"
+          git config user.email "bot@realurls.org"
+          git add entities/
+          git commit -m "data(dispute): ${{ steps.d.outputs.domain }} -> disputed (#${{ github.event.issue.number }})"
+          git pull --rebase origin main
+          git push
+          gh workflow run deploy.yml --ref main
+          gh workflow run release.yml --ref main
+
+      - name: Reply
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DOMAIN: ${{ steps.d.outputs.domain }}
+          FOUND: ${{ steps.apply.outputs.found }}
+        run: |
+          if [ -z "$DOMAIN" ]; then
+            gh issue comment ${{ github.event.issue.number }} --body "I could not find a domain in this issue. Please edit **Domain in question** and re-add the \`dispute\` label; a maintainer will also look."
+          elif [ "$FOUND" = "1" ]; then
+            gh issue comment ${{ github.event.issue.number }} --body "**$DOMAIN** is now \`disputed\`: positive answers for it stop as soon as the deploy finishes (minutes). The record keeps its evidence for the investigation, and stays disputed until a maintainer clears the hold with a public note. The burden of proof is on us; thank you for reporting."
+          else
+            gh issue comment ${{ github.event.issue.number }} --body "**$DOMAIN** is not a stored record, so there is no positive answer to stop. If the concern is about a lookalike hint or an examination result, a maintainer will look at it here."
+          fi
