@@ -118,7 +118,8 @@ def structural_links(domain: str, other: str) -> Result:
         ns_b = {n.lower() for n in _dns(other, "NS")}
         if ns_a & ns_b:
             links.append("shared_ns")
-            r.note(f"link: {domain} 与 {other} 共享 NS {sorted(ns_a & ns_b)[:2]}")
+            r.extra["shared_ns"] = sorted(ns_a & ns_b)[:4]
+            r.note(f"link: {domain} and {other} share name servers {sorted(ns_a & ns_b)[:2]}")
     except FetchError as exc:
         r.note(f"link: NS 比对失败：{exc}")
 

@@ -80,7 +80,7 @@ def test_propagated_sibling_domain_is_verified():
         facts,
         [
             ev("A6", **{"from": "anthropic.com", "from_status": "verified",
-                        "first_party_link": True, "structural_links": ["shared_ns"]}),
+                        "first_party_link": True, "structural_links": ["shared_ns"], "backlink": True}),
             ev("B5", rank=120),
             ev("B4", history_days=1400),
         ],
@@ -384,12 +384,17 @@ def test_a6_rejects_when_candidate_links_out_but_not_back():
     assert "A6" not in d.anchors and not d.is_official
 
 
-def test_a6_unknown_backlink_is_not_a_no():
-    """claude.ai answers 403 to our fetcher: no page, no links, no verdict about backlinks."""
+def test_a6_shared_ns_needs_a_seen_backlink_but_a_certificate_does_not():
+    """Big sites answer 403 to our fetcher; with shared name servers alone "unknown" is not enough. The
+    anchor's own certificate covering the domain is."""
     facts = DomainFacts(domain="claude.ai", age_days=1500, **ANTHROPIC_ANCHOR)
-    for value in (None, True):
-        d = decide(facts, [_a6(backlink=value), ev("B5", rank=120), ev("B4", history_days=1400)], now=NOW)
-        assert d.anchors == ["A6"], value
+    unknown = decide(facts, [_a6(backlink=None), ev("B5", rank=120), ev("B4", history_days=1400)], now=NOW)
+    assert "A6" not in unknown.anchors
+    seen = decide(facts, [_a6(backlink=True), ev("B5", rank=120), ev("B4", history_days=1400)], now=NOW)
+    assert seen.anchors == ["A6"]
+    cert = decide(facts, [_a6(backlink=None, structural_links=["cert_san"], san_count=4),
+                          ev("B5", rank=120), ev("B4", history_days=1400)], now=NOW)
+    assert cert.anchors == ["A6"]
 
 
 # ------------------------------------------------------------------ A9 App Store history

@@ -283,3 +283,11 @@ cases:
       - {code: A9, data: {app: "Some App", seller: "Some App Company Inc.", seller_url: "https://some-app-company[.]example", age_days: 2000, ratings: 50000, apps: [{app: "Some App", seller: "Some App Company Inc.", age_days: 2000, ratings: 50000}]}}
       - {code: B4, data: {history_days: 2900}}
       - {code: B5, data: {rank: 20000}}
+
+  - id: propagation-sponsor-site-backlink-unknown
+    technique: 开源项目首页链接到赞助商（大站），两者恰好共享池化 NS；大站对采集器返回 403，反向链接未知（gh-01 批次的真实误报形态：anthropic.com / digitalocean.com / vmware.com 被"扩散"给受赞助项目）
+    facts: {domain: "big-sponsor[.]example", age_days: 6000, expected_github_org: "python", anchor_sources: ["github-history:python/cpython"], expected_names: ["cpython", "python"]}
+    evidence:
+      - {code: A6, data: {from: "python[.]org", from_status: verified, first_party_link: true, structural_links: ["shared_ns"], san_count: 0, backlink: null}}
+      - {code: B4, data: {history_days: 5800}}
+      - {code: B5, data: {rank: 900}}

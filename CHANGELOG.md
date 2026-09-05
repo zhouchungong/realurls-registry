@@ -7,6 +7,12 @@ The dataset itself is released continuously as the rolling `latest` GitHub Relea
 ## 2026-09-06
 
 ### Rules
+- **A6 (propagation): shared name servers alone now need a backlink that was actually seen.** The first
+  full-category batch propagated anthropic.com, digitalocean.com, alibabacloud.com, vmware.com and others
+  from open-source projects that merely link to their sponsors, because those sites answer 403 to the
+  fetcher and their backlink was "unknown". Unknown now counts as no; the source's own certificate
+  covering the domain still stands on its own. Existing records: claude.ai keeps verified through A9;
+  claude.com and n8n.cloud lose their propagated anchor (see the batch review). New adversarial case.
 - **New anchor A9, App Store history.** An app sold to the domain by an Apple-verified company named like
   the (already anchored) entity, on the store at least 2 years with at least 1,000 ratings. The commercial
   counterpart of A8 for organisations that never verify a GitHub domain. Weight 0.55. Measured before

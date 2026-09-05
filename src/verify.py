@@ -177,6 +177,7 @@ def _propagate_from(anchor_domain: str, domain: str, anchor_result: Result | Non
             "first_party_link": first_party,
             "structural_links": links.extra.get("structural_links", []),
             "san_count": links.extra.get("san_count", 0),
+            "shared_ns": links.extra.get("shared_ns", []),
             "backlink": backlink,
         },
         source=f"propagate from {anchor_domain}",

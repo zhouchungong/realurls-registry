@@ -21,14 +21,14 @@ domains:
   status: verified
   confidence: 0.7105
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T09:53:30Z'
+  last_verified: '2026-09-05T22:31:13Z'
   ttl_days: 30
   age_days: 11427
   age_source: rdap
   collection_incomplete: false
   evidence:
   - code: A3
-    checked_at: '2026-09-05T09:53:33Z'
+    checked_at: '2026-09-05T22:31:30Z'
     source: https://rdap.org/domain/claude.com
     data:
       registrar: MarkMonitor Inc.
@@ -40,27 +40,27 @@ domains:
       - transfer
       - update
   - code: A4
-    checked_at: '2026-09-05T09:53:34Z'
+    checked_at: '2026-09-05T22:31:31Z'
     source: TLS handshake claude.com:443
     data:
       subject_org: ''
       validation_type: DV
       issuer: Let's Encrypt
       san_count: 1
+  - code: B5
+    checked_at: '2026-09-05T22:31:30Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 2672
+      source: top-1m list
   - code: B4
-    checked_at: '2026-09-05T09:53:34Z'
+    checked_at: '2026-09-05T22:31:30Z'
     source: http://web.archive.org/cdx/search/cdx?url=claude.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '1999-11-03'
       history_days: 9803
-  - code: B5
-    checked_at: '2026-09-05T09:53:34Z'
-    source: https://tranco-list.eu/api/ranks/domain/claude.com
-    data:
-      rank: 2672
-      date: '2026-09-04'
   - code: A6
-    checked_at: '2026-09-05T09:53:30Z'
+    checked_at: '2026-09-05T22:31:13Z'
     source: propagate from anthropic.com
     data:
       from: anthropic.com
@@ -69,6 +69,10 @@ domains:
       structural_links:
       - shared_ns
       san_count: 1
+      shared_ns:
+      - isla.ns.cloudflare.com
+      - randy.ns.cloudflare.com
+      backlink: true
   rejected_evidence:
   - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
   - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
@@ -77,28 +81,47 @@ domains:
 - domain: claude.ai
   role: product
   status: verified
-  confidence: 0.7105
+  confidence: 0.6278
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T09:53:30Z'
+  last_verified: '2026-09-05T22:31:13Z'
   ttl_days: 30
-  age_days: 2953
+  age_days: 2954
   age_source: rdap
   collection_incomplete: false
   evidence:
+  - code: A9
+    checked_at: '2026-09-05T22:31:33Z'
+    source: https://itunes.apple.com/search?term=Anthropic&entity=software
+    data:
+      app: Claude by Anthropic
+      track_id: 6473753684
+      seller: Anthropic PBC
+      artist: Anthropic PBC
+      seller_url: https://claude.ai
+      released: '2024-05-01'
+      age_days: 857
+      ratings: 252181
+      apps_for_domain: 1
+      apps:
+      - app: Claude by Anthropic
+        seller: Anthropic PBC
+        released: '2024-05-01'
+        age_days: 857
+        ratings: 252181
   - code: A3
-    checked_at: '2026-09-05T09:53:36Z'
+    checked_at: '2026-09-05T22:31:33Z'
     source: https://rdap.org/domain/claude.ai
     data:
       registrar: MarkMonitor Inc.
       created: '2018-08-04'
       expires: '2029-08-04'
-      remaining_days: 1064
+      remaining_days: 1063
       locks:
       - delete
       - transfer
       - update
   - code: A4
-    checked_at: '2026-09-05T09:53:36Z'
+    checked_at: '2026-09-05T22:31:34Z'
     source: TLS handshake claude.ai:443
     data:
       subject_org: ''
@@ -106,7 +129,7 @@ domains:
       issuer: Let's Encrypt
       san_count: 3
   - code: B1
-    checked_at: '2026-09-05T09:53:36Z'
+    checked_at: '2026-09-05T22:31:34Z'
     source: https://www.wikidata.org/wiki/Q118876059
     data:
       qid: Q118876059
@@ -114,20 +137,20 @@ domains:
       site: https://claude.ai
       sitelinks: 59
       competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T22:31:34Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 436
+      source: top-1m list
   - code: B4
-    checked_at: '2026-09-05T09:53:36Z'
+    checked_at: '2026-09-05T22:31:34Z'
     source: http://web.archive.org/cdx/search/cdx?url=claude.ai&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2021-12-31'
       history_days: 1709
-  - code: B5
-    checked_at: '2026-09-05T09:53:36Z'
-    source: https://tranco-list.eu/api/ranks/domain/claude.ai
-    data:
-      rank: 434
-      date: '2026-09-03'
   - code: A6
-    checked_at: '2026-09-05T09:53:30Z'
+    checked_at: '2026-09-05T22:31:13Z'
     source: propagate from anthropic.com
     data:
       from: anthropic.com
@@ -136,10 +159,16 @@ domains:
       structural_links:
       - shared_ns
       san_count: 1
+      shared_ns:
+      - isla.ns.cloudflare.com
+      - randy.ns.cloudflare.com
+      backlink: null
   rejected_evidence:
   - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
   - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
   - 'B1: item Q118876059 != entity canonical item Q116758847'
+  - 'A6: this site could not be seen linking back to anthropic.com; with shared name servers as the only structural
+    link a sibling must link back'
   reasons:
   - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
 - domain: anthropic.com

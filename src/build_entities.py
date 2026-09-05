@@ -166,9 +166,13 @@ def build_one(seed: dict, now: datetime) -> tuple[dict | None, str]:
     if not seed.get("anchor") and seed.get("propagate", True):
         from src.policy import PLATFORM_DOMAINS, registrable_domain
         seen = {domain}
+        stored = _stored_domains()
         for cand in result.extra.get("outbound_domains", [])[:MAX_PROPAGATE]:
             cand = registrable_domain(cand)
             if not cand or cand in seen or cand in PLATFORM_DOMAINS:
+                continue
+            if cand in stored and stored[cand] != record["entity_id"]:
+                print(f"  · {cand}: already held by {stored[cand]}; not propagated", file=sys.stderr)
                 continue
             seen.add(cand)
             # Cheap pre-check: the A6 rule rejects a candidate whose page links out but never back to the anchor,
@@ -198,6 +202,21 @@ def build_one(seed: dict, now: datetime) -> tuple[dict | None, str]:
             print(f"  ↳ {cand}: verified {d2.confidence:.2f} (propagated from {domain})", file=sys.stderr)
 
     return record, f"{domain}: verified {decision.confidence:.2f} → {entity_id}"
+
+
+_STORED: dict[str, str] | None = None
+
+
+def _stored_domains() -> dict[str, str]:
+    """domain → entity_id for everything already in entities/ (read once per process)."""
+    global _STORED
+    if _STORED is None:
+        _STORED = {}
+        for p in ENTITIES.glob("*/*.yaml"):
+            doc = yaml.safe_load(p.read_text(encoding="utf-8")) or {}
+            for d in doc.get("domains", []):
+                _STORED[d["domain"]] = doc.get("entity_id", "")
+    return _STORED
 
 
 def _policy_version() -> str:

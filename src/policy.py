@@ -392,11 +392,18 @@ def _v_a6(ev: Evidence, facts: DomainFacts) -> tuple[bool, str]:
         return False, "no structural link (need at least one of shared_ns / cert_san / shared_registrar)"
     if links == {"cert_san"} and int(ev.data.get("san_count", 0)) > MAX_SAN_FOR_PROPAGATION:
         return False, f"certificate has {ev.data.get('san_count')} SANs > {MAX_SAN_FOR_PROPAGATION}; looks like a shared CDN certificate"
-    # A verified site links to plenty of third parties, and name-server pairs come from shared pools; a
-    # third party that has its own outbound links and none of them point back at the anchor is not a
-    # sibling. Unknown (page unfetchable, no links at all) is not treated as "no".
-    if ev.data.get("backlink") is False:
-        return False, f"this site links out but never to {ev.data.get('from')}; a sibling domain links back to its anchor"
+    # A verified site links to plenty of third parties (sponsors, partners, social platforms) and name-server
+    # pairs come from shared pools, so "first-party link + shared NS" alone is a coincidence waiting to
+    # happen: in the first full-category batch anthropic.com, digitalocean.com, alibabacloud.com and
+    # vmware.com were each "propagated" from projects they merely sponsor. Big sites also answer 403 to our
+    # fetcher, so their backlink was "unknown". Hence: with shared name servers as the only structural link
+    # the candidate must be *seen* linking back; unknown counts as no. A certificate SAN (same certificate,
+    # small SAN list) is the anchor's own infrastructure and stands on its own.
+    if "cert_san" in links and int(ev.data.get("san_count", 0)) <= MAX_SAN_FOR_PROPAGATION:
+        return True, ""
+    if ev.data.get("backlink") is not True:
+        why = "links out but never to" if ev.data.get("backlink") is False else "could not be seen linking back to"
+        return False, f"this site {why} {ev.data.get('from')}; with shared name servers as the only structural link a sibling must link back"
     return True, ""
 
 
