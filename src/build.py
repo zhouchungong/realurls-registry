@@ -166,7 +166,7 @@ def build(out_dir: Path = DIST) -> dict:
         "files": {name: {"sha256": _sha256(out_dir / name), "bytes": (out_dir / name).stat().st_size}
                   for name in ("registry.json", "domains.json", "entities.json", "domains.txt", "registry.sqlite")},
         "license": "CC-BY-SA-4.0",
-        "trust": "https://github.com/realurls/registry/blob/main/TRUST.md",
+        "trust": "https://github.com/zhouchungong/realurls-registry/blob/main/TRUST.md",
     }
     (out_dir / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2),
                                            encoding="utf-8")

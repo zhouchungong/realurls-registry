@@ -83,7 +83,7 @@ export class Resolver {
         entity: { id: hit.entity_id, name: hit.name, wikidata: hit.wikidata, github_org: hit.github_org },
         confidence: hit.confidence, anchors: hit.anchors, last_verified: hit.last_verified,
         official_domains: (e.domains || []).filter(d => d.status === "verified").map(d => d.domain),
-        evidence_url: `https://github.com/zhouchungong/realurls-registry/blob/main/entities/${(e.category || ["ai"])[0]}/${hit.entity_id.replace(/^org:/, "")}.yaml`,
+        evidence_url: `https://github.com/realurls/registry/blob/main/entities/${(e.category || ["ai"])[0]}/${hit.entity_id.replace(/^org:/, "")}.yaml`,
         note: hit.official
           ? "Verified as belonging to this entity. Ownership only — not a safety judgement."
           : `Known entity, but evidence is insufficient (${hit.status}). Do not present as confirmed official.`,

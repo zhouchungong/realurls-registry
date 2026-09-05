@@ -25,7 +25,7 @@ from typing import Any
 from src.policy import Evidence
 
 CACHE_DIR = Path(__file__).resolve().parents[2] / ".cache"
-USER_AGENT = "realurls-registry/0.0.1 (+https://github.com/realurls/registry)"
+USER_AGENT = "realurls-registry/0.0.1 (+https://github.com/zhouchungong/realurls-registry)"
 DEFAULT_TTL_HOURS = 24
 
 

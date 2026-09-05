@@ -19,6 +19,7 @@ import { Resolver } from "../../packages/core/resolve.mjs";
 import domains from "../../dist/domains.json";
 import entities from "../../dist/entities.json";
 import manifest from "../../dist/manifest.json";
+import { handleSite } from "./site.mjs";
 
 const resolver = new Resolver({ domains, entities, manifest });
 const VERIFIED_TXT = Object.entries(domains).filter(([, v]) => v.official).map(([d]) => d).sort().join("\n") + "\n";
@@ -36,7 +37,7 @@ function json(body, status = 200, extra = {}) {
       "Content-Type": "application/json; charset=utf-8",
       "Cache-Control": "public, max-age=300",
       "X-Realurls-Dataset": manifest.dataset_version,
-      "X-Realurls-Trust": "https://github.com/realurls/registry/blob/main/TRUST.md",
+      "X-Realurls-Trust": "https://github.com/zhouchungong/realurls-registry/blob/main/TRUST.md",
       ...CORS, ...extra,
     },
   });
@@ -50,12 +51,25 @@ export default {
     const url = new URL(request.url);
     const path = url.pathname.replace(/\/+$/, "") || "/";
 
+    // realurls.org（及 www）出 HTML；api.realurls.org / workers.dev 出 JSON。
+    // 站点域上的 /v1/* 仍走 API，方便页面里的 fetch 同源。
+    // wrangler dev 会把 url.hostname 改写成 localhost，但 Host 头保留原值——以头为准便于本地用 -H Host 测试
+    const host = (request.headers.get("host") || url.hostname).split(":")[0].toLowerCase();
+    if (host === "realurls.org" || host === "www.realurls.org") {
+      const page = handleSite(request, resolver);
+      if (page) return page;
+    }
+
     switch (path) {
       case "/healthz":
         return json({ ok: true, ...resolver.meta() });
 
       case "/v1/manifest":
         return json(manifest);
+
+      // 浏览器扩展每日拉一次，本地判定，不逐页请求 API（隐私：浏览记录不离开本机）
+      case "/v1/domains.json":
+        return json(domains, 200, { "Cache-Control": "public, max-age=3600" });
 
       case "/v1/domains.txt":
         return new Response(VERIFIED_TXT, {
@@ -79,7 +93,7 @@ export default {
         return json({
           name: "realurls", what: "Which domain officially belongs to which organization. Ownership only, never safety.",
           endpoints: ["/v1/resolve?domain=", "/v1/entity?q=", "/v1/manifest", "/v1/domains.txt", "/healthz"],
-          trust: "https://github.com/realurls/registry/blob/main/TRUST.md",
+          trust: "https://github.com/zhouchungong/realurls-registry/blob/main/TRUST.md",
           ...resolver.meta(),
         });
 
