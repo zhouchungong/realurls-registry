@@ -17,6 +17,7 @@ on:
 
 permissions:
   contents: write
+  actions: write       # gh workflow run deploy.yml / release.yml after a merge
 
 concurrency:
   group: examine
