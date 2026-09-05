@@ -1,0 +1,100 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:obsidianmd
+names:
+  en: Obsidian
+aliases:
+- obsidianmd
+category:
+- developer-tools
+wikidata: Q103994532
+canonical:
+  github_org: obsidianmd
+  wikidata: Q103994532
+  sources:
+  - wikidata:Q103994532/P856
+  - wikidata:Q103994532/P2037
+domains:
+- domain: obsidian.md
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T19:58:24Z'
+  ttl_days: 30
+  age_days: 2339
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:58:25Z'
+    source: https://api.github.com/orgs/obsidianmd
+    data:
+      org: obsidianmd
+      org_verified: false
+      blog: obsidian.md
+  - code: A9
+    checked_at: '2026-09-05T19:58:26Z'
+    source: https://itunes.apple.com/search?term=Obsidian&entity=software
+    data:
+      app: Obsidian - Connected Notes
+      track_id: 1557175442
+      seller: Dynalist Inc.
+      artist: Dynalist Inc.
+      seller_url: https://obsidian.md/
+      released: '2021-07-10'
+      age_days: 1883
+      ratings: 2706
+      apps_for_domain: 2
+      apps:
+      - app: Obsidian - Connected Notes
+        seller: Dynalist Inc.
+        released: '2021-07-10'
+        age_days: 1883
+        ratings: 2706
+      - app: Obsidian Web Clipper
+        seller: Dynalist Inc.
+        released: '2024-09-26'
+        age_days: 709
+        ratings: 100
+  - code: A4
+    checked_at: '2026-09-05T19:58:26Z'
+    source: TLS handshake obsidian.md:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T19:58:26Z'
+    source: https://www.wikidata.org/wiki/Q103994532
+    data:
+      qid: Q103994532
+      label: Obsidian
+      site: https://obsidian.md
+      sitelinks: 22
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T19:58:27Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 5387
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:58:56Z'
+    source: http://web.archive.org/cdx/search/cdx?url=obsidian.md&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2020-04-10'
+      history_days: 2339
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@f769562
+  label_source: wikidata:Q103994532
+  reviewed_by: []
+  source_issue: null
