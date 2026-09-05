@@ -83,6 +83,12 @@ jobs:
           git push
           echo "merged=1" >> "$GITHUB_OUTPUT"
 
+      - name: Deploy the new dataset
+        if: steps.merge.outputs.merged == '1'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run deploy.yml --ref main
+
       - name: Record a non-verified outcome in D1
         if: steps.lead.outputs.domain != '' && hashFiles('.cache/examined.sql') != ''
         uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd # v3

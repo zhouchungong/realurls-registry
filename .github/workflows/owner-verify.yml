@@ -147,6 +147,12 @@ jobs:
           git push
           echo "url=merged" >> "$GITHUB_OUTPUT"
 
+      - name: Deploy the new dataset
+        if: steps.pr.outputs.url == 'merged'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run deploy.yml --ref main
+
       - name: Report back on each issue
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

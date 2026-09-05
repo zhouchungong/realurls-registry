@@ -179,9 +179,13 @@ def _save(path: Path, record: dict) -> None:
 
 
 def _changed_files(ref: str) -> set[str]:
-    out = subprocess.run(["git", "diff", "--name-only", ref, "--", "entities/"], cwd=ROOT,
-                         capture_output=True, text=True, check=True)
-    return {line.strip().replace("\\", "/") for line in out.stdout.splitlines() if line.strip()}
+    """Entity files that differ from ``ref`` plus files not yet tracked at all: a record written by the
+    pipeline minutes ago is exactly what this review exists for, and ``git diff`` alone would skip it."""
+    diff = subprocess.run(["git", "diff", "--name-only", ref, "--", "entities/"], cwd=ROOT,
+                          capture_output=True, text=True, check=True)
+    untracked = subprocess.run(["git", "ls-files", "--others", "--exclude-standard", "--", "entities/"], cwd=ROOT,
+                               capture_output=True, text=True, check=True)
+    return {line.strip().replace("\\", "/") for line in (diff.stdout + untracked.stdout).splitlines() if line.strip()}
 
 
 def main(argv: list[str] | None = None) -> int:
