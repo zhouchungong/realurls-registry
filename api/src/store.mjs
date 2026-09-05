@@ -91,7 +91,7 @@ export class Store {
         note: hit.official ? verdictNotes.official : verdictNotes.insufficient(hit.status),
       };
     }
-    const near = closestLabel(await this.labels(), domain);
+    const near = closestLabel(await this.labels(), domain, input);
     if (near) {
       const e = await this.db.prepare("SELECT name FROM entities WHERE entity_id = ?").bind(near.entity_id).first();
       return {

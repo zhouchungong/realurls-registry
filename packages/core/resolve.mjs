@@ -90,7 +90,7 @@ export class Resolver {
       };
     }
 
-    const near = this.closest(domain);
+    const near = this.closest(domain, input);
     if (near) {
       const e = this.entities[near.entity_id] || {};
       return {
@@ -136,8 +136,8 @@ export class Resolver {
     };
   }
 
-  closest(domain) {
-    return closestLabel(this.verifiedLabels, domain);
+  closest(domain, host = domain) {
+    return closestLabel(this.verifiedLabels, domain, host);
   }
 }
 
@@ -146,17 +146,75 @@ export class Resolver {
  * Shared by the in-memory Resolver (extension) and the D1-backed store (Worker).
  * Only verified domains may serve as the baseline — never an unverified one.
  */
-export function closestLabel(labels, domain) {
-  const label = normalizeLabel(domain.split(".")[0]);
-  if (label.length < 3) return null;
+/** RFC 3492 Punycode decoder for one "xn--" label, so that a homograph registered as IDN is compared
+ *  after confusable folding (xn--nthropic-06g → аnthropic → anthropic). Returns the input unchanged on
+ *  malformed data. */
+export function decodePunycode(label) {
+  if (!label.startsWith("xn--")) return label;
+  const input = label.slice(4);
+  const base = 36, tMin = 1, tMax = 26, skew = 38, damp = 700;
+  let n = 128, i = 0, bias = 72;
+  const basicEnd = input.lastIndexOf("-");
+  const out = basicEnd > 0 ? Array.from(input.slice(0, basicEnd)) : [];
+  const digit = c => (c >= "0" && c <= "9") ? c.charCodeAt(0) - 22 : c.charCodeAt(0) - 97;
+  const adapt = (delta, len, first) => {
+    delta = first ? Math.floor(delta / damp) : delta >> 1;
+    delta += Math.floor(delta / len);
+    let k = 0;
+    for (; delta > ((base - tMin) * tMax) >> 1; k += base) delta = Math.floor(delta / (base - tMin));
+    return k + Math.floor(((base - tMin + 1) * delta) / (delta + skew));
+  };
+  try {
+    for (let p = basicEnd > 0 ? basicEnd + 1 : 0; p < input.length;) {
+      const oldI = i;
+      let w = 1;
+      for (let k = base; ; k += base) {
+        if (p >= input.length) return label;
+        const d = digit(input[p++]);
+        if (d < 0 || d >= base) return label;
+        i += d * w;
+        const t = k <= bias ? tMin : k >= bias + tMax ? tMax : k - bias;
+        if (d < t) break;
+        w *= base - t;
+      }
+      bias = adapt(i - oldI, out.length + 1, oldI === 0);
+      n += Math.floor(i / (out.length + 1));
+      i %= out.length + 1;
+      out.splice(i++, 0, String.fromCodePoint(n));
+    }
+  } catch { return label; }
+  return out.join("");
+}
+
+/** Hostname of an input (URL, host or bare domain), lowercased, without port. */
+export function hostOf(input) {
+  let s = String(input || "").trim().toLowerCase();
+  s = s.replace(/^[a-z][a-z0-9+.-]*:\/\//, "").split(/[/?#]/)[0].split("@").pop().split(":")[0];
+  return s.replace(/\.$/, "");
+}
+
+/** Closest verified label to the input. Every label of the full hostname is a candidate, not only the
+ *  registrable one: login.anthropic.com.evil-host.net puts the brand in a subdomain, xn-- labels are
+ *  decoded first. `domain` is the registrable domain (never matched against itself). */
+export function closestLabel(labels, domain, host = domain) {
+  const suffix = domain.split(".").slice(1).join(".");
+  const candidates = new Set();
+  for (const raw of hostOf(host).split(".")) {
+    const lab = normalizeLabel(decodePunycode(raw));
+    if (lab.length >= 3 && !suffix.split(".").includes(raw)) candidates.add(lab);
+  }
+  candidates.add(normalizeLabel(decodePunycode(domain.split(".")[0])));
   let best = null;
-  for (const v of labels) {
-    if (v.domain === domain) continue;
-    const contains = label.includes(v.label) || v.label.includes(label);
-    const dist = levenshtein(label, v.label);
-    // containment (claude-desktop ⊃ claude) scores 2; otherwise plain edit distance ≤ 2 counts as similar
-    const score = contains && v.label.length >= 4 ? Math.min(dist, 2) : dist;
-    if (score <= 2 && (!best || score < best.distance)) best = { ...v, distance: score };
+  for (const label of candidates) {
+    if (label.length < 3) continue;
+    for (const v of labels) {
+      if (v.domain === domain) continue;
+      const contains = label.includes(v.label) || v.label.includes(label);
+      const dist = levenshtein(label, v.label);
+      // containment (claude-desktop ⊃ claude) scores 2; otherwise plain edit distance ≤ 2 counts as similar
+      const score = contains && v.label.length >= 4 ? Math.min(dist, 2) : dist;
+      if (score <= 2 && (!best || score < best.distance)) best = { ...v, distance: score, matched: label };
+    }
   }
   return best;
 }

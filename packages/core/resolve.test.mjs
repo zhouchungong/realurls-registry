@@ -83,3 +83,18 @@ test("levenshtein basics", () => {
   assert.equal(levenshtein("kitten", "sitting"), 3);
   assert.equal(levenshtein("", "abc"), 3);
 });
+
+test("lookalike: brand in a subdomain of an unrelated host", () => {
+  const out = r.resolve("https://login.anthropic.com.evil-host.net/session");
+  assert.equal(out.verdict, "not_official");
+  assert.equal(out.looks_like.domain, "anthropic.com");
+});
+
+test("lookalike: punycode homograph is decoded before folding", () => {
+  assert.equal(r.resolve("xn--nthropic-06g.com").verdict, "not_official");
+  assert.equal(r.resolve("https://xn--llama-iye.com/download").looks_like.domain, "ollama.com");
+});
+
+test("no lookalike for an unrelated domain", () => {
+  assert.equal(r.resolve("example.org").verdict, "unknown");
+});
