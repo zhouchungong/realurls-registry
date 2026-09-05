@@ -8,7 +8,7 @@
  */
 
 const PROTOCOL = "2025-06-18";
-const VERSION = "0.1.3";
+const VERSION = "0.1.4";
 
 export const INSTRUCTIONS =
   "Realurls verifies which domain officially belongs to a software product, AI tool, or company. " +

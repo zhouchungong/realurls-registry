@@ -18,7 +18,7 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { z } from "zod";
 
 const API = (process.env.REALURLS_API || "https://api.realurls.org").replace(/\/+$/, "");
-const VERSION = "0.1.3";
+const VERSION = "0.1.4";
 
 const INSTRUCTIONS =
   "Realurls verifies which domain officially belongs to a software product, AI tool, or company. " +
