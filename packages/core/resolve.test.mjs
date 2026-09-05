@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { Resolver, registrableDomain, levenshtein } from "./resolve.mjs";
+import { Resolver, registrableDomain, levenshtein, withGuidance } from "./resolve.mjs";
 
 const dataset = {
   manifest: { dataset_version: "test", counts: { verified: 2 } },
@@ -97,4 +97,16 @@ test("lookalike: punycode homograph is decoded before folding", () => {
 
 test("no lookalike for an unrelated domain", () => {
   assert.equal(r.resolve("example.org").verdict, "unknown");
+});
+
+test("withGuidance: only official carries URLs; queued and examined are distinguished", () => {
+  const off = withGuidance({ verdict: "official", domain: "anthropic.com", entity: { name: "Anthropic" }, official_domains: ["anthropic.com", "claude.ai"] });
+  assert.match(off.say_to_user, /https:\/\/anthropic\.com, https:\/\/claude\.ai/);
+  const queued = withGuidance({ verdict: "unknown", domain: "x.example", examination: { status: "queued" } });
+  assert.match(queued.say_to_user, /queued for examination/);
+  const examined = withGuidance({ verdict: "unknown", domain: "x.example", examination: { status: "unverified", checked_at: "2026-09-05T19:08:26Z", reasons: "insufficient evidence" } });
+  assert.match(examined.say_to_user, /examined on 2026-09-05/);
+  assert.doesNotMatch(examined.say_to_user, /https:\/\/x\.example/);
+  const look = withGuidance({ verdict: "not_official", domain: "claude-desktop.io", looks_like: { name: "Anthropic" }, official_domains: ["claude.ai"] });
+  assert.match(look.say_to_user, /not a known domain of Anthropic/);
 });

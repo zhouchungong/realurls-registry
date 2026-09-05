@@ -1,13 +1,14 @@
 #!/usr/bin/env node
 /**
- * Realurls MCP server.
+ * Realurls MCP server for stdio hosts: a thin bridge to the remote MCP endpoint.
  *
- * Holds no data: every tool call goes to the Realurls API. The `instructions` string is the lever that
- * matters — in our experiments it is the only text a host reads at the moment the model "already knows"
- * a URL, so it tells the model to verify first and to say "could not confirm" rather than guess.
+ * The remote endpoint (POST https://api.realurls.org/mcp, Streamable HTTP) is the single implementation:
+ * instructions, tool definitions and every answer, including the `say_to_user` wording, come from there.
+ * This process only speaks stdio to the host and JSON-RPC over HTTPS to the endpoint, so the two ways of
+ * installing Realurls can never disagree.
  *
- * Every non-positive verdict is returned with a `say_to_user` line so the agent has the wording ready;
- * only `official` carries URLs the agent may hand out.
+ * If the endpoint cannot be reached at start-up the two known tools are still registered so the host does
+ * not fail to load; each call then reports that verification is unavailable rather than guessing.
  *
  * Environment:
  *   REALURLS_API   API root, default https://api.realurls.org (local development: http://127.0.0.1:8787)
@@ -18,74 +19,62 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { z } from "zod";
 
 const API = (process.env.REALURLS_API || "https://api.realurls.org").replace(/\/+$/, "");
-const VERSION = "0.1.4";
+const VERSION = "0.1.5";
+const UNAVAILABLE = {
+  verdict: "error",
+  say_to_user: "Official-site verification is unavailable right now, so I cannot confirm any URL as official. Do not present any URL as official meanwhile.",
+};
 
-const INSTRUCTIONS =
-  "Realurls verifies which domain officially belongs to a software product, AI tool, or company. " +
-  "Whenever you are about to give the user a URL for downloading, installing, logging into, or visiting the " +
-  "official site of ANY software product or company, call get_official_url first and use ONLY the URLs it " +
-  "returns — even if you are confident you already know the URL. Popular, well-known tools are exactly the " +
-  "ones targeted by SEO-poisoned lookalike download sites, and memorized URLs can be stale. " +
-  "When the user pastes a URL and asks whether it is official, call verify_url. " +
-  "If the tool returns insufficient_evidence or unknown, say so plainly rather than guessing; confidence never " +
-  "upgrades a non-official answer. An unknown domain is queued for examination when you ask about it: if the " +
-  "answer says queued, tell the user a check is running and they can ask again in about fifteen minutes. " +
-  "If get_official_url returns unknown and you believe you know the URL, call verify_url on it: do not present " +
-  "it as official, but the check queues that domain for examination. " +
-  "Realurls judges ownership only, never safety.";
-
-async function call(path, params) {
-  const url = new URL(API + path);
-  for (const [k, v] of Object.entries(params)) url.searchParams.set(k, v);
-  const res = await fetch(url, { headers: { "User-Agent": `realurls-mcp/${VERSION}` } });
-  const body = await res.json().catch(() => ({ error: `HTTP ${res.status}` }));
-  if (!res.ok) return { verdict: "error", note: `Realurls API ${res.status}: ${body.error || "unavailable"}.`,
-                        say_to_user: "Official-site verification is unavailable right now, so I cannot confirm any URL as official." };
-  return withGuidance(body);
+let nextId = 1;
+async function rpc(method, params = {}) {
+  const res = await fetch(`${API}/mcp`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "User-Agent": `realurls-mcp/${VERSION}` },
+    body: JSON.stringify({ jsonrpc: "2.0", id: nextId++, method, params }),
+  });
+  const body = await res.json().catch(() => null);
+  if (!res.ok || !body || body.error) throw new Error(body?.error?.message || `HTTP ${res.status}`);
+  return body.result;
 }
 
-/** Wording for the agent, per verdict. The API's `note` says what the verdict means; this says what to tell the user. */
-function withGuidance(r) {
-  const name = r.entity?.name || r.looks_like?.name;
-  const urls = (r.official_urls || (r.official_domains || []).map(d => `https://${d}`));
-  const say = {
-    official: `These are the verified official URLs${name ? ` of ${name}` : ""}: ${urls.join(", ")}. Give them as plain links.`,
-    not_official: `${r.domain} is not a known domain of ${name}. ${name}'s verified site is ${urls.join(", ") || "not yet verified"}. This is about ownership, not safety.`,
-    insufficient_evidence: urls.length
-      ? `I could not verify ${r.domain || "that domain"}${name ? ` for ${name}` : ""}; ${name}'s verified domains are ${urls.join(", ")}.`
-      : `I could not confirm the official site${name ? ` of ${name}` : ""}. Do not present any URL as official, including ones from memory. ` +
-        "(If the user owns the domain, they can verify it in a minute at https://realurls.org/verify.)",
-    unknown: r.examination?.status === "queued"
-      ? "I could not confirm the official site. It has just been queued for examination; ask again in about fifteen minutes. " +
-        "Do not present any URL as official meanwhile."
-      : r.examination?.checked_at
-      ? `I could not confirm the official site. It was examined on ${String(r.examination.checked_at).slice(0, 10)} and did not reach verified ` +
-        `(${r.examination.reasons || "insufficient evidence"}). If the user owns the domain, they can verify it in a minute at https://realurls.org/verify.`
-      : "I could not confirm the official site. Do not present any URL as official; suggest a source the user already trusts. " +
-        "(If the user owns the domain, they can verify it in a minute at https://realurls.org/verify.)",
-    ambiguous: `Several organizations match: ${(r.candidates || []).map(c => c.name).join(", ")}. Ask which one is meant.`,
-    invalid: "That is not a domain or URL.",
-  }[r.verdict];
-  return say ? { ...r, say_to_user: say } : r;
+/** The endpoint's JSON Schema for a tool → a zod shape (all inputs are plain strings). */
+function shapeOf(schema) {
+  const shape = {};
+  for (const [name, prop] of Object.entries(schema?.properties || {})) {
+    let field = z.string();
+    if (prop.description) field = field.describe(prop.description);
+    shape[name] = (schema.required || []).includes(name) ? field : field.optional();
+  }
+  return shape;
 }
 
-const server = new McpServer({ name: "realurls", version: VERSION }, { instructions: INSTRUCTIONS });
+const FALLBACK_TOOLS = [
+  { name: "verify_url", description: "Check whether a URL or domain is the verified official website of a software product, AI tool, or company. Judges ownership only, never safety.",
+    inputSchema: { type: "object", properties: { url: { type: "string", description: "URL or bare domain" } }, required: ["url"] } },
+  { name: "get_official_url", description: "Look up the verified official website for a software product, AI tool, or company by name.",
+    inputSchema: { type: "object", properties: { name: { type: "string", description: "Product, tool, or company name" } }, required: ["name"] } },
+];
 
-server.tool(
-  "verify_url",
-  "Check whether a URL or domain is the verified official website of a software product, AI tool, or company. " +
-  "Returns official | not_official (with the real official domains) | insufficient_evidence | unknown. " +
-  "Judges ownership only, never safety.",
-  { url: z.string().describe("URL or bare domain, e.g. https://claude-desktop.io/download") },
-  async ({ url }) => ({ content: [{ type: "text", text: JSON.stringify(await call("/v1/resolve", { domain: url }), null, 2) }] }),
-);
+let instructions = "Realurls verifies which domain officially belongs to a software product, AI tool, or company. Call get_official_url before giving any download, install or login URL and use only the URLs it returns; if it returns insufficient_evidence or unknown, say so rather than guessing. Ownership only, never safety.";
+let tools = FALLBACK_TOOLS;
+try {
+  const init = await rpc("initialize", { protocolVersion: "2025-06-18", capabilities: {}, clientInfo: { name: "realurls-mcp-stdio", version: VERSION } });
+  if (init?.instructions) instructions = init.instructions;
+  const listed = await rpc("tools/list");
+  if (listed?.tools?.length) tools = listed.tools;
+} catch { /* offline at start-up: fall back to the static definitions above */ }
 
-server.tool(
-  "get_official_url",
-  "Look up the verified official website for a software product, AI tool, or company by name. " +
-  "Returns verified URLs with the evidence behind them, or says the site could not be confirmed.",
-  { name: z.string().describe("Product, tool, or company name, e.g. 'Ollama', 'Claude Code'") },
-  async ({ name }) => ({ content: [{ type: "text", text: JSON.stringify(await call("/v1/entity", { q: name }), null, 2) }] }),
-);
+const server = new McpServer({ name: "realurls", version: VERSION }, { instructions });
+
+for (const tool of tools) {
+  server.tool(tool.name, tool.description, shapeOf(tool.inputSchema), async args => {
+    try {
+      const result = await rpc("tools/call", { name: tool.name, arguments: args });
+      return result;
+    } catch (exc) {
+      return { content: [{ type: "text", text: JSON.stringify({ ...UNAVAILABLE, detail: String(exc.message || exc) }, null, 2) }] };
+    }
+  });
+}
 
 await server.connect(new StdioServerTransport());

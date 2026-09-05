@@ -3,6 +3,8 @@
 MCP server that tells an AI agent **which domain officially belongs to which software product or company** — so it stops
 handing users SEO-poisoned lookalike download sites.
 
+Since 0.1.5 this package is a thin stdio bridge to the remote endpoint `https://api.realurls.org/mcp`: instructions, tool definitions and every answer come from there, so the two ways of installing Realurls can never disagree. Hosts that accept a server URL can use the endpoint directly (Claude Code: `claude mcp add --transport http realurls https://api.realurls.org/mcp`).
+
 Ownership only. Never a safety judgement. Read [TRUST.md](../TRUST.md) for exactly what we do and do not claim.
 
 ## Tools

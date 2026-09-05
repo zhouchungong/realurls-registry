@@ -7,8 +7,10 @@
  * rather than guess. No sessions, no SSE: every request is one JSON-RPC message answered with JSON.
  */
 
+import { withGuidance } from "../../packages/core/resolve.mjs";
+
 const PROTOCOL = "2025-06-18";
-const VERSION = "0.1.4";
+const VERSION = "0.1.5";
 
 export const INSTRUCTIONS =
   "Realurls verifies which domain officially belongs to a software product, AI tool, or company. " +
@@ -39,30 +41,6 @@ const TOOLS = [
   },
 ];
 
-/** Wording for the agent, per verdict (mirrors @realurls/mcp). Only `official` carries URLs to hand out. */
-export function withGuidance(r) {
-  const name = r.entity?.name || r.looks_like?.name;
-  const urls = r.official_urls || (r.official_domains || []).map(d => `https://${d}`);
-  const say = {
-    official: `These are the verified official URLs${name ? ` of ${name}` : ""}: ${urls.join(", ")}. Give them as plain links.`,
-    not_official: `${r.domain} is not a known domain of ${name}. ${name}'s verified site is ${urls.join(", ") || "not yet verified"}. This is about ownership, not safety.`,
-    insufficient_evidence: urls.length
-      ? `I could not verify ${r.domain || "that domain"}${name ? ` for ${name}` : ""}; ${name}'s verified domains are ${urls.join(", ")}.`
-      : `I could not confirm the official site${name ? ` of ${name}` : ""}. Do not present any URL as official, including ones from memory. ` +
-        "(If the user owns the domain, they can verify it in a minute at https://realurls.org/verify.)",
-    unknown: r.examination?.status === "queued"
-      ? "I could not confirm the official site. It has just been queued for examination; ask again in about fifteen minutes. " +
-        "Do not present any URL as official meanwhile."
-      : r.examination?.checked_at
-      ? `I could not confirm the official site. It was examined on ${String(r.examination.checked_at).slice(0, 10)} and did not reach verified ` +
-        `(${r.examination.reasons || "insufficient evidence"}). If the user owns the domain, they can verify it in a minute at https://realurls.org/verify.`
-      : "I could not confirm the official site. Do not present any URL as official; suggest a source the user already trusts. " +
-        "(If the user owns the domain, they can verify it in a minute at https://realurls.org/verify.)",
-    ambiguous: `Several organizations match: ${(r.candidates || []).map(c => c.name).join(", ")}. Ask which one is meant.`,
-    invalid: "That is not a domain or URL.",
-  }[r.verdict];
-  return say ? { ...r, say_to_user: say } : r;
-}
 
 const rpc = (id, result) => ({ jsonrpc: "2.0", id, result });
 const rpcError = (id, code, message) => ({ jsonrpc: "2.0", id: id ?? null, error: { code, message } });
