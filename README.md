@@ -29,7 +29,7 @@ curl -s https://api.github.com/orgs/anthropics | jq '{name, blog, is_verified}'
 
 ## 现在的状态
 
-**M2 进行中：220 条真实分布摸底已完成两轮。**
+**M3 进行中：API 与 MCP server 已上线。**
 
 评审构造出一条能骗过初版规则的攻击链——为自己的域名建 GitHub 组织并验证，控制权是真的、身份是假的。
 修复引入了"先锚定实体，再验证域名"的两阶段结构，见 [POLICY.md §0](POLICY.md)。
@@ -41,7 +41,7 @@ curl -s https://api.github.com/orgs/anthropics | jq '{name, blog, is_verified}'
 ✅ M1  证据采集流水线 + `python -m src.verify <domain>` 端到端跑通
 ✅ 评审修复  实体锚定 / 域龄 fail-closed / A6 一方声明 / A3 名单 / A7 政府 TLD / +6 负样本
 ✅ M2  220 条摸底 → 53 个实体由流水线生成；每日重验（采集失败≠降级、突变→review）；dist/ 可复现构建 + cosign keyless 签名
-🔄 M3  查询核心 + Worker API（本地跑通，待部署）+ @realurls/mcp（待发布）；Release 已 cosign 签名
+🔄 M3  API 已上线 api.realurls.org；@realurls/mcp 0.1.0 已发布 npm；Release 已 cosign 签名；剩：MCP Registry 提交
 ⬜ M4  realurls.org 证据页 + 浏览器扩展 + 生态回写
 ```
 
