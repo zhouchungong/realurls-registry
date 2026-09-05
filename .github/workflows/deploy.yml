@@ -1,7 +1,7 @@
 name: Deploy Worker (site + API)
 
-# 数据或代码任一变动都重新部署：Worker 把 dist/ 打进代码，所以 entities/ 变了也必须重部署，
-# 否则线上 API 会一直是旧数据集。之前站点代码改了只能手动 wrangler deploy——这条 workflow 补上这个缺口。
+# Redeploy on any data or code change: the dataset is loaded into D1 first, then the Worker code goes live.
+# Bot merges dispatch this workflow explicitly (pushes made with GITHUB_TOKEN trigger nothing).
 on:
   push:
     branches: [main]
@@ -68,4 +68,4 @@ jobs:
           curl -fsS https://api.realurls.org/healthz | grep -q '"ok": true'
           curl -fsS https://realurls.org/ | grep -qi "<title>realurls"
           ver=$(curl -fsS https://api.realurls.org/v1/manifest | python -c "import sys,json;print(json.load(sys.stdin)['dataset_version'])")
-          echo "线上数据集版本: $ver（本次提交 ${GITHUB_SHA:0:12}）"
+          echo "live dataset version: $ver (this commit ${GITHUB_SHA:0:12})"

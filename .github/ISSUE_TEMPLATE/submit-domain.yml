@@ -9,7 +9,7 @@ body:
         **You are submitting a lead, not data.**
 
         No WHOIS lookups, no screenshots, no YAML. A bot collects the full evidence and decides:
-        - enough evidence → it opens a pull request automatically
+        - enough evidence → it merges the record automatically (after the adversarial corpus and the AI review pass) and closes this issue with the live link
         - not enough → it closes this issue and tells you exactly which piece is missing
 
         If you **control the domain yourself**, use the "Domain owner self-attestation" path instead — it carries the highest weight.

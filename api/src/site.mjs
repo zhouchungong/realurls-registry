@@ -172,7 +172,7 @@ function verifyPage(manifest) {
 </ol>
 <div class="copy"><button type="button">Copy</button><pre>_realurls.example.com.   TXT   "realurls-site-verification=&lt;token&gt;"</pre></div>
 <ol start="3">
-<li>Comment <code>/verify</code> on the issue (or wait for the daily run). The pipeline checks the record, collects the corroborating evidence, and opens a pull request with everything it found. Once merged, your record is live here and in the API.</li>
+<li>Comment <code>/verify</code> on the issue (or wait for the daily run). The pipeline checks the record, collects the corroborating evidence, and merges the record once the adversarial corpus and the AI review pass. Minutes later it is live here and in the API.</li>
 </ol>
 <p class="muted">This is evidence <b>A5</b>, the highest-weight anchor we have (0.90) and the only one that waives the 180-day domain-age floor. The token is not a secret; what it proves is control of the zone.</p>
 

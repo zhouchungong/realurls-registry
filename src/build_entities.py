@@ -38,6 +38,8 @@ ENTITIES = ROOT / "entities"
 PIPELINE_VERSION = "build_entities/0.2"
 MAX_PROPAGATE = 8   # outbound domains tried per verified primary
 
+CATEGORIES = {"ai", "developer-tools", "saas", "security", "infrastructure", "open-source", "hardware", "finance", "government", "other"}
+
 #: GitHub topic → schema category. Unmapped topics fall back to ``open-source`` for GitHub-sourced seeds
 #: (the organisation is known to us through a repository) and ``saas`` for Wikidata software companies.
 TOPIC_CATEGORY = {
@@ -71,7 +73,7 @@ def _slug(text: str) -> str:
 def _categories(topics: list[str], source: str | None = None) -> list[str]:
     cats = []
     for t in topics:
-        c = TOPIC_CATEGORY.get(t)
+        c = TOPIC_CATEGORY.get(t) or (t if t in CATEGORIES else None)   # a category name is its own topic
         if c and c not in cats:
             cats.append(c)
     if cats:

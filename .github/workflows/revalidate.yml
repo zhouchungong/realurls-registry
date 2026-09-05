@@ -2,7 +2,7 @@ name: Daily re-verification
 
 on:
   schedule:
-    - cron: "17 3 * * *"        # UTC 03:17，避开整点高峰
+    - cron: "17 3 * * *"        # 03:17 UTC, off the top-of-the-hour peak
   workflow_dispatch:
 
 permissions:
@@ -45,7 +45,7 @@ jobs:
       - name: Validate the updated data
         run: python -m src.validate
 
-      # 这是 entities/ 唯一合法的写入路径：由 bot 提交，CI guard 只放行这个作者。
+      # The pipeline is the only legal writer of entities/: the bot commits, the CI guard admits only bot authors.
       - name: Commit changes
         run: |
           git config user.name  "realurls-bot"
@@ -57,6 +57,7 @@ jobs:
           git push
           # a push made with GITHUB_TOKEN does not trigger other workflows; deploy explicitly
           GH_TOKEN=${{ secrets.GITHUB_TOKEN }} gh workflow run deploy.yml --ref main
+          GH_TOKEN=${{ secrets.GITHUB_TOKEN }} gh workflow run release.yml --ref main
 
       - name: Open an issue on downgrades or review_required
         if: steps.reval.outputs.exit == '2'
@@ -68,12 +69,12 @@ jobs:
               .filter(o => o.action === 'downgraded' || o.action === 'review');
             const body = rows.map(o =>
               `- **${o.domain}** ${o.old_status} → ${o.new_status} (${o.action}): ${o.reason}` +
-              (o.mutations?.length ? `\n  - 突变：${o.mutations.join('；')}` : '')
+              (o.mutations?.length ? `\n  - mutations: ${o.mutations.join('; ')}` : '')
             ).join('\n');
             await github.rest.issues.create({
               owner: context.repo.owner, repo: context.repo.repo,
               title: `[re-verification] ${new Date().toISOString().slice(0,10)}: ${rows.length} record(s) need a look`,
               labels: ['revalidation', 'p1'],
-              body: `每日重验发现以下记录降级或进入 review_required，API 已停止对它们的肯定答复。\n\n${body}\n\n` +
+              body: `Daily re-verification downgraded these records or moved them to review_required; the API no longer answers positively for them.\n\n${body}\n\n` +
                     `If this was a misjudgement, record it per CORRECTIONS.md and add an adversarial case; if the downgrade is correct, no action is needed.`,
             });

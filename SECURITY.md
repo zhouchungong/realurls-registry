@@ -30,7 +30,7 @@ A poisoned "real official sites" database does more harm than the problem it sol
 ## 1. The write path (the only legitimate one)
 
 ```
-issue form (a lead) → bot collects evidence → policy.decide() → enough: bot opens a PR
+issue form (a lead) → bot collects evidence → policy.decide() → enough: bot merges after corpus + AI review
                                                                → not enough: closed automatically, missing piece named
                               ↓
                      humans review (read only, never edit)

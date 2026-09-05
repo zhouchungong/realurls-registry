@@ -8,7 +8,7 @@ on:
 
 permissions:
   contents: write
-  id-token: write        # cosign keyless 签名需要 OIDC
+  id-token: write        # cosign keyless signing needs OIDC
 
 
 jobs:
@@ -34,8 +34,8 @@ jobs:
 
       - uses: sigstore/cosign-installer@398d4b0eeef1380460a10c8013a76f728fb906ac # v3
 
-      # keyless：用本 workflow 的 OIDC 身份签名。验证者能确认「这份数据是本仓库 main 分支
-      # 在 GitHub Actions 里生成的」，我们不保管任何私钥（SECURITY.md T6）。
+      # Keyless: signed with this workflow's OIDC identity. A verifier can confirm "this data was produced by
+      # this repository's main branch inside GitHub Actions"; we hold no private key (SECURITY.md T6).
       - name: Sign with cosign
         env:
           COSIGN_YES: "true"

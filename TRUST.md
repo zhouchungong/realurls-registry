@@ -86,7 +86,8 @@ python -m pytest tests -q                   # run all of our positive and advers
 ```
 community submission → issue form (a lead, nothing more)
                      → a bot runs the full evidence collection
-                     → enough evidence: the bot opens a PR; humans only review
+                     → enough evidence: the bot merges the record (adversarial corpus + AI review must pass)
+                     → a domain anyone asks the API about is examined the same way within minutes
                      → not enough: closed automatically, with the missing piece named
 ```
 

@@ -151,7 +151,9 @@ jobs:
         if: steps.pr.outputs.url == 'merged'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh workflow run deploy.yml --ref main
+        run: |
+          gh workflow run deploy.yml --ref main
+          gh workflow run release.yml --ref main
 
       - name: Report back on each issue
         env:

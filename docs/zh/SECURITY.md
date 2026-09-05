@@ -31,7 +31,7 @@
 ## 1. 数据写入路径（唯一合法路径）
 
 ```
-Issue Form（线索）→ bot 采集证据 → policy.decide() → 证据充分则 bot 开 PR
+Issue Form（线索）→ bot 采集证据 → policy.decide() → 证据充分则 bot 在负样本回归 + AI 复核通过后合入
                                                    → 证据不足则自动关闭并说明缺哪条
                             ↓
                       人类 review（只看，不改）

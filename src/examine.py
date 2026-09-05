@@ -47,7 +47,7 @@ def examine(domains: list[str], github_org: str | None = None) -> list[dict]:
             continue
         item = {"domain": domain, "checked_at": now.strftime("%Y-%m-%dT%H:%M:%SZ")}
         try:
-            record, msg = build_one({"domain": domain, "topics": [], "source": "demand", "github_org": github_org}, now)
+            record, msg = build_one({"domain": domain, "topics": ["other"], "source": "demand", "github_org": github_org}, now)
         except Exception as exc:
             item.update({"status": "error", "reasons": [f"{type(exc).__name__}: {exc}"]})
             out.append(item)
@@ -65,7 +65,7 @@ def examine(domains: list[str], github_org: str | None = None) -> list[dict]:
 
 
 def examined_sql(results: list[dict], dataset_version: str = "") -> str:
-    rows = [r for r in results if r["status"] != "verified"]
+    rows = [r for r in results if r["status"] not in ("verified", "error")]   # an error is not a verdict
     if not rows:
         return ""
     values = ", ".join(
