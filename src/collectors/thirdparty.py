@@ -135,8 +135,55 @@ def wayback(domain: str) -> Result:
 
 # ------------------------------------------------------------------ B5 Tranco
 
+TRANCO_LIST = "https://tranco-list.eu/download/daily/top-1m.csv.zip"
+_tranco_index: dict[str, int] | None = None
+
+
+def _tranco_local() -> dict[str, int] | None:
+    """The whole top-1M list, downloaded once a week into .cache. One file instead of one API call per domain."""
+    global _tranco_index
+    if _tranco_index is not None:
+        return _tranco_index
+    import io
+    import time
+    import urllib.request
+    import zipfile
+
+    from src.collectors.base import CACHE_DIR, USER_AGENT
+    path = CACHE_DIR / "tranco-top-1m.csv.zip"
+    try:
+        if not path.exists() or time.time() - path.stat().st_mtime > 7 * 86400:
+            CACHE_DIR.mkdir(parents=True, exist_ok=True)
+            req = urllib.request.Request(TRANCO_LIST, headers={"User-Agent": USER_AGENT})
+            with urllib.request.urlopen(req, timeout=120) as resp:
+                path.write_bytes(resp.read())
+        with zipfile.ZipFile(io.BytesIO(path.read_bytes())) as zf:
+            name = next(n for n in zf.namelist() if n.endswith(".csv"))
+            text = zf.read(name).decode("utf-8", errors="replace")
+        idx: dict[str, int] = {}
+        for line in text.splitlines():
+            rank, _, dom = line.partition(",")
+            if dom:
+                idx[dom.strip().lower()] = int(rank)
+        _tranco_index = idx
+    except Exception:
+        _tranco_index = {}   # fall back to the per-domain API below
+    return _tranco_index
+
+
 def tranco(domain: str) -> Result:
     r = Result()
+    local = _tranco_local()
+    if local:
+        rank = local.get(domain)
+        if rank is None:
+            r.note("tranco: 域名不在榜单内（流量太小或太新）")
+            return r
+        r.evidence.append(Evidence(code="B5", data={"rank": rank, "source": "top-1m list"}, checked_at=now(),
+                                   source=TRANCO_LIST))
+        r.note(f"tranco: 排名 {rank}（本地榜单）")
+        return r
+
     try:
         doc = fetch_json(TRANCO.format(domain), ttl_hours=168)
     except FetchError as exc:

@@ -97,9 +97,11 @@ def gather(
     _merge(out, network.certificate(domain))
     _merge(out, network.self_attestation(domain, expected_token=token))
     _merge(out, thirdparty.wikidata(domain))
+    _merge(out, thirdparty.tranco(domain))
+    # Wayback always runs: skipping it when Tranco was present cost claude.ai its second corroboration
+    # (B1 is rejected on propagated domains). Deciding "enough corroboration already" is policy's job, not ours.
     wb = thirdparty.wayback(domain)
     _merge(out, wb)
-    _merge(out, thirdparty.tranco(domain))
     _merge(out, thirdparty.safebrowsing(domain))
 
     # 域龄兜底：RDAP 对很多 ccTLD 返回 404。一个域名不可能比它的第一次 Wayback 快照更年轻，

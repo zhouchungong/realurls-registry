@@ -34,7 +34,8 @@ from src.verify import verify
 
 ROOT = Path(__file__).resolve().parents[1]
 ENTITIES = ROOT / "entities"
-PIPELINE_VERSION = "build_entities/0.1"
+PIPELINE_VERSION = "build_entities/0.2"
+MAX_PROPAGATE = 8   # outbound domains tried per verified primary
 
 #: GitHub topic → 我们的类别（schema 里的枚举）
 TOPIC_CATEGORY = {
@@ -129,6 +130,36 @@ def build_one(seed: dict, now: datetime) -> tuple[dict | None, str]:
             "source_issue": None,
         },
     }
+    # Auto-propagation: every outbound domain on the verified primary's homepage is a candidate sibling
+    # (claude.ai on anthropic.com). Each one goes through the full A6 path — first-party link is given,
+    # structural links and corroborations are collected fresh; policy decides. Platform domains never qualify.
+    if not seed.get("anchor") and seed.get("propagate", True):
+        from src.policy import PLATFORM_DOMAINS, registrable_domain
+        seen = {domain}
+        for cand in result.extra.get("outbound_domains", [])[:MAX_PROPAGATE]:
+            cand = registrable_domain(cand)
+            if not cand or cand in seen or cand in PLATFORM_DOMAINS:
+                continue
+            seen.add(cand)
+            try:
+                d2, r2 = verify(cand, anchor_domain=domain)
+            except Exception as exc:  # one bad sibling must not sink the entity
+                print(f"  · {cand}: propagation error {type(exc).__name__}", file=sys.stderr)
+                continue
+            if d2.status != "verified":
+                print(f"  · {cand}: {d2.status} (propagated from {domain}, not stored)", file=sys.stderr)
+                continue
+            record["domains"].append({
+                "domain": cand, "role": "product", "status": d2.status, "confidence": d2.confidence,
+                "first_seen": now.date().isoformat(), "last_verified": _iso(now), "ttl_days": 30,
+                "age_days": r2.facts.get("age_days"), "age_source": r2.facts.get("age_source"),
+                "collection_incomplete": bool(r2.facts.get("collection_incomplete")),
+                "evidence": [{"code": e.code, "checked_at": _iso(e.checked_at), "source": e.source, "data": dict(e.data)}
+                             for e in r2.evidence],
+                "rejected_evidence": d2.rejected, "reasons": d2.reasons,
+            })
+            print(f"  ↳ {cand}: verified {d2.confidence:.2f} (propagated from {domain})", file=sys.stderr)
+
     return record, f"{domain}: verified {decision.confidence:.2f} → {entity_id}"
 
 
