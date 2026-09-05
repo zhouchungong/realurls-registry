@@ -1,0 +1,165 @@
+name: Owner verification
+
+# Self-serve domain verification for owners (CONTRIBUTING.md "I control the domain").
+#   issue opened  → mint a token, record the seed, reply with the TXT record
+#   "/verify" comment, or the daily schedule → run the pipeline on pending seeds; verified → bot PR
+# Humans never touch entities/: build_entities writes the record, the PR is reviewed like any batch.
+
+on:
+  issues:
+    types: [opened, labeled]
+  issue_comment:
+    types: [created]
+  schedule:
+    - cron: "41 4 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+concurrency:
+  group: owner-verify
+  cancel-in-progress: false
+
+jobs:
+  token:
+    if: github.event_name == 'issues' && contains(github.event.issue.labels.*.name, 'owner-verification')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.11"
+      - run: pip install -e "."
+
+      - name: Mint the token and record the seed
+        id: mint
+        env:
+          BODY: ${{ github.event.issue.body }}
+          ISSUE: ${{ github.event.issue.number }}
+        run: |
+          python - <<'PY' > /tmp/fields.json
+          import os, re, json
+          body = os.environ["BODY"]
+          def field(label):
+              m = re.search(r"### " + re.escape(label) + r"\s*\n+(.*?)(?:\n###|\Z)", body, re.S)
+              v = (m.group(1).strip() if m else "")
+              return "" if v in ("", "_No response_") else v
+          print(json.dumps({"domain": field("Domain"), "org": field("Organization"),
+                            "github": field("GitHub organization (optional)"), "category": field("Category")}))
+          PY
+          domain=$(python -c "import json;print(json.load(open('/tmp/fields.json'))['domain'])")
+          org=$(python -c "import json;print(json.load(open('/tmp/fields.json'))['org'])")
+          gh_org=$(python -c "import json;print(json.load(open('/tmp/fields.json'))['github'])")
+          cat=$(python -c "import json;print(json.load(open('/tmp/fields.json'))['category'] or 'other')")
+          if [ -z "$domain" ] || [ -z "$org" ]; then echo "missing=1" >> "$GITHUB_OUTPUT"; exit 0; fi
+          args=(issue "$domain" --org "$org" --issue "$ISSUE" --topic "$cat")
+          [ -n "$gh_org" ] && args+=(--github "$gh_org")
+          python -m src.owners "${args[@]}" > /tmp/token.json
+          echo "domain=$(python -c "import json;print(json.load(open('/tmp/token.json'))['domain'])")" >> "$GITHUB_OUTPUT"
+          echo "txt=$(python -c "import json;print(json.load(open('/tmp/token.json'))['txt'])")" >> "$GITHUB_OUTPUT"
+
+      - name: Commit the seed
+        if: steps.mint.outputs.domain != ''
+        run: |
+          git config user.name  "realurls-bot"
+          git config user.email "bot@realurls.org"
+          git add seeds/owners.jsonl
+          git diff --cached --quiet || git commit -m "owners: token for ${{ steps.mint.outputs.domain }} (#${{ github.event.issue.number }})"
+          git push
+
+      - name: Reply with the TXT record
+        if: steps.mint.outputs.domain != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue comment ${{ github.event.issue.number }} --body "$(cat <<EOF
+          Thanks. Publish this DNS TXT record in the zone of **${{ steps.mint.outputs.domain }}**:
+
+          \`\`\`
+          ${{ steps.mint.outputs.txt }}
+          \`\`\`
+
+          Then comment \`/verify\` here (or wait for the daily run). The pipeline checks the record, collects the corroborating evidence and, if the domain reaches \`verified\`, opens a pull request with the full evidence; you will be linked from it.
+
+          No token needed if you prefer GitHub: verify the domain on your GitHub organization (Settings → Verified and approved domains) and comment \`/verify\`.
+
+          Ownership only, never safety. Rules: POLICY.md.
+          EOF
+          )"
+          gh issue edit ${{ github.event.issue.number }} --add-label awaiting-dns
+
+      - name: Ask for the missing fields
+        if: steps.mint.outputs.missing == '1'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh issue comment ${{ github.event.issue.number }} --body "The **Domain** and **Organization** fields are required; please edit the issue and re-add the \`owner-verification\` label."
+
+  check:
+    if: >-
+      (github.event_name == 'issue_comment' && contains(github.event.issue.labels.*.name, 'owner-verification') && contains(github.event.comment.body, '/verify'))
+      || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.11"
+      - run: pip install -e "."
+
+      - name: Run the pipeline on pending owner seeds
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GSB_API_KEY: ${{ secrets.GSB_API_KEY }}
+        run: |
+          set +e
+          if [ "${{ github.event_name }}" = "issue_comment" ]; then
+            python -m src.owners check --issue ${{ github.event.issue.number }} --json /tmp/results.json
+          else
+            python -m src.owners check --json /tmp/results.json
+          fi
+          echo "exit $?"
+          [ -f /tmp/results.json ] || echo "[]" > /tmp/results.json
+          python -m src.validate
+
+      - name: Open a pull request for verified domains
+        id: pr
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name  "realurls-bot"
+          git config user.email "bot@realurls.org"
+          git add entities/
+          if git diff --cached --quiet; then echo "url=" >> "$GITHUB_OUTPUT"; exit 0; fi
+          branch="owner-verify/${{ github.run_id }}"
+          git checkout -b "$branch"
+          domains=$(python -c "import json;print(', '.join(r['domain'] for r in json.load(open('/tmp/results.json')) if r['verified']))")
+          git commit -m "data(owner): $domains" -m "Owner self-attestation (A5) via the Verify my domain issue flow."
+          git push -u origin "$branch"
+          url=$(gh pr create --title "data(owner): $domains" --body "Owner self-attestation for: $domains. Evidence in the records; the A5 token matched the DNS zone." --base main --head "$branch")
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+
+      - name: Report back on each issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ steps.pr.outputs.url }}
+        run: |
+          python - <<'PY'
+          import json, os, subprocess
+          pr = os.environ.get("PR_URL", "")
+          for r in json.load(open("/tmp/results.json")):
+              if not r.get("issue"):
+                  continue
+              if r["verified"]:
+                  body = (f"**{r['domain']}** reached `verified`. The record is in {pr or 'a pull request'}; "
+                          f"once merged it is live at https://realurls.org/e/{r['entity_id'].split(':',1)[-1]} and in the API.")
+                  subprocess.run(["gh", "issue", "comment", str(r["issue"]), "--body", body], check=True)
+                  subprocess.run(["gh", "issue", "edit", str(r["issue"]), "--remove-label", "awaiting-dns", "--add-label", "verified"], check=False)
+              else:
+                  why = "\n".join(f"- {x}" for x in (r.get("rejected") or [])[:6]) or "- (no evidence rejected)"
+                  body = (f"**{r['domain']}** is `{r.get('status')}`, not yet verified. What the rules said:\n{why}\n\n"
+                          f"Reasons: {'; '.join(r.get('reasons') or [])}\n\nIf the TXT record was just published, DNS may still be propagating; comment `/verify` again later.")
+                  subprocess.run(["gh", "issue", "comment", str(r["issue"]), "--body", body], check=True)
+          PY

@@ -1,0 +1,63 @@
+name: Verify my domain (domain owner)
+description: You control the domain. Publish one DNS TXT record and the pipeline verifies it; no human in the loop.
+title: "[verify] "
+labels: ["owner-verification"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **For domain owners.** Within a minute of opening this issue a bot replies with a token. Publish it as a
+        DNS TXT record at `_realurls.<your domain>`, comment `/verify` (or wait for the daily run), and the
+        pipeline verifies the domain with the highest-weight evidence we have (A5, self-attestation).
+
+        Alternative that needs no token: verify the domain on your GitHub organization
+        (Settings → Verified and approved domains). The pipeline reads that as evidence A1.
+
+        This proves **ownership only**. It is not a safety or reputation judgement, and it cannot be used to
+        claim a domain you do not control: the record has to be in your DNS zone.
+
+  - type: input
+    id: domain
+    attributes:
+      label: Domain
+      description: Registrable domain only — no scheme, no path
+      placeholder: kagi.com
+    validations: { required: true }
+
+  - type: input
+    id: org
+    attributes:
+      label: Organization
+      description: The organization the domain belongs to, as you would state it publicly
+      placeholder: Kagi
+    validations: { required: true }
+
+  - type: input
+    id: github
+    attributes:
+      label: GitHub organization (optional)
+      placeholder: kagisearch
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - ai
+        - developer-tools
+        - saas
+        - security
+        - infrastructure
+        - open-source
+        - hardware
+        - finance
+        - other
+    validations: { required: true }
+
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmation
+      options:
+        - label: I control this domain's DNS zone and I am authorized to state which organization it belongs to.
+          required: true

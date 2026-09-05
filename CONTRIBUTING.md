@@ -35,7 +35,9 @@ You have the final say. A DNS TXT self-attestation overrides any verdict of ours
 _realurls.example.com.   TXT   "realurls-site-verification=<token>"
 ```
 
-State who you are in an issue and we will issue a token. This is evidence A5: the highest weight (0.90) and the only anchor that waives the "domain younger than 180 days" floor.
+Open a [Verify my domain](https://github.com/zhouchungong/realurls-registry/issues/new?template=verify-domain.yml) issue: a bot replies with your token within a minute, you publish the record, comment `/verify`, and the pipeline does the rest (no human in the loop; the result is a pull request with the full evidence). This is evidence A5: the highest weight (0.90) and the only anchor that waives the "domain younger than 180 days" floor.
+
+No token needed if you prefer GitHub: verify the domain on your GitHub organization (Settings → Verified and approved domains). The pipeline reads that as evidence A1.
 
 ## I think you got something wrong
 

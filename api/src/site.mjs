@@ -124,7 +124,7 @@ async function home(store, manifest) {
 <div class="grid">${cats}</div>
 <p class="muted"><a href="/browse">All ${c.entities} organizations, A–Z →</a></p>
 <h2>What "verified" means</h2>
-<p class="muted">At least one <b>anchor</b> — something only the real owner can produce: a GitHub-verified organization, a DNS self-attestation, a restricted government TLD, a long-lived repository whose homepage points here — <b>and</b> at least two independent corroborations. Anything less is reported as insufficient evidence. We would rather say "don't know" than be wrong. Full rules: <a href="${REPO}/blob/main/POLICY.md">POLICY.md</a>.</p>
+<p class="muted">At least one <b>anchor</b> — something only the real owner can produce: a GitHub-verified organization, a DNS self-attestation, a restricted government TLD, a long-lived repository whose homepage points here — <b>and</b> at least two independent corroborations. Anything less is reported as insufficient evidence. We would rather say "don't know" than be wrong. Full rules: <a href="${REPO}/blob/main/POLICY.md">POLICY.md</a>. Own a domain? <a href="/verify">Verify it in a minute</a>.</p>
 `, { description: "Open, reproducible registry of which domain belongs to which organization. For AI agents and people. Ownership only, never safety.", canonical: `${SITE}/`, home: true });
 }
 
@@ -170,6 +170,34 @@ ${block("3d. MCP, local: one line for Claude Code", `claude mcp add realurls -- 
 <h2>What you get and what you do not</h2>
 <p class="muted">You get: ownership, with evidence, at ≥ 99.5% target precision, or an honest "don't know". You do not get: a safety score, a blacklist, a reputation. A domain we cannot verify is not "bad", it is unverified. Full rules: <a href="${REPO}/blob/main/POLICY.md">POLICY.md</a>; what we promise and what we do not: <a href="${REPO}/blob/main/TRUST.md">TRUST.md</a>.</p>
 `, { description: "How to add a verified official-domain check to an AI agent: allowlist, HTTP API, or MCP. Free, reproducible, ownership only.", canonical: `${SITE}/builders` });
+}
+
+// ------------------------------------------------------------------ for domain owners
+
+function verifyPage(manifest) {
+  const issue = `${REPO}/issues/new?template=verify-domain.yml`;
+  return layout(manifest, "Verify your domain — Realurls", `
+<p class="sub"><a href="/">Realurls</a> › Verify your domain</p>
+<h1>Get your domain verified in a minute</h1>
+<p class="sub">You control the domain. Prove it once, and every AI agent that asks Realurls gets your real site instead of a lookalike. No human in the loop; the result is a public record with the evidence.</p>
+
+<h2>Option A: one DNS TXT record</h2>
+<ol>
+<li>Open a <a href="${issue}">Verify my domain</a> issue on GitHub (domain, organization name). A bot replies with a token within a minute.</li>
+<li>Publish it in your DNS zone:</li>
+</ol>
+<div class="copy"><button type="button">Copy</button><pre>_realurls.example.com.   TXT   "realurls-site-verification=&lt;token&gt;"</pre></div>
+<ol start="3">
+<li>Comment <code>/verify</code> on the issue (or wait for the daily run). The pipeline checks the record, collects the corroborating evidence, and opens a pull request with everything it found. Once merged, your record is live here and in the API.</li>
+</ol>
+<p class="muted">This is evidence <b>A5</b>, the highest-weight anchor we have (0.90) and the only one that waives the 180-day domain-age floor. The token is not a secret; what it proves is control of the zone.</p>
+
+<h2>Option B: GitHub, no token</h2>
+<p class="muted">If your organization is on GitHub: Settings → <b>Verified and approved domains</b> → add the domain. GitHub performs the DNS check; the pipeline reads the result as evidence <b>A1</b>. Then open the same issue and comment <code>/verify</code>, or just wait for the next batch.</p>
+
+<h2>What this does and does not mean</h2>
+<p class="muted">Verified means the domain belongs to the organization named, with reproducible evidence. It is not a safety, quality or reputation judgement, and it cannot be used to claim a domain you do not control: the record has to be in your zone. Every record is re-verified daily; if the record disappears, the status changes. Rules: <a href="${REPO}/blob/main/POLICY.md">POLICY.md</a>.</p>
+`, { description: "Domain owners: verify your domain with one DNS TXT record or a GitHub verified domain. Ownership only, reproducible evidence, no human in the loop.", canonical: `${SITE}/verify` });
 }
 
 // ------------------------------------------------------------------ category / browse listings
@@ -296,7 +324,7 @@ async function domainPage(input, store, manifest) {
   }
   return html(`<h1><code>${esc(domain)}</code> <span class="badge unk">not in the registry</span></h1>
 <p class="sub">We have no verdict for this domain — neither positive nor negative. "Don't know" is the honest answer here. The registry holds ${manifest.counts.entities} organizations today and grows in reviewed batches; not being listed means not yet examined, nothing more.</p>
-<p class="muted">Know who owns it? <a href="${REPO}/issues/new?template=submit-domain.yml">Submit a lead</a>. If you <em>are</em> the owner, one DNS TXT record settles it: <code>_realurls.${esc(domain)} TXT "realurls-site-verification=…"</code>.</p>`, { robots: "noindex" });
+<p class="muted">Know who owns it? <a href="${REPO}/issues/new?template=submit-domain.yml">Submit a lead</a>. If you <em>are</em> the owner, <a href="/verify">one DNS TXT record settles it</a>.</p>`, { robots: "noindex" });
 }
 
 // ------------------------------------------------------------------ API landing (browsers only)
@@ -329,7 +357,7 @@ ${ex}
 // ------------------------------------------------------------------ misc
 
 async function sitemap(store, manifest) {
-  const urls = [`${SITE}/`, `${SITE}/builders`, `${SITE}/browse`, ...(await store.categories()).map(x => `${SITE}/c/${x.category}`)];
+  const urls = [`${SITE}/`, `${SITE}/builders`, `${SITE}/verify`, `${SITE}/browse`, ...(await store.categories()).map(x => `${SITE}/c/${x.category}`)];
   for (let offset = 0; ; offset += 5000) {
     const batch = await store.list({ limit: 5000, offset });
     urls.push(...batch.map(e => `${SITE}/e/${e.entity_id.replace(/^org:/, "")}`));
@@ -343,6 +371,7 @@ const LLMS_TXT = `# Realurls
 > Which domain officially belongs to which software product or company. Ownership only, never safety. Every verdict is backed by reproducible machine evidence.
 
 - For AI builders (allowlist, behaviour rule, tool shapes): ${SITE}/builders
+- For domain owners (verify with one DNS TXT record): ${SITE}/verify
 - API: ${API}/v1/resolve?domain=<domain>  and  ${API}/v1/entity?q=<name>
 - Allowlist of verified domains, one per line: ${API}/v1/domains.txt
 - MCP server, remote (Streamable HTTP): ${API}/mcp   local: npx -y @realurls/mcp  (both ship instructions: call before giving any download/login URL)
@@ -360,6 +389,7 @@ export async function handleSite(request, store, manifest) {
 
   if (path === "/") return html(await home(store, manifest));
   if (path === "/builders") return html(buildersPage(manifest));
+  if (path === "/verify") return html(verifyPage(manifest));
   if (path === "/browse") return html(await listing(store, manifest, { page: +url.searchParams.get("page") || 1 }));
   if (path.startsWith("/c/")) {
     const category = decodeURIComponent(path.slice(3));
