@@ -1,18 +1,15 @@
 name: Submit a lead
-description: Tell us about an organization that should be listed and its official site. You provide the lead; we collect the evidence.
+description: An organization that should be listed, and its official site. Two fields; a bot does the rest.
 title: "[lead] "
-labels: ["lead", "needs-collection"]
+labels: ["lead"]
 body:
   - type: markdown
     attributes:
       value: |
-        **You are submitting a lead, not data.**
+        **A lead, not data.** Name the organization and the domain; a bot collects the evidence, decides by the
+        public rules, and replies here within minutes: merged with a live link, or the exact reason it fell short.
 
-        No WHOIS lookups, no screenshots, no YAML. A bot collects the full evidence and decides:
-        - enough evidence → it merges the record automatically (after the adversarial corpus and the AI review pass) and closes this issue with the live link
-        - not enough → it closes this issue and tells you exactly which piece is missing
-
-        If you **control the domain yourself**, use the "Domain owner self-attestation" path instead — it carries the highest weight.
+        If you **control the domain**, use "Verify my domain" instead: one DNS record carries the highest weight.
 
   - type: input
     id: org
@@ -25,50 +22,27 @@ body:
     id: domain
     attributes:
       label: Domain you believe is the official site
-      description: Domain only — no scheme, no path
+      description: Domain only, no scheme, no path
       placeholder: anthropic.com
     validations: { required: true }
 
-  - type: dropdown
-    id: category
-    attributes:
-      label: Category
-      description: We currently list AI and developer tools; other categories are queued for later phases
-      options:
-        - ai
-        - developer-tools
-        - saas
-        - security
-        - infrastructure
-        - open-source
-        - other
-    validations: { required: true }
-
-  - type: textarea
+  - type: input
     id: how
     attributes:
-      label: How do you know this is the official site?
-      description: A sentence is enough. This only tells the bot where to start looking; it is not treated as evidence.
-      placeholder: |
-        For example:
-        - GitHub organization is github.com/anthropics
-        - npm package @anthropic-ai/sdk
-        - the verified X account @AnthropicAI links to it
-    validations: { required: true }
+      label: How do you know this is the official site? (optional)
+      description: A GitHub organization link or an npm package name helps the bot start in the right place. Not treated as evidence.
+      placeholder: github.com/anthropics
 
   - type: input
     id: aliases
     attributes:
       label: Other names people search for (optional)
-      description: product names, nicknames, abbreviations — comma-separated
-      placeholder: Claude, Claude Code, claude.ai
+      placeholder: Claude, Claude Code
 
   - type: checkboxes
     id: ack
     attributes:
       label: Confirm
       options:
-        - label: I understand realurls judges domain ownership only, never whether a site is safe or lawful
-          required: true
-        - label: I have no undisclosed interest in this organization (an interest does not block listing, but it must be disclosed above)
+        - label: I understand Realurls judges domain ownership only, never whether a site is safe or lawful, and I have disclosed any interest in this organization above.
           required: true

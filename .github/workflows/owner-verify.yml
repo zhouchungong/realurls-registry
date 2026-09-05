@@ -47,7 +47,7 @@ jobs:
               v = (m.group(1).strip() if m else "")
               return "" if v in ("", "_No response_") else v
           print(json.dumps({"domain": field("Domain"), "org": field("Organization"),
-                            "github": field("GitHub organization (optional)"), "category": field("Category")}))
+                            "github": field("GitHub organization (optional)"), "category": field("Category (optional)")}))
           PY
           domain=$(python -c "import json;print(json.load(open('/tmp/fields.json'))['domain'])")
           org=$(python -c "import json;print(json.load(open('/tmp/fields.json'))['org'])")

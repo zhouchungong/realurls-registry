@@ -1,26 +1,23 @@
 name: Verify my domain (domain owner)
-description: You control the domain. Publish one DNS TXT record and the pipeline verifies it; no human in the loop.
+description: You control the domain. A bot replies with a DNS TXT record; publish it and the pipeline verifies you. No human in the loop.
 title: "[verify] "
 labels: ["owner-verification"]
 body:
   - type: markdown
     attributes:
       value: |
-        **For domain owners.** Within a minute of opening this issue a bot replies with a token. Publish it as a
-        DNS TXT record at `_realurls.<your domain>`, comment `/verify` (or wait for the daily run), and the
-        pipeline verifies the domain with the highest-weight evidence we have (A5, self-attestation).
+        **For domain owners.** Within a minute a bot replies with a token. Publish it as a DNS TXT record at
+        `_realurls.<your domain>`, comment `/verify`, and the domain is verified with the highest-weight evidence
+        we have. No token needed if you verify the domain on your GitHub organization instead (Settings → Verified
+        and approved domains): comment `/verify` and the bot reads that.
 
-        Alternative that needs no token: verify the domain on your GitHub organization
-        (Settings → Verified and approved domains). The pipeline reads that as evidence A1.
-
-        This proves **ownership only**. It is not a safety or reputation judgement, and it cannot be used to
-        claim a domain you do not control: the record has to be in your DNS zone.
+        Ownership only, never safety. The record must be in your own DNS zone; nothing else counts.
 
   - type: input
     id: domain
     attributes:
       label: Domain
-      description: Registrable domain only — no scheme, no path
+      description: Registrable domain only, no scheme, no path
       placeholder: kagi.com
     validations: { required: true }
 
@@ -28,7 +25,7 @@ body:
     id: org
     attributes:
       label: Organization
-      description: The organization the domain belongs to, as you would state it publicly
+      description: The organization the domain belongs to, as you state it publicly
       placeholder: Kagi
     validations: { required: true }
 
@@ -41,8 +38,9 @@ body:
   - type: dropdown
     id: category
     attributes:
-      label: Category
+      label: Category (optional)
       options:
+        - other
         - ai
         - developer-tools
         - saas
@@ -51,8 +49,7 @@ body:
         - open-source
         - hardware
         - finance
-        - other
-    validations: { required: true }
+        - government
 
   - type: checkboxes
     id: confirm

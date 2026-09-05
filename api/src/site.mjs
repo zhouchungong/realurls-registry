@@ -13,7 +13,7 @@
  * The evidence page *is* the product: a list says "trust me", we say "here are the commands, run them".
  */
 
-import { registrableDomain, EVIDENCE_LABELS } from "../../packages/core/resolve.mjs";
+import { registrableDomain, EVIDENCE_LABELS, issueLinks } from "../../packages/core/resolve.mjs";
 
 const REPO = "https://github.com/zhouchungong/realurls-registry";
 const API = "https://api.realurls.org";
@@ -65,10 +65,12 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:v
 .rej li{color:var(--mute);font-size:14px}details summary{cursor:pointer;color:var(--mute);font-size:14px}details{margin-top:8px}
 .copy{position:relative}.copy button{position:absolute;right:8px;top:8px;font-size:12px;padding:3px 9px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--mute);cursor:pointer}
 .pager{display:flex;justify-content:space-between;align-items:center;margin:22px 0 8px;font-size:14px;color:var(--mute)}
+.mini{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.mini input{flex:1;min-width:180px;border:1px solid var(--line);border-radius:8px;padding:9px 12px;font-size:15px;background:var(--bg);color:var(--fg)}.mini button{border:0;border-radius:8px;padding:9px 16px;background:var(--accent);color:#fff;font-size:15px;cursor:pointer}
 @media(max-width:640px){.bar{flex-wrap:wrap}.bar nav{width:100%;margin:0}.hero{margin-top:4vh}.hero .brand{font-size:36px}}
 `;
 
 const SEARCH_JS = `document.querySelectorAll('form[data-check]').forEach(f=>f.addEventListener('submit',e=>{e.preventDefault();const v=f.q.value.trim();if(v)location.href='/d/'+encodeURIComponent(v)}));
+document.querySelectorAll('form[data-issue]').forEach(f=>f.addEventListener('submit',e=>{e.preventDefault();const d=(f.dataset.domain||f.domain?.value||'').trim().toLowerCase().replace(/^https?:\\/\\//,'').split('/')[0];const o=(f.org?.value||'').trim();const t=f.dataset.issue==='verify'?'verify-domain.yml':'submit-domain.yml';const u=new URL('${REPO}/issues/new');u.searchParams.set('template',t);u.searchParams.set('title',(f.dataset.issue==='verify'?'[verify] ':'[lead] ')+(f.dataset.issue==='verify'?d:o||d));if(d)u.searchParams.set('domain',d);if(o)u.searchParams.set('org',o);location.href=u.toString()}));
 document.querySelectorAll('.copy button').forEach(b=>b.addEventListener('click',()=>{navigator.clipboard.writeText(b.parentNode.querySelector('pre').innerText).then(()=>{b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1200)})}));`;
 
 function searchForm(value = "", big = false) {
@@ -166,12 +168,13 @@ function verifyPage(manifest) {
 <p class="sub">You control the domain. Prove it once, and every AI agent that asks Realurls gets your real site instead of a lookalike. No human in the loop; the result is a public record with the evidence.</p>
 
 <h2>Option A: one DNS TXT record</h2>
+<form class="mini" data-issue="verify"><input name="domain" placeholder="your-domain.com" aria-label="Domain" required><input name="org" placeholder="Organization name" aria-label="Organization" required><button type="submit">Get my token</button></form>
+<p class="muted">This opens a GitHub issue with both fields already filled in; press Submit there. A bot replies with a token within a minute (<a href="${issue}">or open the form directly</a>).</p>
 <ol>
-<li>Open a <a href="${issue}">Verify my domain</a> issue on GitHub (domain, organization name). A bot replies with a token within a minute.</li>
-<li>Publish it in your DNS zone:</li>
+<li>Publish the token in your DNS zone:</li>
 </ol>
 <div class="copy"><button type="button">Copy</button><pre>_realurls.example.com.   TXT   "realurls-site-verification=&lt;token&gt;"</pre></div>
-<ol start="3">
+<ol start="2">
 <li>Comment <code>/verify</code> on the issue (or wait for the daily run). The pipeline checks the record, collects the corroborating evidence, and merges the record once the adversarial corpus and the AI review pass. Minutes later it is live here and in the API.</li>
 </ol>
 <p class="muted">This is evidence <b>A5</b>, the highest-weight anchor we have (0.90) and the only one that waives the 180-day domain-age floor. The token is not a secret; what it proves is control of the zone.</p>
@@ -315,7 +318,8 @@ async function domainPage(input, store, manifest, ctx = null) {
   return html(`<h1><code>${esc(domain)}</code> <span class="badge unk">not in the registry</span></h1>
 ${exLine}
 <p class="sub">We have no verdict for this domain — neither positive nor negative. "Don't know" is the honest answer here. The registry holds ${manifest.counts.entities} organizations today and grows in reviewed batches; not being listed means not yet examined, nothing more.</p>
-<p class="muted">Know who owns it? <a href="${REPO}/issues/new?template=submit-domain.yml">Submit a lead</a>. If you <em>are</em> the owner, <a href="/verify">one DNS TXT record settles it</a>.</p>`, { robots: "noindex" });
+<p class="muted">Know who owns it? <a href="${esc(issueLinks(domain).lead)}">Submit a lead</a> (the domain is already filled in). If you <em>are</em> the owner, <a href="${esc(issueLinks(domain).verify)}">one DNS TXT record settles it</a>.</p>
+<form class="mini" data-issue="lead" data-domain="${esc(domain)}"><input name="org" placeholder="Which organization owns it?" aria-label="Organization" required><button type="submit">Submit a lead</button></form>`, { robots: "noindex" });
 }
 
 // ------------------------------------------------------------------ API landing (browsers only)

@@ -243,6 +243,23 @@ export const describeEvidence = codes => (codes || []).map(c => ({ code: c, mean
 
 export const CONFIDENCE_NOTE = "confidence ranks verified records among themselves (two independent anchors score higher than one); it never turns a non-verified answer into a positive one. Only verdict=official is a positive answer.";
 
+const REPO_URL = "https://github.com/zhouchungong/realurls-registry";
+
+/** Prefilled GitHub issue forms (field ids map to query parameters), so a submitter only clicks Submit. */
+export function issueLinks(domain = "", org = "") {
+  const q = (template, title, fields) => {
+    const u = new URL(`${REPO_URL}/issues/new`);
+    u.searchParams.set("template", template);
+    u.searchParams.set("title", title);
+    for (const [k, v] of Object.entries(fields)) if (v) u.searchParams.set(k, v);
+    return u.toString();
+  };
+  return {
+    verify: q("verify-domain.yml", `[verify] ${domain}`.trim(), { domain, org }),
+    lead: q("submit-domain.yml", `[lead] ${org || domain}`.trim(), { domain, org }),
+  };
+}
+
 export const verdictNotes = {
   official: "Verified as belonging to this entity. Ownership only — not a safety judgement.",
   insufficient: status => `Known entity, but evidence is insufficient (${status}). Do not present as confirmed official.`,
@@ -268,7 +285,7 @@ export function withGuidance(r) {
       ? `I could not confirm the official site. It was examined on ${String(r.examination.checked_at).slice(0, 10)} and did not reach verified ` +
         `(${r.examination.reasons || "insufficient evidence"}). If the user owns the domain, they can verify it in a minute at https://realurls.org/verify.`
       : "I could not confirm the official site. Do not present any URL as official; suggest a source the user already trusts. " +
-        "(If the user owns the domain, they can verify it in a minute at https://realurls.org/verify.)",
+        `(If the user owns the domain, they can verify it in a minute: ${r.links?.verify || "https://realurls.org/verify"})`,
     ambiguous: `Several organizations match: ${(r.candidates || []).map(c => c.name).join(", ")}. Ask which one is meant.`,
     invalid: "That is not a domain or URL.",
   }[r.verdict];

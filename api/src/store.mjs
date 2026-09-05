@@ -7,7 +7,7 @@
  * is about 1 MB.
  */
 
-import { registrableDomain, normalizeLabel, closestLabel, verdictNotes, describeEvidence, CONFIDENCE_NOTE } from "../../packages/core/resolve.mjs";
+import { registrableDomain, normalizeLabel, closestLabel, verdictNotes, describeEvidence, CONFIDENCE_NOTE, issueLinks } from "../../packages/core/resolve.mjs";
 
 const REPO = "https://github.com/zhouchungong/realurls-registry";
 
@@ -90,7 +90,7 @@ export class Store {
         confidence: hit.confidence, confidence_note: CONFIDENCE_NOTE,
         anchors, evidence: describeEvidence(anchors), last_verified: hit.last_verified,
         freshness: `re-verified daily; last ${String(hit.last_verified || "").slice(0, 10)}`,
-        ...(hit.official ? {} : { missing: (rec.rejected_evidence || []).slice(0, 4) }),
+        ...(hit.official ? {} : { missing: (rec.rejected_evidence || []).slice(0, 4), links: issueLinks(domain, hit.name) }),
         official_domains: officials,
         evidence_url: `${REPO}/blob/main/entities/${(hit.category || "ai").split(",")[0]}/${hit.entity_id.replace(/^org:/, "")}.yaml`,
         note: hit.official ? verdictNotes.official : verdictNotes.insufficient(hit.status),
@@ -108,11 +108,11 @@ export class Store {
     }
     const ex = await this.examined(domain);
     if (ex) {
-      return { domain, verdict: "unknown", status: ex.status, note: verdictNotes.unknown,
+      return { domain, verdict: "unknown", status: ex.status, note: verdictNotes.unknown, links: issueLinks(domain),
                examination: { status: ex.status, checked_at: ex.checked_at, reasons: ex.reasons,
                               note: `Examined on ${ex.checked_at.slice(0, 10)}: the rules reached "${ex.status}", not verified. Owners can verify at https://realurls.org/verify.` } };
     }
-    return { domain, verdict: "unknown", status: "unverified", note: verdictNotes.unknown,
+    return { domain, verdict: "unknown", status: "unverified", note: verdictNotes.unknown, links: issueLinks(domain),
              examination: { status: "queued", note: "Never examined; queued for the pipeline. Ask again in about fifteen minutes." } };
   }
 
@@ -154,7 +154,7 @@ export class Store {
                  note: "Several entities match. Ask the user which one they mean." };
       }
     }
-    if (!id) return { query: name, verdict: "unknown", note: "Entity not in registry. Do not guess a URL." };
+    if (!id) return { query: name, verdict: "unknown", note: "Entity not in registry. Do not guess a URL.", links: issueLinks("", String(name || "").trim()) };
     const e = await this.entity(id);
     const verified = e.domains.filter(d => d.status === "verified").map(d => `https://${d.domain}`);
     return {

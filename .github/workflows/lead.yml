@@ -41,7 +41,7 @@ jobs:
               v = (m.group(1).strip() if m else "")
               return "" if v in ("", "_No response_") else v
           domain = field("Domain you believe is the official site").lower().strip()
-          how = field("How do you know this is the official site?")
+          how = field("How do you know this is the official site? (optional)")
           gh = re.search(r"github\.com/([A-Za-z0-9-]+)", how)
           print(f"domain={domain}")
           print(f"github_org={gh.group(1) if gh else ''}")
