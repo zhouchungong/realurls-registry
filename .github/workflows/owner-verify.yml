@@ -160,7 +160,10 @@ jobs:
                   subprocess.run(["gh", "issue", "edit", str(r["issue"]), "--remove-label", "awaiting-dns", "--add-label", "verified"], check=False)
               else:
                   why = "\n".join(f"- {x}" for x in (r.get("rejected") or [])[:6]) or "- (no evidence rejected)"
-                  body = (f"**{r['domain']}** is `{r.get('status')}`, not yet verified. What the rules said:\n{why}\n\n"
+                  dns = r.get("dns") or ""
+                  body = (f"**{r['domain']}** is `{r.get('status')}`, not yet verified. {dns}
+
+What the rules said:\n{why}\n\n"
                           f"Reasons: {'; '.join(r.get('reasons') or [])}\n\nIf the TXT record was just published, DNS may still be propagating; comment `/verify` again later.")
                   subprocess.run(["gh", "issue", "comment", str(r["issue"]), "--body", body], check=True)
           PY
