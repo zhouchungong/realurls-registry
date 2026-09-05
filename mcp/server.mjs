@@ -7,14 +7,14 @@
  * 模型"自以为知道"时被读到。
  *
  * 环境变量：
- *   REALURLS_API   API 根地址，默认 https://api.realurls.com（本地开发：http://127.0.0.1:8787）
+ *   REALURLS_API   API 根地址，默认 https://api.realurls.org（本地开发：http://127.0.0.1:8787）
  */
 
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 
-const API = (process.env.REALURLS_API || "https://api.realurls.com").replace(/\/+$/, "");
+const API = (process.env.REALURLS_API || "https://api.realurls.org").replace(/\/+$/, "");
 const VERSION = "0.1.0";
 
 const INSTRUCTIONS =

@@ -39,7 +39,7 @@ jobs:
       - name: 提交变更
         run: |
           git config user.name  "realurls-bot"
-          git config user.email "bot@realurls.com"
+          git config user.email "bot@realurls.org"
           git add entities/
           git diff --cached --quiet && echo "无变更" && exit 0
           git commit -m "chore(revalidate): $(date -u +%F) 每日重验" \

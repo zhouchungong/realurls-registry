@@ -11,7 +11,7 @@ body:
         你不需要证明我们错了 —— 只要提出合理质疑，我们承诺 **48 小时内**把该记录降级为
         `disputed` 并暂停 API 的肯定答复，先止损，再查证。
 
-        安全类漏洞（代码 / 基础设施）请勿公开提 Issue，发信 `security@realurls.com`。
+        安全类漏洞（代码 / 基础设施）请勿公开提 Issue，发信 `security@realurls.org`。
 
   - type: input
     id: domain

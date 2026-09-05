@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://realurls.com/schema/entity-1.0.json",
+  "$id": "https://realurls.org/schema/entity-1.0.json",
   "title": "realurls entity",
   "description": "一个组织及其域名归属断言。由流水线生成，不接受人类直接编辑（见 SECURITY.md）。",
   "type": "object",

@@ -39,9 +39,9 @@ Issue Form（线索）→ bot 采集证据 → policy.decide() → 证据充分�
 ## 2. 报告安全问题
 
 - **数据错误**（把仿冒站标成官网、把官网标错）：这是本项目最严重的一类问题。
-  请提 Issue（`dispute` 模板）或发信 `dispute@realurls.com`。
+  请提 Issue（`dispute` 模板）或发信 `dispute@realurls.org`。
   **48 小时内**我们会把争议记录降级为 `disputed` 并暂停 API 肯定答复 —— 先止损，再查证。
-- **代码 / 基础设施漏洞**：请勿公开提 Issue，发信 `security@realurls.com`。
+- **代码 / 基础设施漏洞**：请勿公开提 Issue，发信 `security@realurls.org`。
 
 ## 3. 我们对自己的承诺
 

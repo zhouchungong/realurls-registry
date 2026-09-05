@@ -93,9 +93,20 @@ def build(out_dir: Path = DIST) -> dict:
     # entities.json —— 按名字/别名找实体用（API 的 /v1/entity 与 MCP 的 get_official_url）
     ents = {}
     for e in entities:
+        # 派生别名（导出时算，不写回 YAML）：verified 域名的标签（claude.ai → claude）、
+        # 项目史锚定的仓库名（run-llama/llama_index → llama_index、llama index）。
+        # 用户问 "Claude Code 官网" 时，能靠 "claude" 命中 Anthropic。
+        derived = set()
+        for d in e["domains"]:
+            if d["status"] == OFFICIAL:
+                derived.add(d["domain"].split(".")[0])
+        for s in (e.get("canonical") or {}).get("sources", []):
+            if s.startswith("github-history:"):
+                repo = s.split(":", 1)[1].split("(")[0].split("/")[-1]
+                derived.update({repo, repo.replace("_", " ").replace("-", " ")})
         ents[e["entity_id"]] = {
             "name": e["names"]["en"],
-            "aliases": sorted(set(e.get("aliases", []))),
+            "aliases": sorted({*e.get("aliases", []), *derived} - {e["names"]["en"]}),
             "wikidata": e.get("wikidata"),
             "github_org": (e.get("canonical") or {}).get("github_org"),
             "category": e.get("category", []),

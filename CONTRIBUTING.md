@@ -39,7 +39,7 @@ _realurls.example.com.   TXT   "realurls-site-verification=<token>"
 
 **请一定告诉我们。** 这是本项目最严重的一类问题。
 
-开一个 `dispute` Issue，或发信 `dispute@realurls.com`。我们承诺 **48 小时内**把争议记录降级为 `disputed` 并暂停 API 肯定答复 —— 先止损，再查证。**举证责任在我们，不在你。**
+开一个 `dispute` Issue，或发信 `dispute@realurls.org`。我们承诺 **48 小时内**把争议记录降级为 `disputed` 并暂停 API 肯定答复 —— 先止损，再查证。**举证责任在我们，不在你。**
 
 ## 我想改代码
 

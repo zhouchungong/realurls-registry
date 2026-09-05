@@ -4,8 +4,8 @@ compatibility_date = "2026-09-01"
 
 # 数据集在构建时打进 Worker（见 src/index.mjs 顶部注释）。部署前必须先跑：
 #   cd .. && python -m src.build
-# 自定义域名 api.realurls.com 在 Cloudflare 面板绑定，或取消下面的注释：
-# routes = [{ pattern = "api.realurls.com", custom_domain = true }]
+# 自定义域名 api.realurls.org 在 Cloudflare 面板绑定，或取消下面的注释：
+routes = [{ pattern = "api.realurls.org", zone_name = "realurls.org", custom_domain = true }]
 
 [observability]
 enabled = true
