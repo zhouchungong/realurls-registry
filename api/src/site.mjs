@@ -38,6 +38,13 @@ const EVIDENCE_LABELS = {
 };
 
 
+const CATEGORY_LABELS = {
+  ai: "AI", "developer-tools": "Developer tools", infrastructure: "Infrastructure", "open-source": "Open source",
+  saas: "SaaS", security: "Security", hardware: "Hardware", finance: "Finance", government: "Government", other: "Other",
+};
+const categoryLabel = c => CATEGORY_LABELS[c] || c;
+const PAGE_SIZE = 100;
+
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const slugOf = e => e.entity_id.replace(/^org:/, "");
 const verifiedDomains = e => e.domains.filter(d => d.status === "verified");
@@ -73,6 +80,7 @@ code,pre{font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;back
 footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:var(--mute);font-size:13px;line-height:1.7}
 .rej li{color:var(--mute);font-size:14px}details summary{cursor:pointer;color:var(--mute);font-size:14px}details{margin-top:8px}
 .copy{position:relative}.copy button{position:absolute;right:8px;top:8px;font-size:12px;padding:3px 9px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--mute);cursor:pointer}
+.pager{display:flex;justify-content:space-between;align-items:center;margin:22px 0 8px;font-size:14px;color:var(--mute)}
 @media(max-width:640px){.bar{flex-wrap:wrap}.bar nav{width:100%;margin:0}.hero{margin-top:4vh}.hero .brand{font-size:36px}}
 `;
 
@@ -100,8 +108,8 @@ ${canonical ? `<link rel="canonical" href="${esc(canonical)}">` : ""}${robots ? 
 
 async function home(store, manifest) {
   const c = manifest.counts;
-  const cards = (await store.list()).map(e =>
-    `<a class="card" href="/e/${esc(e.entity_id.replace(/^org:/, ""))}"><div>${esc(e.name)}</div><div class="d">${esc(e.verified) || "—"}</div></a>`
+  const cats = (await store.categories()).map(x =>
+    `<a class="card" href="/c/${esc(x.category)}"><div>${esc(categoryLabel(x.category))}</div><div class="d">${x.n} organization${x.n === 1 ? "" : "s"}</div></a>`
   ).join("");
   return layout(manifest, "realurls — which domain is really the official one?", `
 <div class="hero"><a class="brand" href="/">realurls</a>${searchForm("", true)}
@@ -110,11 +118,40 @@ async function home(store, manifest) {
 <h2>For AI agents</h2>
 <div class="copy"><button type="button">Copy</button><pre>claude mcp add realurls -- npx -y @realurls/mcp</pre></div>
 <p class="muted">Any MCP host: <code>{ "command": "npx", "args": ["-y", "@realurls/mcp"] }</code>. Plain HTTP: <code>${API}/v1/resolve?domain=…</code>. The server ships <em>instructions</em> telling the agent to call it before handing out any download or login link — in our tests that single line is what turns "answers from memory" into "verifies first".</p>
-<h2>Verified organizations</h2>
-<div class="grid">${cards}</div>
+<h2>Browse by category</h2>
+<div class="grid">${cats}</div>
+<p class="muted"><a href="/browse">All ${c.entities} organizations, A–Z →</a></p>
 <h2>What "verified" means</h2>
 <p class="muted">At least one <b>anchor</b> — something only the real owner can produce: a GitHub-verified organization, a DNS self-attestation, a restricted government TLD, a long-lived repository whose homepage points here — <b>and</b> at least two independent corroborations. Anything less is reported as insufficient evidence. We would rather say "don't know" than be wrong. Full rules: <a href="${REPO}/blob/main/POLICY.md">POLICY.md</a>.</p>
 `, { description: "Open, reproducible registry of which domain belongs to which organization. For AI agents and people. Ownership only, never safety.", canonical: `${SITE}/`, home: true });
+}
+
+// ------------------------------------------------------------------ category / browse listings
+
+async function listing(store, manifest, { category = null, page = 1 }) {
+  const total = await store.count(category);
+  const pages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+  page = Math.min(Math.max(1, page), pages);
+  const rows = await store.list({ category, limit: PAGE_SIZE, offset: (page - 1) * PAGE_SIZE });
+  const base = category ? `/c/${category}` : "/browse";
+  const title = category ? `${categoryLabel(category)} — verified organizations` : "All organizations";
+  const cards = rows.map(e =>
+    `<a class="card" href="/e/${esc(slugOf(e))}"><div>${esc(e.name)}</div><div class="d">${esc(e.verified) || "—"}</div></a>`
+  ).join("");
+  const nav = pages > 1 ? `<nav class="pager">${page > 1 ? `<a href="${base}?page=${page - 1}" rel="prev">← Previous</a>` : "<span></span>"}<span>Page ${page} of ${pages}</span>${page < pages ? `<a href="${base}?page=${page + 1}" rel="next">Next →</a>` : "<span></span>"}</nav>` : "";
+  const crumbs = category
+    ? `<p class="sub"><a href="/">realurls</a> › <a href="/browse">All organizations</a> › ${esc(categoryLabel(category))}</p>`
+    : `<p class="sub"><a href="/">realurls</a> › All organizations</p>`;
+  const others = category ? `<p class="muted">Other categories: ${(await store.categories()).filter(x => x.category !== category).map(x => `<a href="/c/${esc(x.category)}">${esc(categoryLabel(x.category))}</a> (${x.n})`).join(" · ")}</p>` : "";
+  return layout(manifest, `${title} — realurls`, `
+${crumbs}<h1>${esc(title)}</h1>
+<p class="muted">${total} organization${total === 1 ? "" : "s"}${category ? ` in ${esc(categoryLabel(category))}` : ""}, alphabetical. Every entry links to its evidence and the commands to reproduce it.</p>
+<div class="grid">${cards || "<p class='muted'>Nothing here yet.</p>"}</div>
+${nav}${others}`, {
+    description: `${title}: ${total} organizations whose official domains are verified by reproducible evidence.`,
+    canonical: `${SITE}${base}${page > 1 ? `?page=${page}` : ""}`,
+    robots: page > 1 ? "noindex, follow" : "",
+  });
 }
 
 // ------------------------------------------------------------------ entity page
@@ -245,7 +282,12 @@ ${ex}
 // ------------------------------------------------------------------ misc
 
 async function sitemap(store, manifest) {
-  const urls = [`${SITE}/`, ...(await store.list({ limit: 50000 })).map(e => `${SITE}/e/${e.entity_id.replace(/^org:/, "")}`)];
+  const urls = [`${SITE}/`, `${SITE}/browse`, ...(await store.categories()).map(x => `${SITE}/c/${x.category}`)];
+  for (let offset = 0; ; offset += 5000) {
+    const batch = await store.list({ limit: 5000, offset });
+    urls.push(...batch.map(e => `${SITE}/e/${e.entity_id.replace(/^org:/, "")}`));
+    if (batch.length < 5000 || urls.length >= 49000) break;
+  }
   return new Response(`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls.map(u => `<url><loc>${u}</loc><lastmod>${manifest.generated_at.slice(0, 10)}</lastmod></url>`).join("")}</urlset>`, { headers: { "Content-Type": "application/xml" } });
 }
 
@@ -268,6 +310,12 @@ export async function handleSite(request, store, manifest) {
   const html = body => new Response(body, { headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "public, max-age=300", "X-Realurls-Dataset": manifest.dataset_version } });
 
   if (path === "/") return html(await home(store, manifest));
+  if (path === "/browse") return html(await listing(store, manifest, { page: +url.searchParams.get("page") || 1 }));
+  if (path.startsWith("/c/")) {
+    const category = decodeURIComponent(path.slice(3));
+    if (!CATEGORY_LABELS[category]) return new Response(layout(manifest, "Not found — realurls", `<h1>No such category</h1><p><a href="/browse">Browse all organizations</a></p>`), { status: 404, headers: { "Content-Type": "text/html; charset=utf-8" } });
+    return html(await listing(store, manifest, { category, page: +url.searchParams.get("page") || 1 }));
+  }
   if (path === "/robots.txt") return new Response(`User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`, { headers: { "Content-Type": "text/plain" } });
   if (path === "/sitemap.xml") return sitemap(store, manifest);
   if (path === "/llms.txt") return new Response(LLMS_TXT, { headers: { "Content-Type": "text/plain; charset=utf-8" } });

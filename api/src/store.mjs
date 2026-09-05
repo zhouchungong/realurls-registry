@@ -46,13 +46,31 @@ export class Store {
 
   async entityBySlug(slug) { return this.entity(`org:${slug}`); }
 
-  /** Compact listing for the home page / sitemap. */
-  async list({ limit = 2000, offset = 0 } = {}) {
+  /** Compact listing for category pages / sitemap. `category` filters on the comma-joined column. */
+  async list({ category = null, limit = 100, offset = 0 } = {}) {
+    const where = category ? "WHERE ',' || e.category || ',' LIKE ?" : "";
+    const args = category ? [`%,${category},%`, limit, offset] : [limit, offset];
     const { results } = await this.db.prepare(
       "SELECT e.entity_id, e.name, e.category, GROUP_CONCAT(CASE WHEN d.official=1 THEN d.domain END, ' · ') AS verified " +
-      "FROM entities e LEFT JOIN domains d ON d.entity_id = e.entity_id GROUP BY e.entity_id ORDER BY e.name COLLATE NOCASE LIMIT ? OFFSET ?"
-    ).bind(limit, offset).all();
+      `FROM entities e LEFT JOIN domains d ON d.entity_id = e.entity_id ${where} GROUP BY e.entity_id ORDER BY e.name COLLATE NOCASE LIMIT ? OFFSET ?`
+    ).bind(...args).all();
     return results.map(r => ({ entity_id: r.entity_id, name: r.name, category: (r.category || "").split(",").filter(Boolean), verified: r.verified || "" }));
+  }
+
+  async count(category = null) {
+    const row = category
+      ? await this.db.prepare("SELECT COUNT(*) AS n FROM entities WHERE ',' || category || ',' LIKE ?").bind(`%,${category},%`).first()
+      : await this.db.prepare("SELECT COUNT(*) AS n FROM entities").first();
+    return row?.n || 0;
+  }
+
+  /** Entity count per category. Categories are a comma-joined list per entity, so the distinct
+   *  combinations (a handful) are grouped in SQL and split here. */
+  async categories() {
+    const { results } = await this.db.prepare("SELECT category, COUNT(*) AS n FROM entities GROUP BY category").all();
+    const counts = {};
+    for (const r of results) for (const c of (r.category || "").split(",").filter(Boolean)) counts[c] = (counts[c] || 0) + r.n;
+    return Object.entries(counts).sort((a, b) => b[1] - a[1]).map(([category, n]) => ({ category, n }));
   }
 
   async resolve(input) {
