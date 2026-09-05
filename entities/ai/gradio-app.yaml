@@ -3,10 +3,10 @@
 schema_version: '1.0'
 entity_id: org:gradio-app
 names:
-  en: gradio-app/gradio
+  en: Gradio
 aliases:
-- Gradio
 - gradio-app
+- gradio-app/gradio
 category:
 - ai
 wikidata: null
@@ -21,21 +21,21 @@ domains:
   status: verified
   confidence: 0.6691
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T05:17:36Z'
+  last_verified: '2026-09-05T05:21:52Z'
   ttl_days: 30
   age_days: 2736
   age_source: rdap
   collection_incomplete: false
   evidence:
   - code: A1
-    checked_at: '2026-09-05T05:18:28Z'
+    checked_at: '2026-09-05T05:23:19Z'
     source: https://api.github.com/orgs/gradio-app
     data:
       org: gradio-app
       org_verified: false
       blog: www.gradio.app
   - code: A8
-    checked_at: '2026-09-05T05:18:28Z'
+    checked_at: '2026-09-05T05:23:19Z'
     source: https://api.github.com/repos/gradio-app/gradio
     data:
       repo: gradio-app/gradio
@@ -47,7 +47,7 @@ domains:
       age_days: 2816
       contributors: 506
   - code: A3
-    checked_at: '2026-09-05T05:18:28Z'
+    checked_at: '2026-09-05T05:23:19Z'
     source: https://rdap.org/domain/gradio.app
     data:
       registrar: Squarespace Domains II LLC.
@@ -58,7 +58,7 @@ domains:
       - delete
       - transfer
   - code: A4
-    checked_at: '2026-09-05T05:18:28Z'
+    checked_at: '2026-09-05T05:23:20Z'
     source: TLS handshake gradio.app:443
     data:
       subject_org: ''
@@ -66,7 +66,7 @@ domains:
       issuer: Google Trust Services
       san_count: 2
   - code: B1
-    checked_at: '2026-09-05T05:18:28Z'
+    checked_at: '2026-09-05T05:23:20Z'
     source: https://www.wikidata.org/wiki/Q117829662
     data:
       qid: Q117829662
@@ -75,13 +75,13 @@ domains:
       sitelinks: 1
       competing_items: 1
   - code: B4
-    checked_at: '2026-09-05T05:18:28Z'
+    checked_at: '2026-09-05T05:23:20Z'
     source: http://web.archive.org/cdx/search/cdx?url=gradio.app&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2019-09-16'
       history_days: 2546
   - code: B5
-    checked_at: '2026-09-05T05:18:28Z'
+    checked_at: '2026-09-05T05:23:20Z'
     source: https://tranco-list.eu/api/ranks/domain/gradio.app
     data:
       rank: 115129
@@ -95,6 +95,7 @@ domains:
   - 1 条独立锚点 + 2 条独立佐证，达到 verified 门槛
 provenance:
   generated_by: build_entities/0.1
-  policy_version: policy.py@180e4ed
+  policy_version: policy.py@c027cba
+  label_source: github_org_name(self-declared)
   reviewed_by: []
   source_issue: null

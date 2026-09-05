@@ -22,21 +22,21 @@ domains:
   status: verified
   confidence: 0.7816
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T05:17:36Z'
+  last_verified: '2026-09-05T05:21:52Z'
   ttl_days: 30
   age_days: 1104
   age_source: rdap
   collection_incomplete: false
   evidence:
   - code: A1
-    checked_at: '2026-09-05T05:19:19Z'
+    checked_at: '2026-09-05T05:25:34Z'
     source: https://api.github.com/orgs/QwenLM
     data:
       org: QwenLM
       org_verified: false
       blog: https://qwen.ai/
   - code: A3
-    checked_at: '2026-09-05T05:19:19Z'
+    checked_at: '2026-09-05T05:25:35Z'
     source: https://rdap.org/domain/qwen.ai
     data:
       registrar: CSC Corporate Domains, Inc.
@@ -46,7 +46,7 @@ domains:
       locks:
       - transfer
   - code: A4
-    checked_at: '2026-09-05T05:19:20Z'
+    checked_at: '2026-09-05T05:25:36Z'
     source: TLS handshake qwen.ai:443
     data:
       subject_org: 阿里巴巴（中国）网络技术有限公司
@@ -54,7 +54,7 @@ domains:
       issuer: GlobalSign nv-sa
       san_count: 2
   - code: B1
-    checked_at: '2026-09-05T05:19:20Z'
+    checked_at: '2026-09-05T05:25:36Z'
     source: https://www.wikidata.org/wiki/Q130234299
     data:
       qid: Q130234299
@@ -63,13 +63,13 @@ domains:
       sitelinks: 34
       competing_items: 0
   - code: B4
-    checked_at: '2026-09-05T05:19:20Z'
+    checked_at: '2026-09-05T05:25:36Z'
     source: http://web.archive.org/cdx/search/cdx?url=qwen.ai&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2025-07-11'
       history_days: 421
   - code: B5
-    checked_at: '2026-09-05T05:19:20Z'
+    checked_at: '2026-09-05T05:25:36Z'
     source: https://tranco-list.eu/api/ranks/domain/qwen.ai
     data:
       rank: 12228
@@ -81,6 +81,7 @@ domains:
   - 1 条独立锚点 + 3 条独立佐证，达到 verified 门槛
 provenance:
   generated_by: build_entities/0.1
-  policy_version: policy.py@180e4ed
+  policy_version: policy.py@c027cba
+  label_source: wikidata:Q130234299
   reviewed_by: []
   source_issue: null

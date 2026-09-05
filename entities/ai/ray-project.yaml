@@ -3,9 +3,10 @@
 schema_version: '1.0'
 entity_id: org:ray-project
 names:
-  en: ray-project/ray
+  en: ray
 aliases:
 - ray-project
+- ray-project/ray
 category:
 - ai
 wikidata: null
@@ -20,21 +21,21 @@ domains:
   status: verified
   confidence: 0.6691
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T05:17:36Z'
+  last_verified: '2026-09-05T05:21:52Z'
   ttl_days: 30
   age_days: 5410
   age_source: wayback_lower_bound
   collection_incomplete: false
   evidence:
   - code: A1
-    checked_at: '2026-09-05T05:18:26Z'
+    checked_at: '2026-09-05T05:23:16Z'
     source: https://api.github.com/orgs/ray-project
     data:
       org: ray-project
       org_verified: false
       blog: https://docs.ray.io
   - code: A8
-    checked_at: '2026-09-05T05:18:26Z'
+    checked_at: '2026-09-05T05:23:16Z'
     source: https://api.github.com/repos/ray-project/ray
     data:
       repo: ray-project/ray
@@ -46,7 +47,7 @@ domains:
       age_days: 3601
       contributors: 1718
   - code: A4
-    checked_at: '2026-09-05T05:18:27Z'
+    checked_at: '2026-09-05T05:23:17Z'
     source: TLS handshake ray.io:443
     data:
       subject_org: ''
@@ -54,7 +55,7 @@ domains:
       issuer: Amazon
       san_count: 1
   - code: B1
-    checked_at: '2026-09-05T05:18:27Z'
+    checked_at: '2026-09-05T05:23:17Z'
     source: https://www.wikidata.org/wiki/Q105276783
     data:
       qid: Q105276783
@@ -63,13 +64,13 @@ domains:
       sitelinks: 0
       competing_items: 0
   - code: B4
-    checked_at: '2026-09-05T05:18:27Z'
+    checked_at: '2026-09-05T05:23:17Z'
     source: http://web.archive.org/cdx/search/cdx?url=ray.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2011-11-13'
       history_days: 5410
   - code: B5
-    checked_at: '2026-09-05T05:18:27Z'
+    checked_at: '2026-09-05T05:23:17Z'
     source: https://tranco-list.eu/api/ranks/domain/ray.io
     data:
       rank: 125564
@@ -82,6 +83,7 @@ domains:
   - 1 条独立锚点 + 2 条独立佐证，达到 verified 门槛
 provenance:
   generated_by: build_entities/0.1
-  policy_version: policy.py@180e4ed
+  policy_version: policy.py@c027cba
+  label_source: github_repo_name
   reviewed_by: []
   source_issue: null

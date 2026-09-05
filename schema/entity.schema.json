@@ -65,6 +65,8 @@
       "properties": {
         "generated_by": { "type": "string", "description": "生成本记录的流水线版本" },
         "policy_version": { "type": "string" },
+        "label_source": { "type": "string",
+                          "description": "names.en 从哪来：wikidata:Qxx | github_org_name(self-declared) | github_repo_name | fallback。自填来源必须如实标注" },
         "reviewed_by": { "type": "array", "items": { "type": "string" } },
         "source_issue": { "type": ["string", "null"] }
       }

@@ -20,7 +20,9 @@
           ① Wikidata 条目（P856 指向本域名、类型 ∈ 组织/企业/软件/网站、站点链接 ≥ 3）
              → canonical GitHub 组织 = 该条目的 P2037 或 P1324；canonical Wikidata = QID
           ② GitHub 项目史：组织拥有一个 非 fork、创建 ≥3 年、≥300 贡献者、≥5k 星 的仓库
-             → canonical GitHub 组织 = 该组织；实体标签取自仓库名，不取自组织自填的 name
+             → canonical GitHub 组织 = 该组织；仓库全名进 canonical.sources 供核对
+        展示名（names.en）：Wikidata 标签优先；否则用 GitHub 组织显示名——那是自填字段，只用于
+        展示、不参与任何判定，且在 provenance.label_source 里如实标注 self-declared
         或由人工审核指定（来源记为 human:*，随实体记录落盘供 reviewer 核对）
 
 阶段 2  域名验证（src/policy.py）

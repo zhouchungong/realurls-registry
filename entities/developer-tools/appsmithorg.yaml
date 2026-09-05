@@ -3,10 +3,10 @@
 schema_version: '1.0'
 entity_id: org:appsmithorg
 names:
-  en: appsmithorg/appsmith
+  en: Appsmith
 aliases:
-- Appsmith
 - appsmithorg
+- appsmithorg/appsmith
 category:
 - developer-tools
 wikidata: null
@@ -21,21 +21,21 @@ domains:
   status: verified
   confidence: 0.6691
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T05:17:36Z'
+  last_verified: '2026-09-05T05:21:52Z'
   ttl_days: 30
   age_days: 8413
   age_source: rdap
   collection_incomplete: false
   evidence:
   - code: A1
-    checked_at: '2026-09-05T05:18:34Z'
+    checked_at: '2026-09-05T05:23:24Z'
     source: https://api.github.com/orgs/appsmithorg
     data:
       org: appsmithorg
       org_verified: false
       blog: https://www.appsmith.com
   - code: A8
-    checked_at: '2026-09-05T05:18:34Z'
+    checked_at: '2026-09-05T05:23:24Z'
     source: https://api.github.com/repos/appsmithorg/appsmith
     data:
       repo: appsmithorg/appsmith
@@ -47,7 +47,7 @@ domains:
       age_days: 2258
       contributors: 380
   - code: A3
-    checked_at: '2026-09-05T05:18:34Z'
+    checked_at: '2026-09-05T05:23:24Z'
     source: https://rdap.org/domain/appsmith.com
     data:
       registrar: Amazon Registrar, Inc.
@@ -57,7 +57,7 @@ domains:
       locks:
       - transfer
   - code: A4
-    checked_at: '2026-09-05T05:18:35Z'
+    checked_at: '2026-09-05T05:23:26Z'
     source: TLS handshake appsmith.com:443
     data:
       subject_org: ''
@@ -65,13 +65,13 @@ domains:
       issuer: Let's Encrypt
       san_count: 2
   - code: B4
-    checked_at: '2026-09-05T05:18:35Z'
+    checked_at: '2026-09-05T05:23:26Z'
     source: http://web.archive.org/cdx/search/cdx?url=appsmith.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2001-05-19'
       history_days: 9240
   - code: B5
-    checked_at: '2026-09-05T05:18:35Z'
+    checked_at: '2026-09-05T05:23:26Z'
     source: https://tranco-list.eu/api/ranks/domain/appsmith.com
     data:
       rank: 115989
@@ -84,6 +84,7 @@ domains:
   - 1 条独立锚点 + 2 条独立佐证，达到 verified 门槛
 provenance:
   generated_by: build_entities/0.1
-  policy_version: policy.py@180e4ed
+  policy_version: policy.py@c027cba
+  label_source: github_org_name(self-declared)
   reviewed_by: []
   source_issue: null

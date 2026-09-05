@@ -1,11 +1,10 @@
 # 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
 # generated_by: build_entities/0.1
 schema_version: '1.0'
-entity_id: org:q63966
+entity_id: org:unity-technologies
 names:
-  en: Q63966
+  en: Unity Technologies
 aliases:
-- Unity Technologies
 - Unity-Technologies
 category:
 - ai
@@ -21,14 +20,14 @@ domains:
   status: verified
   confidence: 0.7816
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T05:17:36Z'
+  last_verified: '2026-09-05T05:21:52Z'
   ttl_days: 30
   age_days: 11352
   age_source: rdap
   collection_incomplete: false
   evidence:
   - code: A1
-    checked_at: '2026-09-05T05:19:41Z'
+    checked_at: '2026-09-05T05:26:17Z'
     source: https://api.github.com/orgs/Unity-Technologies
     data:
       org: Unity-Technologies
@@ -37,7 +36,7 @@ domains:
       org_name: Unity Technologies
       created_at: '2010-10-04T09:37:48Z'
   - code: A3
-    checked_at: '2026-09-05T05:19:41Z'
+    checked_at: '2026-09-05T05:26:17Z'
     source: https://rdap.org/domain/unity.com
     data:
       registrar: MarkMonitor Inc.
@@ -52,7 +51,7 @@ domains:
       - server transfer
       - server update
   - code: A4
-    checked_at: '2026-09-05T05:19:42Z'
+    checked_at: '2026-09-05T05:26:18Z'
     source: TLS handshake unity.com:443
     data:
       subject_org: Unity Technologies ApS
@@ -60,7 +59,7 @@ domains:
       issuer: DigiCert Inc
       san_count: 2
   - code: B1
-    checked_at: '2026-09-05T05:19:42Z'
+    checked_at: '2026-09-05T05:26:18Z'
     source: https://www.wikidata.org/wiki/Q63966
     data:
       qid: Q63966
@@ -69,13 +68,13 @@ domains:
       sitelinks: 58
       competing_items: 1
   - code: B4
-    checked_at: '2026-09-05T05:19:42Z'
+    checked_at: '2026-09-05T05:26:18Z'
     source: http://web.archive.org/cdx/search/cdx?url=unity.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2000-05-20'
       history_days: 9604
   - code: B5
-    checked_at: '2026-09-05T05:19:42Z'
+    checked_at: '2026-09-05T05:26:18Z'
     source: https://tranco-list.eu/api/ranks/domain/unity.com
     data:
       rank: 2286
@@ -87,6 +86,7 @@ domains:
   - 1 条独立锚点 + 3 条独立佐证，达到 verified 门槛
 provenance:
   generated_by: build_entities/0.1
-  policy_version: policy.py@180e4ed
+  policy_version: policy.py@c027cba
+  label_source: github_org_name(self-declared)
   reviewed_by: []
   source_issue: null

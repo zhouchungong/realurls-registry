@@ -6,7 +6,7 @@ names:
   en: PyTorch Lightning
 aliases:
 - Lightning-AI
-- '⚡️ Lightning AI '
+- ⚡️ Lightning AI
 category:
 - ai
 - developer-tools
@@ -23,21 +23,21 @@ domains:
   status: verified
   confidence: 0.6691
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T05:17:36Z'
+  last_verified: '2026-09-05T05:21:52Z'
   ttl_days: 30
   age_days: 3185
   age_source: rdap
   collection_incomplete: false
   evidence:
   - code: A1
-    checked_at: '2026-09-05T05:19:14Z'
+    checked_at: '2026-09-05T05:25:21Z'
     source: https://api.github.com/orgs/Lightning-AI
     data:
       org: Lightning-AI
       org_verified: false
       blog: https://lightning.ai/
   - code: A8
-    checked_at: '2026-09-05T05:19:15Z'
+    checked_at: '2026-09-05T05:25:23Z'
     source: https://api.github.com/repos/Lightning-AI/pytorch-lightning
     data:
       repo: Lightning-AI/pytorch-lightning
@@ -49,7 +49,7 @@ domains:
       age_days: 2715
       contributors: 1071
   - code: A3
-    checked_at: '2026-09-05T05:19:15Z'
+    checked_at: '2026-09-05T05:25:23Z'
     source: https://rdap.org/domain/lightning.ai
     data:
       registrar: GoDaddy.com, LLC
@@ -62,7 +62,7 @@ domains:
       - transfer
       - update
   - code: A4
-    checked_at: '2026-09-05T05:19:15Z'
+    checked_at: '2026-09-05T05:25:24Z'
     source: TLS handshake lightning.ai:443
     data:
       subject_org: ''
@@ -70,7 +70,7 @@ domains:
       issuer: Google Trust Services
       san_count: 2
   - code: B1
-    checked_at: '2026-09-05T05:19:15Z'
+    checked_at: '2026-09-05T05:25:24Z'
     source: https://www.wikidata.org/wiki/Q85847011
     data:
       qid: Q85847011
@@ -79,7 +79,7 @@ domains:
       sitelinks: 4
       competing_items: 1
   - code: B5
-    checked_at: '2026-09-05T05:19:15Z'
+    checked_at: '2026-09-05T05:25:24Z'
     source: https://tranco-list.eu/api/ranks/domain/lightning.ai
     data:
       rank: 97817
@@ -92,6 +92,7 @@ domains:
   - 1 条独立锚点 + 2 条独立佐证，达到 verified 门槛
 provenance:
   generated_by: build_entities/0.1
-  policy_version: policy.py@180e4ed
+  policy_version: policy.py@c027cba
+  label_source: wikidata:Q85847011
   reviewed_by: []
   source_issue: null

@@ -3,9 +3,10 @@
 schema_version: '1.0'
 entity_id: org:usebruno
 names:
-  en: usebruno/bruno
+  en: bruno
 aliases:
 - usebruno
+- usebruno/bruno
 category:
 - developer-tools
 wikidata: null
@@ -20,21 +21,21 @@ domains:
   status: verified
   confidence: 0.6691
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T05:17:36Z'
+  last_verified: '2026-09-05T05:21:52Z'
   ttl_days: 30
   age_days: 1438
   age_source: rdap
   collection_incomplete: false
   evidence:
   - code: A1
-    checked_at: '2026-09-05T05:18:10Z'
+    checked_at: '2026-09-05T05:23:03Z'
     source: https://api.github.com/orgs/usebruno
     data:
       org: usebruno
       org_verified: false
       blog: https://www.usebruno.com/
   - code: A8
-    checked_at: '2026-09-05T05:18:10Z'
+    checked_at: '2026-09-05T05:23:03Z'
     source: https://api.github.com/repos/usebruno/bruno
     data:
       repo: usebruno/bruno
@@ -46,7 +47,7 @@ domains:
       age_days: 1438
       contributors: 478
   - code: A3
-    checked_at: '2026-09-05T05:18:10Z'
+    checked_at: '2026-09-05T05:23:03Z'
     source: https://rdap.org/domain/usebruno.com
     data:
       registrar: NameCheap, Inc.
@@ -56,7 +57,7 @@ domains:
       locks:
       - transfer
   - code: A4
-    checked_at: '2026-09-05T05:18:13Z'
+    checked_at: '2026-09-05T05:23:04Z'
     source: TLS handshake usebruno.com:443
     data:
       subject_org: ''
@@ -64,7 +65,7 @@ domains:
       issuer: Sectigo Limited
       san_count: 2
   - code: B1
-    checked_at: '2026-09-05T05:18:13Z'
+    checked_at: '2026-09-05T05:23:04Z'
     source: https://www.wikidata.org/wiki/Q131925635
     data:
       qid: Q131925635
@@ -73,13 +74,13 @@ domains:
       sitelinks: 0
       competing_items: 0
   - code: B4
-    checked_at: '2026-09-05T05:18:13Z'
+    checked_at: '2026-09-05T05:23:04Z'
     source: http://web.archive.org/cdx/search/cdx?url=usebruno.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2022-10-18'
       history_days: 1418
   - code: B5
-    checked_at: '2026-09-05T05:18:13Z'
+    checked_at: '2026-09-05T05:23:04Z'
     source: https://tranco-list.eu/api/ranks/domain/usebruno.com
     data:
       rank: 102946
@@ -93,6 +94,7 @@ domains:
   - 1 条独立锚点 + 2 条独立佐证，达到 verified 门槛
 provenance:
   generated_by: build_entities/0.1
-  policy_version: policy.py@180e4ed
+  policy_version: policy.py@c027cba
+  label_source: github_repo_name
   reviewed_by: []
   source_issue: null

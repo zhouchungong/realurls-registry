@@ -3,10 +3,11 @@
 schema_version: '1.0'
 entity_id: org:pingcap
 names:
-  en: pingcap/tidb
+  en: tidb
 aliases:
 - PingCAP
 - pingcap
+- pingcap/tidb
 category:
 - ai
 wikidata: null
@@ -21,14 +22,14 @@ domains:
   status: verified
   confidence: 0.8346
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T05:17:36Z'
+  last_verified: '2026-09-05T05:21:52Z'
   ttl_days: 30
   age_days: 4163
   age_source: rdap
   collection_incomplete: false
   evidence:
   - code: A1
-    checked_at: '2026-09-05T05:18:36Z'
+    checked_at: '2026-09-05T05:23:27Z'
     source: https://api.github.com/orgs/pingcap
     data:
       org: pingcap
@@ -37,7 +38,7 @@ domains:
       org_name: PingCAP
       created_at: '2015-04-08T14:30:50Z'
   - code: A8
-    checked_at: '2026-09-05T05:18:36Z'
+    checked_at: '2026-09-05T05:23:27Z'
     source: https://api.github.com/repos/pingcap/tidb
     data:
       repo: pingcap/tidb
@@ -49,7 +50,7 @@ domains:
       age_days: 4017
       contributors: 1087
   - code: A3
-    checked_at: '2026-09-05T05:18:36Z'
+    checked_at: '2026-09-05T05:23:27Z'
     source: https://rdap.org/domain/pingcap.com
     data:
       registrar: Alibaba Cloud Computing (Beijing) Co., Ltd.
@@ -58,7 +59,7 @@ domains:
       remaining_days: 585
       locks: []
   - code: A4
-    checked_at: '2026-09-05T05:18:38Z'
+    checked_at: '2026-09-05T05:23:28Z'
     source: TLS handshake pingcap.com:443
     data:
       subject_org: ''
@@ -66,7 +67,7 @@ domains:
       issuer: DigiCert Inc
       san_count: 2
   - code: B1
-    checked_at: '2026-09-05T05:18:38Z'
+    checked_at: '2026-09-05T05:23:28Z'
     source: https://www.wikidata.org/wiki/Q110833237
     data:
       qid: Q110833237
@@ -75,13 +76,13 @@ domains:
       sitelinks: 0
       competing_items: 0
   - code: B4
-    checked_at: '2026-09-05T05:18:38Z'
+    checked_at: '2026-09-05T05:23:28Z'
     source: http://web.archive.org/cdx/search/cdx?url=pingcap.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2015-12-16'
       history_days: 3916
   - code: B5
-    checked_at: '2026-09-05T05:18:38Z'
+    checked_at: '2026-09-05T05:23:28Z'
     source: https://tranco-list.eu/api/ranks/domain/pingcap.com
     data:
       rank: 154487
@@ -95,6 +96,7 @@ domains:
   - 1 条独立锚点 + 2 条独立佐证，达到 verified 门槛
 provenance:
   generated_by: build_entities/0.1
-  policy_version: policy.py@180e4ed
+  policy_version: policy.py@c027cba
+  label_source: github_repo_name
   reviewed_by: []
   source_issue: null

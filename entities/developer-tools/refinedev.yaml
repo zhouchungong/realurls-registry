@@ -3,10 +3,10 @@
 schema_version: '1.0'
 entity_id: org:refinedev
 names:
-  en: refinedev/refine
+  en: refine
 aliases:
-- refine
 - refinedev
+- refinedev/refine
 category:
 - developer-tools
 wikidata: null
@@ -21,21 +21,21 @@ domains:
   status: verified
   confidence: 0.6691
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T05:17:36Z'
+  last_verified: '2026-09-05T05:21:52Z'
   ttl_days: 30
   age_days: 1911
   age_source: rdap
   collection_incomplete: false
   evidence:
   - code: A1
-    checked_at: '2026-09-05T05:19:10Z'
+    checked_at: '2026-09-05T05:25:14Z'
     source: https://api.github.com/orgs/refinedev
     data:
       org: refinedev
       org_verified: false
       blog: https://refine.dev
   - code: A8
-    checked_at: '2026-09-05T05:19:10Z'
+    checked_at: '2026-09-05T05:25:14Z'
     source: https://api.github.com/repos/refinedev/refine
     data:
       repo: refinedev/refine
@@ -47,7 +47,7 @@ domains:
       age_days: 2053
       contributors: 328
   - code: A3
-    checked_at: '2026-09-05T05:19:10Z'
+    checked_at: '2026-09-05T05:25:14Z'
     source: https://rdap.org/domain/refine.dev
     data:
       registrar: GoDaddy.com, LLC
@@ -60,7 +60,7 @@ domains:
       - transfer
       - update
   - code: A4
-    checked_at: '2026-09-05T05:19:11Z'
+    checked_at: '2026-09-05T05:25:14Z'
     source: TLS handshake refine.dev:443
     data:
       subject_org: ''
@@ -68,13 +68,13 @@ domains:
       issuer: Google Trust Services
       san_count: 2
   - code: B4
-    checked_at: '2026-09-05T05:19:11Z'
+    checked_at: '2026-09-05T05:25:14Z'
     source: http://web.archive.org/cdx/search/cdx?url=refine.dev&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2021-09-24'
       history_days: 1807
   - code: B5
-    checked_at: '2026-09-05T05:19:11Z'
+    checked_at: '2026-09-05T05:25:14Z'
     source: https://tranco-list.eu/api/ranks/domain/refine.dev
     data:
       rank: 365601
@@ -87,6 +87,7 @@ domains:
   - 1 条独立锚点 + 2 条独立佐证，达到 verified 门槛
 provenance:
   generated_by: build_entities/0.1
-  policy_version: policy.py@180e4ed
+  policy_version: policy.py@c027cba
+  label_source: github_org_name(self-declared)
   reviewed_by: []
   source_issue: null

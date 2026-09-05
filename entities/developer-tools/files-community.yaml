@@ -3,10 +3,10 @@
 schema_version: '1.0'
 entity_id: org:files-community
 names:
-  en: files-community/Files
+  en: Files Community
 aliases:
-- Files Community
 - files-community
+- files-community/Files
 category:
 - developer-tools
 wikidata: null
@@ -21,14 +21,14 @@ domains:
   status: verified
   confidence: 0.8346
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T05:17:36Z'
+  last_verified: '2026-09-05T05:21:52Z'
   ttl_days: 30
   age_days: 1888
   age_source: rdap
   collection_incomplete: false
   evidence:
   - code: A1
-    checked_at: '2026-09-05T05:18:19Z'
+    checked_at: '2026-09-05T05:23:11Z'
     source: https://api.github.com/orgs/files-community
     data:
       org: files-community
@@ -37,7 +37,7 @@ domains:
       org_name: Files Community
       created_at: '2020-05-26T01:36:59Z'
   - code: A8
-    checked_at: '2026-09-05T05:18:19Z'
+    checked_at: '2026-09-05T05:23:11Z'
     source: https://api.github.com/repos/files-community/Files
     data:
       repo: files-community/Files
@@ -49,7 +49,7 @@ domains:
       age_days: 2800
       contributors: 329
   - code: A3
-    checked_at: '2026-09-05T05:18:19Z'
+    checked_at: '2026-09-05T05:23:11Z'
     source: https://rdap.org/domain/files.community
     data:
       registrar: Cloudflare, Inc
@@ -59,7 +59,7 @@ domains:
       locks:
       - transfer
   - code: A4
-    checked_at: '2026-09-05T05:18:22Z'
+    checked_at: '2026-09-05T05:23:12Z'
     source: TLS handshake files.community:443
     data:
       subject_org: ''
@@ -67,7 +67,7 @@ domains:
       issuer: Google Trust Services
       san_count: 1
   - code: B1
-    checked_at: '2026-09-05T05:18:22Z'
+    checked_at: '2026-09-05T05:23:12Z'
     source: https://www.wikidata.org/wiki/Q118869796
     data:
       qid: Q118869796
@@ -76,13 +76,13 @@ domains:
       sitelinks: 1
       competing_items: 0
   - code: B4
-    checked_at: '2026-09-05T05:18:22Z'
+    checked_at: '2026-09-05T05:23:12Z'
     source: http://web.archive.org/cdx/search/cdx?url=files.community&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2019-07-05'
       history_days: 2619
   - code: B5
-    checked_at: '2026-09-05T05:18:22Z'
+    checked_at: '2026-09-05T05:23:12Z'
     source: https://tranco-list.eu/api/ranks/domain/files.community
     data:
       rank: 559640
@@ -96,6 +96,7 @@ domains:
   - 1 条独立锚点 + 2 条独立佐证，达到 verified 门槛
 provenance:
   generated_by: build_entities/0.1
-  policy_version: policy.py@180e4ed
+  policy_version: policy.py@c027cba
+  label_source: github_org_name(self-declared)
   reviewed_by: []
   source_issue: null

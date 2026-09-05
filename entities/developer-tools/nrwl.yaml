@@ -3,10 +3,10 @@
 schema_version: '1.0'
 entity_id: org:nrwl
 names:
-  en: nrwl/nx
+  en: Nx
 aliases:
-- Nx
 - nrwl
+- nrwl/nx
 category:
 - developer-tools
 wikidata: null
@@ -21,14 +21,14 @@ domains:
   status: verified
   confidence: 0.8346
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T05:17:36Z'
+  last_verified: '2026-09-05T05:21:52Z'
   ttl_days: 30
   age_days: 2753
   age_source: rdap
   collection_incomplete: false
   evidence:
   - code: A1
-    checked_at: '2026-09-05T05:19:16Z'
+    checked_at: '2026-09-05T05:25:28Z'
     source: https://api.github.com/orgs/nrwl
     data:
       org: nrwl
@@ -37,7 +37,7 @@ domains:
       org_name: Nx
       created_at: '2016-11-23T04:38:16Z'
   - code: A8
-    checked_at: '2026-09-05T05:19:16Z'
+    checked_at: '2026-09-05T05:25:28Z'
     source: https://api.github.com/repos/nrwl/nx
     data:
       repo: nrwl/nx
@@ -49,7 +49,7 @@ domains:
       age_days: 3311
       contributors: 1296
   - code: A3
-    checked_at: '2026-09-05T05:19:16Z'
+    checked_at: '2026-09-05T05:25:28Z'
     source: https://rdap.org/domain/nx.dev
     data:
       registrar: Squarespace Domains II LLC.
@@ -60,7 +60,7 @@ domains:
       - delete
       - transfer
   - code: A4
-    checked_at: '2026-09-05T05:19:16Z'
+    checked_at: '2026-09-05T05:25:30Z'
     source: TLS handshake nx.dev:443
     data:
       subject_org: ''
@@ -68,13 +68,13 @@ domains:
       issuer: Let's Encrypt
       san_count: 10
   - code: B4
-    checked_at: '2026-09-05T05:19:16Z'
+    checked_at: '2026-09-05T05:25:30Z'
     source: http://web.archive.org/cdx/search/cdx?url=nx.dev&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2019-03-14'
       history_days: 2732
   - code: B5
-    checked_at: '2026-09-05T05:19:16Z'
+    checked_at: '2026-09-05T05:25:30Z'
     source: https://tranco-list.eu/api/ranks/domain/nx.dev
     data:
       rank: 183683
@@ -87,6 +87,7 @@ domains:
   - 1 条独立锚点 + 2 条独立佐证，达到 verified 门槛
 provenance:
   generated_by: build_entities/0.1
-  policy_version: policy.py@180e4ed
+  policy_version: policy.py@c027cba
+  label_source: github_org_name(self-declared)
   reviewed_by: []
   source_issue: null

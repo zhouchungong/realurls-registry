@@ -3,10 +3,10 @@
 schema_version: '1.0'
 entity_id: org:localstack
 names:
-  en: localstack/localstack
+  en: localstack
 aliases:
 - LocalStack
-- localstack
+- localstack/localstack
 category:
 - developer-tools
 wikidata: null
@@ -21,14 +21,14 @@ domains:
   status: verified
   confidence: 0.8346
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T05:17:36Z'
+  last_verified: '2026-09-05T05:21:52Z'
   ttl_days: 30
   age_days: 3347
   age_source: rdap
   collection_incomplete: false
   evidence:
   - code: A1
-    checked_at: '2026-09-05T05:17:56Z'
+    checked_at: '2026-09-05T05:22:40Z'
     source: https://api.github.com/orgs/localstack
     data:
       org: localstack
@@ -37,7 +37,7 @@ domains:
       org_name: LocalStack
       created_at: '2017-05-16T13:12:26Z'
   - code: A8
-    checked_at: '2026-09-05T05:17:56Z'
+    checked_at: '2026-09-05T05:22:40Z'
     source: https://api.github.com/repos/localstack/localstack
     data:
       repo: localstack/localstack
@@ -49,7 +49,7 @@ domains:
       age_days: 3601
       contributors: 657
   - code: A3
-    checked_at: '2026-09-05T05:17:56Z'
+    checked_at: '2026-09-05T05:22:40Z'
     source: https://rdap.org/domain/localstack.cloud
     data:
       registrar: Gandi SAS
@@ -59,7 +59,7 @@ domains:
       locks:
       - transfer
   - code: A4
-    checked_at: '2026-09-05T05:17:57Z'
+    checked_at: '2026-09-05T05:22:41Z'
     source: TLS handshake localstack.cloud:443
     data:
       subject_org: ''
@@ -67,7 +67,7 @@ domains:
       issuer: Google Trust Services
       san_count: 1
   - code: B1
-    checked_at: '2026-09-05T05:17:57Z'
+    checked_at: '2026-09-05T05:22:41Z'
     source: https://www.wikidata.org/wiki/Q107386655
     data:
       qid: Q107386655
@@ -76,13 +76,13 @@ domains:
       sitelinks: 0
       competing_items: 0
   - code: B4
-    checked_at: '2026-09-05T05:17:57Z'
+    checked_at: '2026-09-05T05:22:41Z'
     source: http://web.archive.org/cdx/search/cdx?url=localstack.cloud&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2017-07-28'
       history_days: 3326
   - code: B5
-    checked_at: '2026-09-05T05:17:57Z'
+    checked_at: '2026-09-05T05:22:41Z'
     source: https://tranco-list.eu/api/ranks/domain/localstack.cloud
     data:
       rank: 60922
@@ -96,6 +96,7 @@ domains:
   - 1 条独立锚点 + 2 条独立佐证，达到 verified 门槛
 provenance:
   generated_by: build_entities/0.1
-  policy_version: policy.py@180e4ed
+  policy_version: policy.py@c027cba
+  label_source: github_repo_name
   reviewed_by: []
   source_issue: null

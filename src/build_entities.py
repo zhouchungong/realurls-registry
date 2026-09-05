@@ -74,9 +74,19 @@ def build_one(seed: dict, now: datetime) -> tuple[dict | None, str]:
     if not ent or not ent.anchored:
         return None, f"{domain}: verified 但实体未锚定？这不该发生，请检查"  # 防御：policy 不该放行
 
-    label = ent.label or seed.get("org_name") or domain
-    org_name = seed.get("org_name") or ""
-    aliases = sorted({a for a in (org_name, seed.get("github_org", "")) if a and a != label})
+    # 标签来源（POLICY.md §0）：Wikidata 标签 > GitHub 组织显示名（自填，仅用于展示，来源如实标注）。
+    # 项目史锚定得到的 "org/repo" 不适合当展示名，但完整保留在 canonical.sources 里供核对。
+    org_name = (seed.get("org_name") or "").strip()
+    if ent.wikidata and ent.label and not re.fullmatch(r"Q\d+", ent.label):
+        label, label_source = ent.label, f"wikidata:{ent.wikidata}"
+    elif org_name and org_name.lower() != (seed.get("github_org") or "").lower():
+        label, label_source = org_name, "github_org_name(self-declared)"
+    elif ent.label and "/" in ent.label:
+        label, label_source = ent.label.split("/", 1)[1], "github_repo_name"
+    else:
+        label, label_source = org_name or domain, "fallback"
+    aliases = sorted({a for a in (org_name, seed.get("github_org", ""), ent.label or "")
+                      if a and a != label and not re.fullmatch(r"Q\d+", a)})
 
     entity_id = f"org:{_slug(ent.github_org or label)}"
     record = {
@@ -113,6 +123,7 @@ def build_one(seed: dict, now: datetime) -> tuple[dict | None, str]:
         "provenance": {
             "generated_by": PIPELINE_VERSION,
             "policy_version": _policy_version(),
+            "label_source": label_source,
             "reviewed_by": [],
             "source_issue": None,
         },

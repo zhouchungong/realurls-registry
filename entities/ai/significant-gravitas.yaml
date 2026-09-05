@@ -21,14 +21,14 @@ domains:
   status: verified
   confidence: 0.8544
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T05:17:36Z'
+  last_verified: '2026-09-05T05:21:52Z'
   ttl_days: 30
   age_days: 714
   age_source: wayback_lower_bound
   collection_incomplete: false
   evidence:
   - code: A1
-    checked_at: '2026-09-05T05:17:41Z'
+    checked_at: '2026-09-05T05:22:03Z'
     source: https://api.github.com/orgs/Significant-Gravitas
     data:
       org: Significant-Gravitas
@@ -37,7 +37,7 @@ domains:
       org_name: AutoGPT
       created_at: '2023-04-14T07:01:09Z'
   - code: A8
-    checked_at: '2026-09-05T05:17:42Z'
+    checked_at: '2026-09-05T05:22:05Z'
     source: https://api.github.com/repos/Significant-Gravitas/AutoGPT
     data:
       repo: Significant-Gravitas/AutoGPT
@@ -49,7 +49,7 @@ domains:
       age_days: 1268
       contributors: 842
   - code: A4
-    checked_at: '2026-09-05T05:17:43Z'
+    checked_at: '2026-09-05T05:22:05Z'
     source: TLS handshake agpt.co:443
     data:
       subject_org: ''
@@ -57,7 +57,7 @@ domains:
       issuer: Let's Encrypt
       san_count: 1
   - code: B1
-    checked_at: '2026-09-05T05:17:43Z'
+    checked_at: '2026-09-05T05:22:05Z'
     source: https://www.wikidata.org/wiki/Q117791942
     data:
       qid: Q117791942
@@ -66,13 +66,13 @@ domains:
       sitelinks: 18
       competing_items: 0
   - code: B4
-    checked_at: '2026-09-05T05:17:43Z'
+    checked_at: '2026-09-05T05:22:05Z'
     source: http://web.archive.org/cdx/search/cdx?url=agpt.co&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2024-09-21'
       history_days: 714
   - code: B5
-    checked_at: '2026-09-05T05:17:43Z'
+    checked_at: '2026-09-05T05:22:05Z'
     source: https://tranco-list.eu/api/ranks/domain/agpt.co
     data:
       rank: 224757
@@ -84,6 +84,7 @@ domains:
   - 1 条独立锚点 + 3 条独立佐证，达到 verified 门槛
 provenance:
   generated_by: build_entities/0.1
-  policy_version: policy.py@180e4ed
+  policy_version: policy.py@c027cba
+  label_source: wikidata:Q117791942
   reviewed_by: []
   source_issue: null
