@@ -41,7 +41,7 @@ curl -s https://api.github.com/orgs/anthropics | jq '{name, blog, is_verified}'
 ✅ M1  证据采集流水线 + `python -m src.verify <domain>` 端到端跑通
 ✅ 评审修复  实体锚定 / 域龄 fail-closed / A6 一方声明 / A3 名单 / A7 政府 TLD / +6 负样本
 ✅ M2  220 条摸底 → 53 个实体由流水线生成；每日重验（采集失败≠降级、突变→review）；dist/ 可复现构建 + cosign keyless 签名
-⬜ M3  Cloudflare Workers API + MCP Server（发布点）
+🔄 M3  查询核心 + Worker API（本地跑通，待部署）+ @realurls/mcp（待发布）；Release 已 cosign 签名
 ⬜ M4  realurls.com 证据页 + 浏览器扩展 + 生态回写
 ```
 

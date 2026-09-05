@@ -66,7 +66,8 @@ def _iso(dt: datetime | None) -> str:
 
 def build_one(seed: dict, now: datetime) -> tuple[dict | None, str]:
     domain = seed["domain"]
-    decision, result = verify(domain, github_org=seed.get("github_org"))
+    # seed 里带 anchor → 走锚点扩散（A6）：目标域名继承锚点域名的实体，role 由 seed 指定（默认 product）
+    decision, result = verify(domain, github_org=seed.get("github_org"), anchor_domain=seed.get("anchor"))
     if decision.status != "verified":
         return None, f"{domain}: {decision.status}，不落盘"
 
@@ -103,7 +104,7 @@ def build_one(seed: dict, now: datetime) -> tuple[dict | None, str]:
         },
         "domains": [{
             "domain": domain,
-            "role": "primary",
+            "role": seed.get("role") or ("product" if seed.get("anchor") else "primary"),
             "status": decision.status,
             "confidence": decision.confidence,
             "first_seen": now.date().isoformat(),

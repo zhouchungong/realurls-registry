@@ -8,7 +8,6 @@ aliases:
 - anthropics
 category:
 - ai
-- developer-tools
 wikidata: Q116758847
 canonical:
   github_org: anthropics
@@ -17,6 +16,132 @@ canonical:
   - wikidata:Q116758847/P856
   - wikidata:Q116758847/P2037
 domains:
+- domain: claude.com
+  role: product
+  status: verified
+  confidence: 0.7105
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T06:00:56Z'
+  ttl_days: 30
+  age_days: 11427
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A3
+    checked_at: '2026-09-05T06:01:24Z'
+    source: https://rdap.org/domain/claude.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '1995-05-24'
+      expires: '2028-05-23'
+      remaining_days: 625
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T06:01:24Z'
+    source: TLS handshake claude.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B4
+    checked_at: '2026-09-05T06:01:34Z'
+    source: http://web.archive.org/cdx/search/cdx?url=claude.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1999-11-03'
+      history_days: 9803
+  - code: B5
+    checked_at: '2026-09-05T06:01:37Z'
+    source: https://tranco-list.eu/api/ranks/domain/claude.com
+    data:
+      rank: 2672
+      date: '2026-09-04'
+  - code: A6
+    checked_at: '2026-09-05T06:01:37Z'
+    source: propagate from anthropic.com
+    data:
+      from: anthropic.com
+      from_status: verified
+      first_party_link: true
+      structural_links:
+      - shared_ns
+      san_count: 1
+  rejected_evidence:
+  - 'A3: 到期日不足 1095 天，不符合企业长期预付特征'
+  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
+  reasons:
+  - 1 条独立锚点 + 2 条独立佐证，达到 verified 门槛
+- domain: claude.ai
+  role: product
+  status: verified
+  confidence: 0.7105
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T06:00:56Z'
+  ttl_days: 30
+  age_days: 2953
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A3
+    checked_at: '2026-09-05T06:01:02Z'
+    source: https://rdap.org/domain/claude.ai
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2018-08-04'
+      expires: '2029-08-04'
+      remaining_days: 1064
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T06:01:02Z'
+    source: TLS handshake claude.ai:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 3
+  - code: B1
+    checked_at: '2026-09-05T06:01:11Z'
+    source: https://www.wikidata.org/wiki/Q118876059
+    data:
+      qid: Q118876059
+      label: Claude
+      site: https://claude.ai
+      sitelinks: 59
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-05T06:01:13Z'
+    source: http://web.archive.org/cdx/search/cdx?url=claude.ai&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2021-12-31'
+      history_days: 1709
+  - code: B5
+    checked_at: '2026-09-05T06:01:14Z'
+    source: https://tranco-list.eu/api/ranks/domain/claude.ai
+    data:
+      rank: 434
+      date: '2026-09-03'
+  - code: A6
+    checked_at: '2026-09-05T06:01:14Z'
+    source: propagate from anthropic.com
+    data:
+      from: anthropic.com
+      from_status: verified
+      first_party_link: true
+      structural_links:
+      - shared_ns
+      san_count: 1
+  rejected_evidence:
+  - 'A3: 到期日不足 1095 天，不符合企业长期预付特征'
+  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
+  - 'B1: 条目 Q118876059 ≠ 实体 canonical 条目 Q116758847'
+  reasons:
+  - 1 条独立锚点 + 2 条独立佐证，达到 verified 门槛
 - domain: anthropic.com
   role: primary
   status: verified
@@ -84,7 +209,7 @@ domains:
   - 2 条独立锚点 + 3 条独立佐证，达到 verified 门槛
 provenance:
   generated_by: build_entities/0.1
-  policy_version: policy.py@c027cba
+  policy_version: policy.py@6a2778b
   label_source: wikidata:Q116758847
   reviewed_by: []
   source_issue: null
