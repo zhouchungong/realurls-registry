@@ -115,7 +115,7 @@ def main(argv: list[str] | None = None) -> int:
         _save(path, ent)
         result.update({"cleared": True})
         print(f"{domain}: dispute hold cleared by {args.reviewer}; the next re-verification decides the status", file=sys.stderr)
-    if args.json:
+    if getattr(args, "json", None):
         args.json.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
     return 0 if result["found"] else 1
 
