@@ -211,16 +211,22 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--only", help="只重验这些域名，逗号分隔")
     p.add_argument("--dry-run", action="store_true")
     p.add_argument("--json", type=Path, help="把结果写成 JSON（给 CI 用）")
+    p.add_argument("--workers", type=int, default=4, help="entity files re-verified concurrently")
     args = p.parse_args(argv)
 
     only = {d.strip() for d in args.only.split(",")} if args.only else None
     now = datetime.now(UTC)
+    paths = sorted(ENTITIES.rglob("*.yaml"))
+    if only:   # skip files that cannot contain a wanted domain
+        paths = [p for p in paths if any(d in p.read_text(encoding="utf-8") for d in only)]
     all_out: list[Outcome] = []
-    for path in sorted(ENTITIES.rglob("*.yaml")):
-        for o in revalidate_file(path, now, only, args.dry_run):
-            all_out.append(o)
-            mark = {"unchanged": "·", "kept": "≈", "upgraded": "↑", "downgraded": "↓", "review": "⚠"}[o.action]
-            print(f"  {mark} {o.domain:<26} {o.old_status:<12} → {o.new_status:<16} {o.reason[:70]}", file=sys.stderr)
+    from concurrent.futures import ThreadPoolExecutor
+    with ThreadPoolExecutor(max_workers=max(1, args.workers)) as pool:
+        for outs in pool.map(lambda path: revalidate_file(path, now, only, args.dry_run), paths):
+            for o in outs:
+                all_out.append(o)
+                mark = {"unchanged": "·", "kept": "≈", "upgraded": "↑", "downgraded": "↓", "review": "⚠"}[o.action]
+                print(f"  {mark} {o.domain:<26} {o.old_status:<12} → {o.new_status:<16} {o.reason[:70]}", file=sys.stderr)
 
     from collections import Counter
     c = Counter(o.action for o in all_out)

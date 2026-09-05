@@ -166,6 +166,13 @@ def build_one(seed: dict, now: datetime) -> tuple[dict | None, str]:
             if not cand or cand in seen or cand in PLATFORM_DOMAINS:
                 continue
             seen.add(cand)
+            # Cheap pre-check: the A6 rule rejects a candidate whose page links out but never back to the anchor,
+            # so look at its homepage first and skip the full pipeline for the obvious third parties.
+            from src.collectors import site as site_collector
+            outbound = site_collector.collect(cand).extra.get("outbound_domains", [])
+            if outbound and domain not in outbound:
+                print(f"  · {cand}: links out but not back to {domain}; skipped", file=sys.stderr)
+                continue
             try:
                 d2, r2 = verify(cand, anchor_domain=domain, anchor_result=result)
             except Exception as exc:  # one bad sibling must not sink the entity

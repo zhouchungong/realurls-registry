@@ -190,6 +190,7 @@ def wayback(domain: str) -> Result:
 
 TRANCO_LIST = "https://tranco-list.eu/download/daily/top-1m.csv.zip"
 _tranco_index: dict[str, int] | None = None
+_tranco_lock = __import__("threading").Lock()
 
 
 def _tranco_local() -> dict[str, int] | None:
@@ -197,6 +198,14 @@ def _tranco_local() -> dict[str, int] | None:
     global _tranco_index
     if _tranco_index is not None:
         return _tranco_index
+    with _tranco_lock:
+        if _tranco_index is not None:
+            return _tranco_index
+        return _tranco_local_locked()
+
+
+def _tranco_local_locked() -> dict[str, int] | None:
+    global _tranco_index
     import io
     import time
     import urllib.request

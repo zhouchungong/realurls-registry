@@ -16,6 +16,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+from concurrent.futures import ThreadPoolExecutor
 from dataclasses import asdict
 from typing import Any
 
@@ -92,25 +93,40 @@ def gather(
         _merge(out, github.collect_repo_link(domain, ent.github_org, repo_info,
                                              hints.extra.get("github_orgs", [])))
 
+    # The remaining collectors talk to unrelated services and never read each other's output, so they run
+    # concurrently. Results are merged in this fixed order: evidence order in a record must not depend on
+    # which server answered first. Wayback always runs: skipping it when Tranco was present cost claude.ai
+    # its second corroboration (B1 is rejected on propagated domains); "enough corroboration" is policy's call.
     pkgs = (packages or []) + hints.extra.get("npm_packages", [])
-    _merge(out, npm.collect(domain, packages=pkgs, github_org=out.extra.get("github_org")))
-
-    # A9: only meaningful for an anchored entity (the validator needs names to match against).
-    if out.facts.get("expected_names"):
-        _merge(out, appstore.collect(domain, list(out.facts["expected_names"])))
-
-    _merge(out, rdap.collect(domain))
-    if out.facts.get("age_days") is not None:
-        out.facts["age_source"] = "rdap"
-    _merge(out, network.certificate(domain))
-    _merge(out, network.self_attestation(domain, expected_token=token))
-    _merge(out, thirdparty.wikidata(domain))
-    _merge(out, thirdparty.tranco(domain))
-    # Wayback always runs: skipping it when Tranco was present cost claude.ai its second corroboration
-    # (B1 is rejected on propagated domains). Deciding "enough corroboration already" is policy's job, not ours.
-    wb = thirdparty.wayback(domain)
-    _merge(out, wb)
-    _merge(out, thirdparty.safebrowsing(domain))
+    names = list(out.facts.get("expected_names") or ())
+    jobs = [
+        ("npm", lambda: npm.collect(domain, packages=pkgs, github_org=out.extra.get("github_org"))),
+        # A9 only means something for an anchored entity (the validator needs names to match against)
+        ("appstore", (lambda: appstore.collect(domain, names)) if names else (lambda: Result())),
+        ("rdap", lambda: rdap.collect(domain)),
+        ("certificate", lambda: network.certificate(domain)),
+        ("attestation", lambda: network.self_attestation(domain, expected_token=token)),
+        ("wikidata", lambda: thirdparty.wikidata(domain)),
+        ("tranco", lambda: thirdparty.tranco(domain)),
+        ("wayback", lambda: thirdparty.wayback(domain)),
+        ("safebrowsing", lambda: thirdparty.safebrowsing(domain)),
+    ]
+    with ThreadPoolExecutor(max_workers=len(jobs)) as pool:
+        futures = [(name, pool.submit(fn)) for name, fn in jobs]
+        results = {}
+        for name, fut in futures:
+            try:
+                results[name] = fut.result()
+            except Exception as exc:   # one collector crashing is "not collected", never "no evidence"
+                r = Result()
+                r.note(f"{name}: collector error {type(exc).__name__}: {exc}")
+                r.facts["collection_incomplete"] = True
+                results[name] = r
+    for name, _ in jobs:
+        _merge(out, results[name])
+        if name == "rdap" and out.facts.get("age_days") is not None:
+            out.facts["age_source"] = "rdap"
+    wb = results["wayback"]
 
     # 域龄兜底：RDAP 对很多 ccTLD 返回 404。一个域名不可能比它的第一次 Wayback 快照更年轻，
     # 所以快照跨度是域龄的**下界**——够用来过 180 天门槛，且不会把新域名误判成老域名。
