@@ -21,21 +21,21 @@ domains:
   status: verified
   confidence: 0.6691
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T05:21:52Z'
+  last_verified: '2026-09-05T09:53:30Z'
   ttl_days: 30
   age_days: 1911
   age_source: rdap
   collection_incomplete: false
   evidence:
   - code: A1
-    checked_at: '2026-09-05T05:25:14Z'
+    checked_at: '2026-09-05T09:56:05Z'
     source: https://api.github.com/orgs/refinedev
     data:
       org: refinedev
       org_verified: false
       blog: https://refine.dev
   - code: A8
-    checked_at: '2026-09-05T05:25:14Z'
+    checked_at: '2026-09-05T09:56:05Z'
     source: https://api.github.com/repos/refinedev/refine
     data:
       repo: refinedev/refine
@@ -47,7 +47,7 @@ domains:
       age_days: 2053
       contributors: 328
   - code: A3
-    checked_at: '2026-09-05T05:25:14Z'
+    checked_at: '2026-09-05T09:56:05Z'
     source: https://rdap.org/domain/refine.dev
     data:
       registrar: GoDaddy.com, LLC
@@ -60,7 +60,7 @@ domains:
       - transfer
       - update
   - code: A4
-    checked_at: '2026-09-05T05:25:14Z'
+    checked_at: '2026-09-05T09:56:06Z'
     source: TLS handshake refine.dev:443
     data:
       subject_org: ''
@@ -68,26 +68,27 @@ domains:
       issuer: Google Trust Services
       san_count: 2
   - code: B4
-    checked_at: '2026-09-05T05:25:14Z'
+    checked_at: '2026-09-05T09:56:06Z'
     source: http://web.archive.org/cdx/search/cdx?url=refine.dev&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2021-09-24'
       history_days: 1807
   - code: B5
-    checked_at: '2026-09-05T05:25:14Z'
+    checked_at: '2026-09-05T09:56:06Z'
     source: https://tranco-list.eu/api/ranks/domain/refine.dev
     data:
       rank: 365601
       date: '2026-09-04'
   rejected_evidence:
-  - 'A1: GitHub 组织未通过域名验证（is_verified != true）'
-  - 'A3: 注册商（GoDaddy.com, LLC）不在企业级注册商名单内'
-  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
   reasons:
-  - 1 条独立锚点 + 2 条独立佐证，达到 verified 门槛
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
 provenance:
   generated_by: build_entities/0.1
   policy_version: policy.py@c027cba
   label_source: github_org_name(self-declared)
   reviewed_by: []
   source_issue: null
+  last_revalidated_by: revalidate/0.1

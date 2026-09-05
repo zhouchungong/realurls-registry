@@ -122,6 +122,15 @@ def repo_history(org: str, r: Result | None = None) -> dict | None:
     return None
 
 
+@functools.lru_cache(maxsize=256)
+def org_blog(org: str) -> str:
+    """The organization's self-declared `blog` URL ("" if none). Used only to tie a candidate org to a domain."""
+    try:
+        return fetch_json(f"{API}/orgs/{org}", headers=_headers(), ttl_hours=24).get("blog") or ""
+    except FetchError:
+        return ""
+
+
 def collect_repo_link(domain: str, org: str, repo_info: dict | None,
                       site_github_orgs: list[str]) -> Result:
     """A8：已锚定仓库的 homepage 指向本域名 + 本域名首页反向链回该组织。

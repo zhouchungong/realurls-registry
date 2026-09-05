@@ -1,51 +1,51 @@
 # SECURITY.md
 
-## 威胁模型
+中文版：[docs/zh/SECURITY.md](docs/zh/SECURITY.md)
 
-本仓库的特殊之处：**我们自己就是最高价值的攻击目标。**
+## Threat model
 
-一个「真官网」数据库如果被污染，危害远大于它解决的问题 —— 我们会把用户亲手送到钓鱼站，而且用户会因为信任我们而放松警惕。
+What makes this repository unusual: **we are the highest-value target ourselves.**
 
-### 主要威胁
+A poisoned "real official sites" database does more harm than the problem it solves — we would hand users to phishing sites, and users would drop their guard precisely because they trust us.
 
-| # | 威胁 | 缓解 |
+### Threats
+
+| # | threat | mitigation |
 |---|---|---|
-| T1 | 黑产提交精心构造的 PR，把仿冒站洗白 | **人类不能直接写数据**。社区只提交线索（Issue），数据一律由流水线生成（见 §1） |
-| T2 | 疲惫的 reviewer 误批 | 数据 PR 由 bot 提交且附完整证据与判定理由；`CODEOWNERS` 双人审批 |
-| T3 | GitHub Actions 供应链投毒 | 所有 action **pin 到 commit SHA**，不用浮动 tag |
-| T4 | 维护者账号被盗 | 强制 2FA、分支保护、禁止 force push、bot 用 OIDC 而非长期 PAT |
-| T5 | 已收录域名过期被抢注 / 被劫持 | 每日重验 + 突变监控（NS/A/注册商/到期日/组织状态）→ `review_required` |
-| T6 | 数据在分发途中被篡改 | release 全部 **cosign 签名**；API 返回体带数据集版本号与内容哈希 |
-| T7 | 上游数据源被污染或被抢注（如某 GitHub 组织易主） | 单条证据不定案；要求 ≥1 锚点 + ≥2 独立佐证；关联证据合并计数。**已实际遇到一例**：Wikidata 的 P856 可被任何人添加，我们在 `claude.ai` 上取回过一个标题为中文报纸标题的垃圾条目（Q116755258）。现已限定实体类型（`P31/P279*` ∈ 组织/企业/软件/网站）并按站点链接数排序 |
-| T8 | 定案规则被逐步放宽（温水煮青蛙） | 阈值变更需双人审批 + 全量负样本回归 + 数据集 diff 影响说明（POLICY.md §4） |
-| T9 | 依赖投毒（PyPI 包被劫持） | 依赖 pin 到精确版本 + hash；CI 中 `pip install --require-hashes` |
+| T1 | A crafted pull request launders a lookalike domain into the data | **Humans cannot write data.** The community submits leads (issues); data is produced only by the pipeline (§1) |
+| T2 | A tired reviewer approves a bad change | Data PRs are opened by the bot with the full evidence and reasoning attached; two-person approval via `CODEOWNERS` |
+| T3 | GitHub Actions supply-chain poisoning | Every action is **pinned to a commit SHA**, never a floating tag |
+| T4 | Maintainer account compromise | Mandatory 2FA, branch protection, no force-push, the bot uses OIDC rather than long-lived tokens |
+| T5 | A listed domain expires and is re-registered, or is hijacked | Daily re-verification plus mutation monitoring (NS/A/registrar/expiry/org status) → `review_required` |
+| T6 | Data tampered with in transit | Every release is **cosign-signed**; API responses carry the dataset version and content hashes |
+| T7 | An upstream source is poisoned or captured (e.g. a GitHub organization changes hands) | No single piece of evidence decides; ≥1 anchor + ≥2 independent corroborations; correlated evidence counted once. **Seen in practice:** anyone can add a Wikidata P856 claim — for `claude.ai` we once retrieved a junk item whose label was a Chinese newspaper headline (Q116755258). Item types are now restricted (`P31/P279*` ∈ organization/company/software/website) and ordered by sitelink count |
+| T8 | The rules are loosened gradually | Threshold changes need two-person approval, the full adversarial corpus, and a dataset diff stating the impact (POLICY.md §4) |
+| T9 | Dependency poisoning (a hijacked PyPI package) | Dependencies pinned to exact versions with hashes; CI installs with `--require-hashes` |
 
-### 明确不在威胁模型内
+### Explicitly out of scope
 
-- 我们**不**试图检测网站内容是否恶意 —— 那是杀毒软件与安全厂商的事。
-- 我们**不**试图对抗有国家级资源的定向攻击。若你能同时伪造 GitHub 组织验证、企业注册指纹与多年 Wayback 历史，我们挡不住，也不假装挡得住。
+- We do **not** try to detect malicious site content — that is the job of antivirus and security vendors.
+- We do **not** claim to withstand a nation-state, targeted attack. If you can simultaneously forge a GitHub organization verification, a corporate registration fingerprint and years of Wayback history, we cannot stop you and do not pretend to.
 
-## 1. 数据写入路径（唯一合法路径）
+## 1. The write path (the only legitimate one)
 
 ```
-Issue Form（线索）→ bot 采集证据 → policy.decide() → 证据充分则 bot 开 PR
-                                                   → 证据不足则自动关闭并说明缺哪条
-                            ↓
-                      人类 review（只看，不改）
+issue form (a lead) → bot collects evidence → policy.decide() → enough: bot opens a PR
+                                                               → not enough: closed automatically, missing piece named
+                              ↓
+                     humans review (read only, never edit)
 ```
 
-`entities/**.yaml` 的任何**人类直接提交**都必须在 CI 中被拒绝。这条规则本身也要有测试。
+Any **direct human commit** touching `entities/**.yaml` must be rejected by CI. That rule itself has a test.
 
-## 2. 报告安全问题
+## 2. Reporting
 
-- **数据错误**（把仿冒站标成官网、把官网标错）：这是本项目最严重的一类问题。
-  请提 Issue（`dispute` 模板）或发信 `dispute@realurls.org`。
-  **48 小时内**我们会把争议记录降级为 `disputed` 并暂停 API 肯定答复 —— 先止损，再查证。
-- **代码 / 基础设施漏洞**：请勿公开提 Issue，发信 `security@realurls.org`。
+- **A data error** (a lookalike marked official, an official domain attributed wrongly): the most serious class of issue we have. Open an issue with the `dispute` template or email `dispute@realurls.org`. **Within 48 hours** the record is downgraded to `disputed` and positive API answers stop — harm first, investigation second.
+- **A code or infrastructure vulnerability**: please do not open a public issue; email `security@realurls.org`.
 
-## 3. 我们对自己的承诺
+## 3. Our commitments
 
-- 所有错误更正保留在 git 历史与 `CORRECTIONS.md` 中，**永不静默删除**。
-- 若发生一次严重误判，我们会公开事后分析：怎么发生的、为什么规则没挡住、加了什么负样本用例。
+- Every correction stays in git history and in `CORRECTIONS.md`; **nothing is quietly deleted**.
+- After any serious misjudgement we publish a post-mortem: how it happened, why the rules did not catch it, which adversarial case was added.
 
-一个隐藏自己错误记录的信任源，不值得信任。
+A trust source that hides its own error record does not deserve trust.

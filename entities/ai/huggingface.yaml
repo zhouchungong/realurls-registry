@@ -21,14 +21,14 @@ domains:
   status: verified
   confidence: 0.8544
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T05:21:52Z'
+  last_verified: '2026-09-05T09:53:30Z'
   ttl_days: 30
   age_days: 3458
   age_source: wayback_lower_bound
   collection_incomplete: false
   evidence:
   - code: A1
-    checked_at: '2026-09-05T05:22:08Z'
+    checked_at: '2026-09-05T09:53:47Z'
     source: https://api.github.com/orgs/huggingface
     data:
       org: huggingface
@@ -37,7 +37,7 @@ domains:
       org_name: Hugging Face
       created_at: '2017-02-12T11:20:28Z'
   - code: A8
-    checked_at: '2026-09-05T05:22:10Z'
+    checked_at: '2026-09-05T09:53:49Z'
     source: https://api.github.com/repos/huggingface/transformers
     data:
       repo: huggingface/transformers
@@ -49,7 +49,7 @@ domains:
       age_days: 2867
       contributors: 4099
   - code: A4
-    checked_at: '2026-09-05T05:22:11Z'
+    checked_at: '2026-09-05T09:53:49Z'
     source: TLS handshake huggingface.co:443
     data:
       subject_org: ''
@@ -57,7 +57,7 @@ domains:
       issuer: Amazon
       san_count: 2
   - code: B1
-    checked_at: '2026-09-05T05:22:11Z'
+    checked_at: '2026-09-05T09:53:49Z'
     source: https://www.wikidata.org/wiki/Q108943604
     data:
       qid: Q108943604
@@ -66,25 +66,26 @@ domains:
       sitelinks: 30
       competing_items: 2
   - code: B4
-    checked_at: '2026-09-05T05:22:11Z'
+    checked_at: '2026-09-05T09:53:49Z'
     source: http://web.archive.org/cdx/search/cdx?url=huggingface.co&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2017-03-18'
       history_days: 3458
   - code: B5
-    checked_at: '2026-09-05T05:22:11Z'
+    checked_at: '2026-09-05T09:53:49Z'
     source: https://tranco-list.eu/api/ranks/domain/huggingface.co
     data:
       rank: 1160
       date: '2026-09-04'
   rejected_evidence:
-  - 'A8: huggingface.co 是平台域，不可能是某个项目的官网'
-  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
+  - 'A8: huggingface.co is a platform domain and cannot be a project''s own site'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
   reasons:
-  - 1 条独立锚点 + 3 条独立佐证，达到 verified 门槛
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
 provenance:
   generated_by: build_entities/0.1
   policy_version: policy.py@c027cba
   label_source: wikidata:Q108943604
   reviewed_by: []
   source_issue: null
+  last_revalidated_by: revalidate/0.1

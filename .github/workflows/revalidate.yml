@@ -1,4 +1,4 @@
-name: 每日重验
+name: Daily re-verification
 
 on:
   schedule:
@@ -20,7 +20,7 @@ jobs:
           python-version: "3.11"
       - run: pip install -e "."
 
-      - name: 重验全部 verified 记录
+      - name: Re-verify every verified record
         id: reval
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -31,21 +31,21 @@ jobs:
           echo "exit=$?" >> "$GITHUB_OUTPUT"
           cat .cache/revalidate.log
 
-      - name: 校验改动后的数据
+      - name: Validate the updated data
         run: python -m src.validate
 
       # 这是 entities/ 唯一合法的写入路径：由 bot 提交，CI guard 只放行这个作者。
-      - name: 提交变更
+      - name: Commit changes
         run: |
           git config user.name  "realurls-bot"
           git config user.email "bot@realurls.org"
           git add entities/
-          git diff --cached --quiet && echo "无变更" && exit 0
-          git commit -m "chore(revalidate): $(date -u +%F) 每日重验" \
+          git diff --cached --quiet && echo "no changes" && exit 0
+          git commit -m "chore(revalidate): $(date -u +%F) daily re-verification" \
                      -m "$(tail -1 .cache/revalidate.log)"
           git push
 
-      - name: 降级或待人工 → 开 Issue
+      - name: Open an issue on downgrades or review_required
         if: steps.reval.outputs.exit == '2'
         uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
         with:
@@ -54,13 +54,13 @@ jobs:
             const rows = JSON.parse(fs.readFileSync('.cache/revalidate.json', 'utf8'))
               .filter(o => o.action === 'downgraded' || o.action === 'review');
             const body = rows.map(o =>
-              `- **${o.domain}** ${o.old_status} → ${o.new_status}（${o.action}）：${o.reason}` +
+              `- **${o.domain}** ${o.old_status} → ${o.new_status} (${o.action}): ${o.reason}` +
               (o.mutations?.length ? `\n  - 突变：${o.mutations.join('；')}` : '')
             ).join('\n');
             await github.rest.issues.create({
               owner: context.repo.owner, repo: context.repo.repo,
-              title: `[重验] ${new Date().toISOString().slice(0,10)}：${rows.length} 条需要人看`,
+              title: `[re-verification] ${new Date().toISOString().slice(0,10)}: ${rows.length} record(s) need a look`,
               labels: ['revalidation', 'p1'],
               body: `每日重验发现以下记录降级或进入 review_required，API 已停止对它们的肯定答复。\n\n${body}\n\n` +
-                    `处理：核实后若确为误判，按 CORRECTIONS.md 流程记录并补负样本；若属实，无需操作。`,
+                    `If this was a misjudgement, record it per CORRECTIONS.md and add an adversarial case; if the downgrade is correct, no action is needed.`,
             });

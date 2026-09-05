@@ -93,14 +93,20 @@ def anchor_from_wikidata(domain: str) -> EntityAnchor:
     return a
 
 
-def anchor_from_github_history(org_candidates: list[str]) -> EntityAnchor:
-    """用「GitHub 项目史」锚定：组织拥有一个非 fork、≥3 年、≥300 贡献者、≥5k 星的仓库。
+def anchor_from_github_history(org_candidates: list[str], domain: str) -> EntityAnchor:
+    """Anchor by GitHub project history: the org owns a non-fork repo ≥3 years old, ≥300 contributors, ≥5k stars.
 
-    Wikidata 覆盖公司，不覆盖开源项目——220 条摸底里 138 条 Wikidata 根本没条目。
-    项目史是另一种攻击者买不到的东西：星可以刷，但 3 年前就开始、300 个不同的人来提交，刷不出来。
-    锚定得到的身份是「开发了 ollama/ollama 五年的那个组织」，实体标签取自仓库，不取自组织自填的 name。
+    Wikidata covers companies, not open-source projects — 138 of 220 surveyed domains had no item at all.
+    Project history is another thing an attacker cannot buy: stars can be bought, but a repository that
+    started three years ago with 300 distinct contributors cannot.
+
+    The candidate must be *tied to this domain*: its anchored repository's homepage, or the organization's
+    blog field, must point at the domain. Without that check, an outbound link on the page was enough —
+    supabase.com's homepage links to github.com/langchain-ai, and re-verification anchored Supabase to
+    LangChain. A page linking to a famous org must never inherit that org's identity.
     """
-    from src.collectors.github import repo_history
+    from src.collectors.github import org_blog, repo_history
+    from src.policy import registrable_domain
 
     a = EntityAnchor()
     seen = set()
@@ -110,6 +116,11 @@ def anchor_from_github_history(org_candidates: list[str]) -> EntityAnchor:
         seen.add(org.lower())
         info = repo_history(org)
         if not info:
+            continue
+        tied = registrable_domain(info.get("homepage") or "") == domain or registrable_domain(org_blog(org) or "") == domain
+        if not tied:
+            a.notes.append(f"anchor: {org} meets the project-history bar but neither {info['repo']}'s homepage "
+                           f"nor the org's blog points at {domain}; not tied to this domain, skipped")
             continue
         a.github_org = org
         a.label = info["repo"]
@@ -135,7 +146,7 @@ def anchor(domain: str, *, github_org_override: str | None = None,
     """
     a = anchor_from_wikidata(domain)
     if not a.github_org and github_org_candidates:
-        gh = anchor_from_github_history(github_org_candidates)
+        gh = anchor_from_github_history(github_org_candidates, domain)
         a.notes.extend(gh.notes)
         if gh.github_org:
             # Wikidata 给了 QID 但没给 GitHub（常见：条目存在但无 P2037）→ 用项目史补 canonical 组织

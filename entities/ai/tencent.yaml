@@ -22,14 +22,14 @@ domains:
   status: verified
   confidence: 0.9345
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T05:21:52Z'
+  last_verified: '2026-09-05T09:53:30Z'
   ttl_days: 30
   age_days: 10218
   age_source: rdap
   collection_incomplete: true
   evidence:
   - code: A1
-    checked_at: '2026-09-05T05:24:08Z'
+    checked_at: '2026-09-05T09:54:57Z'
     source: https://api.github.com/orgs/tencent
     data:
       org: tencent
@@ -38,7 +38,7 @@ domains:
       org_name: Tencent
       created_at: '2016-04-14T10:38:57Z'
   - code: A8
-    checked_at: '2026-09-05T05:24:11Z'
+    checked_at: '2026-09-05T09:54:58Z'
     source: https://api.github.com/repos/Tencent/ncnn
     data:
       repo: Tencent/ncnn
@@ -50,7 +50,7 @@ domains:
       age_days: 3353
       contributors: 378
   - code: A3
-    checked_at: '2026-09-05T05:24:11Z'
+    checked_at: '2026-09-05T09:54:58Z'
     source: https://rdap.org/domain/tencent.com
     data:
       registrar: MarkMonitor Information Technology (Shanghai) Co., Ltd.
@@ -65,7 +65,7 @@ domains:
       - server transfer
       - server update
   - code: B1
-    checked_at: '2026-09-05T05:24:55Z'
+    checked_at: '2026-09-05T09:55:33Z'
     source: https://www.wikidata.org/wiki/Q860580
     data:
       qid: Q860580
@@ -74,24 +74,25 @@ domains:
       sitelinks: 59
       competing_items: 1
   - code: B4
-    checked_at: '2026-09-05T05:24:55Z'
+    checked_at: '2026-09-05T09:55:33Z'
     source: http://web.archive.org/cdx/search/cdx?url=tencent.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2000-04-08'
       history_days: 9646
   - code: B5
-    checked_at: '2026-09-05T05:24:56Z'
+    checked_at: '2026-09-05T09:55:33Z'
     source: https://tranco-list.eu/api/ranks/domain/tencent.com
     data:
       rank: 639
       date: '2026-09-04'
   rejected_evidence:
-  - 'A8: 仓库 homepage（）不指向本域名'
+  - 'A8: repository homepage () does not point to this domain'
   reasons:
-  - 2 条独立锚点 + 3 条独立佐证，达到 verified 门槛
+  - '2 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
 provenance:
   generated_by: build_entities/0.1
   policy_version: policy.py@c027cba
   label_source: wikidata:Q860580
   reviewed_by: []
   source_issue: null
+  last_revalidated_by: revalidate/0.1

@@ -1,12 +1,10 @@
-# 更正记录
+# Corrections
 
-本项目公开记录每一次数据错误及其修复。**永不静默删除。**
+Every data error and its fix is recorded here, publicly. **Nothing is quietly deleted.**
 
-一个隐藏自己错误记录的信任源，不值得信任。
+A trust source that hides its own error record does not deserve trust.
 
-格式：
-
-| 日期 | 域名 | 错误 | 影响时长 | 根因 | 新增的负样本用例 |
+| date | domain | error | exposure | root cause | adversarial case added |
 |---|---|---|---|---|---|
 
-（暂无记录 —— 尚未开始采集数据。）
+*(No entries yet.)*

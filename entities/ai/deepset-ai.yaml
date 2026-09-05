@@ -21,14 +21,14 @@ domains:
   status: verified
   confidence: 0.8346
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T05:21:52Z'
+  last_verified: '2026-09-05T09:53:30Z'
   ttl_days: 30
-  age_days: 3091
+  age_days: 3092
   age_source: rdap
   collection_incomplete: false
   evidence:
   - code: A1
-    checked_at: '2026-09-05T05:25:47Z'
+    checked_at: '2026-09-05T09:53:44Z'
     source: https://api.github.com/orgs/deepset-ai
     data:
       org: deepset-ai
@@ -37,7 +37,7 @@ domains:
       org_name: deepset
       created_at: '2019-06-14T14:23:33Z'
   - code: A8
-    checked_at: '2026-09-05T05:25:47Z'
+    checked_at: '2026-09-05T09:53:45Z'
     source: https://api.github.com/repos/deepset-ai/haystack
     data:
       repo: deepset-ai/haystack
@@ -46,20 +46,20 @@ domains:
       homepage: https://haystack.deepset.ai
       backlink: false
       stars: 26419
-      age_days: 2486
+      age_days: 2487
       contributors: 440
   - code: A3
-    checked_at: '2026-09-05T05:25:47Z'
+    checked_at: '2026-09-05T09:53:45Z'
     source: https://rdap.org/domain/deepset.ai
     data:
       registrar: EuroDNS S.A.
       created: '2018-03-19'
       expires: '2028-03-19'
-      remaining_days: 561
+      remaining_days: 560
       locks:
       - transfer
   - code: A4
-    checked_at: '2026-09-05T05:25:47Z'
+    checked_at: '2026-09-05T09:53:46Z'
     source: TLS handshake deepset.ai:443
     data:
       subject_org: ''
@@ -67,26 +67,27 @@ domains:
       issuer: Google Trust Services
       san_count: 1
   - code: B4
-    checked_at: '2026-09-05T05:25:47Z'
+    checked_at: '2026-09-05T09:53:46Z'
     source: http://web.archive.org/cdx/search/cdx?url=deepset.ai&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2019-10-20'
       history_days: 2512
   - code: B5
-    checked_at: '2026-09-05T05:25:47Z'
+    checked_at: '2026-09-05T09:53:46Z'
     source: https://tranco-list.eu/api/ranks/domain/deepset.ai
     data:
       rank: 198023
       date: '2026-09-04'
   rejected_evidence:
-  - 'A8: 本域名首页没有链接回该 GitHub 组织，缺少反向确认'
-  - 'A3: 注册商（EuroDNS S.A.）不在企业级注册商名单内'
-  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
+  - 'A8: this site does not link back to the GitHub organization; no reverse confirmation'
+  - 'A3: registrar (EuroDNS S.A.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
   reasons:
-  - 1 条独立锚点 + 2 条独立佐证，达到 verified 门槛
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
 provenance:
   generated_by: build_entities/0.1
   policy_version: policy.py@c027cba
   label_source: github_org_name(self-declared)
   reviewed_by: []
   source_issue: null
+  last_revalidated_by: revalidate/0.1

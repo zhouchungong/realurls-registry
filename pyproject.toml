@@ -27,8 +27,13 @@ testpaths = ["tests"]
 addopts = "-p no:cacheprovider"
 
 [tool.ruff]
-line-length = 120   # 中文注释宽，100 太紧
+line-length = 140   # English verdict strings are long; wrapping them hurts grep-ability
 target-version = "py311"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B"]
+
+[tool.ruff.lint.per-file-ignores]
+# Verdict strings must be whole sentences; wrapping them hurts grep-ability and the rendered pages.
+"src/policy.py" = ["E501"]
+"src/revalidate.py" = ["E501"]

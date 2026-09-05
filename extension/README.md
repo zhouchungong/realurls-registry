@@ -1,31 +1,26 @@
-# realurls 浏览器扩展
+# realurls browser extension
 
-访问一个**长得像某知名产品官网、但没有被验证为它的域名**时，页面顶部弹一条提示并给出真官网；
-访问已验证域名时工具栏图标显示绿色 ✓。其它情况什么都不做——"不知道"就是不知道，不制造噪音。
+Warns you when a site *looks like* a well-known product's domain but is not verified as theirs — and tells you the verified one.
 
-**隐私**：每天从 api.realurls.org 拉一次几十 KB 的签名数据集，之后所有判定在本机完成。
-你访问过哪些网站不会发给任何服务器。没有统计、没有跟踪。
+- **Ownership only, never safety.** A warning means "this is not the domain you probably meant", not "this is malware".
+- **Private by design.** The extension downloads the signed dataset once a day and does every check **on your machine**. Your browsing never leaves your computer. Clicking "See the evidence" opens realurls.org — that is the only time it navigates anywhere.
 
-**只判归属，不判安全。** 一个域名被标为 verified 只说明它确实属于那家公司，不说明它安全。
+## What it does
 
-## 本地加载（未上架商店前）
+| you visit | toolbar badge | page |
+|---|---|---|
+| a verified domain (e.g. `ollama.com`) | green ✓ | nothing |
+| a lookalike that is not theirs (e.g. `claude-desktop.io`) | orange ! | a dismissable banner naming the verified domains |
+| anything else | no badge | nothing — "don't know" makes no noise |
 
-1. Chrome 打开 `chrome://extensions`，右上角打开 **开发者模式**
-2. **加载已解压的扩展程序** → 选择 `registry/extension/` 这个目录
-3. 访问 https://ollama.com 看图标变 ✓；访问一个相似域名（比如 `claude-desktop.io`）看顶部提示
+## Install (unpacked, until the store listing is live)
 
-## 文件
+1. `chrome://extensions` → enable **Developer mode**
+2. **Load unpacked** → choose this `extension/` folder
+3. Visit `https://ollama.com` — the badge should turn green
 
-| 文件 | 作用 |
-|---|---|
-| `background.js` | 拉取/缓存数据集，每次标签页加载完成后在本机判定，设置图标徽章 |
-| `content.js` | 只在收到"相似但未收录"消息时注入一条提示条 |
-| `popup.html/js` | 点图标：当前页判定 + 查询框 |
-| `resolve.mjs` | 与 API / MCP 共用的查询核心（从 `packages/core/` 复制，改动那边后记得同步） |
+`resolve.mjs` here is a copy of `packages/core/resolve.mjs`; keep them in sync.
 
-## 上架
+## Permissions
 
-Chrome Web Store 需要开发者账号（一次性 5 美元）与审核，属于项目所有者的操作。上架时的权限说明：
-`storage`（缓存数据集）、`alarms`（每日刷新）、`tabs`（读当前标签页 URL 以判定）、
-`host_permissions: api.realurls.org`（只访问这一个域）。内容脚本注入所有页面是为了能在需要时弹提示，
-但它在绝大多数页面上不执行任何逻辑。
+`storage` (cache the dataset), `alarms` (daily refresh), `tabs` (read the current tab's URL to set the badge), host permission for `api.realurls.org` only.

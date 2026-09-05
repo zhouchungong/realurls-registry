@@ -21,14 +21,14 @@ domains:
   status: verified
   confidence: 0.8346
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T05:21:52Z'
+  last_verified: '2026-09-05T09:53:30Z'
   ttl_days: 30
   age_days: 7877
   age_source: rdap
   collection_incomplete: false
   evidence:
   - code: A1
-    checked_at: '2026-09-05T05:22:32Z'
+    checked_at: '2026-09-05T09:54:09Z'
     source: https://api.github.com/orgs/opencv
     data:
       org: opencv
@@ -37,7 +37,7 @@ domains:
       org_name: OpenCV
       created_at: '2013-07-15T03:21:08Z'
   - code: A8
-    checked_at: '2026-09-05T05:22:33Z'
+    checked_at: '2026-09-05T09:54:10Z'
     source: https://api.github.com/repos/opencv/opencv
     data:
       repo: opencv/opencv
@@ -46,10 +46,10 @@ domains:
       homepage: https://opencv.org
       backlink: false
       stars: 90716
-      age_days: 5160
+      age_days: 5161
       contributors: 2562
   - code: A3
-    checked_at: '2026-09-05T05:22:33Z'
+    checked_at: '2026-09-05T09:54:10Z'
     source: https://rdap.org/domain/opencv.org
     data:
       registrar: GoDaddy.com, LLC
@@ -62,7 +62,7 @@ domains:
       - transfer
       - update
   - code: A4
-    checked_at: '2026-09-05T05:22:34Z'
+    checked_at: '2026-09-05T09:54:10Z'
     source: TLS handshake opencv.org:443
     data:
       subject_org: ''
@@ -70,7 +70,7 @@ domains:
       issuer: Google Trust Services
       san_count: 2
   - code: B1
-    checked_at: '2026-09-05T05:22:34Z'
+    checked_at: '2026-09-05T09:54:10Z'
     source: https://www.wikidata.org/wiki/Q165277
     data:
       qid: Q165277
@@ -79,20 +79,21 @@ domains:
       sitelinks: 30
       competing_items: 0
   - code: B5
-    checked_at: '2026-09-05T05:22:34Z'
+    checked_at: '2026-09-05T09:54:10Z'
     source: https://tranco-list.eu/api/ranks/domain/opencv.org
     data:
       rank: 28285
       date: '2026-09-04'
   rejected_evidence:
-  - 'A8: 本域名首页没有链接回该 GitHub 组织，缺少反向确认'
-  - 'A3: 注册商（GoDaddy.com, LLC）不在企业级注册商名单内'
-  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
+  - 'A8: this site does not link back to the GitHub organization; no reverse confirmation'
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
   reasons:
-  - 1 条独立锚点 + 2 条独立佐证，达到 verified 门槛
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
 provenance:
   generated_by: build_entities/0.1
   policy_version: policy.py@c027cba
   label_source: fallback
   reviewed_by: []
   source_issue: null
+  last_revalidated_by: revalidate/0.1

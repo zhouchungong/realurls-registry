@@ -21,14 +21,14 @@ domains:
   status: verified
   confidence: 0.8346
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T05:21:52Z'
+  last_verified: '2026-09-05T09:53:30Z'
   ttl_days: 30
   age_days: 3384
   age_source: wayback_lower_bound
   collection_incomplete: false
   evidence:
   - code: A1
-    checked_at: '2026-09-05T05:22:46Z'
+    checked_at: '2026-09-05T09:56:10Z'
     source: https://api.github.com/orgs/tldr-pages
     data:
       org: tldr-pages
@@ -37,7 +37,7 @@ domains:
       org_name: tldr pages
       created_at: '2014-04-21T23:00:30Z'
   - code: A8
-    checked_at: '2026-09-05T05:22:46Z'
+    checked_at: '2026-09-05T09:56:10Z'
     source: https://api.github.com/repos/tldr-pages/tldr
     data:
       repo: tldr-pages/tldr
@@ -46,10 +46,10 @@ domains:
       homepage: https://tldr.sh
       backlink: true
       stars: 63592
-      age_days: 4653
+      age_days: 4654
       contributors: 3471
   - code: A4
-    checked_at: '2026-09-05T05:22:47Z'
+    checked_at: '2026-09-05T09:56:11Z'
     source: TLS handshake tldr.sh:443
     data:
       subject_org: ''
@@ -57,7 +57,7 @@ domains:
       issuer: Google Trust Services
       san_count: 2
   - code: B1
-    checked_at: '2026-09-05T05:22:47Z'
+    checked_at: '2026-09-05T09:56:11Z'
     source: https://www.wikidata.org/wiki/Q105746463
     data:
       qid: Q105746463
@@ -66,26 +66,27 @@ domains:
       sitelinks: 2
       competing_items: 0
   - code: B4
-    checked_at: '2026-09-05T05:22:47Z'
+    checked_at: '2026-09-05T09:56:11Z'
     source: http://web.archive.org/cdx/search/cdx?url=tldr.sh&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2017-05-31'
       history_days: 3384
   - code: B5
-    checked_at: '2026-09-05T05:22:47Z'
+    checked_at: '2026-09-05T09:56:11Z'
     source: https://tranco-list.eu/api/ranks/domain/tldr.sh
     data:
       rank: 396186
       date: '2026-09-04'
   rejected_evidence:
-  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
-  - 'B1: 实体未锚定：没有 canonical Wikidata 条目，任意条目的 P856 不能当佐证'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
   reasons:
-  - 关联锚点合并，A8 与保留项不独立，不重复计数
-  - 1 条独立锚点 + 2 条独立佐证，达到 verified 门槛
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
 provenance:
   generated_by: build_entities/0.1
   policy_version: policy.py@c027cba
   label_source: github_org_name(self-declared)
   reviewed_by: []
   source_issue: null
+  last_revalidated_by: revalidate/0.1

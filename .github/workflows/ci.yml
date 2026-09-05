@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   policy:
-    name: 定案引擎回归（含负样本）
+    name: Policy regression (incl. adversarial corpus)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
@@ -19,14 +19,14 @@ jobs:
         with:
           python-version: "3.11"
       - run: pip install -e ".[dev]"
-      - name: 正负样本回归
+      - name: Positive + adversarial regression
         env:
           PYTEST_DISABLE_PLUGIN_AUTOLOAD: "1"
         run: pytest tests -q
       - run: ruff check src tests
 
   data:
-    name: 数据校验
+    name: Data validation
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
@@ -34,18 +34,18 @@ jobs:
         with:
           python-version: "3.11"
       - run: pip install -e "."
-      - name: schema + 状态复算 + 中性措辞 + 唯一性
+      - name: Schema, status recomputation, neutral wording, uniqueness
         run: python -m src.validate
 
   guard:
-    name: 人类不得直接修改数据
+    name: Humans must not edit data directly
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           fetch-depth: 0
-      - name: 拒绝非机器人对 entities/ 的改动
+      - name: Reject non-bot changes to entities/
         env:
           AUTHOR: ${{ github.event.pull_request.user.login }}
           BASE: ${{ github.event.pull_request.base.sha }}

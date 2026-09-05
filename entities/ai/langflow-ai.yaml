@@ -21,21 +21,21 @@ domains:
   status: verified
   confidence: 0.6691
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T05:21:52Z'
+  last_verified: '2026-09-05T09:53:30Z'
   ttl_days: 30
   age_days: 1186
   age_source: rdap
   collection_incomplete: true
   evidence:
   - code: A1
-    checked_at: '2026-09-05T05:22:17Z'
+    checked_at: '2026-09-05T09:53:54Z'
     source: https://api.github.com/orgs/langflow-ai
     data:
       org: langflow-ai
       org_verified: false
       blog: https://www.langflow.org/
   - code: A8
-    checked_at: '2026-09-05T05:22:17Z'
+    checked_at: '2026-09-05T09:53:54Z'
     source: https://api.github.com/repos/langflow-ai/langflow
     data:
       repo: langflow-ai/langflow
@@ -47,7 +47,7 @@ domains:
       age_days: 1304
       contributors: 379
   - code: A3
-    checked_at: '2026-09-05T05:22:17Z'
+    checked_at: '2026-09-05T09:53:54Z'
     source: https://rdap.org/domain/langflow.org
     data:
       registrar: CSC Corporate Domains, Inc.
@@ -57,25 +57,26 @@ domains:
       locks:
       - transfer
   - code: B4
-    checked_at: '2026-09-05T05:22:19Z'
+    checked_at: '2026-09-05T09:53:54Z'
     source: http://web.archive.org/cdx/search/cdx?url=langflow.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2023-06-26'
       history_days: 1167
   - code: B5
-    checked_at: '2026-09-05T05:22:19Z'
+    checked_at: '2026-09-05T09:53:54Z'
     source: https://tranco-list.eu/api/ranks/domain/langflow.org
     data:
       rank: 321873
       date: '2026-09-04'
   rejected_evidence:
-  - 'A1: GitHub 组织未通过域名验证（is_verified != true）'
-  - 'A3: 到期日不足 1095 天，不符合企业长期预付特征'
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
   reasons:
-  - 1 条独立锚点 + 2 条独立佐证，达到 verified 门槛
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
 provenance:
   generated_by: build_entities/0.1
   policy_version: policy.py@c027cba
   label_source: github_org_name(self-declared)
   reviewed_by: []
   source_issue: null
+  last_revalidated_by: revalidate/0.1

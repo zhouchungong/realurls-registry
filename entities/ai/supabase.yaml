@@ -21,14 +21,14 @@ domains:
   status: verified
   confidence: 0.8346
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T05:21:52Z'
+  last_verified: '2026-09-05T09:53:30Z'
   ttl_days: 30
-  age_days: 3267
+  age_days: 3268
   age_source: rdap
   collection_incomplete: false
   evidence:
   - code: A1
-    checked_at: '2026-09-05T05:22:26Z'
+    checked_at: '2026-09-05T09:54:34Z'
     source: https://api.github.com/orgs/supabase
     data:
       org: supabase
@@ -37,7 +37,7 @@ domains:
       org_name: Supabase
       created_at: '2019-08-24T09:21:56Z'
   - code: A8
-    checked_at: '2026-09-05T05:22:26Z'
+    checked_at: '2026-09-05T09:54:34Z'
     source: https://api.github.com/repos/supabase/supabase
     data:
       repo: supabase/supabase
@@ -46,20 +46,20 @@ domains:
       homepage: https://supabase.com
       backlink: true
       stars: 108852
-      age_days: 2519
+      age_days: 2520
       contributors: 2033
   - code: A3
-    checked_at: '2026-09-05T05:22:26Z'
+    checked_at: '2026-09-05T09:54:34Z'
     source: https://rdap.org/domain/supabase.com
     data:
       registrar: Amazon Registrar, Inc.
       created: '2017-09-24'
       expires: '2027-09-24'
-      remaining_days: 384
+      remaining_days: 383
       locks:
       - transfer
   - code: A4
-    checked_at: '2026-09-05T05:22:27Z'
+    checked_at: '2026-09-05T09:54:36Z'
     source: TLS handshake supabase.com:443
     data:
       subject_org: ''
@@ -67,7 +67,7 @@ domains:
       issuer: Let's Encrypt
       san_count: 1
   - code: B1
-    checked_at: '2026-09-05T05:22:27Z'
+    checked_at: '2026-09-05T09:54:36Z'
     source: https://www.wikidata.org/wiki/Q136776342
     data:
       qid: Q136776342
@@ -76,27 +76,28 @@ domains:
       sitelinks: 1
       competing_items: 0
   - code: B4
-    checked_at: '2026-09-05T05:22:27Z'
+    checked_at: '2026-09-05T09:54:36Z'
     source: http://web.archive.org/cdx/search/cdx?url=supabase.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2018-08-17'
       history_days: 2941
   - code: B5
-    checked_at: '2026-09-05T05:22:27Z'
+    checked_at: '2026-09-05T09:54:36Z'
     source: https://tranco-list.eu/api/ranks/domain/supabase.com
     data:
       rank: 5228
       date: '2026-09-04'
   rejected_evidence:
-  - 'A3: 注册商（Amazon Registrar, Inc.）不在企业级注册商名单内'
-  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
-  - 'B1: 实体未锚定：没有 canonical Wikidata 条目，任意条目的 P856 不能当佐证'
+  - 'A3: registrar (Amazon Registrar, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
   reasons:
-  - 关联锚点合并，A8 与保留项不独立，不重复计数
-  - 1 条独立锚点 + 2 条独立佐证，达到 verified 门槛
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
 provenance:
   generated_by: build_entities/0.1
   policy_version: policy.py@c027cba
   label_source: github_repo_name
   reviewed_by: []
   source_issue: null
+  last_revalidated_by: revalidate/0.1

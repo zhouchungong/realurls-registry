@@ -1,46 +1,46 @@
-name: 争议 / 报错
-description: 你认为我们标错了。这是本项目最严重的一类问题，请一定告诉我们。
-title: "[争议] "
+name: Dispute / report an error
+description: You think we got something wrong. This is the most serious class of issue we have — please tell us.
+title: "[dispute] "
 labels: ["dispute", "p0"]
 body:
   - type: markdown
     attributes:
       value: |
-        **举证责任在我们，不在你。**
+        **The burden of proof is on us, not on you.**
 
-        你不需要证明我们错了 —— 只要提出合理质疑，我们承诺 **48 小时内**把该记录降级为
-        `disputed` 并暂停 API 的肯定答复，先止损，再查证。
+        You do not have to prove we are wrong — a reasonable doubt is enough. Within **48 hours** the record is
+        downgraded to `disputed` and positive API answers stop; we investigate after that.
 
-        安全类漏洞（代码 / 基础设施）请勿公开提 Issue，发信 `security@realurls.org`。
+        Security vulnerabilities (code / infrastructure): please do not open a public issue — email `security@realurls.org`.
 
   - type: input
     id: domain
     attributes:
-      label: 有问题的域名
+      label: Domain in question
     validations: { required: true }
 
   - type: dropdown
     id: kind
     attributes:
-      label: 问题类型
+      label: What kind of error?
       options:
-        - 把仿冒站标成了官网（最严重）
-        - 官网被标错了归属
-        - 域名已易主 / 已停用，数据过期
-        - 我是该域名的控制者，不同意你们的判定
-        - non_affiliated 里错误地列入了我的域名
-        - 其他
+        - A lookalike / unrelated domain was marked as official (most serious)
+        - An official domain is attributed to the wrong organization
+        - The domain changed hands or was shut down; the record is stale
+        - I control this domain and disagree with the verdict
+        - My domain was wrongly listed under non_affiliated
+        - Other
     validations: { required: true }
 
   - type: textarea
     id: detail
     attributes:
-      label: 说明
-      description: 有多少写多少。哪怕只是「我觉得不对」，我们也会查。
+      label: Details
+      description: As much or as little as you have. Even "this looks wrong to me" gets investigated.
     validations: { required: true }
 
   - type: input
     id: contact
     attributes:
-      label: 联系方式（可选）
-      description: 若你是域名控制者，我们会联系你走 DNS TXT 自证流程
+      label: Contact (optional)
+      description: If you control the domain, we will contact you to complete a DNS TXT self-attestation

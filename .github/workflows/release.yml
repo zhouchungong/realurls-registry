@@ -1,4 +1,4 @@
-name: 构建并签名发布
+name: Build and sign release
 
 on:
   push:
@@ -21,12 +21,12 @@ jobs:
           python-version: "3.11"
       - run: pip install -e "."
 
-      - name: 校验 + 构建
+      - name: Validate and build
         run: |
           python -m src.validate
           python -m src.build
 
-      - name: 可复现性检查（同一输入必须得到相同字节）
+      - name: Reproducibility check (same input, same bytes)
         run: |
           cp dist/domains.json /tmp/a.json
           python -m src.build > /dev/null
@@ -36,7 +36,7 @@ jobs:
 
       # keyless：用本 workflow 的 OIDC 身份签名。验证者能确认「这份数据是本仓库 main 分支
       # 在 GitHub Actions 里生成的」，我们不保管任何私钥（SECURITY.md T6）。
-      - name: cosign 签名
+      - name: Sign with cosign
         env:
           COSIGN_YES: "true"
         run: |
@@ -46,7 +46,7 @@ jobs:
           done
           ls -la
 
-      - name: 写 Release 说明
+      - name: Write release notes
         run: |
           python - <<'PY'
           import json
@@ -74,7 +74,7 @@ jobs:
           open("/tmp/notes.md", "w").write("\n".join(l.strip() if l.strip().startswith(("|","```","cosign","--","domains.json")) else l.lstrip() for l in notes.splitlines()))
           PY
 
-      - name: "发布为 GitHub Release（滚动 tag latest）"
+      - name: "Publish GitHub Release (rolling tag latest)"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |

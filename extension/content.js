@@ -17,7 +17,7 @@ chrome.runtime.onMessage.addListener(msg => {
   bar.innerHTML = `<b>${esc(msg.domain)}</b> is <b>not</b> a known domain of <b>${esc(msg.looks_like)}</b>.
     Verified: ${officials}
     <a href="${esc(msg.evidence_url)}" style="color:#9a3412;margin-left:10px;text-decoration:underline">evidence</a>
-    <span style="opacity:.75;margin-left:10px">（不是安全判定，只是归属提示）</span>
+    <span style="opacity:.75;margin-left:10px">ownership only — not a safety judgement</span>
     <button id="realurls-close" aria-label="dismiss" style="position:absolute;right:10px;top:6px;border:0;background:transparent;font-size:20px;cursor:pointer;color:#9a3412">×</button>`;
 
   document.documentElement.appendChild(bar);

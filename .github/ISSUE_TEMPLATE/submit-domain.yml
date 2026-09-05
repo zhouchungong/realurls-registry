@@ -1,39 +1,39 @@
-name: 收录线索
-description: 告诉我们一个应该被收录的组织与它的官网。你只需提供线索，采证由我们完成。
-title: "[收录] "
+name: Submit a lead
+description: Tell us about an organization that should be listed and its official site. You provide the lead; we collect the evidence.
+title: "[lead] "
 labels: ["lead", "needs-collection"]
 body:
   - type: markdown
     attributes:
       value: |
-        **你提交的是线索，不是数据。**
+        **You are submitting a lead, not data.**
 
-        不需要查 WHOIS、不需要截图、不需要写 YAML。机器人会自动采集全套证据并判定：
-        - 证据充分 → 自动开 PR
-        - 证据不足 → 自动关闭并告诉你缺哪一条
+        No WHOIS lookups, no screenshots, no YAML. A bot collects the full evidence and decides:
+        - enough evidence → it opens a pull request automatically
+        - not enough → it closes this issue and tells you exactly which piece is missing
 
-        如果你是**该域名的实际控制者**，请改用「域名所有者自证」模板，那条通道权重最高。
+        If you **control the domain yourself**, use the "Domain owner self-attestation" path instead — it carries the highest weight.
 
   - type: input
     id: org
     attributes:
-      label: 组织 / 公司名
+      label: Organization / company
       placeholder: Anthropic
     validations: { required: true }
 
   - type: input
     id: domain
     attributes:
-      label: 你认为的官网域名
-      description: 只填域名，不要协议和路径
+      label: Domain you believe is the official site
+      description: Domain only — no scheme, no path
       placeholder: anthropic.com
     validations: { required: true }
 
   - type: dropdown
     id: category
     attributes:
-      label: 类别
-      description: 当前只收录 AI 与开发者工具，其他类别会排入后续阶段
+      label: Category
+      description: We currently list AI and developer tools; other categories are queued for later phases
       options:
         - ai
         - developer-tools
@@ -47,28 +47,28 @@ body:
   - type: textarea
     id: how
     attributes:
-      label: 你是怎么知道这是官网的
-      description: 随便写，一句话也行。这只用于帮机器人定位采证起点，不作为证据。
+      label: How do you know this is the official site?
+      description: A sentence is enough. This only tells the bot where to start looking; it is not treated as evidence.
       placeholder: |
-        比如：
-        - GitHub 组织是 github.com/anthropics
-        - npm 包 @anthropic-ai/sdk
-        - 官方 X 账号 @AnthropicAI 上挂的链接
+        For example:
+        - GitHub organization is github.com/anthropics
+        - npm package @anthropic-ai/sdk
+        - the verified X account @AnthropicAI links to it
     validations: { required: true }
 
   - type: input
     id: aliases
     attributes:
-      label: 用户可能会怎么搜它（可选）
-      description: 产品名、俗称、缩写，逗号分隔
+      label: Other names people search for (optional)
+      description: product names, nicknames, abbreviations — comma-separated
       placeholder: Claude, Claude Code, claude.ai
 
   - type: checkboxes
     id: ack
     attributes:
-      label: 确认
+      label: Confirm
       options:
-        - label: 我明白 realurls 只判定域名归属，不判定网站的安全性或合法性
+        - label: I understand realurls judges domain ownership only, never whether a site is safe or lawful
           required: true
-        - label: 我没有与该组织的未披露利益关系（若有，请在上面说明 —— 有利益关系不影响收录，但必须公开）
+        - label: I have no undisclosed interest in this organization (an interest does not block listing, but it must be disclosed above)
           required: true

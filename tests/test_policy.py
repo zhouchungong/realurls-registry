@@ -134,7 +134,7 @@ def test_unknown_age_caps_at_provisional_even_with_full_evidence():
     d = decide(facts, anthropic_evidence(), now=NOW)
     assert d.status == "provisional"
     assert not d.is_official
-    assert any("域龄未知" in r for r in d.reasons)
+    assert any("domain age unknown" in r for r in d.reasons)
 
 
 def test_wayback_lower_bound_counts_as_known_age():
@@ -147,7 +147,7 @@ def test_unanchored_entity_cannot_use_control_proofs():
     facts = DomainFacts(domain="anthropic.com", age_days=9104)  # 没有 expected_*
     d = decide(facts, anthropic_evidence(), now=NOW)
     assert "A1" not in d.anchors
-    assert any("实体未锚定" in r for r in d.rejected)
+    assert any("entity not anchored" in r for r in d.rejected)
     assert d.status != "verified" or "A1" not in d.anchors
 
 
@@ -218,7 +218,7 @@ def test_correlated_anchors_count_once():
     )
     assert d.anchors == ["A1"]
     assert d.status == "provisional"  # 锚点只有 1 条且无佐证
-    assert any("不独立" in r for r in d.reasons)
+    assert any("not independent" in r for r in d.reasons)
 
 
 def test_provenance_implies_package_homepage():
@@ -283,7 +283,7 @@ def test_wikidata_item_must_match_canonical():
 def test_unknown_evidence_code_is_rejected():
     facts = DomainFacts(domain="example.com", age_days=2000)
     d = decide(facts, [Evidence(code="Z9")], now=NOW)
-    assert any("未知证据代码" in r for r in d.rejected)
+    assert any("unknown evidence code" in r for r in d.rejected)
 
 
 # ------------------------------------------------------------------ 工具函数

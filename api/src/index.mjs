@@ -19,7 +19,7 @@ import { Resolver } from "../../packages/core/resolve.mjs";
 import domains from "../../dist/domains.json";
 import entities from "../../dist/entities.json";
 import manifest from "../../dist/manifest.json";
-import { handleSite } from "./site.mjs";
+import { handleSite, apiLanding } from "./site.mjs";
 
 const resolver = new Resolver({ domains, entities, manifest });
 const VERIFIED_TXT = Object.entries(domains).filter(([, v]) => v.official).map(([d]) => d).sort().join("\n") + "\n";
@@ -90,6 +90,10 @@ export default {
       }
 
       case "/":
+        // A browser gets a copy-friendly landing page; curl / fetch / agents get JSON.
+        if ((request.headers.get("accept") || "").includes("text/html")) {
+          return new Response(apiLanding(), { headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "public, max-age=300", ...CORS } });
+        }
         return json({
           name: "realurls", what: "Which domain officially belongs to which organization. Ownership only, never safety.",
           endpoints: ["/v1/resolve?domain=", "/v1/entity?q=", "/v1/manifest", "/v1/domains.txt", "/healthz"],

@@ -86,7 +86,7 @@ def test_expiry_shortened_triggers_review():
     """续费只会往后推；到期日往前跳说明换了注册记录（抢注的典型信号）。"""
     _, out = apply(old_record(), decision("verified"), {}, evidence(expires="2027-01-01"), [], NOW)
     assert out.action == "review"
-    assert any("缩短" in m for m in out.mutations)
+    assert any("shortened" in m for m in out.mutations)
 
 
 def test_anchor_conflict_triggers_review():

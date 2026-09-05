@@ -1,4 +1,4 @@
-name: 部署 Worker（站点 + API）
+name: Deploy Worker (site + API)
 
 # 数据或代码任一变动都重新部署：Worker 把 dist/ 打进代码，所以 entities/ 变了也必须重部署，
 # 否则线上 API 会一直是旧数据集。之前站点代码改了只能手动 wrangler deploy——这条 workflow 补上这个缺口。
@@ -31,7 +31,7 @@ jobs:
           python-version: "3.11"
       - run: pip install -e "."
 
-      - name: 校验数据 + 构建 dist/（Worker 的输入）
+      - name: Validate data and build dist/ (the Worker's input)
         run: |
           python -m src.validate
           python -m src.build
@@ -40,10 +40,10 @@ jobs:
         with:
           node-version: "22"
 
-      - name: 查询核心测试
+      - name: Query core tests
         run: node --test packages/core/resolve.test.mjs
 
-      - name: 部署
+      - name: Deploy
         uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd # v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -51,7 +51,7 @@ jobs:
           workingDirectory: api
           command: deploy
 
-      - name: 线上冒烟
+      - name: Live smoke test
         run: |
           set -e
           sleep 8

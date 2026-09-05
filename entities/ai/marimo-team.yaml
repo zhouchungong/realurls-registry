@@ -22,21 +22,21 @@ domains:
   status: verified
   confidence: 0.6691
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T05:21:52Z'
+  last_verified: '2026-09-05T09:53:30Z'
   ttl_days: 30
   age_days: 2858
   age_source: wayback_lower_bound
   collection_incomplete: false
   evidence:
   - code: A1
-    checked_at: '2026-09-05T05:25:54Z'
+    checked_at: '2026-09-05T09:53:57Z'
     source: https://api.github.com/orgs/marimo-team
     data:
       org: marimo-team
       org_verified: false
       blog: https://marimo.io/
   - code: A8
-    checked_at: '2026-09-05T05:25:54Z'
+    checked_at: '2026-09-05T09:53:57Z'
     source: https://api.github.com/repos/marimo-team/marimo
     data:
       repo: marimo-team/marimo
@@ -48,7 +48,7 @@ domains:
       age_days: 1117
       contributors: 335
   - code: A4
-    checked_at: '2026-09-05T05:25:56Z'
+    checked_at: '2026-09-05T09:53:58Z'
     source: TLS handshake marimo.io:443
     data:
       subject_org: ''
@@ -56,25 +56,26 @@ domains:
       issuer: Let's Encrypt
       san_count: 1
   - code: B4
-    checked_at: '2026-09-05T05:25:56Z'
+    checked_at: '2026-09-05T09:53:58Z'
     source: http://web.archive.org/cdx/search/cdx?url=marimo.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2018-11-08'
       history_days: 2858
   - code: B5
-    checked_at: '2026-09-05T05:25:56Z'
+    checked_at: '2026-09-05T09:53:58Z'
     source: https://tranco-list.eu/api/ranks/domain/marimo.io
     data:
       rank: 424798
       date: '2026-09-04'
   rejected_evidence:
-  - 'A1: GitHub 组织未通过域名验证（is_verified != true）'
-  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
   reasons:
-  - 1 条独立锚点 + 2 条独立佐证，达到 verified 门槛
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
 provenance:
   generated_by: build_entities/0.1
   policy_version: policy.py@c027cba
   label_source: github_org_name(self-declared)
   reviewed_by: []
   source_issue: null
+  last_revalidated_by: revalidate/0.1

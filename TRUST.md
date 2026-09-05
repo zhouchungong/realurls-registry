@@ -1,135 +1,136 @@
-# TRUST.md —— 我们凭什么可信
+# TRUST.md — why you should (or shouldn't) trust us
 
-这是本项目最重要的文件。realurls 唯一的产品是**信任**，而信任的定义必须先于实现。
+This is the most important file in the project. realurls has exactly one product — **trust** — and trust has to be defined before it is implemented.
 
-如果你只读一个文件，读这个。
+If you read only one file, read this one. 中文版：[docs/zh/TRUST.md](docs/zh/TRUST.md)
 
 ---
 
-## 1. 我们断言什么
+## 1. What we claim
 
-**只有一件事：某个域名是否由某个组织控制。**
+**One thing only: whether a given domain is controlled by a given organization.**
 
 ```
-realurls 说 "anthropic.com 属于 Anthropic" 的意思是：
-  存在若干条独立的、可被任何人复现的机器证据，共同支持这一归属关系。
+When realurls says "anthropic.com belongs to Anthropic", it means:
+  several independent pieces of machine evidence, each reproducible by anyone,
+  jointly support that ownership relation.
 ```
 
-仅此而已。
+Nothing more.
 
-## 2. 我们**不**断言什么
+## 2. What we do *not* claim
 
-这一节和上一节同等重要。以下内容我们**一概不做判断**，请勿据此决策：
+This section matters as much as the previous one. We make **no judgement** on any of the following; do not base decisions on us for them:
 
-| 我们不说 | 请找谁 |
+| We do not say | Ask instead |
 |---|---|
-| 这个网站安全吗 | Google Safe Browsing、VirusTotal、你的杀毒软件 |
-| 这个网站是不是钓鱼/诈骗 | 同上。**我们不维护黑名单**（见 §6） |
-| 这家公司靠不靠谱、产品好不好 | 不在我们的能力范围 |
-| 这个下载文件有没有毒 | 杀毒软件、沙箱 |
-| 这个域名合不合法、有没有侵权 | 法院、商标局、域名争议解决机构 |
+| whether a site is safe | Google Safe Browsing, VirusTotal, your antivirus |
+| whether a site is phishing or a scam | the same. **We keep no blacklist** (see §6) |
+| whether a company is reputable or its product is good | outside our scope |
+| whether a download is malware-free | antivirus, a sandbox |
+| whether a domain is lawful or infringes a trademark | courts, trademark offices, domain dispute bodies |
 
-**一个域名被我们标为 `verified`，只意味着"它确实是那家公司的"，不意味着"它是安全的"。** 一个公司的官网被黑客入侵后，它依然是那家公司的官网。
+**A domain marked `verified` means "it really is that company's" — not "it is safe".** A company's official site is still its official site after it has been hacked.
 
-## 3. 五档状态与它们的确切含义
+## 3. The statuses and exactly what they mean
 
-| 状态 | 含义 | API 会怎么回答 |
+| status | meaning | what the API answers |
 |---|---|---|
-| `verified` | 证据充分：≥1 条独立锚点 + ≥2 条独立佐证 | **唯一会给出肯定答复的状态** |
-| `provisional` | 有锚点但佐证不足，21 天公示期 | 「证据不足」+ 列出已有证据 |
-| `community` | 只有佐证，无锚点 | 「证据不足」 |
-| `unverified` | 未达门槛 / 域名太新 / 尚未审查 | 「不知道」 |
-| `stale` | 曾经 verified，但超过 TTL 未重验 | 「不知道」—— 过期数据**自动失效** |
-| `review_required` | 关键属性突变（可能被抢注或劫持） | 「不知道」 |
-| `disputed` | 与另一条 verified 断言冲突 | 「存在争议」+ 列出双方证据 |
-| `flagged` | 已被安全情报标记 | 「不给出归属判定」（转引来源） |
+| `verified` | sufficient evidence: ≥1 independent anchor + ≥2 independent corroborations | **the only positive answer** |
+| `provisional` | an anchor exists but corroboration is short; 21-day public review window | "insufficient evidence" + the evidence so far |
+| `community` | corroborations only, no anchor | "insufficient evidence" |
+| `unverified` | below threshold / domain too new / not yet examined | "don't know" |
+| `stale` | was verified, but not re-verified within its TTL | "don't know" — stale data **expires automatically** |
+| `review_required` | a key attribute changed (possible takeover or hijack) | "don't know" |
+| `disputed` | conflicts with another verified claim | "disputed" + both sides' evidence |
+| `flagged` | flagged by security intelligence | no ownership verdict (we point to the source) |
 
-**核心承诺：宁可说「不知道」，绝不说错。**
-我们的 recall 会很难看 —— 大量域名长期停在 `unverified`。这是刻意的取舍。一个信任源说错一次的代价，远大于说不知道一千次。
+**The core promise: we would rather say "don't know" than be wrong.**
+Our recall will look poor — many domains will sit at `unverified` for a long time. That is deliberate. One wrong answer from a trust source costs more than a thousand "don't know"s.
 
-## 4. 如何独立复现我们的每一条判定
+## 4. How to reproduce every verdict yourself
 
-这是我们与「某个人整理的清单」的根本区别：**你不需要相信我们，你可以自己验一遍。**
+This is what separates us from "a list someone maintains": **you do not have to trust us; you can run the checks.**
 
-每个实体页与 `entities/**.yaml` 都列出了完整证据。以 `anthropic.com` 为例：
+Every entity page and every `entities/**.yaml` lists the full evidence. For `anthropic.com`:
 
 ```bash
-# A1 —— GitHub 组织已通过域名验证
+# A1 — GitHub verified the organization's domain
 curl -s https://api.github.com/orgs/anthropics | jq '{name, blog, is_verified}'
-# 期望: {"name":"Anthropic","blog":"https://anthropic.com","is_verified":true}
+# expect: {"name":"Anthropic","blog":"https://anthropic.com","is_verified":true}
 
-# A3 —— 企业注册指纹
+# A3 — corporate registration fingerprint
 curl -sL https://rdap.org/domain/anthropic.com \
   | jq '{registrar: [.entities[]|select(.roles[]=="registrar")|.vcardArray[1][1][3]],
          events: [.events[]|{(.eventAction): .eventDate}], status}'
-# 期望: MarkMonitor Inc. / registration 2001-10-02 / expiration 2033-10-02 / 三把 client*Prohibited 锁
+# expect: MarkMonitor Inc. / registered 2001-10-02 / expires 2033-10-02 / three client*Prohibited locks
 
-# B1 —— Wikidata P856
+# B1 — Wikidata P856
 curl -s "https://www.wikidata.org/w/api.php?action=wbgetclaims&entity=Q116758847&property=P856&format=json"
 
-# B4 —— Wayback 连续性
+# B4 — Wayback continuity
 curl -s "http://web.archive.org/cdx/search/cdx?url=anthropic.com&limit=1&output=json"
 ```
 
-然后把证据喂给定案引擎，你会得到和我们一样的结论：
+Then feed the evidence to the decision engine and you get the same conclusion we did:
 
 ```bash
-python -m src.verify anthropic.com          # 采集 + 判定，打印完整证据链
-python -m pytest tests -q                   # 跑我们全部的正/负样本回归
+python -m src.verify anthropic.com          # collect + decide, print the full evidence chain
+python -m pytest tests -q                   # run all of our positive and adversarial regression cases
 ```
 
-**定案规则就是代码本身**（`src/policy.py`），不是某个人的主观判断。规则的任何变更都必须经过 CODEOWNERS 双人审批，并留在 git 历史里。
+**The rules are the code** (`src/policy.py`), not someone's opinion. Any change to the rules requires two-person approval via CODEOWNERS and stays in the git history forever.
 
-## 5. 数据从哪来，谁能改
+## 5. Where the data comes from, and who can change it
 
 ```
-社区提交 → Issue Form（只提交「线索」）
-        → 机器人自动跑全套证据采集
-        → 证据充分：机器人开 PR，人类只做 review
-        → 证据不足：自动关闭，并告诉你缺哪条
+community submission → issue form (a lead, nothing more)
+                     → a bot runs the full evidence collection
+                     → enough evidence: the bot opens a PR; humans only review
+                     → not enough: closed automatically, with the missing piece named
 ```
 
-**人类永远不能直接编辑 `entities/` 里的数据。** 所有数据由流水线生成。
+**Humans never edit `entities/` directly.** All data is generated by the pipeline.
 
-这不是流程洁癖 —— 如果 JSON 可以被 PR 直接改，那么本仓库就是黑产洗白钓鱼站的最高价值目标，而「精心构造的 PR 骗过疲惫的 reviewer」是必然会发生的事。**把人从数据写入路径上移开，是唯一可靠的防御。**
+This is not process for its own sake. If the JSON could be changed by a pull request, this repository would be the single most valuable target for anyone trying to launder a phishing domain, and "a carefully crafted PR slips past a tired reviewer" is a certainty over time. **Taking humans off the write path is the only reliable defence.**
 
-## 6. 我们不维护黑名单
+## 6. We keep no blacklist
 
-`non_affiliated` 字段里记录的「与某实体无关联的相似域名」，其性质是：
+The `non_affiliated` field — "similar domains not linked to this entity" — is:
 
-- **客观信号的罗列**（注册 11 天、编辑距离为 3、被 Google Safe Browsing 标记），**不是定性**。
-- 我们不使用「钓鱼」「诈骗」「恶意」这类词汇描述任何域名。定性属于有资质的安全厂商与执法机构。
-- 我们**不镜像任何第三方黑名单**。原因有三：许可证不允许（OpenPhish 禁止再分发，GSB 条款禁止转发布）；钓鱼域名寿命以小时计，镜像一份陈旧名单等于用我们的名义指控一个可能已经无辜的域名；以及我们不愿继承别人的误判和责任。
+- a **list of objective signals** (registered 11 days ago, edit distance 3, flagged by Google Safe Browsing), **not a characterization**;
+- never described with words like "phishing", "scam" or "malicious". That characterization belongs to qualified security vendors and law enforcement.
+- **never mirrored from third-party blacklists.** Three reasons: licences forbid it (OpenPhish prohibits redistribution, Safe Browsing's terms prohibit republishing); phishing domains live for hours and a mirrored list would accuse, under our name, domains that may already be innocent; and we will not inherit other people's errors and liability.
 
-我们只在判定时**即时查询**这些源作为否决信号，查完即弃。
+We query those sources **at decision time, as a veto signal only**, and discard the result.
 
-## 7. 我们会犯错，以及犯错之后
+## 7. We will be wrong, and what happens then
 
-我们一定会有错误。承诺如下：
+We will make mistakes. Our commitments:
 
-1. **争议通道**：在本仓库提 Issue（`dispute` 模板），或发信到 `dispute@realurls.org`。
-2. **响应 SLA**：`verified` 状态的争议，**48 小时内**降级为 `disputed` 并暂停 API 肯定答复 —— 先止损，再查证。举证责任在我们，不在你。
-3. **域名所有者优先**：如果你是域名的实际控制者，通过 DNS TXT 自证（A5）即可覆盖我们的任何判定。**你对自己的域名有最终解释权。**
-4. **公开更正**：所有错误更正保留在 git 历史与 `CORRECTIONS.md` 中，永不静默删除。一个隐藏自己错误记录的信任源不值得信任。
+1. **Dispute channel:** open an issue with the `dispute` template, or email `dispute@realurls.org`.
+2. **Response:** a dispute on a `verified` record downgrades it to `disputed` and stops positive API answers **within 48 hours** — stop the harm first, investigate second. The burden of proof is on us, not on you.
+3. **Owners win:** if you actually control the domain, a DNS TXT self-attestation (A5) overrides any verdict of ours. **You have the final say over your own domain.**
+4. **Public corrections:** every correction stays in the git history and in `CORRECTIONS.md`. Nothing is quietly deleted. A trust source that hides its own error record does not deserve trust.
 
-## 8. 我们自己的完整性
+## 8. Our own integrity
 
-一个「真官网」数据库如果自己被篡改，危害比它解决的问题更大。因此：
+A "real official sites" database that gets tampered with does more harm than the problem it solves. Therefore:
 
-- 每次 release 用 **sigstore/cosign 签名**，API 返回体带数据集版本号与内容哈希。
-- 所有 GitHub Actions **pin 到 commit SHA**，防 action 供应链投毒。
-- 分支保护 + 强制 2FA + `CODEOWNERS` 双人审批。
-- 数据变更是 **append-only 的 git 历史**，任何一条 verified 记录的全部历史可追溯。
+- every release is **signed with sigstore/cosign** (keyless); API responses carry the dataset version and content hashes;
+- every GitHub Action is **pinned to a commit SHA** against supply-chain poisoning;
+- branch protection, mandatory 2FA, two-person review via `CODEOWNERS`;
+- data changes are an **append-only git history**; the full history of every verified record is traceable.
 
-详见 [SECURITY.md](SECURITY.md)。
+Details in [SECURITY.md](SECURITY.md).
 
-## 9. 利益冲突声明
+## 9. Conflicts of interest
 
-- **查询永久免费，数据永久开放**（`entities/` 与 `dist/` 采用 CC BY-SA 4.0）。
-- **官网链接永远是裸链**：无跳转、无跟踪参数、无 affiliate。
-- 本项目**当前不接受任何形式的付费收录、付费排序或赞助展示**。若未来引入商业模式，将在此处明确公示，且**付费永远不能影响任何一条 `verified` 判定**。
-- 若你发现我们违反了以上任何一条，请公开地骂我们。这是应该的。
+- **Queries are free forever; the data is open forever** (`entities/` and `dist/` under CC BY-SA 4.0).
+- **Official links are always bare links**: no redirects, no tracking parameters, no affiliate codes.
+- The project currently accepts **no paid listings, paid ranking or sponsored placement**. If a business model is ever introduced it will be stated here, and **payment will never influence a single `verified` verdict**.
+- If you find us breaking any of the above, say so publicly. You would be right to.
 
 ---
 
-*本文件的任何变更都会记录在 git 历史中。最后更新：见 `git log TRUST.md`。*
+*Changes to this file are recorded in git history: `git log TRUST.md`.*

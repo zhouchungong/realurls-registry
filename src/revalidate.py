@@ -77,7 +77,7 @@ def _detect_mutations(old_rec: dict, new_evidence: list) -> list[str]:
     try:
         oe, ne = old["A3"].get("expires"), new["A3"].get("expires")
         if oe and ne and ne < oe:
-            out.append(f"A3.expires: {oe} → {ne}（缩短）")
+            out.append(f"A3.expires: {oe} → {ne} (shortened)")
     except KeyError:
         pass
     return out
@@ -113,10 +113,10 @@ def apply(old_rec: dict, decision: Decision, facts: dict, new_evidence: list,
 
     # 规则 2：突变 → review_required（无论新判定是什么）
     if mutations or anchor_conflict:
-        why = "; ".join(mutations) or "锚定权威与已落盘 canonical 不一致"
+        why = "; ".join(mutations) or "anchoring authority disagrees with the stored canonical identity"
         _write_new()
         rec["status"] = "review_required"
-        rec["reasons"] = [f"关键属性突变：{why}"] + list(decision.reasons)
+        rec["reasons"] = [f"key attributes changed: {why}"] + list(decision.reasons)
         history.append({"at": _iso(now), "from": old_status, "to": "review_required", "why": why})
         rec["history"] = history
         return rec, Outcome(domain, old_status, "review_required", "review", why, incomplete, mutations)
@@ -124,15 +124,15 @@ def apply(old_rec: dict, decision: Decision, facts: dict, new_evidence: list,
     # 规则 1：采集失败且结果变差 → 保留旧状态，不更新 last_verified
     if incomplete and _rank(decision.status) < _rank(old_status):
         rec["collection_incomplete"] = True
-        rec["reasons"] = [f"{_iso(now)} 重验时采集不完整，新判定 {decision.status} 不采纳，保留 {old_status}"] \
+        rec["reasons"] = [f"{_iso(now)}: re-verification had incomplete collection; new verdict {decision.status} not adopted, kept {old_status}"] \
                          + list(old_rec.get("reasons", []))[:3]
         return rec, Outcome(domain, old_status, old_status, "kept",
-                            f"采集不完整，保留旧状态（新判定 {decision.status}）", True)
+                            f"incomplete collection, kept previous status (new verdict {decision.status})", True)
 
     # 规则 3：以新判定为准
     _write_new()
     if decision.status == old_status:
-        return rec, Outcome(domain, old_status, decision.status, "unchanged", "无变化", incomplete)
+        return rec, Outcome(domain, old_status, decision.status, "unchanged", "no change", incomplete)
     direction = "upgraded" if _rank(decision.status) > _rank(old_status) else "downgraded"
     why = "; ".join(decision.reasons[:2])
     history.append({"at": _iso(now), "from": old_status, "to": decision.status, "why": why})
@@ -160,16 +160,21 @@ def revalidate_file(path: Path, now: datetime, only: set[str] | None, dry_run: b
         domain = rec["domain"]
         if only and domain not in only:
             continue
+        # A propagated domain (claude.ai) carries an A6 record naming the anchor it inherited from.
+        # Re-verify it the same way — via the anchor — or it loses its anchor and its inherited identity,
+        # and gets re-anchored to a product item (claude.ai → "Claude" Q118876059) that conflicts with the stored one.
+        anchor_domain = next((e.get("data", {}).get("from") for e in rec.get("evidence", []) if e.get("code") == "A6"), None)
         try:
             decision, result = verify(
                 domain,
-                canonical_github_org=canonical.get("github_org"),
-                canonical_wikidata=canonical.get("wikidata"),
+                anchor_domain=anchor_domain,
+                canonical_github_org=None if anchor_domain else canonical.get("github_org"),
+                canonical_wikidata=None if anchor_domain else canonical.get("wikidata"),
                 canonical_source="stored",
             )
         except Exception as exc:
             outcomes.append(Outcome(domain, rec.get("status", "?"), rec.get("status", "?"),
-                                    "kept", f"重验异常：{type(exc).__name__}: {exc}", True))
+                                    "kept", f"re-verification error: {type(exc).__name__}: {exc}", True))
             continue
         anchor_notes = [n for n in result.notes if n.startswith("anchor:")]
         new_rec, outcome = apply(rec, decision, result.facts, result.evidence, anchor_notes, now)

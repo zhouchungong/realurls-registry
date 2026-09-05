@@ -21,14 +21,14 @@ domains:
   status: verified
   confidence: 0.8544
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T05:21:52Z'
+  last_verified: '2026-09-05T09:53:30Z'
   ttl_days: 30
   age_days: 9065
   age_source: rdap
   collection_incomplete: false
   evidence:
   - code: A1
-    checked_at: '2026-09-05T05:26:05Z'
+    checked_at: '2026-09-05T09:53:49Z'
     source: https://api.github.com/orgs/jetbrains
     data:
       org: jetbrains
@@ -37,7 +37,7 @@ domains:
       org_name: JetBrains
       created_at: '2011-06-27T10:06:52Z'
   - code: A8
-    checked_at: '2026-09-05T05:26:06Z'
+    checked_at: '2026-09-05T09:53:50Z'
     source: https://api.github.com/repos/JetBrains/kotlin
     data:
       repo: JetBrains/kotlin
@@ -49,7 +49,7 @@ domains:
       age_days: 5317
       contributors: 1196
   - code: A3
-    checked_at: '2026-09-05T05:26:06Z'
+    checked_at: '2026-09-05T09:53:50Z'
     source: https://rdap.org/domain/jetbrains.com
     data:
       registrar: Network Solutions, LLC
@@ -59,7 +59,7 @@ domains:
       locks:
       - transfer
   - code: A4
-    checked_at: '2026-09-05T05:26:07Z'
+    checked_at: '2026-09-05T09:53:50Z'
     source: TLS handshake jetbrains.com:443
     data:
       subject_org: ''
@@ -67,7 +67,7 @@ domains:
       issuer: Amazon
       san_count: 2
   - code: B1
-    checked_at: '2026-09-05T05:26:07Z'
+    checked_at: '2026-09-05T09:53:50Z'
     source: https://www.wikidata.org/wiki/Q1688472
     data:
       qid: Q1688472
@@ -76,26 +76,27 @@ domains:
       sitelinks: 28
       competing_items: 0
   - code: B4
-    checked_at: '2026-09-05T05:26:07Z'
+    checked_at: '2026-09-05T09:53:50Z'
     source: http://web.archive.org/cdx/search/cdx?url=jetbrains.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2003-07-19'
       history_days: 8449
   - code: B5
-    checked_at: '2026-09-05T05:26:07Z'
+    checked_at: '2026-09-05T09:53:50Z'
     source: https://tranco-list.eu/api/ranks/domain/jetbrains.com
     data:
       rank: 871
       date: '2026-09-04'
   rejected_evidence:
-  - 'A8: 仓库 homepage（https://kotlinlang.org）不指向本域名'
-  - 'A3: 注册商（Network Solutions, LLC）不在企业级注册商名单内'
-  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
+  - 'A8: repository homepage (https://kotlinlang.org) does not point to this domain'
+  - 'A3: registrar (Network Solutions, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
   reasons:
-  - 1 条独立锚点 + 3 条独立佐证，达到 verified 门槛
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
 provenance:
   generated_by: build_entities/0.1
   policy_version: policy.py@c027cba
   label_source: wikidata:Q1688472
   reviewed_by: []
   source_issue: null
+  last_revalidated_by: revalidate/0.1

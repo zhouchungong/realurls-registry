@@ -41,14 +41,14 @@ __all__ = [
 #: 所以 A1/A2/B1 必须与**预先锚定的实体身份**（``DomainFacts.expected_*``）匹配才算数，
 #: 实体锚定由 ``src/anchor.py`` 从独立权威（Wikidata 等）确立。
 ANCHOR_CODES: dict[str, str] = {
-    "A1": "GitHub 组织已验证域名（is_verified=true 且 blog 匹配 且 org == 实体 canonical）",
-    "A2": "包 provenance → GitHub 仓库 → 已验证组织（链末端 == 实体 canonical）",
-    "A3": "企业注册指纹（品牌保护类注册商 + 长期续费 + 注册局锁 + 域龄）",
-    "A4": "证书 Subject O= 匹配（OV/EV 证书）",
-    "A5": "DNS TXT 自证（_realurls.<domain>）",
-    "A6": "锚点扩散：已 verified 域名页面上的一方声明 + 结构性关联",
-    "A7": "受限 TLD：注册局仅允许政府机构注册（.gov / .gov.cn / .gouv.fr …）",
-    "A8": "已锚定仓库的 homepage 指向本域名，且本域名首页反向链回该仓库",
+    "A1": "GitHub organization verified this domain (is_verified=true, blog matches, org == entity canonical)",
+    "A2": "Package provenance → GitHub repository → verified organization (chain end == entity canonical)",
+    "A3": "Corporate registration fingerprint (brand-protection registrar + long prepaid term + registry locks + domain age)",
+    "A4": "TLS certificate Subject O= matches (OV/EV certificate)",
+    "A5": "DNS TXT self-attestation (_realurls.<domain>)",
+    "A6": "Propagation: first-party link from a verified domain + structural link",
+    "A7": "Restricted TLD: registry only allows government bodies (.gov / .gov.cn / .gouv.fr …)",
+    "A8": "Anchored repository homepage points here, and this site links back to the repository",
 }
 
 #: A8 的 homepage 不得指向这些平台域——yt-dlp 的 homepage 字段填的就是 discord.gg，
@@ -77,13 +77,13 @@ RESTRICTED_GOV_SUFFIXES: frozenset[str] = frozenset({
 
 #: 佐证证据（Tier B）。verified 需要 >= 2 条独立佐证。
 CORROBORATION_CODES: dict[str, str] = {
-    "B1": "Wikidata P856 official website",
-    "B2": "包管理器 homepage / repository 字段",
-    "B3": "应用商店开发者官网字段",
-    "B4": "Wayback 首次快照 + 连续性",
-    "B5": "Tranco / Cloudflare Radar 排名",
-    "B6": "官方社媒公示链接",
-    "B7": "Google Safe Browsing 无记录",
+    "B1": "Wikidata official website (P856) on the canonical item",
+    "B2": "Package registry homepage / repository field",
+    "B3": "App-store developer website field",
+    "B4": "Wayback Machine first snapshot + continuity",
+    "B5": "Tranco / Cloudflare Radar ranking",
+    "B6": "Official social profile links here",
+    "B7": "Google Safe Browsing: no record",
 }
 
 #: 互相关联的锚点，同组内最多计 1 条。
@@ -270,20 +270,20 @@ def _require_anchored_org(org: str, facts: DomainFacts) -> str:
     因为 GitHub 验证证明的只是控制权。返回空串表示通过。
     """
     if not facts.expected_github_org:
-        return "实体未锚定：没有从独立权威确立的 canonical GitHub 组织，控制权证明不能当归属证明"
+        return "entity not anchored: no canonical GitHub organization from an independent authority; proof of control is not proof of ownership"
     if (org or "").lower() != facts.expected_github_org.lower():
-        return (f"组织 {org} ≠ 实体 canonical 组织 {facts.expected_github_org}"
-                f"（依据 {', '.join(facts.anchor_sources) or '无'}）")
+        return (f"organization {org} != entity canonical organization {facts.expected_github_org}"
+                f" (anchored by {', '.join(facts.anchor_sources) or 'nothing'})")
     return ""
 
 
 @_validator("A1")
 def _v_a1(ev: Evidence, facts: DomainFacts) -> tuple[bool, str]:
     if not ev.data.get("org_verified"):
-        return False, "GitHub 组织未通过域名验证（is_verified != true）"
+        return False, "GitHub organization has not verified this domain (is_verified != true)"
     blog = ev.data.get("blog", "")
     if not _same_site(blog, facts.domain):
-        return False, f"GitHub 组织 blog（{blog}）与目标域名不是同一可注册域"
+        return False, f"GitHub organization blog ({blog}) is not the same registrable domain"
     if why := _require_anchored_org(ev.data.get("org", ""), facts):
         return False, why
     return True, ""
@@ -292,12 +292,12 @@ def _v_a1(ev: Evidence, facts: DomainFacts) -> tuple[bool, str]:
 @_validator("A2")
 def _v_a2(ev: Evidence, facts: DomainFacts) -> tuple[bool, str]:
     if not ev.data.get("provenance_verified"):
-        return False, "包缺少可验证的 provenance"
+        return False, "package has no verifiable provenance"
     if not ev.data.get("chain_org_verified"):
-        return False, "provenance 指向的 GitHub 组织未通过域名验证"
+        return False, "GitHub organization at the end of the provenance chain has not verified this domain"
     blog = ev.data.get("chain_blog", "")
     if not _same_site(blog, facts.domain):
-        return False, f"provenance 链末端域名（{blog}）与目标域名不匹配"
+        return False, f"provenance chain ends at {blog}, which does not match this domain"
     if why := _require_anchored_org(ev.data.get("chain_org", ""), facts):
         return False, why
     return True, ""
@@ -307,29 +307,29 @@ def _v_a2(ev: Evidence, facts: DomainFacts) -> tuple[bool, str]:
 def _v_a3(ev: Evidence, facts: DomainFacts) -> tuple[bool, str]:
     registrar = str(ev.data.get("registrar", "")).lower()
     if not any(known in registrar for known in CORPORATE_REGISTRARS):
-        return False, f"注册商（{ev.data.get('registrar')}）不在企业级注册商名单内"
+        return False, f"registrar ({ev.data.get('registrar')}) is not a brand-protection registrar"
     if int(ev.data.get("remaining_days", 0)) < A3_MIN_REMAINING_DAYS:
-        return False, f"到期日不足 {A3_MIN_REMAINING_DAYS} 天，不符合企业长期预付特征"
+        return False, f"fewer than {A3_MIN_REMAINING_DAYS} days until expiry; not the long prepaid term typical of corporate registrations"
     if len(ev.data.get("locks", [])) < A3_MIN_LOCKS:
-        return False, f"注册局锁少于 {A3_MIN_LOCKS} 把"
+        return False, f"fewer than {A3_MIN_LOCKS} registry locks"
     if (facts.age_days or 0) < A3_MIN_AGE_DAYS:
-        return False, f"域龄不足 {A3_MIN_AGE_DAYS} 天"
+        return False, f"domain younger than {A3_MIN_AGE_DAYS} days"
     return True, ""
 
 
 @_validator("A4")
 def _v_a4(ev: Evidence, facts: DomainFacts) -> tuple[bool, str]:
     if ev.data.get("validation_type") not in {"OV", "EV"}:
-        return False, "DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）"
+        return False, "DV certificate carries no organization name (most modern tech companies use DV; this is expected)"
     if not str(ev.data.get("subject_org", "")).strip():
-        return False, "证书 Subject 无 O= 字段"
+        return False, "certificate Subject has no O= field"
     return True, ""
 
 
 @_validator("A5")
 def _v_a5(ev: Evidence, facts: DomainFacts) -> tuple[bool, str]:
     if not ev.data.get("token_match"):
-        return False, "_realurls TXT 记录缺失或 token 不匹配"
+        return False, "_realurls TXT record missing or token mismatch"
     return True, ""
 
 
@@ -346,14 +346,14 @@ def _v_a6(ev: Evidence, facts: DomainFacts) -> tuple[bool, str]:
     攻击者要同时做到「让 anthropic.com 首页链接到我」和「NS 碰撞」，前者做不到。
     """
     if ev.data.get("from_status") != "verified":
-        return False, f"扩散来源 {ev.data.get('from')} 自身不是 verified，不能作为锚点"
+        return False, f"propagation source {ev.data.get('from')} is not itself verified, so it cannot anchor"
     if not ev.data.get("first_party_link"):
-        return False, f"锚点 {ev.data.get('from')} 的页面没有链接到本域名，缺少一方声明"
+        return False, f"anchor {ev.data.get('from')} does not link to this domain; no first-party declaration"
     links = set(ev.data.get("structural_links", []))
     if not links & {"shared_ns", "cert_san", "shared_registrar"}:
-        return False, "缺少结构性关联（shared_ns / cert_san / shared_registrar 至少一项）"
+        return False, "no structural link (need at least one of shared_ns / cert_san / shared_registrar)"
     if links == {"cert_san"} and int(ev.data.get("san_count", 0)) > MAX_SAN_FOR_PROPAGATION:
-        return False, f"证书 SAN 数 {ev.data.get('san_count')} > {MAX_SAN_FOR_PROPAGATION}，疑似 CDN 共享证书"
+        return False, f"certificate has {ev.data.get('san_count')} SANs > {MAX_SAN_FOR_PROPAGATION}; looks like a shared CDN certificate"
     return True, ""
 
 
@@ -361,7 +361,7 @@ def _v_a6(ev: Evidence, facts: DomainFacts) -> tuple[bool, str]:
 def _v_a7(ev: Evidence, facts: DomainFacts) -> tuple[bool, str]:
     d = facts.domain.lower().rstrip(".")
     if not any(d == s or d.endswith(f".{s}") for s in RESTRICTED_GOV_SUFFIXES):
-        return False, f"{d} 不在受限政府 TLD 名单内"
+        return False, f"{d} is not under a restricted government TLD"
     return True, ""
 
 
@@ -373,15 +373,15 @@ def _v_a8(ev: Evidence, facts: DomainFacts) -> tuple[bool, str]:
     这是唯一能把域名绑到已锚定身份上的证据。攻击者要伪造它，得控制一个已锚定的仓库——做不到。
     """
     if not ev.data.get("repo_anchored"):
-        return False, f"仓库 {ev.data.get('repo')} 未通过项目史锚定（非 fork / ≥3 年 / ≥300 贡献者 / ≥5k 星）"
+        return False, f"repository {ev.data.get('repo')} does not meet the project-history anchor (non-fork, ≥3 years, ≥300 contributors, ≥5k stars)"
     if why := _require_anchored_org(ev.data.get("org", ""), facts):
         return False, why
     if registrable_domain(facts.domain) in PLATFORM_DOMAINS:
-        return False, f"{facts.domain} 是平台域，不可能是某个项目的官网"
+        return False, f"{facts.domain} is a platform domain and cannot be a project's own site"
     if not _same_site(ev.data.get("homepage", ""), facts.domain):
-        return False, f"仓库 homepage（{ev.data.get('homepage')}）不指向本域名"
+        return False, f"repository homepage ({ev.data.get('homepage')}) does not point to this domain"
     if not ev.data.get("backlink"):
-        return False, "本域名首页没有链接回该 GitHub 组织，缺少反向确认"
+        return False, "this site does not link back to the GitHub organization; no reverse confirmation"
     return True, ""
 
 
@@ -389,17 +389,17 @@ def _v_a8(ev: Evidence, facts: DomainFacts) -> tuple[bool, str]:
 def _v_b1(ev: Evidence, facts: DomainFacts) -> tuple[bool, str]:
     """Wikidata 条目必须就是实体锚定时确立的那一个。任何人都能建一个条目指向任何域名。"""
     if not facts.expected_wikidata:
-        return False, "实体未锚定：没有 canonical Wikidata 条目，任意条目的 P856 不能当佐证"
+        return False, "entity not anchored: no canonical Wikidata item, so an arbitrary item's P856 cannot corroborate"
     qid = ev.data.get("qid", "")
     if qid != facts.expected_wikidata:
-        return False, f"条目 {qid} ≠ 实体 canonical 条目 {facts.expected_wikidata}"
+        return False, f"item {qid} != entity canonical item {facts.expected_wikidata}"
     return True, ""
 
 
 @_validator("B4")
 def _v_b4(ev: Evidence, facts: DomainFacts) -> tuple[bool, str]:
     if int(ev.data.get("history_days", 0)) < B4_MIN_HISTORY_DAYS:
-        return False, f"Wayback 历史跨度不足 {B4_MIN_HISTORY_DAYS} 天"
+        return False, f"Wayback history shorter than {B4_MIN_HISTORY_DAYS} days"
     return True, ""
 
 
@@ -407,20 +407,20 @@ def _v_b4(ev: Evidence, facts: DomainFacts) -> tuple[bool, str]:
 def _v_b5(ev: Evidence, facts: DomainFacts) -> tuple[bool, str]:
     rank = ev.data.get("rank")
     if rank is None or int(rank) > B5_MAX_RANK:
-        return False, f"域名排名不在 Top {B5_MAX_RANK}"
+        return False, f"domain not in the top {B5_MAX_RANK}"
     return True, ""
 
 
 @_validator("B7")
 def _v_b7(ev: Evidence, facts: DomainFacts) -> tuple[bool, str]:
     if ev.data.get("flagged"):
-        return False, "Safe Browsing 有记录，不能作为正向佐证"
+        return False, "Safe Browsing has a record; cannot count as positive corroboration"
     return True, ""
 
 
 def _validate(ev: Evidence, facts: DomainFacts) -> tuple[bool, str]:
     if ev.code not in ANCHOR_CODES and ev.code not in CORROBORATION_CODES:
-        return False, f"未知证据代码 {ev.code}"
+        return False, f"unknown evidence code {ev.code}"
     validator = _VALIDATORS.get(ev.code)
     if validator is None:
         return True, ""  # 无额外约束的佐证（B1/B2/B3/B6）：存在即计数
@@ -469,19 +469,19 @@ def decide(
     if facts.gsb_flagged or facts.vt_malicious >= VT_MALICIOUS_THRESHOLD:
         return Decision(
             "flagged", 0.0,
-            [f"被安全情报标记（gsb={facts.gsb_flagged}, vt={facts.vt_malicious}）；"
-             f"归属判定终止，安全性定性以 Google Safe Browsing / VirusTotal 为准"],
+            [f"flagged by security intelligence (gsb={facts.gsb_flagged}, vt={facts.vt_malicious}); "
+             f"ownership judgement stopped — defer to Google Safe Browsing / VirusTotal for safety"],
             [], [], [],
         )
 
     if facts.has_conflict:
-        return Decision("disputed", 0.0, ["与另一条已 verified 的归属断言冲突，需人工裁决"], [], [], [])
+        return Decision("disputed", 0.0, ["conflicts with another verified ownership claim; needs human adjudication"], [], [], [])
 
     if facts.mutation_detected:
         return Decision(
             "review_required", 0.0,
-            ["关键属性发生突变（NS / A 记录 / 注册商 / 到期日 / GitHub 组织状态），"
-             "在人工复核前暂停肯定答复"],
+            ["key attributes changed (NS / A records / registrar / expiry / GitHub org status); "
+             "positive answers suspended until a human reviews"],
             [], [], [],
         )
 
@@ -490,8 +490,8 @@ def decide(
         if now - facts.last_verified > timedelta(days=facts.ttl_days):
             return Decision(
                 "stale", 0.0,
-                [f"上次重验于 {facts.last_verified.date()}，已超过 {facts.ttl_days} 天 TTL；"
-                 f"自动失效，等待流水线重新采集证据"],
+                [f"last re-verified {facts.last_verified.date()}, past the {facts.ttl_days}-day TTL; "
+                 f"expired automatically until the pipeline re-collects evidence"],
                 [], [], [],
             )
 
@@ -508,13 +508,13 @@ def decide(
     anchors = _collapse_anchors(valid_anchor_codes)
     if anchors != valid_anchor_codes:
         dropped = sorted(valid_anchor_codes - anchors)
-        reasons.append(f"关联锚点合并，{'/'.join(dropped)} 与保留项不独立，不重复计数")
+        reasons.append(f"correlated anchors merged: {'/'.join(dropped)} not independent of the kept one, counted once")
 
     for anchor in anchors:
         implied = IMPLIED_CORROBORATIONS.get(anchor, set()) & valid_corrob_codes
         if implied:
             valid_corrob_codes -= implied
-            reasons.append(f"{anchor} 已蕴含 {'/'.join(sorted(implied))}，佐证不重复计数")
+            reasons.append(f"{anchor} already implies {'/'.join(sorted(implied))}; corroboration not double-counted")
 
     # ---- 阶段 4：新域名门槛（未知域龄 fail-closed）----
     young = facts.age_days is not None and facts.age_days < MIN_AGE_DAYS_FOR_VERIFIED
@@ -522,15 +522,15 @@ def decide(
         return Decision(
             "unverified",
             0.0,
-            [f"域龄 {facts.age_days} 天 < {MIN_AGE_DAYS_FOR_VERIFIED} 天硬门槛；"
-             f"新域名仅接受 A5（DNS TXT 自证）作为锚点"] + reasons,
+            [f"domain age {facts.age_days} days < {MIN_AGE_DAYS_FOR_VERIFIED}-day hard floor; "
+             f"new domains are only accepted with A5 (DNS TXT self-attestation)"] + reasons,
             sorted(anchors), sorted(valid_corrob_codes), rejected,
         )
     # rdap.org 对 .de/.io/.cn/.so/.ch/.jp 等大量 ccTLD 返回 404。「查不到」不等于「够老」，
     # 在 precision 优先的系统里未知必须 fail-closed：最多 provisional，且 A5/A7 除外。
     age_unknown = facts.age_days is None and not (anchors & {"A5", "A7"})
     if age_unknown:
-        reasons.append("域龄未知（RDAP 不可用且无 Wayback 下界），不能达到 verified —— 未知按最坏情况处理")
+        reasons.append("domain age unknown (no RDAP and no Wayback lower bound); cannot reach verified — unknown is treated as worst case")
 
     # ---- 阶段 5：定案 ----
     n_anchor, n_corrob = len(anchors), len(valid_corrob_codes)
@@ -538,22 +538,22 @@ def decide(
 
     if n_anchor >= 1 and n_corrob >= 2 and not age_unknown:
         status = "verified"
-        reasons.append(f"{n_anchor} 条独立锚点 + {n_corrob} 条独立佐证，达到 verified 门槛")
+        reasons.append(f"{n_anchor} independent anchor(s) + {n_corrob} independent corroboration(s): meets the verified threshold")
     elif n_anchor >= 1 and n_corrob >= 2 and age_unknown:
         status = "provisional"
         confidence = min(confidence, 0.75)
-        reasons.append("证据本已达标，但域龄未知，降为 provisional")
+        reasons.append("evidence meets the threshold, but domain age is unknown; held at provisional")
     elif n_anchor >= 1:
         status = "provisional"
         confidence = min(confidence, 0.75)
-        reasons.append(f"有锚点但佐证仅 {n_corrob} 条（需 2 条）；进入 {PROVISIONAL_DISPLAY_DAYS} 天公示期")
+        reasons.append(f"anchor present but only {n_corrob} corroboration(s) (need 2); in the {PROVISIONAL_DISPLAY_DAYS}-day public review window")
     elif n_corrob >= 3:
         status = "community"
         confidence = min(confidence, 0.50)
-        reasons.append(f"无锚点，仅 {n_corrob} 条佐证；社区级，API 不给肯定答复")
+        reasons.append(f"no anchor, only {n_corrob} corroboration(s); community level, the API gives no positive answer")
     else:
         status = "unverified"
         confidence = min(confidence, 0.30)
-        reasons.append(f"证据不足（锚点 {n_anchor}，佐证 {n_corrob}）")
+        reasons.append(f"insufficient evidence (anchors {n_anchor}, corroborations {n_corrob})")
 
     return Decision(status, confidence, reasons, sorted(anchors), sorted(valid_corrob_codes), rejected)

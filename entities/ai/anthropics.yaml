@@ -21,14 +21,14 @@ domains:
   status: verified
   confidence: 0.7105
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T06:00:56Z'
+  last_verified: '2026-09-05T09:53:30Z'
   ttl_days: 30
   age_days: 11427
   age_source: rdap
   collection_incomplete: false
   evidence:
   - code: A3
-    checked_at: '2026-09-05T06:01:24Z'
+    checked_at: '2026-09-05T09:53:33Z'
     source: https://rdap.org/domain/claude.com
     data:
       registrar: MarkMonitor Inc.
@@ -40,7 +40,7 @@ domains:
       - transfer
       - update
   - code: A4
-    checked_at: '2026-09-05T06:01:24Z'
+    checked_at: '2026-09-05T09:53:34Z'
     source: TLS handshake claude.com:443
     data:
       subject_org: ''
@@ -48,19 +48,19 @@ domains:
       issuer: Let's Encrypt
       san_count: 1
   - code: B4
-    checked_at: '2026-09-05T06:01:34Z'
+    checked_at: '2026-09-05T09:53:34Z'
     source: http://web.archive.org/cdx/search/cdx?url=claude.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '1999-11-03'
       history_days: 9803
   - code: B5
-    checked_at: '2026-09-05T06:01:37Z'
+    checked_at: '2026-09-05T09:53:34Z'
     source: https://tranco-list.eu/api/ranks/domain/claude.com
     data:
       rank: 2672
       date: '2026-09-04'
   - code: A6
-    checked_at: '2026-09-05T06:01:37Z'
+    checked_at: '2026-09-05T09:53:30Z'
     source: propagate from anthropic.com
     data:
       from: anthropic.com
@@ -70,23 +70,23 @@ domains:
       - shared_ns
       san_count: 1
   rejected_evidence:
-  - 'A3: 到期日不足 1095 天，不符合企业长期预付特征'
-  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
   reasons:
-  - 1 条独立锚点 + 2 条独立佐证，达到 verified 门槛
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
 - domain: claude.ai
   role: product
   status: verified
   confidence: 0.7105
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T06:00:56Z'
+  last_verified: '2026-09-05T09:53:30Z'
   ttl_days: 30
   age_days: 2953
   age_source: rdap
   collection_incomplete: false
   evidence:
   - code: A3
-    checked_at: '2026-09-05T06:01:02Z'
+    checked_at: '2026-09-05T09:53:36Z'
     source: https://rdap.org/domain/claude.ai
     data:
       registrar: MarkMonitor Inc.
@@ -98,7 +98,7 @@ domains:
       - transfer
       - update
   - code: A4
-    checked_at: '2026-09-05T06:01:02Z'
+    checked_at: '2026-09-05T09:53:36Z'
     source: TLS handshake claude.ai:443
     data:
       subject_org: ''
@@ -106,7 +106,7 @@ domains:
       issuer: Let's Encrypt
       san_count: 3
   - code: B1
-    checked_at: '2026-09-05T06:01:11Z'
+    checked_at: '2026-09-05T09:53:36Z'
     source: https://www.wikidata.org/wiki/Q118876059
     data:
       qid: Q118876059
@@ -115,19 +115,19 @@ domains:
       sitelinks: 59
       competing_items: 0
   - code: B4
-    checked_at: '2026-09-05T06:01:13Z'
+    checked_at: '2026-09-05T09:53:36Z'
     source: http://web.archive.org/cdx/search/cdx?url=claude.ai&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2021-12-31'
       history_days: 1709
   - code: B5
-    checked_at: '2026-09-05T06:01:14Z'
+    checked_at: '2026-09-05T09:53:36Z'
     source: https://tranco-list.eu/api/ranks/domain/claude.ai
     data:
       rank: 434
       date: '2026-09-03'
   - code: A6
-    checked_at: '2026-09-05T06:01:14Z'
+    checked_at: '2026-09-05T09:53:30Z'
     source: propagate from anthropic.com
     data:
       from: anthropic.com
@@ -137,24 +137,24 @@ domains:
       - shared_ns
       san_count: 1
   rejected_evidence:
-  - 'A3: 到期日不足 1095 天，不符合企业长期预付特征'
-  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
-  - 'B1: 条目 Q118876059 ≠ 实体 canonical 条目 Q116758847'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: item Q118876059 != entity canonical item Q116758847'
   reasons:
-  - 1 条独立锚点 + 2 条独立佐证，达到 verified 门槛
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
 - domain: anthropic.com
   role: primary
   status: verified
   confidence: 0.9345
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T05:26:21Z'
+  last_verified: '2026-09-05T09:53:30Z'
   ttl_days: 30
   age_days: 9103
   age_source: rdap
   collection_incomplete: false
   evidence:
   - code: A1
-    checked_at: '2026-09-05T05:26:22Z'
+    checked_at: '2026-09-05T09:53:36Z'
     source: https://api.github.com/orgs/anthropics
     data:
       org: anthropics
@@ -163,7 +163,7 @@ domains:
       org_name: Anthropic
       created_at: '2020-12-19T18:49:20Z'
   - code: A3
-    checked_at: '2026-09-05T05:26:23Z'
+    checked_at: '2026-09-05T09:53:37Z'
     source: https://rdap.org/domain/anthropic.com
     data:
       registrar: MarkMonitor Inc.
@@ -175,7 +175,7 @@ domains:
       - transfer
       - update
   - code: A4
-    checked_at: '2026-09-05T05:26:24Z'
+    checked_at: '2026-09-05T09:53:37Z'
     source: TLS handshake anthropic.com:443
     data:
       subject_org: ''
@@ -183,7 +183,7 @@ domains:
       issuer: Let's Encrypt
       san_count: 1
   - code: B1
-    checked_at: '2026-09-05T05:26:24Z'
+    checked_at: '2026-09-05T09:53:37Z'
     source: https://www.wikidata.org/wiki/Q116758847
     data:
       qid: Q116758847
@@ -192,24 +192,25 @@ domains:
       sitelinks: 57
       competing_items: 0
   - code: B4
-    checked_at: '2026-09-05T05:26:24Z'
+    checked_at: '2026-09-05T09:53:37Z'
     source: http://web.archive.org/cdx/search/cdx?url=anthropic.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2000-03-04'
       history_days: 9681
   - code: B5
-    checked_at: '2026-09-05T05:26:24Z'
+    checked_at: '2026-09-05T09:53:37Z'
     source: https://tranco-list.eu/api/ranks/domain/anthropic.com
     data:
       rank: 610
       date: '2026-09-03'
   rejected_evidence:
-  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
   reasons:
-  - 2 条独立锚点 + 3 条独立佐证，达到 verified 门槛
+  - '2 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
 provenance:
   generated_by: build_entities/0.1
   policy_version: policy.py@6a2778b
   label_source: wikidata:Q116758847
   reviewed_by: []
   source_issue: null
+  last_revalidated_by: revalidate/0.1
