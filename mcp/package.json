@@ -7,7 +7,7 @@
   "bin": { "realurls-mcp": "server.mjs" },
   "files": ["server.mjs", "README.md"],
   "keywords": ["mcp", "model-context-protocol", "phishing", "official-website", "domain", "verification"],
-  "repository": { "type": "git", "url": "https://github.com/realurls/registry", "directory": "mcp" },
+  "repository": { "type": "git", "url": "https://github.com/zhouchungong/realurls-registry", "directory": "mcp" },
   "scripts": { "start": "node server.mjs" },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.12.0",
