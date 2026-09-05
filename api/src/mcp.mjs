@@ -64,6 +64,10 @@ async function handleMessage(msg, store, meta) {
       return rpc(id, {});
     case "tools/list":
       return rpc(id, { tools: TOOLS });
+    case "resources/list":
+      return rpc(id, { resources: [] });
+    case "prompts/list":
+      return rpc(id, { prompts: [] });
     case "tools/call": {
       const args = params.arguments || {};
       let body;
