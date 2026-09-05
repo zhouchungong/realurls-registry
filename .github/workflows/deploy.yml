@@ -66,6 +66,6 @@ jobs:
           set -e
           sleep 8
           curl -fsS https://api.realurls.org/healthz | grep -q '"ok": true'
-          curl -fsS https://realurls.org/ | grep -q "<title>realurls"
+          curl -fsS https://realurls.org/ | grep -qi "<title>realurls"
           ver=$(curl -fsS https://api.realurls.org/v1/manifest | python -c "import sys,json;print(json.load(sys.stdin)['dataset_version'])")
           echo "线上数据集版本: $ver（本次提交 ${GITHUB_SHA:0:12}）"
