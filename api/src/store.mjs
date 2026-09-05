@@ -145,7 +145,7 @@ export class Store {
       // loose match: containment either way, but the query must be ≥3 chars so "ai" can't hit everything
       const like = `%${q.replace(/[%_]/g, "")}%`;
       const { results } = await this.db.prepare(
-        "SELECT DISTINCT entity_id FROM aliases WHERE alias LIKE ? OR ? LIKE '%' || alias || '%' LIMIT 6"
+        "SELECT DISTINCT entity_id FROM aliases WHERE alias LIKE ? OR (length(alias) >= 3 AND ? LIKE '%' || alias || '%') LIMIT 6"
       ).bind(like, q).all();
       if (results.length === 1) id = results[0].entity_id;
       else if (results.length > 1) {

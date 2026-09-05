@@ -306,7 +306,12 @@ async function domainPage(input, store, manifest) {
 <div class="result"><h3>Verified domains of ${esc(r.looks_like.name)}</h3>${r.official_domains.map(d => `<div><a href="https://${esc(d)}" rel="nofollow"><code>${esc(d)}</code></a></div>`).join("")}<p class="muted"><a href="/e/${esc(slug)}">See the evidence →</a></p></div>
 <p class="muted">This is an <b>attribution</b> signal, not a malware verdict. A lookalike domain can be legitimate and unrelated; it can also be a phishing site. We only say: it is not the one you probably meant.</p>`, { robots: "noindex" });
   }
+  const ex = r.examination || {};
+  const exLine = ex.checked_at
+    ? `<p class="muted">Examined on ${esc(String(ex.checked_at).slice(0, 10))}: the rules reached <code>${esc(ex.status)}</code>, not verified${ex.reasons ? ` (${esc(ex.reasons)})` : ""}. It is re-examined as evidence changes.</p>`
+    : `<p class="muted">This domain has just been queued: the pipeline examines it within about fifteen minutes. Reload this page afterwards.</p>`;
   return html(`<h1><code>${esc(domain)}</code> <span class="badge unk">not in the registry</span></h1>
+${exLine}
 <p class="sub">We have no verdict for this domain — neither positive nor negative. "Don't know" is the honest answer here. The registry holds ${manifest.counts.entities} organizations today and grows in reviewed batches; not being listed means not yet examined, nothing more.</p>
 <p class="muted">Know who owns it? <a href="${REPO}/issues/new?template=submit-domain.yml">Submit a lead</a>. If you <em>are</em> the owner, <a href="/verify">one DNS TXT record settles it</a>.</p>`, { robots: "noindex" });
 }

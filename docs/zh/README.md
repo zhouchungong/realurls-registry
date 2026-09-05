@@ -45,7 +45,9 @@ curl -s https://api.github.com/orgs/anthropics | jq '{name, blog, is_verified}'
 ✅ 评审修复  实体锚定 / 域龄 fail-closed / A6 一方声明 / A3 名单 / A7 政府 TLD / +6 负样本
 ✅ M2  220 条摸底 → 53 个实体由流水线生成；每日重验（采集失败≠降级、突变→review）；dist/ 可复现构建 + cosign keyless 签名
 ✅ M3  api.realurls.org 上线；@realurls/mcp 0.1.1 在 npm；官方 MCP Registry 收录 io.github.zhouchungong/realurls；Release cosign 签名
-🔄 M4  realurls.org 证据页已上线；浏览器扩展可本地加载（待上架）；剩：生态回写（Wikidata / Safe Browsing）
+✅ M4  realurls.org 证据页、分类浏览、/builders 与 /verify 上线；浏览器扩展可本地加载（待上架）
+✅ M5  规模化：D1 存储、批量数据源、分片批次构建、AI 复核层、应用商店锚点（A9）、所有者自证、
+       对任何被 API 问到的域名按需检查、远程 MCP 端点、聚合需求统计
 ```
 
 首发品类：**AI 与开发者工具**，目标约 1,500 个组织 / 4,000 个域名。
