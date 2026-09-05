@@ -313,7 +313,7 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.out_dir:
         for path in write_batches(fresh, args.out_dir, args.prefix, args.batch_size):
-            print(f"# wrote {path.relative_to(ROOT)}", file=sys.stderr)
+            print(f"# wrote {path}", file=sys.stderr)
     else:
         for s in fresh:
             print(json.dumps(s, ensure_ascii=False))
