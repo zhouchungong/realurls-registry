@@ -38,13 +38,28 @@ ENTITIES = ROOT / "entities"
 PIPELINE_VERSION = "build_entities/0.2"
 MAX_PROPAGATE = 8   # outbound domains tried per verified primary
 
-#: GitHub topic → 我们的类别（schema 里的枚举）
+#: GitHub topic → schema category. Unmapped topics fall back to ``open-source`` for GitHub-sourced seeds
+#: (the organisation is known to us through a repository) and ``saas`` for Wikidata software companies.
 TOPIC_CATEGORY = {
-    "ai": "ai", "llm": "ai", "machine-learning": "ai", "deep-learning": "ai",
-    "artificial-intelligence": "ai", "agents": "ai", "rag": "ai", "inference": "ai",
-    "vector-database": "infrastructure", "mlops": "infrastructure",
-    "developer-tools": "developer-tools", "devtools": "developer-tools", "cli": "developer-tools",
-    "ide": "developer-tools", "code-editor": "developer-tools",
+    "ai": "ai", "llm": "ai", "machine-learning": "ai", "deep-learning": "ai", "artificial-intelligence": "ai",
+    "agents": "ai", "rag": "ai", "inference": "ai", "nlp": "ai", "computer-vision": "ai", "llmops": "ai",
+    "generative-ai": "ai", "chatgpt": "ai", "openai": "ai", "transformers": "ai", "pytorch": "ai", "tensorflow": "ai",
+    "vector-database": "infrastructure", "mlops": "infrastructure", "database": "infrastructure", "kubernetes": "infrastructure",
+    "docker": "infrastructure", "cloud": "infrastructure", "devops": "infrastructure", "monitoring": "infrastructure",
+    "observability": "infrastructure", "serverless": "infrastructure", "cdn": "infrastructure", "networking": "infrastructure",
+    "sql": "infrastructure", "postgresql": "infrastructure", "redis": "infrastructure", "kafka": "infrastructure",
+    "storage": "infrastructure", "backend": "infrastructure", "api": "infrastructure",
+    "developer-tools": "developer-tools", "devtools": "developer-tools", "cli": "developer-tools", "ide": "developer-tools",
+    "code-editor": "developer-tools", "testing": "developer-tools", "ci": "developer-tools", "compiler": "developer-tools",
+    "programming-language": "developer-tools", "framework": "developer-tools", "sdk": "developer-tools",
+    "build-tool": "developer-tools", "package-manager": "developer-tools", "linter": "developer-tools",
+    "security": "security", "cybersecurity": "security", "pentesting": "security", "authentication": "security",
+    "encryption": "security", "vulnerability": "security", "privacy": "security", "password-manager": "security",
+    "saas": "saas", "crm": "saas", "analytics": "saas", "productivity": "saas", "note-taking": "saas", "cms": "saas",
+    "ecommerce": "saas", "collaboration": "saas", "project-management": "saas", "low-code": "saas", "no-code": "saas",
+    "hardware": "hardware", "iot": "hardware", "embedded": "hardware", "robotics": "hardware", "firmware": "hardware",
+    "3d-printing": "hardware", "raspberry-pi": "hardware", "arduino": "hardware",
+    "fintech": "finance", "payments": "finance", "blockchain": "finance", "cryptocurrency": "finance", "trading": "finance",
 }
 
 
@@ -53,13 +68,15 @@ def _slug(text: str) -> str:
     return s or "unnamed"
 
 
-def _categories(topics: list[str]) -> list[str]:
+def _categories(topics: list[str], source: str | None = None) -> list[str]:
     cats = []
     for t in topics:
         c = TOPIC_CATEGORY.get(t)
         if c and c not in cats:
             cats.append(c)
-    return cats or ["developer-tools"]
+    if cats:
+        return cats
+    return ["saas"] if source == "wikidata" else ["open-source"] if source == "github" else ["developer-tools"]
 
 
 def _iso(dt: datetime | None) -> str:
@@ -97,7 +114,7 @@ def build_one(seed: dict, now: datetime) -> tuple[dict | None, str]:
         "entity_id": entity_id,
         "names": {"en": label},
         "aliases": aliases,
-        "category": _categories(seed.get("topics", [])),
+        "category": _categories(seed.get("topics", []), seed.get("source")),
         "wikidata": ent.wikidata,
         "canonical": {
             "github_org": ent.github_org,
