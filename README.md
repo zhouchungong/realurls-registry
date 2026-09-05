@@ -42,7 +42,7 @@ The full trust model is in **[TRUST.md](TRUST.md)**; the decision rules are in *
 🔄 M4  realurls.org evidence pages live; browser extension built (store listing pending)
 ```
 
-First category: **AI and developer tools**. Target: about 1,500 organizations / 4,000 domains.
+First category was **AI and developer tools**. The registry is now expanding to every software company and open-source project with a real footprint, in reviewed batches. Target: **10,000+ organizations**, browsable by category on [realurls.org](https://realurls.org/browse). Precision stays the only hard metric; coverage follows the evidence.
 
 ## Quick start
 
@@ -59,7 +59,14 @@ python -m src.build         # entities/ → dist/ (registry.json / domains.json 
 # Verify one domain end to end and print the full evidence chain with reproduction commands
 python -m src.verify anthropic.com
 python -m src.verify claude.ai --anchor anthropic.com     # propagation from a verified sibling
+
+# Scaling: generate candidate seeds in batches, run the pipeline sharded, review, merge
+python -m src.seeds --source github --min-stars 5000 --out-dir seeds --prefix gh   # ~2,500 seeds per file
+python -m src.build_entities seeds/gh-01.jsonl --shard 0/16                          # one of 16 parallel runners
+python -m src.review_ai --changed-since origin/main --dry-run                        # AI audit: flag-only, never promotes
 ```
+
+The `Build entities from seeds` workflow runs the same thing across 16 runners and opens a bot pull request per batch; nothing reaches `main` before the rules regression and the 200-record manual sample pass.
 
 ```python
 from src.policy import DomainFacts, Evidence, decide
