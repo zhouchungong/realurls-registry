@@ -97,14 +97,14 @@ domains:
   status: verified
   confidence: 0.7105
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T18:18:55Z'
+  last_verified: '2026-09-05T22:51:16Z'
   ttl_days: 30
   age_days: 6116
   age_source: rdap
   collection_incomplete: false
   evidence:
   - code: A3
-    checked_at: '2026-09-05T21:21:19Z'
+    checked_at: '2026-09-05T22:54:26Z'
     source: https://rdap.org/domain/dolistore.com
     data:
       registrar: OVH sas
@@ -115,7 +115,7 @@ domains:
       - delete
       - transfer
   - code: A4
-    checked_at: '2026-09-05T21:21:20Z'
+    checked_at: '2026-09-05T22:54:25Z'
     source: TLS handshake dolistore.com:443
     data:
       subject_org: ''
@@ -123,19 +123,19 @@ domains:
       issuer: Let's Encrypt
       san_count: 1
   - code: B5
-    checked_at: '2026-09-05T21:21:20Z'
+    checked_at: '2026-09-05T22:54:24Z'
     source: https://tranco-list.eu/download/daily/top-1m.csv.zip
     data:
       rank: 864907
       source: top-1m list
   - code: B4
-    checked_at: '2026-09-05T21:21:21Z'
+    checked_at: '2026-09-05T22:54:25Z'
     source: http://web.archive.org/cdx/search/cdx?url=dolistore.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2010-06-04'
       history_days: 5937
   - code: A6
-    checked_at: '2026-09-05T21:21:21Z'
+    checked_at: '2026-09-05T22:51:16Z'
     source: propagate from dolibarr.org
     data:
       from: dolibarr.org
@@ -144,6 +144,9 @@ domains:
       structural_links:
       - shared_ns
       san_count: 2
+      shared_ns:
+      - alexis.ns.cloudflare.com
+      - lara.ns.cloudflare.com
       backlink: true
   rejected_evidence:
   - 'A3: registrar (OVH sas) is not a brand-protection registrar'
@@ -156,3 +159,4 @@ provenance:
   label_source: wikidata:Q2076540
   reviewed_by: []
   source_issue: null
+  last_revalidated_by: revalidate/0.1

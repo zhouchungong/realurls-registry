@@ -86,14 +86,14 @@ domains:
   status: verified
   confidence: 0.7105
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T18:19:00Z'
+  last_verified: '2026-09-05T22:51:16Z'
   ttl_days: 30
   age_days: 2110
   age_source: rdap
   collection_incomplete: false
   evidence:
   - code: A3
-    checked_at: '2026-09-05T19:00:03Z'
+    checked_at: '2026-09-05T22:53:23Z'
     source: https://rdap.org/domain/curl.dev
     data:
       registrar: 1API GmbH
@@ -103,7 +103,7 @@ domains:
       locks:
       - transfer
   - code: A4
-    checked_at: '2026-09-05T19:00:04Z'
+    checked_at: '2026-09-05T22:53:21Z'
     source: TLS handshake curl.dev:443
     data:
       subject_org: ''
@@ -111,19 +111,19 @@ domains:
       issuer: Let's Encrypt
       san_count: 1
   - code: B5
-    checked_at: '2026-09-05T19:00:04Z'
+    checked_at: '2026-09-05T22:53:20Z'
     source: https://tranco-list.eu/download/daily/top-1m.csv.zip
     data:
       rank: 295479
       source: top-1m list
   - code: B4
-    checked_at: '2026-09-05T19:00:15Z'
+    checked_at: '2026-09-05T22:53:24Z'
     source: http://web.archive.org/cdx/search/cdx?url=curl.dev&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2021-01-20'
       history_days: 2054
   - code: A6
-    checked_at: '2026-09-05T19:00:15Z'
+    checked_at: '2026-09-05T22:51:16Z'
     source: propagate from curl.se
     data:
       from: curl.se
@@ -132,6 +132,9 @@ domains:
       structural_links:
       - shared_ns
       san_count: 1
+      shared_ns:
+      - ns.amplitut.de
+      - ns1.haxx.se
       backlink: true
   rejected_evidence:
   - 'A3: registrar (1API GmbH) is not a brand-protection registrar'
@@ -144,3 +147,4 @@ provenance:
   label_source: wikidata:Q286306
   reviewed_by: []
   source_issue: null
+  last_revalidated_by: revalidate/0.1

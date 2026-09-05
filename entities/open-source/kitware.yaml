@@ -92,76 +92,10 @@ domains:
   - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
   reasons:
   - '2 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
-- domain: cmake.org
-  role: product
-  status: verified
-  confidence: 0.7105
-  first_seen: '2026-09-05'
-  last_verified: '2026-09-05T18:18:52Z'
-  ttl_days: 30
-  age_days: 9035
-  age_source: rdap
-  collection_incomplete: false
-  evidence:
-  - code: A3
-    checked_at: '2026-09-05T21:00:41Z'
-    source: https://rdap.org/domain/cmake.org
-    data:
-      registrar: NameCheap, Inc.
-      created: '2001-12-10'
-      expires: '2026-12-10'
-      remaining_days: 95
-      locks:
-      - transfer
-  - code: A4
-    checked_at: '2026-09-05T21:00:42Z'
-    source: TLS handshake cmake.org:443
-    data:
-      subject_org: ''
-      validation_type: DV
-      issuer: Let's Encrypt
-      san_count: 2
-  - code: B1
-    checked_at: '2026-09-05T21:00:49Z'
-    source: https://www.wikidata.org/wiki/Q1023904
-    data:
-      qid: Q1023904
-      label: CMake
-      site: https://cmake.org/
-      sitelinks: 22
-      competing_items: 0
-  - code: B5
-    checked_at: '2026-09-05T21:00:49Z'
-    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
-    data:
-      rank: 27034
-      source: top-1m list
-  - code: B4
-    checked_at: '2026-09-05T21:00:50Z'
-    source: http://web.archive.org/cdx/search/cdx?url=cmake.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
-    data:
-      first_snapshot: '2002-01-20'
-      history_days: 8994
-  - code: A6
-    checked_at: '2026-09-05T21:00:50Z'
-    source: propagate from kitware.com
-    data:
-      from: kitware.com
-      from_status: verified
-      first_party_link: true
-      structural_links:
-      - shared_ns
-      san_count: 2
-      backlink: true
-  rejected_evidence:
-  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
-  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
-  - 'B1: item Q1023904 != entity canonical item Q2497801'
-  reasons:
-  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
 provenance:
   generated_by: build_entities/0.2
   policy_version: policy.py@c1580b9
   label_source: wikidata:Q2497801
   reviewed_by: []
   source_issue: null
+  last_revalidated_by: revalidate/0.1

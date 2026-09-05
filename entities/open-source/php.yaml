@@ -3,10 +3,10 @@
 schema_version: '1.0'
 entity_id: org:php
 names:
-  en: Zend Engine
+  en: php.net
 aliases:
+- Zend Engine
 - php
-- php.net
 category:
 - open-source
 wikidata: Q189473
@@ -92,6 +92,6 @@ domains:
 provenance:
   generated_by: build_entities/0.2
   policy_version: policy.py@c1580b9
-  label_source: wikidata:Q189473
+  label_source: github_org_display_name(self-declared)
   reviewed_by: []
   source_issue: null

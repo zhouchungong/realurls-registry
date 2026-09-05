@@ -3,9 +3,8 @@
 schema_version: '1.0'
 entity_id: org:audacity
 names:
-  en: ഒഡാസിറ്റി
+  en: Audacity
 aliases:
-- Audacity
 - audacity
 category:
 - open-source

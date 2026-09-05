@@ -3,9 +3,8 @@
 schema_version: '1.0'
 entity_id: org:freecad
 names:
-  en: فری‌کد
-aliases:
-- FreeCAD
+  en: FreeCAD
+aliases: []
 category:
 - open-source
 wikidata: Q251322

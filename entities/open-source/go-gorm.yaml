@@ -3,10 +3,10 @@
 schema_version: '1.0'
 entity_id: org:go-gorm
 names:
-  en: gorm
+  en: go-gorm
 aliases:
-- go-gorm
 - go-gorm/gorm
+- gorm
 category:
 - open-source
 wikidata: null
@@ -86,6 +86,6 @@ domains:
 provenance:
   generated_by: build_entities/0.2
   policy_version: policy.py@c1580b9
-  label_source: github_repo_name
+  label_source: github_org_login
   reviewed_by: []
   source_issue: null

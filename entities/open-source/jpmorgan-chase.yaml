@@ -159,20 +159,20 @@ domains:
   status: verified
   confidence: 0.7105
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T18:18:58Z'
+  last_verified: '2026-09-05T22:51:16Z'
   ttl_days: 30
-  age_days: 9488
+  age_days: 9489
   age_source: rdap
   collection_incomplete: true
   evidence:
   - code: A3
-    checked_at: '2026-09-05T20:46:56Z'
+    checked_at: '2026-09-05T22:53:59Z'
     source: https://rdap.org/domain/jpmchase.com
     data:
       registrar: MarkMonitor Inc.
       created: '2000-09-12'
       expires: '2028-09-12'
-      remaining_days: 738
+      remaining_days: 737
       locks:
       - delete
       - transfer
@@ -181,19 +181,19 @@ domains:
       - server transfer
       - server update
   - code: B5
-    checked_at: '2026-09-05T20:46:57Z'
+    checked_at: '2026-09-05T22:53:58Z'
     source: https://tranco-list.eu/download/daily/top-1m.csv.zip
     data:
       rank: 19128
       source: top-1m list
   - code: B4
-    checked_at: '2026-09-05T20:46:58Z'
+    checked_at: '2026-09-05T22:54:26Z'
     source: http://web.archive.org/cdx/search/cdx?url=jpmchase.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2001-04-11'
       history_days: 9278
   - code: A6
-    checked_at: '2026-09-05T20:46:58Z'
+    checked_at: '2026-09-05T22:51:16Z'
     source: propagate from jpmorganchase.com
     data:
       from: jpmorganchase.com
@@ -203,6 +203,11 @@ domains:
       - shared_ns
       - cert_san
       san_count: 64
+      shared_ns:
+      - ns05.jpmorganchase.com
+      - ns06.jpmorganchase.com
+      - ns1.jpmorganchase.com
+      - ns2.jpmorganchase.com
       backlink: true
   rejected_evidence:
   - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
@@ -286,3 +291,4 @@ provenance:
   label_source: wikidata:Q192314
   reviewed_by: []
   source_issue: null
+  last_revalidated_by: revalidate/0.1

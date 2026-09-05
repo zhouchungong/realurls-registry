@@ -3,9 +3,8 @@
 schema_version: '1.0'
 entity_id: org:reactos
 names:
-  en: رياكت أو إس
+  en: ReactOS
 aliases:
-- ReactOS
 - reactos
 category:
 - open-source

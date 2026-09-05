@@ -110,6 +110,19 @@ IMPLIED_CORROBORATIONS: dict[str, set[str]] = {
 #: digitalocean.com for five projects it sponsors and vmware.com for RabbitMQ: three entity-agnostic facts do
 #: not add up to an identity. So an entity-agnostic anchor only counts when at least one identity-bearing
 #: piece of evidence passed as well.
+#: Name servers every customer of a registrar or host gets by default. Two domains on dns1/dns2 of Namecheap
+#: share nothing but a registrar; that is not a structural link. Cloudflare and Route 53 hand out
+#: account-specific pairs and are not listed. The collector records the shared names; a record without them
+#: (older collector) cannot claim the link.
+POOLED_NS_SUFFIXES: tuple[str, ...] = (
+    "registrar-servers.com", "domaincontrol.com", "googledomains.com", "google.com", "he.net", "name.com",
+    "hover.com", "dnspod.net", "alidns.com", "hichina.com", "wixdns.net", "squarespacedns.com", "hostgator.com",
+    "bluehost.com", "dreamhost.com", "ovh.net", "gandi.net", "cloudns.net", "dnsowl.com", "ionos.com",
+    "1and1.com", "namecheaphosting.com", "hostinger.com", "siteground.net", "godaddy.com", "worldnic.com",
+    "register.com", "networksolutions.com", "afraid.org", "dnsimple.com", "digitalocean.com", "linode.com",
+    "vercel-dns.com", "netlify.com", "azure-dns.com", "azure-dns.net", "azure-dns.org", "azure-dns.info",
+)
+
 IDENTITY_BEARING_CODES: frozenset[str] = frozenset({"A1", "A2", "A4", "A5", "A6", "A8", "A9", "B1"})
 ENTITY_AGNOSTIC_ANCHORS: frozenset[str] = frozenset({"A3", "A7"})
 
@@ -398,8 +411,17 @@ def _v_a6(ev: Evidence, facts: DomainFacts) -> tuple[bool, str]:
     if not ev.data.get("first_party_link"):
         return False, f"anchor {ev.data.get('from')} does not link to this domain; no first-party declaration"
     links = set(ev.data.get("structural_links", []))
+    rejected_ns = ""
+    if "shared_ns" in links:
+        names = [str(n).lower().rstrip(".") for n in ev.data.get("shared_ns") or []]
+        if not names:
+            links.discard("shared_ns")
+            rejected_ns = "shared name servers were not recorded, so the link cannot be checked against pooled providers"
+        elif all(any(n == s or n.endswith("." + s) for s in POOLED_NS_SUFFIXES) for n in names):
+            links.discard("shared_ns")
+            rejected_ns = f"shared name servers ({', '.join(names[:2])}) are a provider's defaults, shared by every customer"
     if not links & {"shared_ns", "cert_san", "shared_registrar"}:
-        return False, "no structural link (need at least one of shared_ns / cert_san / shared_registrar)"
+        return False, rejected_ns or "no structural link (need at least one of shared_ns / cert_san / shared_registrar)"
     if links == {"cert_san"} and int(ev.data.get("san_count", 0)) > MAX_SAN_FOR_PROPAGATION:
         return False, f"certificate has {ev.data.get('san_count')} SANs > {MAX_SAN_FOR_PROPAGATION}; looks like a shared CDN certificate"
     # A verified site links to plenty of third parties (sponsors, partners, social platforms) and name-server
@@ -585,6 +607,19 @@ def decide(
             rejected.append(f"{ev.code}: {why}")
             continue
         (valid_anchor_codes if ev.tier == "A" else valid_corrob_codes).add(ev.code)
+
+    # Propagation is for domains that have no identity of their own. A domain that a *different* GitHub
+    # organization declares as its site (matrix.org: org matrix-org, propagated from element.io) belongs to
+    # that organization's entity, however closely the two work together; it must enter as its own entity.
+    if "A6" in valid_anchor_codes and facts.expected_github_org:
+        mine = facts.expected_github_org.lower()
+        foreign = sorted({str(e.data.get("org")) for e in evidence if e.code == "A1" and e.data.get("org")
+                          and str(e.data.get("org")).lower() != mine
+                          and registrable_domain(str(e.data.get("blog") or "")) == registrable_domain(facts.domain)})
+        if foreign:
+            valid_anchor_codes.discard("A6")
+            rejected.append(f"A6: GitHub organization {'/'.join(foreign)} declares this domain as its own site; "
+                            f"a domain with an identity of its own is not a sibling of {mine}, it is its own entity")
 
     if not (valid_anchor_codes | valid_corrob_codes) & IDENTITY_BEARING_CODES:
         # A7 stays a standalone anchor for entities that *are* the government body (no other identity to

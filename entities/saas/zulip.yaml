@@ -3,9 +3,8 @@
 schema_version: '1.0'
 entity_id: org:zulip
 names:
-  en: زوليب
+  en: Zulip
 aliases:
-- Zulip
 - zulip
 category:
 - saas

@@ -83,59 +83,10 @@ domains:
   - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
   reasons:
   - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
-- domain: intc.com
-  role: product
-  status: verified
-  confidence: 0.7105
-  first_seen: '2026-09-05'
-  last_verified: '2026-09-05T18:18:56Z'
-  ttl_days: 30
-  age_days: 10923
-  age_source: rdap
-  collection_incomplete: true
-  evidence:
-  - code: A3
-    checked_at: '2026-09-05T20:43:42Z'
-    source: https://rdap.org/domain/intc.com
-    data:
-      registrar: MarkMonitor Inc.
-      created: '1996-10-09'
-      expires: '2028-10-08'
-      remaining_days: 763
-      locks:
-      - delete
-      - transfer
-      - update
-  - code: B5
-    checked_at: '2026-09-05T20:43:43Z'
-    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
-    data:
-      rank: 78134
-      source: top-1m list
-  - code: B4
-    checked_at: '2026-09-05T20:43:45Z'
-    source: http://web.archive.org/cdx/search/cdx?url=intc.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
-    data:
-      first_snapshot: '1997-04-13'
-      history_days: 10737
-  - code: A6
-    checked_at: '2026-09-05T20:43:45Z'
-    source: propagate from intel.com
-    data:
-      from: intel.com
-      from_status: verified
-      first_party_link: true
-      structural_links:
-      - shared_ns
-      san_count: 59
-      backlink: true
-  rejected_evidence:
-  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
-  reasons:
-  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
 provenance:
   generated_by: build_entities/0.2
   policy_version: policy.py@c1580b9
   label_source: wikidata:Q248
   reviewed_by: []
   source_issue: null
+  last_revalidated_by: revalidate/0.1

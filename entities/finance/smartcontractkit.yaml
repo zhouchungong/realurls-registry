@@ -3,9 +3,9 @@
 schema_version: '1.0'
 entity_id: org:smartcontractkit
 names:
-  en: Chainlink
+  en: SmartContract
 aliases:
-- SmartContract
+- Chainlink
 - smartcontractkit
 category:
 - finance
@@ -100,20 +100,20 @@ domains:
   status: verified
   confidence: 0.7105
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T18:18:53Z'
+  last_verified: '2026-09-05T22:51:16Z'
   ttl_days: 30
-  age_days: 2248
+  age_days: 2249
   age_source: rdap
   collection_incomplete: false
   evidence:
   - code: A3
-    checked_at: '2026-09-05T20:14:58Z'
+    checked_at: '2026-09-05T22:52:16Z'
     source: https://rdap.org/domain/chainlinklabs.com
     data:
       registrar: MarkMonitor Inc.
       created: '2020-07-09'
       expires: '2027-07-09'
-      remaining_days: 307
+      remaining_days: 306
       locks:
       - delete
       - transfer
@@ -122,7 +122,7 @@ domains:
       - server transfer
       - server update
   - code: A4
-    checked_at: '2026-09-05T20:14:58Z'
+    checked_at: '2026-09-05T22:52:12Z'
     source: TLS handshake chainlinklabs.com:443
     data:
       subject_org: ''
@@ -130,7 +130,7 @@ domains:
       issuer: Google Trust Services
       san_count: 1
   - code: B1
-    checked_at: '2026-09-05T20:14:58Z'
+    checked_at: '2026-09-05T22:52:17Z'
     source: https://www.wikidata.org/wiki/Q134810608
     data:
       qid: Q134810608
@@ -139,19 +139,19 @@ domains:
       sitelinks: 0
       competing_items: 0
   - code: B5
-    checked_at: '2026-09-05T20:14:58Z'
+    checked_at: '2026-09-05T22:52:11Z'
     source: https://tranco-list.eu/download/daily/top-1m.csv.zip
     data:
       rank: 652073
       source: top-1m list
   - code: B4
-    checked_at: '2026-09-05T20:15:10Z'
+    checked_at: '2026-09-05T22:52:26Z'
     source: http://web.archive.org/cdx/search/cdx?url=chainlinklabs.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2018-01-26'
       history_days: 3144
   - code: A6
-    checked_at: '2026-09-05T20:15:10Z'
+    checked_at: '2026-09-05T22:51:16Z'
     source: propagate from chain.link
     data:
       from: chain.link
@@ -160,6 +160,9 @@ domains:
       structural_links:
       - shared_ns
       san_count: 1
+      shared_ns:
+      - mary.ns.cloudflare.com
+      - pete.ns.cloudflare.com
       backlink: true
   rejected_evidence:
   - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
@@ -170,6 +173,7 @@ domains:
 provenance:
   generated_by: build_entities/0.2
   policy_version: policy.py@c1580b9
-  label_source: wikidata:Q100804984
+  label_source: github_org_display_name(self-declared)
   reviewed_by: []
   source_issue: null
+  last_revalidated_by: revalidate/0.1

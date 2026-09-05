@@ -3,9 +3,8 @@
 schema_version: '1.0'
 entity_id: org:openra
 names:
-  en: أوبن آر أيه
-aliases:
-- OpenRA
+  en: OpenRA
+aliases: []
 category:
 - open-source
 wikidata: Q20474100

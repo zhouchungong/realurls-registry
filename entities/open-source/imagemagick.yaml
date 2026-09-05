@@ -3,9 +3,8 @@
 schema_version: '1.0'
 entity_id: org:imagemagick
 names:
-  en: 이미지매직
+  en: ImageMagick
 aliases:
-- ImageMagick
 - ImageMagick Studio LLC
 category:
 - open-source

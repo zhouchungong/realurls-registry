@@ -3,9 +3,9 @@
 schema_version: '1.0'
 entity_id: org:nasa
 names:
-  en: National Aeronautics and Space Administration
+  en: NASA
 aliases:
-- NASA
+- National Aeronautics and Space Administration
 - nasa
 category:
 - hardware
@@ -84,6 +84,6 @@ domains:
 provenance:
   generated_by: build_entities/0.2
   policy_version: policy.py@c1580b9
-  label_source: wikidata:Q23548
+  label_source: github_org_display_name(self-declared)
   reviewed_by: []
   source_issue: null

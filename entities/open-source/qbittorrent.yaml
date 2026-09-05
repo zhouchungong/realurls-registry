@@ -3,7 +3,7 @@
 schema_version: '1.0'
 entity_id: org:qbittorrent
 names:
-  en: كيو بت تورنت
+  en: qBittorrent
 aliases:
 - qBittorrent project
 - qbittorrent

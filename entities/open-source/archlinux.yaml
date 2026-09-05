@@ -3,9 +3,8 @@
 schema_version: '1.0'
 entity_id: org:archlinux
 names:
-  en: 아치 리눅스
+  en: Arch Linux
 aliases:
-- Arch Linux
 - archlinux
 category:
 - open-source

@@ -101,23 +101,12 @@ def build_one(seed: dict, now: datetime) -> tuple[dict | None, str]:
     if not ent or not ent.anchored:
         return None, f"{domain}: verified 但实体未锚定？这不该发生，请检查"  # 防御：policy 不该放行
 
-    # 标签来源（POLICY.md §0）：Wikidata 标签 > GitHub 组织显示名（自填，仅用于展示，来源如实标注）。
-    # 项目史锚定得到的 "org/repo" 不适合当展示名，但完整保留在 canonical.sources 里供核对。
     org_name = (seed.get("org_name") or "").strip()
     gh_display = next((str(e.data.get("org_name") or "").strip() for e in result.evidence if e.code == "A1"), "")
-    if ent.wikidata and ent.label and not re.fullmatch(r"Q\d+", ent.label):
-        label, label_source = ent.label, f"wikidata:{ent.wikidata}"
-    elif org_name and org_name.lower() != (seed.get("github_org") or "").lower():
-        label, label_source = org_name, "seed_org_name(self-declared)"
-    elif gh_display and gh_display.lower() != (ent.github_org or "").lower():
-        label, label_source = gh_display, "github_org_display_name(self-declared)"
-    elif ent.github_org:
-        label, label_source = ent.github_org, "github_org_login"
-    elif ent.label and "/" in ent.label:
-        label, label_source = ent.label.split("/", 1)[1], "github_repo_name"
-    else:
-        label, label_source = org_name or domain, "fallback"
-    aliases = sorted({a for a in (org_name, seed.get("github_org", ""), ent.label or "")
+    label, label_source = choose_label(wikidata=ent.wikidata, wikidata_label=ent.label if ent.wikidata else "",
+                                       github_org=ent.github_org, gh_display=gh_display, org_name=org_name,
+                                       repo_label=ent.label if not ent.wikidata else "", domain=domain)
+    aliases = sorted({a for a in (org_name, seed.get("github_org", ""), ent.label or "", gh_display)
                       if a and a != label and not re.fullmatch(r"Q\d+", a)})
 
     entity_id = f"org:{_slug(ent.github_org or label)}"
@@ -202,6 +191,44 @@ def build_one(seed: dict, now: datetime) -> tuple[dict | None, str]:
             print(f"  ↳ {cand}: verified {d2.confidence:.2f} (propagated from {domain})", file=sys.stderr)
 
     return record, f"{domain}: verified {decision.confidence:.2f} → {entity_id}"
+
+
+def choose_label(*, wikidata: str | None, wikidata_label: str, github_org: str | None, gh_display: str,
+                 org_name: str, repo_label: str, domain: str) -> tuple[str, str]:
+    """The display name and where it came from (POLICY.md §0).
+
+    Wikidata's English label wins when it names the organization: it is the one source nobody self-declares.
+    It loses when the item is a *product* of the organization (vercel.com resolved to the Next.js item,
+    airbnb.tech to the style-guide repository): then the entity is the organization and the organization's
+    own name (GitHub display name, then login) is the label, with the Wikidata label kept as an alias. A
+    "org/repo" from project-history anchoring is never a display name.
+    """
+    from src.policy import _name_key
+    wl = (wikidata_label or "").strip()
+    if wl and re.fullmatch(r"Q\d+", wl):
+        wl = ""
+    if wl and not re.search(r"[A-Za-z]", wl):
+        wl = ""   # not an English label; never shown as names.en
+    gh_login = (github_org or "").strip()
+    org_names = [n for n in (gh_login, gh_display, org_name) if n]
+
+    def _matches(a: str, b: str) -> bool:
+        ka, kb = _name_key(a), _name_key(b)
+        return bool(ka and kb) and (ka in kb or kb in ka)
+
+    if wl and (not gh_login or any(_matches(wl, n) for n in org_names)):
+        return wl, f"wikidata:{wikidata}"
+    if org_name and org_name.lower() != gh_login.lower():
+        return org_name, "seed_org_name(self-declared)"
+    if gh_display:
+        return gh_display, "github_org_display_name(self-declared)"
+    if gh_login:
+        return gh_login, "github_org_login"
+    if wl:
+        return wl, f"wikidata:{wikidata}"
+    if repo_label and "/" in repo_label:
+        return repo_label.split("/", 1)[1], "github_repo_name"
+    return org_name or domain, "fallback"
 
 
 _STORED: dict[str, str] | None = None

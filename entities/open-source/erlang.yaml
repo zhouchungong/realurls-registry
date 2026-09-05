@@ -3,7 +3,7 @@
 schema_version: '1.0'
 entity_id: org:erlang
 names:
-  en: 얼랭
+  en: Erlang
 aliases:
 - Erlang/OTP
 - erlang

@@ -3,7 +3,7 @@
 schema_version: '1.0'
 entity_id: org:valvesoftware
 names:
-  en: 維爾福
+  en: Valve Corporation
 aliases:
 - Valve Software
 - ValveSoftware
@@ -85,16 +85,45 @@ domains:
 - domain: steampowered.com
   role: product
   status: verified
-  confidence: 0.7105
+  confidence: 0.8697
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T18:18:53Z'
+  last_verified: '2026-09-05T22:51:16Z'
   ttl_days: 30
   age_days: 9523
   age_source: rdap
   collection_incomplete: false
   evidence:
+  - code: A9
+    checked_at: '2026-09-05T22:52:24Z'
+    source: https://itunes.apple.com/search?term=Valve%20Corporation&entity=software
+    data:
+      app: Steam Mobile
+      track_id: 495369748
+      seller: Valve Corporation
+      artist: Valve
+      seller_url: https://store.steampowered.com/mobile
+      released: '2012-01-26'
+      age_days: 5336
+      ratings: 11994
+      apps_for_domain: 3
+      apps:
+      - app: Steam Mobile
+        seller: Valve Corporation
+        released: '2012-01-26'
+        age_days: 5336
+        ratings: 11994
+      - app: Steam Link
+        seller: Valve Corporation
+        released: '2019-05-16'
+        age_days: 2669
+        ratings: 2988
+      - app: Steam Chat
+        seller: Valve Corporation
+        released: '2019-05-23'
+        age_days: 2662
+        ratings: 1564
   - code: A3
-    checked_at: '2026-09-05T18:50:33Z'
+    checked_at: '2026-09-05T22:52:25Z'
     source: https://rdap.org/domain/steampowered.com
     data:
       registrar: MarkMonitor Inc.
@@ -109,7 +138,7 @@ domains:
       - server transfer
       - server update
   - code: A4
-    checked_at: '2026-09-05T18:50:33Z'
+    checked_at: '2026-09-05T22:52:23Z'
     source: TLS handshake steampowered.com:443
     data:
       subject_org: ''
@@ -117,19 +146,19 @@ domains:
       issuer: Let's Encrypt
       san_count: 48
   - code: B5
-    checked_at: '2026-09-05T18:50:34Z'
+    checked_at: '2026-09-05T22:52:22Z'
     source: https://tranco-list.eu/download/daily/top-1m.csv.zip
     data:
       rank: 297
       source: top-1m list
   - code: B4
-    checked_at: '2026-09-05T18:50:41Z'
+    checked_at: '2026-09-05T22:52:39Z'
     source: http://web.archive.org/cdx/search/cdx?url=steampowered.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2002-03-21'
       history_days: 8934
   - code: A6
-    checked_at: '2026-09-05T18:50:41Z'
+    checked_at: '2026-09-05T22:51:16Z'
     source: propagate from valvesoftware.com
     data:
       from: valvesoftware.com
@@ -138,15 +167,21 @@ domains:
       structural_links:
       - shared_ns
       san_count: 2
+      shared_ns:
+      - a1-194.akam.net
+      - a2-64.akam.net
+      - a22-67.akam.net
+      - a24-64.akam.net
       backlink: true
   rejected_evidence:
   - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
   - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
   reasons:
-  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  - '2 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
 provenance:
   generated_by: build_entities/0.2
   policy_version: policy.py@c1580b9
   label_source: wikidata:Q193559
   reviewed_by: []
   source_issue: null
+  last_revalidated_by: revalidate/0.1

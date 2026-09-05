@@ -3,9 +3,10 @@
 schema_version: '1.0'
 entity_id: org:opencollective
 names:
-  en: ওপেন কালেক্টিভ
+  en: Open Collective
 aliases:
 - Rough
+- opencollective
 - rough-stuff
 category:
 - open-source

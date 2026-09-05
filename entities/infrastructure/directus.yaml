@@ -3,9 +3,9 @@
 schema_version: '1.0'
 entity_id: org:directus
 names:
-  en: directus
+  en: Directus
 aliases:
-- Directus
+- directus
 - directus/directus
 category:
 - infrastructure
@@ -89,14 +89,14 @@ domains:
   status: verified
   confidence: 0.7105
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T18:18:54Z'
+  last_verified: '2026-09-05T22:51:16Z'
   ttl_days: 30
   age_days: 2876
   age_source: wayback_lower_bound
   collection_incomplete: false
   evidence:
   - code: A4
-    checked_at: '2026-09-05T18:54:54Z'
+    checked_at: '2026-09-05T22:52:17Z'
     source: TLS handshake directus.io:443
     data:
       subject_org: ''
@@ -104,19 +104,19 @@ domains:
       issuer: Google Trust Services
       san_count: 2
   - code: B5
-    checked_at: '2026-09-05T18:54:55Z'
+    checked_at: '2026-09-05T22:52:16Z'
     source: https://tranco-list.eu/download/daily/top-1m.csv.zip
     data:
       rank: 226713
       source: top-1m list
   - code: B4
-    checked_at: '2026-09-05T18:55:00Z'
+    checked_at: '2026-09-05T22:52:23Z'
     source: http://web.archive.org/cdx/search/cdx?url=directus.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2018-10-21'
       history_days: 2876
   - code: A6
-    checked_at: '2026-09-05T18:55:00Z'
+    checked_at: '2026-09-05T22:51:16Z'
     source: propagate from directus.com
     data:
       from: directus.com
@@ -125,6 +125,9 @@ domains:
       structural_links:
       - shared_ns
       san_count: 2
+      shared_ns:
+      - otto.ns.cloudflare.com
+      - tori.ns.cloudflare.com
       backlink: true
   rejected_evidence:
   - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
@@ -133,6 +136,7 @@ domains:
 provenance:
   generated_by: build_entities/0.2
   policy_version: policy.py@c1580b9
-  label_source: github_repo_name
+  label_source: github_org_display_name(self-declared)
   reviewed_by: []
   source_issue: null
+  last_revalidated_by: revalidate/0.1

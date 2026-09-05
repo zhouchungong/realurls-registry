@@ -3,9 +3,8 @@
 schema_version: '1.0'
 entity_id: org:official-stockfish
 names:
-  en: סטוקפיש (תוכנת שחמט)
+  en: Stockfish
 aliases:
-- Stockfish
 - official-stockfish
 category:
 - open-source

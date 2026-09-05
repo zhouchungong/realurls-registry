@@ -98,14 +98,14 @@ domains:
   status: verified
   confidence: 0.7105
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T18:18:58Z'
+  last_verified: '2026-09-05T22:51:16Z'
   ttl_days: 30
   age_days: 4100
   age_source: wayback_lower_bound
   collection_incomplete: false
   evidence:
   - code: A4
-    checked_at: '2026-09-05T18:52:54Z'
+    checked_at: '2026-09-05T22:52:14Z'
     source: TLS handshake gitea.io:443
     data:
       subject_org: ''
@@ -113,19 +113,19 @@ domains:
       issuer: Google Trust Services
       san_count: 2
   - code: B5
-    checked_at: '2026-09-05T18:52:54Z'
+    checked_at: '2026-09-05T22:52:14Z'
     source: https://tranco-list.eu/download/daily/top-1m.csv.zip
     data:
       rank: 6904
       source: top-1m list
   - code: B4
-    checked_at: '2026-09-05T18:52:57Z'
+    checked_at: '2026-09-05T22:52:17Z'
     source: http://web.archive.org/cdx/search/cdx?url=gitea.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2015-06-15'
       history_days: 4100
   - code: A6
-    checked_at: '2026-09-05T18:52:57Z'
+    checked_at: '2026-09-05T22:51:16Z'
     source: propagate from gitea.com
     data:
       from: gitea.com
@@ -134,6 +134,9 @@ domains:
       structural_links:
       - shared_ns
       san_count: 1
+      shared_ns:
+      - emily.ns.cloudflare.com
+      - watson.ns.cloudflare.com
       backlink: true
   rejected_evidence:
   - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
@@ -145,3 +148,4 @@ provenance:
   label_source: wikidata:Q28714270
   reviewed_by: []
   source_issue: null
+  last_revalidated_by: revalidate/0.1

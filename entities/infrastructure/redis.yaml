@@ -3,9 +3,8 @@
 schema_version: '1.0'
 entity_id: org:redis
 names:
-  en: ردیس
+  en: Redis
 aliases:
-- Redis
 - redis
 category:
 - infrastructure

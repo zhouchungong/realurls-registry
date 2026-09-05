@@ -3,9 +3,9 @@
 schema_version: '1.0'
 entity_id: org:wazuh
 names:
-  en: wazuh
+  en: Wazuh
 aliases:
-- Wazuh
+- wazuh
 - wazuh/wazuh
 category:
 - security
@@ -95,6 +95,6 @@ domains:
 provenance:
   generated_by: build_entities/0.2
   policy_version: policy.py@c1580b9
-  label_source: github_repo_name
+  label_source: github_org_display_name(self-declared)
   reviewed_by: []
   source_issue: null

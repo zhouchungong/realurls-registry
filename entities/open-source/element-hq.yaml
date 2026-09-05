@@ -80,85 +80,10 @@ domains:
   - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
   reasons:
   - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
-- domain: matrix.org
-  role: product
-  status: verified
-  confidence: 0.7105
-  first_seen: '2026-09-05'
-  last_verified: '2026-09-05T18:18:58Z'
-  ttl_days: 30
-  age_days: 11630
-  age_source: rdap
-  collection_incomplete: false
-  evidence:
-  - code: A1
-    checked_at: '2026-09-05T20:55:07Z'
-    source: https://api.github.com/orgs/matrix-org
-    data:
-      org: matrix-org
-      org_verified: false
-      blog: https://www.matrix.org
-  - code: A3
-    checked_at: '2026-09-05T20:55:29Z'
-    source: https://rdap.org/domain/matrix.org
-    data:
-      registrar: Tucows Domains Inc.
-      created: '1994-11-02'
-      expires: '2027-11-01'
-      remaining_days: 421
-      locks:
-      - transfer
-      - update
-  - code: A4
-    checked_at: '2026-09-05T20:55:29Z'
-    source: TLS handshake matrix.org:443
-    data:
-      subject_org: ''
-      validation_type: DV
-      issuer: Google Trust Services
-      san_count: 2
-  - code: B1
-    checked_at: '2026-09-05T20:55:30Z'
-    source: https://www.wikidata.org/wiki/Q22906785
-    data:
-      qid: Q22906785
-      label: Matrix
-      site: https://matrix.org/
-      sitelinks: 25
-      competing_items: 1
-  - code: B5
-    checked_at: '2026-09-05T20:55:30Z'
-    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
-    data:
-      rank: 7523
-      source: top-1m list
-  - code: B4
-    checked_at: '2026-09-05T20:56:03Z'
-    source: http://web.archive.org/cdx/search/cdx?url=matrix.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
-    data:
-      first_snapshot: '1999-05-08'
-      history_days: 9982
-  - code: A6
-    checked_at: '2026-09-05T20:56:03Z'
-    source: propagate from element.io
-    data:
-      from: element.io
-      from_status: verified
-      first_party_link: true
-      structural_links:
-      - shared_ns
-      san_count: 2
-      backlink: true
-  rejected_evidence:
-  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
-  - 'A3: registrar (Tucows Domains Inc.) is not a brand-protection registrar'
-  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
-  - 'B1: item Q22906785 != entity canonical item Q47004029'
-  reasons:
-  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
 provenance:
   generated_by: build_entities/0.2
   policy_version: policy.py@c1580b9
   label_source: wikidata:Q47004029
   reviewed_by: []
   source_issue: null
+  last_revalidated_by: revalidate/0.1

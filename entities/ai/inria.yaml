@@ -3,9 +3,11 @@
 schema_version: '1.0'
 entity_id: org:inria
 names:
-  en: Institut National de Recherche en Informatique et en Automatique
+  en: Inria
 aliases:
 - GraphDeco - INRIA
+- INRIA
+- Institut National de Recherche en Informatique et en Automatique
 - graphdeco-inria
 category:
 - ai
@@ -81,6 +83,6 @@ domains:
 provenance:
   generated_by: build_entities/0.2
   policy_version: policy.py@c1580b9
-  label_source: wikidata:Q1146208
+  label_source: github_org_display_name(self-declared)
   reviewed_by: []
   source_issue: null

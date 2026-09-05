@@ -80,14 +80,14 @@ domains:
   status: verified
   confidence: 0.7105
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T18:18:49Z'
+  last_verified: '2026-09-05T22:51:16Z'
   ttl_days: 30
   age_days: 4743
   age_source: rdap
   collection_incomplete: false
   evidence:
   - code: A3
-    checked_at: '2026-09-05T20:08:55Z'
+    checked_at: '2026-09-05T22:54:13Z'
     source: https://rdap.org/domain/codeclub.org
     data:
       registrar: Gandi SAS
@@ -97,7 +97,7 @@ domains:
       locks:
       - transfer
   - code: A4
-    checked_at: '2026-09-05T20:08:56Z'
+    checked_at: '2026-09-05T22:54:10Z'
     source: TLS handshake codeclub.org:443
     data:
       subject_org: ''
@@ -105,19 +105,19 @@ domains:
       issuer: Let's Encrypt
       san_count: 2
   - code: B5
-    checked_at: '2026-09-05T20:08:56Z'
+    checked_at: '2026-09-05T22:54:09Z'
     source: https://tranco-list.eu/download/daily/top-1m.csv.zip
     data:
       rank: 271226
       source: top-1m list
   - code: B4
-    checked_at: '2026-09-05T20:09:31Z'
+    checked_at: '2026-09-05T22:54:16Z'
     source: http://web.archive.org/cdx/search/cdx?url=codeclub.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2004-04-07'
       history_days: 8186
   - code: A6
-    checked_at: '2026-09-05T20:09:31Z'
+    checked_at: '2026-09-05T22:51:16Z'
     source: propagate from raspberrypi.org
     data:
       from: raspberrypi.org
@@ -126,6 +126,9 @@ domains:
       structural_links:
       - shared_ns
       san_count: 2
+      shared_ns:
+      - april.ns.cloudflare.com
+      - tony.ns.cloudflare.com
       backlink: true
   rejected_evidence:
   - 'A3: registrar (Gandi SAS) is not a brand-protection registrar'
@@ -138,3 +141,4 @@ provenance:
   label_source: wikidata:Q7295195
   reviewed_by: []
   source_issue: null
+  last_revalidated_by: revalidate/0.1

@@ -3,7 +3,7 @@
 schema_version: '1.0'
 entity_id: org:vim
 names:
-  en: விம்
+  en: Vim
 aliases:
 - Vim - the text editor
 - vim

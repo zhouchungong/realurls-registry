@@ -3,9 +3,10 @@
 schema_version: '1.0'
 entity_id: org:brave
 names:
-  en: Brave浏览器
+  en: Brave
 aliases:
 - Brave Software
+- Brave浏览器
 - brave
 category:
 - open-source
@@ -80,14 +81,14 @@ domains:
   status: verified
   confidence: 0.7105
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T18:18:58Z'
+  last_verified: '2026-09-05T22:51:16Z'
   ttl_days: 30
   age_days: 3499
   age_source: rdap
   collection_incomplete: false
   evidence:
   - code: A3
-    checked_at: '2026-09-05T20:00:19Z'
+    checked_at: '2026-09-05T22:52:54Z'
     source: https://rdap.org/domain/basicattentiontoken.org
     data:
       registrar: NameCheap, Inc.
@@ -97,7 +98,7 @@ domains:
       locks:
       - transfer
   - code: A4
-    checked_at: '2026-09-05T20:00:19Z'
+    checked_at: '2026-09-05T22:52:50Z'
     source: TLS handshake basicattentiontoken.org:443
     data:
       subject_org: ''
@@ -105,7 +106,7 @@ domains:
       issuer: Let's Encrypt
       san_count: 1
   - code: B1
-    checked_at: '2026-09-05T20:00:20Z'
+    checked_at: '2026-09-05T22:52:54Z'
     source: https://www.wikidata.org/wiki/Q53039605
     data:
       qid: Q53039605
@@ -114,19 +115,19 @@ domains:
       sitelinks: 4
       competing_items: 0
   - code: B5
-    checked_at: '2026-09-05T20:00:20Z'
+    checked_at: '2026-09-05T22:52:50Z'
     source: https://tranco-list.eu/download/daily/top-1m.csv.zip
     data:
       rank: 97129
       source: top-1m list
   - code: B4
-    checked_at: '2026-09-05T20:01:18Z'
+    checked_at: '2026-09-05T22:52:55Z'
     source: http://web.archive.org/cdx/search/cdx?url=basicattentiontoken.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2017-05-16'
       history_days: 3399
   - code: A6
-    checked_at: '2026-09-05T20:01:18Z'
+    checked_at: '2026-09-05T22:51:16Z'
     source: propagate from brave.com
     data:
       from: brave.com
@@ -135,6 +136,9 @@ domains:
       structural_links:
       - shared_ns
       san_count: 3
+      shared_ns:
+      - chip.ns.cloudflare.com
+      - kim.ns.cloudflare.com
       backlink: true
   rejected_evidence:
   - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
@@ -148,3 +152,4 @@ provenance:
   label_source: wikidata:Q22906900
   reviewed_by: []
   source_issue: null
+  last_revalidated_by: revalidate/0.1

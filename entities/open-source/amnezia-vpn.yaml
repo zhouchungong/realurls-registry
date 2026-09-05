@@ -82,14 +82,14 @@ domains:
   status: verified
   confidence: 0.7105
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T18:18:52Z'
+  last_verified: '2026-09-05T22:51:16Z'
   ttl_days: 30
   age_days: 1130
   age_source: rdap
   collection_incomplete: false
   evidence:
   - code: A3
-    checked_at: '2026-09-05T20:07:09Z'
+    checked_at: '2026-09-05T22:53:07Z'
     source: https://rdap.org/domain/amnezia.host
     data:
       registrar: Porkbun LLC
@@ -100,7 +100,7 @@ domains:
       - delete
       - transfer
   - code: A4
-    checked_at: '2026-09-05T20:07:09Z'
+    checked_at: '2026-09-05T22:53:04Z'
     source: TLS handshake amnezia.host:443
     data:
       subject_org: ''
@@ -108,19 +108,19 @@ domains:
       issuer: Amazon
       san_count: 2
   - code: B5
-    checked_at: '2026-09-05T20:07:09Z'
+    checked_at: '2026-09-05T22:53:03Z'
     source: https://tranco-list.eu/download/daily/top-1m.csv.zip
     data:
       rank: 368851
       source: top-1m list
   - code: B4
-    checked_at: '2026-09-05T20:07:55Z'
+    checked_at: '2026-09-05T22:53:09Z'
     source: http://web.archive.org/cdx/search/cdx?url=amnezia.host&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2024-05-22'
       history_days: 836
   - code: A6
-    checked_at: '2026-09-05T20:07:55Z'
+    checked_at: '2026-09-05T22:51:16Z'
     source: propagate from amnezia.org
     data:
       from: amnezia.org
@@ -129,6 +129,9 @@ domains:
       structural_links:
       - shared_ns
       san_count: 2
+      shared_ns:
+      - brad.ns.cloudflare.com
+      - ulla.ns.cloudflare.com
       backlink: true
   rejected_evidence:
   - 'A3: registrar (Porkbun LLC) is not a brand-protection registrar'
@@ -141,3 +144,4 @@ provenance:
   label_source: wikidata:Q119575323
   reviewed_by: []
   source_issue: null
+  last_revalidated_by: revalidate/0.1

@@ -92,14 +92,14 @@ domains:
   status: verified
   confidence: 0.7105
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T18:18:53Z'
+  last_verified: '2026-09-05T22:51:16Z'
   ttl_days: 30
   age_days: 6211
   age_source: rdap
   collection_incomplete: false
   evidence:
   - code: A3
-    checked_at: '2026-09-05T18:31:04Z'
+    checked_at: '2026-09-05T22:53:46Z'
     source: https://rdap.org/domain/jquerymobile.com
     data:
       registrar: 1API GmbH
@@ -109,7 +109,7 @@ domains:
       locks:
       - transfer
   - code: A4
-    checked_at: '2026-09-05T18:31:04Z'
+    checked_at: '2026-09-05T22:53:45Z'
     source: TLS handshake jquerymobile.com:443
     data:
       subject_org: ''
@@ -117,7 +117,7 @@ domains:
       issuer: Google Trust Services
       san_count: 2
   - code: B1
-    checked_at: '2026-09-05T18:31:04Z'
+    checked_at: '2026-09-05T22:53:51Z'
     source: https://www.wikidata.org/wiki/Q1955464
     data:
       qid: Q1955464
@@ -126,19 +126,19 @@ domains:
       sitelinks: 13
       competing_items: 1
   - code: B5
-    checked_at: '2026-09-05T18:31:04Z'
+    checked_at: '2026-09-05T22:53:45Z'
     source: https://tranco-list.eu/download/daily/top-1m.csv.zip
     data:
       rank: 46935
       source: top-1m list
   - code: B4
-    checked_at: '2026-09-05T18:31:09Z'
+    checked_at: '2026-09-05T22:53:57Z'
     source: http://web.archive.org/cdx/search/cdx?url=jquerymobile.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2010-07-02'
       history_days: 5909
   - code: A6
-    checked_at: '2026-09-05T18:31:09Z'
+    checked_at: '2026-09-05T22:51:16Z'
     source: propagate from jquery.com
     data:
       from: jquery.com
@@ -147,6 +147,9 @@ domains:
       structural_links:
       - shared_ns
       san_count: 2
+      shared_ns:
+      - george.ns.cloudflare.com
+      - lara.ns.cloudflare.com
       backlink: true
   rejected_evidence:
   - 'A3: registrar (1API GmbH) is not a brand-protection registrar'
@@ -159,24 +162,24 @@ domains:
   status: verified
   confidence: 0.7105
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05T18:18:53Z'
+  last_verified: '2026-09-05T22:51:16Z'
   ttl_days: 30
-  age_days: 6784
+  age_days: 6785
   age_source: rdap
   collection_incomplete: false
   evidence:
   - code: A3
-    checked_at: '2026-09-05T18:31:10Z'
+    checked_at: '2026-09-05T22:54:17Z'
     source: https://rdap.org/domain/jqueryui.com
     data:
       registrar: 1API GmbH
       created: '2008-02-07'
       expires: '2027-02-07'
-      remaining_days: 155
+      remaining_days: 154
       locks:
       - transfer
   - code: A4
-    checked_at: '2026-09-05T18:31:11Z'
+    checked_at: '2026-09-05T22:54:17Z'
     source: TLS handshake jqueryui.com:443
     data:
       subject_org: ''
@@ -184,7 +187,7 @@ domains:
       issuer: Google Trust Services
       san_count: 2
   - code: B1
-    checked_at: '2026-09-05T18:31:11Z'
+    checked_at: '2026-09-05T22:54:19Z'
     source: https://www.wikidata.org/wiki/Q285960
     data:
       qid: Q285960
@@ -193,19 +196,19 @@ domains:
       sitelinks: 14
       competing_items: 0
   - code: B5
-    checked_at: '2026-09-05T18:31:11Z'
+    checked_at: '2026-09-05T22:54:16Z'
     source: https://tranco-list.eu/download/daily/top-1m.csv.zip
     data:
       rank: 7316
       source: top-1m list
   - code: B4
-    checked_at: '2026-09-05T18:31:18Z'
+    checked_at: '2026-09-05T22:54:47Z'
     source: http://web.archive.org/cdx/search/cdx?url=jqueryui.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2008-12-05'
       history_days: 6483
   - code: A6
-    checked_at: '2026-09-05T18:31:18Z'
+    checked_at: '2026-09-05T22:51:16Z'
     source: propagate from jquery.com
     data:
       from: jquery.com
@@ -214,6 +217,9 @@ domains:
       structural_links:
       - shared_ns
       san_count: 2
+      shared_ns:
+      - george.ns.cloudflare.com
+      - lara.ns.cloudflare.com
       backlink: true
   rejected_evidence:
   - 'A3: registrar (1API GmbH) is not a brand-protection registrar'
@@ -227,3 +233,4 @@ provenance:
   label_source: wikidata:Q230036
   reviewed_by: []
   source_issue: null
+  last_revalidated_by: revalidate/0.1
