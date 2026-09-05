@@ -1,0 +1,63 @@
+name: AI review
+
+# Second audit layer on demand: reviews the verified records a branch adds or changes relative to main and
+# commits any holds (verified -> review_required) back to that branch. Flag-only; it never promotes. The
+# build workflow runs the same step on its own batches; this one is for batches assembled by hand from
+# shard artifacts or brought to newer rules with src.prune.
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: Branch to review (holds are pushed to it)
+        required: true
+        default: main
+
+permissions:
+  contents: write
+
+concurrency:
+  group: review-${{ inputs.ref }}
+  cancel-in-progress: false
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ inputs.ref }}
+          fetch-depth: 0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.11"
+      - run: pip install -e ".[dev,review]"
+
+      - name: Review records changed since main
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p .cache
+          set +e
+          python -m src.review_ai --changed-since origin/main --json .cache/review.json 2>&1 | tee .cache/review.log
+          echo "AI review exit: ${PIPESTATUS[0]}"
+          python -m src.validate
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "## AI review of \`${{ inputs.ref }}\`"
+            echo
+            grep -E '^(  ⚠|  ✓|#)' .cache/review.log || tail -20 .cache/review.log
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Push holds to the branch
+        run: |
+          git config user.name  "realurls-bot"
+          git config user.email "bot@realurls.org"
+          git add entities/
+          git diff --cached --quiet && echo "no holds" && exit 0
+          git commit -m "data(review): AI review holds on ${{ inputs.ref }}"
+          for attempt in 1 2 3; do git pull --rebase origin "${{ inputs.ref }}" && git push origin "HEAD:${{ inputs.ref }}" && break; sleep $((attempt * 5)); done
