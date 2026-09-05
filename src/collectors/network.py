@@ -34,12 +34,21 @@ def _dns(name: str, rrtype: str) -> list[str]:
 def certificate(domain: str) -> Result:
     r = Result()
     ctx = ssl.create_default_context()
-    try:
-        with socket.create_connection((domain, 443), timeout=10) as sock:
-            with ctx.wrap_socket(sock, server_hostname=domain) as tls:
-                cert = tls.getpeercert()
-    except Exception as exc:
-        r.note(f"tls: 握手失败：{type(exc).__name__}: {exc}")
+    cert = None
+    last_exc: Exception | None = None
+    # 重试一次：220 条批跑里 deezer.com 因一次握手超时丢了 A4，从 verified 掉到 community。
+    # 「没采到」和「采到了是否定」是两回事——采集失败不该直接变成降级（见 SECURITY.md T5 的保鲜设计）。
+    for attempt, timeout in enumerate((10, 20), 1):
+        try:
+            with socket.create_connection((domain, 443), timeout=timeout) as sock:
+                with ctx.wrap_socket(sock, server_hostname=domain) as tls:
+                    cert = tls.getpeercert()
+            break
+        except Exception as exc:
+            last_exc = exc
+    if cert is None:
+        r.note(f"tls: 握手失败（重试 2 次）：{type(last_exc).__name__}: {last_exc}")
+        r.facts["collection_incomplete"] = True
         return r
 
     subject = {k: v for rdn in cert.get("subject", ()) for k, v in rdn}

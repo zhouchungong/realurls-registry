@@ -54,6 +54,11 @@ def gather(
     domain = registrable_domain(domain)
     out = Result(facts={"domain": domain})
 
+    # 站点首页只提供线索（GitHub 组织名、包名、出站链接），本身不是证据，所以可以先于锚定跑。
+    hints = site.collect(domain)
+    _merge(out, hints)
+    org_candidates = [o for o in (github_org,) if o] + hints.extra.get("github_orgs", [])
+
     # ---- 阶段 1：实体锚定 ----
     # 扩散场景下，目标域名**继承锚点域名的实体**（claude.ai 属于 Anthropic，不是属于"Claude"这个产品条目）。
     # 锚点域名自己独立锚定，绝不能反过来把目标的锚定塞给它。
@@ -64,18 +69,23 @@ def gather(
     else:
         ent = inherited_anchor or anchor(
             domain, github_org_override=canonical_github_org, wikidata_override=canonical_wikidata,
+            github_org_candidates=org_candidates,
         )
     out.notes.extend(ent.notes)
     out.facts.update(ent.as_facts())
     out.extra["entity_anchor"] = ent
 
     # ---- 阶段 2：域名证据 ----
-    hints = site.collect(domain)
-    _merge(out, hints)
-
     # canonical 组织放在候选最前面；猜测只是搜索启发式，判定由 policy 把关
-    org_hints = [o for o in (ent.github_org, github_org) if o] + hints.extra.get("github_orgs", [])
+    org_hints = [o for o in (ent.github_org,) if o] + org_candidates
     _merge(out, github.collect(domain, hints=org_hints))
+
+    # A8：已锚定仓库的 homepage → 本域名 + 首页反链。仓库事实来自锚定阶段（项目史）；
+    # 若锚定走的是 Wikidata，也补查一次 canonical 组织的项目史，让 A8 有机会成立。
+    if ent.github_org and not anchor_domain:
+        repo_info = ent.repo_info or github.repo_history(ent.github_org, out)
+        _merge(out, github.collect_repo_link(domain, ent.github_org, repo_info,
+                                             hints.extra.get("github_orgs", [])))
 
     pkgs = (packages or []) + hints.extra.get("npm_packages", [])
     _merge(out, npm.collect(domain, packages=pkgs, github_org=out.extra.get("github_org")))

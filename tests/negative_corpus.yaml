@@ -185,6 +185,48 @@ cases:
       - {code: B4, data: {history_days: 750}}
       - {code: B5, data: {rank: 400000}}
 
+  # ---- 以下四条对应 A8 / 项目史锚定（PROJECT-PLAN §9 M2 决策）----
+
+  - id: a8-fork-inherits-contributors
+    technique: fork 会继承上游的全部贡献者与提交历史；项目史锚定必须排除 fork（repo_anchored=false）
+    facts: {domain: "ollama-mirror[.]dev", age_days: 400}
+    evidence:
+      - {code: A8, data: {repo: "attacker/ollama", org: attacker, repo_anchored: false, homepage: "https://ollama-mirror[.]dev", backlink: true}}
+      - {code: B4, data: {history_days: 380}}
+      - {code: B5, data: {rank: 600000}}
+
+  - id: a8-fresh-repo-with-pushed-history
+    technique: 把上游历史 push 进新仓库（非 fork），贡献者看起来有几千，但 created_at 只有几个月
+    facts: {domain: "pytorch-install[.]org", age_days: 400}
+    evidence:
+      - {code: A8, data: {repo: "attacker/pytorch", org: attacker, repo_anchored: false, homepage: "https://pytorch-install[.]org", backlink: true, contributors: 3000, age_days: 90}}
+      - {code: B4, data: {history_days: 380}}
+      - {code: B5, data: {rank: 600000}}
+
+  - id: a8-homepage-points-to-platform
+    technique: 真实案例——yt-dlp 的 homepage 字段填的是 discord.gg。平台域永远不是某项目的官网
+    facts: {domain: discord.gg, age_days: 3000, expected_github_org: yt-dlp, anchor_sources: ["github-history:yt-dlp/yt-dlp"]}
+    evidence:
+      - {code: A8, data: {repo: "yt-dlp/yt-dlp", org: yt-dlp, repo_anchored: true, homepage: "https://discord.gg/H5MNcFW63r", backlink: false}}
+      - {code: B4, data: {history_days: 2900}}
+      - {code: B5, data: {rank: 200}}
+
+  - id: a8-anchored-repo-but-wrong-org
+    technique: 实体锚定到 ollama，攻击者用自己另一个（也满足门槛的老）仓库的 homepage 指向自己的域名
+    facts: {domain: "ollama-cloud[.]io", age_days: 1200, expected_github_org: ollama, expected_wikidata: Q124636097}
+    evidence:
+      - {code: A8, data: {repo: "oldproject/oldrepo", org: oldproject, repo_anchored: true, homepage: "https://ollama-cloud[.]io", backlink: true}}
+      - {code: B4, data: {history_days: 1100}}
+      - {code: B5, data: {rank: 500000}}
+
+  - id: a8-no-backlink
+    technique: 锚定仓库 homepage 指向本域名，但本域名首页没有链回该组织（域名可能已易主）
+    facts: {domain: "netdata-old[.]cloud", age_days: 2000, expected_github_org: netdata}
+    evidence:
+      - {code: A8, data: {repo: "netdata/netdata", org: netdata, repo_anchored: true, homepage: "https://netdata-old[.]cloud", backlink: false}}
+      - {code: B4, data: {history_days: 1900}}
+      - {code: B5, data: {rank: 300000}}
+
   - id: stale-b7-used-as-positive
     technique: 拿一条「Safe Browsing 已标记」的记录当正向佐证
     facts: {domain: "sketchy-mirror[.]site", age_days: 700}

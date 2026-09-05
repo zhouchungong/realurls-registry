@@ -39,6 +39,7 @@ class EntityAnchor:
     label: str = ""
     sources: tuple[str, ...] = ()
     notes: list[str] = field(default_factory=list)
+    repo_info: dict | None = None      # 项目史锚定命中的仓库事实，供 A8 使用
 
     @property
     def anchored(self) -> bool:
@@ -92,10 +93,50 @@ def anchor_from_wikidata(domain: str) -> EntityAnchor:
     return a
 
 
+def anchor_from_github_history(org_candidates: list[str]) -> EntityAnchor:
+    """用「GitHub 项目史」锚定：组织拥有一个非 fork、≥3 年、≥300 贡献者、≥5k 星的仓库。
+
+    Wikidata 覆盖公司，不覆盖开源项目——220 条摸底里 138 条 Wikidata 根本没条目。
+    项目史是另一种攻击者买不到的东西：星可以刷，但 3 年前就开始、300 个不同的人来提交，刷不出来。
+    锚定得到的身份是「开发了 ollama/ollama 五年的那个组织」，实体标签取自仓库，不取自组织自填的 name。
+    """
+    from src.collectors.github import repo_history
+
+    a = EntityAnchor()
+    seen = set()
+    for org in org_candidates:
+        if not org or org.lower() in seen:
+            continue
+        seen.add(org.lower())
+        info = repo_history(org)
+        if not info:
+            continue
+        a.github_org = org
+        a.label = info["repo"]
+        a.sources = (f"github-history:{info['repo']}"
+                     f"(age={info['age_days'] // 365}y,contrib={info['contributors']},stars={info['stars']})",)
+        a.notes.append(f"anchor: 项目史锚定 → {info['repo']}（{info['age_days'] // 365} 年，"
+                       f"{info['contributors']} 贡献者，{info['stars']} 星），canonical GitHub 组织 = {org}")
+        a.repo_info = info
+        return a
+    a.notes.append("anchor: 候选组织均无满足项目史门槛的仓库")
+    return a
+
+
 def anchor(domain: str, *, github_org_override: str | None = None,
-           wikidata_override: str | None = None) -> EntityAnchor:
-    """锚定入口。override 用于人类审核过的 canonical 值（来源标为 ``human``）。"""
+           wikidata_override: str | None = None,
+           github_org_candidates: list[str] | None = None) -> EntityAnchor:
+    """锚定入口：先 Wikidata，失败再试 GitHub 项目史。override 用于人类审核过的值（来源标为 ``human``）。"""
     a = anchor_from_wikidata(domain)
+    if not a.github_org and github_org_candidates:
+        gh = anchor_from_github_history(github_org_candidates)
+        a.notes.extend(gh.notes)
+        if gh.github_org:
+            # Wikidata 给了 QID 但没给 GitHub（常见：条目存在但无 P2037）→ 用项目史补 canonical 组织
+            a.github_org = gh.github_org
+            a.label = a.label or gh.label
+            a.sources = a.sources + gh.sources
+            a.repo_info = gh.repo_info
     if github_org_override:
         a.github_org = github_org_override
         a.sources = a.sources + ("human:github_org",)

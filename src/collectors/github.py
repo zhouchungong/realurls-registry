@@ -55,6 +55,97 @@ def _headers() -> dict[str, str]:
     return h
 
 
+# ---------------------------------------------------------------------------
+# 「GitHub 项目史」锚定权威 + A8
+# ---------------------------------------------------------------------------
+
+def _contributor_count(full_name: str) -> int:
+    """用 Link 头的 last page 数出贡献者数，只花一次请求。"""
+    import re
+    import urllib.request
+
+    url = f"{API}/repos/{full_name}/contributors?per_page=1&anon=true"
+    req = urllib.request.Request(url, headers={**_headers(), "User-Agent": "realurls-registry"})
+    with urllib.request.urlopen(req, timeout=20) as resp:
+        link = resp.headers.get("Link", "")
+    m = re.search(r'page=(\d+)>; rel="last"', link)
+    return int(m.group(1)) if m else 1
+
+
+def repo_history(org: str, r: Result | None = None) -> dict | None:
+    """在组织下找一个满足项目史门槛的仓库；找到即返回其事实，找不到返回 None。
+
+    门槛定义在 policy.py（REPO_ANCHOR_*）——它们是信任承诺的一部分，不在这里改。
+    """
+    from datetime import datetime, timezone
+
+    from src.policy import (
+        REPO_ANCHOR_MIN_AGE_DAYS, REPO_ANCHOR_MIN_CONTRIBUTORS, REPO_ANCHOR_MIN_STARS,
+    )
+    r = r or Result()
+    # /orgs/{org}/repos 不支持按星排序（只支持 created/updated/pushed/full_name），
+    # tensorflow 这种上百仓库的组织按字母序取前 30 个根本拿不到主仓库。用 search API 按星取。
+    import urllib.parse
+    q = urllib.parse.quote(f"org:{org} fork:false")
+    try:
+        repos = fetch_json(f"{API}/search/repositories?q={q}&sort=stars&order=desc&per_page=8",
+                           headers=_headers(), ttl_hours=168).get("items", [])
+    except FetchError as exc:
+        r.note(f"github: 搜索组织 {org} 的仓库失败：{exc}")
+        return None
+
+    repos = [x for x in repos if not x.get("fork")]
+    for repo in repos:
+        stars = repo.get("stargazers_count", 0)
+        if stars < REPO_ANCHOR_MIN_STARS:
+            break
+        created = datetime.fromisoformat(repo["created_at"].replace("Z", "+00:00"))
+        age_days = (datetime.now(timezone.utc) - created).days
+        if age_days < REPO_ANCHOR_MIN_AGE_DAYS:
+            continue
+        try:
+            contributors = _contributor_count(repo["full_name"])
+        except Exception as exc:
+            r.note(f"github: 数 {repo['full_name']} 贡献者失败：{type(exc).__name__}")
+            continue
+        if contributors < REPO_ANCHOR_MIN_CONTRIBUTORS:
+            continue
+        return {
+            "repo": repo["full_name"], "org": org, "stars": stars,
+            "age_days": age_days, "contributors": contributors,
+            "homepage": repo.get("homepage") or "",
+            "created_at": repo["created_at"],
+        }
+    return None
+
+
+def collect_repo_link(domain: str, org: str, repo_info: dict | None,
+                      site_github_orgs: list[str]) -> Result:
+    """A8：已锚定仓库的 homepage 指向本域名 + 本域名首页反向链回该组织。
+
+    只翻译事实，不判断——是否算数由 policy.py 的 A8 校验器决定。
+    """
+    r = Result()
+    if not repo_info:
+        r.note(f"github: 组织 {org} 无满足项目史门槛的仓库，A8 不适用")
+        return r
+    backlink = org.lower() in {o.lower() for o in site_github_orgs}
+    r.evidence.append(Evidence(
+        code="A8",
+        data={
+            "repo": repo_info["repo"], "org": org, "repo_anchored": True,
+            "homepage": repo_info["homepage"], "backlink": backlink,
+            "stars": repo_info["stars"], "age_days": repo_info["age_days"],
+            "contributors": repo_info["contributors"],
+        },
+        checked_at=now(),
+        source=f"{API}/repos/{repo_info['repo']}",
+    ))
+    r.note(f"github: A8 候选 {repo_info['repo']} homepage={repo_info['homepage'] or '空'}，"
+           f"首页反链={'有' if backlink else '无'}")
+    return r
+
+
 def _candidates(domain: str, hints: list[str] | None) -> list[str]:
     label = registrable_domain(domain).split(".")[0]
     guesses = [label, f"{label}s", label.replace("-", ""), f"{label}-ai", f"{label}ai"]

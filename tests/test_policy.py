@@ -90,6 +90,30 @@ def test_propagated_sibling_domain_is_verified():
     assert d.anchors == ["A6"]
 
 
+def test_a8_repo_homepage_with_backlink_is_an_anchor():
+    """开源项目的组织没做 GitHub 域名验证时，A8 是唯一能把域名绑到已锚定身份的证据。"""
+    facts = DomainFacts(domain="netdata.cloud", age_days=4000, expected_github_org="netdata",
+                        anchor_sources=("github-history:netdata/netdata(age=13y,contrib=690,stars=80432)",))
+    d = decide(facts, [
+        ev("A8", repo="netdata/netdata", org="netdata", repo_anchored=True,
+           homepage="https://www.netdata.cloud", backlink=True),
+        ev("B4", history_days=3800), ev("B5", rank=150000),
+    ], now=NOW)
+    assert d.status == "verified"
+    assert d.anchors == ["A8"]
+
+
+def test_a8_and_a1_are_correlated():
+    """A1 / A8 都落在同一个 GitHub 组织上，组织被接管一起失效，只计 1 条。"""
+    d = decide(example_facts(), [
+        ev("A1", org_verified=True, blog="https://example.com", org="exampleorg"),
+        ev("A8", repo="exampleorg/x", org="exampleorg", repo_anchored=True,
+           homepage="https://example.com", backlink=True),
+    ], now=NOW)
+    assert d.anchors == ["A1"]
+    assert d.status == "provisional"
+
+
 def test_gov_restricted_tld_is_an_anchor():
     """后缀本身就是锚点：注册局只让政府机构注册。"""
     facts = DomainFacts(domain="travel.state.gov", age_days=None)

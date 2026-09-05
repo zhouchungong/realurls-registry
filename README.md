@@ -29,16 +29,18 @@ curl -s https://api.github.com/orgs/anthropics | jq '{name, blog, is_verified}'
 
 ## 现在的状态
 
-**M1 完成 + 评审修复完成。** 尚未开始批量冷启动。
+**M2 进行中：220 条真实分布摸底已完成两轮。**
 
-评审（`REVIEW-RESULT.md`，私有）构造出一条能骗过初版规则的攻击链——为自己的域名建 GitHub 组织并验证，
-控制权是真的、身份是假的。修复引入了"先锚定实体，再验证域名"的两阶段结构，见 [POLICY.md §0](POLICY.md)。
+评审构造出一条能骗过初版规则的攻击链——为自己的域名建 GitHub 组织并验证，控制权是真的、身份是假的。
+修复引入了"先锚定实体，再验证域名"的两阶段结构，见 [POLICY.md §0](POLICY.md)。
+摸底发现 Wikidata 只能锚定 17% 的开源项目，于是增加了「GitHub 项目史」锚定权威与 A8，verified 从 8% 升到 24%——
+剩下的大多是 Wikidata 无条目、也没有 ≥3 年/≥300 贡献者仓库的年轻项目，**不降低门槛去够它们**。
 
 ```
 ✅ M0  TRUST.md / POLICY.md / policy.py / 正负样本回归测试
 ✅ M1  证据采集流水线 + `python -m src.verify <domain>` 端到端跑通
 ✅ 评审修复  实体锚定 / 域龄 fail-closed / A6 一方声明 / A3 名单 / A7 政府 TLD / +6 负样本
-⬜ M2  冷启动数据 ≥1,200 verified，抽样 precision ≥99.5%
+🔄 M2  220 条真实分布摸底：verified 24%、provisional 10%；新增 GitHub 项目史锚定 + A8；待人工抽查后生成 entities/
 ⬜ M3  Cloudflare Workers API + MCP Server（发布点）
 ⬜ M4  realurls.com 证据页 + 浏览器扩展 + 生态回写
 ```
@@ -63,18 +65,25 @@ python -m src.verify claude.ai --anchor anthropic.com     # 锚点扩散
 ```python
 from src.policy import DomainFacts, Evidence, decide
 
+# 先锚定实体（这里直接给出 src/anchor.py 从 Wikidata Q116758847 得到的结果），再验证域名
 d = decide(
-    DomainFacts(domain="anthropic.com", age_days=9104),
+    DomainFacts(domain="anthropic.com", age_days=9104,
+                expected_github_org="anthropics", expected_wikidata="Q116758847",
+                anchor_sources=("wikidata:Q116758847/P2037",)),
     [
-        Evidence("A1", {"org_verified": True, "blog": "https://anthropic.com"}),
+        Evidence("A1", {"org": "anthropics", "org_verified": True, "blog": "https://anthropic.com"}),
         Evidence("A3", {"registrar": "MarkMonitor Inc.", "remaining_days": 2584,
                         "locks": ["delete", "transfer", "update"]}),
-        Evidence("B1"),
+        Evidence("B1", {"qid": "Q116758847"}),
         Evidence("B4", {"history_days": 1800}),
     ],
 )
 print(d.status, d.confidence, d.reasons)
 # verified 0.9303 ['2 条独立锚点 + 2 条独立佐证，达到 verified 门槛']
+
+# 少了实体锚定会怎样：同样的证据，A1 被拒——「控制权证明不能当归属证明」
+d = decide(DomainFacts(domain="anthropic.com", age_days=9104), [...])
+# provisional  rejected=['A1: 实体未锚定：…']
 ```
 
 ## 仓库结构

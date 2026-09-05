@@ -47,7 +47,25 @@ ANCHOR_CODES: dict[str, str] = {
     "A5": "DNS TXT 自证（_realurls.<domain>）",
     "A6": "锚点扩散：已 verified 域名页面上的一方声明 + 结构性关联",
     "A7": "受限 TLD：注册局仅允许政府机构注册（.gov / .gov.cn / .gouv.fr …）",
+    "A8": "已锚定仓库的 homepage 指向本域名，且本域名首页反向链回该仓库",
 }
+
+#: A8 的 homepage 不得指向这些平台域——yt-dlp 的 homepage 字段填的就是 discord.gg，
+#: 不排除会把 discord.gg 绑给 yt-dlp。平台域永远不是某个项目的官网。
+PLATFORM_DOMAINS: frozenset[str] = frozenset({
+    "discord.gg", "discord.com", "x.com", "twitter.com", "t.me", "telegram.org", "youtube.com",
+    "github.com", "github.io", "gitlab.com", "gitlab.io", "bitbucket.org", "readthedocs.io",
+    "readthedocs.org", "gitbook.io", "notion.site", "notion.so", "medium.com", "substack.com",
+    "linkedin.com", "facebook.com", "reddit.com", "npmjs.com", "pypi.org", "crates.io",
+    "huggingface.co", "vercel.app", "netlify.app", "pages.dev", "web.app", "herokuapp.com",
+    "google.com", "docs.google.com", "sites.google.com", "wordpress.com", "blogspot.com",
+})
+
+#: 「GitHub 项目史」锚定权威的门槛（src/anchor.py 使用，放这里是因为它们也是信任承诺的一部分）。
+#: 星可以买；3 年前就开始、300 个不同的人来提交，买不到；把别人的历史 push 进新仓库，created_at 会暴露。
+REPO_ANCHOR_MIN_AGE_DAYS = 3 * 365
+REPO_ANCHOR_MIN_CONTRIBUTORS = 300
+REPO_ANCHOR_MIN_STARS = 5000
 
 #: 受限 TLD：后缀本身就是锚点。只证明「是政府站」，不证明「是哪个部门」。
 RESTRICTED_GOV_SUFFIXES: frozenset[str] = frozenset({
@@ -68,8 +86,8 @@ CORROBORATION_CODES: dict[str, str] = {
 }
 
 #: 互相关联的锚点，同组内最多计 1 条。
-#: A2 的信任链最终落到 A1（provenance → 仓库 → 已验证组织），因此二者不独立。
-CORRELATED_ANCHOR_GROUPS: list[frozenset[str]] = [frozenset({"A1", "A2"})]
+#: A1 / A2 / A8 都落在「同一个 GitHub 组织」这个信任锚上——组织被接管三者一起失效，因此不独立。
+CORRELATED_ANCHOR_GROUPS: list[frozenset[str]] = [frozenset({"A1", "A2", "A8"})]
 
 #: 某锚点存在时，被其蕴含的佐证不再单独计数（避免同一事实被数两次）。
 IMPLIED_CORROBORATIONS: dict[str, set[str]] = {
@@ -107,7 +125,7 @@ CORPORATE_REGISTRARS: frozenset[str] = frozenset(
 #:   A1/A2 次之 —— GitHub 已经代做了 DNS 级域名验证，且有 sigstore 链。
 #:   A3 最弱 —— 企业注册指纹只证明「买得起」，是成本壁垒而非身份证明。
 WEIGHTS: dict[str, float] = {
-    "A5": 0.90, "A1": 0.80, "A7": 0.80, "A2": 0.75, "A4": 0.70, "A6": 0.65, "A3": 0.55,
+    "A5": 0.90, "A1": 0.80, "A7": 0.80, "A2": 0.75, "A4": 0.70, "A6": 0.65, "A8": 0.60, "A3": 0.55,
     "B1": 0.12, "B2": 0.08, "B3": 0.10, "B4": 0.12, "B5": 0.06, "B6": 0.10, "B7": 0.05,
 }
 
@@ -340,6 +358,26 @@ def _v_a7(ev: Evidence, facts: DomainFacts) -> tuple[bool, str]:
     d = facts.domain.lower().rstrip(".")
     if not any(d == s or d.endswith(f".{s}") for s in RESTRICTED_GOV_SUFFIXES):
         return False, f"{d} 不在受限政府 TLD 名单内"
+    return True, ""
+
+
+@_validator("A8")
+def _v_a8(ev: Evidence, facts: DomainFacts) -> tuple[bool, str]:
+    """已锚定仓库的 homepage → 本域名，且本域名首页反向链回仓库。
+
+    比 A1 弱（没有 DNS 级证明），所以权重 0.60。但对「GitHub 组织没做域名验证」的开源项目，
+    这是唯一能把域名绑到已锚定身份上的证据。攻击者要伪造它，得控制一个已锚定的仓库——做不到。
+    """
+    if not ev.data.get("repo_anchored"):
+        return False, f"仓库 {ev.data.get('repo')} 未通过项目史锚定（非 fork / ≥3 年 / ≥300 贡献者 / ≥5k 星）"
+    if why := _require_anchored_org(ev.data.get("org", ""), facts):
+        return False, why
+    if registrable_domain(facts.domain) in PLATFORM_DOMAINS:
+        return False, f"{facts.domain} 是平台域，不可能是某个项目的官网"
+    if not _same_site(ev.data.get("homepage", ""), facts.domain):
+        return False, f"仓库 homepage（{ev.data.get('homepage')}）不指向本域名"
+    if not ev.data.get("backlink"):
+        return False, "本域名首页没有链接回该 GitHub 组织，缺少反向确认"
     return True, ""
 
 
