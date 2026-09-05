@@ -1,0 +1,100 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.1
+schema_version: '1.0'
+entity_id: org:ollama
+names:
+  en: Ollama
+aliases:
+- ollama
+category:
+- ai
+wikidata: Q124636097
+canonical:
+  github_org: ollama
+  wikidata: Q124636097
+  sources:
+  - wikidata:Q124636097/P856
+  - wikidata:Q124636097/P2037
+domains:
+- domain: ollama.com
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T05:17:36Z'
+  ttl_days: 30
+  age_days: 3406
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T05:17:43Z'
+    source: https://api.github.com/orgs/ollama
+    data:
+      org: ollama
+      org_verified: true
+      blog: https://ollama.com
+      org_name: Ollama
+      created_at: '2023-11-21T18:52:26Z'
+  - code: A8
+    checked_at: '2026-09-05T05:17:44Z'
+    source: https://api.github.com/repos/ollama/ollama
+    data:
+      repo: ollama/ollama
+      org: ollama
+      repo_anchored: true
+      homepage: https://ollama.com
+      backlink: true
+      stars: 180173
+      age_days: 1166
+      contributors: 615
+  - code: A3
+    checked_at: '2026-09-05T05:17:44Z'
+    source: https://rdap.org/domain/ollama.com
+    data:
+      registrar: Cloudflare, Inc.
+      created: '2017-05-08'
+      expires: '2036-05-08'
+      remaining_days: 3533
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T05:17:44Z'
+    source: TLS handshake ollama.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 3
+  - code: B1
+    checked_at: '2026-09-05T05:17:44Z'
+    source: https://www.wikidata.org/wiki/Q124636097
+    data:
+      qid: Q124636097
+      label: Ollama
+      site: https://ollama.com/
+      sitelinks: 12
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-05T05:17:44Z'
+    source: http://web.archive.org/cdx/search/cdx?url=ollama.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2013-07-27'
+      history_days: 4788
+  - code: B5
+    checked_at: '2026-09-05T05:17:44Z'
+    source: https://tranco-list.eu/api/ranks/domain/ollama.com
+    data:
+      rank: 4233
+      date: '2026-09-03'
+  rejected_evidence:
+  - 'A3: 注册商（Cloudflare, Inc.）不在企业级注册商名单内'
+  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
+  reasons:
+  - 关联锚点合并，A8 与保留项不独立，不重复计数
+  - 1 条独立锚点 + 3 条独立佐证，达到 verified 门槛
+provenance:
+  generated_by: build_entities/0.1
+  policy_version: policy.py@180e4ed
+  reviewed_by: []
+  source_issue: null

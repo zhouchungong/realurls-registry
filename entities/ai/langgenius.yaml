@@ -1,0 +1,91 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.1
+schema_version: '1.0'
+entity_id: org:langgenius
+names:
+  en: langgenius/dify
+aliases:
+- LangGenius
+- langgenius
+category:
+- ai
+wikidata: null
+canonical:
+  github_org: langgenius
+  wikidata: null
+  sources:
+  - github-history:langgenius/dify(age=3y,contrib=1459,stars=154474)
+domains:
+- domain: dify.ai
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T05:17:36Z'
+  ttl_days: 30
+  age_days: 1220
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T05:17:46Z'
+    source: https://api.github.com/orgs/langgenius
+    data:
+      org: langgenius
+      org_verified: true
+      blog: https://dify.ai
+      org_name: LangGenius
+      created_at: '2023-03-07T01:45:41Z'
+  - code: A8
+    checked_at: '2026-09-05T05:17:46Z'
+    source: https://api.github.com/repos/langgenius/dify
+    data:
+      repo: langgenius/dify
+      org: langgenius
+      repo_anchored: true
+      homepage: https://dify.ai
+      backlink: true
+      stars: 154474
+      age_days: 1241
+      contributors: 1459
+  - code: A3
+    checked_at: '2026-09-05T05:17:46Z'
+    source: https://rdap.org/domain/dify.ai
+    data:
+      registrar: NameCheap, Inc.
+      created: '2023-05-03'
+      expires: '2029-05-03'
+      remaining_days: 971
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T05:17:46Z'
+    source: TLS handshake dify.ai:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 3
+  - code: B4
+    checked_at: '2026-09-05T05:17:46Z'
+    source: http://web.archive.org/cdx/search/cdx?url=dify.ai&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2023-05-09'
+      history_days: 1215
+  - code: B5
+    checked_at: '2026-09-05T05:17:46Z'
+    source: https://tranco-list.eu/api/ranks/domain/dify.ai
+    data:
+      rank: 53707
+      date: '2026-09-04'
+  rejected_evidence:
+  - 'A3: 注册商（NameCheap, Inc.）不在企业级注册商名单内'
+  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
+  reasons:
+  - 关联锚点合并，A8 与保留项不独立，不重复计数
+  - 1 条独立锚点 + 2 条独立佐证，达到 verified 门槛
+provenance:
+  generated_by: build_entities/0.1
+  policy_version: policy.py@180e4ed
+  reviewed_by: []
+  source_issue: null

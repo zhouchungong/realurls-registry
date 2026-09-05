@@ -1,0 +1,100 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.1
+schema_version: '1.0'
+entity_id: org:clickhouse
+names:
+  en: ClickHouse
+aliases: []
+category:
+- ai
+wikidata: Q27825826
+canonical:
+  github_org: ClickHouse
+  wikidata: Q27825826
+  sources:
+  - wikidata:Q27825826/P856
+  - wikidata:Q27825826/P2037
+domains:
+- domain: clickhouse.com
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T05:17:36Z'
+  ttl_days: 30
+  age_days: 10039
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T05:18:05Z'
+    source: https://api.github.com/orgs/ClickHouse
+    data:
+      org: ClickHouse
+      org_verified: true
+      blog: https://clickhouse.com
+      org_name: ClickHouse
+      created_at: '2019-09-02T10:22:35Z'
+  - code: A8
+    checked_at: '2026-09-05T05:18:06Z'
+    source: https://api.github.com/repos/ClickHouse/ClickHouse
+    data:
+      repo: ClickHouse/ClickHouse
+      org: ClickHouse
+      repo_anchored: true
+      homepage: https://clickhouse.com
+      backlink: true
+      stars: 49650
+      age_days: 3746
+      contributors: 3165
+  - code: A3
+    checked_at: '2026-09-05T05:18:06Z'
+    source: https://rdap.org/domain/clickhouse.com
+    data:
+      registrar: Squarespace Domains II LLC
+      created: '1999-03-12'
+      expires: '2032-03-12'
+      remaining_days: 2014
+      locks:
+      - delete
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T05:18:06Z'
+    source: TLS handshake clickhouse.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T05:18:06Z'
+    source: https://www.wikidata.org/wiki/Q27825826
+    data:
+      qid: Q27825826
+      label: ClickHouse
+      site: https://clickhouse.com
+      sitelinks: 6
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-05T05:18:06Z'
+    source: http://web.archive.org/cdx/search/cdx?url=clickhouse.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1999-10-13'
+      history_days: 9824
+  - code: B5
+    checked_at: '2026-09-05T05:18:06Z'
+    source: https://tranco-list.eu/api/ranks/domain/clickhouse.com
+    data:
+      rank: 30120
+      date: '2026-09-04'
+  rejected_evidence:
+  - 'A3: 注册商（Squarespace Domains II LLC）不在企业级注册商名单内'
+  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
+  reasons:
+  - 关联锚点合并，A8 与保留项不独立，不重复计数
+  - 1 条独立锚点 + 3 条独立佐证，达到 verified 门槛
+provenance:
+  generated_by: build_entities/0.1
+  policy_version: policy.py@180e4ed
+  reviewed_by: []
+  source_issue: null

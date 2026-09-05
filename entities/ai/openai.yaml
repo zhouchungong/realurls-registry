@@ -1,0 +1,106 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.1
+schema_version: '1.0'
+entity_id: org:openai
+names:
+  en: OpenAI
+aliases:
+- openai
+category:
+- ai
+- developer-tools
+wikidata: Q21708200
+canonical:
+  github_org: openai
+  wikidata: Q21708200
+  sources:
+  - wikidata:Q21708200/P856
+  - wikidata:Q21708200/P2037
+domains:
+- domain: openai.com
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T05:17:36Z'
+  ttl_days: 30
+  age_days: 7168
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T05:19:11Z'
+    source: https://api.github.com/orgs/openai
+    data:
+      org: openai
+      org_verified: true
+      blog: https://openai.com/
+      org_name: OpenAI
+      created_at: '2015-10-03T19:34:05Z'
+  - code: A8
+    checked_at: '2026-09-05T05:19:14Z'
+    source: https://api.github.com/repos/openai/openai-cookbook
+    data:
+      repo: openai/openai-cookbook
+      org: openai
+      repo_anchored: true
+      homepage: https://cookbook.openai.com
+      backlink: true
+      stars: 75752
+      age_days: 1639
+      contributors: 383
+  - code: A3
+    checked_at: '2026-09-05T05:19:14Z'
+    source: https://rdap.org/domain/openai.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2007-01-19'
+      expires: '2029-01-19'
+      remaining_days: 867
+      locks:
+      - delete
+      - transfer
+      - update
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-05T05:19:14Z'
+    source: TLS handshake openai.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T05:19:14Z'
+    source: https://www.wikidata.org/wiki/Q21708200
+    data:
+      qid: Q21708200
+      label: OpenAI
+      site: https://openai.com/
+      sitelinks: 96
+      competing_items: 1
+  - code: B4
+    checked_at: '2026-09-05T05:19:14Z'
+    source: http://web.archive.org/cdx/search/cdx?url=openai.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2001-07-06'
+      history_days: 9192
+  - code: B5
+    checked_at: '2026-09-05T05:19:14Z'
+    source: https://tranco-list.eu/api/ranks/domain/openai.com
+    data:
+      rank: 85
+      date: '2026-09-04'
+  rejected_evidence:
+  - 'A3: 到期日不足 1095 天，不符合企业长期预付特征'
+  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
+  reasons:
+  - 关联锚点合并，A8 与保留项不独立，不重复计数
+  - 1 条独立锚点 + 3 条独立佐证，达到 verified 门槛
+provenance:
+  generated_by: build_entities/0.1
+  policy_version: policy.py@180e4ed
+  reviewed_by: []
+  source_issue: null

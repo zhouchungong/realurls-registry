@@ -1,0 +1,89 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.1
+schema_version: '1.0'
+entity_id: org:huggingface
+names:
+  en: Hugging Face
+aliases:
+- huggingface
+category:
+- ai
+wikidata: Q108943604
+canonical:
+  github_org: huggingface
+  wikidata: Q108943604
+  sources:
+  - wikidata:Q108943604/P856
+  - wikidata:Q108943604/P2037
+domains:
+- domain: huggingface.co
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T05:17:36Z'
+  ttl_days: 30
+  age_days: 3458
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T05:17:44Z'
+    source: https://api.github.com/orgs/huggingface
+    data:
+      org: huggingface
+      org_verified: true
+      blog: https://huggingface.co/
+      org_name: Hugging Face
+      created_at: '2017-02-12T11:20:28Z'
+  - code: A8
+    checked_at: '2026-09-05T05:17:45Z'
+    source: https://api.github.com/repos/huggingface/transformers
+    data:
+      repo: huggingface/transformers
+      org: huggingface
+      repo_anchored: true
+      homepage: https://huggingface.co/transformers
+      backlink: true
+      stars: 164798
+      age_days: 2867
+      contributors: 4099
+  - code: A4
+    checked_at: '2026-09-05T05:17:45Z'
+    source: TLS handshake huggingface.co:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T05:17:45Z'
+    source: https://www.wikidata.org/wiki/Q108943604
+    data:
+      qid: Q108943604
+      label: Hugging Face
+      site: https://huggingface.co/
+      sitelinks: 30
+      competing_items: 2
+  - code: B4
+    checked_at: '2026-09-05T05:17:45Z'
+    source: http://web.archive.org/cdx/search/cdx?url=huggingface.co&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2017-03-18'
+      history_days: 3458
+  - code: B5
+    checked_at: '2026-09-05T05:17:45Z'
+    source: https://tranco-list.eu/api/ranks/domain/huggingface.co
+    data:
+      rank: 1160
+      date: '2026-09-04'
+  rejected_evidence:
+  - 'A8: huggingface.co 是平台域，不可能是某个项目的官网'
+  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
+  reasons:
+  - 1 条独立锚点 + 3 条独立佐证，达到 verified 门槛
+provenance:
+  generated_by: build_entities/0.1
+  policy_version: policy.py@180e4ed
+  reviewed_by: []
+  source_issue: null

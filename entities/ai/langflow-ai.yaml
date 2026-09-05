@@ -1,0 +1,80 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.1
+schema_version: '1.0'
+entity_id: org:langflow-ai
+names:
+  en: langflow-ai/langflow
+aliases:
+- Langflow
+- langflow-ai
+category:
+- ai
+wikidata: null
+canonical:
+  github_org: langflow-ai
+  wikidata: null
+  sources:
+  - github-history:langflow-ai/langflow(age=3y,contrib=379,stars=154265)
+domains:
+- domain: langflow.org
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T05:17:36Z'
+  ttl_days: 30
+  age_days: 1186
+  age_source: rdap
+  collection_incomplete: true
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T05:17:47Z'
+    source: https://api.github.com/orgs/langflow-ai
+    data:
+      org: langflow-ai
+      org_verified: false
+      blog: https://www.langflow.org/
+  - code: A8
+    checked_at: '2026-09-05T05:17:47Z'
+    source: https://api.github.com/repos/langflow-ai/langflow
+    data:
+      repo: langflow-ai/langflow
+      org: langflow-ai
+      repo_anchored: true
+      homepage: http://www.langflow.org
+      backlink: true
+      stars: 154265
+      age_days: 1304
+      contributors: 379
+  - code: A3
+    checked_at: '2026-09-05T05:17:48Z'
+    source: https://rdap.org/domain/langflow.org
+    data:
+      registrar: CSC Corporate Domains, Inc.
+      created: '2023-06-06'
+      expires: '2027-06-06'
+      remaining_days: 274
+      locks:
+      - transfer
+  - code: B4
+    checked_at: '2026-09-05T05:17:49Z'
+    source: http://web.archive.org/cdx/search/cdx?url=langflow.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2023-06-26'
+      history_days: 1167
+  - code: B5
+    checked_at: '2026-09-05T05:17:49Z'
+    source: https://tranco-list.eu/api/ranks/domain/langflow.org
+    data:
+      rank: 321873
+      date: '2026-09-04'
+  rejected_evidence:
+  - 'A1: GitHub 组织未通过域名验证（is_verified != true）'
+  - 'A3: 到期日不足 1095 天，不符合企业长期预付特征'
+  reasons:
+  - 1 条独立锚点 + 2 条独立佐证，达到 verified 门槛
+provenance:
+  generated_by: build_entities/0.1
+  policy_version: policy.py@180e4ed
+  reviewed_by: []
+  source_issue: null

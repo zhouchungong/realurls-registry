@@ -1,0 +1,80 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.1
+schema_version: '1.0'
+entity_id: org:prefecthq
+names:
+  en: PrefectHQ/prefect
+aliases:
+- Prefect
+- PrefectHQ
+category:
+- ai
+wikidata: null
+canonical:
+  github_org: PrefectHQ
+  wikidata: null
+  sources:
+  - github-history:PrefectHQ/prefect(age=8y,contrib=473,stars=23783)
+domains:
+- domain: prefect.io
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T05:17:36Z'
+  ttl_days: 30
+  age_days: 2942
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T05:19:21Z'
+    source: https://api.github.com/orgs/PrefectHQ
+    data:
+      org: PrefectHQ
+      org_verified: true
+      blog: https://prefect.io
+      org_name: Prefect
+      created_at: '2018-05-14T14:36:24Z'
+  - code: A8
+    checked_at: '2026-09-05T05:19:21Z'
+    source: https://api.github.com/repos/PrefectHQ/prefect
+    data:
+      repo: PrefectHQ/prefect
+      org: PrefectHQ
+      repo_anchored: true
+      homepage: https://prefect.io
+      backlink: true
+      stars: 23783
+      age_days: 2989
+      contributors: 473
+  - code: A4
+    checked_at: '2026-09-05T05:19:22Z'
+    source: TLS handshake prefect.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B4
+    checked_at: '2026-09-05T05:19:22Z'
+    source: http://web.archive.org/cdx/search/cdx?url=prefect.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2018-08-16'
+      history_days: 2942
+  - code: B5
+    checked_at: '2026-09-05T05:19:22Z'
+    source: https://tranco-list.eu/api/ranks/domain/prefect.io
+    data:
+      rank: 68060
+      date: '2026-09-04'
+  rejected_evidence:
+  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
+  reasons:
+  - 关联锚点合并，A8 与保留项不独立，不重复计数
+  - 1 条独立锚点 + 2 条独立佐证，达到 verified 门槛
+provenance:
+  generated_by: build_entities/0.1
+  policy_version: policy.py@180e4ed
+  reviewed_by: []
+  source_issue: null

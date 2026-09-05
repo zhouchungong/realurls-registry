@@ -1,0 +1,92 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.1
+schema_version: '1.0'
+entity_id: org:berriai
+names:
+  en: BerriAI/litellm
+aliases:
+- Berri AI
+- BerriAI
+category:
+- ai
+wikidata: null
+canonical:
+  github_org: BerriAI
+  wikidata: null
+  sources:
+  - github-history:BerriAI/litellm(age=3y,contrib=1677,stars=58062)
+domains:
+- domain: litellm.ai
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T05:17:36Z'
+  ttl_days: 30
+  age_days: 1124
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T05:18:02Z'
+    source: https://api.github.com/orgs/BerriAI
+    data:
+      org: BerriAI
+      org_verified: false
+      blog: https://docs.litellm.ai/docs/
+  - code: A8
+    checked_at: '2026-09-05T05:18:02Z'
+    source: https://api.github.com/repos/BerriAI/litellm
+    data:
+      repo: BerriAI/litellm
+      org: BerriAI
+      repo_anchored: true
+      homepage: https://docs.litellm.ai/docs/
+      backlink: true
+      stars: 58062
+      age_days: 1136
+      contributors: 1677
+  - code: A3
+    checked_at: '2026-09-05T05:18:02Z'
+    source: https://rdap.org/domain/litellm.ai
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2023-08-07'
+      expires: '2027-08-07'
+      remaining_days: 336
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T05:18:03Z'
+    source: TLS handshake litellm.ai:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 1
+  - code: B4
+    checked_at: '2026-09-05T05:18:03Z'
+    source: http://web.archive.org/cdx/search/cdx?url=litellm.ai&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2023-08-08'
+      history_days: 1124
+  - code: B5
+    checked_at: '2026-09-05T05:18:03Z'
+    source: https://tranco-list.eu/api/ranks/domain/litellm.ai
+    data:
+      rank: 111697
+      date: '2026-09-04'
+  rejected_evidence:
+  - 'A1: GitHub 组织未通过域名验证（is_verified != true）'
+  - 'A3: 注册商（GoDaddy.com, LLC）不在企业级注册商名单内'
+  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
+  reasons:
+  - 1 条独立锚点 + 2 条独立佐证，达到 verified 门槛
+provenance:
+  generated_by: build_entities/0.1
+  policy_version: policy.py@180e4ed
+  reviewed_by: []
+  source_issue: null

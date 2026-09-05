@@ -1,0 +1,79 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.1
+schema_version: '1.0'
+entity_id: org:marimo-team
+names:
+  en: marimo-team/marimo
+aliases:
+- marimo
+- marimo-team
+category:
+- ai
+- developer-tools
+wikidata: null
+canonical:
+  github_org: marimo-team
+  wikidata: null
+  sources:
+  - github-history:marimo-team/marimo(age=3y,contrib=335,stars=22644)
+domains:
+- domain: marimo.io
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T05:17:36Z'
+  ttl_days: 30
+  age_days: 2858
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T05:19:31Z'
+    source: https://api.github.com/orgs/marimo-team
+    data:
+      org: marimo-team
+      org_verified: false
+      blog: https://marimo.io/
+  - code: A8
+    checked_at: '2026-09-05T05:19:31Z'
+    source: https://api.github.com/repos/marimo-team/marimo
+    data:
+      repo: marimo-team/marimo
+      org: marimo-team
+      repo_anchored: true
+      homepage: https://marimo.io
+      backlink: true
+      stars: 22644
+      age_days: 1117
+      contributors: 335
+  - code: A4
+    checked_at: '2026-09-05T05:19:32Z'
+    source: TLS handshake marimo.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B4
+    checked_at: '2026-09-05T05:19:32Z'
+    source: http://web.archive.org/cdx/search/cdx?url=marimo.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2018-11-08'
+      history_days: 2858
+  - code: B5
+    checked_at: '2026-09-05T05:19:32Z'
+    source: https://tranco-list.eu/api/ranks/domain/marimo.io
+    data:
+      rank: 424798
+      date: '2026-09-04'
+  rejected_evidence:
+  - 'A1: GitHub 组织未通过域名验证（is_verified != true）'
+  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
+  reasons:
+  - 1 条独立锚点 + 2 条独立佐证，达到 verified 门槛
+provenance:
+  generated_by: build_entities/0.1
+  policy_version: policy.py@180e4ed
+  reviewed_by: []
+  source_issue: null

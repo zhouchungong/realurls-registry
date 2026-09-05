@@ -1,0 +1,91 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.1
+schema_version: '1.0'
+entity_id: org:pydantic
+names:
+  en: pydantic/pydantic
+aliases:
+- Pydantic
+- pydantic
+category:
+- ai
+wikidata: null
+canonical:
+  github_org: pydantic
+  wikidata: null
+  sources:
+  - github-history:pydantic/pydantic(age=9y,contrib=806,stars=28717)
+domains:
+- domain: pydantic.dev
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T05:17:36Z'
+  ttl_days: 30
+  age_days: 1594
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T05:19:37Z'
+    source: https://api.github.com/orgs/pydantic
+    data:
+      org: pydantic
+      org_verified: true
+      blog: https://pydantic.dev
+      org_name: Pydantic
+      created_at: '2022-08-08T09:19:39Z'
+  - code: A8
+    checked_at: '2026-09-05T05:19:37Z'
+    source: https://api.github.com/repos/pydantic/pydantic
+    data:
+      repo: pydantic/pydantic
+      org: pydantic
+      repo_anchored: true
+      homepage: https://pydantic.dev/docs/validation
+      backlink: true
+      stars: 28717
+      age_days: 3411
+      contributors: 806
+  - code: A3
+    checked_at: '2026-09-05T05:19:37Z'
+    source: https://rdap.org/domain/pydantic.dev
+    data:
+      registrar: CloudFlare, Inc.
+      created: '2022-04-24'
+      expires: '2027-04-24'
+      remaining_days: 231
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T05:19:37Z'
+    source: TLS handshake pydantic.dev:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 1
+  - code: B4
+    checked_at: '2026-09-05T05:19:37Z'
+    source: http://web.archive.org/cdx/search/cdx?url=pydantic.dev&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2023-02-16'
+      history_days: 1297
+  - code: B5
+    checked_at: '2026-09-05T05:19:37Z'
+    source: https://tranco-list.eu/api/ranks/domain/pydantic.dev
+    data:
+      rank: 53936
+      date: '2026-09-04'
+  rejected_evidence:
+  - 'A3: 注册商（CloudFlare, Inc.）不在企业级注册商名单内'
+  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
+  reasons:
+  - 关联锚点合并，A8 与保留项不独立，不重复计数
+  - 1 条独立锚点 + 2 条独立佐证，达到 verified 门槛
+provenance:
+  generated_by: build_entities/0.1
+  policy_version: policy.py@180e4ed
+  reviewed_by: []
+  source_issue: null

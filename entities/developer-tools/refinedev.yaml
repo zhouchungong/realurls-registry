@@ -1,0 +1,92 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.1
+schema_version: '1.0'
+entity_id: org:refinedev
+names:
+  en: refinedev/refine
+aliases:
+- refine
+- refinedev
+category:
+- developer-tools
+wikidata: null
+canonical:
+  github_org: refinedev
+  wikidata: null
+  sources:
+  - github-history:refinedev/refine(age=5y,contrib=328,stars=35630)
+domains:
+- domain: refine.dev
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T05:17:36Z'
+  ttl_days: 30
+  age_days: 1911
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T05:19:10Z'
+    source: https://api.github.com/orgs/refinedev
+    data:
+      org: refinedev
+      org_verified: false
+      blog: https://refine.dev
+  - code: A8
+    checked_at: '2026-09-05T05:19:10Z'
+    source: https://api.github.com/repos/refinedev/refine
+    data:
+      repo: refinedev/refine
+      org: refinedev
+      repo_anchored: true
+      homepage: https://refine.dev
+      backlink: true
+      stars: 35630
+      age_days: 2053
+      contributors: 328
+  - code: A3
+    checked_at: '2026-09-05T05:19:10Z'
+    source: https://rdap.org/domain/refine.dev
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2021-06-11'
+      expires: '2027-06-11'
+      remaining_days: 279
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T05:19:11Z'
+    source: TLS handshake refine.dev:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B4
+    checked_at: '2026-09-05T05:19:11Z'
+    source: http://web.archive.org/cdx/search/cdx?url=refine.dev&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2021-09-24'
+      history_days: 1807
+  - code: B5
+    checked_at: '2026-09-05T05:19:11Z'
+    source: https://tranco-list.eu/api/ranks/domain/refine.dev
+    data:
+      rank: 365601
+      date: '2026-09-04'
+  rejected_evidence:
+  - 'A1: GitHub 组织未通过域名验证（is_verified != true）'
+  - 'A3: 注册商（GoDaddy.com, LLC）不在企业级注册商名单内'
+  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
+  reasons:
+  - 1 条独立锚点 + 2 条独立佐证，达到 verified 门槛
+provenance:
+  generated_by: build_entities/0.1
+  policy_version: policy.py@180e4ed
+  reviewed_by: []
+  source_issue: null

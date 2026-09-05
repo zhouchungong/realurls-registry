@@ -1,0 +1,93 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.1
+schema_version: '1.0'
+entity_id: org:continuedev
+names:
+  en: continuedev/continue
+aliases:
+- Continue
+- continuedev
+category:
+- ai
+- developer-tools
+wikidata: null
+canonical:
+  github_org: continuedev
+  wikidata: null
+  sources:
+  - github-history:continuedev/continue(age=3y,contrib=507,stars=35766)
+domains:
+- domain: continue.dev
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T05:17:36Z'
+  ttl_days: 30
+  age_days: 1281
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T05:19:07Z'
+    source: https://api.github.com/orgs/continuedev
+    data:
+      org: continuedev
+      org_verified: false
+      blog: https://continue.dev
+  - code: A8
+    checked_at: '2026-09-05T05:19:07Z'
+    source: https://api.github.com/repos/continuedev/continue
+    data:
+      repo: continuedev/continue
+      org: continuedev
+      repo_anchored: true
+      homepage: https://continue.dev
+      backlink: true
+      stars: 35766
+      age_days: 1200
+      contributors: 507
+  - code: A3
+    checked_at: '2026-09-05T05:19:07Z'
+    source: https://rdap.org/domain/continue.dev
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2023-03-03'
+      expires: '2027-03-03'
+      remaining_days: 179
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T05:19:09Z'
+    source: TLS handshake continue.dev:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B4
+    checked_at: '2026-09-05T05:19:09Z'
+    source: http://web.archive.org/cdx/search/cdx?url=continue.dev&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2023-07-03'
+      history_days: 1160
+  - code: B5
+    checked_at: '2026-09-05T05:19:09Z'
+    source: https://tranco-list.eu/api/ranks/domain/continue.dev
+    data:
+      rank: 114359
+      date: '2026-09-04'
+  rejected_evidence:
+  - 'A1: GitHub 组织未通过域名验证（is_verified != true）'
+  - 'A3: 注册商（GoDaddy.com, LLC）不在企业级注册商名单内'
+  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
+  reasons:
+  - 1 条独立锚点 + 2 条独立佐证，达到 verified 门槛
+provenance:
+  generated_by: build_entities/0.1
+  policy_version: policy.py@180e4ed
+  reviewed_by: []
+  source_issue: null

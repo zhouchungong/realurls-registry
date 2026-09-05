@@ -1,0 +1,97 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.1
+schema_version: '1.0'
+entity_id: org:lightning-ai
+names:
+  en: PyTorch Lightning
+aliases:
+- Lightning-AI
+- '⚡️ Lightning AI '
+category:
+- ai
+- developer-tools
+wikidata: Q85847011
+canonical:
+  github_org: Lightning-AI
+  wikidata: Q85847011
+  sources:
+  - wikidata:Q85847011/P856
+  - wikidata:Q85847011/P1324
+domains:
+- domain: lightning.ai
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T05:17:36Z'
+  ttl_days: 30
+  age_days: 3185
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T05:19:14Z'
+    source: https://api.github.com/orgs/Lightning-AI
+    data:
+      org: Lightning-AI
+      org_verified: false
+      blog: https://lightning.ai/
+  - code: A8
+    checked_at: '2026-09-05T05:19:15Z'
+    source: https://api.github.com/repos/Lightning-AI/pytorch-lightning
+    data:
+      repo: Lightning-AI/pytorch-lightning
+      org: Lightning-AI
+      repo_anchored: true
+      homepage: https://lightning.ai/pytorch-lightning/?utm_source=ptl_readme&utm_medium=referral&utm_campaign=ptl_readme
+      backlink: true
+      stars: 31319
+      age_days: 2715
+      contributors: 1071
+  - code: A3
+    checked_at: '2026-09-05T05:19:15Z'
+    source: https://rdap.org/domain/lightning.ai
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2017-12-16'
+      expires: '2030-03-25'
+      remaining_days: 1296
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T05:19:15Z'
+    source: TLS handshake lightning.ai:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T05:19:15Z'
+    source: https://www.wikidata.org/wiki/Q85847011
+    data:
+      qid: Q85847011
+      label: PyTorch Lightning
+      site: https://lightning.ai/
+      sitelinks: 4
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-05T05:19:15Z'
+    source: https://tranco-list.eu/api/ranks/domain/lightning.ai
+    data:
+      rank: 97817
+      date: '2026-09-04'
+  rejected_evidence:
+  - 'A1: GitHub 组织未通过域名验证（is_verified != true）'
+  - 'A3: 注册商（GoDaddy.com, LLC）不在企业级注册商名单内'
+  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
+  reasons:
+  - 1 条独立锚点 + 2 条独立佐证，达到 verified 门槛
+provenance:
+  generated_by: build_entities/0.1
+  policy_version: policy.py@180e4ed
+  reviewed_by: []
+  source_issue: null

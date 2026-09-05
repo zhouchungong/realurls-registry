@@ -1,0 +1,98 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.1
+schema_version: '1.0'
+entity_id: org:opencv
+names:
+  en: Q165277
+aliases:
+- OpenCV
+- opencv
+category:
+- ai
+wikidata: Q165277
+canonical:
+  github_org: opencv
+  wikidata: Q165277
+  sources:
+  - wikidata:Q165277/P856
+  - wikidata:Q165277/P2037
+domains:
+- domain: opencv.org
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T05:17:36Z'
+  ttl_days: 30
+  age_days: 7877
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T05:17:52Z'
+    source: https://api.github.com/orgs/opencv
+    data:
+      org: opencv
+      org_verified: true
+      blog: https://opencv.org
+      org_name: OpenCV
+      created_at: '2013-07-15T03:21:08Z'
+  - code: A8
+    checked_at: '2026-09-05T05:17:53Z'
+    source: https://api.github.com/repos/opencv/opencv
+    data:
+      repo: opencv/opencv
+      org: opencv
+      repo_anchored: true
+      homepage: https://opencv.org
+      backlink: false
+      stars: 90716
+      age_days: 5160
+      contributors: 2562
+  - code: A3
+    checked_at: '2026-09-05T05:17:53Z'
+    source: https://rdap.org/domain/opencv.org
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2005-02-09'
+      expires: '2027-02-09'
+      remaining_days: 157
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T05:17:53Z'
+    source: TLS handshake opencv.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T05:17:53Z'
+    source: https://www.wikidata.org/wiki/Q165277
+    data:
+      qid: Q165277
+      label: Q165277
+      site: https://opencv.org/
+      sitelinks: 30
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T05:17:53Z'
+    source: https://tranco-list.eu/api/ranks/domain/opencv.org
+    data:
+      rank: 28285
+      date: '2026-09-04'
+  rejected_evidence:
+  - 'A8: 本域名首页没有链接回该 GitHub 组织，缺少反向确认'
+  - 'A3: 注册商（GoDaddy.com, LLC）不在企业级注册商名单内'
+  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
+  reasons:
+  - 1 条独立锚点 + 2 条独立佐证，达到 verified 门槛
+provenance:
+  generated_by: build_entities/0.1
+  policy_version: policy.py@180e4ed
+  reviewed_by: []
+  source_issue: null

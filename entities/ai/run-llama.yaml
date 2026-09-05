@@ -1,0 +1,100 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.1
+schema_version: '1.0'
+entity_id: org:run-llama
+names:
+  en: run-llama/llama_index
+aliases:
+- LlamaIndex
+- run-llama
+category:
+- ai
+- infrastructure
+wikidata: null
+canonical:
+  github_org: run-llama
+  wikidata: null
+  sources:
+  - github-history:run-llama/llama_index(age=3y,contrib=1993,stars=52026)
+domains:
+- domain: llamaindex.ai
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T05:17:36Z'
+  ttl_days: 30
+  age_days: 1211
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T05:18:04Z'
+    source: https://api.github.com/orgs/run-llama
+    data:
+      org: run-llama
+      org_verified: false
+      blog: https://llamaindex.ai
+  - code: A8
+    checked_at: '2026-09-05T05:18:04Z'
+    source: https://api.github.com/repos/run-llama/llama_index
+    data:
+      repo: run-llama/llama_index
+      org: run-llama
+      repo_anchored: true
+      homepage: https://developers.llamaindex.ai
+      backlink: true
+      stars: 52026
+      age_days: 1403
+      contributors: 1993
+  - code: A3
+    checked_at: '2026-09-05T05:18:04Z'
+    source: https://rdap.org/domain/llamaindex.ai
+    data:
+      registrar: NameCheap, Inc.
+      created: '2023-05-12'
+      expires: '2027-05-12'
+      remaining_days: 249
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T05:18:05Z'
+    source: TLS handshake llamaindex.ai:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T05:18:05Z'
+    source: https://www.wikidata.org/wiki/Q125446413
+    data:
+      qid: Q125446413
+      label: LlamaIndex
+      site: https://www.llamaindex.ai/
+      sitelinks: 0
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-05T05:18:05Z'
+    source: http://web.archive.org/cdx/search/cdx?url=llamaindex.ai&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2023-06-06'
+      history_days: 1187
+  - code: B5
+    checked_at: '2026-09-05T05:18:05Z'
+    source: https://tranco-list.eu/api/ranks/domain/llamaindex.ai
+    data:
+      rank: 59274
+      date: '2026-09-04'
+  rejected_evidence:
+  - 'A1: GitHub 组织未通过域名验证（is_verified != true）'
+  - 'A3: 注册商（NameCheap, Inc.）不在企业级注册商名单内'
+  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
+  - 'B1: 实体未锚定：没有 canonical Wikidata 条目，任意条目的 P856 不能当佐证'
+  reasons:
+  - 1 条独立锚点 + 2 条独立佐证，达到 verified 门槛
+provenance:
+  generated_by: build_entities/0.1
+  policy_version: policy.py@180e4ed
+  reviewed_by: []
+  source_issue: null

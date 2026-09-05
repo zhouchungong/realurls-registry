@@ -1,0 +1,104 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.1
+schema_version: '1.0'
+entity_id: org:apache
+names:
+  en: Apache Software Foundation
+aliases:
+- The Apache Software Foundation
+- apache
+category:
+- ai
+- developer-tools
+- infrastructure
+wikidata: Q489709
+canonical:
+  github_org: apache
+  wikidata: Q489709
+  sources:
+  - wikidata:Q489709/P856
+  - wikidata:Q489709/P2037
+domains:
+- domain: apache.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T05:17:36Z'
+  ttl_days: 30
+  age_days: 11470
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T05:18:13Z'
+    source: https://api.github.com/orgs/apache
+    data:
+      org: apache
+      org_verified: true
+      blog: https://www.apache.org/
+      org_name: The Apache Software Foundation
+      created_at: '2009-01-17T20:14:40Z'
+  - code: A8
+    checked_at: '2026-09-05T05:18:15Z'
+    source: https://api.github.com/repos/apache/superset
+    data:
+      repo: apache/superset
+      org: apache
+      repo_anchored: true
+      homepage: https://superset.apache.org/
+      backlink: true
+      stars: 74647
+      age_days: 4063
+      contributors: 1729
+  - code: A3
+    checked_at: '2026-09-05T05:18:15Z'
+    source: https://rdap.org/domain/apache.org
+    data:
+      registrar: NameCheap, Inc.
+      created: '1995-04-11'
+      expires: '2029-04-12'
+      remaining_days: 949
+      locks:
+      - delete
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T05:18:15Z'
+    source: TLS handshake apache.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T05:18:15Z'
+    source: https://www.wikidata.org/wiki/Q489709
+    data:
+      qid: Q489709
+      label: Apache Software Foundation
+      site: https://www.apache.org
+      sitelinks: 48
+      competing_items: 1
+  - code: B4
+    checked_at: '2026-09-05T05:18:15Z'
+    source: http://web.archive.org/cdx/search/cdx?url=apache.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1996-10-28'
+      history_days: 10904
+  - code: B5
+    checked_at: '2026-09-05T05:18:15Z'
+    source: https://tranco-list.eu/api/ranks/domain/apache.org
+    data:
+      rank: 127
+      date: '2026-09-04'
+  rejected_evidence:
+  - 'A3: 注册商（NameCheap, Inc.）不在企业级注册商名单内'
+  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
+  reasons:
+  - 关联锚点合并，A8 与保留项不独立，不重复计数
+  - 1 条独立锚点 + 3 条独立佐证，达到 verified 门槛
+provenance:
+  generated_by: build_entities/0.1
+  policy_version: policy.py@180e4ed
+  reviewed_by: []
+  source_issue: null

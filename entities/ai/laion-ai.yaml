@@ -1,0 +1,101 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.1
+schema_version: '1.0'
+entity_id: org:laion-ai
+names:
+  en: LAION
+aliases:
+- LAION AI
+- LAION-AI
+category:
+- ai
+wikidata: Q114586027
+canonical:
+  github_org: laion-ai
+  wikidata: Q114586027
+  sources:
+  - wikidata:Q114586027/P856
+  - wikidata:Q114586027/P2037
+domains:
+- domain: laion.ai
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T05:17:36Z'
+  ttl_days: 30
+  age_days: 1849
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T05:19:02Z'
+    source: https://api.github.com/orgs/laion-ai
+    data:
+      org: laion-ai
+      org_verified: true
+      blog: https://laion.ai
+      org_name: LAION AI
+      created_at: '2021-10-16T09:45:41Z'
+  - code: A8
+    checked_at: '2026-09-05T05:19:03Z'
+    source: https://api.github.com/repos/LAION-AI/Open-Assistant
+    data:
+      repo: LAION-AI/Open-Assistant
+      org: laion-ai
+      repo_anchored: true
+      homepage: https://open-assistant.io
+      backlink: true
+      stars: 37400
+      age_days: 1361
+      contributors: 309
+  - code: A3
+    checked_at: '2026-09-05T05:19:03Z'
+    source: https://rdap.org/domain/laion.ai
+    data:
+      registrar: NameCheap, Inc.
+      created: '2021-08-12'
+      expires: '2027-08-12'
+      remaining_days: 341
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T05:19:05Z'
+    source: TLS handshake laion.ai:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T05:19:05Z'
+    source: https://www.wikidata.org/wiki/Q114586027
+    data:
+      qid: Q114586027
+      label: LAION
+      site: https://laion.ai/
+      sitelinks: 12
+      competing_items: 1
+  - code: B4
+    checked_at: '2026-09-05T05:19:05Z'
+    source: http://web.archive.org/cdx/search/cdx?url=laion.ai&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2021-09-13'
+      history_days: 1818
+  - code: B5
+    checked_at: '2026-09-05T05:19:05Z'
+    source: https://tranco-list.eu/api/ranks/domain/laion.ai
+    data:
+      rank: 212298
+      date: '2026-09-04'
+  rejected_evidence:
+  - 'A8: 仓库 homepage（https://open-assistant.io）不指向本域名'
+  - 'A3: 注册商（NameCheap, Inc.）不在企业级注册商名单内'
+  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
+  reasons:
+  - 1 条独立锚点 + 3 条独立佐证，达到 verified 门槛
+provenance:
+  generated_by: build_entities/0.1
+  policy_version: policy.py@180e4ed
+  reviewed_by: []
+  source_issue: null

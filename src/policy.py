@@ -182,6 +182,9 @@ class DomainFacts:
     previous_status: str | None = None
     last_verified: datetime | None = None
     ttl_days: int = 30
+    # 某个采集器「没采到」（超时/网络错）而非「采到了是否定」。当前不参与定案，但必须记录：
+    # 每日重验时，采集失败不该直接把 verified 打成降级（deezer.com 的教训）。
+    collection_incomplete: bool = False
 
 
 @dataclass(frozen=True)

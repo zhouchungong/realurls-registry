@@ -1,0 +1,80 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.1
+schema_version: '1.0'
+entity_id: org:withfig
+names:
+  en: withfig/autocomplete
+aliases:
+- Fig
+- withfig
+category:
+- developer-tools
+wikidata: null
+canonical:
+  github_org: withfig
+  wikidata: null
+  sources:
+  - github-history:withfig/autocomplete(age=5y,contrib=499,stars=25224)
+domains:
+- domain: fig.io
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T05:17:36Z'
+  ttl_days: 30
+  age_days: 4387
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T05:19:27Z'
+    source: https://api.github.com/orgs/withfig
+    data:
+      org: withfig
+      org_verified: true
+      blog: fig.io
+      org_name: Fig
+      created_at: '2020-07-13T03:20:35Z'
+  - code: A8
+    checked_at: '2026-09-05T05:19:27Z'
+    source: https://api.github.com/repos/withfig/autocomplete
+    data:
+      repo: withfig/autocomplete
+      org: withfig
+      repo_anchored: true
+      homepage: https://fig.io
+      backlink: false
+      stars: 25224
+      age_days: 2167
+      contributors: 499
+  - code: A4
+    checked_at: '2026-09-05T05:19:28Z'
+    source: TLS handshake fig.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 2
+  - code: B4
+    checked_at: '2026-09-05T05:19:28Z'
+    source: http://web.archive.org/cdx/search/cdx?url=fig.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2014-09-01'
+      history_days: 4387
+  - code: B5
+    checked_at: '2026-09-05T05:19:28Z'
+    source: https://tranco-list.eu/api/ranks/domain/fig.io
+    data:
+      rank: 268044
+      date: '2026-09-04'
+  rejected_evidence:
+  - 'A8: 本域名首页没有链接回该 GitHub 组织，缺少反向确认'
+  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
+  reasons:
+  - 1 条独立锚点 + 2 条独立佐证，达到 verified 门槛
+provenance:
+  generated_by: build_entities/0.1
+  policy_version: policy.py@180e4ed
+  reviewed_by: []
+  source_issue: null

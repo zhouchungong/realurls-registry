@@ -1,0 +1,89 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.1
+schema_version: '1.0'
+entity_id: org:anthropics
+names:
+  en: Anthropic
+aliases:
+- anthropics
+category:
+- ai
+- developer-tools
+wikidata: Q116758847
+canonical:
+  github_org: anthropics
+  wikidata: Q116758847
+  sources:
+  - wikidata:Q116758847/P856
+  - wikidata:Q116758847/P2037
+domains:
+- domain: anthropic.com
+  role: primary
+  status: verified
+  confidence: 0.9345
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T05:20:13Z'
+  ttl_days: 30
+  age_days: 9103
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T05:20:19Z'
+    source: https://api.github.com/orgs/anthropics
+    data:
+      org: anthropics
+      org_verified: true
+      blog: https://anthropic.com
+      org_name: Anthropic
+      created_at: '2020-12-19T18:49:20Z'
+  - code: A3
+    checked_at: '2026-09-05T05:20:21Z'
+    source: https://rdap.org/domain/anthropic.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2001-10-02'
+      expires: '2033-10-02'
+      remaining_days: 2584
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T05:20:22Z'
+    source: TLS handshake anthropic.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T05:20:22Z'
+    source: https://www.wikidata.org/wiki/Q116758847
+    data:
+      qid: Q116758847
+      label: Anthropic
+      site: https://www.anthropic.com/
+      sitelinks: 57
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-05T05:20:22Z'
+    source: http://web.archive.org/cdx/search/cdx?url=anthropic.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2000-03-04'
+      history_days: 9681
+  - code: B5
+    checked_at: '2026-09-05T05:20:22Z'
+    source: https://tranco-list.eu/api/ranks/domain/anthropic.com
+    data:
+      rank: 610
+      date: '2026-09-03'
+  rejected_evidence:
+  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
+  reasons:
+  - 2 条独立锚点 + 3 条独立佐证，达到 verified 门槛
+provenance:
+  generated_by: build_entities/0.1
+  policy_version: policy.py@180e4ed
+  reviewed_by: []
+  source_issue: null

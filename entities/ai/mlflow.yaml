@@ -1,0 +1,100 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.1
+schema_version: '1.0'
+entity_id: org:mlflow
+names:
+  en: mlflow/mlflow
+aliases:
+- MLflow
+- mlflow
+category:
+- ai
+- infrastructure
+wikidata: null
+canonical:
+  github_org: mlflow
+  wikidata: null
+  sources:
+  - github-history:mlflow/mlflow(age=8y,contrib=1170,stars=27817)
+domains:
+- domain: mlflow.org
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T05:17:36Z'
+  ttl_days: 30
+  age_days: 3074
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T05:19:17Z'
+    source: https://api.github.com/orgs/mlflow
+    data:
+      org: mlflow
+      org_verified: false
+      blog: https://www.mlflow.org
+  - code: A8
+    checked_at: '2026-09-05T05:19:17Z'
+    source: https://api.github.com/repos/mlflow/mlflow
+    data:
+      repo: mlflow/mlflow
+      org: mlflow
+      repo_anchored: true
+      homepage: https://mlflow.org
+      backlink: true
+      stars: 27817
+      age_days: 3013
+      contributors: 1170
+  - code: A3
+    checked_at: '2026-09-05T05:19:17Z'
+    source: https://rdap.org/domain/mlflow.org
+    data:
+      registrar: 1API GmbH
+      created: '2018-04-05'
+      expires: '2027-04-05'
+      remaining_days: 212
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T05:19:18Z'
+    source: TLS handshake mlflow.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T05:19:18Z'
+    source: https://www.wikidata.org/wiki/Q107381745
+    data:
+      qid: Q107381745
+      label: mlflow
+      site: https://mlflow.org/
+      sitelinks: 0
+      competing_items: 1
+  - code: B4
+    checked_at: '2026-09-05T05:19:18Z'
+    source: http://web.archive.org/cdx/search/cdx?url=mlflow.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2018-06-05'
+      history_days: 3014
+  - code: B5
+    checked_at: '2026-09-05T05:19:18Z'
+    source: https://tranco-list.eu/api/ranks/domain/mlflow.org
+    data:
+      rank: 119741
+      date: '2026-09-04'
+  rejected_evidence:
+  - 'A1: GitHub 组织未通过域名验证（is_verified != true）'
+  - 'A3: 注册商（1API GmbH）不在企业级注册商名单内'
+  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
+  - 'B1: 实体未锚定：没有 canonical Wikidata 条目，任意条目的 P856 不能当佐证'
+  reasons:
+  - 1 条独立锚点 + 2 条独立佐证，达到 verified 门槛
+provenance:
+  generated_by: build_entities/0.1
+  policy_version: policy.py@180e4ed
+  reviewed_by: []
+  source_issue: null

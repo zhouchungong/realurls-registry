@@ -1,0 +1,90 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.1
+schema_version: '1.0'
+entity_id: org:kong
+names:
+  en: Kong/kong
+aliases:
+- Kong
+category:
+- ai
+wikidata: null
+canonical:
+  github_org: Kong
+  wikidata: null
+  sources:
+  - github-history:Kong/kong(age=11y,contrib=452,stars=44087)
+domains:
+- domain: konghq.com
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T05:17:36Z'
+  ttl_days: 30
+  age_days: 3482
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T05:18:24Z'
+    source: https://api.github.com/orgs/Kong
+    data:
+      org: Kong
+      org_verified: true
+      blog: https://konghq.com
+      org_name: Kong
+      created_at: '2011-08-06T02:08:16Z'
+  - code: A8
+    checked_at: '2026-09-05T05:18:24Z'
+    source: https://api.github.com/repos/Kong/kong
+    data:
+      repo: Kong/kong
+      org: Kong
+      repo_anchored: true
+      homepage: https://konghq.com/install/
+      backlink: true
+      stars: 44087
+      age_days: 4309
+      contributors: 452
+  - code: A3
+    checked_at: '2026-09-05T05:18:24Z'
+    source: https://rdap.org/domain/konghq.com
+    data:
+      registrar: Amazon Registrar, Inc.
+      created: '2017-02-22'
+      expires: '2027-02-22'
+      remaining_days: 169
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T05:18:25Z'
+    source: TLS handshake konghq.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 4
+  - code: B4
+    checked_at: '2026-09-05T05:18:25Z'
+    source: http://web.archive.org/cdx/search/cdx?url=konghq.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2017-03-19'
+      history_days: 3457
+  - code: B5
+    checked_at: '2026-09-05T05:18:25Z'
+    source: https://tranco-list.eu/api/ranks/domain/konghq.com
+    data:
+      rank: 5258
+      date: '2026-09-04'
+  rejected_evidence:
+  - 'A3: 注册商（Amazon Registrar, Inc.）不在企业级注册商名单内'
+  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
+  reasons:
+  - 关联锚点合并，A8 与保留项不独立，不重复计数
+  - 1 条独立锚点 + 2 条独立佐证，达到 verified 门槛
+provenance:
+  generated_by: build_entities/0.1
+  policy_version: policy.py@180e4ed
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,102 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.1
+schema_version: '1.0'
+entity_id: org:ultralytics
+names:
+  en: ultralytics/ultralytics
+aliases:
+- Ultralytics
+- ultralytics
+category:
+- ai
+wikidata: null
+canonical:
+  github_org: ultralytics
+  wikidata: null
+  sources:
+  - github-history:ultralytics/ultralytics(age=3y,contrib=446,stars=61302)
+domains:
+- domain: ultralytics.com
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T05:17:36Z'
+  ttl_days: 30
+  age_days: 4586
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T05:18:01Z'
+    source: https://api.github.com/orgs/ultralytics
+    data:
+      org: ultralytics
+      org_verified: true
+      blog: https://ultralytics.com
+      org_name: Ultralytics
+      created_at: '2017-04-01T07:59:53Z'
+  - code: A8
+    checked_at: '2026-09-05T05:18:01Z'
+    source: https://api.github.com/repos/ultralytics/ultralytics
+    data:
+      repo: ultralytics/ultralytics
+      org: ultralytics
+      repo_anchored: true
+      homepage: https://platform.ultralytics.com
+      backlink: true
+      stars: 61302
+      age_days: 1454
+      contributors: 446
+  - code: A3
+    checked_at: '2026-09-05T05:18:01Z'
+    source: https://rdap.org/domain/ultralytics.com
+    data:
+      registrar: Squarespace Domains II LLC
+      created: '2014-02-13'
+      expires: '2029-02-13'
+      remaining_days: 892
+      locks:
+      - delete
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T05:18:01Z'
+    source: TLS handshake ultralytics.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T05:18:01Z'
+    source: https://www.wikidata.org/wiki/Q136206010
+    data:
+      qid: Q136206010
+      label: hub-sdk
+      site: https://ultralytics.com
+      sitelinks: 0
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-05T05:18:01Z'
+    source: http://web.archive.org/cdx/search/cdx?url=ultralytics.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2013-04-04'
+      history_days: 4902
+  - code: B5
+    checked_at: '2026-09-05T05:18:01Z'
+    source: https://tranco-list.eu/api/ranks/domain/ultralytics.com
+    data:
+      rank: 100415
+      date: '2026-09-04'
+  rejected_evidence:
+  - 'A3: 注册商（Squarespace Domains II LLC）不在企业级注册商名单内'
+  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
+  - 'B1: 实体未锚定：没有 canonical Wikidata 条目，任意条目的 P856 不能当佐证'
+  reasons:
+  - 关联锚点合并，A8 与保留项不独立，不重复计数
+  - 1 条独立锚点 + 2 条独立佐证，达到 verified 门槛
+provenance:
+  generated_by: build_entities/0.1
+  policy_version: policy.py@180e4ed
+  reviewed_by: []
+  source_issue: null

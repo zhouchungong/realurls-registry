@@ -1,0 +1,92 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.1
+schema_version: '1.0'
+entity_id: org:q63966
+names:
+  en: Q63966
+aliases:
+- Unity Technologies
+- Unity-Technologies
+category:
+- ai
+wikidata: Q63966
+canonical:
+  github_org: null
+  wikidata: Q63966
+  sources:
+  - wikidata:Q63966/P856
+domains:
+- domain: unity.com
+  role: primary
+  status: verified
+  confidence: 0.7816
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T05:17:36Z'
+  ttl_days: 30
+  age_days: 11352
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T05:19:41Z'
+    source: https://api.github.com/orgs/Unity-Technologies
+    data:
+      org: Unity-Technologies
+      org_verified: true
+      blog: http://unity.com
+      org_name: Unity Technologies
+      created_at: '2010-10-04T09:37:48Z'
+  - code: A3
+    checked_at: '2026-09-05T05:19:41Z'
+    source: https://rdap.org/domain/unity.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '1995-08-07'
+      expires: '2028-08-06'
+      remaining_days: 700
+      locks:
+      - delete
+      - transfer
+      - update
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-05T05:19:42Z'
+    source: TLS handshake unity.com:443
+    data:
+      subject_org: Unity Technologies ApS
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T05:19:42Z'
+    source: https://www.wikidata.org/wiki/Q63966
+    data:
+      qid: Q63966
+      label: Q63966
+      site: https://unity.com
+      sitelinks: 58
+      competing_items: 1
+  - code: B4
+    checked_at: '2026-09-05T05:19:42Z'
+    source: http://web.archive.org/cdx/search/cdx?url=unity.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2000-05-20'
+      history_days: 9604
+  - code: B5
+    checked_at: '2026-09-05T05:19:42Z'
+    source: https://tranco-list.eu/api/ranks/domain/unity.com
+    data:
+      rank: 2286
+      date: '2026-09-04'
+  rejected_evidence:
+  - 'A1: 实体未锚定：没有从独立权威确立的 canonical GitHub 组织，控制权证明不能当归属证明'
+  - 'A3: 到期日不足 1095 天，不符合企业长期预付特征'
+  reasons:
+  - 1 条独立锚点 + 3 条独立佐证，达到 verified 门槛
+provenance:
+  generated_by: build_entities/0.1
+  policy_version: policy.py@180e4ed
+  reviewed_by: []
+  source_issue: null

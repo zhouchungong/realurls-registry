@@ -1,0 +1,96 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.1
+schema_version: '1.0'
+entity_id: org:tencent
+names:
+  en: Tencent
+aliases:
+- ARC Lab, Tencent PCG
+- TencentARC
+category:
+- ai
+wikidata: Q860580
+canonical:
+  github_org: tencent
+  wikidata: Q860580
+  sources:
+  - wikidata:Q860580/P856
+  - wikidata:Q860580/P2037
+domains:
+- domain: tencent.com
+  role: primary
+  status: verified
+  confidence: 0.9345
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T05:17:36Z'
+  ttl_days: 30
+  age_days: 10218
+  age_source: rdap
+  collection_incomplete: true
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T05:18:46Z'
+    source: https://api.github.com/orgs/tencent
+    data:
+      org: tencent
+      org_verified: true
+      blog: https://opensource.tencent.com
+      org_name: Tencent
+      created_at: '2016-04-14T10:38:57Z'
+  - code: A8
+    checked_at: '2026-09-05T05:18:49Z'
+    source: https://api.github.com/repos/Tencent/ncnn
+    data:
+      repo: Tencent/ncnn
+      org: tencent
+      repo_anchored: true
+      homepage: ''
+      backlink: false
+      stars: 23784
+      age_days: 3353
+      contributors: 378
+  - code: A3
+    checked_at: '2026-09-05T05:18:49Z'
+    source: https://rdap.org/domain/tencent.com
+    data:
+      registrar: MarkMonitor Information Technology (Shanghai) Co., Ltd.
+      created: '1998-09-14'
+      expires: '2032-09-13'
+      remaining_days: 2199
+      locks:
+      - delete
+      - transfer
+      - update
+      - server delete
+      - server transfer
+      - server update
+  - code: B1
+    checked_at: '2026-09-05T05:19:02Z'
+    source: https://www.wikidata.org/wiki/Q860580
+    data:
+      qid: Q860580
+      label: Tencent
+      site: https://www.tencent.com/
+      sitelinks: 59
+      competing_items: 1
+  - code: B4
+    checked_at: '2026-09-05T05:19:02Z'
+    source: http://web.archive.org/cdx/search/cdx?url=tencent.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2000-04-08'
+      history_days: 9646
+  - code: B5
+    checked_at: '2026-09-05T05:19:02Z'
+    source: https://tranco-list.eu/api/ranks/domain/tencent.com
+    data:
+      rank: 639
+      date: '2026-09-04'
+  rejected_evidence:
+  - 'A8: 仓库 homepage（）不指向本域名'
+  reasons:
+  - 2 条独立锚点 + 3 条独立佐证，达到 verified 门槛
+provenance:
+  generated_by: build_entities/0.1
+  policy_version: policy.py@180e4ed
+  reviewed_by: []
+  source_issue: null

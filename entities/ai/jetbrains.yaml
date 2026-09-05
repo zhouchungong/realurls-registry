@@ -1,0 +1,100 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.1
+schema_version: '1.0'
+entity_id: org:jetbrains
+names:
+  en: JetBrains
+aliases: []
+category:
+- ai
+- developer-tools
+wikidata: Q1688472
+canonical:
+  github_org: jetbrains
+  wikidata: Q1688472
+  sources:
+  - wikidata:Q1688472/P856
+  - wikidata:Q1688472/P2037
+domains:
+- domain: jetbrains.com
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T05:17:36Z'
+  ttl_days: 30
+  age_days: 9065
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T05:19:34Z'
+    source: https://api.github.com/orgs/jetbrains
+    data:
+      org: jetbrains
+      org_verified: true
+      blog: https://jetbrains.com/opensource
+      org_name: JetBrains
+      created_at: '2011-06-27T10:06:52Z'
+  - code: A8
+    checked_at: '2026-09-05T05:19:35Z'
+    source: https://api.github.com/repos/JetBrains/kotlin
+    data:
+      repo: JetBrains/kotlin
+      org: jetbrains
+      repo_anchored: true
+      homepage: https://kotlinlang.org
+      backlink: false
+      stars: 53369
+      age_days: 5317
+      contributors: 1196
+  - code: A3
+    checked_at: '2026-09-05T05:19:35Z'
+    source: https://rdap.org/domain/jetbrains.com
+    data:
+      registrar: Network Solutions, LLC
+      created: '2001-11-09'
+      expires: '2028-11-09'
+      remaining_days: 796
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T05:19:36Z'
+    source: TLS handshake jetbrains.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T05:19:36Z'
+    source: https://www.wikidata.org/wiki/Q1688472
+    data:
+      qid: Q1688472
+      label: JetBrains
+      site: https://www.jetbrains.com/
+      sitelinks: 28
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-05T05:19:36Z'
+    source: http://web.archive.org/cdx/search/cdx?url=jetbrains.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2003-07-19'
+      history_days: 8449
+  - code: B5
+    checked_at: '2026-09-05T05:19:36Z'
+    source: https://tranco-list.eu/api/ranks/domain/jetbrains.com
+    data:
+      rank: 871
+      date: '2026-09-04'
+  rejected_evidence:
+  - 'A8: 仓库 homepage（https://kotlinlang.org）不指向本域名'
+  - 'A3: 注册商（Network Solutions, LLC）不在企业级注册商名单内'
+  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
+  reasons:
+  - 1 条独立锚点 + 3 条独立佐证，达到 verified 门槛
+provenance:
+  generated_by: build_entities/0.1
+  policy_version: policy.py@180e4ed
+  reviewed_by: []
+  source_issue: null

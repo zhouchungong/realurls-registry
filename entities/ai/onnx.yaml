@@ -1,0 +1,102 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.1
+schema_version: '1.0'
+entity_id: org:onnx
+names:
+  en: ONNX
+aliases:
+- Open Neural Network Exchange
+- onnx
+category:
+- ai
+wikidata: Q55080116
+canonical:
+  github_org: onnx
+  wikidata: Q55080116
+  sources:
+  - wikidata:Q55080116/P856
+  - wikidata:Q55080116/P2037
+domains:
+- domain: onnx.ai
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T05:17:36Z'
+  ttl_days: 30
+  age_days: 3185
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T05:19:32Z'
+    source: https://api.github.com/orgs/onnx
+    data:
+      org: onnx
+      org_verified: true
+      blog: https://onnx.ai
+      org_name: Open Neural Network Exchange
+      created_at: '2017-09-05T23:48:58Z'
+  - code: A8
+    checked_at: '2026-09-05T05:19:33Z'
+    source: https://api.github.com/repos/onnx/onnx
+    data:
+      repo: onnx/onnx
+      org: onnx
+      repo_anchored: true
+      homepage: https://onnx.ai/
+      backlink: true
+      stars: 21414
+      age_days: 3285
+      contributors: 423
+  - code: A3
+    checked_at: '2026-09-05T05:19:33Z'
+    source: https://rdap.org/domain/onnx.ai
+    data:
+      registrar: 1API GmbH
+      created: '2017-12-16'
+      expires: '2027-09-19'
+      remaining_days: 378
+      locks:
+      - delete
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T05:19:33Z'
+    source: TLS handshake onnx.ai:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T05:19:33Z'
+    source: https://www.wikidata.org/wiki/Q55080116
+    data:
+      qid: Q55080116
+      label: ONNX
+      site: https://onnx.ai/
+      sitelinks: 14
+      competing_items: 1
+  - code: B4
+    checked_at: '2026-09-05T05:19:33Z'
+    source: http://web.archive.org/cdx/search/cdx?url=onnx.ai&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2017-10-15'
+      history_days: 3247
+  - code: B5
+    checked_at: '2026-09-05T05:19:33Z'
+    source: https://tranco-list.eu/api/ranks/domain/onnx.ai
+    data:
+      rank: 254773
+      date: '2026-09-04'
+  rejected_evidence:
+  - 'A3: 注册商（1API GmbH）不在企业级注册商名单内'
+  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
+  reasons:
+  - 关联锚点合并，A8 与保留项不独立，不重复计数
+  - 1 条独立锚点 + 3 条独立佐证，达到 verified 门槛
+provenance:
+  generated_by: build_entities/0.1
+  policy_version: policy.py@180e4ed
+  reviewed_by: []
+  source_issue: null

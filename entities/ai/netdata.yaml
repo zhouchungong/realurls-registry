@@ -1,0 +1,101 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.1
+schema_version: '1.0'
+entity_id: org:netdata
+names:
+  en: Netdata
+aliases:
+- netdata
+category:
+- ai
+wikidata: Q24961917
+canonical:
+  github_org: netdata
+  wikidata: Q24961917
+  sources:
+  - wikidata:Q24961917/P856
+  - wikidata:Q24961917/P1324
+domains:
+- domain: netdata.cloud
+  role: primary
+  status: verified
+  confidence: 0.7088
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T05:17:36Z'
+  ttl_days: 30
+  age_days: 3759
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T05:17:53Z'
+    source: https://api.github.com/orgs/netdata
+    data:
+      org: netdata
+      org_verified: false
+      blog: https://www.netdata.cloud
+  - code: A8
+    checked_at: '2026-09-05T05:17:54Z'
+    source: https://api.github.com/repos/netdata/netdata
+    data:
+      repo: netdata/netdata
+      org: netdata
+      repo_anchored: true
+      homepage: https://www.netdata.cloud
+      backlink: true
+      stars: 80432
+      age_days: 4827
+      contributors: 690
+  - code: A3
+    checked_at: '2026-09-05T05:17:54Z'
+    source: https://rdap.org/domain/netdata.cloud
+    data:
+      registrar: GoDaddy
+      created: '2016-05-20'
+      expires: '2027-05-20'
+      remaining_days: 257
+      locks:
+      - renew
+      - delete
+      - update
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T05:17:55Z'
+    source: TLS handshake netdata.cloud:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T05:17:55Z'
+    source: https://www.wikidata.org/wiki/Q24961917
+    data:
+      qid: Q24961917
+      label: Netdata
+      site: https://www.netdata.cloud/
+      sitelinks: 3
+      competing_items: 1
+  - code: B4
+    checked_at: '2026-09-05T05:17:55Z'
+    source: http://web.archive.org/cdx/search/cdx?url=netdata.cloud&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2018-08-04'
+      history_days: 2954
+  - code: B5
+    checked_at: '2026-09-05T05:17:55Z'
+    source: https://tranco-list.eu/api/ranks/domain/netdata.cloud
+    data:
+      rank: 12655
+      date: '2026-09-04'
+  rejected_evidence:
+  - 'A1: GitHub 组织未通过域名验证（is_verified != true）'
+  - 'A3: 注册商（GoDaddy）不在企业级注册商名单内'
+  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
+  reasons:
+  - 1 条独立锚点 + 3 条独立佐证，达到 verified 门槛
+provenance:
+  generated_by: build_entities/0.1
+  policy_version: policy.py@180e4ed
+  reviewed_by: []
+  source_issue: null

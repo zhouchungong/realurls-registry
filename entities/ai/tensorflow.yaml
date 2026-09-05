@@ -1,0 +1,100 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.1
+schema_version: '1.0'
+entity_id: org:tensorflow
+names:
+  en: Q21447895
+aliases:
+- tensorflow
+category:
+- ai
+wikidata: Q21447895
+canonical:
+  github_org: tensorflow
+  wikidata: Q21447895
+  sources:
+  - wikidata:Q21447895/P856
+  - wikidata:Q21447895/P2037
+domains:
+- domain: tensorflow.org
+  role: primary
+  status: verified
+  confidence: 0.7088
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T05:17:36Z'
+  ttl_days: 30
+  age_days: 4028
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T05:17:39Z'
+    source: https://api.github.com/orgs/tensorflow
+    data:
+      org: tensorflow
+      org_verified: false
+      blog: http://www.tensorflow.org
+  - code: A8
+    checked_at: '2026-09-05T05:17:40Z'
+    source: https://api.github.com/repos/tensorflow/tensorflow
+    data:
+      repo: tensorflow/tensorflow
+      org: tensorflow
+      repo_anchored: true
+      homepage: https://tensorflow.org
+      backlink: true
+      stars: 198831
+      age_days: 3955
+      contributors: 5300
+  - code: A3
+    checked_at: '2026-09-05T05:17:40Z'
+    source: https://rdap.org/domain/tensorflow.org
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2015-08-25'
+      expires: '2027-08-25'
+      remaining_days: 354
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T05:17:40Z'
+    source: TLS handshake tensorflow.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 77
+  - code: B1
+    checked_at: '2026-09-05T05:17:40Z'
+    source: https://www.wikidata.org/wiki/Q21447895
+    data:
+      qid: Q21447895
+      label: Q21447895
+      site: https://tensorflow.org
+      sitelinks: 40
+      competing_items: 4
+  - code: B4
+    checked_at: '2026-09-05T05:17:40Z'
+    source: http://web.archive.org/cdx/search/cdx?url=tensorflow.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2015-11-09'
+      history_days: 3953
+  - code: B5
+    checked_at: '2026-09-05T05:17:40Z'
+    source: https://tranco-list.eu/api/ranks/domain/tensorflow.org
+    data:
+      rank: 7232
+      date: '2026-09-04'
+  rejected_evidence:
+  - 'A1: GitHub 组织未通过域名验证（is_verified != true）'
+  - 'A3: 到期日不足 1095 天，不符合企业长期预付特征'
+  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
+  reasons:
+  - 1 条独立锚点 + 3 条独立佐证，达到 verified 门槛
+provenance:
+  generated_by: build_entities/0.1
+  policy_version: policy.py@180e4ed
+  reviewed_by: []
+  source_issue: null

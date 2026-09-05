@@ -40,7 +40,7 @@ curl -s https://api.github.com/orgs/anthropics | jq '{name, blog, is_verified}'
 ✅ M0  TRUST.md / POLICY.md / policy.py / 正负样本回归测试
 ✅ M1  证据采集流水线 + `python -m src.verify <domain>` 端到端跑通
 ✅ 评审修复  实体锚定 / 域龄 fail-closed / A6 一方声明 / A3 名单 / A7 政府 TLD / +6 负样本
-🔄 M2  220 条真实分布摸底：verified 24%、provisional 10%；新增 GitHub 项目史锚定 + A8；待人工抽查后生成 entities/
+🔄 M2  220 条摸底 → 52 条 verified 经人工抽查后由流水线生成 entities/（+anthropic.com）；剩：每日重验 workflow、签名发布
 ⬜ M3  Cloudflare Workers API + MCP Server（发布点）
 ⬜ M4  realurls.com 证据页 + 浏览器扩展 + 生态回写
 ```

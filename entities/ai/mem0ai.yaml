@@ -1,0 +1,99 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.1
+schema_version: '1.0'
+entity_id: org:mem0ai
+names:
+  en: mem0ai/mem0
+aliases:
+- Mem0
+- mem0ai
+category:
+- ai
+wikidata: null
+canonical:
+  github_org: mem0ai
+  wikidata: null
+  sources:
+  - github-history:mem0ai/mem0(age=3y,contrib=399,stars=64714)
+domains:
+- domain: mem0.ai
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T05:17:36Z'
+  ttl_days: 30
+  age_days: 843
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T05:17:58Z'
+    source: https://api.github.com/orgs/mem0ai
+    data:
+      org: mem0ai
+      org_verified: false
+      blog: https://mem0.ai
+  - code: A8
+    checked_at: '2026-09-05T05:17:58Z'
+    source: https://api.github.com/repos/mem0ai/mem0
+    data:
+      repo: mem0ai/mem0
+      org: mem0ai
+      repo_anchored: true
+      homepage: https://mem0.ai
+      backlink: true
+      stars: 64714
+      age_days: 1172
+      contributors: 399
+  - code: A3
+    checked_at: '2026-09-05T05:17:58Z'
+    source: https://rdap.org/domain/mem0.ai
+    data:
+      registrar: NameCheap, Inc.
+      created: '2024-05-15'
+      expires: '2028-05-15'
+      remaining_days: 617
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T05:17:59Z'
+    source: TLS handshake mem0.ai:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T05:17:59Z'
+    source: https://www.wikidata.org/wiki/Q140639966
+    data:
+      qid: Q140639966
+      label: Mem0
+      site: https://mem0.ai/
+      sitelinks: 0
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-05T05:17:59Z'
+    source: http://web.archive.org/cdx/search/cdx?url=mem0.ai&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2024-08-01'
+      history_days: 765
+  - code: B5
+    checked_at: '2026-09-05T05:17:59Z'
+    source: https://tranco-list.eu/api/ranks/domain/mem0.ai
+    data:
+      rank: 193275
+      date: '2026-09-04'
+  rejected_evidence:
+  - 'A1: GitHub 组织未通过域名验证（is_verified != true）'
+  - 'A3: 注册商（NameCheap, Inc.）不在企业级注册商名单内'
+  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
+  - 'B1: 实体未锚定：没有 canonical Wikidata 条目，任意条目的 P856 不能当佐证'
+  reasons:
+  - 1 条独立锚点 + 2 条独立佐证，达到 verified 门槛
+provenance:
+  generated_by: build_entities/0.1
+  policy_version: policy.py@180e4ed
+  reviewed_by: []
+  source_issue: null

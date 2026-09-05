@@ -1,0 +1,196 @@
+"""由流水线生成 ``entities/``——这是该目录**唯一合法的写入路径**（SECURITY.md §1）。
+
+输入：一份种子（域名 + GitHub 组织线索）。
+过程：对每个域名重新跑 ``verify()``（有 HTTP 缓存，很快），只有判定为 ``verified`` 的才落盘。
+输出：``entities/<category>/<slug>.yaml``，含完整证据（含被拒证据及原因）、实体锚定与出处。
+
+几条刻意的选择
+--------------
+* **实体标签取自锚定来源**（Wikidata 标签或仓库名），不取自 GitHub 组织自填的 ``name``——
+  那是攻击者能随便填的字段。组织自填的名字只进 ``aliases``。
+* **一个域名只能归一个实体**。摸底里 tencent.com 从两个组织各命中一次，取第一次，
+  第二次记 note 跳过；真冲突（两个不同实体都 verified 同一域名）应由 policy 判 disputed，不该到这里。
+* **落盘的是本次运行的事实快照**（``last_verified``、``age_days``、每条证据的 ``checked_at``），
+  每日重验会覆盖它；``first_seen`` 若已存在则保留。
+
+用法::
+
+    python -m src.build_entities .cache/seeds.jsonl --only-verified
+    python -m src.build_entities .cache/seeds.jsonl --domains n8n.io,ollama.com
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import re
+import sys
+from datetime import datetime, timezone
+from pathlib import Path
+
+import yaml
+
+from src.verify import verify
+
+ROOT = Path(__file__).resolve().parents[1]
+ENTITIES = ROOT / "entities"
+PIPELINE_VERSION = "build_entities/0.1"
+
+#: GitHub topic → 我们的类别（schema 里的枚举）
+TOPIC_CATEGORY = {
+    "ai": "ai", "llm": "ai", "machine-learning": "ai", "deep-learning": "ai",
+    "artificial-intelligence": "ai", "agents": "ai", "rag": "ai", "inference": "ai",
+    "vector-database": "infrastructure", "mlops": "infrastructure",
+    "developer-tools": "developer-tools", "devtools": "developer-tools", "cli": "developer-tools",
+    "ide": "developer-tools", "code-editor": "developer-tools",
+}
+
+
+def _slug(text: str) -> str:
+    s = re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
+    return s or "unnamed"
+
+
+def _categories(topics: list[str]) -> list[str]:
+    cats = []
+    for t in topics:
+        c = TOPIC_CATEGORY.get(t)
+        if c and c not in cats:
+            cats.append(c)
+    return cats or ["developer-tools"]
+
+
+def _iso(dt: datetime | None) -> str:
+    return (dt or datetime.now(timezone.utc)).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def build_one(seed: dict, now: datetime) -> tuple[dict | None, str]:
+    domain = seed["domain"]
+    decision, result = verify(domain, github_org=seed.get("github_org"))
+    if decision.status != "verified":
+        return None, f"{domain}: {decision.status}，不落盘"
+
+    ent = result.extra["entity_anchor"]
+    if not ent or not ent.anchored:
+        return None, f"{domain}: verified 但实体未锚定？这不该发生，请检查"  # 防御：policy 不该放行
+
+    label = ent.label or seed.get("org_name") or domain
+    org_name = seed.get("org_name") or ""
+    aliases = sorted({a for a in (org_name, seed.get("github_org", "")) if a and a != label})
+
+    entity_id = f"org:{_slug(ent.github_org or label)}"
+    record = {
+        "schema_version": "1.0",
+        "entity_id": entity_id,
+        "names": {"en": label},
+        "aliases": aliases,
+        "category": _categories(seed.get("topics", [])),
+        "wikidata": ent.wikidata,
+        "canonical": {
+            "github_org": ent.github_org,
+            "wikidata": ent.wikidata,
+            "sources": list(ent.sources),
+        },
+        "domains": [{
+            "domain": domain,
+            "role": "primary",
+            "status": decision.status,
+            "confidence": decision.confidence,
+            "first_seen": now.date().isoformat(),
+            "last_verified": _iso(now),
+            "ttl_days": 30,
+            "age_days": result.facts.get("age_days"),
+            "age_source": result.facts.get("age_source"),
+            "collection_incomplete": bool(result.facts.get("collection_incomplete")),
+            "evidence": [
+                {"code": e.code, "checked_at": _iso(e.checked_at), "source": e.source,
+                 "data": {k: v for k, v in e.data.items()}}
+                for e in result.evidence
+            ],
+            "rejected_evidence": decision.rejected,
+            "reasons": decision.reasons,
+        }],
+        "provenance": {
+            "generated_by": PIPELINE_VERSION,
+            "policy_version": _policy_version(),
+            "reviewed_by": [],
+            "source_issue": None,
+        },
+    }
+    return record, f"{domain}: verified {decision.confidence:.2f} → {entity_id}"
+
+
+def _policy_version() -> str:
+    import subprocess
+    try:
+        out = subprocess.run(["git", "log", "-1", "--format=%h", "--", "src/policy.py"],
+                             cwd=ROOT, capture_output=True, text=True, timeout=10)
+        return f"policy.py@{out.stdout.strip() or 'unknown'}"
+    except Exception:
+        return "policy.py@unknown"
+
+
+def write(record: dict) -> Path:
+    cat = record["category"][0]
+    path = ENTITIES / cat / f"{record['entity_id'].split(':', 1)[1]}.yaml"
+    path.parent.mkdir(parents=True, exist_ok=True)
+
+    if path.exists():  # 保留 first_seen；其余以本次为准
+        old = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+        old_domains = {d["domain"]: d for d in old.get("domains", [])}
+        for d in record["domains"]:
+            if d["domain"] in old_domains:
+                d["first_seen"] = old_domains[d["domain"]].get("first_seen", d["first_seen"])
+        # 同一实体的其他域名（之前收录过的）保留
+        for dom, rec in old_domains.items():
+            if dom not in {d["domain"] for d in record["domains"]}:
+                record["domains"].append(rec)
+
+    header = ("# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。\n"
+              f"# generated_by: {PIPELINE_VERSION}\n")
+    body = yaml.safe_dump(record, allow_unicode=True, sort_keys=False, width=110)
+    path.write_text(header + body, encoding="utf-8")
+    return path
+
+
+def main(argv: list[str] | None = None) -> int:
+    p = argparse.ArgumentParser()
+    p.add_argument("seeds", type=Path)
+    p.add_argument("--domains", help="只处理这些域名，逗号分隔")
+    p.add_argument("--only-verified", action="store_true", help="跳过种子里 org_verified=false 且无其他线索的（省时间）")
+    args = p.parse_args(argv)
+
+    seeds = [json.loads(l) for l in args.seeds.read_text(encoding="utf-8").splitlines()
+             if l.strip() and not l.startswith("#")]
+    if args.domains:
+        wanted = {d.strip() for d in args.domains.split(",")}
+        seeds = [s for s in seeds if s["domain"] in wanted]
+
+    now = datetime.now(timezone.utc)
+    seen_domains: set[str] = set()
+    written, skipped = 0, 0
+    for seed in seeds:
+        if seed["domain"] in seen_domains:
+            print(f"  · {seed['domain']}: 已由另一条种子写入，跳过", file=sys.stderr)
+            continue
+        try:
+            record, msg = build_one(seed, now)
+        except Exception as exc:
+            print(f"  ✗ {seed['domain']}: {type(exc).__name__}: {exc}", file=sys.stderr)
+            skipped += 1
+            continue
+        if record is None:
+            print(f"  · {msg}", file=sys.stderr)
+            skipped += 1
+            continue
+        seen_domains.add(seed["domain"])
+        path = write(record)
+        written += 1
+        print(f"  ✓ {msg}  → {path.relative_to(ROOT)}", file=sys.stderr)
+
+    print(f"# 写入 {written}，跳过 {skipped}", file=sys.stderr)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

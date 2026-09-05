@@ -1,0 +1,101 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.1
+schema_version: '1.0'
+entity_id: org:angular
+names:
+  en: Angular
+aliases:
+- angular
+category:
+- developer-tools
+wikidata: Q28925578
+canonical:
+  github_org: angular
+  wikidata: Q28925578
+  sources:
+  - wikidata:Q28925578/P856
+  - wikidata:Q28925578/P2037
+domains:
+- domain: angular.dev
+  role: primary
+  status: verified
+  confidence: 0.9345
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T05:17:36Z'
+  ttl_days: 30
+  age_days: 1044
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T05:19:22Z'
+    source: https://api.github.com/orgs/angular
+    data:
+      org: angular
+      org_verified: true
+      blog: https://angular.dev
+      org_name: Angular
+      created_at: '2009-10-13T22:16:19Z'
+  - code: A8
+    checked_at: '2026-09-05T05:19:22Z'
+    source: https://api.github.com/repos/angular/angular
+    data:
+      repo: angular/angular
+      org: angular
+      repo_anchored: true
+      homepage: https://angular.dev
+      backlink: true
+      stars: 101010
+      age_days: 4369
+      contributors: 2668
+  - code: A3
+    checked_at: '2026-09-05T05:19:22Z'
+    source: https://rdap.org/domain/angular.dev
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2023-10-26'
+      expires: '2033-10-26'
+      remaining_days: 2608
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T05:19:23Z'
+    source: TLS handshake angular.dev:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 100
+  - code: B1
+    checked_at: '2026-09-05T05:19:23Z'
+    source: https://www.wikidata.org/wiki/Q28925578
+    data:
+      qid: Q28925578
+      label: Angular
+      site: https://angular.dev
+      sitelinks: 25
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-05T05:19:23Z'
+    source: http://web.archive.org/cdx/search/cdx?url=angular.dev&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2023-11-06'
+      history_days: 1034
+  - code: B5
+    checked_at: '2026-09-05T05:19:23Z'
+    source: https://tranco-list.eu/api/ranks/domain/angular.dev
+    data:
+      rank: 41942
+      date: '2026-09-04'
+  rejected_evidence:
+  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
+  reasons:
+  - 关联锚点合并，A8 与保留项不独立，不重复计数
+  - 2 条独立锚点 + 3 条独立佐证，达到 verified 门槛
+provenance:
+  generated_by: build_entities/0.1
+  policy_version: policy.py@180e4ed
+  reviewed_by: []
+  source_issue: null

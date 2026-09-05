@@ -93,6 +93,11 @@
         "first_seen": { "type": "string", "format": "date" },
         "last_verified": { "type": "string", "format": "date-time" },
         "ttl_days": { "type": "integer", "minimum": 1, "default": 30 },
+        "age_days": { "type": ["integer", "null"], "minimum": 0,
+                      "description": "验证时的域龄。null = 未知（RDAP 不可用且无 Wayback 下界），policy 会 fail-closed" },
+        "age_source": { "enum": ["rdap", "wayback_lower_bound", null] },
+        "collection_incomplete": { "type": "boolean",
+                                   "description": "本次验证有采集器超时/出错。重验时不得因此直接降级" },
         "evidence": {
           "type": "array",
           "items": { "$ref": "#/$defs/evidence" }
@@ -110,7 +115,7 @@
       "required": ["code", "checked_at"],
       "additionalProperties": false,
       "properties": {
-        "code": { "enum": ["A1", "A2", "A3", "A4", "A5", "A6",
+        "code": { "enum": ["A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8",
                            "B1", "B2", "B3", "B4", "B5", "B6", "B7"] },
         "data": { "type": "object", "description": "该证据类型自己的字段，由 policy.py 中的校验器解释" },
         "checked_at": { "type": "string", "format": "date-time" },

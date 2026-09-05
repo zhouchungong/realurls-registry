@@ -1,0 +1,89 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.1
+schema_version: '1.0'
+entity_id: org:streamlit
+names:
+  en: streamlit/streamlit
+aliases:
+- Streamlit
+- streamlit
+category:
+- ai
+- developer-tools
+wikidata: null
+canonical:
+  github_org: streamlit
+  wikidata: null
+  sources:
+  - github-history:streamlit/streamlit(age=7y,contrib=338,stars=45690)
+domains:
+- domain: streamlit.io
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T05:17:36Z'
+  ttl_days: 30
+  age_days: 2982
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T05:18:17Z'
+    source: https://api.github.com/orgs/streamlit
+    data:
+      org: streamlit
+      org_verified: false
+      blog: https://streamlit.io
+  - code: A8
+    checked_at: '2026-09-05T05:18:17Z'
+    source: https://api.github.com/repos/streamlit/streamlit
+    data:
+      repo: streamlit/streamlit
+      org: streamlit
+      repo_anchored: true
+      homepage: https://streamlit.io
+      backlink: true
+      stars: 45690
+      age_days: 2569
+      contributors: 338
+  - code: A4
+    checked_at: '2026-09-05T05:18:18Z'
+    source: TLS handshake streamlit.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T05:18:18Z'
+    source: https://www.wikidata.org/wiki/Q107384634
+    data:
+      qid: Q107384634
+      label: streamlit
+      site: https://streamlit.io
+      sitelinks: 1
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-05T05:18:18Z'
+    source: http://web.archive.org/cdx/search/cdx?url=streamlit.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2018-07-07'
+      history_days: 2982
+  - code: B5
+    checked_at: '2026-09-05T05:18:18Z'
+    source: https://tranco-list.eu/api/ranks/domain/streamlit.io
+    data:
+      rank: 48957
+      date: '2026-09-04'
+  rejected_evidence:
+  - 'A1: GitHub 组织未通过域名验证（is_verified != true）'
+  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
+  - 'B1: 实体未锚定：没有 canonical Wikidata 条目，任意条目的 P856 不能当佐证'
+  reasons:
+  - 1 条独立锚点 + 2 条独立佐证，达到 verified 门槛
+provenance:
+  generated_by: build_entities/0.1
+  policy_version: policy.py@180e4ed
+  reviewed_by: []
+  source_issue: null

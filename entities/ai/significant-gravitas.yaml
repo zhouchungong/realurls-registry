@@ -1,0 +1,89 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.1
+schema_version: '1.0'
+entity_id: org:significant-gravitas
+names:
+  en: AutoGPT
+aliases:
+- Significant-Gravitas
+category:
+- ai
+wikidata: Q117791942
+canonical:
+  github_org: Significant-Gravitas
+  wikidata: Q117791942
+  sources:
+  - wikidata:Q117791942/P856
+  - wikidata:Q117791942/P1324
+domains:
+- domain: agpt.co
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T05:17:36Z'
+  ttl_days: 30
+  age_days: 714
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T05:17:41Z'
+    source: https://api.github.com/orgs/Significant-Gravitas
+    data:
+      org: Significant-Gravitas
+      org_verified: true
+      blog: agpt.co
+      org_name: AutoGPT
+      created_at: '2023-04-14T07:01:09Z'
+  - code: A8
+    checked_at: '2026-09-05T05:17:42Z'
+    source: https://api.github.com/repos/Significant-Gravitas/AutoGPT
+    data:
+      repo: Significant-Gravitas/AutoGPT
+      org: Significant-Gravitas
+      repo_anchored: true
+      homepage: https://agpt.co
+      backlink: true
+      stars: 187136
+      age_days: 1268
+      contributors: 842
+  - code: A4
+    checked_at: '2026-09-05T05:17:43Z'
+    source: TLS handshake agpt.co:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T05:17:43Z'
+    source: https://www.wikidata.org/wiki/Q117791942
+    data:
+      qid: Q117791942
+      label: AutoGPT
+      site: https://agpt.co
+      sitelinks: 18
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-05T05:17:43Z'
+    source: http://web.archive.org/cdx/search/cdx?url=agpt.co&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2024-09-21'
+      history_days: 714
+  - code: B5
+    checked_at: '2026-09-05T05:17:43Z'
+    source: https://tranco-list.eu/api/ranks/domain/agpt.co
+    data:
+      rank: 224757
+      date: '2026-09-04'
+  rejected_evidence:
+  - 'A4: DV 证书不含组织信息（现代科技公司普遍使用 DV，此项常态缺失）'
+  reasons:
+  - 关联锚点合并，A8 与保留项不独立，不重复计数
+  - 1 条独立锚点 + 3 条独立佐证，达到 verified 门槛
+provenance:
+  generated_by: build_entities/0.1
+  policy_version: policy.py@180e4ed
+  reviewed_by: []
+  source_issue: null
