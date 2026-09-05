@@ -238,6 +238,9 @@ def write_sql(path: Path, entities: list[dict], index: dict, verified: list[str]
     stmts = [
         "DROP TABLE IF EXISTS entities_new; DROP TABLE IF EXISTS domains_new; "
         "DROP TABLE IF EXISTS aliases_new; DROP TABLE IF EXISTS meta_new;",
+        "DROP INDEX IF EXISTS idx_domains_entity; DROP INDEX IF EXISTS idx_aliases_alias; "
+        "DROP INDEX IF EXISTS idx_domains_official; DROP INDEX IF EXISTS idx_domains_new_entity; "
+        "DROP INDEX IF EXISTS idx_aliases_new_alias; DROP INDEX IF EXISTS idx_domains_new_official;",
         "CREATE TABLE entities_new(entity_id TEXT PRIMARY KEY, name TEXT NOT NULL, wikidata TEXT, github_org TEXT, "
         "category TEXT, canonical_json TEXT, aliases_json TEXT, label_source TEXT);",
         "CREATE TABLE domains_new(domain TEXT PRIMARY KEY, entity_id TEXT NOT NULL, role TEXT, status TEXT NOT NULL, "
@@ -253,12 +256,13 @@ def write_sql(path: Path, entities: list[dict], index: dict, verified: list[str]
                 "generated_at": datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ"),
                 "entities": len(entities), "domains": len(index), "verified": len(verified),
             }.items()) + ";",
-        "CREATE INDEX idx_domains_new_entity ON domains_new(entity_id); CREATE INDEX idx_aliases_new_alias ON aliases_new(alias); "
-        "CREATE INDEX idx_domains_new_official ON domains_new(official);",
-        # swap
+        # swap. SQLite keeps index names across ALTER TABLE ... RENAME, so indexes are dropped up front
+        # (they belong to the outgoing tables) and re-created on the final tables with stable names.
         "DROP TABLE IF EXISTS entities; DROP TABLE IF EXISTS domains; DROP TABLE IF EXISTS aliases; DROP TABLE IF EXISTS meta;",
         "ALTER TABLE entities_new RENAME TO entities; ALTER TABLE domains_new RENAME TO domains; "
         "ALTER TABLE aliases_new RENAME TO aliases; ALTER TABLE meta_new RENAME TO meta;",
+        "CREATE INDEX idx_domains_entity ON domains(entity_id); CREATE INDEX idx_aliases_alias ON aliases(alias); "
+        "CREATE INDEX idx_domains_official ON domains(official);",
     ]
     path.write_text("\n".join(stmts) + "\n", encoding="utf-8")
 
