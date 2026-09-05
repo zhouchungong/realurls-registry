@@ -1,0 +1,5 @@
+{
+  "mcpServers": {
+    "realurls": { "command": "npx", "args": ["-y", "@realurls/mcp"] }
+  }
+}
