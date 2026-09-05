@@ -55,6 +55,8 @@ jobs:
           git commit -m "chore(revalidate): $(date -u +%F) daily re-verification" \
                      -m "$(tail -1 .cache/revalidate.log)"
           git push
+          # a push made with GITHUB_TOKEN does not trigger other workflows; deploy explicitly
+          GH_TOKEN=${{ secrets.GITHUB_TOKEN }} gh workflow run deploy.yml --ref main
 
       - name: Open an issue on downgrades or review_required
         if: steps.reval.outputs.exit == '2'
