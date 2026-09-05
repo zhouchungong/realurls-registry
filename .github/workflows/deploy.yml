@@ -1,0 +1,61 @@
+name: 部署 Worker（站点 + API）
+
+# 数据或代码任一变动都重新部署：Worker 把 dist/ 打进代码，所以 entities/ 变了也必须重部署，
+# 否则线上 API 会一直是旧数据集。之前站点代码改了只能手动 wrangler deploy——这条 workflow 补上这个缺口。
+on:
+  push:
+    branches: [main]
+    paths:
+      - "entities/**"
+      - "api/**"
+      - "packages/**"
+      - "src/build.py"
+      - "schema/**"
+      - ".github/workflows/deploy.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-worker
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.11"
+      - run: pip install -e "."
+
+      - name: 校验数据 + 构建 dist/（Worker 的输入）
+        run: |
+          python -m src.validate
+          python -m src.build
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: "22"
+
+      - name: 查询核心测试
+        run: node --test packages/core/resolve.test.mjs
+
+      - name: 部署
+        uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd # v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: 2ba9b41856a8e2ff38d2c6630adb10f0
+          workingDirectory: api
+          command: deploy
+
+      - name: 线上冒烟
+        run: |
+          set -e
+          sleep 8
+          curl -fsS https://api.realurls.org/healthz | grep -q '"ok": true'
+          curl -fsS https://realurls.org/ | grep -q "<title>realurls"
+          ver=$(curl -fsS https://api.realurls.org/v1/manifest | python -c "import sys,json;print(json.load(sys.stdin)['dataset_version'])")
+          echo "线上数据集版本: $ver（本次提交 ${GITHUB_SHA:0:12}）"
