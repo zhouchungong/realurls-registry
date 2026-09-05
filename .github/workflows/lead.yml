@@ -71,6 +71,7 @@ jobs:
           python -m src.validate
 
       - name: Merge a verified record
+        id: merge
         if: steps.lead.outputs.domain != ''
         run: |
           git config user.name  "realurls-bot"
@@ -80,6 +81,7 @@ jobs:
           git commit -m "data(lead): ${{ steps.lead.outputs.domain }} (#${{ github.event.issue.number }})" -m "Community lead; rules regression and AI review passed in this run."
           git pull --rebase origin main
           git push
+          echo "merged=1" >> "$GITHUB_OUTPUT"
 
       - name: Record a non-verified outcome in D1
         if: steps.lead.outputs.domain != '' && hashFiles('.cache/examined.sql') != ''
@@ -96,10 +98,13 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE: ${{ github.event.issue.number }}
           DOMAIN: ${{ steps.lead.outputs.domain }}
+          MERGED: ${{ steps.merge.outputs.merged }}
+          GATE: ${{ steps.merge.outcome }}
         run: |
           python - <<'PY'
           import json, os, subprocess
           issue, domain = os.environ["ISSUE"], os.environ["DOMAIN"]
+          merged, gate = os.environ.get("MERGED") == "1", os.environ.get("GATE")
           if not domain:
               subprocess.run(["gh", "issue", "comment", issue, "--body", "I could not find a domain in this issue. Please edit the **Domain** field and re-add the `lead` label."], check=True)
               raise SystemExit(0)
@@ -109,6 +114,12 @@ jobs:
               subprocess.run(["gh", "issue", "comment", issue, "--body", f"The pipeline run for **{domain}** failed before producing a result; a maintainer will look."], check=True)
               raise SystemExit(0)
           r = results[0]
+          if r["status"] == "verified" and not merged:
+              # The pipeline verified it but a gate (schema, corpus, AI review) or the merge failed: say so, never claim a merge.
+              subprocess.run(["gh", "issue", "comment", issue, "--body",
+                              f"**{domain}** reached `verified` in the pipeline, but a release gate did not pass in this run "
+                              f"(merge step: {gate or 'skipped'}). Nothing was merged; a maintainer will look. The issue stays open."], check=True)
+              raise SystemExit(0)
           if r["status"] == "verified":
               slug = r["entity_id"].split(":", 1)[-1]
               body = (f"**{domain}** reached `verified` and is merged. Live within minutes at https://realurls.org/e/{slug} "

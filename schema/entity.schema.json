@@ -156,7 +156,7 @@
       "required": ["code", "checked_at"],
       "additionalProperties": false,
       "properties": {
-        "code": { "enum": ["A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8",
+        "code": { "enum": ["A1", "A2", "A3", "A4", "A5", "A6", "A7", "A9", "A8",
                            "B1", "B2", "B3", "B4", "B5", "B6", "B7"] },
         "data": { "type": "object", "description": "该证据类型自己的字段，由 policy.py 中的校验器解释" },
         "checked_at": { "type": "string", "format": "date-time" },
