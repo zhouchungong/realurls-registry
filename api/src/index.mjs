@@ -77,6 +77,11 @@ export default {
       case "/healthz":
         return json({ ok: true, ...meta }, meta.dataset_version, 200, { "Cache-Control": "no-store" });
 
+      case "/.well-known/glama.json":
+        // Ownership proof for the Glama MCP directory listing (org.realurls.api/realurls). Public, not a secret.
+        return json({ "$schema": "https://glama.ai/mcp/schemas/connector.json", claim: "glama_claim_Y3Zr2ASr5X413mvzDU9n_VLYmt4z9A5a" },
+                    meta.dataset_version, 200, { "Cache-Control": "public, max-age=3600" });
+
       case "/v1/manifest":
         return json(meta, meta.dataset_version);
 
