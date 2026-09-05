@@ -67,7 +67,7 @@ def gather(
     # 锚点域名自己独立锚定，绝不能反过来把目标的锚定塞给它。
     prop: Result | None = None
     if anchor_domain:
-        prop = _propagate_from(anchor_domain, domain, anchor_result)
+        prop = _propagate_from(anchor_domain, domain, anchor_result, hints.extra.get("outbound_domains"))
         ent = prop.extra["entity_anchor"]
     else:
         ent = inherited_anchor or anchor(
@@ -124,7 +124,8 @@ def gather(
     return out
 
 
-def _propagate_from(anchor_domain: str, domain: str, anchor_result: Result | None = None) -> Result:
+def _propagate_from(anchor_domain: str, domain: str, anchor_result: Result | None = None,
+                    candidate_outbound: list[str] | None = None) -> Result:
     """A6：从一个已 verified 的锚点域名扩散归属。
 
     这里只负责**采集**扩散所需的三个前提（源域名状态、一方声明、结构性关联），
@@ -144,6 +145,10 @@ def _propagate_from(anchor_domain: str, domain: str, anchor_result: Result | Non
     links = network.structural_links(anchor_domain, domain)
     _merge(r, links)
 
+    # Backlink: does the candidate's own page link to the anchor? True / False / None (page unfetchable or
+    # no outbound links at all, e.g. a JavaScript app or a 403 to our fetcher): "unknown" is not "no".
+    backlink = (anchor_domain in candidate_outbound) if candidate_outbound else None
+
     r.evidence.append(Evidence(
         code="A6",
         data={
@@ -152,6 +157,7 @@ def _propagate_from(anchor_domain: str, domain: str, anchor_result: Result | Non
             "first_party_link": first_party,
             "structural_links": links.extra.get("structural_links", []),
             "san_count": links.extra.get("san_count", 0),
+            "backlink": backlink,
         },
         source=f"propagate from {anchor_domain}",
     ))

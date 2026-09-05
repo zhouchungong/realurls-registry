@@ -4,6 +4,17 @@ What changed for people who consume the data or the API. Rule changes are listed
 existing records, because a rule change is a change to the public trust promise (POLICY.md §4).
 The dataset itself is released continuously as the rolling `latest` GitHub Release (signed).
 
+## 2026-09-06
+
+### Rules
+- **A6 (propagation) requires a backlink when one can be observed.** A verified site links to many third
+  parties, and name-server pairs come from shared pools; a candidate whose own page has outbound links but
+  none back to the anchor is rejected. A page that cannot be fetched or has no links at all (a JavaScript
+  app, a 403 to our fetcher) is "unknown", not "no". Effect on existing records: none (claude.ai unknown,
+  claude.com and n8n.cloud link back). New adversarial-corpus case.
+- **Owner self-attestation (A5) end to end.** Seeds may carry the token we issued, the matched token is stored
+  on the A5 record and re-checked daily. First owner request: kagi.com.
+
 ## 2026-09-05
 
 ### Rules

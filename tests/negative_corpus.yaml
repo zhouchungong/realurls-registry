@@ -251,3 +251,11 @@ cases:
       - {code: A4, data: {validation_type: "OV", subject_org: "Some Company Ltd"}}
       - {code: B4, data: {history_days: 2900}}
       - {code: B5, data: {rank: 50000}}
+
+  - id: propagation-third-party-no-backlink
+    technique: 已 verified 站点首页链接到一个大站，两者恰好共享同一对池化 NS；大站自己有出站链接但从不链回锚点
+    facts: {domain: "big-social-site[.]example", age_days: 6000, expected_github_org: "anthropics", expected_wikidata: "Q116758847", anchor_sources: ["wikidata:Q116758847/P2037"]}
+    evidence:
+      - {code: A6, data: {from: "anthropic.com", from_status: verified, first_party_link: true, structural_links: ["shared_ns"], san_count: 0, backlink: false}}
+      - {code: B4, data: {history_days: 5800}}
+      - {code: B5, data: {rank: 11}}

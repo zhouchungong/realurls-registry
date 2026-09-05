@@ -367,3 +367,26 @@ def test_a4_name_matching_ignores_legal_suffixes_and_punctuation():
     assert _names_match("supabase", ("supabase/supabase", "supabase"))
     assert not _names_match("Meta Platforms, Inc.", ("origin", "openshift"))
     assert not _names_match("Co", ("co",))     # too short to mean anything
+
+
+# ------------------------------------------------------------------ A6 backlink
+
+
+def _a6(**over):
+    data = {"from": "anthropic.com", "from_status": "verified", "first_party_link": True, "structural_links": ["shared_ns"]}
+    data.update(over)
+    return ev("A6", **data)
+
+
+def test_a6_rejects_when_candidate_links_out_but_not_back():
+    facts = DomainFacts(domain="big-site.example", age_days=1500, **ANTHROPIC_ANCHOR)
+    d = decide(facts, [_a6(backlink=False), ev("B5", rank=11), ev("B4", history_days=1400)], now=NOW)
+    assert "A6" not in d.anchors and not d.is_official
+
+
+def test_a6_unknown_backlink_is_not_a_no():
+    """claude.ai answers 403 to our fetcher: no page, no links, no verdict about backlinks."""
+    facts = DomainFacts(domain="claude.ai", age_days=1500, **ANTHROPIC_ANCHOR)
+    for value in (None, True):
+        d = decide(facts, [_a6(backlink=value), ev("B5", rank=120), ev("B4", history_days=1400)], now=NOW)
+        assert d.anchors == ["A6"], value
