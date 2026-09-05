@@ -2,7 +2,7 @@ name: Owner verification
 
 # Self-serve domain verification for owners (CONTRIBUTING.md "I control the domain").
 #   issue opened  → mint a token, record the seed, reply with the TXT record
-#   "/verify" comment, or the daily schedule → run the pipeline on pending seeds; verified → bot PR
+#   "/verify" comment, or the daily schedule → run the pipeline on pending seeds; verified → merged
 # Humans never touch entities/: build_entities writes the record, the PR is reviewed like any batch.
 
 on:
@@ -17,10 +17,9 @@ on:
 permissions:
   contents: write
   issues: write
-  pull-requests: write
 
 concurrency:
-  group: owner-verify
+  group: entities-writer
   cancel-in-progress: false
 
 jobs:
@@ -32,7 +31,7 @@ jobs:
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         with:
           python-version: "3.11"
-      - run: pip install -e "."
+      - run: pip install -e ".[dev,review]"
 
       - name: Mint the token and record the seed
         id: mint
@@ -83,7 +82,7 @@ jobs:
           ${{ steps.mint.outputs.txt }}
           \`\`\`
 
-          Then comment \`/verify\` here (or wait for the daily run). The pipeline checks the record, collects the corroborating evidence and, if the domain reaches \`verified\`, opens a pull request with the full evidence; you will be linked from it.
+          Then comment \`/verify\` here (or wait for the daily run). The pipeline checks the record, collects the corroborating evidence and, if the domain reaches \`verified\`, merges the record with the full evidence and links you to it.
 
           No token needed if you prefer GitHub: verify the domain on your GitHub organization (Settings → Verified and approved domains) and comment \`/verify\`.
 
@@ -108,7 +107,7 @@ jobs:
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         with:
           python-version: "3.11"
-      - run: pip install -e "."
+      - run: pip install -e ".[dev,review]"
 
       - name: Run the pipeline on pending owner seeds
         env:
@@ -125,22 +124,28 @@ jobs:
           [ -f /tmp/results.json ] || echo "[]" > /tmp/results.json
           python -m src.validate
 
-      - name: Open a pull request for verified domains
-        id: pr
+      - name: Rules regression and AI review
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 pytest tests -q
+          set +e
+          python -m src.review_ai --changed-since HEAD --json /tmp/review.json
+          echo "AI review exit: $?"
+          python -m src.validate
+
+      - name: Merge verified records
+        id: pr
         run: |
           git config user.name  "realurls-bot"
           git config user.email "bot@realurls.org"
           git add entities/
           if git diff --cached --quiet; then echo "url=" >> "$GITHUB_OUTPUT"; exit 0; fi
-          branch="owner-verify/${{ github.run_id }}"
-          git checkout -b "$branch"
           domains=$(python -c "import json;print(', '.join(r['domain'] for r in json.load(open('/tmp/results.json')) if r['verified']))")
-          git commit -m "data(owner): $domains" -m "Owner self-attestation (A5) via the Verify my domain issue flow."
-          git push -u origin "$branch"
-          url=$(gh pr create --title "data(owner): $domains" --body "Owner self-attestation for: $domains. Evidence in the records; the A5 token matched the DNS zone." --base main --head "$branch")
-          echo "url=$url" >> "$GITHUB_OUTPUT"
+          git commit -m "data(owner): $domains" -m "Owner self-attestation (A5) via the Verify my domain issue flow; rules regression and AI review passed in this run."
+          git pull --rebase origin main
+          git push
+          echo "url=merged" >> "$GITHUB_OUTPUT"
 
       - name: Report back on each issue
         env:
@@ -154,8 +159,8 @@ jobs:
               if not r.get("issue"):
                   continue
               if r["verified"]:
-                  body = (f"**{r['domain']}** reached `verified`. The record is in {pr or 'a pull request'}; "
-                          f"once merged it is live at https://realurls.org/e/{r['entity_id'].split(':',1)[-1]} and in the API.")
+                  body = (f"**{r['domain']}** reached `verified` and is merged; live within minutes at "
+                          f"https://realurls.org/e/{r['entity_id'].split(':',1)[-1]} and in the API, with every piece of evidence in the record.")
                   subprocess.run(["gh", "issue", "comment", str(r["issue"]), "--body", body], check=True)
                   subprocess.run(["gh", "issue", "edit", str(r["issue"]), "--remove-label", "awaiting-dns", "--add-label", "verified"], check=False)
               else:

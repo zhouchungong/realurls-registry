@@ -38,7 +38,7 @@ def _sql_str(s: str) -> str:
     return "'" + str(s).replace("'", "''") + "'"
 
 
-def examine(domains: list[str]) -> list[dict]:
+def examine(domains: list[str], github_org: str | None = None) -> list[dict]:
     now = datetime.now(UTC)
     out = []
     for raw in domains:
@@ -47,7 +47,7 @@ def examine(domains: list[str]) -> list[dict]:
             continue
         item = {"domain": domain, "checked_at": now.strftime("%Y-%m-%dT%H:%M:%SZ")}
         try:
-            record, msg = build_one({"domain": domain, "topics": [], "source": "demand"}, now)
+            record, msg = build_one({"domain": domain, "topics": [], "source": "demand", "github_org": github_org}, now)
         except Exception as exc:
             item.update({"status": "error", "reasons": [f"{type(exc).__name__}: {exc}"]})
             out.append(item)
@@ -57,7 +57,7 @@ def examine(domains: list[str]) -> list[dict]:
             item.update({"status": "verified", "entity_id": record["entity_id"],
                          "file": str(path.relative_to(ROOT)).replace("\\", "/"), "reasons": []})
         else:
-            d, _ = verify(domain)
+            d, _ = verify(domain, github_org=github_org)
             item.update({"status": d.status, "reasons": list(d.reasons)[:3], "rejected": list(d.rejected)[:6]})
         out.append(item)
         print(f"  {'✓' if item['status'] == 'verified' else '·'} {domain}: {item['status']}", file=sys.stderr)
@@ -83,6 +83,7 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--queue", help="URL returning {items: [{domain, n}]} (the API's examine queue)")
     p.add_argument("--domains", help="comma-separated domains (instead of the queue)")
     p.add_argument("--max", type=int, default=MAX_PER_RUN)
+    p.add_argument("--github-org", help="GitHub organisation hint applied to every listed domain (a lead's clue)")
     p.add_argument("--json", type=Path)
     p.add_argument("--sql", type=Path, help="write the examined-table upsert here")
     args = p.parse_args(argv)
@@ -95,7 +96,7 @@ def main(argv: list[str] | None = None) -> int:
     else:
         p.error("--queue or --domains required")
     print(f"# examining {len(domains)} domain(s)", file=sys.stderr)
-    results = examine(domains)
+    results = examine(domains, args.github_org)
     if args.json:
         args.json.write_text(json.dumps(results, ensure_ascii=False, indent=2), encoding="utf-8")
     if args.sql:

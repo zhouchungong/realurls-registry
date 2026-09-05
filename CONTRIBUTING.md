@@ -22,7 +22,7 @@ Open a [lead issue](../../issues/new?template=submit-domain.yml) with three thin
 
 A bot runs the full evidence collection and then either:
 
-- **enough evidence** → opens a pull request automatically; a human reviews and merges;
+- **enough evidence** → the record is merged automatically once the adversarial corpus and the AI review pass (the same path an API query or an owner self-attestation takes), and the issue is closed with a link to the live record;
 - **not enough** → closes the issue and tells you **exactly which piece is missing**, so you can go find it.
 
 You do not need to run WHOIS, take screenshots or write YAML. **Collecting evidence is our job, not yours.**

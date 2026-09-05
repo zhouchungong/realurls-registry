@@ -19,7 +19,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: examine
+  group: entities-writer
   cancel-in-progress: false
 
 jobs:
