@@ -46,6 +46,7 @@ def gather(
     canonical_wikidata: str | None = None,
     canonical_source: str = "human",
     inherited_anchor: EntityAnchor | None = None,
+    anchor_result: Result | None = None,
 ) -> Result:
     """跑完整条采集流水线。
 
@@ -65,7 +66,7 @@ def gather(
     # 锚点域名自己独立锚定，绝不能反过来把目标的锚定塞给它。
     prop: Result | None = None
     if anchor_domain:
-        prop = _propagate_from(anchor_domain, domain)
+        prop = _propagate_from(anchor_domain, domain, anchor_result)
         ent = prop.extra["entity_anchor"]
     else:
         ent = inherited_anchor or anchor(
@@ -120,7 +121,7 @@ def gather(
     return out
 
 
-def _propagate_from(anchor_domain: str, domain: str) -> Result:
+def _propagate_from(anchor_domain: str, domain: str, anchor_result: Result | None = None) -> Result:
     """A6：从一个已 verified 的锚点域名扩散归属。
 
     这里只负责**采集**扩散所需的三个前提（源域名状态、一方声明、结构性关联），
@@ -128,7 +129,9 @@ def _propagate_from(anchor_domain: str, domain: str) -> Result:
     并通过 ``extra["entity_anchor"]`` 交给目标域名继承。
     """
     r = Result()
-    anchor_result = gather(anchor_domain)
+    # The caller may pass the anchor's freshly gathered result (build_entities tries several siblings of
+    # one primary); re-gathering it per sibling costs a full pipeline run each time for identical facts.
+    anchor_result = anchor_result or gather(anchor_domain)
     anchor_decision = decide(*_facts_and_evidence(anchor_result))
     r.extra["entity_anchor"] = anchor_result.extra["entity_anchor"]
 

@@ -1,0 +1,128 @@
+name: Build entities from seeds (sharded)
+
+# The only legal writer of entities/ is the pipeline (SECURITY.md §1). This workflow runs it across N
+# runners in parallel and opens a pull request authored by the bot; the PR is where the per-batch
+# review happens (rules regression + the 200-record manual sample) before anything reaches main.
+#
+# Wall-clock is bounded by external rate limits, not compute: each runner bulk-prefetches Wikidata,
+# GitHub (GraphQL) and Tranco for its shard first, then runs the per-domain pipeline against a warm cache.
+
+on:
+  workflow_dispatch:
+    inputs:
+      seeds:
+        description: "Seed file in the repository (JSONL), e.g. seeds/batch-01.jsonl"
+        required: true
+        type: string
+      shards:
+        description: "Number of parallel runners"
+        required: true
+        default: "16"
+        type: string
+      batch:
+        description: "Batch label used for the branch name"
+        required: true
+        default: "batch"
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: build-entities
+  cancel-in-progress: false
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.m.outputs.matrix }}
+    steps:
+      - id: m
+        run: |
+          n="${{ inputs.shards }}"
+          echo "matrix=$(python3 -c "import json; print(json.dumps(list(range($n))))")" >> "$GITHUB_OUTPUT"
+
+  build:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      max-parallel: 16
+      matrix:
+        shard: ${{ fromJson(needs.plan.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.11"
+      - run: pip install -e "."
+
+      - name: Run the pipeline on shard ${{ matrix.shard }}/${{ inputs.shards }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GSB_API_KEY: ${{ secrets.GSB_API_KEY }}
+        run: |
+          python -m src.build_entities "${{ inputs.seeds }}" \
+            --shard "${{ matrix.shard }}/${{ inputs.shards }}" 2>&1 | tee ".cache/build-${{ matrix.shard }}.log"
+
+      - name: Keep only the files this shard produced
+        run: |
+          mkdir -p out/entities
+          git status --porcelain -- entities/ | awk '{print $2}' | while read -r f; do
+            mkdir -p "out/$(dirname "$f")" && cp "$f" "out/$f"
+          done
+          cp ".cache/build-${{ matrix.shard }}.log" out/
+          find out -type f | wc -l
+
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: shard-${{ matrix.shard }}
+          path: out
+          retention-days: 7
+
+  merge:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.11"
+      - run: pip install -e "."
+
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          path: shards
+
+      - name: Merge shards into entities/
+        run: |
+          for d in shards/shard-*; do
+            [ -d "$d/entities" ] && cp -r "$d/entities/." entities/
+          done
+          cat shards/shard-*/build-*.log | grep -E '^(  ✓|  ↳)' | sort > .cache/merged.log || true
+          echo "written: $(grep -c '^  ✓' .cache/merged.log || true), propagated: $(grep -c '^  ↳' .cache/merged.log || true)"
+
+      - name: Validate and run the negative corpus
+        run: |
+          python -m src.validate
+          PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 pytest tests -q
+
+      - name: Open a pull request for review
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name  "realurls-bot"
+          git config user.email "bot@realurls.org"
+          branch="build/${{ inputs.batch }}-${{ github.run_id }}"
+          git checkout -b "$branch"
+          git add entities/
+          git diff --cached --quiet && echo "no changes" && exit 0
+          git commit -m "data(build): ${{ inputs.batch }} from ${{ inputs.seeds }}" \
+                     -m "$(head -c 60000 .cache/merged.log)"
+          git push -u origin "$branch"
+          gh pr create --title "data: ${{ inputs.batch }} (${{ inputs.seeds }})" \
+            --body "Pipeline output for \`${{ inputs.seeds }}\` across ${{ inputs.shards }} shards. Review checklist before merge: rules regression green, 200-record manual sample recorded, AI review flags resolved." \
+            --base main --head "$branch"

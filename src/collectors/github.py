@@ -18,7 +18,7 @@ import shutil
 import subprocess
 from datetime import UTC
 
-from src.collectors.base import FetchError, Result, fetch_json, now
+from src.collectors.base import FetchError, Result, cache_get, cache_put, cache_status, fetch_json, now, post_json
 from src.policy import Evidence, registrable_domain
 
 API = "https://api.github.com"
@@ -57,6 +57,107 @@ def _headers() -> dict[str, str]:
 
 
 # ---------------------------------------------------------------------------
+# Bulk prefetch over GraphQL. One query covers many organisations for one rate-limit point, where REST
+# spends one request per organisation (5,000/hour: 40k seeds with three name guesses each would take a
+# day of quota on the org lookups alone). Results are written into the same cache entries the REST
+# collectors read, so the per-domain code path is unchanged and cannot tell which filled its cache.
+# ---------------------------------------------------------------------------
+
+GRAPHQL = "https://api.github.com/graphql"
+GRAPHQL_BATCH = 40
+_REPOS_KEY = "github:top-repos:{}"
+_TOP_REPOS_TTL = 168
+
+
+def _gql_str(s: str) -> str:
+    import json
+    return json.dumps(s)
+
+
+def _graphql(query: str) -> dict:
+    if not _token():
+        raise FetchError("graphql: no token")
+    doc = post_json(GRAPHQL, {"query": query}, headers=_headers())
+    return doc.get("data") or {}
+
+
+def prefetch_orgs(logins: list[str]) -> int:
+    """Prime ``/orgs/{login}`` cache entries (A1 lookups) for many logins in one GraphQL call per 40.
+
+    A login that does not exist is stored as a 404 so ``fetch_json`` raises the same error it would have
+    raised against the live API. Only the fields the A1 collector reads are stored.
+    """
+    todo = [x for x in dict.fromkeys(logins) if x and cache_status(f"{API}/orgs/{x}", 24) is None]
+    done = 0
+    for i in range(0, len(todo), GRAPHQL_BATCH):
+        chunk = todo[i:i + GRAPHQL_BATCH]
+        body = " ".join(
+            f"o{k}: organization(login: {_gql_str(login)}) {{ login name isVerified websiteUrl createdAt }}"
+            for k, login in enumerate(chunk)
+        )
+        try:
+            data = _graphql(f"query {{ {body} }}")
+        except FetchError:
+            continue
+        for k, login in enumerate(chunk):
+            org = data.get(f"o{k}")
+            url = f"{API}/orgs/{login}"
+            if not org:
+                cache_put(url, {"message": "Not Found"}, status=404)
+                continue
+            cache_put(url, {"login": org["login"], "name": org.get("name"),
+                            "is_verified": bool(org.get("isVerified")),
+                            "blog": org.get("websiteUrl") or "", "created_at": org.get("createdAt")})
+        done += len(chunk)
+    return done
+
+
+def prefetch_repos(orgs: list[str]) -> int:
+    """Prime the top-repos-by-stars list for many organisations (replaces one search API call each;
+    the search API is limited to 30 requests/minute, the tightest limit in the whole pipeline)."""
+    todo = [x for x in dict.fromkeys(orgs) if x and cache_get(_REPOS_KEY.format(x), _TOP_REPOS_TTL) is None]
+    done = 0
+    for i in range(0, len(todo), GRAPHQL_BATCH):
+        chunk = todo[i:i + GRAPHQL_BATCH]
+        body = " ".join(
+            f"o{k}: repositoryOwner(login: {_gql_str(org)}) {{ repositories(first: 8, isFork: false, "
+            "ownerAffiliations: OWNER, orderBy: {field: STARGAZERS, direction: DESC}) "
+            "{ nodes { nameWithOwner stargazerCount createdAt isFork homepageUrl } } }"
+            for k, org in enumerate(chunk)
+        )
+        try:
+            data = _graphql(f"query {{ {body} }}")
+        except FetchError:
+            continue
+        for k, org in enumerate(chunk):
+            owner = data.get(f"o{k}") or {}
+            nodes = (owner.get("repositories") or {}).get("nodes") or []
+            cache_put(_REPOS_KEY.format(org), [
+                {"full_name": n["nameWithOwner"], "stargazers_count": n["stargazerCount"],
+                 "created_at": n["createdAt"], "fork": n["isFork"], "homepage": n.get("homepageUrl") or ""}
+                for n in nodes
+            ])
+        done += len(chunk)
+    return done
+
+
+def _top_repos(org: str, r: Result) -> list[dict] | None:
+    """Top non-fork repos by stars: prefetched GraphQL list if present, else the REST search API."""
+    cached = cache_get(_REPOS_KEY.format(org), _TOP_REPOS_TTL)
+    if cached is not None:
+        return cached
+    import urllib.parse
+    q = urllib.parse.quote(f"org:{org} fork:false")
+    try:
+        items = fetch_json(f"{API}/search/repositories?q={q}&sort=stars&order=desc&per_page=8",
+                           headers=_headers(), ttl_hours=168).get("items", [])
+    except FetchError as exc:
+        r.note(f"github: 搜索组织 {org} 的仓库失败：{exc}")
+        return None
+    return [x for x in items if not x.get("fork")]
+
+
+# ---------------------------------------------------------------------------
 # 「GitHub 项目史」锚定权威 + A8
 # ---------------------------------------------------------------------------
 
@@ -86,18 +187,11 @@ def repo_history(org: str, r: Result | None = None) -> dict | None:
         REPO_ANCHOR_MIN_STARS,
     )
     r = r or Result()
-    # /orgs/{org}/repos 不支持按星排序（只支持 created/updated/pushed/full_name），
-    # tensorflow 这种上百仓库的组织按字母序取前 30 个根本拿不到主仓库。用 search API 按星取。
-    import urllib.parse
-    q = urllib.parse.quote(f"org:{org} fork:false")
-    try:
-        repos = fetch_json(f"{API}/search/repositories?q={q}&sort=stars&order=desc&per_page=8",
-                           headers=_headers(), ttl_hours=168).get("items", [])
-    except FetchError as exc:
-        r.note(f"github: 搜索组织 {org} 的仓库失败：{exc}")
+    # /orgs/{org}/repos cannot sort by stars (only created/updated/pushed/full_name); for an org with
+    # hundreds of repos the alphabetical first 30 never contain the main one. Sorted by stars instead.
+    repos = _top_repos(org, r)
+    if repos is None:
         return None
-
-    repos = [x for x in repos if not x.get("fork")]
     for repo in repos:
         stars = repo.get("stargazers_count", 0)
         if stars < REPO_ANCHOR_MIN_STARS:

@@ -22,7 +22,10 @@ from pathlib import Path
 from src.verify import verify
 
 
-def run(seeds_path: Path, out_path: Path, resume: bool = True) -> None:
+def run(seeds_path: Path, out_path: Path, resume: bool = True, shard_spec: str | None = None,
+        do_prefetch: bool = True) -> None:
+    from src.prefetch import prefetch, shard
+
     done: set[str] = set()
     if resume and out_path.exists():
         for line in out_path.read_text(encoding="utf-8").splitlines():
@@ -33,8 +36,11 @@ def run(seeds_path: Path, out_path: Path, resume: bool = True) -> None:
 
     seeds = [json.loads(line) for line in seeds_path.read_text(encoding="utf-8").splitlines()
              if line.strip() and not line.startswith("#")]
+    seeds = shard(seeds, shard_spec)
     todo = [s for s in seeds if s["domain"] not in done]
     print(f"# {len(seeds)} seeds, {len(done)} done, {len(todo)} to go", file=sys.stderr)
+    if do_prefetch and todo:
+        prefetch(todo)
 
     with out_path.open("a", encoding="utf-8") as fh:
         for i, seed in enumerate(todo, 1):
@@ -121,6 +127,8 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--out", type=Path, default=Path(".cache/batch-results.jsonl"))
     p.add_argument("--summarize", type=Path)
     p.add_argument("--no-resume", action="store_true")
+    p.add_argument("--shard", help="i/N: process only seeds with index ≡ i (mod N)")
+    p.add_argument("--no-prefetch", action="store_true")
     args = p.parse_args(argv)
 
     if args.summarize:
@@ -129,7 +137,8 @@ def main(argv: list[str] | None = None) -> int:
     if not args.seeds:
         p.error("需要 seeds 文件或 --summarize")
     args.out.parent.mkdir(parents=True, exist_ok=True)
-    run(args.seeds, args.out, resume=not args.no_resume)
+    run(args.seeds, args.out, resume=not args.no_resume, shard_spec=args.shard,
+        do_prefetch=not args.no_prefetch)
     return 0
 
 

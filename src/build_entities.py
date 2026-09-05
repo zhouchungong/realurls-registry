@@ -17,6 +17,7 @@
 
     python -m src.build_entities .cache/seeds.jsonl --only-verified
     python -m src.build_entities .cache/seeds.jsonl --domains n8n.io,ollama.com
+    python -m src.build_entities seeds/batch-01.jsonl --shard 3/16    # one of 16 parallel CI runners
 """
 
 from __future__ import annotations
@@ -142,7 +143,7 @@ def build_one(seed: dict, now: datetime) -> tuple[dict | None, str]:
                 continue
             seen.add(cand)
             try:
-                d2, r2 = verify(cand, anchor_domain=domain)
+                d2, r2 = verify(cand, anchor_domain=domain, anchor_result=result)
             except Exception as exc:  # one bad sibling must not sink the entity
                 print(f"  · {cand}: propagation error {type(exc).__name__}", file=sys.stderr)
                 continue
@@ -174,8 +175,11 @@ def _policy_version() -> str:
 
 
 def write(record: dict) -> Path:
-    cat = record["category"][0]
-    path = ENTITIES / cat / f"{record['entity_id'].split(':', 1)[1]}.yaml"
+    slug = record["entity_id"].split(":", 1)[1]
+    # An entity already on disk keeps its file: a seed with different topics must update that record,
+    # not create a second file for the same entity_id under another category.
+    existing = sorted(ENTITIES.glob(f"*/{slug}.yaml"))
+    path = existing[0] if existing else ENTITIES / record["category"][0] / f"{slug}.yaml"
     path.parent.mkdir(parents=True, exist_ok=True)
 
     if path.exists():  # 保留 first_seen；其余以本次为准
@@ -201,13 +205,19 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("seeds", type=Path)
     p.add_argument("--domains", help="只处理这些域名，逗号分隔")
     p.add_argument("--only-verified", action="store_true", help="跳过无 GitHub 验证且无其他线索的种子")
+    p.add_argument("--shard", help="i/N: process only seeds with index ≡ i (mod N); for parallel CI runners")
+    p.add_argument("--no-prefetch", action="store_true", help="skip bulk prefetch (Wikidata/GitHub/Tranco)")
     args = p.parse_args(argv)
 
+    from src.prefetch import prefetch, shard
     seeds = [json.loads(line) for line in args.seeds.read_text(encoding="utf-8").splitlines()
              if line.strip() and not line.startswith("#")]
     if args.domains:
         wanted = {d.strip() for d in args.domains.split(",")}
         seeds = [s for s in seeds if s["domain"] in wanted]
+    seeds = shard(seeds, args.shard)
+    if not args.no_prefetch:
+        prefetch(seeds)
 
     now = datetime.now(UTC)
     seen_domains: set[str] = set()

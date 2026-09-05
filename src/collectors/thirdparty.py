@@ -12,7 +12,7 @@ import urllib.parse
 import urllib.request
 from datetime import UTC, datetime
 
-from src.collectors.base import USER_AGENT, FetchError, Result, fetch, fetch_json, now
+from src.collectors.base import USER_AGENT, FetchError, Result, cache_get, cache_put, fetch, fetch_json, now
 from src.policy import Evidence
 
 SPARQL = "https://query.wikidata.org/sparql"
@@ -23,25 +23,25 @@ GSB = "https://safebrowsing.googleapis.com/v4/threatMatches:find?key={}"
 
 # ------------------------------------------------------------------ B1 Wikidata
 
-def wikidata(domain: str) -> Result:
-    """反查：哪个 Wikidata 实体把这个域名声明为 official website（P856）。
+def _p856_variants(domain: str) -> list[str]:
+    return [f"{scheme}://{host}{tail}"
+            for scheme in ("https", "http") for host in (domain, f"www.{domain}") for tail in ("", "/")]
 
-    用 ``VALUES`` 枚举常见 URL 变体做**索引查找**。早先用 ``FILTER(CONTAINS(...))``
-    会全表扫描 P856（数百万条）并稳定超时 —— 那种写法在这里是不可用的。
-    代价是漏掉带路径的写法，可接受：P856 的规范写法就是站点根 URL。
+
+def _p856_query(domains: list[str]) -> str:
+    """Which typed Wikidata items declare one of these domains as official website (P856)?
+
+    ``VALUES`` over the URL variants is an **index lookup**. An earlier ``FILTER(CONTAINS(...))`` scanned
+    every P856 (millions) and timed out every time. Path-bearing P856 values are missed, acceptable: the
+    canonical P856 is the site root.
+
+    Entity type must be constrained. claude.ai's P856 once carried a junk item titled like a Chinese
+    newspaper headline (Q116755258): Wikidata is editable by anyone, and adding a P856 that points at a
+    phishing domain costs nothing. Without the type filter B1 would be a corroboration anyone can forge
+    (SECURITY.md T7). P2037 = GitHub username, P1324 = source repository; both feed entity anchoring.
     """
-    r = Result()
-    variants = " ".join(
-        f"<{scheme}://{host}{tail}>"
-        for scheme in ("https", "http")
-        for host in (domain, f"www.{domain}")
-        for tail in ("", "/")
-    )
-    # 必须限定实体类型。实测 claude.ai 的 P856 上挂着一个标题是中文报纸标题的垃圾条目
-    # （Q116755258）—— Wikidata 任何人可编辑，往某条目加一条 P856 指向钓鱼域名的成本为零。
-    # 不做类型过滤的话，B1 就是一条可被任意人凭空制造的「佐证」。这是 SECURITY.md T7。
-    # P2037 = GitHub 用户名，P1324 = 源码仓库。二者是实体锚定（src/anchor.py）的 canonical 来源。
-    query = f"""
+    variants = " ".join(f"<{u}>" for d in domains for u in _p856_variants(d))
+    return f"""
     SELECT ?item ?itemLabel ?site ?sitelinks ?github ?repo WHERE {{
       VALUES ?site {{ {variants} }}
       ?item wdt:P856 ?site .
@@ -53,17 +53,69 @@ def wikidata(domain: str) -> Result:
       OPTIONAL {{ ?item wdt:P2037 ?github }}
       OPTIONAL {{ ?item wdt:P1324 ?repo }}
       SERVICE wikibase:label {{ bd:serviceParam wikibase:language "en,zh". }}
-    }} ORDER BY DESC(?sitelinks) LIMIT 5
+    }} ORDER BY DESC(?sitelinks)
     """
+
+
+def _site_domain(site: str) -> str:
+    host = urllib.parse.urlsplit(site).hostname or ""
+    return host[4:] if host.startswith("www.") else host
+
+
+def _run_sparql(query: str) -> list[dict]:
     url = f"{SPARQL}?query={urllib.parse.quote(query)}&format=json"
+    doc = fetch_json(url, headers={"Accept": "application/sparql-results+json"}, ttl_hours=168, timeout=60)
+    return doc.get("results", {}).get("bindings", [])
+
+
+WIKIDATA_BATCH = 40
+_WD_KEY = "wikidata:p856:{}"
+
+
+def prefetch_wikidata(domains: list[str]) -> int:
+    """Bulk-resolve P856 for many domains in one SPARQL call per 40 domains, priming the per-domain cache.
+
+    One query per domain is the scaling bottleneck (40k seeds = 40k SPARQL calls under the public
+    endpoint's rate limit). Batching cuts that 40x with identical results: the per-domain path and this
+    one run the same query text, so ``wikidata()`` cannot tell which filled its cache.
+    """
+    todo = [d for d in dict.fromkeys(domains) if cache_get(_WD_KEY.format(d), 168) is None]
+    fetched = 0
+    for i in range(0, len(todo), WIKIDATA_BATCH):
+        chunk = todo[i:i + WIKIDATA_BATCH]
+        try:
+            rows = _run_sparql(_p856_query(chunk))
+        except FetchError:
+            continue   # per-domain lookup will retry these later
+        by_domain: dict[str, list[dict]] = {d: [] for d in chunk}
+        for b in rows:
+            d = _site_domain(b.get("site", {}).get("value", ""))
+            if d in by_domain:
+                by_domain[d].append(b)
+        for d, bs in by_domain.items():
+            cache_put(_WD_KEY.format(d), bs[:5])
+        fetched += len(chunk)
+    return fetched
+
+
+def _p856_bindings(domain: str) -> list[dict]:
+    cached = cache_get(_WD_KEY.format(domain), 168)
+    if cached is not None:
+        return cached
+    rows = _run_sparql(_p856_query([domain]))[:5]
+    cache_put(_WD_KEY.format(domain), rows)
+    return rows
+
+
+def wikidata(domain: str) -> Result:
+    """Reverse lookup: which Wikidata item declares this domain as its official website (P856)."""
+    r = Result()
     try:
-        doc = fetch_json(url, headers={"Accept": "application/sparql-results+json"},
-                         ttl_hours=168, timeout=45)
+        bindings = _p856_bindings(domain)
     except FetchError as exc:
         r.note(f"wikidata: 查询失败：{exc}")
         return r
 
-    bindings = doc.get("results", {}).get("bindings", [])
     if not bindings:
         r.note("wikidata: 没有「组织 / 软件 / 网站」类实体把本域名声明为 P856")
         return r
