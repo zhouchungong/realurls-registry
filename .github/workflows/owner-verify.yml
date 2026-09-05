@@ -67,8 +67,7 @@ jobs:
           git config user.email "bot@realurls.org"
           git add seeds/owners.jsonl
           git diff --cached --quiet || git commit -m "owners: token for ${{ steps.mint.outputs.domain }} (#${{ github.event.issue.number }})"
-          git pull --rebase origin main
-          git push
+          for attempt in 1 2 3; do git pull --rebase origin main && git push && break; sleep $((attempt * 5)); done
 
       - name: Reply with the TXT record
         if: steps.mint.outputs.domain != ''
@@ -143,8 +142,7 @@ jobs:
           if git diff --cached --quiet; then echo "url=" >> "$GITHUB_OUTPUT"; exit 0; fi
           domains=$(python -c "import json;print(', '.join(r['domain'] for r in json.load(open('/tmp/results.json')) if r['verified']))")
           git commit -m "data(owner): $domains" -m "Owner self-attestation (A5) via the Verify my domain issue flow; rules regression and AI review passed in this run."
-          git pull --rebase origin main
-          git push
+          for attempt in 1 2 3; do git pull --rebase origin main && git push && break; sleep $((attempt * 5)); done
           echo "url=merged" >> "$GITHUB_OUTPUT"
 
       - name: Deploy the new dataset

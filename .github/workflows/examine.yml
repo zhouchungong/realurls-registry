@@ -19,7 +19,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: entities-writer
+  group: examine
   cancel-in-progress: false
 
 jobs:
@@ -81,8 +81,7 @@ jobs:
           if git diff --cached --quiet; then echo "nothing verified"; exit 0; fi
           domains=$(python -c "import json;print(', '.join(r['domain'] for r in json.load(open('.cache/examine.json')) if r['status']=='verified'))")
           git commit -m "data(examine): $domains" -m "On-demand examination from the query queue; rules regression and AI review passed in this run."
-          git pull --rebase origin main
-          git push
+          for attempt in 1 2 3; do git pull --rebase origin main && git push && break; sleep $((attempt * 5)); done
           echo "merged=1" >> "$GITHUB_OUTPUT"
 
       - name: Deploy the new dataset

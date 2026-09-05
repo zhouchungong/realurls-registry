@@ -79,8 +79,7 @@ jobs:
           git add entities/
           if git diff --cached --quiet; then echo "nothing verified"; exit 0; fi
           git commit -m "data(lead): ${{ steps.lead.outputs.domain }} (#${{ github.event.issue.number }})" -m "Community lead; rules regression and AI review passed in this run."
-          git pull --rebase origin main
-          git push
+          for attempt in 1 2 3; do git pull --rebase origin main && git push && break; sleep $((attempt * 5)); done
           echo "merged=1" >> "$GITHUB_OUTPUT"
 
       - name: Deploy the new dataset

@@ -60,8 +60,7 @@ jobs:
           git config user.email "bot@realurls.org"
           git add entities/
           git commit -m "data(dispute): ${{ steps.d.outputs.domain }} -> disputed (#${{ github.event.issue.number }})"
-          git pull --rebase origin main
-          git push
+          for attempt in 1 2 3; do git pull --rebase origin main && git push && break; sleep $((attempt * 5)); done
           gh workflow run deploy.yml --ref main
           gh workflow run release.yml --ref main
 
