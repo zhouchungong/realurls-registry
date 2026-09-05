@@ -274,9 +274,10 @@ ${domains}
 
 // ------------------------------------------------------------------ verdict page
 
-async function domainPage(input, store, manifest) {
+async function domainPage(input, store, manifest, ctx = null) {
   const domain = registrableDomain(input);
   const r = await store.resolve(input);
+  ctx?.waitUntil(store.count("domain", r.domain, r.verdict));   // site queries feed the same demand / examination queue as the API
   if (r.verdict === "official" || r.verdict === "insufficient_evidence") {
     return Response.redirect(`${SITE}/e/${r.entity.id.replace(/^org:/, "")}#${domain}`, 302);
   }
@@ -285,6 +286,7 @@ async function domainPage(input, store, manifest) {
   // claude-desktop.io would fuzzy-match "claude" and land on Anthropic's page, hiding that it's a lookalike.
   const looksLikeDomain = /[.\/]/.test(input) || /^https?:/i.test(input);
   const looked = looksLikeDomain ? { verdict: "skip" } : await store.lookup(input);
+  if (!looksLikeDomain) ctx?.waitUntil(store.count("name", input, looked.verdict));
   if (looked.verdict === "official" || looked.verdict === "insufficient_evidence") {
     return Response.redirect(`${SITE}/e/${looked.entity.id.replace(/^org:/, "")}`, 302);
   }
@@ -371,7 +373,7 @@ const LLMS_TXT = `# Realurls
 Statuses: only "verified" is a positive answer. provisional / community / unverified mean "insufficient evidence" — do not present those domains as confirmed official.
 `;
 
-export async function handleSite(request, store, manifest) {
+export async function handleSite(request, store, manifest, ctx = null) {
   const url = new URL(request.url);
   const path = url.pathname.replace(/\/+$/, "") || "/";
   const html = body => new Response(body, { headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "public, max-age=300", "X-Realurls-Dataset": manifest.dataset_version } });
@@ -394,7 +396,7 @@ export async function handleSite(request, store, manifest) {
   }
   if (path === "/d" || path.startsWith("/d/")) {
     const q = (path.length > 3 ? decodeURIComponent(path.slice(3)) : url.searchParams.get("q") || "").trim();
-    return q ? domainPage(q, store, manifest) : Response.redirect(`${SITE}/`, 302);
+    return q ? domainPage(q, store, manifest, ctx) : Response.redirect(`${SITE}/`, 302);
   }
   if (path.startsWith("/v1/") || path === "/healthz") return null;   // API paths also work on the site host
   return new Response(layout(manifest, "Not found — Realurls", `<h1>Not found</h1><p><a href="/">Back to search</a></p>`), { status: 404, headers: { "Content-Type": "text/html; charset=utf-8" } });

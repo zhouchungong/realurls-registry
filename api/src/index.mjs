@@ -60,7 +60,7 @@ export default {
     catch (e) { return json({ error: "dataset not loaded", detail: String(e.message || e) }, null, 503, { "Cache-Control": "no-store" }); }
 
     if (host === "realurls.org" || host === "www.realurls.org") {
-      const page = await handleSite(request, store, meta);
+      const page = await handleSite(request, store, meta, ctx);
       if (page) return page;
     }
 
