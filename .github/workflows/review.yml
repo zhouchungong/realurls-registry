@@ -41,8 +41,10 @@ jobs:
           mkdir -p .cache
           set +e
           python -m src.review_ai --changed-since origin/main --json .cache/review.json 2>&1 | tee .cache/review.log
-          echo "AI review exit: ${PIPESTATUS[0]}"
+          rc=${PIPESTATUS[0]}
+          echo "AI review exit: $rc"
           python -m src.validate
+          if [ "$rc" = "3" ]; then echo "::error::nothing was reviewed (API unavailable); no marks are pushed"; exit 1; fi
 
       - name: Summary
         if: always()
