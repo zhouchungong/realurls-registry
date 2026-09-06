@@ -1,0 +1,110 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:panicinc
+names:
+  en: Panic
+aliases:
+- Panic Inc.
+- panicinc
+category:
+- saas
+wikidata: Q7131061
+canonical:
+  github_org: panicinc
+  wikidata: Q7131061
+  sources:
+  - wikidata:Q7131061/P856
+  - wikidata:Q7131061/P2037
+domains:
+- domain: panic.com
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:37Z'
+  ttl_days: 30
+  age_days: 12472
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T07:19:50Z'
+    source: https://api.github.com/orgs/panicinc
+    data:
+      org: panicinc
+      org_verified: true
+      blog: https://panic.com
+      org_name: Panic Inc.
+      created_at: '2012-09-12T22:20:13Z'
+  - code: A9
+    checked_at: '2026-09-06T07:19:52Z'
+    source: https://itunes.apple.com/search?term=Panic&entity=software
+    data:
+      app: Prompt 3
+      track_id: 1594420480
+      seller: Panic, Inc.
+      artist: Panic, Inc.
+      seller_url: https://panic.com/prompt
+      released: '2024-01-16'
+      age_days: 963
+      ratings: 356
+      apps_for_domain: 1
+      apps:
+      - app: Prompt 3
+        seller: Panic, Inc.
+        released: '2024-01-16'
+        age_days: 963
+        ratings: 356
+  - code: A3
+    checked_at: '2026-09-06T07:20:25Z'
+    source: https://rdap.org/domain/panic.com
+    data:
+      registrar: Network Solutions, LLC
+      created: '1992-07-14'
+      expires: '2036-07-13'
+      remaining_days: 3597
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T07:19:50Z'
+    source: TLS handshake panic.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T07:19:50Z'
+    source: https://www.wikidata.org/wiki/Q7131061
+    data:
+      qid: Q7131061
+      label: Panic
+      kind: organization
+      site: https://panic.com
+      sitelinks: 10
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T07:19:50Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 32284
+      source: top-1m list
+  rejected_evidence:
+  - 'A9: no listing meets the App Store history bar (at least 2 years on the store and 1000 ratings); strongest:
+    Prompt 3 963 days, 356 ratings'
+  - 'A3: registrar (Network Solutions, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q7131061
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,112 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:aspyr
+names:
+  en: Aspyr
+aliases: []
+category:
+- saas
+wikidata: Q738135
+canonical:
+  github_org: null
+  wikidata: Q738135
+  sources:
+  - wikidata:Q738135/P856
+domains:
+- domain: aspyr.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:36Z'
+  ttl_days: 30
+  age_days: 11138
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T06:51:05Z'
+    source: https://itunes.apple.com/search?term=Aspyr&entity=software
+    data:
+      app: 'Star Wars™: KOTOR'
+      track_id: 611436052
+      seller: Aspyr Media (iDP)
+      artist: Aspyr Media, Inc.
+      seller_url: https://aspyr.com/hc/en-us?utm_source=iOS&utm_medium=SupportLink&utm_campaign=kotor
+      released: '2013-05-30'
+      age_days: 4846
+      ratings: 6121
+      apps_for_domain: 4
+      apps:
+      - app: 'Star Wars™: KOTOR'
+        seller: Aspyr Media (iDP)
+        released: '2013-05-30'
+        age_days: 4846
+        ratings: 6121
+      - app: 'Star Wars™: KOTOR II'
+        seller: Aspyr Media (iDP)
+        released: '2020-12-18'
+        age_days: 2087
+        ratings: 1515
+      - app: 'Jade Empire™: Special Edition'
+        seller: Aspyr Media (iDP)
+        released: '2016-10-06'
+        age_days: 3622
+        ratings: 427
+  - code: A3
+    checked_at: '2026-09-06T06:51:38Z'
+    source: https://rdap.org/domain/aspyr.com
+    data:
+      registrar: Gandi SAS
+      created: '1996-03-09'
+      expires: '2029-03-10'
+      remaining_days: 915
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T06:51:05Z'
+    source: TLS handshake aspyr.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T06:51:04Z'
+    source: https://www.wikidata.org/wiki/Q738135
+    data:
+      qid: Q738135
+      label: Aspyr
+      kind: organization
+      site: http://www.aspyr.com
+      sitelinks: 25
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T06:51:04Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 151121
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T06:51:15Z'
+    source: http://web.archive.org/cdx/search/cdx?url=aspyr.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1997-03-27'
+      history_days: 10755
+  rejected_evidence:
+  - 'A3: registrar (Gandi SAS) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q738135
+  reviewed_by: []
+  source_issue: null

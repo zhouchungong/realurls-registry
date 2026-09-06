@@ -1,0 +1,113 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:rediff
+names:
+  en: Rediff
+aliases: []
+category:
+- saas
+wikidata: Q140676
+canonical:
+  github_org: null
+  wikidata: Q140676
+  sources:
+  - wikidata:Q140676/P856
+domains:
+- domain: rediff.com
+  role: primary
+  status: verified
+  confidence: 0.7816
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:33Z'
+  ttl_days: 30
+  age_days: 10802
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T07:03:26Z'
+    source: https://itunes.apple.com/search?term=Rediff&entity=software
+    data:
+      app: 'Rediff: UPI, Mail & News App'
+      track_id: 594754474
+      seller: Rediff.com India Limited
+      artist: Rediff.com
+      seller_url: http://www.rediff.com/
+      released: '2013-01-26'
+      age_days: 4971
+      ratings: 7
+      apps_for_domain: 4
+      apps:
+      - app: 'Rediff: UPI, Mail & News App'
+        seller: Rediff.com India Limited
+        released: '2013-01-26'
+        age_days: 4971
+        ratings: 7
+      - app: Rediffmail Professional
+        seller: Rediff.com India Limited
+        released: '2017-10-11'
+        age_days: 3252
+        ratings: 5
+      - app: rediffBol Professional
+        seller: Rediff.com India Limited
+        released: '2020-08-06'
+        age_days: 2222
+        ratings: 0
+  - code: A3
+    checked_at: '2026-09-06T07:03:25Z'
+    source: https://rdap.org/domain/rediff.com
+    data:
+      registrar: Network Solutions, LLC
+      created: '1997-02-08'
+      expires: '2034-02-09'
+      remaining_days: 2712
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T07:03:25Z'
+    source: TLS handshake rediff.com:443
+    data:
+      subject_org: Rediff. com India Limited
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T07:03:25Z'
+    source: https://www.wikidata.org/wiki/Q140676
+    data:
+      qid: Q140676
+      label: Rediff
+      kind: organization
+      site: https://www.rediff.com/
+      sitelinks: 20
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-06T07:03:25Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 4413
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T07:04:27Z'
+    source: http://web.archive.org/cdx/search/cdx?url=rediff.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1998-06-10'
+      history_days: 10315
+  rejected_evidence:
+  - 'A9: no listing meets the App Store history bar (at least 2 years on the store and 1000 ratings); strongest:
+    Rediff: UPI, Mail & News App 4971 days, 7 ratings'
+  - 'A3: registrar (Network Solutions, LLC) is not a brand-protection registrar'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q140676
+  reviewed_by: []
+  source_issue: null

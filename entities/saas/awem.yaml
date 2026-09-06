@@ -1,0 +1,107 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:awem
+names:
+  en: Awem
+aliases: []
+category:
+- saas
+wikidata: Q4034645
+canonical:
+  github_org: null
+  wikidata: Q4034645
+  sources:
+  - wikidata:Q4034645/P856
+domains:
+- domain: awem.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:37Z'
+  ttl_days: 30
+  age_days: 8900
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T08:05:35Z'
+    source: https://itunes.apple.com/search?term=Awem&entity=software
+    data:
+      app: Cradle of Empires・Match 3 game
+      track_id: 738480930
+      seller: AWEM GAMES LIMITED
+      artist: AWEM GAMES LTD
+      seller_url: https://awem.com/
+      released: '2014-06-05'
+      age_days: 4475
+      ratings: 35115
+      apps_for_domain: 2
+      apps:
+      - app: Cradle of Empires・Match 3 game
+        seller: AWEM GAMES LIMITED
+        released: '2014-06-05'
+        age_days: 4475
+        ratings: 35115
+      - app: 'Cradle of Maya: Match 3 Story'
+        seller: AWEM GAMES LIMITED
+        released: '2025-02-26'
+        age_days: 557
+        ratings: 1229
+  - code: A3
+    checked_at: '2026-09-06T08:05:39Z'
+    source: https://rdap.org/domain/awem.com
+    data:
+      registrar: PDR Ltd. d/b/a PublicDomainRegistry.com
+      created: '2002-04-24'
+      expires: '2031-04-24'
+      remaining_days: 1691
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T08:05:35Z'
+    source: TLS handshake awem.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T08:05:35Z'
+    source: https://www.wikidata.org/wiki/Q4034645
+    data:
+      qid: Q4034645
+      label: Awem
+      kind: organization
+      site: http://www.awem.com/
+      sitelinks: 3
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T08:05:35Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 76639
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T08:05:37Z'
+    source: http://web.archive.org/cdx/search/cdx?url=awem.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2001-04-04'
+      history_days: 9286
+  rejected_evidence:
+  - 'A3: registrar (PDR Ltd. d/b/a PublicDomainRegistry.com) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q4034645
+  reviewed_by: []
+  source_issue: null

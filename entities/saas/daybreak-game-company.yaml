@@ -1,0 +1,239 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:daybreak-game-company
+names:
+  en: Daybreak Game Company
+aliases: []
+category:
+- saas
+wikidata: Q959672
+canonical:
+  github_org: null
+  wikidata: Q959672
+  sources:
+  - wikidata:Q959672/P856
+domains:
+- domain: daybreakgames.com
+  role: primary
+  status: verified
+  confidence: 0.7816
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:39Z'
+  ttl_days: 30
+  age_days: 5687
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A3
+    checked_at: '2026-09-06T07:09:08Z'
+    source: https://rdap.org/domain/daybreakgames.com
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2011-02-09'
+      expires: '2030-02-09'
+      remaining_days: 1252
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T07:08:25Z'
+    source: TLS handshake daybreakgames.com:443
+    data:
+      subject_org: Daybreak Game Company LLC
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T07:08:25Z'
+    source: https://www.wikidata.org/wiki/Q959672
+    data:
+      qid: Q959672
+      label: Daybreak Game Company
+      kind: organization
+      site: https://www.daybreakgames.com/
+      sitelinks: 16
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T07:08:25Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 55009
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T07:08:26Z'
+    source: http://web.archive.org/cdx/search/cdx?url=daybreakgames.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2015-02-05'
+      history_days: 4231
+  rejected_evidence:
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+- domain: dcuniverseonline.com
+  role: product
+  status: verified
+  confidence: 0.7105
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:39Z'
+  ttl_days: 30
+  age_days: 6927
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A3
+    checked_at: '2026-09-06T07:10:50Z'
+    source: https://rdap.org/domain/dcuniverseonline.com
+    data:
+      registrar: Network Solutions, LLC
+      created: '2007-09-18'
+      expires: '2027-09-18'
+      remaining_days: 377
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T07:10:25Z'
+    source: TLS handshake dcuniverseonline.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T07:10:29Z'
+    source: https://www.wikidata.org/wiki/Q27107
+    data:
+      qid: Q27107
+      label: DC Universe Online
+      kind: software
+      site: http://www.dcuniverseonline.com/
+      sitelinks: 15
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T07:10:25Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 262957
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T07:10:31Z'
+    source: http://web.archive.org/cdx/search/cdx?url=dcuniverseonline.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2010-07-29'
+      history_days: 5883
+  - code: A6
+    checked_at: '2026-09-06T07:10:50Z'
+    source: propagate from daybreakgames.com
+    data:
+      from: daybreakgames.com
+      from_status: verified
+      first_party_link: true
+      structural_links:
+      - shared_ns
+      san_count: 2
+      shared_ns:
+      - ns2.daybreakgaming.net
+      - ns4.daybreakgaming.net
+      - ns6.daybreakgaming.net
+      backlink: true
+  rejected_evidence:
+  - 'A3: registrar (Network Solutions, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: item Q27107 != entity canonical item Q959672'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+- domain: everquest.com
+  role: product
+  status: verified
+  confidence: 0.7105
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:39Z'
+  ttl_days: 30
+  age_days: 10705
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A3
+    checked_at: '2026-09-06T07:11:13Z'
+    source: https://rdap.org/domain/everquest.com
+    data:
+      registrar: Network Solutions, LLC
+      created: '1997-05-16'
+      expires: '2027-05-17'
+      remaining_days: 252
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T07:11:13Z'
+    source: TLS handshake everquest.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T07:11:17Z'
+    source: https://www.wikidata.org/wiki/Q1134845
+    data:
+      qid: Q1134845
+      label: EverQuest
+      kind: software
+      site: http://www.everquest.com
+      sitelinks: 26
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-06T07:11:13Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 148814
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T07:11:24Z'
+    source: http://web.archive.org/cdx/search/cdx?url=everquest.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1998-02-18'
+      history_days: 10427
+  - code: A6
+    checked_at: '2026-09-06T07:11:24Z'
+    source: propagate from daybreakgames.com
+    data:
+      from: daybreakgames.com
+      from_status: verified
+      first_party_link: true
+      structural_links:
+      - shared_ns
+      san_count: 2
+      shared_ns:
+      - ns2.daybreakgaming.net
+      - ns4.daybreakgaming.net
+      - ns6.daybreakgaming.net
+      backlink: true
+  rejected_evidence:
+  - 'A3: registrar (Network Solutions, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: item Q1134845 != entity canonical item Q959672'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q959672
+  reviewed_by: []
+  source_issue: null

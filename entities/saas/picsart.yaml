@@ -1,0 +1,121 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:picsart
+names:
+  en: Picsart
+aliases: []
+category:
+- saas
+wikidata: Q22907768
+canonical:
+  github_org: null
+  wikidata: Q22907768
+  sources:
+  - wikidata:Q22907768/P856
+domains:
+- domain: picsart.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:38Z'
+  ttl_days: 30
+  age_days: 7112
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T07:10:03Z'
+    source: https://api.github.com/orgs/picsart
+    data:
+      org: picsart
+      org_verified: true
+      blog: https://picsart.com/
+      org_name: Picsart
+      created_at: '2013-09-02T04:41:16Z'
+  - code: A9
+    checked_at: '2026-09-06T07:10:04Z'
+    source: https://itunes.apple.com/search?term=Picsart&entity=software
+    data:
+      app: Picsart AI Photo Editor, Video
+      track_id: 587366035
+      seller: PicsArt, Inc.
+      artist: PicsArt, Inc.
+      seller_url: https://picsart.com
+      released: '2013-01-02'
+      age_days: 4994
+      ratings: 1194730
+      apps_for_domain: 2
+      apps:
+      - app: Picsart AI Photo Editor, Video
+        seller: PicsArt, Inc.
+        released: '2013-01-02'
+        age_days: 4994
+        ratings: 1194730
+      - app: 'Picsart Color: Draw & Paint'
+        seller: PicsArt, Inc.
+        released: '2016-12-22'
+        age_days: 3544
+        ratings: 22328
+  - code: A3
+    checked_at: '2026-09-06T07:10:04Z'
+    source: https://rdap.org/domain/picsart.com
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2007-03-17'
+      expires: '2032-03-17'
+      remaining_days: 2019
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T07:10:03Z'
+    source: TLS handshake picsart.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T07:10:03Z'
+    source: https://www.wikidata.org/wiki/Q22907768
+    data:
+      qid: Q22907768
+      label: Picsart
+      kind: software
+      site: https://picsart.com/
+      sitelinks: 9
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-06T07:10:03Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 4520
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T07:10:43Z'
+    source: http://web.archive.org/cdx/search/cdx?url=picsart.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2008-03-21'
+      history_days: 6743
+  rejected_evidence:
+  - 'A1: entity not anchored: no canonical GitHub organization from an independent authority; proof of control is
+    not proof of ownership'
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q22907768
+  reviewed_by: []
+  source_issue: null

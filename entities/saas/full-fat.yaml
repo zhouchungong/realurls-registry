@@ -1,0 +1,106 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:full-fat
+names:
+  en: Full Fat
+aliases: []
+category:
+- saas
+wikidata: Q3090767
+canonical:
+  github_org: null
+  wikidata: Q3090767
+  sources:
+  - wikidata:Q3090767/P856
+domains:
+- domain: full-fat.com
+  role: primary
+  status: verified
+  confidence: 0.6515
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:36Z'
+  ttl_days: 30
+  age_days: 10735
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T08:08:54Z'
+    source: https://itunes.apple.com/search?term=Full%20Fat&entity=software
+    data:
+      app: Grass Cut
+      track_id: 1439578719
+      seller: Full Fat Productions Ltd
+      artist: Full Fat Productions Ltd
+      seller_url: http://www.full-fat.com
+      released: '2018-11-08'
+      age_days: 2858
+      ratings: 47137
+      apps_for_domain: 8
+      apps:
+      - app: Grass Cut
+        seller: Full Fat Productions Ltd
+        released: '2018-11-08'
+        age_days: 2858
+        ratings: 47137
+      - app: Merge Bakery
+        seller: Full Fat Productions Ltd
+        released: '2018-12-13'
+        age_days: 2823
+        ratings: 7826
+      - app: Drop the Balls!
+        seller: Full Fat Productions Ltd
+        released: '2018-07-30'
+        age_days: 2960
+        ratings: 835
+  - code: A3
+    checked_at: '2026-09-06T08:09:15Z'
+    source: https://rdap.org/domain/full-fat.com
+    data:
+      registrar: Network Solutions, LLC
+      created: '1997-04-16'
+      expires: '2027-04-17'
+      remaining_days: 222
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T08:08:53Z'
+    source: TLS handshake full-fat.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T08:08:53Z'
+    source: https://www.wikidata.org/wiki/Q3090767
+    data:
+      qid: Q3090767
+      label: Full Fat
+      kind: organization
+      site: http://www.full-fat.com
+      sitelinks: 4
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-06T08:09:27Z'
+    source: http://web.archive.org/cdx/search/cdx?url=full-fat.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1998-12-12'
+      history_days: 10130
+  rejected_evidence:
+  - 'A3: registrar (Network Solutions, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q3090767
+  reviewed_by: []
+  source_issue: null

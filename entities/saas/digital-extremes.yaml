@@ -1,0 +1,85 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:digital-extremes
+names:
+  en: Digital Extremes
+aliases: []
+category:
+- saas
+wikidata: Q1224739
+canonical:
+  github_org: null
+  wikidata: Q1224739
+  sources:
+  - wikidata:Q1224739/P856
+domains:
+- domain: digitalextremes.com
+  role: primary
+  status: verified
+  confidence: 0.7816
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:33Z'
+  ttl_days: 30
+  age_days: 9788
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A3
+    checked_at: '2026-09-06T06:54:08Z'
+    source: https://rdap.org/domain/digitalextremes.com
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '1999-11-18'
+      expires: '2031-11-18'
+      remaining_days: 1899
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T06:53:40Z'
+    source: TLS handshake digitalextremes.com:443
+    data:
+      subject_org: Digital Extremes Ltd
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 52
+  - code: B1
+    checked_at: '2026-09-06T06:53:40Z'
+    source: https://www.wikidata.org/wiki/Q1224739
+    data:
+      qid: Q1224739
+      label: Digital Extremes
+      kind: organization
+      site: http://www.digitalextremes.com/
+      sitelinks: 20
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T06:53:40Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 244221
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T06:54:30Z'
+    source: http://web.archive.org/cdx/search/cdx?url=digitalextremes.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2000-02-29'
+      history_days: 9686
+  rejected_evidence:
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q1224739
+  reviewed_by: []
+  source_issue: null

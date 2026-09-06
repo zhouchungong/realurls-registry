@@ -1,0 +1,93 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:finastra
+names:
+  en: Finastra
+aliases: []
+category:
+- saas
+wikidata: Q1939341
+canonical:
+  github_org: null
+  wikidata: Q1939341
+  sources:
+  - wikidata:Q1939341/P856
+domains:
+- domain: finastra.com
+  role: primary
+  status: verified
+  confidence: 0.7816
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:36Z'
+  ttl_days: 30
+  age_days: 8388
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T08:02:27Z'
+    source: https://api.github.com/orgs/finastra
+    data:
+      org: finastra
+      org_verified: false
+      blog: https://www.finastra.com
+  - code: A3
+    checked_at: '2026-09-06T08:03:11Z'
+    source: https://rdap.org/domain/finastra.com
+    data:
+      registrar: CSC Corporate Domains, Inc.
+      created: '2003-09-18'
+      expires: '2026-09-18'
+      remaining_days: 12
+      locks:
+      - transfer
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-06T08:02:27Z'
+    source: TLS handshake finastra.com:443
+    data:
+      subject_org: Finastra
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 12
+  - code: B1
+    checked_at: '2026-09-06T08:02:27Z'
+    source: https://www.wikidata.org/wiki/Q1939341
+    data:
+      qid: Q1939341
+      label: Finastra
+      kind: organization
+      site: https://www.finastra.com/
+      sitelinks: 5
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T08:02:27Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 120092
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T08:03:00Z'
+    source: http://web.archive.org/cdx/search/cdx?url=finastra.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2004-03-24'
+      history_days: 8201
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q1939341
+  reviewed_by: []
+  source_issue: null

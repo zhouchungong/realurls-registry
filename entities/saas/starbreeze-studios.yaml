@@ -1,0 +1,149 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:starbreeze-studios
+names:
+  en: Starbreeze Studios
+aliases: []
+category:
+- saas
+wikidata: Q2298950
+canonical:
+  github_org: null
+  wikidata: Q2298950
+  sources:
+  - wikidata:Q2298950/P856
+domains:
+- domain: starbreeze.com
+  role: primary
+  status: verified
+  confidence: 0.7816
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:41Z'
+  ttl_days: 30
+  age_days: 10657
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A3
+    checked_at: '2026-09-06T06:56:51Z'
+    source: https://rdap.org/domain/starbreeze.com
+    data:
+      registrar: Ascio Technologies, Inc. Danmark - Filial af Ascio technologies, Inc. USA
+      created: '1997-07-03'
+      expires: '2027-07-02'
+      remaining_days: 298
+      locks: []
+  - code: A4
+    checked_at: '2026-09-06T06:56:22Z'
+    source: TLS handshake starbreeze.com:443
+    data:
+      subject_org: Starbreeze AB
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T06:56:22Z'
+    source: https://www.wikidata.org/wiki/Q2298950
+    data:
+      qid: Q2298950
+      label: Starbreeze Studios
+      kind: organization
+      site: http://www.starbreeze.com/
+      sitelinks: 19
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T06:56:22Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 89630
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T06:57:21Z'
+    source: http://web.archive.org/cdx/search/cdx?url=starbreeze.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1998-05-30'
+      history_days: 10326
+  rejected_evidence:
+  - 'A3: registrar (Ascio Technologies, Inc. Danmark - Filial af Ascio technologies, Inc. USA) is not a brand-protection
+    registrar'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+- domain: paydaythegame.com
+  role: product
+  status: verified
+  confidence: 0.7105
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:41Z'
+  ttl_days: 30
+  age_days: 1969
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A3
+    checked_at: '2026-09-06T06:58:06Z'
+    source: https://rdap.org/domain/paydaythegame.com
+    data:
+      registrar: Ascio Technologies, Inc. Danmark - Filial af Ascio technologies, Inc. USA
+      created: '2021-04-15'
+      expires: '2027-04-15'
+      remaining_days: 221
+      locks: []
+  - code: A4
+    checked_at: '2026-09-06T06:57:45Z'
+    source: TLS handshake paydaythegame.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B5
+    checked_at: '2026-09-06T06:57:44Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 246608
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T06:58:05Z'
+    source: http://web.archive.org/cdx/search/cdx?url=paydaythegame.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2014-07-16'
+      history_days: 4435
+  - code: A6
+    checked_at: '2026-09-06T06:58:06Z'
+    source: propagate from starbreeze.com
+    data:
+      from: starbreeze.com
+      from_status: verified
+      first_party_link: true
+      structural_links:
+      - shared_ns
+      san_count: 2
+      shared_ns:
+      - dns1.zaccodigitaltrustlabs.com
+      - dns2.zaccodigitaltrustlabs.net
+      - dns3.zaccodigitaltrustlabs.se
+      - dns4.zaccodigitaltrustlabs.se
+      backlink: true
+  rejected_evidence:
+  - 'A3: registrar (Ascio Technologies, Inc. Danmark - Filial af Ascio technologies, Inc. USA) is not a brand-protection
+    registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q2298950
+  reviewed_by: []
+  source_issue: null

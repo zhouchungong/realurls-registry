@@ -1,0 +1,76 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:kingsisle-entertainment
+names:
+  en: KingsIsle Entertainment
+aliases: []
+category:
+- saas
+wikidata: Q1742126
+canonical:
+  github_org: null
+  wikidata: Q1742126
+  sources:
+  - wikidata:Q1742126/P856
+domains:
+- domain: kingsisle.com
+  role: primary
+  status: verified
+  confidence: 0.7677
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:38Z'
+  ttl_days: 30
+  age_days: 7911
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A3
+    checked_at: '2026-09-06T07:42:05Z'
+    source: https://rdap.org/domain/kingsisle.com
+    data:
+      registrar: Network Solutions, LLC
+      created: '2005-01-07'
+      expires: '2027-01-07'
+      remaining_days: 123
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T07:42:05Z'
+    source: TLS handshake kingsisle.com:443
+    data:
+      subject_org: KingsIsle Entertainment Inc.
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T07:42:05Z'
+    source: https://www.wikidata.org/wiki/Q1742126
+    data:
+      qid: Q1742126
+      label: KingsIsle Entertainment
+      kind: organization
+      site: http://www.kingsisle.com/
+      sitelinks: 6
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-06T07:42:51Z'
+    source: http://web.archive.org/cdx/search/cdx?url=kingsisle.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2003-02-11'
+      history_days: 8608
+  rejected_evidence:
+  - 'A3: registrar (Network Solutions, LLC) is not a brand-protection registrar'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q1742126
+  reviewed_by: []
+  source_issue: null

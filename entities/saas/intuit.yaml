@@ -1,0 +1,330 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:intuit
+names:
+  en: Intuit
+aliases: []
+category:
+- saas
+wikidata: Q1318848
+canonical:
+  github_org: null
+  wikidata: Q1318848
+  sources:
+  - wikidata:Q1318848/P856
+domains:
+- domain: intuit.com
+  role: primary
+  status: verified
+  confidence: 0.8883
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:41Z'
+  ttl_days: 30
+  age_days: 11888
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T06:50:08Z'
+    source: https://api.github.com/orgs/intuit
+    data:
+      org: intuit
+      org_verified: false
+      blog: https://opensource.intuit.com/
+  - code: A9
+    checked_at: '2026-09-06T06:50:10Z'
+    source: https://itunes.apple.com/search?term=Intuit&entity=software
+    data:
+      app: Intuit QuickBooks for Business
+      track_id: 584606479
+      seller: Intuit Inc.
+      artist: Intuit Inc.
+      seller_url: https://quickbooks.intuit.com
+      released: '2013-02-14'
+      age_days: 4952
+      ratings: 264169
+      apps_for_domain: 5
+      apps:
+      - app: Intuit QuickBooks for Business
+        seller: Intuit Inc.
+        released: '2013-02-14'
+        age_days: 4952
+        ratings: 264169
+      - app: QuickBooks Workforce
+        seller: Intuit Inc.
+        released: '2014-07-17'
+        age_days: 4433
+        ratings: 194693
+      - app: 'TurboTax: File Your Tax Return'
+        seller: Intuit Inc.
+        released: '2014-12-18'
+        age_days: 4280
+        ratings: 938024
+  - code: A3
+    checked_at: '2026-09-06T06:50:09Z'
+    source: https://rdap.org/domain/intuit.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '1994-02-18'
+      expires: '2026-12-19'
+      remaining_days: 104
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T06:50:09Z'
+    source: TLS handshake intuit.com:443
+    data:
+      subject_org: Intuit Inc.
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 99
+  - code: B1
+    checked_at: '2026-09-06T06:50:08Z'
+    source: https://www.wikidata.org/wiki/Q1318848
+    data:
+      qid: Q1318848
+      label: Intuit
+      kind: organization
+      site: https://www.intuit.com/
+      sitelinks: 23
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T06:50:08Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 143
+      source: top-1m list
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  reasons:
+  - '2 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+- domain: creditkarma.com
+  role: product
+  status: verified
+  confidence: 0.6278
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:41Z'
+  ttl_days: 30
+  age_days: 7677
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T06:51:24Z'
+    source: https://api.github.com/orgs/creditkarma
+    data:
+      org: creditkarma
+      org_verified: false
+      blog: https://creditkarma.com
+  - code: A9
+    checked_at: '2026-09-06T06:51:25Z'
+    source: https://itunes.apple.com/search?term=Intuit&entity=software
+    data:
+      app: Intuit Credit Karma
+      track_id: 519817714
+      seller: Credit Karma, Inc.
+      artist: Credit Karma, Inc.
+      seller_url: https://www.creditkarma.com
+      released: '2012-07-18'
+      age_days: 5162
+      ratings: 7722057
+      apps_for_domain: 1
+      apps:
+      - app: Intuit Credit Karma
+        seller: Credit Karma, Inc.
+        released: '2012-07-18'
+        age_days: 5162
+        ratings: 7722057
+  - code: A3
+    checked_at: '2026-09-06T06:51:35Z'
+    source: https://rdap.org/domain/creditkarma.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2005-08-30'
+      expires: '2028-08-30'
+      remaining_days: 723
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T06:51:24Z'
+    source: TLS handshake creditkarma.com:443
+    data:
+      subject_org: Credit Karma LLC
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 3
+  - code: B1
+    checked_at: '2026-09-06T06:51:31Z'
+    source: https://www.wikidata.org/wiki/Q5183722
+    data:
+      qid: Q5183722
+      label: Credit Karma
+      kind: organization
+      site: https://www.creditkarma.com/
+      sitelinks: 2
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-06T06:51:24Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 4007
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T06:53:00Z'
+    source: http://web.archive.org/cdx/search/cdx?url=creditkarma.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2007-10-12'
+      history_days: 6904
+  - code: A6
+    checked_at: '2026-09-06T06:53:00Z'
+    source: propagate from intuit.com
+    data:
+      from: intuit.com
+      from_status: verified
+      first_party_link: true
+      structural_links: []
+      san_count: 99
+      shared_ns: []
+      backlink: true
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: certificate organization (Credit Karma LLC) is not the anchored entity (Intuit)'
+  - 'B1: item Q5183722 != entity canonical item Q1318848'
+  - 'A6: no structural link (need at least one of shared_ns / cert_san / shared_registrar)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'consistent: certificate and App Store seller name Intuit'
+- domain: mailchimp.com
+  role: product
+  status: verified
+  confidence: 0.8883
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:41Z'
+  ttl_days: 30
+  age_days: 9199
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T06:53:21Z'
+    source: https://api.github.com/orgs/mailchimp
+    data:
+      org: mailchimp
+      org_verified: true
+      blog: https://mailchimp.com
+      org_name: Mailchimp
+      created_at: '2010-03-05T18:37:42Z'
+  - code: A9
+    checked_at: '2026-09-06T06:53:21Z'
+    source: https://itunes.apple.com/search?term=Intuit&entity=software
+    data:
+      app: Mailchimp Email Marketing
+      track_id: 366794783
+      seller: Intuit Inc.
+      artist: Intuit Inc.
+      seller_url: https://mailchimp.com/features/mailchimp-mobile/
+      released: '2010-04-13'
+      age_days: 5990
+      ratings: 51571
+      apps_for_domain: 1
+      apps:
+      - app: Mailchimp Email Marketing
+        seller: Intuit Inc.
+        released: '2010-04-13'
+        age_days: 5990
+        ratings: 51571
+  - code: A3
+    checked_at: '2026-09-06T06:53:22Z'
+    source: https://rdap.org/domain/mailchimp.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2001-06-29'
+      expires: '2029-06-29'
+      remaining_days: 1027
+      locks:
+      - delete
+      - transfer
+      - update
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-06T06:53:21Z'
+    source: TLS handshake mailchimp.com:443
+    data:
+      subject_org: Intuit Inc.
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T06:53:27Z'
+    source: https://www.wikidata.org/wiki/Q6735673
+    data:
+      qid: Q6735673
+      label: Mailchimp
+      kind: organization
+      site: https://mailchimp.com/
+      sitelinks: 13
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T06:53:21Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 712
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T06:53:23Z'
+    source: http://web.archive.org/cdx/search/cdx?url=mailchimp.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2001-07-18'
+      history_days: 9181
+  - code: A6
+    checked_at: '2026-09-06T06:53:27Z'
+    source: propagate from intuit.com
+    data:
+      from: intuit.com
+      from_status: verified
+      first_party_link: true
+      structural_links:
+      - shared_ns
+      san_count: 99
+      shared_ns:
+      - a6-66.akam.net
+      - a7-66.akam.net
+      backlink: true
+  rejected_evidence:
+  - 'A1: entity not anchored: no canonical GitHub organization from an independent authority; proof of control is
+    not proof of ownership'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'B1: item Q6735673 != entity canonical item Q1318848'
+  - 'A6: Wikidata organization Q6735673 (Mailchimp) declares this domain as its own site; an organization is its
+    own entity, not a sibling domain'
+  reasons:
+  - '2 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'consistent: certificate and App Store seller name Intuit; the Mailchimp item is a subsidiary brand'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q1318848
+  reviewed_by: []
+  source_issue: null

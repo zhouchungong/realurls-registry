@@ -1,0 +1,95 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:zapier
+names:
+  en: Zapier
+aliases:
+- zapier
+category:
+- saas
+wikidata: Q27150165
+canonical:
+  github_org: zapier
+  wikidata: Q27150165
+  sources:
+  - wikidata:Q27150165/P856
+  - wikidata:Q27150165/P2037
+domains:
+- domain: zapier.com
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:29Z'
+  ttl_days: 30
+  age_days: 5424
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T07:58:39Z'
+    source: https://api.github.com/orgs/zapier
+    data:
+      org: zapier
+      org_verified: true
+      blog: https://zapier.com
+      org_name: Zapier
+      created_at: '2011-12-14T02:08:26Z'
+  - code: A3
+    checked_at: '2026-09-06T07:58:47Z'
+    source: https://rdap.org/domain/zapier.com
+    data:
+      registrar: Name.com, Inc.
+      created: '2011-10-30'
+      expires: '2027-10-30'
+      remaining_days: 419
+      locks:
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T07:58:39Z'
+    source: TLS handshake zapier.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 4
+  - code: B1
+    checked_at: '2026-09-06T07:58:39Z'
+    source: https://www.wikidata.org/wiki/Q27150165
+    data:
+      qid: Q27150165
+      label: Zapier
+      kind: organization
+      site: http://zapier.com
+      sitelinks: 8
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T07:58:39Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 2909
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T07:59:14Z'
+    source: http://web.archive.org/cdx/search/cdx?url=zapier.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2012-01-28'
+      history_days: 5335
+  rejected_evidence:
+  - 'A3: registrar (Name.com, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q27150165
+  reviewed_by: []
+  source_issue: null

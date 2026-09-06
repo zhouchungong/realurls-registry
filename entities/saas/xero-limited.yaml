@@ -1,0 +1,114 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:xero-limited
+names:
+  en: Xero Limited
+aliases: []
+category:
+- saas
+wikidata: Q8043794
+canonical:
+  github_org: null
+  wikidata: Q8043794
+  sources:
+  - wikidata:Q8043794/P856
+domains:
+- domain: xero.com
+  role: primary
+  status: verified
+  confidence: 0.8526
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:39Z'
+  ttl_days: 30
+  age_days: 10687
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T07:58:35Z'
+    source: https://itunes.apple.com/search?term=Xero%20Limited&entity=software
+    data:
+      app: Xero Accounting for business
+      track_id: 441880705
+      seller: Xero Ltd
+      artist: Xero Ltd
+      seller_url: https://www.xero.com/xero-accounting-mobile-app/
+      released: '2011-07-29'
+      age_days: 5518
+      ratings: 1658
+      apps_for_domain: 3
+      apps:
+      - app: Xero Accounting for business
+        seller: Xero Ltd
+        released: '2011-07-29'
+        age_days: 5518
+        ratings: 1658
+      - app: Xero Projects
+        seller: Xero Ltd
+        released: '2017-12-04'
+        age_days: 3198
+        ratings: 162
+      - app: Hubdoc
+        seller: Xero Ltd
+        released: '2013-10-05'
+        age_days: 4719
+        ratings: 13
+  - code: A3
+    checked_at: '2026-09-06T07:58:51Z'
+    source: https://rdap.org/domain/xero.com
+    data:
+      registrar: CSC Corporate Domains, Inc.
+      created: '1997-06-03'
+      expires: '2035-06-02'
+      remaining_days: 3190
+      locks:
+      - transfer
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-06T07:58:34Z'
+    source: TLS handshake xero.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T07:58:34Z'
+    source: https://www.wikidata.org/wiki/Q8043794
+    data:
+      qid: Q8043794
+      label: Xero Limited
+      kind: organization
+      site: https://www.xero.com/
+      sitelinks: 5
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T07:58:34Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 3217
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T07:58:39Z'
+    source: http://web.archive.org/cdx/search/cdx?url=xero.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1998-02-10'
+      history_days: 10435
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '2 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q8043794
+  reviewed_by: []
+  source_issue: null

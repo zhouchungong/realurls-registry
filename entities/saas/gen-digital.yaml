@@ -1,0 +1,202 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:gen-digital
+names:
+  en: Gen Digital
+aliases: []
+category:
+- saas
+wikidata: Q677085
+canonical:
+  github_org: null
+  wikidata: Q677085
+  sources:
+  - wikidata:Q677085/P856
+domains:
+- domain: gendigital.com
+  role: primary
+  status: verified
+  confidence: 0.7816
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:34Z'
+  ttl_days: 30
+  age_days: 6539
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A3
+    checked_at: '2026-09-06T06:43:34Z'
+    source: https://rdap.org/domain/gendigital.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2008-10-10'
+      expires: '2027-10-10'
+      remaining_days: 399
+      locks:
+      - delete
+      - transfer
+      - update
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-06T06:43:33Z'
+    source: TLS handshake gendigital.com:443
+    data:
+      subject_org: Gen Digital Inc.
+      validation_type: OV
+      issuer: Sectigo Limited
+      san_count: 37
+  - code: B1
+    checked_at: '2026-09-06T06:43:33Z'
+    source: https://www.wikidata.org/wiki/Q677085
+    data:
+      qid: Q677085
+      label: Gen Digital
+      kind: organization
+      site: https://www.gendigital.com/
+      sitelinks: 44
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T06:43:33Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 57149
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T06:43:47Z'
+    source: http://web.archive.org/cdx/search/cdx?url=gendigital.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2004-03-26'
+      history_days: 8199
+  rejected_evidence:
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+- domain: norton.com
+  role: product
+  status: verified
+  confidence: 0.8883
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:34Z'
+  ttl_days: 30
+  age_days: 12773
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T06:44:17Z'
+    source: https://itunes.apple.com/search?term=Gen%20Digital&entity=software
+    data:
+      app: Norton VPN – Fast & Secure
+      track_id: 1095519285
+      seller: Gen Digital Inc.
+      artist: Gen Digital Inc.
+      seller_url: https://www.norton.com/products/norton-vpn
+      released: '2016-06-13'
+      age_days: 3736
+      ratings: 120840
+      apps_for_domain: 5
+      apps:
+      - app: Norton VPN – Fast & Secure
+        seller: Gen Digital Inc.
+        released: '2016-06-13'
+        age_days: 3736
+        ratings: 120840
+      - app: LifeLock Identity
+        seller: Gen Digital Inc.
+        released: '2018-11-26'
+        age_days: 2840
+        ratings: 195231
+      - app: Norton Private Browser
+        seller: Gen Digital Inc.
+        released: '2024-12-17'
+        age_days: 627
+        ratings: 154
+  - code: A3
+    checked_at: '2026-09-06T06:44:17Z'
+    source: https://rdap.org/domain/norton.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '1991-09-17'
+      expires: '2028-09-16'
+      remaining_days: 740
+      locks:
+      - delete
+      - transfer
+      - update
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-06T06:44:16Z'
+    source: TLS handshake norton.com:443
+    data:
+      subject_org: Gen Digital Inc.
+      validation_type: OV
+      issuer: Sectigo Limited
+      san_count: 37
+  - code: B1
+    checked_at: '2026-09-06T06:44:19Z'
+    source: https://www.wikidata.org/wiki/Q3878583
+    data:
+      qid: Q3878583
+      label: Norton
+      kind: organization
+      site: https://www.norton.com/
+      sitelinks: 6
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T06:44:16Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 1989
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T06:44:24Z'
+    source: http://web.archive.org/cdx/search/cdx?url=norton.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1997-04-08'
+      history_days: 10743
+  - code: A6
+    checked_at: '2026-09-06T06:44:24Z'
+    source: propagate from gendigital.com
+    data:
+      from: gendigital.com
+      from_status: verified
+      first_party_link: true
+      structural_links:
+      - shared_ns
+      - cert_san
+      san_count: 37
+      shared_ns:
+      - edns109.ultradns.biz
+      - edns109.ultradns.com
+      - edns109.ultradns.net
+      - edns109.ultradns.org
+      backlink: true
+  rejected_evidence:
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'B1: item Q3878583 != entity canonical item Q677085'
+  - 'A6: Wikidata organization Q3878583 (Norton) declares this domain as its own site; an organization is its own
+    entity, not a sibling domain'
+  reasons:
+  - '2 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'consistent: certificate names Gen Digital Inc. and the App Store seller matches; the Norton item is
+      the brand, owner is Gen Digital (the separate Norton seed was dropped for this conflict)'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q677085
+  reviewed_by: []
+  source_issue: null

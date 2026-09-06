@@ -1,0 +1,65 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:matrix-software
+names:
+  en: Matrix Software
+aliases: []
+category:
+- saas
+wikidata: Q2985996
+canonical:
+  github_org: null
+  wikidata: Q2985996
+  sources:
+  - wikidata:Q2985996/P856
+domains:
+- domain: matrixsoft.co.jp
+  role: primary
+  status: verified
+  confidence: 0.7677
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:41Z'
+  ttl_days: 30
+  age_days: 8289
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A4
+    checked_at: '2026-09-06T07:08:53Z'
+    source: TLS handshake matrixsoft.co.jp:443
+    data:
+      subject_org: MATRIX CORPORATION
+      validation_type: OV
+      issuer: Sectigo Limited
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T07:08:51Z'
+    source: https://www.wikidata.org/wiki/Q2985996
+    data:
+      qid: Q2985996
+      label: Matrix Software
+      kind: organization
+      site: http://www.matrixsoft.co.jp/
+      sitelinks: 11
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-06T07:09:20Z'
+    source: http://web.archive.org/cdx/search/cdx?url=matrixsoft.co.jp&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2003-12-27'
+      history_days: 8289
+  rejected_evidence: []
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q2985996
+  reviewed_by: []
+  source_issue: null

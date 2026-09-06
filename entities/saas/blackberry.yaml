@@ -1,0 +1,124 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:blackberry
+names:
+  en: BlackBerry
+aliases:
+- Open Source Projects
+category:
+- saas
+wikidata: Q502121
+canonical:
+  github_org: null
+  wikidata: Q502121
+  sources:
+  - wikidata:Q502121/P856
+domains:
+- domain: blackberry.com
+  role: primary
+  status: verified
+  confidence: 0.7518
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:38Z'
+  ttl_days: 30
+  age_days: 11552
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T06:43:34Z'
+    source: https://api.github.com/orgs/blackberry
+    data:
+      org: blackberry
+      org_verified: true
+      blog: blackberry.com
+      org_name: Open Source Projects
+      created_at: '2010-09-21T20:04:59Z'
+  - code: A9
+    checked_at: '2026-09-06T06:43:35Z'
+    source: https://itunes.apple.com/search?term=BlackBerry&entity=software
+    data:
+      app: BlackBerry UEM Client
+      track_id: 1072802593
+      seller: BlackBerry Corporation
+      artist: BlackBerry Corporation
+      seller_url: http://www.blackberry.com
+      released: '2016-01-27'
+      age_days: 3874
+      ratings: 659
+      apps_for_domain: 13
+      apps:
+      - app: BlackBerry UEM Client
+        seller: BlackBerry Corporation
+        released: '2016-01-27'
+        age_days: 3874
+        ratings: 659
+      - app: BlackBerry Work
+        seller: BlackBerry Corporation
+        released: '2014-07-13'
+        age_days: 4438
+        ratings: 641
+      - app: BBM Enterprise
+        seller: BlackBerry Limited
+        released: '2016-10-24'
+        age_days: 3604
+        ratings: 561
+  - code: A3
+    checked_at: '2026-09-06T06:43:34Z'
+    source: https://rdap.org/domain/blackberry.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '1995-01-20'
+      expires: '2027-01-21'
+      remaining_days: 136
+      locks:
+      - delete
+      - transfer
+      - update
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-06T06:43:34Z'
+    source: TLS handshake blackberry.com:443
+    data:
+      subject_org: BlackBerry Limited
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T06:43:34Z'
+    source: https://www.wikidata.org/wiki/Q502121
+    data:
+      qid: Q502121
+      label: BlackBerry
+      kind: organization
+      site: https://blackberry.com
+      sitelinks: 44
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-06T06:43:34Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 825
+      source: top-1m list
+  rejected_evidence:
+  - 'A1: entity not anchored: no canonical GitHub organization from an independent authority; proof of control is
+    not proof of ownership'
+  - 'A9: no listing meets the App Store history bar (at least 2 years on the store and 1000 ratings); strongest:
+    BlackBerry UEM Client 3874 days, 659 ratings'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q502121
+  reviewed_by: []
+  source_issue: null

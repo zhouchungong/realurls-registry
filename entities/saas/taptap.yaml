@@ -1,0 +1,91 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:taptap
+names:
+  en: TapTap
+aliases: []
+category:
+- saas
+wikidata: Q48886565
+canonical:
+  github_org: null
+  wikidata: Q48886565
+  sources:
+  - wikidata:Q48886565/P856
+domains:
+- domain: taptap.io
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:39Z'
+  ttl_days: 30
+  age_days: 4750
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T07:57:41Z'
+    source: https://itunes.apple.com/search?term=TapTap&entity=software
+    data:
+      app: TapTap
+      track_id: 1621229787
+      seller: TapTap Pte Ltd
+      artist: TapTap Pte Ltd
+      seller_url: https://www.taptap.io/ads
+      released: '2022-05-11'
+      age_days: 1579
+      ratings: 10112
+      apps_for_domain: 1
+      apps:
+      - app: TapTap
+        seller: TapTap Pte Ltd
+        released: '2022-05-11'
+        age_days: 1579
+        ratings: 10112
+  - code: A4
+    checked_at: '2026-09-06T07:57:40Z'
+    source: TLS handshake taptap.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: DigiCert Inc
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T07:57:40Z'
+    source: https://www.wikidata.org/wiki/Q48886565
+    data:
+      qid: Q48886565
+      label: TapTap
+      kind: organization
+      site: https://www.taptap.io/
+      sitelinks: 5
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T07:57:40Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 41360
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T07:57:51Z'
+    source: http://web.archive.org/cdx/search/cdx?url=taptap.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2013-09-04'
+      history_days: 4750
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q48886565
+  reviewed_by: []
+  source_issue: null

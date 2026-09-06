@@ -1,0 +1,109 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:vivaldi
+names:
+  en: Vivaldi
+aliases:
+- Vivaldi Technologies
+category:
+- saas
+wikidata: Q18913176
+canonical:
+  github_org: Vivaldi
+  wikidata: Q18913176
+  sources:
+  - wikidata:Q18913176/P856
+  - wikidata:Q18913176/P2037
+domains:
+- domain: vivaldi.com
+  role: primary
+  status: verified
+  confidence: 0.6278
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:33Z'
+  ttl_days: 30
+  age_days: 8361
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T07:40:03Z'
+    source: https://api.github.com/orgs/Vivaldi
+    data:
+      org: Vivaldi
+      org_verified: false
+      blog: https://vivaldi.com
+  - code: A9
+    checked_at: '2026-09-06T07:40:05Z'
+    source: https://itunes.apple.com/search?term=Vivaldi&entity=software
+    data:
+      app: Vivaldi Powerful Web Browser
+      track_id: 1633234600
+      seller: Vivaldi Technologies AS
+      artist: Vivaldi Technologies
+      seller_url: https://vivaldi.com/ios/
+      released: '2023-09-27'
+      age_days: 1075
+      ratings: 4266
+      apps_for_domain: 1
+      apps:
+      - app: Vivaldi Powerful Web Browser
+        seller: Vivaldi Technologies AS
+        released: '2023-09-27'
+        age_days: 1075
+        ratings: 4266
+  - code: A3
+    checked_at: '2026-09-06T07:40:46Z'
+    source: https://rdap.org/domain/vivaldi.com
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2003-10-15'
+      expires: '2026-10-15'
+      remaining_days: 39
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T07:40:03Z'
+    source: TLS handshake vivaldi.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 3
+  - code: B1
+    checked_at: '2026-09-06T07:40:03Z'
+    source: https://www.wikidata.org/wiki/Q18913176
+    data:
+      qid: Q18913176
+      label: Vivaldi
+      kind: software
+      site: https://vivaldi.com
+      sitelinks: 41
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T07:40:03Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 6871
+      source: top-1m list
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q18913176
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,118 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:cegid
+names:
+  en: Cegid
+aliases: []
+category:
+- saas
+wikidata: Q1052684
+canonical:
+  github_org: null
+  wikidata: Q1052684
+  sources:
+  - wikidata:Q1052684/P856
+domains:
+- domain: cegid.com
+  role: primary
+  status: verified
+  confidence: 0.7518
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:41Z'
+  ttl_days: 30
+  age_days: 10735
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T07:31:22Z'
+    source: https://api.github.com/orgs/cegid
+    data:
+      org: cegid
+      org_verified: false
+      blog: https://www.cegid.com/
+  - code: A9
+    checked_at: '2026-09-06T07:31:23Z'
+    source: https://itunes.apple.com/search?term=Cegid&entity=software
+    data:
+      app: Cegid HR Talent Acquisition
+      track_id: 6457261121
+      seller: Cegid SA
+      artist: Cegid SA
+      seller_url: https://www.cegid.com/fr/produits/cegid-hr/talent-acquisition/
+      released: '2023-09-07'
+      age_days: 1095
+      ratings: 0
+      apps_for_domain: 8
+      apps:
+      - app: Cegid HR Talent Acquisition
+        seller: Cegid SA
+        released: '2023-09-07'
+        age_days: 1095
+        ratings: 0
+      - app: Cegid Flow
+        seller: Cegid SA
+        released: '2021-04-14'
+        age_days: 1971
+        ratings: 0
+      - app: Cegid EA
+        seller: Cegid SA
+        released: '2020-11-05'
+        age_days: 2130
+        ratings: 0
+  - code: A3
+    checked_at: '2026-09-06T07:32:03Z'
+    source: https://rdap.org/domain/cegid.com
+    data:
+      registrar: CSC Corporate Domains, Inc.
+      created: '1997-04-16'
+      expires: '2027-04-17'
+      remaining_days: 222
+      locks:
+      - transfer
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-06T07:31:23Z'
+    source: TLS handshake cegid.com:443
+    data:
+      subject_org: CEGID SAS
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 3
+  - code: B1
+    checked_at: '2026-09-06T07:31:22Z'
+    source: https://www.wikidata.org/wiki/Q1052684
+    data:
+      qid: Q1052684
+      label: Cegid
+      kind: organization
+      site: https://www.cegid.com/
+      sitelinks: 6
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T07:31:22Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 38754
+      source: top-1m list
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A9: no listing meets the App Store history bar (at least 2 years on the store and 1000 ratings); strongest:
+    Cegid HR Talent Acquisition 1095 days, 0 ratings'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q1052684
+  reviewed_by: []
+  source_issue: null

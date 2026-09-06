@@ -1,0 +1,119 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:citrix-systems
+names:
+  en: Citrix Systems
+aliases: []
+category:
+- saas
+wikidata: Q916196
+canonical:
+  github_org: null
+  wikidata: Q916196
+  sources:
+  - wikidata:Q916196/P856
+domains:
+- domain: citrix.com
+  role: primary
+  status: verified
+  confidence: 0.6278
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:36Z'
+  ttl_days: 30
+  age_days: 11734
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T06:45:36Z'
+    source: https://api.github.com/orgs/citrix
+    data:
+      org: citrix
+      org_verified: false
+      blog: https://www.citrix.com
+  - code: A9
+    checked_at: '2026-09-06T06:45:37Z'
+    source: https://itunes.apple.com/search?term=Citrix%20Systems&entity=software
+    data:
+      app: Citrix Workspace
+      track_id: 363501921
+      seller: Citrix Systems, Inc.
+      artist: Citrix Systems, Inc.
+      seller_url: https://citrix.com
+      released: '2010-04-01'
+      age_days: 6001
+      ratings: 6385
+      apps_for_domain: 5
+      apps:
+      - app: Citrix Workspace
+        seller: Citrix Systems, Inc.
+        released: '2010-04-01'
+        age_days: 6001
+        ratings: 6385
+      - app: Citrix Secure Mail
+        seller: Citrix Systems, Inc.
+        released: '2016-11-07'
+        age_days: 3590
+        ratings: 5873
+      - app: Citrix Secure Web
+        seller: Citrix Systems, Inc.
+        released: '2016-11-07'
+        age_days: 3590
+        ratings: 1687
+  - code: A3
+    checked_at: '2026-09-06T06:45:58Z'
+    source: https://rdap.org/domain/citrix.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '1994-07-22'
+      expires: '2027-07-21'
+      remaining_days: 317
+      locks:
+      - delete
+      - transfer
+      - update
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-06T06:45:36Z'
+    source: TLS handshake citrix.com:443
+    data:
+      subject_org: Cloud Software Group, Inc.
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 34
+  - code: B1
+    checked_at: '2026-09-06T06:45:36Z'
+    source: https://www.wikidata.org/wiki/Q916196
+    data:
+      qid: Q916196
+      label: Citrix Systems
+      kind: organization
+      site: https://www.citrix.com/
+      sitelinks: 30
+      competing_items: 3
+  - code: B5
+    checked_at: '2026-09-06T06:45:36Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 2977
+      source: top-1m list
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: certificate organization (Cloud Software Group, Inc.) is not the anchored entity (Citrix Systems)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q916196
+  reviewed_by: []
+  source_issue: null

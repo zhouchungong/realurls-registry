@@ -1,0 +1,272 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:riotgames
+names:
+  en: Riot Games
+aliases:
+- RiotGames
+category:
+- saas
+wikidata: Q1060165
+canonical:
+  github_org: RiotGames
+  wikidata: Q1060165
+  sources:
+  - wikidata:Q1060165/P856
+  - wikidata:Q1060165/P2037
+domains:
+- domain: riotgames.com
+  role: primary
+  status: verified
+  confidence: 0.9017
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:38Z'
+  ttl_days: 30
+  age_days: 7968
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T06:44:49Z'
+    source: https://api.github.com/orgs/RiotGames
+    data:
+      org: RiotGames
+      org_verified: false
+      blog: http://www.riotgames.com
+  - code: A9
+    checked_at: '2026-09-06T06:44:51Z'
+    source: https://itunes.apple.com/search?term=Riot%20Games&entity=software
+    data:
+      app: Riot Mobile
+      track_id: 1077150310
+      seller: Riot Games
+      artist: Riot Games
+      seller_url: https://www.riotgames.com
+      released: '2016-02-24'
+      age_days: 3847
+      ratings: 12753
+      apps_for_domain: 1
+      apps:
+      - app: Riot Mobile
+        seller: Riot Games
+        released: '2016-02-24'
+        age_days: 3847
+        ratings: 12753
+  - code: A3
+    checked_at: '2026-09-06T06:45:33Z'
+    source: https://rdap.org/domain/riotgames.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2004-11-12'
+      expires: '2026-11-12'
+      remaining_days: 66
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T06:44:49Z'
+    source: TLS handshake riotgames.com:443
+    data:
+      subject_org: Riot Games, Inc.
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 30
+  - code: B1
+    checked_at: '2026-09-06T06:44:49Z'
+    source: https://www.wikidata.org/wiki/Q1060165
+    data:
+      qid: Q1060165
+      label: Riot Games
+      kind: organization
+      site: https://www.riotgames.com
+      sitelinks: 36
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T06:44:49Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 1086
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T06:46:04Z'
+    source: http://web.archive.org/cdx/search/cdx?url=riotgames.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2002-09-30'
+      history_days: 8742
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  reasons:
+  - '2 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+- domain: arcane.com
+  role: product
+  status: verified
+  confidence: 0.7518
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:38Z'
+  ttl_days: 30
+  age_days: 11567
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A3
+    checked_at: '2026-09-06T06:46:20Z'
+    source: https://rdap.org/domain/arcane.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '1995-01-05'
+      expires: '2027-01-04'
+      remaining_days: 119
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T06:46:07Z'
+    source: TLS handshake arcane.com:443
+    data:
+      subject_org: Riot Games Inc
+      validation_type: OV
+      issuer: IdenTrust
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-06T06:46:07Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 521539
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T06:46:34Z'
+    source: http://web.archive.org/cdx/search/cdx?url=arcane.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1997-04-12'
+      history_days: 10739
+  - code: A6
+    checked_at: '2026-09-06T06:46:34Z'
+    source: propagate from riotgames.com
+    data:
+      from: riotgames.com
+      from_status: verified
+      first_party_link: true
+      structural_links:
+      - cert_san
+      san_count: 30
+      shared_ns: []
+      backlink: true
+  rejected_evidence:
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A6: certificate has 30 SANs > 25; looks like a shared CDN certificate'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+- domain: playruneterra.com
+  role: product
+  status: verified
+  confidence: 0.8883
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:38Z'
+  ttl_days: 30
+  age_days: 2880
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T06:50:34Z'
+    source: https://itunes.apple.com/search?term=Riot%20Games&entity=software
+    data:
+      app: Legends of Runeterra
+      track_id: 1480617557
+      seller: Riot Games
+      artist: Riot Games
+      seller_url: https://playruneterra.com
+      released: '2020-04-28'
+      age_days: 2321
+      ratings: 62657
+      apps_for_domain: 1
+      apps:
+      - app: Legends of Runeterra
+        seller: Riot Games
+        released: '2020-04-28'
+        age_days: 2321
+        ratings: 62657
+  - code: A3
+    checked_at: '2026-09-06T06:50:33Z'
+    source: https://rdap.org/domain/playruneterra.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2018-10-17'
+      expires: '2026-10-17'
+      remaining_days: 41
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T06:50:33Z'
+    source: TLS handshake playruneterra.com:443
+    data:
+      subject_org: Riot Games Inc
+      validation_type: OV
+      issuer: IdenTrust
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T06:50:36Z'
+    source: https://www.wikidata.org/wiki/Q72716423
+    data:
+      qid: Q72716423
+      label: Legends of Runeterra
+      kind: software
+      site: https://playruneterra.com
+      sitelinks: 22
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T06:50:33Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 156819
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T06:50:38Z'
+    source: http://web.archive.org/cdx/search/cdx?url=playruneterra.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2019-10-16'
+      history_days: 2517
+  - code: A6
+    checked_at: '2026-09-06T06:50:38Z'
+    source: propagate from riotgames.com
+    data:
+      from: riotgames.com
+      from_status: verified
+      first_party_link: true
+      structural_links: []
+      san_count: 30
+      shared_ns: []
+      backlink: null
+  rejected_evidence:
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'B1: item Q72716423 != entity canonical item Q1060165'
+  - 'A6: no structural link (need at least one of shared_ns / cert_san / shared_registrar)'
+  reasons:
+  - '2 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q1060165
+  reviewed_by: []
+  source_issue: null

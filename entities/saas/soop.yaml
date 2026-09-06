@@ -1,0 +1,72 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:soop
+names:
+  en: SOOP
+aliases:
+- Nowcom
+category:
+- saas
+wikidata: Q4689448
+canonical:
+  github_org: null
+  wikidata: Q4689448
+  sources:
+  - wikidata:Q4689448/P856
+domains:
+- domain: sooplive.co.kr
+  role: primary
+  status: verified
+  confidence: 0.7816
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:31Z'
+  ttl_days: 30
+  age_days: 685
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A4
+    checked_at: '2026-09-06T08:33:06Z'
+    source: TLS handshake sooplive.co.kr:443
+    data:
+      subject_org: SOOP CO., LTD.
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 14
+  - code: B1
+    checked_at: '2026-09-06T08:33:05Z'
+    source: https://www.wikidata.org/wiki/Q4689448
+    data:
+      qid: Q4689448
+      label: SOOP
+      kind: software
+      site: https://www.sooplive.co.kr/
+      sitelinks: 7
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-06T08:33:05Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 35571
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T08:33:07Z'
+    source: http://web.archive.org/cdx/search/cdx?url=sooplive.co.kr&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2024-10-21'
+      history_days: 685
+  rejected_evidence: []
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q4689448
+  reviewed_by: []
+  source_issue: null

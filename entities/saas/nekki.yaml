@@ -1,0 +1,115 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:nekki
+names:
+  en: Nekki
+aliases: []
+category:
+- saas
+wikidata: Q106435531
+canonical:
+  github_org: null
+  wikidata: Q106435531
+  sources:
+  - wikidata:Q106435531/P856
+domains:
+- domain: nekki.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:33Z'
+  ttl_days: 30
+  age_days: 8371
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T08:14:31Z'
+    source: https://itunes.apple.com/search?term=Nekki&entity=software
+    data:
+      app: 'Vector: Parkour Run'
+      track_id: 578252579
+      seller: Nekki Limited
+      artist: Nekki Limited
+      seller_url: http://www.nekki.com
+      released: '2012-12-08'
+      age_days: 5020
+      ratings: 36739
+      apps_for_domain: 3
+      apps:
+      - app: 'Vector: Parkour Run'
+        seller: Nekki Limited
+        released: '2012-12-08'
+        age_days: 5020
+        ratings: 36739
+      - app: 'Shadow Fight 4: Arena'
+        seller: Nekki Limited
+        released: '2020-11-03'
+        age_days: 2133
+        ratings: 46578
+      - app: 'Shades: Shadow Fight Roguelike'
+        seller: Nekki Limited
+        released: '2023-11-06'
+        age_days: 1035
+        ratings: 15638
+  - code: A3
+    checked_at: '2026-09-06T08:14:30Z'
+    source: https://rdap.org/domain/nekki.com
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2003-10-05'
+      expires: '2027-10-05'
+      remaining_days: 394
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T08:14:30Z'
+    source: TLS handshake nekki.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T08:14:30Z'
+    source: https://www.wikidata.org/wiki/Q106435531
+    data:
+      qid: Q106435531
+      label: Nekki
+      kind: organization
+      site: https://nekki.com
+      sitelinks: 3
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T08:14:30Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 30623
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T08:14:36Z'
+    source: http://web.archive.org/cdx/search/cdx?url=nekki.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2003-12-05'
+      history_days: 8311
+  rejected_evidence:
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q106435531
+  reviewed_by: []
+  source_issue: null
