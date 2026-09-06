@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import urllib.parse
 import urllib.request
 from datetime import UTC, datetime
@@ -107,6 +108,25 @@ def _p856_bindings(domain: str) -> list[dict]:
     return rows
 
 
+def english_label(qid: str, sparql_label: str = "") -> str:
+    """The item's English label, "" if it has none. The SPARQL label service is not trusted for this: in the
+    first full-category batch it handed back Arabic, Korean and Tamil labels for WordPress, Docker, Vim…
+    (whatever language happened to come first), and ``names.en`` must be English. A Latin-script SPARQL
+    label is kept only when the entity API is unreachable."""
+    try:
+        ent = fetch_json(
+            f"https://www.wikidata.org/w/api.php?action=wbgetentities&ids={qid}&props=labels&languages=en|en-gb|mul&format=json",
+            ttl_hours=168,
+        )
+        labels = ent.get("entities", {}).get(qid, {}).get("labels", {})
+        pick = labels.get("en") or labels.get("en-gb") or labels.get("mul") or {}
+        return str(pick.get("value", "")).strip()
+    except FetchError:
+        if sparql_label and sparql_label != qid and re.search(r"[A-Za-z]", sparql_label) and not re.search(r"[^\x00-\x7f\u00c0-\u024f]", sparql_label):
+            return sparql_label
+        return ""
+
+
 def wikidata(domain: str) -> Result:
     """Reverse lookup: which Wikidata item declares this domain as its official website (P856)."""
     r = Result()
@@ -122,19 +142,7 @@ def wikidata(domain: str) -> Result:
 
     top = bindings[0]
     qid = top["item"]["value"].rsplit("/", 1)[-1]
-    label = top.get("itemLabel", {}).get("value", "")
-    if not label or label == qid:
-        # SPARQL 的 label 服务偶尔返回 QID 本身（opencv.org / tensorflow.org 都遇到过），用实体 API 兜底
-        try:
-            ent = fetch_json(
-                f"https://www.wikidata.org/w/api.php?action=wbgetentities&ids={qid}&props=labels&format=json",
-                ttl_hours=168,
-            )
-            labels = ent.get("entities", {}).get(qid, {}).get("labels", {})
-            pick = labels.get("en") or labels.get("en-gb") or labels.get("zh") or next(iter(labels.values()), {})
-            label = pick.get("value", label)
-        except FetchError:
-            pass
+    label = english_label(qid, top.get("itemLabel", {}).get("value", ""))
     sitelinks = int(top.get("sitelinks", {}).get("value", 0))
     r.extra["wikidata"] = qid
     r.extra["wikidata_item"] = {
