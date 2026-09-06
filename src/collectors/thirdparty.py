@@ -122,7 +122,8 @@ def english_label(qid: str, sparql_label: str = "") -> str:
         pick = labels.get("en") or labels.get("en-gb") or labels.get("mul") or {}
         return str(pick.get("value", "")).strip()
     except FetchError:
-        if sparql_label and sparql_label != qid and re.search(r"[A-Za-z]", sparql_label) and not re.search(r"[^\x00-\x7f\u00c0-\u024f]", sparql_label):
+        latin = re.search(r"[A-Za-z]", sparql_label) and not re.search(r"[^\x00-\x7f\u00c0-\u024f]", sparql_label)
+        if sparql_label and sparql_label != qid and latin:
             return sparql_label
         return ""
 
