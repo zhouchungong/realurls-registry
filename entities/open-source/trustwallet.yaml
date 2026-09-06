@@ -1,0 +1,122 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:trustwallet
+names:
+  en: Trust Wallet
+aliases:
+- trustwallet
+- trustwallet/assets
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: trustwallet
+  wikidata: null
+  sources:
+  - github-history:trustwallet/assets(age=7y,contrib=4228,stars=5379)
+domains:
+- domain: trustwallet.com
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:23Z'
+  ttl_days: 30
+  age_days: 7631
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:30:56Z'
+    source: https://api.github.com/orgs/trustwallet
+    data:
+      org: trustwallet
+      org_verified: true
+      blog: https://trustwallet.com
+      org_name: Trust Wallet
+      created_at: '2017-09-21T21:41:01Z'
+  - code: A8
+    checked_at: '2026-09-06T03:30:56Z'
+    source: https://api.github.com/repos/trustwallet/assets
+    data:
+      repo: trustwallet/assets
+      org: trustwallet
+      repo_anchored: true
+      homepage: https://developer.trustwallet.com/assets/new-asset
+      backlink: true
+      stars: 5379
+      age_days: 2584
+      contributors: 4228
+  - code: A9
+    checked_at: '2026-09-06T03:30:57Z'
+    source: https://itunes.apple.com/search?term=trustwallet&entity=software
+    data:
+      app: 'Trust: Crypto & Bitcoin Wallet'
+      track_id: 1288339409
+      seller: DApps Platform Software Services Ltd.
+      artist: DApps Platform Software Services Ltd.
+      seller_url: https://trustwallet.com
+      released: '2017-09-27'
+      age_days: 3265
+      ratings: 198756
+      apps_for_domain: 1
+      apps:
+      - app: 'Trust: Crypto & Bitcoin Wallet'
+        seller: DApps Platform Software Services Ltd.
+        released: '2017-09-27'
+        age_days: 3265
+        ratings: 198756
+  - code: A3
+    checked_at: '2026-09-06T03:30:56Z'
+    source: https://rdap.org/domain/trustwallet.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2005-10-14'
+      expires: '2030-06-12'
+      remaining_days: 1375
+      locks: []
+  - code: A4
+    checked_at: '2026-09-06T03:30:56Z'
+    source: TLS handshake trustwallet.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T03:30:56Z'
+    source: https://www.wikidata.org/wiki/Q136330662
+    data:
+      qid: Q136330662
+      label: Trust Wallet
+      site: https://trustwallet.com/
+      sitelinks: 1
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T03:30:56Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 15532
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:30:58Z'
+    source: http://web.archive.org/cdx/search/cdx?url=trustwallet.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2005-11-10'
+      history_days: 7605
+  rejected_evidence:
+  - 'A9: neither the seller (DApps Platform Software Services Ltd.) nor the app (Trust: Crypto & Bitcoin Wallet)
+    is named like the anchored entity (trustwallet, assets)'
+  - 'A3: fewer than 2 registry locks'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: seed_org_name(self-declared)
+  reviewed_by: []
+  source_issue: null

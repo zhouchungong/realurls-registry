@@ -1,0 +1,102 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:mesonbuild
+names:
+  en: Meson
+aliases:
+- The Meson Build System
+- mesonbuild
+category:
+- open-source
+wikidata: Q23810842
+canonical:
+  github_org: mesonbuild
+  wikidata: Q23810842
+  sources:
+  - wikidata:Q23810842/P856
+  - wikidata:Q23810842/P2037
+domains:
+- domain: mesonbuild.com
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:31Z'
+  ttl_days: 30
+  age_days: 4167
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:10:19Z'
+    source: https://api.github.com/orgs/mesonbuild
+    data:
+      org: mesonbuild
+      org_verified: true
+      blog: https://mesonbuild.com/
+      org_name: The Meson Build System
+      created_at: '2015-05-21T21:24:56Z'
+  - code: A8
+    checked_at: '2026-09-06T03:10:20Z'
+    source: https://api.github.com/repos/mesonbuild/meson
+    data:
+      repo: mesonbuild/meson
+      org: mesonbuild
+      repo_anchored: true
+      homepage: http://mesonbuild.com
+      backlink: true
+      stars: 6620
+      age_days: 4497
+      contributors: 1197
+  - code: A3
+    checked_at: '2026-09-06T03:10:30Z'
+    source: https://rdap.org/domain/mesonbuild.com
+    data:
+      registrar: PDR Ltd. d/b/a PublicDomainRegistry.com
+      created: '2015-04-09'
+      expires: '2028-04-09'
+      remaining_days: 581
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T03:10:20Z'
+    source: TLS handshake mesonbuild.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T03:10:20Z'
+    source: https://www.wikidata.org/wiki/Q23810842
+    data:
+      qid: Q23810842
+      label: Meson
+      site: https://mesonbuild.com/
+      sitelinks: 12
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T03:10:20Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 314187
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:10:57Z'
+    source: http://web.archive.org/cdx/search/cdx?url=mesonbuild.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2015-04-19'
+      history_days: 4158
+  rejected_evidence:
+  - 'A3: registrar (PDR Ltd. d/b/a PublicDomainRegistry.com) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: wikidata:Q23810842
+  reviewed_by: []
+  source_issue: null

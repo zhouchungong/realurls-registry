@@ -1,0 +1,88 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:efforg
+names:
+  en: Electronic Frontier Foundation
+aliases:
+- EFForg
+category:
+- open-source
+wikidata: Q624023
+canonical:
+  github_org: EFForg
+  wikidata: Q624023
+  sources:
+  - wikidata:Q624023/P856
+  - wikidata:Q624023/P2037
+domains:
+- domain: eff.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:25Z'
+  ttl_days: 30
+  age_days: 13114
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:22:46Z'
+    source: https://api.github.com/orgs/EFForg
+    data:
+      org: EFForg
+      org_verified: true
+      blog: https://www.eff.org/
+      org_name: Electronic Frontier Foundation
+      created_at: '2012-08-09T01:26:53Z'
+  - code: A3
+    checked_at: '2026-09-06T03:22:46Z'
+    source: https://rdap.org/domain/eff.org
+    data:
+      registrar: Gandi SAS
+      created: '1990-10-10'
+      expires: '2027-10-09'
+      remaining_days: 398
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T03:22:46Z'
+    source: TLS handshake eff.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T03:22:46Z'
+    source: https://www.wikidata.org/wiki/Q624023
+    data:
+      qid: Q624023
+      label: Electronic Frontier Foundation
+      site: https://eff.org
+      sitelinks: 38
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T03:22:46Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 1622
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:22:49Z'
+    source: http://web.archive.org/cdx/search/cdx?url=eff.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1996-10-20'
+      history_days: 10913
+  rejected_evidence:
+  - 'A3: registrar (Gandi SAS) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: wikidata:Q624023
+  reviewed_by: []
+  source_issue: null

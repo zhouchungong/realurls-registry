@@ -1,0 +1,376 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:chicago-tribune
+names:
+  en: Chicago Tribune
+aliases:
+- Tribune News Applications Team
+- newsapps
+category:
+- open-source
+wikidata: Q47596
+canonical:
+  github_org: null
+  wikidata: Q47596
+  sources:
+  - wikidata:Q47596/P856
+domains:
+- domain: chicagotribune.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:26Z'
+  ttl_days: 30
+  age_days: 10335
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:11:52Z'
+    source: https://api.github.com/orgs/newsapps
+    data:
+      org: newsapps
+      org_verified: false
+      blog: http://apps.chicagotribune.com
+  - code: A9
+    checked_at: '2026-09-06T03:11:53Z'
+    source: https://itunes.apple.com/search?term=Chicago%20Tribune&entity=software
+    data:
+      app: Chicago Tribune
+      track_id: 383137151
+      seller: Tribune Publishing Company, LLC
+      artist: Tribune Publishing Company, LLC
+      seller_url: http://www.chicagotribune.com
+      released: '2010-08-18'
+      age_days: 5862
+      ratings: 18384
+      apps_for_domain: 1
+      apps:
+      - app: Chicago Tribune
+        seller: Tribune Publishing Company, LLC
+        released: '2010-08-18'
+        age_days: 5862
+        ratings: 18384
+  - code: A3
+    checked_at: '2026-09-06T03:11:52Z'
+    source: https://rdap.org/domain/chicagotribune.com
+    data:
+      registrar: GoDaddy Corporate Domains, LLC
+      created: '1998-05-20'
+      expires: '2027-05-19'
+      remaining_days: 255
+      locks:
+      - transfer
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-06T03:11:52Z'
+    source: TLS handshake chicagotribune.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T03:11:52Z'
+    source: https://www.wikidata.org/wiki/Q47596
+    data:
+      qid: Q47596
+      label: Chicago Tribune
+      site: https://www.chicagotribune.com/
+      sitelinks: 57
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T03:11:52Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 2800
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:12:02Z'
+    source: http://web.archive.org/cdx/search/cdx?url=chicagotribune.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1999-04-23'
+      history_days: 9998
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+- domain: courant.com
+  role: product
+  status: verified
+  confidence: 0.7105
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:26Z'
+  ttl_days: 30
+  age_days: 11797
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T03:18:19Z'
+    source: https://itunes.apple.com/search?term=Chicago%20Tribune&entity=software
+    data:
+      app: Hartford Courant
+      track_id: 391113483
+      seller: Tribune Publishing Company, LLC
+      artist: Tribune Publishing Company, LLC
+      seller_url: https://www.courant.com
+      released: '2010-10-07'
+      age_days: 5812
+      ratings: 4260
+      apps_for_domain: 1
+      apps:
+      - app: Hartford Courant
+        seller: Tribune Publishing Company, LLC
+        released: '2010-10-07'
+        age_days: 5812
+        ratings: 4260
+  - code: A3
+    checked_at: '2026-09-06T03:18:18Z'
+    source: https://rdap.org/domain/courant.com
+    data:
+      registrar: GoDaddy Corporate Domains, LLC
+      created: '1994-05-19'
+      expires: '2027-05-20'
+      remaining_days: 256
+      locks:
+      - transfer
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-06T03:18:18Z'
+    source: TLS handshake courant.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T03:18:18Z'
+    source: https://www.wikidata.org/wiki/Q1587159
+    data:
+      qid: Q1587159
+      label: Hartford Courant
+      site: http://www.courant.com/
+      sitelinks: 12
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-06T03:18:18Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 14637
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:18:29Z'
+    source: http://web.archive.org/cdx/search/cdx?url=courant.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1997-10-15'
+      history_days: 10553
+  - code: A6
+    checked_at: '2026-09-06T03:18:29Z'
+    source: propagate from chicagotribune.com
+    data:
+      from: chicagotribune.com
+      from_status: verified
+      first_party_link: true
+      structural_links:
+      - shared_ns
+      san_count: 2
+      shared_ns:
+      - ns-1494.awsdns-58.org
+      - ns-1929.awsdns-49.co.uk
+      - ns-318.awsdns-39.com
+      - ns-670.awsdns-19.net
+      backlink: true
+  rejected_evidence:
+  - 'A9: neither the seller (Tribune Publishing Company, LLC) nor the app (Hartford Courant) is named like the anchored
+    entity (Chicago Tribune)'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: item Q1587159 != entity canonical item Q47596'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+- domain: dailypress.com
+  role: product
+  status: verified
+  confidence: 0.7105
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:26Z'
+  ttl_days: 30
+  age_days: 11635
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T03:18:30Z'
+    source: https://itunes.apple.com/search?term=Chicago%20Tribune&entity=software
+    data:
+      app: Daily Press
+      track_id: 397500600
+      seller: Tribune Publishing Company, LLC
+      artist: Tribune Publishing Company, LLC
+      seller_url: http://www.dailypress.com
+      released: '2010-10-25'
+      age_days: 5794
+      ratings: 1014
+      apps_for_domain: 1
+      apps:
+      - app: Daily Press
+        seller: Tribune Publishing Company, LLC
+        released: '2010-10-25'
+        age_days: 5794
+        ratings: 1014
+  - code: A3
+    checked_at: '2026-09-06T03:18:51Z'
+    source: https://rdap.org/domain/dailypress.com
+    data:
+      registrar: GoDaddy Corporate Domains, LLC
+      created: '1994-10-28'
+      expires: '2026-10-27'
+      remaining_days: 51
+      locks:
+      - transfer
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-06T03:18:30Z'
+    source: TLS handshake dailypress.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T03:18:30Z'
+    source: https://www.wikidata.org/wiki/Q5209347
+    data:
+      qid: Q5209347
+      label: Daily Press
+      site: https://www.dailypress.com/
+      sitelinks: 1
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T03:18:30Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 34963
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:19:00Z'
+    source: http://web.archive.org/cdx/search/cdx?url=dailypress.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1997-05-06'
+      history_days: 10715
+  - code: A6
+    checked_at: '2026-09-06T03:19:00Z'
+    source: propagate from chicagotribune.com
+    data:
+      from: chicagotribune.com
+      from_status: verified
+      first_party_link: true
+      structural_links:
+      - shared_ns
+      san_count: 2
+      shared_ns:
+      - ns-1494.awsdns-58.org
+      - ns-1929.awsdns-49.co.uk
+      - ns-318.awsdns-39.com
+      - ns-670.awsdns-19.net
+      backlink: true
+  rejected_evidence:
+  - 'A9: neither the seller (Tribune Publishing Company, LLC) nor the app (Daily Press) is named like the anchored
+    entity (Chicago Tribune)'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: item Q5209347 != entity canonical item Q47596'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+- domain: mcall.com
+  role: product
+  status: verified
+  confidence: 0.7105
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:26Z'
+  ttl_days: 30
+  age_days: 11757
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A3
+    checked_at: '2026-09-06T03:19:02Z'
+    source: https://rdap.org/domain/mcall.com
+    data:
+      registrar: GoDaddy Corporate Domains, LLC
+      created: '1994-06-28'
+      expires: '2027-06-27'
+      remaining_days: 294
+      locks:
+      - transfer
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-06T03:19:02Z'
+    source: TLS handshake mcall.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T03:19:02Z'
+    source: https://www.wikidata.org/wiki/Q3910677
+    data:
+      qid: Q3910677
+      label: The Morning Call
+      site: http://mcall.com/
+      sitelinks: 5
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T03:19:02Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 23972
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:19:06Z'
+    source: http://web.archive.org/cdx/search/cdx?url=mcall.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1996-12-30'
+      history_days: 10842
+  - code: A6
+    checked_at: '2026-09-06T03:19:06Z'
+    source: propagate from chicagotribune.com
+    data:
+      from: chicagotribune.com
+      from_status: verified
+      first_party_link: true
+      structural_links:
+      - shared_ns
+      san_count: 2
+      shared_ns:
+      - ns-1494.awsdns-58.org
+      - ns-1929.awsdns-49.co.uk
+      - ns-318.awsdns-39.com
+      - ns-670.awsdns-19.net
+      backlink: true
+  rejected_evidence:
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: item Q3910677 != entity canonical item Q47596'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: wikidata:Q47596
+  reviewed_by: []
+  source_issue: null

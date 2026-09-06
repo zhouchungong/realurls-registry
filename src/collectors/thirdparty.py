@@ -43,19 +43,43 @@ def _p856_query(domains: list[str]) -> str:
     """
     variants = " ".join(f"<{u}>" for d in domains for u in _p856_variants(d))
     return f"""
-    SELECT ?item ?itemLabel ?site ?sitelinks ?github ?repo WHERE {{
+    SELECT ?item ?itemLabel ?site ?sitelinks ?github ?repo ?isOrg
+           (GROUP_CONCAT(DISTINCT ?class; separator=" ") AS ?classes)
+           (GROUP_CONCAT(DISTINCT ?p31; separator=" ") AS ?types) WHERE {{
       VALUES ?site {{ {variants} }}
       ?item wdt:P856 ?site .
-      FILTER EXISTS {{
-        ?item wdt:P31/wdt:P279* ?class .
-        VALUES ?class {{ wd:Q43229 wd:Q4830453 wd:Q7397 wd:Q35127 wd:Q1058914 }}
-      }}
+      ?item wdt:P31/wdt:P279* ?class .
+      VALUES ?class {{ wd:Q43229 wd:Q4830453 wd:Q7397 wd:Q35127 wd:Q1058914 }}
+      ?item wdt:P31 ?p31 .
+      BIND(EXISTS {{ ?item wdt:P31/wdt:P279* wd:Q43229 }} AS ?isOrg)
       OPTIONAL {{ ?item wikibase:sitelinks ?sitelinks }}
       OPTIONAL {{ ?item wdt:P2037 ?github }}
       OPTIONAL {{ ?item wdt:P1324 ?repo }}
       SERVICE wikibase:label {{ bd:serviceParam wikibase:language "en,zh". }}
-    }} ORDER BY DESC(?sitelinks)
+    }} GROUP BY ?item ?itemLabel ?site ?sitelinks ?github ?repo ?isOrg ORDER BY DESC(?sitelinks)
     """
+
+
+#: What kind of thing the item is. "organization" is an entity in its own right; "software" and "website"
+#: are things an organization makes. The policy uses this to refuse propagating into a domain that belongs
+#: to another organization (courant.com is the Hartford Courant's, not the Chicago Tribune's). Wikidata's
+#: subclass chains are not to be trusted for this (a newspaper reaches "software" through P279*), so
+#: organization-ness is ``P31/P279* organization`` plus a short list of media outlets that Wikidata models
+#: as works rather than organizations.
+_MEDIA_OUTLET_TYPES = {
+    "Q11032", "Q1110794", "Q41298", "Q1002697", "Q737498", "Q5633421",   # newspaper, daily, magazine, periodical, journals
+    "Q1616075", "Q14350", "Q15265344", "Q18127", "Q2085381",            # TV station, radio station, broadcaster, label, publisher
+}
+
+
+def _item_kind(binding: dict) -> str:
+    classes = {c.rsplit("/", 1)[-1] for c in str(binding.get("classes", {}).get("value", "")).split()}
+    types = {c.rsplit("/", 1)[-1] for c in str(binding.get("types", {}).get("value", "")).split()}
+    if not classes:
+        return "unknown"        # cached from before this field existed
+    if str(binding.get("isOrg", {}).get("value", "")).lower() == "true" or types & _MEDIA_OUTLET_TYPES:
+        return "organization"
+    return "software" if "Q7397" in classes else "website"
 
 
 def _site_domain(site: str) -> str:
@@ -153,7 +177,7 @@ def wikidata(domain: str) -> Result:
     }
     r.evidence.append(Evidence(
         code="B1",
-        data={"qid": qid, "label": label, "site": top["site"]["value"],
+        data={"qid": qid, "label": label, "kind": _item_kind(top), "site": top["site"]["value"],
               "sitelinks": sitelinks, "competing_items": len(bindings) - 1},
         checked_at=now(),
         source=f"https://www.wikidata.org/wiki/{qid}",

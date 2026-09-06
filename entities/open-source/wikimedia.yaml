@@ -1,0 +1,429 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:wikimedia
+names:
+  en: Wikimedia movement
+aliases:
+- Wikimedia
+- wikimedia
+category:
+- open-source
+wikidata: Q3568028
+canonical:
+  github_org: wikimedia
+  wikidata: Q3568028
+  sources:
+  - wikidata:Q3568028/P856
+  - github-history:wikimedia/mediawiki(age=13y,contrib=1094,stars=5165)
+domains:
+- domain: wikimedia.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:27Z'
+  ttl_days: 30
+  age_days: 8574
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:36:56Z'
+    source: https://api.github.com/orgs/wikimedia
+    data:
+      org: wikimedia
+      org_verified: true
+      blog: https://www.wikimedia.org
+      org_name: Wikimedia
+      created_at: '2009-02-21T20:22:30Z'
+  - code: A8
+    checked_at: '2026-09-06T03:36:56Z'
+    source: https://api.github.com/repos/wikimedia/mediawiki
+    data:
+      repo: wikimedia/mediawiki
+      org: wikimedia
+      repo_anchored: true
+      homepage: https://www.mediawiki.org
+      backlink: false
+      stars: 5165
+      age_days: 5056
+      contributors: 1094
+  - code: A3
+    checked_at: '2026-09-06T03:36:56Z'
+    source: https://rdap.org/domain/wikimedia.org
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2003-03-16'
+      expires: '2027-03-16'
+      remaining_days: 191
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T03:36:56Z'
+    source: TLS handshake wikimedia.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 41
+  - code: B1
+    checked_at: '2026-09-06T03:36:56Z'
+    source: https://www.wikidata.org/wiki/Q3568028
+    data:
+      qid: Q3568028
+      label: Wikimedia movement
+      site: https://www.wikimedia.org/
+      sitelinks: 70
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-06T03:36:56Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 252
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:37:20Z'
+    source: http://web.archive.org/cdx/search/cdx?url=wikimedia.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2003-07-24'
+      history_days: 8445
+  rejected_evidence:
+  - 'A8: repository homepage (https://www.mediawiki.org) does not point to this domain'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+- domain: mediawiki.org
+  role: product
+  status: verified
+  confidence: 0.6278
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:27Z'
+  ttl_days: 30
+  age_days: 8428
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:37:57Z'
+    source: https://api.github.com/orgs/mediawiki
+    data:
+      org: mediawiki
+      org_verified: false
+      blog: https://www.mediawiki.org
+  - code: A9
+    checked_at: '2026-09-06T03:37:58Z'
+    source: https://itunes.apple.com/search?term=Wikimedia%20movement&entity=software
+    data:
+      app: Wikipedia
+      track_id: 324715238
+      seller: Wikimedia Foundation
+      artist: Wikimedia Foundation
+      seller_url: https://m.mediawiki.org/wiki/Wikimedia_Apps/Team/iOS
+      released: '2009-08-17'
+      age_days: 6228
+      ratings: 6238
+      apps_for_domain: 1
+      apps:
+      - app: Wikipedia
+        seller: Wikimedia Foundation
+        released: '2009-08-17'
+        age_days: 6228
+        ratings: 6238
+  - code: A3
+    checked_at: '2026-09-06T03:38:05Z'
+    source: https://rdap.org/domain/mediawiki.org
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2003-08-09'
+      expires: '2027-08-09'
+      remaining_days: 337
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T03:37:57Z'
+    source: TLS handshake mediawiki.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 41
+  - code: B1
+    checked_at: '2026-09-06T03:37:58Z'
+    source: https://www.wikidata.org/wiki/Q83
+    data:
+      qid: Q83
+      label: MediaWiki
+      site: https://www.mediawiki.org
+      sitelinks: 136
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-06T03:37:57Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 3147
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:39:13Z'
+    source: http://web.archive.org/cdx/search/cdx?url=mediawiki.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2005-09-07'
+      history_days: 7669
+  - code: A6
+    checked_at: '2026-09-06T03:39:13Z'
+    source: propagate from wikimedia.org
+    data:
+      from: wikimedia.org
+      from_status: verified
+      first_party_link: true
+      structural_links:
+      - shared_ns
+      - cert_san
+      san_count: 41
+      shared_ns:
+      - ns0.wikimedia.org
+      - ns1.wikimedia.org
+      - ns2.wikimedia.org
+      backlink: true
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: item Q83 != entity canonical item Q3568028'
+  - 'A6: GitHub organization mediawiki declares this domain as its own site; a domain with an identity of its own
+    is not a sibling of wikimedia, it is its own entity'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+- domain: wikibooks.org
+  role: product
+  status: verified
+  confidence: 0.7105
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:27Z'
+  ttl_days: 30
+  age_days: 8449
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A3
+    checked_at: '2026-09-06T03:39:48Z'
+    source: https://rdap.org/domain/wikibooks.org
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2003-07-19'
+      expires: '2027-07-19'
+      remaining_days: 316
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T03:39:15Z'
+    source: TLS handshake wikibooks.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 41
+  - code: B1
+    checked_at: '2026-09-06T03:39:16Z'
+    source: https://www.wikidata.org/wiki/Q367
+    data:
+      qid: Q367
+      label: Wikibooks
+      site: https://wikibooks.org/
+      sitelinks: 133
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T03:39:15Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 3146
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:39:43Z'
+    source: http://web.archive.org/cdx/search/cdx?url=wikibooks.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2003-12-18'
+      history_days: 8298
+  - code: A6
+    checked_at: '2026-09-06T03:39:48Z'
+    source: propagate from wikimedia.org
+    data:
+      from: wikimedia.org
+      from_status: verified
+      first_party_link: true
+      structural_links:
+      - shared_ns
+      - cert_san
+      san_count: 41
+      shared_ns:
+      - ns0.wikimedia.org
+      - ns1.wikimedia.org
+      - ns2.wikimedia.org
+      backlink: true
+  rejected_evidence:
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: item Q367 != entity canonical item Q3568028'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+- domain: wikimediafoundation.org
+  role: product
+  status: verified
+  confidence: 0.7105
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:27Z'
+  ttl_days: 30
+  age_days: 8449
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A3
+    checked_at: '2026-09-06T03:41:20Z'
+    source: https://rdap.org/domain/wikimediafoundation.org
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2003-07-19'
+      expires: '2027-07-19'
+      remaining_days: 316
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T03:40:58Z'
+    source: TLS handshake wikimediafoundation.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 3
+  - code: B1
+    checked_at: '2026-09-06T03:40:59Z'
+    source: https://www.wikidata.org/wiki/Q180
+    data:
+      qid: Q180
+      label: Wikimedia Foundation
+      site: https://wikimediafoundation.org/
+      sitelinks: 213
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T03:40:58Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 20351
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:41:13Z'
+    source: http://web.archive.org/cdx/search/cdx?url=wikimediafoundation.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2003-09-20'
+      history_days: 8387
+  - code: A6
+    checked_at: '2026-09-06T03:41:20Z'
+    source: propagate from wikimedia.org
+    data:
+      from: wikimedia.org
+      from_status: verified
+      first_party_link: true
+      structural_links:
+      - shared_ns
+      - cert_san
+      san_count: 41
+      shared_ns:
+      - ns0.wikimedia.org
+      - ns1.wikimedia.org
+      - ns2.wikimedia.org
+      backlink: true
+  rejected_evidence:
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: item Q180 != entity canonical item Q3568028'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+- domain: wikiquote.org
+  role: product
+  status: verified
+  confidence: 0.7105
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:27Z'
+  ttl_days: 30
+  age_days: 8458
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A3
+    checked_at: '2026-09-06T03:41:25Z'
+    source: https://rdap.org/domain/wikiquote.org
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2003-07-10'
+      expires: '2027-07-10'
+      remaining_days: 307
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T03:41:24Z'
+    source: TLS handshake wikiquote.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 41
+  - code: B1
+    checked_at: '2026-09-06T03:41:25Z'
+    source: https://www.wikidata.org/wiki/Q369
+    data:
+      qid: Q369
+      label: Wikiquote
+      site: https://wikiquote.org/
+      sitelinks: 132
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T03:41:24Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 4726
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:41:46Z'
+    source: http://web.archive.org/cdx/search/cdx?url=wikiquote.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2003-10-29'
+      history_days: 8348
+  - code: A6
+    checked_at: '2026-09-06T03:41:46Z'
+    source: propagate from wikimedia.org
+    data:
+      from: wikimedia.org
+      from_status: verified
+      first_party_link: true
+      structural_links:
+      - shared_ns
+      - cert_san
+      san_count: 41
+      shared_ns:
+      - ns0.wikimedia.org
+      - ns1.wikimedia.org
+      - ns2.wikimedia.org
+      backlink: true
+  rejected_evidence:
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: item Q369 != entity canonical item Q3568028'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: wikidata:Q3568028
+  reviewed_by: []
+  source_issue: null

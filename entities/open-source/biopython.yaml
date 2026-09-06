@@ -1,0 +1,100 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:biopython
+names:
+  en: Biopython
+aliases:
+- Biopython Project
+- biopython
+category:
+- open-source
+wikidata: Q4118434
+canonical:
+  github_org: biopython
+  wikidata: Q4118434
+  sources:
+  - wikidata:Q4118434/P856
+  - wikidata:Q4118434/P1324
+domains:
+- domain: biopython.org
+  role: primary
+  status: verified
+  confidence: 0.7088
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:26Z'
+  ttl_days: 30
+  age_days: 9878
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:45:40Z'
+    source: https://api.github.com/orgs/biopython
+    data:
+      org: biopython
+      org_verified: false
+      blog: https://biopython.org
+  - code: A8
+    checked_at: '2026-09-06T03:45:40Z'
+    source: https://api.github.com/repos/biopython/biopython
+    data:
+      repo: biopython/biopython
+      org: biopython
+      repo_anchored: true
+      homepage: http://biopython.org/
+      backlink: true
+      stars: 5189
+      age_days: 6383
+      contributors: 545
+  - code: A3
+    checked_at: '2026-09-06T03:46:02Z'
+    source: https://rdap.org/domain/biopython.org
+    data:
+      registrar: Gandi SAS
+      created: '1999-08-20'
+      expires: '2027-08-20'
+      remaining_days: 348
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T03:45:40Z'
+    source: TLS handshake biopython.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T03:45:40Z'
+    source: https://www.wikidata.org/wiki/Q4118434
+    data:
+      qid: Q4118434
+      label: Biopython
+      site: http://biopython.org
+      sitelinks: 14
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-06T03:45:40Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 384179
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:46:02Z'
+    source: http://web.archive.org/cdx/search/cdx?url=biopython.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1999-11-28'
+      history_days: 9779
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Gandi SAS) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: wikidata:Q4118434
+  reviewed_by: []
+  source_issue: null

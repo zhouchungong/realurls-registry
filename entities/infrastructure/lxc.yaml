@@ -1,0 +1,102 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:lxc
+names:
+  en: LXC
+aliases:
+- LXC - Linux Containers
+- lxc
+category:
+- infrastructure
+wikidata: Q2597211
+canonical:
+  github_org: lxc
+  wikidata: Q2597211
+  sources:
+  - wikidata:Q2597211/P856
+  - wikidata:Q2597211/P2037
+domains:
+- domain: linuxcontainers.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:33Z'
+  ttl_days: 30
+  age_days: 4743
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:16:14Z'
+    source: https://api.github.com/orgs/lxc
+    data:
+      org: lxc
+      org_verified: true
+      blog: https://linuxcontainers.org
+      org_name: LXC - Linux Containers
+      created_at: '2012-09-07T18:45:38Z'
+  - code: A8
+    checked_at: '2026-09-06T03:16:15Z'
+    source: https://api.github.com/repos/lxc/incus
+    data:
+      repo: lxc/incus
+      org: lxc
+      repo_anchored: true
+      homepage: https://linuxcontainers.org/incus
+      backlink: true
+      stars: 6139
+      age_days: 1141
+      contributors: 604
+  - code: A3
+    checked_at: '2026-09-06T03:16:33Z'
+    source: https://rdap.org/domain/linuxcontainers.org
+    data:
+      registrar: Gandi SAS
+      created: '2013-09-10'
+      expires: '2029-09-10'
+      remaining_days: 1100
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T03:16:15Z'
+    source: TLS handshake linuxcontainers.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T03:16:15Z'
+    source: https://www.wikidata.org/wiki/Q2597211
+    data:
+      qid: Q2597211
+      label: LXC
+      site: https://linuxcontainers.org
+      sitelinks: 19
+      competing_items: 2
+  - code: B5
+    checked_at: '2026-09-06T03:16:15Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 44860
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:17:19Z'
+    source: http://web.archive.org/cdx/search/cdx?url=linuxcontainers.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2013-10-16'
+      history_days: 4708
+  rejected_evidence:
+  - 'A3: registrar (Gandi SAS) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: wikidata:Q2597211
+  reviewed_by: []
+  source_issue: null

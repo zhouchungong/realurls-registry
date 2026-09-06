@@ -1,0 +1,122 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:vimeo
+names:
+  en: Vimeo
+aliases:
+- vimeo
+category:
+- open-source
+wikidata: Q156376
+canonical:
+  github_org: vimeo
+  wikidata: Q156376
+  sources:
+  - wikidata:Q156376/P856
+  - github-history:vimeo/psalm(age=9y,contrib=465,stars=5888)
+domains:
+- domain: vimeo.com
+  role: primary
+  status: verified
+  confidence: 0.9345
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:28Z'
+  ttl_days: 30
+  age_days: 7934
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:31:44Z'
+    source: https://api.github.com/orgs/vimeo
+    data:
+      org: vimeo
+      org_verified: true
+      blog: https://vimeo.com
+      org_name: Vimeo
+      created_at: '2010-06-29T18:49:30Z'
+  - code: A8
+    checked_at: '2026-09-06T03:31:44Z'
+    source: https://api.github.com/repos/vimeo/psalm
+    data:
+      repo: vimeo/psalm
+      org: vimeo
+      repo_anchored: true
+      homepage: https://psalm.dev
+      backlink: false
+      stars: 5888
+      age_days: 3575
+      contributors: 465
+  - code: A9
+    checked_at: '2026-09-06T03:31:45Z'
+    source: https://itunes.apple.com/search?term=Vimeo&entity=software
+    data:
+      app: Vimeo
+      track_id: 425194759
+      seller: Vimeo.com, Inc.
+      artist: Vimeo.com, Inc.
+      seller_url: http://vimeo.com
+      released: '2011-03-29'
+      age_days: 5639
+      ratings: 11764
+      apps_for_domain: 1
+      apps:
+      - app: Vimeo
+        seller: Vimeo.com, Inc.
+        released: '2011-03-29'
+        age_days: 5639
+        ratings: 11764
+  - code: A3
+    checked_at: '2026-09-06T03:32:22Z'
+    source: https://rdap.org/domain/vimeo.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2004-12-15'
+      expires: '2026-12-15'
+      remaining_days: 100
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T03:31:44Z'
+    source: TLS handshake vimeo.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T03:31:44Z'
+    source: https://www.wikidata.org/wiki/Q156376
+    data:
+      qid: Q156376
+      label: Vimeo
+      site: https://vimeo.com
+      sitelinks: 56
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T03:31:44Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 82
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:32:08Z'
+    source: http://web.archive.org/cdx/search/cdx?url=vimeo.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2005-01-16'
+      history_days: 7903
+  rejected_evidence:
+  - 'A8: repository homepage (https://psalm.dev) does not point to this domain'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '2 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: wikidata:Q156376
+  reviewed_by: []
+  source_issue: null

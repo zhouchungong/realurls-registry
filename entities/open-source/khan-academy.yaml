@@ -1,0 +1,108 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:khan-academy
+names:
+  en: Khan Academy
+aliases:
+- Khan
+category:
+- open-source
+wikidata: Q94887
+canonical:
+  github_org: null
+  wikidata: Q94887
+  sources:
+  - wikidata:Q94887/P856
+domains:
+- domain: khanacademy.org
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:26Z'
+  ttl_days: 30
+  age_days: 7480
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:28:43Z'
+    source: https://api.github.com/orgs/Khan
+    data:
+      org: Khan
+      org_verified: false
+      blog: https://www.khanacademy.org/
+  - code: A9
+    checked_at: '2026-09-06T03:28:44Z'
+    source: https://itunes.apple.com/search?term=Khan%20Academy&entity=software
+    data:
+      app: Khan Academy
+      track_id: 469863705
+      seller: Khan Academy
+      artist: Khan Academy
+      seller_url: https://www.khanacademy.org/
+      released: '2012-03-11'
+      age_days: 5291
+      ratings: 110878
+      apps_for_domain: 1
+      apps:
+      - app: Khan Academy
+        seller: Khan Academy
+        released: '2012-03-11'
+        age_days: 5291
+        ratings: 110878
+  - code: A3
+    checked_at: '2026-09-06T03:28:44Z'
+    source: https://rdap.org/domain/khanacademy.org
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2006-03-14'
+      expires: '2029-03-14'
+      remaining_days: 920
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T03:28:43Z'
+    source: TLS handshake khanacademy.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 35
+  - code: B1
+    checked_at: '2026-09-06T03:28:43Z'
+    source: https://www.wikidata.org/wiki/Q94887
+    data:
+      qid: Q94887
+      label: Khan Academy
+      site: https://khanacademy.org
+      sitelinks: 59
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T03:28:43Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 2331
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:28:44Z'
+    source: http://web.archive.org/cdx/search/cdx?url=khanacademy.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2007-03-02'
+      history_days: 7128
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: wikidata:Q94887
+  reviewed_by: []
+  source_issue: null

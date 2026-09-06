@@ -1,0 +1,90 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:udacity
+names:
+  en: Udacity
+aliases:
+- udacity
+category:
+- ai
+wikidata: Q766546
+canonical:
+  github_org: udacity
+  wikidata: Q766546
+  sources:
+  - wikidata:Q766546/P856
+  - wikidata:Q766546/P2037
+domains:
+- domain: udacity.com
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:33Z'
+  ttl_days: 30
+  age_days: 5345
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:29:13Z'
+    source: https://api.github.com/orgs/udacity
+    data:
+      org: udacity
+      org_verified: true
+      blog: https://udacity.com
+      org_name: Udacity
+      created_at: '2012-07-03T03:51:49Z'
+  - code: A3
+    checked_at: '2026-09-06T03:29:17Z'
+    source: https://rdap.org/domain/udacity.com
+    data:
+      registrar: CSC Corporate Domains, Inc.
+      created: '2012-01-17'
+      expires: '2028-01-17'
+      remaining_days: 498
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T03:29:14Z'
+    source: TLS handshake udacity.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T03:29:14Z'
+    source: https://www.wikidata.org/wiki/Q766546
+    data:
+      qid: Q766546
+      label: Udacity
+      site: https://www.udacity.com
+      sitelinks: 23
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T03:29:14Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 11531
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:29:31Z'
+    source: http://web.archive.org/cdx/search/cdx?url=udacity.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2012-01-24'
+      history_days: 5339
+  rejected_evidence:
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: wikidata:Q766546
+  reviewed_by: []
+  source_issue: null

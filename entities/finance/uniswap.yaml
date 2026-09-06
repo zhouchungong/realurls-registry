@@ -1,0 +1,101 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:uniswap
+names:
+  en: Uniswap
+aliases:
+- Uniswap Labs
+category:
+- finance
+wikidata: Q104438477
+canonical:
+  github_org: Uniswap
+  wikidata: Q104438477
+  sources:
+  - wikidata:Q104438477/P856
+  - wikidata:Q104438477/P2037
+domains:
+- domain: uniswap.org
+  role: primary
+  status: verified
+  confidence: 0.9256
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:24Z'
+  ttl_days: 30
+  age_days: 2840
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:29:46Z'
+    source: https://api.github.com/orgs/Uniswap
+    data:
+      org: Uniswap
+      org_verified: true
+      blog: https://uniswap.org
+      org_name: Uniswap Labs
+      created_at: '2018-02-03T21:35:01Z'
+  - code: A9
+    checked_at: '2026-09-06T03:29:48Z'
+    source: https://itunes.apple.com/search?term=Uniswap&entity=software
+    data:
+      app: 'Uniswap: Crypto & NFT Wallet'
+      track_id: 6443944476
+      seller: Universal Navigation Inc.
+      artist: Uniswap Labs
+      seller_url: https://wallet.uniswap.org/
+      released: '2023-04-12'
+      age_days: 1242
+      ratings: 19627
+      apps_for_domain: 1
+      apps:
+      - app: 'Uniswap: Crypto & NFT Wallet'
+        seller: Universal Navigation Inc.
+        released: '2023-04-12'
+        age_days: 1242
+        ratings: 19627
+  - code: A3
+    checked_at: '2026-09-06T03:29:47Z'
+    source: https://rdap.org/domain/uniswap.org
+    data:
+      registrar: Cloudflare, Inc.
+      created: '2018-11-26'
+      expires: '2031-11-26'
+      remaining_days: 1907
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T03:29:47Z'
+    source: TLS handshake uniswap.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T03:29:47Z'
+    source: https://www.wikidata.org/wiki/Q104438477
+    data:
+      qid: Q104438477
+      label: Uniswap
+      site: https://uniswap.org/
+      sitelinks: 15
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-06T03:29:47Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 12692
+      source: top-1m list
+  rejected_evidence:
+  - 'A3: registrar (Cloudflare, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '2 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: wikidata:Q104438477
+  reviewed_by: []
+  source_issue: null

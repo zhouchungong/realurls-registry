@@ -1,0 +1,88 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:zabbix
+names:
+  en: Zabbix
+aliases:
+- zabbix
+category:
+- infrastructure
+wikidata: Q136722
+canonical:
+  github_org: zabbix
+  wikidata: Q136722
+  sources:
+  - wikidata:Q136722/P856
+  - wikidata:Q136722/P2037
+domains:
+- domain: zabbix.com
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:33Z'
+  ttl_days: 30
+  age_days: 8989
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:11:24Z'
+    source: https://api.github.com/orgs/zabbix
+    data:
+      org: zabbix
+      org_verified: true
+      blog: http://www.zabbix.com
+      org_name: Zabbix
+      created_at: '2013-05-29T15:35:29Z'
+  - code: A3
+    checked_at: '2026-09-06T03:11:38Z'
+    source: https://rdap.org/domain/zabbix.com
+    data:
+      registrar: Cloudflare, Inc.
+      created: '2002-01-25'
+      expires: '2027-01-25'
+      remaining_days: 141
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T03:11:25Z'
+    source: TLS handshake zabbix.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T03:11:25Z'
+    source: https://www.wikidata.org/wiki/Q136722
+    data:
+      qid: Q136722
+      label: Zabbix
+      site: https://www.zabbix.com/
+      sitelinks: 20
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-06T03:11:25Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 8650
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:11:42Z'
+    source: http://web.archive.org/cdx/search/cdx?url=zabbix.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2004-03-17'
+      history_days: 8208
+  rejected_evidence:
+  - 'A3: registrar (Cloudflare, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: wikidata:Q136722
+  reviewed_by: []
+  source_issue: null

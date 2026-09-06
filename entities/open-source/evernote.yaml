@@ -1,0 +1,114 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:evernote
+names:
+  en: Evernote
+aliases: []
+category:
+- open-source
+wikidata: Q430526
+canonical:
+  github_org: null
+  wikidata: Q430526
+  sources:
+  - wikidata:Q430526/P856
+domains:
+- domain: evernote.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:24Z'
+  ttl_days: 30
+  age_days: 9725
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:29:38Z'
+    source: https://api.github.com/orgs/Evernote
+    data:
+      org: Evernote
+      org_verified: false
+      blog: https://evernote.com
+  - code: A9
+    checked_at: '2026-09-06T03:29:40Z'
+    source: https://itunes.apple.com/search?term=Evernote&entity=software
+    data:
+      app: Evernote Scannable
+      track_id: 883338188
+      seller: Evernote Corporation
+      artist: Evernote Corporation
+      seller_url: http://evernote.com/scannable
+      released: '2015-01-08'
+      age_days: 4258
+      ratings: 417943
+      apps_for_domain: 3
+      apps:
+      - app: Evernote Scannable
+        seller: Evernote Corporation
+        released: '2015-01-08'
+        age_days: 4258
+        ratings: 417943
+      - app: 'Evernote: AI Notes & Notebook'
+        seller: Evernote Corporation
+        released: '2019-02-12'
+        age_days: 2762
+        ratings: 77490
+      - app: AI Transcribe by Evernote
+        seller: Evernote Corporation
+        released: '2025-09-18'
+        age_days: 352
+        ratings: 0
+  - code: A3
+    checked_at: '2026-09-06T03:29:39Z'
+    source: https://rdap.org/domain/evernote.com
+    data:
+      registrar: 1API GmbH
+      created: '2000-01-20'
+      expires: '2030-01-20'
+      remaining_days: 1232
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T03:29:39Z'
+    source: TLS handshake evernote.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T03:29:38Z'
+    source: https://www.wikidata.org/wiki/Q430526
+    data:
+      qid: Q430526
+      label: Evernote
+      site: https://evernote.com
+      sitelinks: 28
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T03:29:38Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 2120
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:29:46Z'
+    source: http://web.archive.org/cdx/search/cdx?url=evernote.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2000-06-13'
+      history_days: 9581
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (1API GmbH) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: wikidata:Q430526
+  reviewed_by: []
+  source_issue: null

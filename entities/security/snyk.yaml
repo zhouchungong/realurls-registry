@@ -1,0 +1,89 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:snyk
+names:
+  en: Snyk
+aliases:
+- snyk
+category:
+- security
+wikidata: Q108282404
+canonical:
+  github_org: snyk
+  wikidata: Q108282404
+  sources:
+  - wikidata:Q108282404/P856
+  - github-history:snyk/cli(age=10y,contrib=385,stars=5655)
+domains:
+- domain: snyk.io
+  role: primary
+  status: verified
+  confidence: 0.9563
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:31Z'
+  ttl_days: 30
+  age_days: 4077
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:28:44Z'
+    source: https://api.github.com/orgs/snyk
+    data:
+      org: snyk
+      org_verified: true
+      blog: https://snyk.io/
+      org_name: Snyk
+      created_at: '2015-06-18T22:58:59Z'
+  - code: A8
+    checked_at: '2026-09-06T03:28:44Z'
+    source: https://api.github.com/repos/snyk/cli
+    data:
+      repo: snyk/cli
+      org: snyk
+      repo_anchored: true
+      homepage: https://snyk.io
+      backlink: true
+      stars: 5655
+      age_days: 3963
+      contributors: 385
+  - code: A4
+    checked_at: '2026-09-06T03:28:44Z'
+    source: TLS handshake snyk.io:443
+    data:
+      subject_org: Snyk Ltd
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 32
+  - code: B1
+    checked_at: '2026-09-06T03:28:44Z'
+    source: https://www.wikidata.org/wiki/Q108282404
+    data:
+      qid: Q108282404
+      label: Snyk
+      site: https://snyk.io/
+      sitelinks: 3
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T03:28:44Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 12827
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:28:48Z'
+    source: http://web.archive.org/cdx/search/cdx?url=snyk.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2015-07-09'
+      history_days: 4077
+  rejected_evidence: []
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '2 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: wikidata:Q108282404
+  reviewed_by: []
+  source_issue: null

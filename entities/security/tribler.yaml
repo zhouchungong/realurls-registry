@@ -1,0 +1,81 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:tribler
+names:
+  en: Tribler
+aliases: []
+category:
+- security
+wikidata: Q2265158
+canonical:
+  github_org: Tribler
+  wikidata: Q2265158
+  sources:
+  - wikidata:Q2265158/P856
+  - wikidata:Q2265158/P2037
+domains:
+- domain: tribler.org
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:26Z'
+  ttl_days: 30
+  age_days: 7570
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:42:24Z'
+    source: https://api.github.com/orgs/Tribler
+    data:
+      org: Tribler
+      org_verified: true
+      blog: https://tribler.org
+      org_name: Tribler
+      created_at: '2012-11-28T16:34:14Z'
+  - code: A3
+    checked_at: '2026-09-06T03:42:46Z'
+    source: https://rdap.org/domain/tribler.org
+    data:
+      registrar: Register.com - Network Solutions, LLC
+      created: '2005-12-14'
+      expires: '2033-12-14'
+      remaining_days: 2656
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T03:42:24Z'
+    source: TLS handshake tribler.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T03:42:24Z'
+    source: https://www.wikidata.org/wiki/Q2265158
+    data:
+      qid: Q2265158
+      label: Tribler
+      site: https://www.tribler.org
+      sitelinks: 10
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T03:42:24Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 444518
+      source: top-1m list
+  rejected_evidence:
+  - 'A3: registrar (Register.com - Network Solutions, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: wikidata:Q2265158
+  reviewed_by: []
+  source_issue: null

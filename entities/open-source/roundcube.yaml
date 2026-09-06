@@ -1,0 +1,100 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:roundcube
+names:
+  en: Roundcube
+aliases:
+- Roundcube Webmail Project
+- roundcube
+category:
+- open-source
+wikidata: Q1769269
+canonical:
+  github_org: roundcube
+  wikidata: Q1769269
+  sources:
+  - wikidata:Q1769269/P856
+  - wikidata:Q1769269/P1324
+domains:
+- domain: roundcube.net
+  role: primary
+  status: verified
+  confidence: 0.7088
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:25Z'
+  ttl_days: 30
+  age_days: 7999
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:02:27Z'
+    source: https://api.github.com/orgs/roundcube
+    data:
+      org: roundcube
+      org_verified: false
+      blog: https://roundcube.net
+  - code: A8
+    checked_at: '2026-09-06T03:02:27Z'
+    source: https://api.github.com/repos/roundcube/roundcubemail
+    data:
+      repo: roundcube/roundcubemail
+      org: roundcube
+      repo_anchored: true
+      homepage: https://roundcube.net
+      backlink: true
+      stars: 7156
+      age_days: 5237
+      contributors: 340
+  - code: A3
+    checked_at: '2026-09-06T03:03:11Z'
+    source: https://rdap.org/domain/roundcube.net
+    data:
+      registrar: INWX GmbH
+      created: '2004-10-11'
+      expires: '2026-10-11'
+      remaining_days: 35
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T03:02:27Z'
+    source: TLS handshake roundcube.net:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T03:02:27Z'
+    source: https://www.wikidata.org/wiki/Q1769269
+    data:
+      qid: Q1769269
+      label: Roundcube
+      site: https://roundcube.net
+      sitelinks: 19
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T03:02:27Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 49303
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:02:34Z'
+    source: http://web.archive.org/cdx/search/cdx?url=roundcube.net&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2005-08-14'
+      history_days: 7693
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (INWX GmbH) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: wikidata:Q1769269
+  reviewed_by: []
+  source_issue: null

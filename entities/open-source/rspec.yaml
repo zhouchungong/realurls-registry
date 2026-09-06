@@ -1,0 +1,101 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:rspec
+names:
+  en: RSpec
+aliases:
+- rspec
+category:
+- open-source
+wikidata: Q3463141
+canonical:
+  github_org: rspec
+  wikidata: Q3463141
+  sources:
+  - wikidata:Q3463141/P856
+  - wikidata:Q3463141/P1324
+domains:
+- domain: rspec.info
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:25Z'
+  ttl_days: 30
+  age_days: 6866
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:30:09Z'
+    source: https://api.github.com/orgs/rspec
+    data:
+      org: rspec
+      org_verified: true
+      blog: http://rspec.info
+      org_name: RSpec
+      created_at: '2008-08-28T20:00:35Z'
+  - code: A8
+    checked_at: '2026-09-06T03:30:09Z'
+    source: https://api.github.com/repos/rspec/rspec-rails
+    data:
+      repo: rspec/rspec-rails
+      org: rspec
+      repo_anchored: true
+      homepage: https://rspec.info
+      backlink: false
+      stars: 5274
+      age_days: 6100
+      contributors: 427
+  - code: A3
+    checked_at: '2026-09-06T03:30:31Z'
+    source: https://rdap.org/domain/rspec.info
+    data:
+      registrar: 1API GmbH
+      created: '2007-11-18'
+      expires: '2026-11-18'
+      remaining_days: 73
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T03:30:10Z'
+    source: TLS handshake rspec.info:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T03:30:09Z'
+    source: https://www.wikidata.org/wiki/Q3463141
+    data:
+      qid: Q3463141
+      label: RSpec
+      site: http://rspec.info/
+      sitelinks: 4
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T03:30:09Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 261294
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:30:26Z'
+    source: http://web.archive.org/cdx/search/cdx?url=rspec.info&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2007-12-16'
+      history_days: 6839
+  rejected_evidence:
+  - 'A8: this site does not link back to the GitHub organization; no reverse confirmation'
+  - 'A3: registrar (1API GmbH) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: wikidata:Q3463141
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,101 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:chainer
+names:
+  en: Chainer
+aliases:
+- chainer
+category:
+- ai
+wikidata: Q34978225
+canonical:
+  github_org: chainer
+  wikidata: Q34978225
+  sources:
+  - wikidata:Q34978225/P856
+  - wikidata:Q34978225/P1324
+domains:
+- domain: chainer.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:33Z'
+  ttl_days: 30
+  age_days: 4110
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:19:53Z'
+    source: https://api.github.com/orgs/chainer
+    data:
+      org: chainer
+      org_verified: true
+      blog: https://chainer.org
+      org_name: Chainer
+      created_at: '2016-11-01T04:23:56Z'
+  - code: A8
+    checked_at: '2026-09-06T03:19:53Z'
+    source: https://api.github.com/repos/chainer/chainer
+    data:
+      repo: chainer/chainer
+      org: chainer
+      repo_anchored: true
+      homepage: https://chainer.org
+      backlink: true
+      stars: 5921
+      age_days: 4110
+      contributors: 332
+  - code: A3
+    checked_at: '2026-09-06T03:19:54Z'
+    source: https://rdap.org/domain/chainer.org
+    data:
+      registrar: Gandi SAS
+      created: '2015-06-05'
+      expires: '2027-06-05'
+      remaining_days: 272
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T03:19:53Z'
+    source: TLS handshake chainer.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T03:19:53Z'
+    source: https://www.wikidata.org/wiki/Q34978225
+    data:
+      qid: Q34978225
+      label: Chainer
+      site: https://chainer.org
+      sitelinks: 5
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-06T03:19:53Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 911181
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:20:10Z'
+    source: http://web.archive.org/cdx/search/cdx?url=chainer.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2003-08-08'
+      history_days: 8430
+  rejected_evidence:
+  - 'A3: registrar (Gandi SAS) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: wikidata:Q34978225
+  reviewed_by: []
+  source_issue: null

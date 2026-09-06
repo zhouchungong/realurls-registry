@@ -1,0 +1,102 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:wger-project
+names:
+  en: wger Project
+aliases:
+- wger-project
+- wger-project/wger
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: wger-project
+  wikidata: null
+  sources:
+  - github-history:wger-project/wger(age=13y,contrib=355,stars=6850)
+domains:
+- domain: wger.de
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:33Z'
+  ttl_days: 30
+  age_days: 2214
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:04:05Z'
+    source: https://api.github.com/orgs/wger-project
+    data:
+      org: wger-project
+      org_verified: true
+      blog: https://wger.de
+      org_name: wger Project
+      created_at: '2016-02-23T12:54:10Z'
+  - code: A8
+    checked_at: '2026-09-06T03:04:05Z'
+    source: https://api.github.com/repos/wger-project/wger
+    data:
+      repo: wger-project/wger
+      org: wger-project
+      repo_anchored: true
+      homepage: https://wger.de
+      backlink: false
+      stars: 6850
+      age_days: 4977
+      contributors: 355
+  - code: A9
+    checked_at: '2026-09-06T03:04:06Z'
+    source: https://itunes.apple.com/search?term=wger-project&entity=software
+    data:
+      app: wger Workout Manager
+      track_id: 6502226792
+      seller: Peter Thaler
+      artist: Peter Thaler
+      seller_url: https://wger.de/de/software/features
+      released: '2024-07-14'
+      age_days: 783
+      ratings: 2
+      apps_for_domain: 1
+      apps:
+      - app: wger Workout Manager
+        seller: Peter Thaler
+        released: '2024-07-14'
+        age_days: 783
+        ratings: 2
+  - code: A4
+    checked_at: '2026-09-06T03:04:06Z'
+    source: TLS handshake wger.de:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B5
+    checked_at: '2026-09-06T03:04:05Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 996538
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:04:11Z'
+    source: http://web.archive.org/cdx/search/cdx?url=wger.de&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2020-08-14'
+      history_days: 2214
+  rejected_evidence:
+  - 'A8: this site does not link back to the GitHub organization; no reverse confirmation'
+  - 'A9: no listing meets the App Store history bar (at least 2 years on the store and 1000 ratings); strongest:
+    wger Workout Manager 783 days, 2 ratings'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: seed_org_name(self-declared)
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,121 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:expensify
+names:
+  en: Expensify, Inc
+aliases:
+- Expensify
+- Expensify/App
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: Expensify
+  wikidata: null
+  sources:
+  - github-history:Expensify/App(age=6y,contrib=2396,stars=5016)
+domains:
+- domain: expensify.com
+  role: primary
+  status: verified
+  confidence: 0.9256
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:26Z'
+  ttl_days: 30
+  age_days: 6890
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:49:15Z'
+    source: https://api.github.com/orgs/Expensify
+    data:
+      org: Expensify
+      org_verified: true
+      blog: https://use.expensify.com
+      org_name: Expensify, Inc
+      created_at: '2010-11-11T03:59:16Z'
+  - code: A8
+    checked_at: '2026-09-06T03:49:15Z'
+    source: https://api.github.com/repos/Expensify/App
+    data:
+      repo: Expensify/App
+      org: Expensify
+      repo_anchored: true
+      homepage: https://new.expensify.com
+      backlink: false
+      stars: 5016
+      age_days: 2220
+      contributors: 2396
+  - code: A9
+    checked_at: '2026-09-06T03:49:17Z'
+    source: https://itunes.apple.com/search?term=Expensify&entity=software
+    data:
+      app: Expensify - Travel & Expense
+      track_id: 471713959
+      seller: Expensify, Inc.
+      artist: Expensify, Inc.
+      seller_url: https://use.expensify.com
+      released: '2011-10-22'
+      age_days: 5432
+      ratings: 156535
+      apps_for_domain: 1
+      apps:
+      - app: Expensify - Travel & Expense
+        seller: Expensify, Inc.
+        released: '2011-10-22'
+        age_days: 5432
+        ratings: 156535
+  - code: A3
+    checked_at: '2026-09-06T03:49:16Z'
+    source: https://rdap.org/domain/expensify.com
+    data:
+      registrar: Domain.com - Network Solutions, LLC
+      created: '2007-10-26'
+      expires: '2035-10-26'
+      remaining_days: 3336
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T03:49:15Z'
+    source: TLS handshake expensify.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 4
+  - code: B1
+    checked_at: '2026-09-06T03:49:15Z'
+    source: https://www.wikidata.org/wiki/Q21178592
+    data:
+      qid: Q21178592
+      label: Expensify
+      site: https://www.expensify.com/
+      sitelinks: 2
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T03:49:15Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 33225
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:49:29Z'
+    source: http://web.archive.org/cdx/search/cdx?url=expensify.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2009-03-12'
+      history_days: 6387
+  rejected_evidence:
+  - 'A8: this site does not link back to the GitHub organization; no reverse confirmation'
+  - 'A3: registrar (Domain.com - Network Solutions, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
+  reasons:
+  - '2 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: seed_org_name(self-declared)
+  reviewed_by: []
+  source_issue: null

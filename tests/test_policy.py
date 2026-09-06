@@ -460,3 +460,21 @@ def test_a6_refused_when_another_github_org_declares_the_domain():
                           ev("A1", org="element-hq", org_verified=False, blog="https://matrix.org"),
                           ev("B5", rank=7000), ev("B4", history_days=9000)], now=NOW)
     assert same.anchors == ["A6"]
+
+
+
+def test_a6_refused_when_the_domain_has_its_own_organization_item_but_not_for_a_product_item():
+    """courant.com is the Hartford Courant (a newspaper, an organization), not a sibling of the Chicago Tribune.
+    mediawiki.org is MediaWiki (software), which belongs to Wikimedia: a product item is no identity of its own."""
+    tribune = DomainFacts(domain="courant.com", age_days=9000, expected_wikidata="Q47596",
+                          anchor_sources=("wikidata:Q47596/P856",), expected_names=("Chicago Tribune",))
+    d = decide(tribune, [_a6(**{"from": "chicagotribune.com", "backlink": True}),
+                         ev("B1", qid="Q1587159", label="Hartford Courant", kind="organization"),
+                         ev("B5", rank=9000), ev("B4", history_days=9000)], now=NOW)
+    assert "A6" not in d.anchors and d.status != "verified"
+    wikimedia = DomainFacts(domain="mediawiki.org", age_days=7000, expected_wikidata="Q3568028", expected_github_org="wikimedia",
+                            anchor_sources=("wikidata:Q3568028/P856",), expected_names=("Wikimedia", "wikimedia"))
+    d = decide(wikimedia, [_a6(**{"from": "wikimedia.org", "backlink": True}),
+                           ev("B1", qid="Q83", label="MediaWiki", kind="software"),
+                           ev("B5", rank=3000), ev("B4", history_days=7000)], now=NOW)
+    assert d.anchors == ["A6"]

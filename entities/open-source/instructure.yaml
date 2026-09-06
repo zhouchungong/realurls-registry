@@ -1,0 +1,121 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:instructure
+names:
+  en: Instructure
+aliases:
+- Instructure, Inc.
+- instructure
+category:
+- open-source
+wikidata: Q3019900
+canonical:
+  github_org: instructure
+  wikidata: Q3019900
+  sources:
+  - wikidata:Q3019900/P856
+  - github-history:instructure/canvas-lms(age=15y,contrib=801,stars=6795)
+domains:
+- domain: instructure.com
+  role: primary
+  status: verified
+  confidence: 0.9345
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:23Z'
+  ttl_days: 30
+  age_days: 10419
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:07:23Z'
+    source: https://api.github.com/orgs/instructure
+    data:
+      org: instructure
+      org_verified: true
+      blog: instructure.com
+      org_name: Instructure, Inc.
+      created_at: '2010-12-08T21:32:12Z'
+  - code: A8
+    checked_at: '2026-09-06T03:07:23Z'
+    source: https://api.github.com/repos/instructure/canvas-lms
+    data:
+      repo: instructure/canvas-lms
+      org: instructure
+      repo_anchored: true
+      homepage: https://github.com/instructure/canvas-lms/wiki
+      backlink: false
+      stars: 6795
+      age_days: 5696
+      contributors: 801
+  - code: A9
+    checked_at: '2026-09-06T03:07:24Z'
+    source: https://itunes.apple.com/search?term=Instructure&entity=software
+    data:
+      app: Canvas Parent
+      track_id: 1097996698
+      seller: Instructure, Inc.
+      artist: Instructure Inc.
+      seller_url: http://www.instructure.com/features-higher-education/
+      released: '2016-09-04'
+      age_days: 3653
+      ratings: 111643
+      apps_for_domain: 1
+      apps:
+      - app: Canvas Parent
+        seller: Instructure, Inc.
+        released: '2016-09-04'
+        age_days: 3653
+        ratings: 111643
+  - code: A3
+    checked_at: '2026-09-06T03:07:59Z'
+    source: https://rdap.org/domain/instructure.com
+    data:
+      registrar: NameCheap, Inc.
+      created: '1998-02-25'
+      expires: '2027-02-24'
+      remaining_days: 171
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T03:07:23Z'
+    source: TLS handshake instructure.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Certainly
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T03:07:23Z'
+    source: https://www.wikidata.org/wiki/Q3019900
+    data:
+      qid: Q3019900
+      label: Instructure
+      site: https://www.instructure.com/
+      sitelinks: 5
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T03:07:23Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 1384
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:08:09Z'
+    source: http://web.archive.org/cdx/search/cdx?url=instructure.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1999-10-09'
+      history_days: 9829
+  rejected_evidence:
+  - 'A8: repository homepage (https://github.com/instructure/canvas-lms/wiki) does not point to this domain'
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '2 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: wikidata:Q3019900
+  reviewed_by: []
+  source_issue: null

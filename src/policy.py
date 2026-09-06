@@ -611,15 +611,25 @@ def decide(
     # Propagation is for domains that have no identity of their own. A domain that a *different* GitHub
     # organization declares as its site (matrix.org: org matrix-org, propagated from element.io) belongs to
     # that organization's entity, however closely the two work together; it must enter as its own entity.
-    if "A6" in valid_anchor_codes and facts.expected_github_org:
-        mine = facts.expected_github_org.lower()
-        foreign = sorted({str(e.data.get("org")) for e in evidence if e.code == "A1" and e.data.get("org")
+    # Likewise a domain whose own Wikidata item is an *organization* (the Hartford Courant, propagated from
+    # the Chicago Tribune; the Wikimedia Foundation, from the Wikimedia movement). A product item (MediaWiki,
+    # jQuery UI) is not an identity of its own: products belong to organizations.
+    if "A6" in valid_anchor_codes:
+        mine = (facts.expected_github_org or "").lower()
+        foreign = sorted({str(e.data.get("org")) for e in evidence if e.code == "A1" and e.data.get("org") and mine
                           and str(e.data.get("org")).lower() != mine
                           and registrable_domain(str(e.data.get("blog") or "")) == registrable_domain(facts.domain)})
+        own_org_item = sorted({f"{e.data.get('qid')} ({e.data.get('label')})" for e in evidence
+                               if e.code == "B1" and e.data.get("kind") == "organization"
+                               and e.data.get("qid") and e.data.get("qid") != facts.expected_wikidata})
         if foreign:
             valid_anchor_codes.discard("A6")
             rejected.append(f"A6: GitHub organization {'/'.join(foreign)} declares this domain as its own site; "
                             f"a domain with an identity of its own is not a sibling of {mine}, it is its own entity")
+        elif own_org_item:
+            valid_anchor_codes.discard("A6")
+            rejected.append(f"A6: Wikidata organization {'; '.join(own_org_item)} declares this domain as its own site; "
+                            f"an organization is its own entity, not a sibling domain")
 
     if not (valid_anchor_codes | valid_corrob_codes) & IDENTITY_BEARING_CODES:
         # A7 stays a standalone anchor for entities that *are* the government body (no other identity to

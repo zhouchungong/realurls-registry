@@ -1,0 +1,88 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:lwjgl
+names:
+  en: Lightweight Java Game Library
+aliases:
+- LWJGL
+category:
+- open-source
+wikidata: Q940526
+canonical:
+  github_org: lwjgl
+  wikidata: Q940526
+  sources:
+  - wikidata:Q940526/P856
+  - wikidata:Q940526/P2037
+domains:
+- domain: lwjgl.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:33Z'
+  ttl_days: 30
+  age_days: 8459
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:29:50Z'
+    source: https://api.github.com/orgs/lwjgl
+    data:
+      org: lwjgl
+      org_verified: true
+      blog: https://www.lwjgl.org/
+      org_name: Lightweight Java Game Library
+      created_at: '2012-11-09T08:20:58Z'
+  - code: A3
+    checked_at: '2026-09-06T03:29:57Z'
+    source: https://rdap.org/domain/lwjgl.org
+    data:
+      registrar: Amazon Registrar, Inc.
+      created: '2003-07-09'
+      expires: '2027-07-09'
+      remaining_days: 306
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T03:29:51Z'
+    source: TLS handshake lwjgl.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T03:29:51Z'
+    source: https://www.wikidata.org/wiki/Q940526
+    data:
+      qid: Q940526
+      label: Lightweight Java Game Library
+      site: https://www.lwjgl.org
+      sitelinks: 11
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T03:29:51Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 252825
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:30:20Z'
+    source: http://web.archive.org/cdx/search/cdx?url=lwjgl.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2003-10-21'
+      history_days: 8356
+  rejected_evidence:
+  - 'A3: registrar (Amazon Registrar, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: wikidata:Q940526
+  reviewed_by: []
+  source_issue: null

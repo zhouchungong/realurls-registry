@@ -1,0 +1,99 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:mlpack
+names:
+  en: mlpack
+aliases:
+- mlpack/mlpack
+category:
+- ai
+wikidata: null
+canonical:
+  github_org: mlpack
+  wikidata: null
+  sources:
+  - github-history:mlpack/mlpack(age=11y,contrib=341,stars=5704)
+domains:
+- domain: mlpack.org
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:27Z'
+  ttl_days: 30
+  age_days: 5444
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:29:19Z'
+    source: https://api.github.com/orgs/mlpack
+    data:
+      org: mlpack
+      org_verified: false
+      blog: http://www.mlpack.org/
+  - code: A8
+    checked_at: '2026-09-06T03:29:19Z'
+    source: https://api.github.com/repos/mlpack/mlpack
+    data:
+      repo: mlpack/mlpack
+      org: mlpack
+      repo_anchored: true
+      homepage: https://www.mlpack.org/
+      backlink: true
+      stars: 5704
+      age_days: 4280
+      contributors: 341
+  - code: A3
+    checked_at: '2026-09-06T03:29:40Z'
+    source: https://rdap.org/domain/mlpack.org
+    data:
+      registrar: NameCheap, Inc.
+      created: '2011-10-10'
+      expires: '2026-10-10'
+      remaining_days: 34
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T03:29:19Z'
+    source: TLS handshake mlpack.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 12
+  - code: B1
+    checked_at: '2026-09-06T03:29:19Z'
+    source: https://www.wikidata.org/wiki/Q17069495
+    data:
+      qid: Q17069495
+      label: mlpack
+      site: https://mlpack.org
+      sitelinks: 1
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T03:29:19Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 254466
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:29:20Z'
+    source: http://web.archive.org/cdx/search/cdx?url=mlpack.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2012-05-25'
+      history_days: 5217
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

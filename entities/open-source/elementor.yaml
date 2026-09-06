@@ -1,0 +1,85 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:elementor
+names:
+  en: Elementor
+aliases:
+- elementor
+category:
+- open-source
+wikidata: Q96377114
+canonical:
+  github_org: elementor
+  wikidata: Q96377114
+  sources:
+  - wikidata:Q96377114/P856
+  - wikidata:Q96377114/P2037
+domains:
+- domain: elementor.com
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:28Z'
+  ttl_days: 30
+  age_days: 7944
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:04:20Z'
+    source: https://api.github.com/orgs/elementor
+    data:
+      org: elementor
+      org_verified: true
+      blog: https://elementor.com/
+      org_name: Elementor
+      created_at: '2019-02-13T17:17:28Z'
+  - code: A3
+    checked_at: '2026-09-06T03:04:20Z'
+    source: https://rdap.org/domain/elementor.com
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2004-12-05'
+      expires: '2030-12-05'
+      remaining_days: 1551
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T03:04:20Z'
+    source: TLS handshake elementor.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T03:04:20Z'
+    source: https://www.wikidata.org/wiki/Q96377114
+    data:
+      qid: Q96377114
+      label: Elementor
+      site: https://elementor.com
+      sitelinks: 8
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-06T03:04:20Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 3698
+      source: top-1m list
+  rejected_evidence:
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: wikidata:Q96377114
+  reviewed_by: []
+  source_issue: null

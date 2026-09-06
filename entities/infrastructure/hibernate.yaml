@@ -1,0 +1,101 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:hibernate
+names:
+  en: Hibernate
+aliases:
+- hibernate
+category:
+- infrastructure
+wikidata: Q747866
+canonical:
+  github_org: hibernate
+  wikidata: Q747866
+  sources:
+  - wikidata:Q747866/P856
+  - wikidata:Q747866/P1324
+domains:
+- domain: hibernate.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:29Z'
+  ttl_days: 30
+  age_days: 8547
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:11:50Z'
+    source: https://api.github.com/orgs/hibernate
+    data:
+      org: hibernate
+      org_verified: true
+      blog: https://hibernate.org
+      org_name: Hibernate
+      created_at: '2010-07-29T14:31:39Z'
+  - code: A8
+    checked_at: '2026-09-06T03:11:50Z'
+    source: https://api.github.com/repos/hibernate/hibernate-orm
+    data:
+      repo: hibernate/hibernate-orm
+      org: hibernate
+      repo_anchored: true
+      homepage: http://hibernate.org
+      backlink: true
+      stars: 6470
+      age_days: 5815
+      contributors: 874
+  - code: A3
+    checked_at: '2026-09-06T03:11:51Z'
+    source: https://rdap.org/domain/hibernate.org
+    data:
+      registrar: NameCheap, Inc.
+      created: '2003-04-12'
+      expires: '2027-04-12'
+      remaining_days: 218
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T03:11:50Z'
+    source: TLS handshake hibernate.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T03:11:50Z'
+    source: https://www.wikidata.org/wiki/Q747866
+    data:
+      qid: Q747866
+      label: Hibernate
+      site: https://hibernate.org/
+      sitelinks: 27
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T03:11:50Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 41630
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:11:57Z'
+    source: http://web.archive.org/cdx/search/cdx?url=hibernate.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2002-09-22'
+      history_days: 8750
+  rejected_evidence:
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: wikidata:Q747866
+  reviewed_by: []
+  source_issue: null
