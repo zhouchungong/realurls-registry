@@ -1,0 +1,201 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:notion
+names:
+  en: Notion
+aliases: []
+category:
+- other
+wikidata: Q89269703
+canonical:
+  github_org: null
+  wikidata: Q89269703
+  sources:
+  - wikidata:Q89269703/P856(sitelinks=0)
+  - 'appstore:Notion Labs, Incorporated(Notion: Notes, Tasks, AI,8y,90002 ratings)'
+domains:
+- domain: notion.so
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T16:12:23Z'
+  ttl_days: 30
+  age_days: 3879
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T16:17:01Z'
+    source: https://itunes.apple.com/search?term=Notion&entity=software
+    data:
+      app: 'Notion: Notes, Tasks, AI'
+      track_id: 1232780281
+      seller: Notion Labs, Incorporated
+      artist: Notion Labs, Incorporated
+      seller_url: https://www.notion.so
+      released: '2017-09-14'
+      age_days: 3278
+      ratings: 90002
+      apps_for_domain: 2
+      apps:
+      - app: 'Notion: Notes, Tasks, AI'
+        seller: Notion Labs, Incorporated
+        released: '2017-09-14'
+        age_days: 3278
+        ratings: 90002
+      - app: Notion Calendar
+        seller: Notion Labs, Incorporated
+        released: '2022-12-15'
+        age_days: 1361
+        ratings: 7339
+  - code: A4
+    checked_at: '2026-09-06T16:17:01Z'
+    source: TLS handshake notion.so:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 5
+  - code: B1
+    checked_at: '2026-09-06T16:17:01Z'
+    source: https://www.wikidata.org/wiki/Q89269703
+    data:
+      qid: Q89269703
+      label: Notion
+      kind: organization
+      site: https://www.notion.so/
+      sitelinks: 0
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T16:17:01Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 2112
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T16:17:59Z'
+    source: http://web.archive.org/cdx/search/cdx?url=notion.so&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2016-01-23'
+      history_days: 3879
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T16:22:50Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+- domain: notion.com
+  role: product
+  status: verified
+  confidence: 0.7105
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T16:12:23Z'
+  ttl_days: 30
+  age_days: 10562
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T16:18:05Z'
+    source: https://itunes.apple.com/search?term=Notion&entity=software
+    data:
+      app: Notion Mail
+      track_id: 6504265936
+      seller: Notion Labs, Incorporated
+      artist: Notion Labs, Incorporated
+      seller_url: https://www.notion.com/product/mail
+      released: '2025-08-12'
+      age_days: 390
+      ratings: 122
+      apps_for_domain: 2
+      apps:
+      - app: Notion Mail
+        seller: Notion Labs, Incorporated
+        released: '2025-08-12'
+        age_days: 390
+        ratings: 122
+      - app: Notion Agents
+        seller: Notion Labs, Incorporated
+        released: '2026-07-07'
+        age_days: 61
+        ratings: 6
+  - code: A3
+    checked_at: '2026-09-06T16:18:05Z'
+    source: https://rdap.org/domain/notion.com
+    data:
+      registrar: Amazon Registrar, Inc.
+      created: '1997-10-06'
+      expires: '2035-10-05'
+      remaining_days: 3315
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T16:18:05Z'
+    source: TLS handshake notion.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T16:18:23Z'
+    source: https://www.wikidata.org/wiki/Q60747998
+    data:
+      qid: Q60747998
+      label: Notion
+      kind: software
+      site: https://www.notion.com
+      sitelinks: 23
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T16:18:05Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 1650
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T16:18:23Z'
+    source: http://web.archive.org/cdx/search/cdx?url=notion.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2000-11-01'
+      history_days: 9440
+  - code: A6
+    checked_at: '2026-09-06T16:18:23Z'
+    source: propagate from notion.so
+    data:
+      from: notion.so
+      from_status: verified
+      first_party_link: true
+      structural_links:
+      - shared_ns
+      san_count: 5
+      shared_ns:
+      - dana.ns.cloudflare.com
+      - woz.ns.cloudflare.com
+      backlink: true
+  rejected_evidence:
+  - 'A9: no listing meets the App Store history bar (at least 2 years on the store and 1000 ratings); strongest:
+    Notion Mail 390 days, 122 ratings'
+  - 'A3: registrar (Amazon Registrar, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: item Q60747998 != entity canonical item Q89269703'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T16:22:50Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q89269703
+  reviewed_by: []
+  source_issue: null
