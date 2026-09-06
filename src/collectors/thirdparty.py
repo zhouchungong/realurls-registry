@@ -106,11 +106,15 @@ def prefetch_wikidata(domains: list[str]) -> int:
     """
     todo = [d for d in dict.fromkeys(domains) if cache_get(_WD_KEY.format(d), 168) is None]
     fetched = 0
+    failures = 0
     for i in range(0, len(todo), WIKIDATA_BATCH):
         chunk = todo[i:i + WIKIDATA_BATCH]
+        if failures >= 3:
+            break   # the query service is down: stop hammering it, the per-domain path falls back to search
         try:
             rows = _run_sparql(_p856_query(chunk))
         except FetchError:
+            failures += 1
             continue   # per-domain lookup will retry these later
         by_domain: dict[str, list[dict]] = {d: [] for d in chunk}
         for b in rows:
@@ -123,11 +127,67 @@ def prefetch_wikidata(domains: list[str]) -> int:
     return fetched
 
 
+_ACCEPTED_CLASSES = {"Q43229", "Q4830453", "Q7397", "Q35127", "Q1058914"}
+_SEARCH = "https://www.wikidata.org/w/api.php?action=query&list=search&srnamespace=0&srlimit=10&format=json&srsearch="
+
+
+def _p856_bindings_via_search(domain: str) -> list[dict]:
+    """The same answer as ``_p856_query`` without the query service, which goes down (502) and throttles:
+    CirrusSearch's ``haswbstatement:P856=url|url|...`` finds the items, the entity API supplies label,
+    sitelinks, P2037/P1324 and the class test (the same P279 walk ``item_flags`` uses). Bindings are shaped
+    like SPARQL rows so the rest of the collector cannot tell which path filled the cache."""
+    q = "haswbstatement:P856=" + "|".join(_p856_variants(domain))
+    doc = fetch_json(_SEARCH + urllib.parse.quote(q), ttl_hours=168, timeout=30)
+    qids = [s["title"] for s in doc.get("query", {}).get("search", []) if str(s.get("title", "")).startswith("Q")]
+    if not qids:
+        return []
+    ents = fetch_json(f"https://www.wikidata.org/w/api.php?action=wbgetentities&ids={'|'.join(qids[:10])}"
+                      f"&props=sitelinks|labels|claims&languages=en&format=json", ttl_hours=168, timeout=30)
+    rows = []
+    for qid in qids[:10]:
+        e = ents.get("entities", {}).get(qid) or {}
+        claims = e.get("claims", {})
+
+        def vals(prop: str, claims: dict = claims) -> list:
+            return [c["mainsnak"]["datavalue"]["value"] for c in claims.get(prop, [])
+                    if c.get("mainsnak", {}).get("datavalue")]
+        sites = [s for s in vals("P856") if isinstance(s, str) and _site_domain(s) == domain]
+        if not sites:
+            continue
+        p31 = [v.get("id") for v in vals("P31") if isinstance(v, dict)]
+        closure = _superclasses(p31)
+        matched = closure & _ACCEPTED_CLASSES
+        if not matched:
+            continue
+        gh = next((v for v in vals("P2037") if isinstance(v, str)), None)
+        repo = next((v for v in vals("P1324") if isinstance(v, str)), None)
+        is_org = bool(closure & {"Q43229"})
+        row = {
+            "item": {"value": f"http://www.wikidata.org/entity/{qid}"},
+            "itemLabel": {"value": e.get("labels", {}).get("en", {}).get("value", qid)},
+            "site": {"value": sites[0]},
+            "sitelinks": {"value": str(len(e.get("sitelinks", {})))},
+            "classes": {"value": " ".join(f"http://www.wikidata.org/entity/{c}" for c in sorted(matched))},
+            "types": {"value": " ".join(f"http://www.wikidata.org/entity/{c}" for c in p31)},
+            "isOrg": {"value": "true" if is_org else "false"},
+        }
+        if gh:
+            row["github"] = {"value": gh}
+        if repo:
+            row["repo"] = {"value": repo}
+        rows.append(row)
+    rows.sort(key=lambda b: -int(b["sitelinks"]["value"]))
+    return rows
+
+
 def _p856_bindings(domain: str) -> list[dict]:
     cached = cache_get(_WD_KEY.format(domain), 168)
     if cached is not None:
         return cached
-    rows = _run_sparql(_p856_query([domain]))[:5]
+    try:
+        rows = _run_sparql(_p856_query([domain]))[:5]
+    except FetchError:
+        rows = _p856_bindings_via_search(domain)[:5]   # the query service is down or throttling; same answer
     cache_put(_WD_KEY.format(domain), rows)
     return rows
 
