@@ -1,0 +1,95 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:irssi
+names:
+  en: Irssi
+aliases:
+- irssi
+category:
+- open-source
+wikidata: Q746544
+canonical:
+  github_org: irssi
+  wikidata: Q746544
+  sources:
+  - wikidata:Q746544/P856
+  - wikidata:Q746544/P2037
+domains:
+- domain: irssi.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:49:29Z'
+  ttl_days: 30
+  age_days: 9596
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T05:52:05Z'
+    source: https://api.github.com/orgs/irssi
+    data:
+      org: irssi
+      org_verified: true
+      blog: https://irssi.org
+      org_name: Irssi
+      created_at: '2014-05-30T21:27:59Z'
+  - code: A3
+    checked_at: '2026-09-06T05:52:06Z'
+    source: https://rdap.org/domain/irssi.org
+    data:
+      registrar: NameCheap, Inc.
+      created: '2000-05-28'
+      expires: '2032-05-28'
+      remaining_days: 2091
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T05:52:05Z'
+    source: TLS handshake irssi.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T05:52:05Z'
+    source: https://www.wikidata.org/wiki/Q746544
+    data:
+      qid: Q746544
+      label: Irssi
+      kind: software
+      site: https://irssi.org
+      sitelinks: 27
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T05:52:05Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 144965
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T05:52:24Z'
+    source: http://web.archive.org/cdx/search/cdx?url=irssi.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2000-12-04'
+      history_days: 9407
+  rejected_evidence:
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T06:22:01Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@1cc8464
+  label_source: wikidata:Q746544
+  reviewed_by: []
+  source_issue: null

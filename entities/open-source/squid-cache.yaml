@@ -1,0 +1,86 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:squid-cache
+names:
+  en: Squid
+aliases:
+- squid-cache
+category:
+- open-source
+wikidata: Q841783
+canonical:
+  github_org: squid-cache
+  wikidata: Q841783
+  sources:
+  - wikidata:Q841783/P856
+  - wikidata:Q841783/P1324
+domains:
+- domain: squid-cache.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:49:36Z'
+  ttl_days: 30
+  age_days: 10181
+  age_source: rdap
+  collection_incomplete: true
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T06:06:40Z'
+    source: https://api.github.com/orgs/squid-cache
+    data:
+      org: squid-cache
+      org_verified: true
+      blog: http://www.squid-cache.org/
+      org_name: Squid
+      created_at: '2010-08-13T04:37:12Z'
+  - code: A3
+    checked_at: '2026-09-06T06:06:40Z'
+    source: https://rdap.org/domain/squid-cache.org
+    data:
+      registrar: Gandi SAS
+      created: '1998-10-22'
+      expires: '2027-10-21'
+      remaining_days: 409
+      locks:
+      - transfer
+  - code: B1
+    checked_at: '2026-09-06T06:06:40Z'
+    source: https://www.wikidata.org/wiki/Q841783
+    data:
+      qid: Q841783
+      label: Squid
+      kind: software
+      site: https://www.squid-cache.org/
+      sitelinks: 33
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T06:06:40Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 4186
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T06:07:38Z'
+    source: http://web.archive.org/cdx/search/cdx?url=squid-cache.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1999-10-13'
+      history_days: 9825
+  rejected_evidence:
+  - 'A3: registrar (Gandi SAS) is not a brand-protection registrar'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T06:22:01Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@1cc8464
+  label_source: wikidata:Q841783
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,96 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:w3c
+names:
+  en: World Wide Web Consortium
+aliases:
+- w3c
+category:
+- open-source
+wikidata: Q37033
+canonical:
+  github_org: w3c
+  wikidata: Q37033
+  sources:
+  - wikidata:Q37033/P856
+  - wikidata:Q37033/P2037
+domains:
+- domain: w3.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:49:43Z'
+  ttl_days: 30
+  age_days: 11750
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T04:53:35Z'
+    source: https://api.github.com/orgs/w3c
+    data:
+      org: w3c
+      org_verified: true
+      blog: https://www.w3.org/
+      org_name: World Wide Web Consortium
+      created_at: '2010-08-28T19:19:53Z'
+  - code: A3
+    checked_at: '2026-09-06T04:53:36Z'
+    source: https://rdap.org/domain/w3.org
+    data:
+      registrar: Gandi SAS
+      created: '1994-07-06'
+      expires: '2029-07-05'
+      remaining_days: 1032
+      locks:
+      - delete
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T04:53:36Z'
+    source: TLS handshake w3.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T04:53:35Z'
+    source: https://www.wikidata.org/wiki/Q37033
+    data:
+      qid: Q37033
+      label: World Wide Web Consortium
+      kind: organization
+      site: https://www.w3.org/
+      sitelinks: 70
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T04:53:35Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 184
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T04:53:39Z'
+    source: http://web.archive.org/cdx/search/cdx?url=w3.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1996-12-27'
+      history_days: 10845
+  rejected_evidence:
+  - 'A3: registrar (Gandi SAS) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T06:22:01Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@1cc8464
+  label_source: wikidata:Q37033
+  reviewed_by: []
+  source_issue: null

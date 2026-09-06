@@ -1,0 +1,80 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:clementine-player
+names:
+  en: Clementine
+aliases:
+- clementine-player
+category:
+- open-source
+wikidata: Q1100372
+canonical:
+  github_org: clementine-player
+  wikidata: Q1100372
+  sources:
+  - wikidata:Q1100372/P856
+  - wikidata:Q1100372/P1324
+domains:
+- domain: clementine-player.org
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:49:35Z'
+  ttl_days: 30
+  age_days: 5940
+  age_source: rdap
+  collection_incomplete: true
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T05:03:32Z'
+    source: https://api.github.com/orgs/clementine-player
+    data:
+      org: clementine-player
+      org_verified: true
+      blog: https://www.clementine-player.org
+      org_name: Clementine
+      created_at: '2013-11-19T02:03:06Z'
+  - code: A3
+    checked_at: '2026-09-06T05:03:32Z'
+    source: https://rdap.org/domain/clementine-player.org
+    data:
+      registrar: Key-Systems GmbH
+      created: '2010-06-01'
+      expires: '2027-06-01'
+      remaining_days: 268
+      locks:
+      - transfer
+  - code: B1
+    checked_at: '2026-09-06T05:03:32Z'
+    source: https://www.wikidata.org/wiki/Q1100372
+    data:
+      qid: Q1100372
+      label: Clementine
+      kind: software
+      site: https://www.clementine-player.org/
+      sitelinks: 21
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T05:03:32Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 300998
+      source: top-1m list
+  rejected_evidence:
+  - 'A3: registrar (Key-Systems GmbH) is not a brand-protection registrar'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T06:22:01Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@1cc8464
+  label_source: wikidata:Q1100372
+  reviewed_by: []
+  source_issue: null

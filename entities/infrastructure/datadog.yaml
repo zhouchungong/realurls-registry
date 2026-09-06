@@ -1,0 +1,121 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:datadog
+names:
+  en: Datadog
+aliases:
+- DataDog
+- Datadog, Inc.
+category:
+- infrastructure
+wikidata: Q16248637
+canonical:
+  github_org: DataDog
+  wikidata: Q16248637
+  sources:
+  - wikidata:Q16248637/P856
+  - wikidata:Q16248637/P2037
+domains:
+- domain: datadoghq.com
+  role: primary
+  status: verified
+  confidence: 0.9563
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:49:35Z'
+  ttl_days: 30
+  age_days: 5902
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T05:28:25Z'
+    source: https://api.github.com/orgs/DataDog
+    data:
+      org: DataDog
+      org_verified: true
+      blog: https://datadoghq.com
+      org_name: Datadog, Inc.
+      created_at: '2010-08-15T19:56:37Z'
+  - code: A9
+    checked_at: '2026-09-06T05:28:27Z'
+    source: https://itunes.apple.com/search?term=Datadog&entity=software
+    data:
+      app: Datadog
+      track_id: 1391380318
+      seller: Datadog, Inc.
+      artist: Datadog, Inc.
+      seller_url: https://www.datadoghq.com/
+      released: '2020-07-15'
+      age_days: 2243
+      ratings: 292
+      apps_for_domain: 2
+      apps:
+      - app: Datadog
+        seller: Datadog, Inc.
+        released: '2020-07-15'
+        age_days: 2243
+        ratings: 292
+      - app: Datadog - Intune
+        seller: Datadog, Inc.
+        released: '2024-01-11'
+        age_days: 968
+        ratings: 0
+  - code: A3
+    checked_at: '2026-09-06T05:29:08Z'
+    source: https://rdap.org/domain/datadoghq.com
+    data:
+      registrar: NameCheap, Inc.
+      created: '2010-07-09'
+      expires: '2027-07-09'
+      remaining_days: 306
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T05:28:25Z'
+    source: TLS handshake datadoghq.com:443
+    data:
+      subject_org: Datadog, Inc.
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T05:28:25Z'
+    source: https://www.wikidata.org/wiki/Q16248637
+    data:
+      qid: Q16248637
+      label: Datadog
+      kind: organization
+      site: https://www.datadoghq.com/
+      sitelinks: 13
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-06T05:28:25Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 312
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T05:28:26Z'
+    source: http://web.archive.org/cdx/search/cdx?url=datadoghq.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2010-08-09'
+      history_days: 5872
+  rejected_evidence:
+  - 'A9: no listing meets the App Store history bar (at least 2 years on the store and 1000 ratings); strongest:
+    Datadog 2243 days, 292 ratings'
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  reasons:
+  - '2 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T06:22:01Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@1cc8464
+  label_source: wikidata:Q16248637
+  reviewed_by: []
+  source_issue: null

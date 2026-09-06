@@ -1,0 +1,89 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:connectbot
+names:
+  en: ConnectBot
+aliases:
+- connectbot
+category:
+- open-source
+wikidata: Q209841
+canonical:
+  github_org: connectbot
+  wikidata: Q209841
+  sources:
+  - wikidata:Q209841/P856
+  - wikidata:Q209841/P1324
+domains:
+- domain: connectbot.org
+  role: primary
+  status: verified
+  confidence: 0.8451
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:49:35Z'
+  ttl_days: 30
+  age_days: 6585
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T05:41:18Z'
+    source: https://api.github.com/orgs/connectbot
+    data:
+      org: connectbot
+      org_verified: true
+      blog: https://connectbot.org/
+      org_name: ConnectBot
+      created_at: '2013-10-03T17:42:56Z'
+  - code: A3
+    checked_at: '2026-09-06T05:41:18Z'
+    source: https://rdap.org/domain/connectbot.org
+    data:
+      registrar: NameCheap, Inc.
+      created: '2008-08-25'
+      expires: '2027-08-25'
+      remaining_days: 353
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T05:41:18Z'
+    source: TLS handshake connectbot.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T05:41:18Z'
+    source: https://www.wikidata.org/wiki/Q209841
+    data:
+      qid: Q209841
+      label: ConnectBot
+      kind: software
+      site: https://connectbot.org/
+      sitelinks: 6
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-06T05:42:10Z'
+    source: http://web.archive.org/cdx/search/cdx?url=connectbot.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2008-10-30'
+      history_days: 6520
+  rejected_evidence:
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T06:22:01Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@1cc8464
+  label_source: wikidata:Q209841
+  reviewed_by: []
+  source_issue: null

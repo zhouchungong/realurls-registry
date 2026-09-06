@@ -1,0 +1,95 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:opnsense
+names:
+  en: OPNsense
+aliases:
+- opnsense
+category:
+- infrastructure
+wikidata: Q19348696
+canonical:
+  github_org: opnsense
+  wikidata: Q19348696
+  sources:
+  - wikidata:Q19348696/P856
+  - wikidata:Q19348696/P2037
+domains:
+- domain: opnsense.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:49:35Z'
+  ttl_days: 30
+  age_days: 4384
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T04:57:13Z'
+    source: https://api.github.com/orgs/opnsense
+    data:
+      org: opnsense
+      org_verified: true
+      blog: https://opnsense.org
+      org_name: OPNsense
+      created_at: '2014-11-27T16:53:31Z'
+  - code: A3
+    checked_at: '2026-09-06T04:57:36Z'
+    source: https://rdap.org/domain/opnsense.org
+    data:
+      registrar: Hosting Concepts B.V. d/b/a Registrar.eu
+      created: '2014-09-04'
+      expires: '2027-09-04'
+      remaining_days: 363
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T04:57:14Z'
+    source: TLS handshake opnsense.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T04:57:13Z'
+    source: https://www.wikidata.org/wiki/Q19348696
+    data:
+      qid: Q19348696
+      label: OPNsense
+      kind: software
+      site: https://opnsense.org/
+      sitelinks: 12
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T04:57:13Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 25799
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T04:57:24Z'
+    source: http://web.archive.org/cdx/search/cdx?url=opnsense.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2015-01-04'
+      history_days: 4263
+  rejected_evidence:
+  - 'A3: registrar (Hosting Concepts B.V. d/b/a Registrar.eu) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T06:22:01Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@1cc8464
+  label_source: wikidata:Q19348696
+  reviewed_by: []
+  source_issue: null

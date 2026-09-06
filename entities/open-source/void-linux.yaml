@@ -1,0 +1,96 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:void-linux
+names:
+  en: Void Linux
+aliases:
+- VoidLinux
+- void-linux
+category:
+- open-source
+wikidata: Q19310966
+canonical:
+  github_org: void-linux
+  wikidata: Q19310966
+  sources:
+  - wikidata:Q19310966/P856
+  - wikidata:Q19310966/P2037
+domains:
+- domain: voidlinux.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:49:35Z'
+  ttl_days: 30
+  age_days: 4314
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T05:49:09Z'
+    source: https://api.github.com/orgs/void-linux
+    data:
+      org: void-linux
+      org_verified: true
+      blog: https://voidlinux.org
+      org_name: VoidLinux
+      created_at: '2018-03-10T16:46:10Z'
+  - code: A3
+    checked_at: '2026-09-06T05:49:20Z'
+    source: https://rdap.org/domain/voidlinux.org
+    data:
+      registrar: Gandi SAS
+      created: '2014-11-14'
+      expires: '2026-11-14'
+      remaining_days: 68
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T05:49:09Z'
+    source: TLS handshake voidlinux.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T05:49:09Z'
+    source: https://www.wikidata.org/wiki/Q19310966
+    data:
+      qid: Q19310966
+      label: Void Linux
+      kind: software
+      site: https://voidlinux.org/
+      sitelinks: 25
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T05:49:09Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 137804
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T05:50:08Z'
+    source: http://web.archive.org/cdx/search/cdx?url=voidlinux.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2018-06-20'
+      history_days: 3000
+  rejected_evidence:
+  - 'A3: registrar (Gandi SAS) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T06:22:01Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@1cc8464
+  label_source: wikidata:Q19310966
+  reviewed_by: []
+  source_issue: null

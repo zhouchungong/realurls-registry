@@ -1,0 +1,113 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:duckduckgo
+names:
+  en: DuckDuckGo
+aliases:
+- duckduckgo
+category:
+- open-source
+wikidata: Q12805
+canonical:
+  github_org: duckduckgo
+  wikidata: Q12805
+  sources:
+  - wikidata:Q12805/P856
+  - wikidata:Q12805/P1324
+domains:
+- domain: duckduckgo.com
+  role: primary
+  status: verified
+  confidence: 0.9803
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:49:34Z'
+  ttl_days: 30
+  age_days: 6873
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T04:56:20Z'
+    source: https://api.github.com/orgs/duckduckgo
+    data:
+      org: duckduckgo
+      org_verified: true
+      blog: https://duckduckgo.com
+      org_name: DuckDuckGo
+      created_at: '2010-07-24T11:04:12Z'
+  - code: A9
+    checked_at: '2026-09-06T04:56:21Z'
+    source: https://itunes.apple.com/search?term=DuckDuckGo&entity=software
+    data:
+      app: DuckDuckGo, optional Duck.ai
+      track_id: 663592361
+      seller: Duck Duck Go, Inc.
+      artist: DuckDuckGo, Inc.
+      seller_url: https://duckduckgo.com/
+      released: '2013-06-27'
+      age_days: 4818
+      ratings: 2389998
+      apps_for_domain: 1
+      apps:
+      - app: DuckDuckGo, optional Duck.ai
+        seller: Duck Duck Go, Inc.
+        released: '2013-06-27'
+        age_days: 4818
+        ratings: 2389998
+  - code: A3
+    checked_at: '2026-09-06T04:56:20Z'
+    source: https://rdap.org/domain/duckduckgo.com
+    data:
+      registrar: NameCheap, Inc.
+      created: '2007-11-11'
+      expires: '2027-06-23'
+      remaining_days: 289
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T04:56:20Z'
+    source: TLS handshake duckduckgo.com:443
+    data:
+      subject_org: Duck Duck Go, Inc.
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T04:56:20Z'
+    source: https://www.wikidata.org/wiki/Q12805
+    data:
+      qid: Q12805
+      label: DuckDuckGo
+      kind: software
+      site: https://duckduckgo.com
+      sitelinks: 65
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-06T04:56:20Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 532
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T04:56:31Z'
+    source: http://web.archive.org/cdx/search/cdx?url=duckduckgo.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2008-08-20'
+      history_days: 6591
+  rejected_evidence:
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  reasons:
+  - '3 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T06:22:01Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@1cc8464
+  label_source: wikidata:Q12805
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,116 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:bloomberg-l-p
+names:
+  en: Bloomberg L.P.
+aliases:
+- Bloomberg Graphics
+- BloombergGraphics
+category:
+- open-source
+wikidata: Q13977
+canonical:
+  github_org: null
+  wikidata: Q13977
+  sources:
+  - wikidata:Q13977/P856
+domains:
+- domain: bloomberg.com
+  role: primary
+  status: verified
+  confidence: 0.7518
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:49:33Z'
+  ttl_days: 30
+  age_days: 12030
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T05:28:14Z'
+    source: https://api.github.com/orgs/BloombergGraphics
+    data:
+      org: BloombergGraphics
+      org_verified: false
+      blog: bloomberg.com/graphics
+  - code: A9
+    checked_at: '2026-09-06T05:28:15Z'
+    source: https://itunes.apple.com/search?term=Bloomberg%20L.P.&entity=software
+    data:
+      app: 'Bloomberg: Business News Daily'
+      track_id: 281941097
+      seller: Bloomberg Finance LP
+      artist: Bloomberg Finance LP
+      seller_url: http://www.bloomberg.com
+      released: '2019-02-01'
+      age_days: 2773
+      ratings: 55069
+      apps_for_domain: 2
+      apps:
+      - app: 'Bloomberg: Business News Daily'
+        seller: Bloomberg Finance LP
+        released: '2019-02-01'
+        age_days: 2773
+        ratings: 55069
+      - app: Bloomberg Professional
+        seller: Bloomberg Finance LP
+        released: '2010-12-31'
+        age_days: 5727
+        ratings: 460
+  - code: A3
+    checked_at: '2026-09-06T05:28:14Z'
+    source: https://rdap.org/domain/bloomberg.com
+    data:
+      registrar: CSC Corporate Domains, Inc.
+      created: '1993-09-29'
+      expires: '2026-09-28'
+      remaining_days: 21
+      locks:
+      - transfer
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-06T05:28:14Z'
+    source: TLS handshake bloomberg.com:443
+    data:
+      subject_org: Bloomberg LP
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 51
+  - code: B1
+    checked_at: '2026-09-06T05:28:14Z'
+    source: https://www.wikidata.org/wiki/Q13977
+    data:
+      qid: Q13977
+      label: Bloomberg L.P.
+      kind: organization
+      site: https://www.bloomberg.com/
+      sitelinks: 47
+      competing_items: 3
+  - code: B5
+    checked_at: '2026-09-06T05:28:14Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 365
+      source: top-1m list
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A9: neither the seller (Bloomberg Finance LP) nor the app (Bloomberg: Business News Daily) is named like the
+    anchored entity (Bloomberg L.P.)'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T06:22:01Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@1cc8464
+  label_source: wikidata:Q13977
+  reviewed_by: []
+  source_issue: null

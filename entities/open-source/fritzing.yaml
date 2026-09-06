@@ -1,0 +1,95 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:fritzing
+names:
+  en: Fritzing
+aliases:
+- fritzing
+category:
+- open-source
+wikidata: Q2463610
+canonical:
+  github_org: fritzing
+  wikidata: Q2463610
+  sources:
+  - wikidata:Q2463610/P856
+  - wikidata:Q2463610/P1324
+domains:
+- domain: fritzing.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:49:35Z'
+  ttl_days: 30
+  age_days: 6977
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T04:56:02Z'
+    source: https://api.github.com/orgs/fritzing
+    data:
+      org: fritzing
+      org_verified: true
+      blog: https://fritzing.org/
+      org_name: Fritzing
+      created_at: '2014-08-26T22:13:42Z'
+  - code: A3
+    checked_at: '2026-09-06T04:56:06Z'
+    source: https://rdap.org/domain/fritzing.org
+    data:
+      registrar: united-domains GmbH
+      created: '2007-07-30'
+      expires: '2027-07-30'
+      remaining_days: 327
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T04:56:02Z'
+    source: TLS handshake fritzing.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T04:56:02Z'
+    source: https://www.wikidata.org/wiki/Q2463610
+    data:
+      qid: Q2463610
+      label: Fritzing
+      kind: software
+      site: https://fritzing.org
+      sitelinks: 16
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T04:56:02Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 98134
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T04:56:21Z'
+    source: http://web.archive.org/cdx/search/cdx?url=fritzing.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2007-09-11'
+      history_days: 6935
+  rejected_evidence:
+  - 'A3: registrar (united-domains GmbH) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T06:22:01Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@1cc8464
+  label_source: wikidata:Q2463610
+  reviewed_by: []
+  source_issue: null

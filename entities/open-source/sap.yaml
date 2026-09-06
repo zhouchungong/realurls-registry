@@ -1,0 +1,123 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:sap
+names:
+  en: SAP
+aliases:
+- UI5
+category:
+- open-source
+wikidata: Q552581
+canonical:
+  github_org: SAP
+  wikidata: Q552581
+  sources:
+  - wikidata:Q552581/P856
+  - wikidata:Q552581/P2037
+domains:
+- domain: sap.com
+  role: primary
+  status: verified
+  confidence: 0.9803
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:49:33Z'
+  ttl_days: 30
+  age_days: 11554
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T05:56:09Z'
+    source: https://api.github.com/orgs/SAP
+    data:
+      org: SAP
+      org_verified: true
+      blog: https://opensource.sap.com
+      org_name: SAP
+      created_at: '2012-10-10T19:44:06Z'
+  - code: A9
+    checked_at: '2026-09-06T05:56:11Z'
+    source: https://itunes.apple.com/search?term=SAP&entity=software
+    data:
+      app: SAP Events
+      track_id: 1638797856
+      seller: SAP Global Marketing, Inc.
+      artist: SAP Global Marketing, Inc.
+      seller_url: https://www.sap.com/about/events.html
+      released: '2022-09-07'
+      age_days: 1459
+      ratings: 1104
+      apps_for_domain: 12
+      apps:
+      - app: SAP Events
+        seller: SAP Global Marketing, Inc.
+        released: '2022-09-07'
+        age_days: 1459
+        ratings: 1104
+      - app: SAP Field Service Management
+        seller: SAP SE
+        released: '2018-09-30'
+        age_days: 2898
+        ratings: 434
+      - app: Joule Work
+        seller: SAP SE
+        released: '2021-08-30'
+        age_days: 1832
+        ratings: 117
+  - code: A3
+    checked_at: '2026-09-06T05:56:10Z'
+    source: https://rdap.org/domain/sap.com
+    data:
+      registrar: Network Solutions, LLC
+      created: '1995-01-18'
+      expires: '2034-01-19'
+      remaining_days: 2691
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T05:56:10Z'
+    source: TLS handshake sap.com:443
+    data:
+      subject_org: SAP SE
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 12
+  - code: B1
+    checked_at: '2026-09-06T05:56:10Z'
+    source: https://www.wikidata.org/wiki/Q552581
+    data:
+      qid: Q552581
+      label: SAP
+      kind: organization
+      site: https://www.sap.com/
+      sitelinks: 63
+      competing_items: 2
+  - code: B5
+    checked_at: '2026-09-06T05:56:10Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 2197
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T05:56:14Z'
+    source: http://web.archive.org/cdx/search/cdx?url=sap.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1996-11-14'
+      history_days: 10888
+  rejected_evidence:
+  - 'A3: registrar (Network Solutions, LLC) is not a brand-protection registrar'
+  reasons:
+  - '3 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T06:22:01Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@1cc8464
+  label_source: wikidata:Q552581
+  reviewed_by: []
+  source_issue: null

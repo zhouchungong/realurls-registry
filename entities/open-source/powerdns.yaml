@@ -1,0 +1,89 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:powerdns
+names:
+  en: PowerDNS Authoritative Server
+aliases:
+- PowerDNS
+category:
+- open-source
+wikidata: Q460562
+canonical:
+  github_org: PowerDNS
+  wikidata: Q460562
+  sources:
+  - wikidata:Q460562/P856
+  - wikidata:Q460562/P2037
+domains:
+- domain: powerdns.com
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:49:36Z'
+  ttl_days: 30
+  age_days: 10049
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T04:59:21Z'
+    source: https://api.github.com/orgs/PowerDNS
+    data:
+      org: PowerDNS
+      org_verified: true
+      blog: https://powerdns.com/
+      org_name: PowerDNS
+      created_at: '2011-12-23T18:07:10Z'
+  - code: A3
+    checked_at: '2026-09-06T05:00:04Z'
+    source: https://rdap.org/domain/powerdns.com
+    data:
+      registrar: REGISTER4LESS, INC.
+      created: '1999-03-03'
+      expires: '2027-03-03'
+      remaining_days: 177
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T04:59:21Z'
+    source: TLS handshake powerdns.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T04:59:21Z'
+    source: https://www.wikidata.org/wiki/Q460562
+    data:
+      qid: Q460562
+      label: PowerDNS Authoritative Server
+      kind: software
+      site: https://www.powerdns.com/
+      sitelinks: 8
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-06T04:59:21Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 17453
+      source: top-1m list
+  rejected_evidence:
+  - 'A3: registrar (REGISTER4LESS, INC.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T06:22:01Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@1cc8464
+  label_source: wikidata:Q460562
+  reviewed_by: []
+  source_issue: null

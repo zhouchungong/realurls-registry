@@ -1,0 +1,92 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:mapnik
+names:
+  en: Mapnik
+aliases:
+- mapnik
+category:
+- open-source
+wikidata: Q6754131
+canonical:
+  github_org: mapnik
+  wikidata: Q6754131
+  sources:
+  - wikidata:Q6754131/P856
+  - wikidata:Q6754131/P1324
+domains:
+- domain: mapnik.org
+  role: primary
+  status: verified
+  confidence: 0.8451
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:49:34Z'
+  ttl_days: 30
+  age_days: 7912
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T05:17:42Z'
+    source: https://api.github.com/orgs/mapnik
+    data:
+      org: mapnik
+      org_verified: true
+      blog: http://mapnik.org
+      org_name: Mapnik
+      created_at: '2010-06-29T22:09:16Z'
+  - code: A3
+    checked_at: '2026-09-06T05:17:42Z'
+    source: https://rdap.org/domain/mapnik.org
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2005-01-06'
+      expires: '2027-01-06'
+      remaining_days: 122
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T05:17:42Z'
+    source: TLS handshake mapnik.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T05:17:42Z'
+    source: https://www.wikidata.org/wiki/Q6754131
+    data:
+      qid: Q6754131
+      label: Mapnik
+      kind: software
+      site: https://mapnik.org
+      sitelinks: 8
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-06T05:18:01Z'
+    source: http://web.archive.org/cdx/search/cdx?url=mapnik.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2006-02-03'
+      history_days: 7520
+  rejected_evidence:
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T06:22:01Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@1cc8464
+  label_source: wikidata:Q6754131
+  reviewed_by: []
+  source_issue: null

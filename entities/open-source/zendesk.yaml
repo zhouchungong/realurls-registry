@@ -1,0 +1,129 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:zendesk
+names:
+  en: Zendesk
+aliases:
+- zendesk
+category:
+- open-source
+wikidata: Q15401349
+canonical:
+  github_org: zendesk
+  wikidata: Q15401349
+  sources:
+  - wikidata:Q15401349/P856
+  - wikidata:Q15401349/P2037
+domains:
+- domain: zendesk.com
+  role: primary
+  status: verified
+  confidence: 0.9345
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:49:35Z'
+  ttl_days: 30
+  age_days: 7782
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T05:11:53Z'
+    source: https://api.github.com/orgs/zendesk
+    data:
+      org: zendesk
+      org_verified: true
+      blog: https://www.zendesk.com/
+      org_name: Zendesk
+      created_at: '2008-05-26T13:43:28Z'
+  - code: A9
+    checked_at: '2026-09-06T05:11:54Z'
+    source: https://itunes.apple.com/search?term=Zendesk&entity=software
+    data:
+      app: Zendesk Support
+      track_id: 1174276185
+      seller: Zendesk, Inc.
+      artist: Zendesk
+      seller_url: http://www.zendesk.com/mobile
+      released: '2016-11-15'
+      age_days: 3581
+      ratings: 4202
+      apps_for_domain: 3
+      apps:
+      - app: Zendesk Support
+        seller: Zendesk, Inc.
+        released: '2016-11-15'
+        age_days: 3581
+        ratings: 4202
+      - app: Zendesk Chat
+        seller: Zendesk, Inc.
+        released: '2012-08-07'
+        age_days: 5142
+        ratings: 755
+      - app: Match 3 by Zendesk
+        seller: ZD Sub Holdings Inc
+        released: '2023-09-27'
+        age_days: 1074
+        ratings: 0
+  - code: A3
+    checked_at: '2026-09-06T05:11:53Z'
+    source: https://rdap.org/domain/zendesk.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2005-05-16'
+      expires: '2027-05-16'
+      remaining_days: 252
+      locks:
+      - delete
+      - transfer
+      - update
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-06T05:11:53Z'
+    source: TLS handshake zendesk.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T05:11:53Z'
+    source: https://www.wikidata.org/wiki/Q15401349
+    data:
+      qid: Q15401349
+      label: Zendesk
+      kind: organization
+      site: https://www.zendesk.com/
+      sitelinks: 15
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T05:11:53Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 370
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T05:12:26Z'
+    source: http://web.archive.org/cdx/search/cdx?url=zendesk.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2000-05-20'
+      history_days: 9605
+  rejected_evidence:
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '2 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T06:22:01Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@1cc8464
+  label_source: wikidata:Q15401349
+  reviewed_by: []
+  source_issue: null

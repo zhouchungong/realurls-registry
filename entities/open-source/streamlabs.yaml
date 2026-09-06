@@ -1,0 +1,114 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:streamlabs
+names:
+  en: Streamlabs
+aliases:
+- streamlabs
+category:
+- open-source
+wikidata: Q85803720
+canonical:
+  github_org: null
+  wikidata: Q85803720
+  sources:
+  - wikidata:Q85803720/P856
+domains:
+- domain: streamlabs.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:49:33Z'
+  ttl_days: 30
+  age_days: 10495
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T04:55:06Z'
+    source: https://api.github.com/orgs/streamlabs
+    data:
+      org: streamlabs
+      org_verified: false
+      blog: streamlabs.com
+  - code: A9
+    checked_at: '2026-09-06T04:55:07Z'
+    source: https://itunes.apple.com/search?term=Streamlabs&entity=software
+    data:
+      app: 'Streamlabs: Live Streaming App'
+      track_id: 1294578643
+      seller: Streamlabs LLC
+      artist: Streamlabs
+      seller_url: https://streamlabs.com/mobileapp
+      released: '2017-10-13'
+      age_days: 3249
+      ratings: 1151
+      apps_for_domain: 1
+      apps:
+      - app: 'Streamlabs: Live Streaming App'
+        seller: Streamlabs LLC
+        released: '2017-10-13'
+        age_days: 3249
+        ratings: 1151
+  - code: A3
+    checked_at: '2026-09-06T04:55:06Z'
+    source: https://rdap.org/domain/streamlabs.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '1997-12-11'
+      expires: '2026-12-10'
+      remaining_days: 95
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T04:55:06Z'
+    source: TLS handshake streamlabs.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T04:55:06Z'
+    source: https://www.wikidata.org/wiki/Q85803720
+    data:
+      qid: Q85803720
+      label: Streamlabs
+      kind: organization
+      site: https://streamlabs.com
+      sitelinks: 8
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T04:55:06Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 6919
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T04:55:13Z'
+    source: http://web.archive.org/cdx/search/cdx?url=streamlabs.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2001-07-18'
+      history_days: 9181
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T06:22:01Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@1cc8464
+  label_source: wikidata:Q85803720
+  reviewed_by: []
+  source_issue: null

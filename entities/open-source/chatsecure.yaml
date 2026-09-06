@@ -1,0 +1,115 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:chatsecure
+names:
+  en: ChatSecure
+aliases: []
+category:
+- open-source
+wikidata: Q28444644
+canonical:
+  github_org: chatsecure
+  wikidata: Q28444644
+  sources:
+  - wikidata:Q28444644/P856
+  - wikidata:Q28444644/P1324
+domains:
+- domain: chatsecure.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:49:33Z'
+  ttl_days: 30
+  age_days: 5259
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T05:50:15Z'
+    source: https://api.github.com/orgs/chatsecure
+    data:
+      org: chatsecure
+      org_verified: true
+      blog: https://chatsecure.org
+      org_name: ChatSecure
+      created_at: '2012-05-02T02:29:26Z'
+  - code: A9
+    checked_at: '2026-09-06T05:50:17Z'
+    source: https://itunes.apple.com/search?term=ChatSecure&entity=software
+    data:
+      app: ChatSecure Messenger
+      track_id: 464200063
+      seller: Chris Ballinger
+      artist: Chris Ballinger
+      seller_url: https://chatsecure.org
+      released: '2011-12-17'
+      age_days: 5377
+      ratings: 282
+      apps_for_domain: 1
+      apps:
+      - app: ChatSecure Messenger
+        seller: Chris Ballinger
+        released: '2011-12-17'
+        age_days: 5377
+        ratings: 282
+  - code: A3
+    checked_at: '2026-09-06T05:50:50Z'
+    source: https://rdap.org/domain/chatsecure.org
+    data:
+      registrar: NameCheap, Inc.
+      created: '2012-04-13'
+      expires: '2027-04-13'
+      remaining_days: 218
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T05:50:16Z'
+    source: TLS handshake chatsecure.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T05:50:16Z'
+    source: https://www.wikidata.org/wiki/Q28444644
+    data:
+      qid: Q28444644
+      label: ChatSecure
+      kind: software
+      site: https://chatsecure.org
+      sitelinks: 3
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T05:50:16Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 880654
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T05:51:21Z'
+    source: http://web.archive.org/cdx/search/cdx?url=chatsecure.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2013-07-06'
+      history_days: 4810
+  rejected_evidence:
+  - 'A9: no listing meets the App Store history bar (at least 2 years on the store and 1000 ratings); strongest:
+    ChatSecure Messenger 5377 days, 282 ratings'
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T06:22:01Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@1cc8464
+  label_source: wikidata:Q28444644
+  reviewed_by: []
+  source_issue: null

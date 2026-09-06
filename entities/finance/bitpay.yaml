@@ -1,0 +1,111 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:bitpay
+names:
+  en: BitPay
+aliases:
+- bitpay
+category:
+- finance
+wikidata: Q17001443
+canonical:
+  github_org: null
+  wikidata: Q17001443
+  sources:
+  - wikidata:Q17001443/P856
+domains:
+- domain: bitpay.com
+  role: primary
+  status: verified
+  confidence: 0.6278
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:49:41Z'
+  ttl_days: 30
+  age_days: 7964
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T04:49:44Z'
+    source: https://api.github.com/orgs/bitpay
+    data:
+      org: bitpay
+      org_verified: false
+      blog: https://bitpay.com
+  - code: A9
+    checked_at: '2026-09-06T04:49:46Z'
+    source: https://itunes.apple.com/search?term=BitPay&entity=software
+    data:
+      app: 'BitPay: Buy Bitcoin & Ethereum'
+      track_id: 1149581638
+      seller: BitPay, Inc.
+      artist: BitPay, Inc.
+      seller_url: https://bitpay.com
+      released: '2016-10-24'
+      age_days: 3603
+      ratings: 3639
+      apps_for_domain: 2
+      apps:
+      - app: 'BitPay: Buy Bitcoin & Ethereum'
+        seller: BitPay, Inc.
+        released: '2016-10-24'
+        age_days: 3603
+        ratings: 3639
+      - app: BitPay Checkout
+        seller: BitPay, Inc.
+        released: '2014-11-04'
+        age_days: 4323
+        ratings: 11
+  - code: A3
+    checked_at: '2026-09-06T04:49:46Z'
+    source: https://rdap.org/domain/bitpay.com
+    data:
+      registrar: Moniker Online Services LLC
+      created: '2004-11-15'
+      expires: '2030-11-15'
+      remaining_days: 1531
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T04:49:45Z'
+    source: TLS handshake bitpay.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T04:49:44Z'
+    source: https://www.wikidata.org/wiki/Q17001443
+    data:
+      qid: Q17001443
+      label: BitPay
+      kind: organization
+      site: https://bitpay.com/
+      sitelinks: 6
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T04:49:44Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 43155
+      source: top-1m list
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Moniker Online Services LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T06:22:01Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@1cc8464
+  label_source: wikidata:Q17001443
+  reviewed_by: []
+  source_issue: null

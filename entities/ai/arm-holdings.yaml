@@ -1,0 +1,96 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:arm-holdings
+names:
+  en: Arm Holdings
+aliases:
+- ARM-software
+- Arm Software
+category:
+- ai
+wikidata: Q296782
+canonical:
+  github_org: null
+  wikidata: Q296782
+  sources:
+  - wikidata:Q296782/P856
+domains:
+- domain: arm.com
+  role: primary
+  status: verified
+  confidence: 0.7816
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:49:41Z'
+  ttl_days: 30
+  age_days: 11534
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T05:47:54Z'
+    source: https://api.github.com/orgs/ARM-software
+    data:
+      org: ARM-software
+      org_verified: false
+      blog: www.arm.com
+  - code: A3
+    checked_at: '2026-09-06T05:47:54Z'
+    source: https://rdap.org/domain/arm.com
+    data:
+      registrar: Nom-iq Ltd. dba COM LAUDE
+      created: '1995-02-07'
+      expires: '2027-02-08'
+      remaining_days: 154
+      locks:
+      - update
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-06T05:47:54Z'
+    source: TLS handshake arm.com:443
+    data:
+      subject_org: ARM LIMITED
+      validation_type: OV
+      issuer: GlobalSign nv-sa
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T05:47:54Z'
+    source: https://www.wikidata.org/wiki/Q296782
+    data:
+      qid: Q296782
+      label: Arm Holdings
+      kind: organization
+      site: https://www.arm.com/
+      sitelinks: 37
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T05:47:54Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 9546
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T05:47:57Z'
+    source: http://web.archive.org/cdx/search/cdx?url=arm.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1997-12-11'
+      history_days: 10496
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T06:22:01Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@1cc8464
+  label_source: wikidata:Q296782
+  reviewed_by: []
+  source_issue: null

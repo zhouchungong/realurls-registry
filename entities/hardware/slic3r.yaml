@@ -1,0 +1,95 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:slic3r
+names:
+  en: Slic3r
+aliases:
+- slic3r
+category:
+- hardware
+wikidata: Q16677112
+canonical:
+  github_org: slic3r
+  wikidata: Q16677112
+  sources:
+  - wikidata:Q16677112/P856
+  - wikidata:Q16677112/P1324
+domains:
+- domain: slic3r.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:49:33Z'
+  ttl_days: 30
+  age_days: 5451
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T05:36:17Z'
+    source: https://api.github.com/orgs/slic3r
+    data:
+      org: slic3r
+      org_verified: true
+      blog: https://slic3r.org/
+      org_name: Slic3r
+      created_at: '2018-04-02T18:57:37Z'
+  - code: A3
+    checked_at: '2026-09-06T05:36:18Z'
+    source: https://rdap.org/domain/slic3r.org
+    data:
+      registrar: Gandi SAS
+      created: '2011-10-03'
+      expires: '2027-10-03'
+      remaining_days: 392
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T05:36:17Z'
+    source: TLS handshake slic3r.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T05:36:17Z'
+    source: https://www.wikidata.org/wiki/Q16677112
+    data:
+      qid: Q16677112
+      label: Slic3r
+      kind: software
+      site: https://slic3r.org/
+      sitelinks: 7
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T05:36:17Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 341385
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T05:36:43Z'
+    source: http://web.archive.org/cdx/search/cdx?url=slic3r.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2011-11-09'
+      history_days: 5415
+  rejected_evidence:
+  - 'A3: registrar (Gandi SAS) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T06:22:01Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@1cc8464
+  label_source: wikidata:Q16677112
+  reviewed_by: []
+  source_issue: null
