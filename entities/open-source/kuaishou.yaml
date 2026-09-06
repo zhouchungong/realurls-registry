@@ -1,0 +1,113 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:kuaishou
+names:
+  en: Kuaishou
+aliases:
+- Kwai
+- kwai
+category:
+- open-source
+wikidata: Q47015540
+canonical:
+  github_org: null
+  wikidata: Q47015540
+  sources:
+  - wikidata:Q47015540/P856
+domains:
+- domain: kuaishou.com
+  role: primary
+  status: verified
+  confidence: 0.7816
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:49:33Z'
+  ttl_days: 30
+  age_days: 7455
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T04:58:56Z'
+    source: https://api.github.com/orgs/kwai
+    data:
+      org: kwai
+      org_verified: false
+      blog: https://www.kuaishou.com/
+  - code: A9
+    checked_at: '2026-09-06T04:58:57Z'
+    source: https://itunes.apple.com/search?term=Kuaishou&entity=software
+    data:
+      app: 快手
+      track_id: 440948110
+      seller: Beijing Kwai Technology Co., Ltd.
+      artist: Beijing Kwai Technology Co., Ltd.
+      seller_url: https://m.ssl.kuaishou.com/app/home/hot?openFrom=AppleStore_wap
+      released: '2011-07-02'
+      age_days: 5545
+      ratings: 36619
+      apps_for_domain: 1
+      apps:
+      - app: 快手
+        seller: Beijing Kwai Technology Co., Ltd.
+        released: '2011-07-02'
+        age_days: 5545
+        ratings: 36619
+  - code: A3
+    checked_at: '2026-09-06T04:58:56Z'
+    source: https://rdap.org/domain/kuaishou.com
+    data:
+      registrar: Xin Net Technology Corporation
+      created: '2006-04-08'
+      expires: '2030-04-08'
+      remaining_days: 1310
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T04:58:57Z'
+    source: TLS handshake kuaishou.com:443
+    data:
+      subject_org: Beijing Kuaishou Technology Co.,Ltd.
+      validation_type: OV
+      issuer: GlobalSign nv-sa
+      san_count: 6
+  - code: B1
+    checked_at: '2026-09-06T04:58:56Z'
+    source: https://www.wikidata.org/wiki/Q47015540
+    data:
+      qid: Q47015540
+      label: Kuaishou
+      kind: organization
+      site: https://www.kuaishou.com
+      sitelinks: 18
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T04:58:56Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 2640
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T04:58:58Z'
+    source: http://web.archive.org/cdx/search/cdx?url=kuaishou.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2004-06-04'
+      history_days: 8129
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A9: neither the seller (Beijing Kwai Technology Co., Ltd.) nor the app (快手) is named like the anchored entity
+    (Kuaishou)'
+  - 'A3: registrar (Xin Net Technology Corporation) is not a brand-protection registrar'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T06:28:19Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@1cc8464
+  label_source: wikidata:Q47015540
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,109 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:mistralai
+names:
+  en: Mistral AI
+aliases:
+- mistralai
+category:
+- open-source
+wikidata: Q119718658
+canonical:
+  github_org: mistralai
+  wikidata: Q119718658
+  sources:
+  - wikidata:Q119718658/P856
+  - wikidata:Q119718658/P2037
+domains:
+- domain: mistral.ai
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:49:33Z'
+  ttl_days: 30
+  age_days: 2670
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T04:51:16Z'
+    source: https://api.github.com/orgs/mistralai
+    data:
+      org: mistralai
+      org_verified: true
+      blog: mistral.ai
+      org_name: Mistral AI
+      created_at: '2023-05-02T14:22:16Z'
+  - code: A9
+    checked_at: '2026-09-06T04:51:17Z'
+    source: https://itunes.apple.com/search?term=Mistral%20AI&entity=software
+    data:
+      app: Vibe by Mistral (ex-Le Chat)
+      track_id: 6740410176
+      seller: MISTRAL AI
+      artist: Mistral AI
+      seller_url: https://mistral.ai
+      released: '2025-02-05'
+      age_days: 577
+      ratings: 1244
+      apps_for_domain: 1
+      apps:
+      - app: Vibe by Mistral (ex-Le Chat)
+        seller: MISTRAL AI
+        released: '2025-02-05'
+        age_days: 577
+        ratings: 1244
+  - code: A3
+    checked_at: '2026-09-06T04:51:16Z'
+    source: https://rdap.org/domain/mistral.ai
+    data:
+      registrar: Cloudflare, Inc
+      created: '2019-05-15'
+      expires: '2029-05-15'
+      remaining_days: 982
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T04:51:16Z'
+    source: TLS handshake mistral.ai:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T04:51:16Z'
+    source: https://www.wikidata.org/wiki/Q119718658
+    data:
+      qid: Q119718658
+      label: Mistral AI
+      kind: organization
+      site: https://mistral.ai/
+      sitelinks: 35
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T04:51:16Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 8461
+      source: top-1m list
+  rejected_evidence:
+  - 'A9: no listing meets the App Store history bar (at least 2 years on the store and 1000 ratings); strongest:
+    Vibe by Mistral (ex-Le Chat) 577 days, 1244 ratings'
+  - 'A3: registrar (Cloudflare, Inc) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T06:28:19Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@1cc8464
+  label_source: wikidata:Q119718658
+  reviewed_by: []
+  source_issue: null

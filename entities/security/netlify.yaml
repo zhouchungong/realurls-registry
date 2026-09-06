@@ -1,0 +1,93 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:netlify
+names:
+  en: Netlify
+aliases:
+- netlify
+category:
+- security
+wikidata: Q56102498
+canonical:
+  github_org: netlify
+  wikidata: Q56102498
+  sources:
+  - wikidata:Q56102498/P856
+  - wikidata:Q56102498/P2037
+domains:
+- domain: netlify.com
+  role: primary
+  status: verified
+  confidence: 0.9563
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:49:34Z'
+  ttl_days: 30
+  age_days: 4471
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T05:02:22Z'
+    source: https://api.github.com/orgs/netlify
+    data:
+      org: netlify
+      org_verified: true
+      blog: https://www.netlify.com
+      org_name: Netlify
+      created_at: '2014-06-15T06:49:35Z'
+  - code: A3
+    checked_at: '2026-09-06T05:02:22Z'
+    source: https://rdap.org/domain/netlify.com
+    data:
+      registrar: Name.com, Inc.
+      created: '2014-06-09'
+      expires: '2032-06-09'
+      remaining_days: 2103
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T05:02:22Z'
+    source: TLS handshake netlify.com:443
+    data:
+      subject_org: Netlify, Inc
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 6
+  - code: B1
+    checked_at: '2026-09-06T05:02:22Z'
+    source: https://www.wikidata.org/wiki/Q56102498
+    data:
+      qid: Q56102498
+      label: Netlify
+      kind: organization
+      site: https://www.netlify.com
+      sitelinks: 9
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T05:02:22Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 4190
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T05:02:38Z'
+    source: http://web.archive.org/cdx/search/cdx?url=netlify.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2014-10-18'
+      history_days: 4341
+  rejected_evidence:
+  - 'A3: registrar (Name.com, Inc.) is not a brand-protection registrar'
+  reasons:
+  - '2 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T06:28:19Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@1cc8464
+  label_source: wikidata:Q56102498
+  reviewed_by: []
+  source_issue: null

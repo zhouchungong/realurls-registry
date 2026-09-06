@@ -1,0 +1,120 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:sonos
+names:
+  en: Sonos
+aliases:
+- Sonos, Inc.
+- sonos
+category:
+- ai
+wikidata: Q3492619
+canonical:
+  github_org: null
+  wikidata: Q3492619
+  sources:
+  - wikidata:Q3492619/P856
+domains:
+- domain: sonos.com
+  role: primary
+  status: verified
+  confidence: 0.9558
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:49:35Z'
+  ttl_days: 30
+  age_days: 9672
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T06:13:08Z'
+    source: https://api.github.com/orgs/sonos
+    data:
+      org: sonos
+      org_verified: true
+      blog: https://www.sonos.com
+      org_name: Sonos, Inc.
+      created_at: '2012-12-18T21:33:33Z'
+  - code: A9
+    checked_at: '2026-09-06T06:13:09Z'
+    source: https://itunes.apple.com/search?term=Sonos&entity=software
+    data:
+      app: Sonos S1 Controller
+      track_id: 293523031
+      seller: Sonos, Inc.
+      artist: Sonos, Inc.
+      seller_url: https://www.sonos.com
+      released: '2008-10-28'
+      age_days: 6522
+      ratings: 820742
+      apps_for_domain: 2
+      apps:
+      - app: Sonos S1 Controller
+        seller: Sonos, Inc.
+        released: '2008-10-28'
+        age_days: 6522
+        ratings: 820742
+      - app: Sonos
+        seller: Sonos, Inc.
+        released: '2020-06-08'
+        age_days: 2280
+        ratings: 923071
+  - code: A3
+    checked_at: '2026-09-06T06:13:29Z'
+    source: https://rdap.org/domain/sonos.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2000-03-13'
+      expires: '2029-10-12'
+      remaining_days: 1132
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T06:13:08Z'
+    source: TLS handshake sonos.com:443
+    data:
+      subject_org: Sonos, Inc.
+      validation_type: OV
+      issuer: Sectigo Limited
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T06:13:08Z'
+    source: https://www.wikidata.org/wiki/Q3492619
+    data:
+      qid: Q3492619
+      label: Sonos
+      kind: organization
+      site: https://www.sonos.com/
+      sitelinks: 17
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T06:13:08Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 2965
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T06:14:00Z'
+    source: http://web.archive.org/cdx/search/cdx?url=sonos.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1998-05-25'
+      history_days: 10331
+  rejected_evidence:
+  - 'A1: entity not anchored: no canonical GitHub organization from an independent authority; proof of control is
+    not proof of ownership'
+  reasons:
+  - '3 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T06:28:19Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@1cc8464
+  label_source: wikidata:Q3492619
+  reviewed_by: []
+  source_issue: null

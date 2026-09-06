@@ -1,0 +1,111 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:momo
+names:
+  en: Momo
+aliases:
+- MomoSecurity
+- momosecurity
+category:
+- open-source
+wikidata: Q6897378
+canonical:
+  github_org: null
+  wikidata: Q6897378
+  sources:
+  - wikidata:Q6897378/P856
+domains:
+- domain: immomo.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:49:39Z'
+  ttl_days: 30
+  age_days: 5608
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T06:06:31Z'
+    source: https://api.github.com/orgs/momosecurity
+    data:
+      org: momosecurity
+      org_verified: false
+      blog: https://security.immomo.com
+  - code: A9
+    checked_at: '2026-09-06T06:06:32Z'
+    source: https://itunes.apple.com/search?term=Momo&entity=software
+    data:
+      app: MOMO陌陌-视频交友与语音聊天平台
+      track_id: 448165862
+      seller: Beijing Momo Technology Group Co., Ltd.
+      artist: Beijing Momo Technology Group Co., Ltd.
+      seller_url: http://www.immomo.com
+      released: '2011-08-03'
+      age_days: 5513
+      ratings: 13064
+      apps_for_domain: 1
+      apps:
+      - app: MOMO陌陌-视频交友与语音聊天平台
+        seller: Beijing Momo Technology Group Co., Ltd.
+        released: '2011-08-03'
+        age_days: 5513
+        ratings: 13064
+  - code: A3
+    checked_at: '2026-09-06T06:06:32Z'
+    source: https://rdap.org/domain/immomo.com
+    data:
+      registrar: Alibaba Cloud Computing Ltd. d/b/a HiChina (www.net.cn)
+      created: '2011-04-29'
+      expires: '2029-04-29'
+      remaining_days: 966
+      locks: []
+  - code: A4
+    checked_at: '2026-09-06T06:06:32Z'
+    source: TLS handshake immomo.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: GlobalSign nv-sa
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T06:06:31Z'
+    source: https://www.wikidata.org/wiki/Q6897378
+    data:
+      qid: Q6897378
+      label: Momo
+      kind: software
+      site: http://www.immomo.com/
+      sitelinks: 4
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T06:06:31Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 21466
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T06:07:37Z'
+    source: http://web.archive.org/cdx/search/cdx?url=immomo.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2009-06-29'
+      history_days: 6278
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Alibaba Cloud Computing Ltd. d/b/a HiChina (www.net.cn)) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T06:28:19Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@1cc8464
+  label_source: wikidata:Q6897378
+  reviewed_by: []
+  source_issue: null

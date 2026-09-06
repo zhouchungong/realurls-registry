@@ -1,0 +1,112 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:komoot
+names:
+  en: Komoot
+aliases:
+- komoot
+category:
+- open-source
+wikidata: Q75804465
+canonical:
+  github_org: komoot
+  wikidata: Q75804465
+  sources:
+  - wikidata:Q75804465/P856
+  - wikidata:Q75804465/P2037
+domains:
+- domain: komoot.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:49:33Z'
+  ttl_days: 30
+  age_days: 6519
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T06:10:42Z'
+    source: https://api.github.com/orgs/komoot
+    data:
+      org: komoot
+      org_verified: false
+      blog: https://komoot.com
+  - code: A9
+    checked_at: '2026-09-06T06:10:43Z'
+    source: https://itunes.apple.com/search?term=Komoot&entity=software
+    data:
+      app: komoot - hike, bike & run
+      track_id: 447374873
+      seller: komoot GmbH
+      artist: komoot GmbH
+      seller_url: https://www.komoot.com
+      released: '2011-07-11'
+      age_days: 5535
+      ratings: 9497
+      apps_for_domain: 1
+      apps:
+      - app: komoot - hike, bike & run
+        seller: komoot GmbH
+        released: '2011-07-11'
+        age_days: 5535
+        ratings: 9497
+  - code: A3
+    checked_at: '2026-09-06T06:10:57Z'
+    source: https://rdap.org/domain/komoot.com
+    data:
+      registrar: Amazon Registrar, Inc.
+      created: '2008-10-30'
+      expires: '2026-10-30'
+      remaining_days: 54
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T06:10:42Z'
+    source: TLS handshake komoot.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 33
+  - code: B1
+    checked_at: '2026-09-06T06:10:42Z'
+    source: https://www.wikidata.org/wiki/Q75804465
+    data:
+      qid: Q75804465
+      label: Komoot
+      kind: software
+      site: https://www.komoot.com/
+      sitelinks: 6
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T06:10:42Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 4136
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T06:10:57Z'
+    source: http://web.archive.org/cdx/search/cdx?url=komoot.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2010-04-25'
+      history_days: 5978
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Amazon Registrar, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T06:28:19Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@1cc8464
+  label_source: wikidata:Q75804465
+  reviewed_by: []
+  source_issue: null

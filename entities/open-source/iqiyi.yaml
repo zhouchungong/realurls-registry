@@ -1,0 +1,91 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:iqiyi
+names:
+  en: iQIYI
+aliases:
+- iqiyi
+category:
+- open-source
+wikidata: Q15913890
+canonical:
+  github_org: null
+  wikidata: Q15913890
+  sources:
+  - wikidata:Q15913890/P856
+domains:
+- domain: iqiyi.com
+  role: primary
+  status: verified
+  confidence: 0.7816
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:49:30Z'
+  ttl_days: 30
+  age_days: 5900
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T05:08:50Z'
+    source: https://api.github.com/orgs/iqiyi
+    data:
+      org: iqiyi
+      org_verified: false
+      blog: http://www.iqiyi.com
+  - code: A3
+    checked_at: '2026-09-06T05:09:12Z'
+    source: https://rdap.org/domain/iqiyi.com
+    data:
+      registrar: Alibaba Cloud Computing (Beijing) Co., Ltd.
+      created: '2010-07-11'
+      expires: '2029-07-11'
+      remaining_days: 1039
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T05:08:51Z'
+    source: TLS handshake iqiyi.com:443
+    data:
+      subject_org: Beijing IQIYI Science & Technology Co., Ltd.
+      validation_type: OV
+      issuer: GlobalSign nv-sa
+      san_count: 17
+  - code: B1
+    checked_at: '2026-09-06T05:08:50Z'
+    source: https://www.wikidata.org/wiki/Q15913890
+    data:
+      qid: Q15913890
+      label: iQIYI
+      kind: organization
+      site: https://www.iqiyi.com
+      sitelinks: 26
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T05:08:50Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 1941
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T05:08:54Z'
+    source: http://web.archive.org/cdx/search/cdx?url=iqiyi.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2010-09-29'
+      history_days: 5821
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Alibaba Cloud Computing (Beijing) Co., Ltd.) is not a brand-protection registrar'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T06:28:19Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@1cc8464
+  label_source: wikidata:Q15913890
+  reviewed_by: []
+  source_issue: null

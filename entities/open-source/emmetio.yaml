@@ -1,0 +1,84 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:emmetio
+names:
+  en: Emmet
+aliases:
+- Emmet.io
+- emmetio
+category:
+- open-source
+wikidata: Q4053566
+canonical:
+  github_org: emmetio
+  wikidata: Q4053566
+  sources:
+  - wikidata:Q4053566/P856
+  - wikidata:Q4053566/P1324
+domains:
+- domain: emmet.io
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:49:35Z'
+  ttl_days: 30
+  age_days: 5080
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T05:01:35Z'
+    source: https://api.github.com/orgs/emmetio
+    data:
+      org: emmetio
+      org_verified: true
+      blog: https://emmet.io
+      org_name: Emmet.io
+      created_at: '2012-08-20T19:36:59Z'
+  - code: A4
+    checked_at: '2026-09-06T05:01:35Z'
+    source: TLS handshake emmet.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T05:01:35Z'
+    source: https://www.wikidata.org/wiki/Q4053566
+    data:
+      qid: Q4053566
+      label: Emmet
+      kind: software
+      site: https://emmet.io/
+      sitelinks: 8
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T05:01:35Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 147165
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T05:01:46Z'
+    source: http://web.archive.org/cdx/search/cdx?url=emmet.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2012-10-09'
+      history_days: 5080
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T06:28:19Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@1cc8464
+  label_source: wikidata:Q4053566
+  reviewed_by: []
+  source_issue: null

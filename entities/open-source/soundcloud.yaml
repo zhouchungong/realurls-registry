@@ -1,0 +1,114 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:soundcloud
+names:
+  en: SoundCloud
+aliases:
+- soundcloud
+category:
+- open-source
+wikidata: Q568769
+canonical:
+  github_org: null
+  wikidata: Q568769
+  sources:
+  - wikidata:Q568769/P856
+domains:
+- domain: soundcloud.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:49:29Z'
+  ttl_days: 30
+  age_days: 7712
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T05:50:26Z'
+    source: https://api.github.com/orgs/soundcloud
+    data:
+      org: soundcloud
+      org_verified: true
+      blog: https://developers.soundcloud.com
+      org_name: SoundCloud
+      created_at: '2008-08-18T14:13:13Z'
+  - code: A9
+    checked_at: '2026-09-06T05:50:27Z'
+    source: https://itunes.apple.com/search?term=SoundCloud&entity=software
+    data:
+      app: 'SoundCloud: The Music You Love'
+      track_id: 336353151
+      seller: SoundCloud Global Limited & Co KG
+      artist: SoundCloud Global Limited & Co KG
+      seller_url: http://soundcloud.com/mobile
+      released: '2009-11-03'
+      age_days: 6150
+      ratings: 1990259
+      apps_for_domain: 1
+      apps:
+      - app: 'SoundCloud: The Music You Love'
+        seller: SoundCloud Global Limited & Co KG
+        released: '2009-11-03'
+        age_days: 6150
+        ratings: 1990259
+  - code: A3
+    checked_at: '2026-09-06T05:50:26Z'
+    source: https://rdap.org/domain/soundcloud.com
+    data:
+      registrar: Gandi SAS
+      created: '2005-07-25'
+      expires: '2027-06-08'
+      remaining_days: 274
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T05:50:26Z'
+    source: TLS handshake soundcloud.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T05:50:26Z'
+    source: https://www.wikidata.org/wiki/Q568769
+    data:
+      qid: Q568769
+      label: SoundCloud
+      kind: software
+      site: https://soundcloud.com
+      sitelinks: 66
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-06T05:50:26Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 177
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T05:51:40Z'
+    source: http://web.archive.org/cdx/search/cdx?url=soundcloud.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2007-07-13'
+      history_days: 6995
+  rejected_evidence:
+  - 'A1: entity not anchored: no canonical GitHub organization from an independent authority; proof of control is
+    not proof of ownership'
+  - 'A3: registrar (Gandi SAS) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T06:28:19Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@1cc8464
+  label_source: wikidata:Q568769
+  reviewed_by: []
+  source_issue: null

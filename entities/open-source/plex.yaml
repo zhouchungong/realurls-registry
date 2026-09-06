@@ -1,0 +1,123 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:plex
+names:
+  en: Plex
+aliases:
+- plexinc
+category:
+- open-source
+wikidata: Q7204887
+canonical:
+  github_org: null
+  wikidata: Q7204887
+  sources:
+  - wikidata:Q7204887/P856
+domains:
+- domain: plex.tv
+  role: primary
+  status: verified
+  confidence: 0.9017
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:49:35Z'
+  ttl_days: 30
+  age_days: 6491
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T05:16:02Z'
+    source: https://api.github.com/orgs/plexinc
+    data:
+      org: plexinc
+      org_verified: true
+      blog: https://plex.tv
+      org_name: Plex
+      created_at: '2010-07-07T01:15:58Z'
+  - code: A9
+    checked_at: '2026-09-06T05:16:03Z'
+    source: https://itunes.apple.com/search?term=Plex&entity=software
+    data:
+      app: 'Plex: Find Movies and TV Shows'
+      track_id: 383457673
+      seller: Plex Inc.
+      artist: Plex Inc.
+      seller_url: https://plex.tv/contact
+      released: '2010-08-31'
+      age_days: 5849
+      ratings: 137716
+      apps_for_domain: 3
+      apps:
+      - app: 'Plex: Find Movies and TV Shows'
+        seller: Plex Inc.
+        released: '2010-08-31'
+        age_days: 5849
+        ratings: 137716
+      - app: Plex Dash
+        seller: Plex Inc.
+        released: '2020-04-16'
+        age_days: 2333
+        ratings: 2161
+      - app: Plex Photos
+        seller: Plex Inc.
+        released: '2024-09-11'
+        age_days: 724
+        ratings: 292
+  - code: A3
+    checked_at: '2026-09-06T05:16:24Z'
+    source: https://rdap.org/domain/plex.tv
+    data:
+      registrar: Cloudflare, Inc.
+      created: '2008-11-27'
+      expires: '2027-11-27'
+      remaining_days: 447
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T05:16:02Z'
+    source: TLS handshake plex.tv:443
+    data:
+      subject_org: Plex GmbH
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T05:16:02Z'
+    source: https://www.wikidata.org/wiki/Q7204887
+    data:
+      qid: Q7204887
+      label: Plex
+      kind: software
+      site: https://plex.tv/
+      sitelinks: 12
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T05:16:02Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 1994
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T05:16:21Z'
+    source: http://web.archive.org/cdx/search/cdx?url=plex.tv&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2010-04-29'
+      history_days: 5974
+  rejected_evidence:
+  - 'A1: entity not anchored: no canonical GitHub organization from an independent authority; proof of control is
+    not proof of ownership'
+  - 'A3: registrar (Cloudflare, Inc.) is not a brand-protection registrar'
+  reasons:
+  - '2 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T06:28:19Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@1cc8464
+  label_source: wikidata:Q7204887
+  reviewed_by: []
+  source_issue: null

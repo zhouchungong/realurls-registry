@@ -1,0 +1,113 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:sciencespo
+names:
+  en: médialab Sciences Po
+aliases:
+- Paris Institute of Political Studies
+- medialab
+category:
+- developer-tools
+wikidata: Q859363
+canonical:
+  github_org: sciencespo
+  wikidata: Q859363
+  sources:
+  - wikidata:Q859363/P856
+  - wikidata:Q859363/P2037
+domains:
+- domain: sciencespo.fr
+  role: primary
+  status: verified
+  confidence: 0.7816
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:49:35Z'
+  ttl_days: 30
+  age_days: 6703
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T04:57:46Z'
+    source: https://api.github.com/orgs/sciencespo
+    data:
+      org: sciencespo
+      org_verified: false
+      blog: www.sciencespo.fr
+  - code: A9
+    checked_at: '2026-09-06T04:57:48Z'
+    source: https://itunes.apple.com/search?term=Paris%20Institute%20of%20Political%20Studies&entity=software
+    data:
+      app: Sciences Po
+      track_id: 1404965046
+      seller: Fondation Nationale des Sciences Politiques
+      artist: Fondation Nationale des Sciences Politiques
+      seller_url: https://www.sciencespo.fr
+      released: '2020-01-14'
+      age_days: 2426
+      ratings: 2
+      apps_for_domain: 1
+      apps:
+      - app: Sciences Po
+        seller: Fondation Nationale des Sciences Politiques
+        released: '2020-01-14'
+        age_days: 2426
+        ratings: 2
+  - code: A3
+    checked_at: '2026-09-06T04:58:14Z'
+    source: https://rdap.org/domain/sciencespo.fr
+    data:
+      registrar: EURODNS S.A.
+      created: '2008-04-29'
+      expires: '2026-12-08'
+      remaining_days: 93
+      locks: []
+  - code: A4
+    checked_at: '2026-09-06T04:57:47Z'
+    source: TLS handshake sciencespo.fr:443
+    data:
+      subject_org: Fondation Nationale Sciences Politiques
+      validation_type: OV
+      issuer: Hellenic Academic and Research Institutions CA
+      san_count: 18
+  - code: B1
+    checked_at: '2026-09-06T04:57:46Z'
+    source: https://www.wikidata.org/wiki/Q859363
+    data:
+      qid: Q859363
+      label: Paris Institute of Political Studies
+      kind: organization
+      site: https://www.sciencespo.fr/
+      sitelinks: 68
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-06T04:57:46Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 24336
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T04:57:59Z'
+    source: http://web.archive.org/cdx/search/cdx?url=sciencespo.fr&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2008-06-26'
+      history_days: 6646
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A9: no listing meets the App Store history bar (at least 2 years on the store and 1000 ratings); strongest:
+    Sciences Po 2426 days, 2 ratings'
+  - 'A3: registrar (EURODNS S.A.) is not a brand-protection registrar'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T06:28:19Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@1cc8464
+  label_source: seed_org_name(self-declared)
+  reviewed_by: []
+  source_issue: null

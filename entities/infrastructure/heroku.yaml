@@ -1,0 +1,93 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:heroku
+names:
+  en: Heroku
+aliases:
+- heroku
+category:
+- infrastructure
+wikidata: Q2350702
+canonical:
+  github_org: heroku
+  wikidata: Q2350702
+  sources:
+  - wikidata:Q2350702/P856
+  - wikidata:Q2350702/P2037
+domains:
+- domain: heroku.com
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:49:36Z'
+  ttl_days: 30
+  age_days: 7023
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T05:32:22Z'
+    source: https://api.github.com/orgs/heroku
+    data:
+      org: heroku
+      org_verified: true
+      blog: https://heroku.com/
+      org_name: Heroku
+      created_at: '2008-09-04T20:53:06Z'
+  - code: A3
+    checked_at: '2026-09-06T05:32:22Z'
+    source: https://rdap.org/domain/heroku.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2007-06-15'
+      expires: '2027-06-15'
+      remaining_days: 281
+      locks:
+      - delete
+      - transfer
+      - update
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-06T05:32:22Z'
+    source: TLS handshake heroku.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T05:32:22Z'
+    source: https://www.wikidata.org/wiki/Q2350702
+    data:
+      qid: Q2350702
+      label: Heroku
+      kind: organization
+      site: https://www.heroku.com/
+      sitelinks: 18
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T05:32:22Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 5397
+      source: top-1m list
+  rejected_evidence:
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T06:28:19Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@1cc8464
+  label_source: wikidata:Q2350702
+  reviewed_by: []
+  source_issue: null

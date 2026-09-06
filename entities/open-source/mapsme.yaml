@@ -1,0 +1,101 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:mapsme
+names:
+  en: MAPS.ME
+aliases:
+- mapsme
+category:
+- open-source
+wikidata: Q17280647
+canonical:
+  github_org: mapsme
+  wikidata: Q17280647
+  sources:
+  - wikidata:Q17280647/P856
+  - wikidata:Q17280647/P2037
+domains:
+- domain: maps.me
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:49:30Z'
+  ttl_days: 30
+  age_days: 6162
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T05:01:20Z'
+    source: https://api.github.com/orgs/mapsme
+    data:
+      org: mapsme
+      org_verified: false
+      blog: http://maps.me/
+  - code: A9
+    checked_at: '2026-09-06T05:01:23Z'
+    source: https://itunes.apple.com/search?term=MAPS.ME&entity=software
+    data:
+      app: 'MAPS.ME: Offline Maps, GPS Nav'
+      track_id: 510623322
+      seller: Convexity Holdings AG
+      artist: Convexity Holdings AG
+      seller_url: https://maps.me
+      released: '2012-04-12'
+      age_days: 5259
+      ratings: 78085
+      apps_for_domain: 1
+      apps:
+      - app: 'MAPS.ME: Offline Maps, GPS Nav'
+        seller: Convexity Holdings AG
+        released: '2012-04-12'
+        age_days: 5259
+        ratings: 78085
+  - code: A4
+    checked_at: '2026-09-06T05:01:20Z'
+    source: TLS handshake maps.me:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 31
+  - code: B1
+    checked_at: '2026-09-06T05:01:20Z'
+    source: https://www.wikidata.org/wiki/Q17280647
+    data:
+      qid: Q17280647
+      label: MAPS.ME
+      kind: software
+      site: https://maps.me/
+      sitelinks: 17
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-06T05:01:20Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 24179
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T05:01:25Z'
+    source: http://web.archive.org/cdx/search/cdx?url=maps.me&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2009-10-23'
+      history_days: 6162
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T06:28:19Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@1cc8464
+  label_source: wikidata:Q17280647
+  reviewed_by: []
+  source_issue: null
