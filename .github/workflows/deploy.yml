@@ -62,10 +62,13 @@ jobs:
           command: deploy
 
       - name: Live smoke test
+        # Real requests against production for what unit tests with a small dataset cannot catch: every
+        # category page, unknown names and domains, lookalikes, the MCP tools. Any non-200 or wrong verdict
+        # fails the deploy (the previous version stays reachable at its own URL; roll back with wrangler rollback).
         run: |
           set -e
           sleep 8
           curl -fsS https://api.realurls.org/healthz | grep -q '"ok": true'
-          curl -fsS https://realurls.org/ | grep -qi "<title>realurls"
           ver=$(curl -fsS https://api.realurls.org/v1/manifest | python -c "import sys,json;print(json.load(sys.stdin)['dataset_version'])")
           echo "live dataset version: $ver (this commit ${GITHUB_SHA:0:12})"
+          python scripts/smoke.py

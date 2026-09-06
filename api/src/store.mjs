@@ -191,6 +191,7 @@ export class Store {
   async tally(kind, key, verdict) {
     key = String(key || "").trim().toLowerCase().slice(0, 80);
     if (!key || key.includes("@") || /^[a-z0-9_-]{32,}$/.test(key)) return;
+    if (key.endsWith(".example") || key.startsWith("zzzsmoke")) return;   // the deploy smoke test (scripts/smoke.py), not demand
     const day = new Date().toISOString().slice(0, 10);
     try {
       await this.db.prepare(
