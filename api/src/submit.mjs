@@ -52,6 +52,6 @@ export async function handleSubmit(request, env, store, cors) {
   });
   if (!res.ok) return json({ error: `GitHub answered ${res.status}` }, 502, cors);
   const issue = await res.json();
-  await store.count("submit", kind, "ok");
+  await store.tally("submit", kind, "ok");
   return json({ ok: true, url: issue.html_url, number: issue.number }, 200, cors);
 }

@@ -102,7 +102,7 @@ export default {
         const q = url.searchParams.get("domain") || url.searchParams.get("url");
         if (!q) return json({ error: "missing ?domain=" }, meta.dataset_version, 400);
         const r = await store.resolve(q);
-        ctx.waitUntil(store.count("domain", r.domain, r.verdict));
+        ctx.waitUntil(store.tally("domain", r.domain, r.verdict));
         return json({ ...r, dataset_version: meta.dataset_version }, meta.dataset_version);
       }
 
@@ -110,7 +110,7 @@ export default {
         const q = url.searchParams.get("q") || url.searchParams.get("name");
         if (!q) return json({ error: "missing ?q=" }, meta.dataset_version, 400);
         const r = await store.lookup(q);
-        ctx.waitUntil(store.count("name", q, r.verdict));
+        ctx.waitUntil(store.tally("name", q, r.verdict));
         return json({ ...r, dataset_version: meta.dataset_version }, meta.dataset_version);
       }
 

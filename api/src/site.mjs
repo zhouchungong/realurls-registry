@@ -281,7 +281,7 @@ ${domains}
 async function domainPage(input, store, manifest, ctx = null) {
   const domain = registrableDomain(input);
   const r = await store.resolve(input);
-  ctx?.waitUntil(store.count("domain", r.domain, r.verdict));   // site queries feed the same demand / examination queue as the API
+  ctx?.waitUntil(store.tally("domain", r.domain, r.verdict));   // site queries feed the same demand / examination queue as the API
   if (r.verdict === "official" || r.verdict === "insufficient_evidence") {
     return Response.redirect(`${SITE}/e/${r.entity.id.replace(/^org:/, "")}#${domain}`, 302);
   }
@@ -290,7 +290,7 @@ async function domainPage(input, store, manifest, ctx = null) {
   // claude-desktop.io would fuzzy-match "claude" and land on Anthropic's page, hiding that it's a lookalike.
   const looksLikeDomain = /[.\/]/.test(input) || /^https?:/i.test(input);
   const looked = looksLikeDomain ? { verdict: "skip" } : await store.lookup(input);
-  if (!looksLikeDomain) ctx?.waitUntil(store.count("name", input, looked.verdict));
+  if (!looksLikeDomain) ctx?.waitUntil(store.tally("name", input, looked.verdict));
   if (looked.verdict === "official" || looked.verdict === "insufficient_evidence") {
     return Response.redirect(`${SITE}/e/${looked.entity.id.replace(/^org:/, "")}`, 302);
   }

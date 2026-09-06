@@ -63,10 +63,10 @@ async function handleMessage(msg, store, meta, ctx) {
       let body;
       if (params.name === "verify_url") {
         body = withGuidance(await store.resolve(String(args.url || "")));
-        ctx?.waitUntil(store.count("domain", body.domain, body.verdict));
+        ctx?.waitUntil(store.tally("domain", body.domain, body.verdict));
       } else if (params.name === "get_official_url") {
         body = withGuidance(await store.lookup(String(args.name || "")));
-        ctx?.waitUntil(store.count("name", String(args.name || ""), body.verdict));
+        ctx?.waitUntil(store.tally("name", String(args.name || ""), body.verdict));
       } else return rpcError(id, -32602, `unknown tool ${params.name}`);
       body.dataset_version = meta.dataset_version;
       return rpc(id, { content: [{ type: "text", text: JSON.stringify(body, null, 2) }], structuredContent: body });

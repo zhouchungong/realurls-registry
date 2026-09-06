@@ -145,7 +145,9 @@ export class Store {
       // loose match: containment either way, but the query must be ≥3 chars so "ai" can't hit everything
       const like = `%${q.replace(/[%_]/g, "")}%`;
       const { results } = await this.db.prepare(
-        "SELECT DISTINCT entity_id FROM aliases WHERE alias LIKE ? OR (length(alias) >= 3 AND ? LIKE '%' || alias || '%') LIMIT 6"
+        // instr, not `? LIKE '%' || alias || '%'`: an alias is data, not a pattern, and one with enough
+        // wildcard characters made SQLite throw "LIKE or GLOB pattern too complex" (every unknown name 500ed)
+        "SELECT DISTINCT entity_id FROM aliases WHERE alias LIKE ? OR (length(alias) >= 3 AND instr(?, alias) > 0) LIMIT 6"
       ).bind(like, q).all();
       if (results.length === 1) id = results[0].entity_id;
       else if (results.length > 1) {
@@ -186,7 +188,7 @@ export class Store {
 
   /** Aggregate demand: one row per (day, kind, key). Nothing about who asked is stored; keys that look
    *  like personal data (an @, a long token) are dropped. */
-  async count(kind, key, verdict) {
+  async tally(kind, key, verdict) {
     key = String(key || "").trim().toLowerCase().slice(0, 80);
     if (!key || key.includes("@") || /^[a-z0-9_-]{32,}$/.test(key)) return;
     const day = new Date().toISOString().slice(0, 10);
