@@ -6,6 +6,12 @@ The dataset itself is released continuously as the rolling `latest` GitHub Relea
 
 ## 2026-09-06
 
+### Fixed
+- **AI review recorded "review unavailable" as a pass.** The anthropic SDK 1.x dropped the `temperature`
+  argument, every call raised, and the fallback wrote `verdict: pass`. An unavailable review is now
+  `skipped`, counted separately, and the run fails when nothing was reviewed. The first full-category batch
+  was re-reviewed after the fix.
+
 ### Rules
 - **A3 never anchors on its own; nor does A7 when the entity has an identity of its own.** A brand-protection registrar or a restricted TLD proves that
   *someone* substantial holds the domain, not who; together with B4 (history) and B5 (rank), neither of which

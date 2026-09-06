@@ -14,7 +14,7 @@ dev = [
     "ruff>=0.5",
 ]
 review = [
-    "anthropic>=0.90",   # src/review_ai.py; optional, the pipeline runs without it
+    "anthropic>=1.0,<2",   # src/review_ai.py; optional, the pipeline runs without it
 ]
 
 [build-system]
