@@ -27,6 +27,10 @@ The dataset itself is released continuously as the rolling `latest` GitHub Relea
   was re-reviewed after the fix.
 
 ### Rules
+- **Entity anchoring, authority ③: App Store developer identity.** A Wikidata item with fewer than 3
+  sitelinks can now anchor an entity when an Apple-verified seller whose legal name is the item's label sells
+  an app to the domain that meets the A9 bar (≥ 2 years, ≥ 1,000 ratings). Motivation and attack cost in
+  POLICY.md §0. Maintainer decision 2026-09-06. Existing records unchanged (the rule only adds anchors).
 - **A3 never anchors on its own; nor does A7 when the entity has an identity of its own.** A brand-protection registrar or a restricted TLD proves that
   *someone* substantial holds the domain, not who; together with B4 (history) and B5 (rank), neither of which
   names the entity either, they verified anthropic.com under the Python project, digitalocean.com under five

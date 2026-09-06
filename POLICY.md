@@ -21,6 +21,10 @@ Phase 1  Entity anchoring (src/anchor.py)
            ② GitHub project history: the organization owns a non-fork repository created ≥ 3 years ago
               with ≥ 300 contributors and ≥ 5,000 stars
               → canonical GitHub organization = that organization; the repository is recorded in canonical.sources
+           ③ App Store developer identity, for a Wikidata item with fewer than 3 sitelinks: an app whose
+              seller URL points at the domain, sold by an Apple-verified company whose legal name is the
+              item's label, on the store ≥ 2 years with ≥ 1,000 ratings (the A9 bar)
+              → canonical Wikidata = the item; both the item and the seller are recorded in canonical.sources
          or a human-reviewed value (recorded as human:*, stored with the entity for reviewers to check)
          Display name (names.en): the Wikidata label if there is one, otherwise the GitHub organization's
          display name — a self-declared field used for display only, never for judgement, and labelled
@@ -32,6 +36,13 @@ Phase 2  Domain verification (src/policy.py)
 ```
 
 **An entity that cannot be anchored tops out at provisional.** A "company" that exists in neither Wikidata, an app store nor a package registry is not one we can vouch for. The threshold is sitelink count, not mere existence: creating a Wikidata item costs nothing; getting three language editions of Wikipedia to write about you does not.
+
+**Why authority ③ exists:** the second Wikidata batch left 4,427 companies below the sitelink bar, 127 of them
+established App Store developers (mostly game studios). Apple checks the legal entity behind a seller
+(D-U-N-S number, company registration); two years on the store and a thousand ratings cannot be conjured
+for a phishing domain. Wikidata editors and Apple are unrelated parties; when both name the same
+organization at the same domain, that is an identity, not merely control. The bar equals the A9 bar, so a
+thin item never anchors on Apple's word alone without the history.
 
 **Why authority ② exists:** in a survey of 220 real organizations, Wikidata could anchor only 17% — it covers companies, not open-source projects, and half of our first category is open-source projects. Project history is another thing an attacker cannot buy: stars can be purchased, but a repository that started three years ago with 300 distinct contributors cannot; pushing someone else's history into a new repository exposes `created_at`; forks inherit upstream contributors, so forks are excluded. The survey contained openclaw.ai (0.8 years, 380k stars) and career-ops.org (0.3 years, 70k stars, 356 contributors) — exactly why the age floor exists. **Star counts alone would be a disaster.**
 

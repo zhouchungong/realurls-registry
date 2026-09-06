@@ -49,3 +49,36 @@ def test_org_tied_by_blog_only_anchors(monkeypatch):
     FAKE_REPOS["supabase"] = {**FAKE_REPOS["supabase"], "homepage": ""}   # repo has no homepage, org blog does
     a = anchor_mod.anchor_from_github_history(["supabase"], "supabase.com")
     assert a.github_org == "supabase"
+
+
+
+def _appstore(seller, app="Merge Dragons!", age_days=2000, ratings=50000):
+    from src.collectors.base import Result
+    from src.policy import Evidence
+
+    def collect(domain, names=None):
+        r = Result()
+        r.evidence.append(Evidence(code="A9", data={"seller": seller, "app": app, "seller_url": f"https://{domain}",
+                                                     "age_days": age_days, "ratings": ratings,
+                                                     "apps": [{"app": app, "seller": seller, "age_days": age_days, "ratings": ratings}]}))
+        return r
+    return collect
+
+
+def test_thin_wikidata_item_is_anchored_by_apple_verified_seller(monkeypatch):
+    from src.collectors import appstore
+    item = {"qid": "Q1", "label": "Dream Games", "sitelinks": 2}
+    monkeypatch.setattr(appstore, "collect", _appstore("Dream Games Dijital Teknolojiler A.S."))
+    a = anchor_mod.anchor_from_appstore("dreamgames.com", item)
+    assert a.anchored and a.wikidata == "Q1" and any(s.startswith("appstore:") for s in a.sources)
+
+
+def test_thin_wikidata_item_stays_unanchored_without_matching_seller_or_history(monkeypatch):
+    from src.collectors import appstore
+    item = {"qid": "Q1", "label": "Dream Games", "sitelinks": 2}
+    monkeypatch.setattr(appstore, "collect", _appstore("Someone Else Ltd"))
+    assert not anchor_mod.anchor_from_appstore("dreamgames.com", item).anchored
+    monkeypatch.setattr(appstore, "collect", _appstore("Dream Games", age_days=300, ratings=50000))
+    assert not anchor_mod.anchor_from_appstore("dreamgames.com", item).anchored
+    monkeypatch.setattr(appstore, "collect", _appstore("Dream Games", age_days=3000, ratings=40))
+    assert not anchor_mod.anchor_from_appstore("dreamgames.com", item).anchored

@@ -24,7 +24,7 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass, field
 
-from src.collectors import thirdparty
+from src.collectors import appstore, thirdparty
 from src.collectors.base import Result
 
 MIN_SITELINKS = 3   # 少于 3 种语言的 Wikipedia 收录 → 不足以作为身份权威
@@ -70,9 +70,9 @@ def anchor_from_wikidata(domain: str) -> EntityAnchor:
     if item["sitelinks"] < MIN_SITELINKS:
         a.notes.append(
             f"anchor: {item['qid']} 仅 {item['sitelinks']} 个站点链接 < {MIN_SITELINKS}，"
-            f"不足以作为身份权威，实体未锚定"
+            f"不足以作为身份权威"
         )
-        return a
+        return anchor_from_appstore(domain, item, a)
 
     a.wikidata = item["qid"]
     a.label = item.get("label", "")
@@ -92,6 +92,47 @@ def anchor_from_wikidata(domain: str) -> EntityAnchor:
     a.notes.append(
         f"anchor: 实体已锚定 → {item['qid']}（{a.label}），canonical GitHub 组织 = {gh or '未知'}"
     )
+    return a
+
+
+def anchor_from_appstore(domain: str, item: dict, a: EntityAnchor | None = None) -> EntityAnchor:
+    """Authority ③: a Wikidata item too thin to anchor on its own (fewer than 3 sitelinks) is confirmed by
+    Apple's developer identity check. Apple verifies the legal entity behind a seller (D-U-N-S, company
+    registration); an app that has been on the store for two years with a thousand ratings cannot be
+    conjured for a phishing domain. The seller's legal name must be the item's label, and the seller URL
+    must point at this domain: two unrelated parties (Wikidata editors, Apple) naming the same organization
+    at the same domain. The 127 game studios of the second Wikidata batch are the case this exists for.
+    """
+    from src.policy import APP_ANCHOR_MIN_AGE_DAYS, APP_ANCHOR_MIN_RATINGS, _names_match
+
+    a = a or EntityAnchor()
+    label = str(item.get("label") or "")
+    if not label or re.fullmatch(r"Q\d+", label):
+        a.notes.append("anchor: the item has no usable label to match an App Store seller against; not anchored")
+        return a
+    r = appstore.collect(domain, [label])
+    a.notes.extend(r.notes)
+    ev = next((e for e in r.evidence if e.code == "A9"), None)
+    if not ev:
+        a.notes.append("anchor: no App Store seller for this domain; not anchored")
+        return a
+    seller = str(ev.data.get("seller") or "")
+    if not _names_match(seller, (label,)):
+        a.notes.append(f"anchor: App Store seller {seller!r} is not named like the item ({label!r}); not anchored")
+        return a
+    listings = ev.data.get("apps") or [ev.data]
+    strong = [x for x in listings if int(x.get("age_days") or 0) >= APP_ANCHOR_MIN_AGE_DAYS
+              and int(x.get("ratings") or 0) >= APP_ANCHOR_MIN_RATINGS]
+    if not strong:
+        a.notes.append("anchor: the seller's apps do not meet the App Store history bar; not anchored")
+        return a
+    best = strong[0]
+    a.wikidata = item["qid"]
+    a.label = label
+    a.sources = (f"wikidata:{item['qid']}/P856(sitelinks={item.get('sitelinks', 0)})",
+                 f"appstore:{seller}({best.get('app')},{int(best.get('age_days') or 0) // 365}y,{best.get('ratings')} ratings)")
+    a.notes.append(f"anchor: entity anchored by App Store developer identity → {item['qid']} ({label}), "
+                   f"seller {seller!r}, app {best.get('app')!r}")
     return a
 
 
