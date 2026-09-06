@@ -1,0 +1,108 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:odencat
+names:
+  en: Odencat
+aliases: []
+category:
+- saas
+wikidata: Q122363547
+canonical:
+  github_org: null
+  wikidata: Q122363547
+  sources:
+  - wikidata:Q122363547/P856(sitelinks=0)
+  - appstore:Odencat Inc.(Bear's Restaurant,7y,9086 ratings)
+domains:
+- domain: odencat.com
+  role: primary
+  status: verified
+  confidence: 0.6515
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:22Z'
+  ttl_days: 30
+  age_days: 2635
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T15:04:32Z'
+    source: https://itunes.apple.com/search?term=Odencat&entity=software
+    data:
+      app: Bear's Restaurant
+      track_id: 1425197699
+      seller: Odencat Inc.
+      artist: Odencat Inc.
+      seller_url: https://odencat.com
+      released: '2019-02-06'
+      age_days: 2769
+      ratings: 9086
+      apps_for_domain: 11
+      apps:
+      - app: Bear's Restaurant
+        seller: Odencat Inc.
+        released: '2019-02-06'
+        age_days: 2769
+        ratings: 9086
+      - app: Bluebird of Happiness
+        seller: Odencat Inc.
+        released: '2018-02-06'
+        age_days: 3133
+        ratings: 3418
+      - app: Town of Tides
+        seller: Odencat Inc.
+        released: '2018-06-24'
+        age_days: 2995
+        ratings: 3206
+  - code: A3
+    checked_at: '2026-09-06T15:04:47Z'
+    source: https://rdap.org/domain/odencat.com
+    data:
+      registrar: Squarespace Domains II LLC
+      created: '2019-06-20'
+      expires: '2027-06-20'
+      remaining_days: 286
+      locks:
+      - delete
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T15:04:32Z'
+    source: TLS handshake odencat.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T15:04:32Z'
+    source: https://www.wikidata.org/wiki/Q122363547
+    data:
+      qid: Q122363547
+      label: Odencat
+      kind: organization
+      site: https://odencat.com/
+      sitelinks: 0
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-06T15:05:38Z'
+    source: http://web.archive.org/cdx/search/cdx?url=odencat.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2019-12-16'
+      history_days: 2456
+  rejected_evidence:
+  - 'A3: registrar (Squarespace Domains II LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T16:10:53Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q122363547
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,124 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:infinite-campus-inc
+names:
+  en: Infinite Campus, Inc.
+aliases: []
+category:
+- saas
+wikidata: Q64760331
+canonical:
+  github_org: null
+  wikidata: Q64760331
+  sources:
+  - wikidata:Q64760331/P856(sitelinks=0)
+  - appstore:Infinite Campus, Inc.(Campus Student,7y,22276 ratings)
+domains:
+- domain: infinitecampus.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T16:02:26Z'
+  ttl_days: 30
+  age_days: 9673
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T16:07:34Z'
+    source: https://api.github.com/orgs/infinitecampus
+    data:
+      org: infinitecampus
+      org_verified: false
+      blog: https://www.infinitecampus.com
+  - code: A9
+    checked_at: '2026-09-06T16:07:34Z'
+    source: https://itunes.apple.com/search?term=Infinite%20Campus%2C%20Inc.&entity=software
+    data:
+      app: Campus Student
+      track_id: 1384542200
+      seller: Infinite Campus, Inc.
+      artist: Infinite Campus, Inc.
+      seller_url: https://www.infinitecampus.com/audience/parents-students
+      released: '2018-09-22'
+      age_days: 2906
+      ratings: 22276
+      apps_for_domain: 3
+      apps:
+      - app: Campus Student
+        seller: Infinite Campus, Inc.
+        released: '2018-09-22'
+        age_days: 2906
+        ratings: 22276
+      - app: Campus Parent
+        seller: Infinite Campus, Inc.
+        released: '2018-09-22'
+        age_days: 2906
+        ratings: 2630
+      - app: Campus Mobile Payments
+        seller: Infinite Campus, Inc.
+        released: '2023-01-24'
+        age_days: 1321
+        ratings: 7
+  - code: A3
+    checked_at: '2026-09-06T16:07:34Z'
+    source: https://rdap.org/domain/infinitecampus.com
+    data:
+      registrar: CSC Corporate Domains, Inc.
+      created: '2000-03-13'
+      expires: '2027-03-13'
+      remaining_days: 187
+      locks:
+      - transfer
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-06T16:07:35Z'
+    source: TLS handshake infinitecampus.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 8
+  - code: B1
+    checked_at: '2026-09-06T16:07:34Z'
+    source: https://www.wikidata.org/wiki/Q64760331
+    data:
+      qid: Q64760331
+      label: Infinite Campus, Inc.
+      kind: organization
+      site: https://www.infinitecampus.com/
+      sitelinks: 0
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-06T16:07:34Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 101290
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T16:07:34Z'
+    source: http://web.archive.org/cdx/search/cdx?url=infinitecampus.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2001-11-20'
+      history_days: 9056
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T16:10:53Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@e0b9a5c
+  label_source: wikidata:Q64760331
+  reviewed_by: []
+  source_issue: null

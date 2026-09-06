@@ -1,0 +1,107 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:gogii-games
+names:
+  en: Gogii Games
+aliases: []
+category:
+- saas
+wikidata: Q5577387
+canonical:
+  github_org: null
+  wikidata: Q5577387
+  sources:
+  - wikidata:Q5577387/P856(sitelinks=1)
+  - 'appstore:Gogii Games Corp.(Virtual Families: Cook Off,7y,104191 ratings)'
+domains:
+- domain: gogiigames.com
+  role: primary
+  status: verified
+  confidence: 0.6515
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:22Z'
+  ttl_days: 30
+  age_days: 7297
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T14:55:53Z'
+    source: https://itunes.apple.com/search?term=Gogii%20Games&entity=software
+    data:
+      app: 'Virtual Families: Cook Off'
+      track_id: 1445894754
+      seller: Gogii Games Corp.
+      artist: Gogii Games Corp.
+      seller_url: http://gogiigames.com
+      released: '2019-05-26'
+      age_days: 2659
+      ratings: 104191
+      apps_for_domain: 3
+      apps:
+      - app: 'Virtual Families: Cook Off'
+        seller: Gogii Games Corp.
+        released: '2019-05-26'
+        age_days: 2659
+        ratings: 104191
+      - app: 'Cook Off: Animal Rescue'
+        seller: Gogii Games Corp.
+        released: '2022-09-26'
+        age_days: 1441
+        ratings: 2148
+      - app: 'Cook Off: Mysteries'
+        seller: Gogii Games Corp.
+        released: '2023-07-14'
+        age_days: 1150
+        ratings: 529
+  - code: A3
+    checked_at: '2026-09-06T14:56:03Z'
+    source: https://rdap.org/domain/gogiigames.com
+    data:
+      registrar: eNom, LLC
+      created: '2006-09-14'
+      expires: '2026-09-14'
+      remaining_days: 7
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T14:55:53Z'
+    source: TLS handshake gogiigames.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T14:55:53Z'
+    source: https://www.wikidata.org/wiki/Q5577387
+    data:
+      qid: Q5577387
+      label: Gogii Games
+      kind: organization
+      site: http://www.gogiigames.com/
+      sitelinks: 1
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-06T14:56:30Z'
+    source: http://web.archive.org/cdx/search/cdx?url=gogiigames.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2006-11-09'
+      history_days: 7241
+  rejected_evidence:
+  - 'A3: registrar (eNom, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T16:10:53Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q5577387
+  reviewed_by: []
+  source_issue: null

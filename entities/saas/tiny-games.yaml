@@ -1,0 +1,91 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:tiny-games
+names:
+  en: Tiny Games
+aliases: []
+category:
+- saas
+wikidata: Q124246335
+canonical:
+  github_org: null
+  wikidata: Q124246335
+  sources:
+  - wikidata:Q124246335/P856(sitelinks=0)
+  - appstore:Tiny Games srl(Cookie Clickers,12y,5073 ratings)
+domains:
+- domain: tinygames.it
+  role: primary
+  status: verified
+  confidence: 0.6515
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:22Z'
+  ttl_days: 30
+  age_days: 4397
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T15:12:02Z'
+    source: https://itunes.apple.com/search?term=Tiny%20Games&entity=software
+    data:
+      app: Cookie Clickers
+      track_id: 703439482
+      seller: Tiny Games srl
+      artist: Tiny Games
+      seller_url: https://www.tinygames.it/portfolio/cookie-clickers/
+      released: '2013-09-24'
+      age_days: 4729
+      ratings: 5073
+      apps_for_domain: 2
+      apps:
+      - app: Cookie Clickers
+        seller: Tiny Games srl
+        released: '2013-09-24'
+        age_days: 4729
+        ratings: 5073
+      - app: Cookie Clickers 2
+        seller: Tiny Games srl
+        released: '2016-10-12'
+        age_days: 3616
+        ratings: 10240
+  - code: A4
+    checked_at: '2026-09-06T15:12:03Z'
+    source: TLS handshake tinygames.it:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T15:12:02Z'
+    source: https://www.wikidata.org/wiki/Q124246335
+    data:
+      qid: Q124246335
+      label: Tiny Games
+      kind: organization
+      site: https://www.tinygames.it/
+      sitelinks: 0
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-06T15:12:27Z'
+    source: http://web.archive.org/cdx/search/cdx?url=tinygames.it&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2014-08-23'
+      history_days: 4397
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T16:10:53Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q124246335
+  reviewed_by: []
+  source_issue: null

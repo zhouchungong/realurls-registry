@@ -1,0 +1,110 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:alex-komarov-inc
+names:
+  en: Alex Komarov Inc.
+aliases: []
+category:
+- saas
+wikidata: Q140770608
+canonical:
+  github_org: null
+  wikidata: Q140770608
+  sources:
+  - wikidata:Q140770608/P856(sitelinks=0)
+  - 'appstore:Alex Komarov Inc.(World Clock Pro: Convert Time,11y,1352 ratings)'
+domains:
+- domain: worldclock.pro
+  role: primary
+  status: verified
+  confidence: 0.6515
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:22Z'
+  ttl_days: 30
+  age_days: 3376
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T15:14:59Z'
+    source: https://itunes.apple.com/search?term=Alex%20Komarov%20Inc.&entity=software
+    data:
+      app: 'World Clock Pro: Convert Time'
+      track_id: 969635117
+      seller: Alex Komarov Inc.
+      artist: Alex Komarov Inc.
+      seller_url: https://worldclock.pro
+      released: '2015-04-23'
+      age_days: 4153
+      ratings: 1352
+      apps_for_domain: 3
+      apps:
+      - app: 'World Clock Pro: Convert Time'
+        seller: Alex Komarov Inc.
+        released: '2015-04-23'
+        age_days: 4153
+        ratings: 1352
+      - app: World Time Clock Master
+        seller: Alex Komarov Inc.
+        released: '2024-04-04'
+        age_days: 885
+        ratings: 822
+      - app: Zulu Time Military Clock
+        seller: Alex Komarov Inc.
+        released: '2026-04-19'
+        age_days: 140
+        ratings: 8
+  - code: A3
+    checked_at: '2026-09-06T15:14:59Z'
+    source: https://rdap.org/domain/worldclock.pro
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2017-06-09'
+      expires: '2027-06-09'
+      remaining_days: 275
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T15:14:59Z'
+    source: TLS handshake worldclock.pro:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T15:14:59Z'
+    source: https://www.wikidata.org/wiki/Q140770608
+    data:
+      qid: Q140770608
+      label: Alex Komarov Inc.
+      kind: organization
+      site: https://worldclock.pro
+      sitelinks: 0
+      competing_items: 4
+  - code: B4
+    checked_at: '2026-09-06T15:15:25Z'
+    source: http://web.archive.org/cdx/search/cdx?url=worldclock.pro&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2017-09-11'
+      history_days: 3282
+  rejected_evidence:
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T16:10:53Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q140770608
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,112 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:kolibri-games
+names:
+  en: Kolibri Games
+aliases: []
+category:
+- saas
+wikidata: Q85774833
+canonical:
+  github_org: null
+  wikidata: Q85774833
+  sources:
+  - wikidata:Q85774833/P856(sitelinks=2)
+  - 'appstore:Kolibri Games GmbH(Idle Pirate Tycoon: Gold Sea,5y,3990 ratings)'
+domains:
+- domain: kolibrigames.com
+  role: primary
+  status: verified
+  confidence: 0.9017
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:22Z'
+  ttl_days: 30
+  age_days: 2988
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T14:58:33Z'
+    source: https://itunes.apple.com/search?term=Kolibri%20Games&entity=software
+    data:
+      app: 'Idle Pirate Tycoon: Gold Sea'
+      track_id: 1536709412
+      seller: Kolibri Games GmbH
+      artist: Kolibri Games GmbH
+      seller_url: https://www.kolibrigames.com/
+      released: '2020-11-05'
+      age_days: 2131
+      ratings: 3990
+      apps_for_domain: 10
+      apps:
+      - app: 'Idle Pirate Tycoon: Gold Sea'
+        seller: Kolibri Games GmbH
+        released: '2020-11-05'
+        age_days: 2131
+        ratings: 3990
+      - app: 'Idle Restaurant Tycoon: Empire'
+        seller: Kolibri Games GmbH
+        released: '2020-11-30'
+        age_days: 2106
+        ratings: 17528
+      - app: 'Idle Firefighter Tycoon: Save!'
+        seller: Kolibri Games GmbH
+        released: '2021-03-30'
+        age_days: 1986
+        ratings: 25551
+  - code: A3
+    checked_at: '2026-09-06T14:58:55Z'
+    source: https://rdap.org/domain/kolibrigames.com
+    data:
+      registrar: NameCheap, Inc.
+      created: '2018-07-01'
+      expires: '2027-07-01'
+      remaining_days: 298
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T14:58:34Z'
+    source: TLS handshake kolibrigames.com:443
+    data:
+      subject_org: Kolibri Games GmbH
+      validation_type: OV
+      issuer: SSL Corporation
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T14:58:33Z'
+    source: https://www.wikidata.org/wiki/Q85774833
+    data:
+      qid: Q85774833
+      label: Kolibri Games
+      kind: organization
+      site: http://www.kolibrigames.com
+      sitelinks: 2
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T14:58:33Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 32006
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T14:58:35Z'
+    source: http://web.archive.org/cdx/search/cdx?url=kolibrigames.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2018-11-03'
+      history_days: 2864
+  rejected_evidence:
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  reasons:
+  - '2 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T16:10:53Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q85774833
+  reviewed_by: []
+  source_issue: null

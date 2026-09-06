@@ -1,0 +1,108 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:playstack
+names:
+  en: Playstack
+aliases: []
+category:
+- saas
+wikidata: Q116904012
+canonical:
+  github_org: null
+  wikidata: Q116904012
+  sources:
+  - wikidata:Q116904012/P856(sitelinks=0)
+  - appstore:Playstack Ltd(Rescue Wings!,7y,5074 ratings)
+domains:
+- domain: playstack.com
+  role: primary
+  status: verified
+  confidence: 0.6515
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:14Z'
+  ttl_days: 30
+  age_days: 4392
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T15:00:06Z'
+    source: https://itunes.apple.com/search?term=Playstack&entity=software
+    data:
+      app: Rescue Wings!
+      track_id: 1444883925
+      seller: Playstack Ltd
+      artist: Playstack Ltd
+      seller_url: https://www.playstack.com
+      released: '2019-06-26'
+      age_days: 2628
+      ratings: 5074
+      apps_for_domain: 6
+      apps:
+      - app: Rescue Wings!
+        seller: Playstack Ltd
+        released: '2019-06-26'
+        age_days: 2628
+        ratings: 5074
+      - app: 'Idle Aquarium: Fish Tank Zoo'
+        seller: Playstack Ltd
+        released: '2021-09-11'
+        age_days: 1821
+        ratings: 5063
+      - app: Idle Sea Park - Fish Tank Sim
+        seller: Playstack Ltd
+        released: '2022-03-15'
+        age_days: 1636
+        ratings: 931
+  - code: A3
+    checked_at: '2026-09-06T15:00:19Z'
+    source: https://rdap.org/domain/playstack.com
+    data:
+      registrar: Squarespace Domains II LLC
+      created: '2014-08-27'
+      expires: '2027-08-27'
+      remaining_days: 355
+      locks:
+      - delete
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T15:00:06Z'
+    source: TLS handshake playstack.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T15:00:06Z'
+    source: https://www.wikidata.org/wiki/Q116904012
+    data:
+      qid: Q116904012
+      label: Playstack
+      kind: organization
+      site: https://playstack.com/
+      sitelinks: 0
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-06T15:01:22Z'
+    source: http://web.archive.org/cdx/search/cdx?url=playstack.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2001-11-14'
+      history_days: 9062
+  rejected_evidence:
+  - 'A3: registrar (Squarespace Domains II LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T16:10:53Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q116904012
+  reviewed_by: []
+  source_issue: null

@@ -94,7 +94,7 @@ def dossier(entity: dict, dom: dict) -> dict:
 
 _KEEP = {"org", "org_name", "blog", "org_verified", "qid", "label", "site", "sitelinks", "repo", "homepage",
          "registrar", "from", "first_party_link", "structural_links", "rank", "first_snapshot", "package",
-         "organization", "issuer", "backlink", "stars", "contributors"}
+         "organization", "issuer", "backlink", "stars", "contributors", "seller", "app", "kind"}
 
 
 def _compact(data: dict) -> dict:

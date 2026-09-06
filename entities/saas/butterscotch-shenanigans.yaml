@@ -1,0 +1,116 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:butterscotch-shenanigans
+names:
+  en: Butterscotch Shenanigans
+aliases: []
+category:
+- saas
+wikidata: Q32860615
+canonical:
+  github_org: null
+  wikidata: Q32860615
+  sources:
+  - wikidata:Q32860615/P856(sitelinks=0)
+  - appstore:Butterscotch Shenanigans, Inc.(Crashlands,10y,1158 ratings)
+domains:
+- domain: bscotch.net
+  role: primary
+  status: verified
+  confidence: 0.6278
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T15:44:16Z'
+  ttl_days: 30
+  age_days: 4340
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T15:44:56Z'
+    source: https://api.github.com/orgs/bscotch
+    data:
+      org: bscotch
+      org_verified: false
+      blog: https://www.bscotch.net
+  - code: A9
+    checked_at: '2026-09-06T15:44:57Z'
+    source: https://itunes.apple.com/search?term=Butterscotch%20Shenanigans&entity=software
+    data:
+      app: Crashlands
+      track_id: 808296431
+      seller: Butterscotch Shenanigans, Inc.
+      artist: Butterscotch Shenanigans, Inc.
+      seller_url: https://www.bscotch.net/games/crashlands
+      released: '2016-01-21'
+      age_days: 3881
+      ratings: 1158
+      apps_for_domain: 7
+      apps:
+      - app: Crashlands
+        seller: Butterscotch Shenanigans, Inc.
+        released: '2016-01-21'
+        age_days: 3881
+        ratings: 1158
+      - app: Crashlands 2
+        seller: Butterscotch Shenanigans, Inc.
+        released: '2025-04-10'
+        age_days: 514
+        ratings: 926
+      - app: Levelhead - Platformer Maker
+        seller: Butterscotch Shenanigans, Inc.
+        released: '2020-04-30'
+        age_days: 2320
+        ratings: 485
+  - code: A3
+    checked_at: '2026-09-06T15:44:58Z'
+    source: https://rdap.org/domain/bscotch.net
+    data:
+      registrar: Squarespace Domains II LLC
+      created: '2014-10-18'
+      expires: '2026-10-18'
+      remaining_days: 42
+      locks:
+      - delete
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T15:44:57Z'
+    source: TLS handshake bscotch.net:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T15:44:57Z'
+    source: https://www.wikidata.org/wiki/Q32860615
+    data:
+      qid: Q32860615
+      label: Butterscotch Shenanigans
+      kind: organization
+      site: https://www.bscotch.net
+      sitelinks: 0
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T15:44:56Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 428130
+      source: top-1m list
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Squarespace Domains II LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T16:10:53Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@e0b9a5c
+  label_source: wikidata:Q32860615
+  reviewed_by: []
+  source_issue: null

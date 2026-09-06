@@ -1,0 +1,121 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:yso-corp
+names:
+  en: YSO Corp
+aliases: []
+category:
+- saas
+wikidata: Q136686697
+canonical:
+  github_org: null
+  wikidata: Q136686697
+  sources:
+  - wikidata:Q136686697/P856(sitelinks=0)
+  - appstore:Yso Corp(ToT or Trivia,6y,5808 ratings)
+domains:
+- domain: ysocorp.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:20Z'
+  ttl_days: 30
+  age_days: 4868
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T15:40:13Z'
+    source: https://api.github.com/orgs/ysocorp
+    data:
+      org: ysocorp
+      org_verified: false
+      blog: http://ysocorp.com
+  - code: A9
+    checked_at: '2026-09-06T15:40:13Z'
+    source: https://itunes.apple.com/search?term=YSO%20Corp&entity=software
+    data:
+      app: ToT or Trivia
+      track_id: 1506954865
+      seller: Yso Corp
+      artist: Yso Corp
+      seller_url: https://www.ysocorp.com
+      released: '2020-04-10'
+      age_days: 2340
+      ratings: 5808
+      apps_for_domain: 35
+      apps:
+      - app: ToT or Trivia
+        seller: Yso Corp
+        released: '2020-04-10'
+        age_days: 2340
+        ratings: 5808
+      - app: Stretch Guy
+        seller: Yso Corp
+        released: '2020-10-19'
+        age_days: 2148
+        ratings: 11908
+      - app: Monster Box!
+        seller: Yso Corp
+        released: '2021-09-07'
+        age_days: 1825
+        ratings: 3170
+  - code: A3
+    checked_at: '2026-09-06T15:40:14Z'
+    source: https://rdap.org/domain/ysocorp.com
+    data:
+      registrar: Amazon Registrar, Inc.
+      created: '2013-05-09'
+      expires: '2027-05-09'
+      remaining_days: 244
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T15:40:13Z'
+    source: TLS handshake ysocorp.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 10
+  - code: B1
+    checked_at: '2026-09-06T15:40:13Z'
+    source: https://www.wikidata.org/wiki/Q136686697
+    data:
+      qid: Q136686697
+      label: YSO Corp
+      kind: organization
+      site: https://www.ysocorp.com/
+      sitelinks: 0
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T15:40:13Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 61559
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T15:41:13Z'
+    source: http://web.archive.org/cdx/search/cdx?url=ysocorp.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2016-02-07'
+      history_days: 3864
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Amazon Registrar, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T16:10:53Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q136686697
+  reviewed_by: []
+  source_issue: null

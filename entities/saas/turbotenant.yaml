@@ -1,0 +1,114 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:turbotenant
+names:
+  en: TurboTenant
+aliases: []
+category:
+- saas
+wikidata: Q140408773
+canonical:
+  github_org: null
+  wikidata: Q140408773
+  sources:
+  - wikidata:Q140408773/P856(sitelinks=1)
+  - appstore:TurboTenant, Inc.(TurboTenant for Landlords,3y,11343 ratings)
+domains:
+- domain: turbotenant.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:31Z'
+  ttl_days: 30
+  age_days: 5268
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T15:08:31Z'
+    source: https://api.github.com/orgs/turbotenant
+    data:
+      org: turbotenant
+      org_verified: false
+      blog: www.turbotenant.com
+  - code: A9
+    checked_at: '2026-09-06T15:08:31Z'
+    source: https://itunes.apple.com/search?term=TurboTenant&entity=software
+    data:
+      app: TurboTenant for Landlords
+      track_id: 1632249196
+      seller: TurboTenant, Inc.
+      artist: TurboTenant, Inc.
+      seller_url: https://www.turbotenant.com/mobile-app/
+      released: '2022-11-22'
+      age_days: 1384
+      ratings: 11343
+      apps_for_domain: 1
+      apps:
+      - app: TurboTenant for Landlords
+        seller: TurboTenant, Inc.
+        released: '2022-11-22'
+        age_days: 1384
+        ratings: 11343
+  - code: A3
+    checked_at: '2026-09-06T15:09:15Z'
+    source: https://rdap.org/domain/turbotenant.com
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2012-04-03'
+      expires: '2027-04-03'
+      remaining_days: 209
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T15:08:32Z'
+    source: TLS handshake turbotenant.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T15:08:31Z'
+    source: https://www.wikidata.org/wiki/Q140408773
+    data:
+      qid: Q140408773
+      label: TurboTenant
+      kind: organization
+      site: https://www.turbotenant.com
+      sitelinks: 1
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T15:08:31Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 120144
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T15:08:35Z'
+    source: http://web.archive.org/cdx/search/cdx?url=turbotenant.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2015-12-26'
+      history_days: 3907
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T16:10:53Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q140408773
+  reviewed_by: []
+  source_issue: null

@@ -296,6 +296,10 @@ def _policy_version() -> str:
         return "policy.py@unknown"
 
 
+class IdentityConflict(Exception):
+    """A seed resolved to an entity_id that is already stored with a different canonical identity."""
+
+
 def write(record: dict) -> Path:
     slug = record["entity_id"].split(":", 1)[1]
     # An entity already on disk keeps its file: a seed with different topics must update that record,
@@ -306,6 +310,14 @@ def write(record: dict) -> Path:
 
     if path.exists():  # 保留 first_seen；其余以本次为准
         old = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+        oc, nc = old.get("canonical") or {}, record.get("canonical") or {}
+        same = all(not oc.get(k) or not nc.get(k) or str(oc[k]).lower() == str(nc[k]).lower() for k in ("wikidata", "github_org"))
+        if not same:
+            # The stored entity's identity is settled; a seed that resolves to the same entity_id but a
+            # different canonical item (wordpress.com → the WordPress.com item, overwriting Automattic's
+            # record) must not rewrite it. Its domain can come in as a lead or through propagation.
+            raise IdentityConflict(f"{record['entity_id']} already stored as {oc.get('wikidata')}/{oc.get('github_org')}, "
+                                   f"seed resolves to {nc.get('wikidata')}/{nc.get('github_org')}; not overwritten")
         old_domains = {d["domain"]: d for d in old.get("domains", [])}
         for d in record["domains"]:
             if d["domain"] in old_domains:
@@ -359,7 +371,12 @@ def main(argv: list[str] | None = None) -> int:
             skipped += 1
             continue
         seen_domains.add(seed["domain"])
-        path = write(record)
+        try:
+            path = write(record)
+        except IdentityConflict as exc:
+            print(f"  · {seed['domain']}: {exc}", file=sys.stderr)
+            skipped += 1
+            continue
         written += 1
         print(f"  ✓ {msg}  → {path.relative_to(ROOT)}", file=sys.stderr)
 

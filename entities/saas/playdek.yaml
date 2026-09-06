@@ -1,0 +1,107 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:playdek
+names:
+  en: Playdek
+aliases: []
+category:
+- saas
+wikidata: Q16967229
+canonical:
+  github_org: null
+  wikidata: Q16967229
+  sources:
+  - wikidata:Q16967229/P856(sitelinks=1)
+  - 'appstore:Playdek, Inc.(Ascension: Deckbuilding Game,15y,1104 ratings)'
+domains:
+- domain: playdekgames.com
+  role: primary
+  status: verified
+  confidence: 0.6515
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:22Z'
+  ttl_days: 30
+  age_days: 5584
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T15:08:07Z'
+    source: https://itunes.apple.com/search?term=Playdek&entity=software
+    data:
+      app: 'Ascension: Deckbuilding Game'
+      track_id: 441838733
+      seller: Playdek, Inc.
+      artist: Playdek, Inc.
+      seller_url: http://www.playdekgames.com
+      released: '2011-06-30'
+      age_days: 5547
+      ratings: 1104
+      apps_for_domain: 5
+      apps:
+      - app: 'Ascension: Deckbuilding Game'
+        seller: Playdek, Inc.
+        released: '2011-06-30'
+        age_days: 5547
+        ratings: 1104
+      - app: Fluxx
+        seller: Playdek, Inc.
+        released: '2012-12-13'
+        age_days: 5015
+        ratings: 546
+      - app: D&D Lords of Waterdeep
+        seller: Playdek, Inc.
+        released: '2013-11-21'
+        age_days: 4672
+        ratings: 457
+  - code: A3
+    checked_at: '2026-09-06T15:08:07Z'
+    source: https://rdap.org/domain/playdekgames.com
+    data:
+      registrar: Network Solutions, LLC
+      created: '2011-05-23'
+      expires: '2027-05-23'
+      remaining_days: 259
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T15:08:07Z'
+    source: TLS handshake playdekgames.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T15:08:07Z'
+    source: https://www.wikidata.org/wiki/Q16967229
+    data:
+      qid: Q16967229
+      label: Playdek
+      kind: organization
+      site: http://www.playdekgames.com
+      sitelinks: 1
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-06T15:08:21Z'
+    source: http://web.archive.org/cdx/search/cdx?url=playdekgames.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2011-11-21'
+      history_days: 5403
+  rejected_evidence:
+  - 'A3: registrar (Network Solutions, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T16:10:53Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q16967229
+  reviewed_by: []
+  source_issue: null

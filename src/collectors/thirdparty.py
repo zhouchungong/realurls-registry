@@ -320,6 +320,11 @@ def wikidata(domain: str) -> Result:
         r.note("wikidata: 没有「组织 / 软件 / 网站」类实体把本域名声明为 P856")
         return r
 
+    # Several items may claim the same site: a game and its studio (Doodle Jump / Lima Sky), an app and its
+    # holding company (Bumble / Bumble Holding). The organization is the owner; a product page is not an
+    # identity. So an organization-kind item wins over a product/website item, then sitelinks decide.
+    bindings = sorted(bindings, key=lambda b: (0 if _item_kind(b) == "organization" else 1,
+                                               -int(b.get("sitelinks", {}).get("value", 0))))
     top = bindings[0]
     qid = top["item"]["value"].rsplit("/", 1)[-1]
     label = english_label(qid, top.get("itemLabel", {}).get("value", ""))

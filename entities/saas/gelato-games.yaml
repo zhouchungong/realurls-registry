@@ -1,0 +1,89 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:gelato-games
+names:
+  en: Gelato Games
+aliases: []
+category:
+- saas
+wikidata: Q132560076
+canonical:
+  github_org: null
+  wikidata: Q132560076
+  sources:
+  - wikidata:Q132560076/P856(sitelinks=0)
+  - appstore:Gelato Games Ltd(Goblin Sword,11y,1320 ratings)
+domains:
+- domain: gelatogames.com
+  role: primary
+  status: verified
+  confidence: 0.6515
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:31Z'
+  ttl_days: 30
+  age_days: 5124
+  age_source: rdap
+  collection_incomplete: true
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T14:52:39Z'
+    source: https://itunes.apple.com/search?term=Gelato%20Games&entity=software
+    data:
+      app: Goblin Sword
+      track_id: 905488045
+      seller: Gelato Games Ltd
+      artist: Gelato Games Ltd
+      seller_url: http://www.gelatogames.com/p/goblin-sword.html
+      released: '2014-09-11'
+      age_days: 4378
+      ratings: 1320
+      apps_for_domain: 1
+      apps:
+      - app: Goblin Sword
+        seller: Gelato Games Ltd
+        released: '2014-09-11'
+        age_days: 4378
+        ratings: 1320
+  - code: A3
+    checked_at: '2026-09-06T14:53:22Z'
+    source: https://rdap.org/domain/gelatogames.com
+    data:
+      registrar: Tucows Domains Inc.
+      created: '2012-08-25'
+      expires: '2027-08-25'
+      remaining_days: 353
+      locks:
+      - transfer
+      - update
+  - code: B1
+    checked_at: '2026-09-06T14:52:39Z'
+    source: https://www.wikidata.org/wiki/Q132560076
+    data:
+      qid: Q132560076
+      label: Gelato Games
+      kind: organization
+      site: http://www.gelatogames.com/
+      sitelinks: 0
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-06T14:53:25Z'
+    source: http://web.archive.org/cdx/search/cdx?url=gelatogames.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2013-01-11'
+      history_days: 4986
+  rejected_evidence:
+  - 'A3: registrar (Tucows Domains Inc.) is not a brand-protection registrar'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T16:10:53Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q132560076
+  reviewed_by: []
+  source_issue: null

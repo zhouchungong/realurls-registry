@@ -1,0 +1,120 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:deepl-se
+names:
+  en: DeepL SE
+aliases:
+- DeepL
+category:
+- saas
+wikidata: Q131894787
+canonical:
+  github_org: null
+  wikidata: Q131894787
+  sources:
+  - wikidata:Q131894787/P856(sitelinks=1)
+  - appstore:DeepL SE(DeepL Translate,5y,13277 ratings)
+domains:
+- domain: deepl.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T16:02:26Z'
+  ttl_days: 30
+  age_days: 5980
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T16:04:49Z'
+    source: https://api.github.com/orgs/DeepL
+    data:
+      org: DeepL
+      org_verified: true
+      blog: https://deepl.com
+      org_name: DeepL
+      created_at: '2021-04-27T19:59:52Z'
+  - code: A9
+    checked_at: '2026-09-06T16:04:50Z'
+    source: https://itunes.apple.com/search?term=DeepL%20SE&entity=software
+    data:
+      app: DeepL Translate
+      track_id: 1552407475
+      seller: DeepL SE
+      artist: DeepL SE
+      seller_url: https://www.deepl.com/app
+      released: '2021-04-26'
+      age_days: 1959
+      ratings: 13277
+      apps_for_domain: 2
+      apps:
+      - app: DeepL Translate
+        seller: DeepL SE
+        released: '2021-04-26'
+        age_days: 1959
+        ratings: 13277
+      - app: DeepL for Intune
+        seller: DeepL SE
+        released: '2025-12-09'
+        age_days: 271
+        ratings: 0
+  - code: A3
+    checked_at: '2026-09-06T16:04:51Z'
+    source: https://rdap.org/domain/deepl.com
+    data:
+      registrar: Key-Systems GmbH
+      created: '2010-04-22'
+      expires: '2027-04-22'
+      remaining_days: 228
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T16:04:50Z'
+    source: TLS handshake deepl.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T16:04:50Z'
+    source: https://www.wikidata.org/wiki/Q131894787
+    data:
+      qid: Q131894787
+      label: DeepL SE
+      kind: organization
+      site: https://www.deepl.com/
+      sitelinks: 1
+      competing_items: 2
+  - code: B5
+    checked_at: '2026-09-06T16:04:50Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 825
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T16:05:07Z'
+    source: http://web.archive.org/cdx/search/cdx?url=deepl.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2008-06-13'
+      history_days: 6659
+  rejected_evidence:
+  - 'A1: entity not anchored: no canonical GitHub organization from an independent authority; proof of control is
+    not proof of ownership'
+  - 'A3: registrar (Key-Systems GmbH) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T16:10:53Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@e0b9a5c
+  label_source: wikidata:Q131894787
+  reviewed_by: []
+  source_issue: null

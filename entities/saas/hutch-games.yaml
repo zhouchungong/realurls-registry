@@ -1,0 +1,97 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:hutch-games
+names:
+  en: Hutch Games
+aliases: []
+category:
+- saas
+wikidata: Q107132458
+canonical:
+  github_org: null
+  wikidata: Q107132458
+  sources:
+  - wikidata:Q107132458/P856(sitelinks=1)
+  - appstore:Hutch Games Ltd(F1® Clash - Official 2026 Game,7y,109485 ratings)
+domains:
+- domain: hutch.io
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:14Z'
+  ttl_days: 30
+  age_days: 3833
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T14:50:42Z'
+    source: https://itunes.apple.com/search?term=Hutch%20Games&entity=software
+    data:
+      app: F1® Clash - Official 2026 Game
+      track_id: 1434561536
+      seller: Hutch Games Ltd
+      artist: Hutch Games Ltd
+      seller_url: https://www.hutch.io/
+      released: '2019-05-09'
+      age_days: 2677
+      ratings: 109485
+      apps_for_domain: 2
+      apps:
+      - app: F1® Clash - Official 2026 Game
+        seller: Hutch Games Ltd
+        released: '2019-05-09'
+        age_days: 2677
+        ratings: 109485
+      - app: 'Matchcreek Motors: Custom Cars'
+        seller: Hutch Games Ltd
+        released: '2025-03-17'
+        age_days: 538
+        ratings: 28647
+  - code: A4
+    checked_at: '2026-09-06T14:50:42Z'
+    source: TLS handshake hutch.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 5
+  - code: B1
+    checked_at: '2026-09-06T14:50:42Z'
+    source: https://www.wikidata.org/wiki/Q107132458
+    data:
+      qid: Q107132458
+      label: Hutch Games
+      kind: organization
+      site: https://www.hutch.io/
+      sitelinks: 1
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T14:50:42Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 968695
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T14:50:47Z'
+    source: http://web.archive.org/cdx/search/cdx?url=hutch.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2016-03-09'
+      history_days: 3833
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T16:10:53Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q107132458
+  reviewed_by: []
+  source_issue: null

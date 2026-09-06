@@ -1,0 +1,96 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:tamatem
+names:
+  en: Tamatem
+aliases: []
+category:
+- saas
+wikidata: Q28924488
+canonical:
+  github_org: null
+  wikidata: Q28924488
+  sources:
+  - wikidata:Q28924488/P856(sitelinks=2)
+  - appstore:Tamatem Inc.(لعبة ملك التوصيل - عوض أبو شفة,12y,5101 ratings)
+domains:
+- domain: tamatem.co
+  role: primary
+  status: verified
+  confidence: 0.6515
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:20Z'
+  ttl_days: 30
+  age_days: 4863
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T15:30:03Z'
+    source: https://itunes.apple.com/search?term=Tamatem&entity=software
+    data:
+      app: لعبة ملك التوصيل - عوض أبو شفة
+      track_id: 888245722
+      seller: Tamatem Inc.
+      artist: Tamatem Inc.
+      seller_url: http://www.tamatem.co
+      released: '2014-06-18'
+      age_days: 4463
+      ratings: 5101
+      apps_for_domain: 13
+      apps:
+      - app: لعبة ملك التوصيل - عوض أبو شفة
+        seller: Tamatem Inc.
+        released: '2014-06-18'
+        age_days: 4463
+        ratings: 5101
+      - app: VIP بلوت
+        seller: Tamatem Inc.
+        released: '2016-11-09'
+        age_days: 3587
+        ratings: 38381
+      - app: VIP Jalsat | Tarneeb & Trix
+        seller: Tamatem Inc.
+        released: '2018-01-31'
+        age_days: 3139
+        ratings: 8403
+  - code: A4
+    checked_at: '2026-09-06T15:30:03Z'
+    source: TLS handshake tamatem.co:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T15:30:03Z'
+    source: https://www.wikidata.org/wiki/Q28924488
+    data:
+      qid: Q28924488
+      label: Tamatem
+      kind: organization
+      site: http://tamatem.co
+      sitelinks: 2
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-06T15:31:10Z'
+    source: http://web.archive.org/cdx/search/cdx?url=tamatem.co&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2013-05-14'
+      history_days: 4863
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T16:10:53Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q28924488
+  reviewed_by: []
+  source_issue: null

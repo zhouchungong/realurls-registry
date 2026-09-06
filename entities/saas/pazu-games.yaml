@@ -1,0 +1,116 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:pazu-games
+names:
+  en: Pazu Games
+aliases: []
+category:
+- saas
+wikidata: Q134509907
+canonical:
+  github_org: null
+  wikidata: Q134509907
+  sources:
+  - wikidata:Q134509907/P856(sitelinks=0)
+  - appstore:Pazu Games Ltd(Makeup Kids Games for Girls,15y,13910 ratings)
+domains:
+- domain: pazugames.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:31Z'
+  ttl_days: 30
+  age_days: 4645
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T15:01:16Z'
+    source: https://itunes.apple.com/search?term=Pazu%20Games&entity=software
+    data:
+      app: Makeup Kids Games for Girls
+      track_id: 436613066
+      seller: Pazu Games Ltd
+      artist: Pazu Games Ltd
+      seller_url: https://pazugames.com
+      released: '2011-07-05'
+      age_days: 5541
+      ratings: 13910
+      apps_for_domain: 25
+      apps:
+      - app: Makeup Kids Games for Girls
+        seller: Pazu Games Ltd
+        released: '2011-07-05'
+        age_days: 5541
+        ratings: 13910
+      - app: Chic Baby-Dress up & Baby Care
+        seller: Pazu Games Ltd
+        released: '2011-10-22'
+        age_days: 5433
+        ratings: 19566
+      - app: Makeup Girls Wedding Dress up
+        seller: Pazu Games Ltd
+        released: '2011-12-02'
+        age_days: 5391
+        ratings: 8613
+  - code: A3
+    checked_at: '2026-09-06T15:01:23Z'
+    source: https://rdap.org/domain/pazugames.com
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2013-12-17'
+      expires: '2028-12-17'
+      remaining_days: 833
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T15:01:17Z'
+    source: TLS handshake pazugames.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T15:01:16Z'
+    source: https://www.wikidata.org/wiki/Q134509907
+    data:
+      qid: Q134509907
+      label: Pazu Games
+      kind: organization
+      site: https://pazugames.com/
+      sitelinks: 0
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T15:01:16Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 509753
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T15:01:57Z'
+    source: http://web.archive.org/cdx/search/cdx?url=pazugames.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2014-03-20'
+      history_days: 4553
+  rejected_evidence:
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T16:10:53Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q134509907
+  reviewed_by: []
+  source_issue: null

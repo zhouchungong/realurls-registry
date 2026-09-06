@@ -1,0 +1,96 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:asbo-interactive
+names:
+  en: ASBO Interactive
+aliases: []
+category:
+- saas
+wikidata: Q115257433
+canonical:
+  github_org: null
+  wikidata: Q115257433
+  sources:
+  - wikidata:Q115257433/P856(sitelinks=0)
+  - appstore:ASBO Interactive LTD(Shred! 2 - ft Sam Pilgrim 2025,2y,1178 ratings)
+domains:
+- domain: asbointeractive.com
+  role: primary
+  status: verified
+  confidence: 0.6515
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:20Z'
+  ttl_days: 30
+  age_days: 3016
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T14:43:18Z'
+    source: https://itunes.apple.com/search?term=ASBO%20Interactive&entity=software
+    data:
+      app: Shred! 2 - ft Sam Pilgrim 2025
+      track_id: 1671517038
+      seller: ASBO Interactive LTD
+      artist: ASBO Interactive
+      seller_url: http://www.asbointeractive.com/
+      released: '2023-10-25'
+      age_days: 1047
+      ratings: 1178
+      apps_for_domain: 1
+      apps:
+      - app: Shred! 2 - ft Sam Pilgrim 2025
+        seller: ASBO Interactive LTD
+        released: '2023-10-25'
+        age_days: 1047
+        ratings: 1178
+  - code: A3
+    checked_at: '2026-09-06T14:43:18Z'
+    source: https://rdap.org/domain/asbointeractive.com
+    data:
+      registrar: 123-Reg Limited
+      created: '2018-06-04'
+      expires: '2028-06-04'
+      remaining_days: 636
+      locks: []
+  - code: A4
+    checked_at: '2026-09-06T14:43:18Z'
+    source: TLS handshake asbointeractive.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T14:43:18Z'
+    source: https://www.wikidata.org/wiki/Q115257433
+    data:
+      qid: Q115257433
+      label: ASBO Interactive
+      kind: organization
+      site: https://asbointeractive.com/
+      sitelinks: 0
+      competing_items: 2
+  - code: B4
+    checked_at: '2026-09-06T14:43:36Z'
+    source: http://web.archive.org/cdx/search/cdx?url=asbointeractive.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2018-09-28'
+      history_days: 2900
+  rejected_evidence:
+  - 'A3: registrar (123-Reg Limited) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T16:10:53Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q115257433
+  reviewed_by: []
+  source_issue: null

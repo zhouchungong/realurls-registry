@@ -1,0 +1,115 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:the-gentlebros
+names:
+  en: The Gentlebros
+aliases: []
+category:
+- saas
+wikidata: Q31614246
+canonical:
+  github_org: null
+  wikidata: Q31614246
+  sources:
+  - wikidata:Q31614246/P856(sitelinks=0)
+  - appstore:The Gentlebros Pte. Ltd.(Cat Quest,9y,2018 ratings)
+domains:
+- domain: thegentlebros.com
+  role: primary
+  status: verified
+  confidence: 0.6515
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T15:44:16Z'
+  ttl_days: 30
+  age_days: 4062
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T15:55:45Z'
+    source: https://api.github.com/orgs/thegentlebros
+    data:
+      org: thegentlebros
+      org_verified: false
+      blog: https://thegentlebros.com
+  - code: A9
+    checked_at: '2026-09-06T15:55:45Z'
+    source: https://itunes.apple.com/search?term=The%20Gentlebros&entity=software
+    data:
+      app: Cat Quest
+      track_id: 1148385289
+      seller: The Gentlebros Pte. Ltd.
+      artist: The Gentlebros.
+      seller_url: https://thegentlebros.com/catquest/
+      released: '2017-08-09'
+      age_days: 3314
+      ratings: 2018
+      apps_for_domain: 4
+      apps:
+      - app: Cat Quest
+        seller: The Gentlebros Pte. Ltd.
+        released: '2017-08-09'
+        age_days: 3314
+        ratings: 2018
+      - app: Cat Quest III
+        seller: The Gentlebros Pte. Ltd.
+        released: '2025-08-08'
+        age_days: 394
+        ratings: 168
+      - app: Cat Quest II
+        seller: The Gentlebros Pte. Ltd.
+        released: '2023-06-20'
+        age_days: 1174
+        ratings: 60
+  - code: A3
+    checked_at: '2026-09-06T15:55:46Z'
+    source: https://rdap.org/domain/thegentlebros.com
+    data:
+      registrar: Dreamscape Networks International Pte Ltd
+      created: '2015-07-24'
+      expires: '2028-07-24'
+      remaining_days: 686
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T15:55:45Z'
+    source: TLS handshake thegentlebros.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Sectigo Limited
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T15:55:45Z'
+    source: https://www.wikidata.org/wiki/Q31614246
+    data:
+      qid: Q31614246
+      label: The Gentlebros
+      kind: organization
+      site: https://www.thegentlebros.com
+      sitelinks: 0
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-06T15:56:34Z'
+    source: http://web.archive.org/cdx/search/cdx?url=thegentlebros.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2015-11-07'
+      history_days: 3956
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Dreamscape Networks International Pte Ltd) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T16:10:53Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@e0b9a5c
+  label_source: wikidata:Q31614246
+  reviewed_by: []
+  source_issue: null

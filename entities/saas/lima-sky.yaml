@@ -1,0 +1,116 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:lima-sky
+names:
+  en: Lima Sky
+aliases: []
+category:
+- saas
+wikidata: Q10786080
+canonical:
+  github_org: null
+  wikidata: Q10786080
+  sources:
+  - wikidata:Q10786080/P856(sitelinks=2)
+  - appstore:Lima Sky(Doodle Jump - Insanely Good!,15y,3160 ratings)
+domains:
+- domain: limasky.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T16:02:26Z'
+  ttl_days: 30
+  age_days: 7456
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T16:06:39Z'
+    source: https://itunes.apple.com/search?term=Lima%20Sky&entity=software
+    data:
+      app: Doodle Jump - Insanely Good!
+      track_id: 456355158
+      seller: Lima Sky
+      artist: Lima Sky
+      seller_url: http://www.LimaSky.com
+      released: '2011-08-25'
+      age_days: 5491
+      ratings: 3160
+      apps_for_domain: 6
+      apps:
+      - app: Doodle Jump - Insanely Good!
+        seller: Lima Sky
+        released: '2011-08-25'
+        age_days: 5491
+        ratings: 3160
+      - app: Doodle Jump 2
+        seller: Lima Sky
+        released: '2020-12-20'
+        age_days: 2086
+        ratings: 38133
+      - app: Doodle Jump
+        seller: Lima Sky
+        released: '2009-03-27'
+        age_days: 6372
+        ratings: 830
+  - code: A3
+    checked_at: '2026-09-06T16:06:40Z'
+    source: https://rdap.org/domain/limasky.com
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2006-04-07'
+      expires: '2027-04-07'
+      remaining_days: 213
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T16:06:39Z'
+    source: TLS handshake limasky.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T16:06:39Z'
+    source: https://www.wikidata.org/wiki/Q10786080
+    data:
+      qid: Q10786080
+      label: Lima Sky
+      kind: organization
+      site: http://limasky.com/
+      sitelinks: 2
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-06T16:06:39Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 121530
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T16:06:51Z'
+    source: http://web.archive.org/cdx/search/cdx?url=limasky.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2009-04-24'
+      history_days: 6344
+  rejected_evidence:
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T16:10:53Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@e0b9a5c
+  label_source: wikidata:Q10786080
+  reviewed_by: []
+  source_issue: null

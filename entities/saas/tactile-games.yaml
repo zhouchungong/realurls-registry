@@ -1,0 +1,118 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:tactile-games
+names:
+  en: Tactile Games
+aliases: []
+category:
+- saas
+wikidata: Q107357116
+canonical:
+  github_org: null
+  wikidata: Q107357116
+  sources:
+  - wikidata:Q107357116/P856(sitelinks=0)
+  - appstore:Tactile Games ApS(Bee Brilliant,11y,5379 ratings)
+domains:
+- domain: tactilegames.com
+  role: primary
+  status: verified
+  confidence: 0.6515
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:22Z'
+  ttl_days: 30
+  age_days: 7864
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T15:11:07Z'
+    source: https://api.github.com/orgs/tactilegames
+    data:
+      org: tactilegames
+      org_verified: true
+      blog: https://tactilegames.com
+      org_name: Tactile Games
+      created_at: '2018-04-12T07:23:13Z'
+  - code: A9
+    checked_at: '2026-09-06T15:11:07Z'
+    source: https://itunes.apple.com/search?term=Tactile%20Games&entity=software
+    data:
+      app: Bee Brilliant
+      track_id: 888251661
+      seller: Tactile Games ApS
+      artist: Tactile Games ApS
+      seller_url: http://tactilegames.com
+      released: '2014-10-15'
+      age_days: 4343
+      ratings: 5379
+      apps_for_domain: 13
+      apps:
+      - app: Bee Brilliant
+        seller: Tactile Games ApS
+        released: '2014-10-15'
+        age_days: 4343
+        ratings: 5379
+      - app: Cookie Cats Pop
+        seller: Tactile Games ApS
+        released: '2017-03-28'
+        age_days: 3449
+        ratings: 14103
+      - app: Simon's Cat - Crunch Time
+        seller: Tactile Games Limited
+        released: '2017-06-27'
+        age_days: 3358
+        ratings: 53104
+  - code: A3
+    checked_at: '2026-09-06T15:11:48Z'
+    source: https://rdap.org/domain/tactilegames.com
+    data:
+      registrar: Cloudflare, Inc.
+      created: '2005-02-23'
+      expires: '2027-02-23'
+      remaining_days: 170
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T15:11:07Z'
+    source: TLS handshake tactilegames.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T15:11:07Z'
+    source: https://www.wikidata.org/wiki/Q107357116
+    data:
+      qid: Q107357116
+      label: Tactile Games
+      kind: organization
+      site: https://tactilegames.com/
+      sitelinks: 0
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-06T15:11:10Z'
+    source: http://web.archive.org/cdx/search/cdx?url=tactilegames.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2001-11-30'
+      history_days: 9046
+  rejected_evidence:
+  - 'A1: entity not anchored: no canonical GitHub organization from an independent authority; proof of control is
+    not proof of ownership'
+  - 'A3: registrar (Cloudflare, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T16:10:53Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q107357116
+  reviewed_by: []
+  source_issue: null

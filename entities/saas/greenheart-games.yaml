@@ -1,0 +1,111 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:greenheart-games
+names:
+  en: Greenheart Games
+aliases: []
+category:
+- saas
+wikidata: Q14760803
+canonical:
+  github_org: null
+  wikidata: Q14760803
+  sources:
+  - wikidata:Q14760803/P856(sitelinks=2)
+  - appstore:Greenheart Games Pty. Ltd.(Game Dev Tycoon,8y,24087 ratings)
+domains:
+- domain: greenheartgames.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:20Z'
+  ttl_days: 30
+  age_days: 5181
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T14:59:50Z'
+    source: https://api.github.com/orgs/greenheartgames
+    data:
+      org: greenheartgames
+      org_verified: false
+      blog: www.greenheartgames.com
+  - code: A9
+    checked_at: '2026-09-06T14:59:50Z'
+    source: https://itunes.apple.com/search?term=Greenheart%20Games&entity=software
+    data:
+      app: Game Dev Tycoon
+      track_id: 1162580001
+      seller: Greenheart Games Pty. Ltd.
+      artist: Greenheart Games Pty. Ltd.
+      seller_url: http://greenheartgames.com/press/sheet.php?p=game_dev_tycoon
+      released: '2017-11-28'
+      age_days: 3204
+      ratings: 24087
+      apps_for_domain: 1
+      apps:
+      - app: Game Dev Tycoon
+        seller: Greenheart Games Pty. Ltd.
+        released: '2017-11-28'
+        age_days: 3204
+        ratings: 24087
+  - code: A3
+    checked_at: '2026-09-06T15:00:33Z'
+    source: https://rdap.org/domain/greenheartgames.com
+    data:
+      registrar: NameCheap, Inc.
+      created: '2012-06-30'
+      expires: '2033-06-30'
+      remaining_days: 2488
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T14:59:50Z'
+    source: TLS handshake greenheartgames.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T14:59:50Z'
+    source: https://www.wikidata.org/wiki/Q14760803
+    data:
+      qid: Q14760803
+      label: Greenheart Games
+      kind: organization
+      site: https://www.greenheartgames.com/
+      sitelinks: 2
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T14:59:50Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 699490
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T15:00:09Z'
+    source: http://web.archive.org/cdx/search/cdx?url=greenheartgames.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2012-07-30'
+      history_days: 5151
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T16:10:53Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q14760803
+  reviewed_by: []
+  source_issue: null

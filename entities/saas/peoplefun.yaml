@@ -1,0 +1,116 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:peoplefun
+names:
+  en: PeopleFun
+aliases: []
+category:
+- saas
+wikidata: Q112895106
+canonical:
+  github_org: null
+  wikidata: Q112895106
+  sources:
+  - wikidata:Q112895106/P856(sitelinks=0)
+  - appstore:PeopleFun CG, LLC(▻Sudoku - Classic Brain Game,16y,660258 ratings)
+domains:
+- domain: peoplefun.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:20Z'
+  ttl_days: 30
+  age_days: 9785
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T15:09:01Z'
+    source: https://itunes.apple.com/search?term=PeopleFun&entity=software
+    data:
+      app: ▻Sudoku - Classic Brain Game
+      track_id: 366247306
+      seller: PeopleFun CG, LLC
+      artist: PeopleFun CG, LLC
+      seller_url: https://www.peoplefun.com
+      released: '2010-05-07'
+      age_days: 5966
+      ratings: 660258
+      apps_for_domain: 18
+      apps:
+      - app: ▻Sudoku - Classic Brain Game
+        seller: PeopleFun CG, LLC
+        released: '2010-05-07'
+        age_days: 5966
+        ratings: 660258
+      - app: ▻Sudoku +
+        seller: PeopleFun CG, LLC
+        released: '2010-06-03'
+        age_days: 5938
+        ratings: 14601
+      - app: '▻ Solitaire: Classic Cards'
+        seller: PeopleFun CG, LLC
+        released: '2012-03-13'
+        age_days: 5290
+        ratings: 196629
+  - code: A3
+    checked_at: '2026-09-06T15:09:22Z'
+    source: https://rdap.org/domain/peoplefun.com
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '1999-11-22'
+      expires: '2026-11-22'
+      remaining_days: 76
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T15:09:01Z'
+    source: TLS handshake peoplefun.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T15:09:01Z'
+    source: https://www.wikidata.org/wiki/Q112895106
+    data:
+      qid: Q112895106
+      label: PeopleFun
+      kind: organization
+      site: https://www.peoplefun.com/
+      sitelinks: 0
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T15:09:01Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 172933
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T15:09:04Z'
+    source: http://web.archive.org/cdx/search/cdx?url=peoplefun.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2000-06-20'
+      history_days: 9574
+  rejected_evidence:
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T16:10:53Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q112895106
+  reviewed_by: []
+  source_issue: null

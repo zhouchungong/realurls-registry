@@ -1,0 +1,96 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:semidome-inc
+names:
+  en: Semidome Inc.
+aliases: []
+category:
+- saas
+wikidata: Q106870946
+canonical:
+  github_org: null
+  wikidata: Q106870946
+  sources:
+  - wikidata:Q106870946/P856(sitelinks=0)
+  - appstore:Semidome Inc.(Nightgate,10y,1274 ratings)
+domains:
+- domain: semido.me
+  role: primary
+  status: verified
+  confidence: 0.6515
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:31Z'
+  ttl_days: 30
+  age_days: 4336
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T15:04:21Z'
+    source: https://itunes.apple.com/search?term=Semidome%20Inc.&entity=software
+    data:
+      app: Nightgate
+      track_id: 1116808304
+      seller: Semidome Inc.
+      artist: Semidome Inc.
+      seller_url: https://www.semido.me/nightgate/
+      released: '2016-08-25'
+      age_days: 3664
+      ratings: 1274
+      apps_for_domain: 7
+      apps:
+      - app: Nightgate
+        seller: Semidome Inc.
+        released: '2016-08-25'
+        age_days: 3664
+        ratings: 1274
+      - app: Last Voyage
+        seller: Semidome Inc.
+        released: '2015-04-02'
+        age_days: 4175
+        ratings: 357
+      - app: AR Runner
+        seller: Semidome Inc.
+        released: '2017-09-19'
+        age_days: 3273
+        ratings: 210
+  - code: A4
+    checked_at: '2026-09-06T15:04:21Z'
+    source: TLS handshake semido.me:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T15:04:21Z'
+    source: https://www.wikidata.org/wiki/Q106870946
+    data:
+      qid: Q106870946
+      label: Semidome Inc.
+      kind: organization
+      site: http://www.semido.me
+      sitelinks: 0
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-06T15:05:20Z'
+    source: http://web.archive.org/cdx/search/cdx?url=semido.me&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2014-10-23'
+      history_days: 4336
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T16:10:53Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q106870946
+  reviewed_by: []
+  source_issue: null

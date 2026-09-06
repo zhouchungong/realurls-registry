@@ -1,0 +1,108 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:euphoric-brothers
+names:
+  en: Euphoric Brothers
+aliases: []
+category:
+- saas
+wikidata: Q118252050
+canonical:
+  github_org: null
+  wikidata: Q118252050
+  sources:
+  - wikidata:Q118252050/P856(sitelinks=1)
+  - appstore:Euphoric Brothers LTD(Garten of Banban,3y,8367 ratings)
+domains:
+- domain: euphoricbrothers.com
+  role: primary
+  status: verified
+  confidence: 0.6515
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:31Z'
+  ttl_days: 30
+  age_days: 2272
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T14:49:32Z'
+    source: https://itunes.apple.com/search?term=Euphoric%20Brothers&entity=software
+    data:
+      app: Garten of Banban
+      track_id: 6445856120
+      seller: Euphoric Brothers LTD
+      artist: Euphoric Brothers LTD
+      seller_url: https://euphoricbrothers.com/
+      released: '2023-03-14'
+      age_days: 1272
+      ratings: 8367
+      apps_for_domain: 10
+      apps:
+      - app: Garten of Banban
+        seller: Euphoric Brothers LTD
+        released: '2023-03-14'
+        age_days: 1272
+        ratings: 8367
+      - app: Garten of Banban 2
+        seller: Euphoric Brothers LTD
+        released: '2023-03-24'
+        age_days: 1262
+        ratings: 2329
+      - app: Garten of Banban 3
+        seller: Euphoric Brothers LTD
+        released: '2023-05-17'
+        age_days: 1208
+        ratings: 1884
+  - code: A3
+    checked_at: '2026-09-06T14:49:33Z'
+    source: https://rdap.org/domain/euphoricbrothers.com
+    data:
+      registrar: Wix.com Ltd.
+      created: '2020-06-16'
+      expires: '2028-06-16'
+      remaining_days: 649
+      locks:
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T14:49:33Z'
+    source: TLS handshake euphoricbrothers.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T14:49:32Z'
+    source: https://www.wikidata.org/wiki/Q118252050
+    data:
+      qid: Q118252050
+      label: Euphoric Brothers
+      kind: organization
+      site: https://www.euphoricbrothers.com
+      sitelinks: 1
+      competing_items: 2
+  - code: B4
+    checked_at: '2026-09-06T14:49:45Z'
+    source: http://web.archive.org/cdx/search/cdx?url=euphoricbrothers.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2020-10-22'
+      history_days: 2145
+  rejected_evidence:
+  - 'A3: registrar (Wix.com Ltd.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T16:10:53Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q118252050
+  reviewed_by: []
+  source_issue: null

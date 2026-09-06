@@ -1,0 +1,193 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:blue-wizard-digital
+names:
+  en: Blue Wizard Digital
+aliases: []
+category:
+- saas
+wikidata: Q85747898
+canonical:
+  github_org: null
+  wikidata: Q85747898
+  sources:
+  - wikidata:Q85747898/P856(sitelinks=1)
+  - appstore:Blue Wizard Digital LP(Slayaway Camp - Free to Slay,6y,4596 ratings)
+domains:
+- domain: bluewizard.com
+  role: primary
+  status: verified
+  confidence: 0.6515
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:20Z'
+  ttl_days: 30
+  age_days: 10000
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T14:43:41Z'
+    source: https://itunes.apple.com/search?term=Blue%20Wizard%20Digital&entity=software
+    data:
+      app: Slayaway Camp - Free to Slay
+      track_id: 1505404015
+      seller: Blue Wizard Digital LP
+      artist: Blue Wizard Digital LP
+      seller_url: https://bluewizard.com/slayawaycamp-free-to-slay/
+      released: '2020-07-13'
+      age_days: 2246
+      ratings: 4596
+      apps_for_domain: 3
+      apps:
+      - app: Slayaway Camp - Free to Slay
+        seller: Blue Wizard Digital LP
+        released: '2020-07-13'
+        age_days: 2246
+        ratings: 4596
+      - app: Slashy Camp - Endless Runner!
+        seller: Blue Wizard Digital LP
+        released: '2021-03-02'
+        age_days: 2014
+        ratings: 1045
+      - app: 'Sugar Shock: Match Mayhem'
+        seller: Blue Wizard Digital LP
+        released: '2020-03-23'
+        age_days: 2358
+        ratings: 7
+  - code: A3
+    checked_at: '2026-09-06T14:43:56Z'
+    source: https://rdap.org/domain/bluewizard.com
+    data:
+      registrar: Dynadot Inc
+      created: '1999-04-21'
+      expires: '2029-04-21'
+      remaining_days: 957
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T14:43:42Z'
+    source: TLS handshake bluewizard.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 21
+  - code: B1
+    checked_at: '2026-09-06T14:43:41Z'
+    source: https://www.wikidata.org/wiki/Q85747898
+    data:
+      qid: Q85747898
+      label: Blue Wizard Digital
+      kind: organization
+      site: https://bluewizard.com/
+      sitelinks: 1
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-06T14:44:07Z'
+    source: http://web.archive.org/cdx/search/cdx?url=bluewizard.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2000-10-17'
+      history_days: 9455
+  rejected_evidence:
+  - 'A3: registrar (Dynadot Inc) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T16:10:53Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+- domain: footballbros.io
+  role: product
+  status: verified
+  confidence: 0.7105
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:20Z'
+  ttl_days: 30
+  age_days: 833
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T14:47:40Z'
+    source: https://itunes.apple.com/search?term=Blue%20Wizard%20Digital&entity=software
+    data:
+      app: Football Bros
+      track_id: 6745625580
+      seller: Blue Wizard Digital LP
+      artist: Blue Wizard Digital LP
+      seller_url: https://footballbros.io
+      released: '2025-06-05'
+      age_days: 458
+      ratings: 193
+      apps_for_domain: 1
+      apps:
+      - app: Football Bros
+        seller: Blue Wizard Digital LP
+        released: '2025-06-05'
+        age_days: 458
+        ratings: 193
+  - code: A4
+    checked_at: '2026-09-06T14:47:40Z'
+    source: TLS handshake footballbros.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T14:47:43Z'
+    source: https://www.wikidata.org/wiki/Q136388386
+    data:
+      qid: Q136388386
+      label: Football Bros
+      kind: software
+      site: https://footballbros.io/
+      sitelinks: 0
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T14:47:40Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 549668
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T14:47:51Z'
+    source: http://web.archive.org/cdx/search/cdx?url=footballbros.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2024-05-26'
+      history_days: 833
+  - code: A6
+    checked_at: '2026-09-06T14:48:23Z'
+    source: propagate from bluewizard.com
+    data:
+      from: bluewizard.com
+      from_status: verified
+      first_party_link: true
+      structural_links:
+      - shared_ns
+      san_count: 21
+      shared_ns:
+      - gina.ns.cloudflare.com
+      - rodney.ns.cloudflare.com
+      backlink: true
+  rejected_evidence:
+  - 'A9: no listing meets the App Store history bar (at least 2 years on the store and 1000 ratings); strongest:
+    Football Bros 458 days, 193 ratings'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: item Q136388386 != entity canonical item Q85747898'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T16:10:53Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q85747898
+  reviewed_by: []
+  source_issue: null

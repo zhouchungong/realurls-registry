@@ -1,0 +1,113 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:luma-touch
+names:
+  en: Luma Touch
+aliases: []
+category:
+- saas
+wikidata: Q109876565
+canonical:
+  github_org: null
+  wikidata: Q109876565
+  sources:
+  - wikidata:Q109876565/P856(sitelinks=0)
+  - appstore:Luma Touch LLC(LumaFusion,9y,24743 ratings)
+domains:
+- domain: luma-touch.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:14Z'
+  ttl_days: 30
+  age_days: 4988
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T14:55:15Z'
+    source: https://api.github.com/orgs/luma-touch
+    data:
+      org: luma-touch
+      org_verified: false
+      blog: http://www.luma-touch.com
+  - code: A9
+    checked_at: '2026-09-06T14:55:15Z'
+    source: https://itunes.apple.com/search?term=Luma%20Touch&entity=software
+    data:
+      app: LumaFusion
+      track_id: 1062022008
+      seller: Luma Touch LLC
+      artist: Luma Touch LLC
+      seller_url: https://www.luma-touch.com/lumafusion
+      released: '2016-12-22'
+      age_days: 3544
+      ratings: 24743
+      apps_for_domain: 1
+      apps:
+      - app: LumaFusion
+        seller: Luma Touch LLC
+        released: '2016-12-22'
+        age_days: 3544
+        ratings: 24743
+  - code: A3
+    checked_at: '2026-09-06T14:55:17Z'
+    source: https://rdap.org/domain/luma-touch.com
+    data:
+      registrar: IONOS SE
+      created: '2013-01-08'
+      expires: '2027-01-08'
+      remaining_days: 124
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T14:55:15Z'
+    source: TLS handshake luma-touch.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Sectigo Limited
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T14:55:15Z'
+    source: https://www.wikidata.org/wiki/Q109876565
+    data:
+      qid: Q109876565
+      label: Luma Touch
+      kind: organization
+      site: https://luma-touch.com/
+      sitelinks: 0
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T14:55:15Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 611421
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T14:55:24Z'
+    source: http://web.archive.org/cdx/search/cdx?url=luma-touch.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2013-07-07'
+      history_days: 4809
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (IONOS SE) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T16:10:53Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q109876565
+  reviewed_by: []
+  source_issue: null
