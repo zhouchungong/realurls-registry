@@ -82,6 +82,11 @@ domains:
   - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
   reasons:
   - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T04:28:33Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
 provenance:
   generated_by: build_entities/0.2
   policy_version: policy.py@a10d2a0

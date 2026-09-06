@@ -112,19 +112,24 @@ domains:
   - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
   reasons:
   - '2 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T04:28:33Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
 - domain: sherwood.news
   role: product
   status: verified
   confidence: 0.7105
   first_seen: '2026-09-06'
-  last_verified: '2026-09-06T03:02:26Z'
+  last_verified: '2026-09-06T04:19:00Z'
   ttl_days: 30
   age_days: 1340
   age_source: rdap
   collection_incomplete: false
   evidence:
   - code: A3
-    checked_at: '2026-09-06T03:09:54Z'
+    checked_at: '2026-09-06T04:20:17Z'
     source: https://rdap.org/domain/sherwood.news
     data:
       registrar: MarkMonitor Inc.
@@ -136,7 +141,7 @@ domains:
       - transfer
       - update
   - code: A4
-    checked_at: '2026-09-06T03:09:46Z'
+    checked_at: '2026-09-06T04:20:15Z'
     source: TLS handshake sherwood.news:443
     data:
       subject_org: ''
@@ -144,19 +149,19 @@ domains:
       issuer: Amazon
       san_count: 6
   - code: B5
-    checked_at: '2026-09-06T03:09:45Z'
+    checked_at: '2026-09-06T04:20:16Z'
     source: https://tranco-list.eu/download/daily/top-1m.csv.zip
     data:
-      rank: 80782
+      rank: 80502
       source: top-1m list
   - code: B4
-    checked_at: '2026-09-06T03:10:04Z'
+    checked_at: '2026-09-06T04:20:28Z'
     source: http://web.archive.org/cdx/search/cdx?url=sherwood.news&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2021-12-23'
       history_days: 1718
   - code: A6
-    checked_at: '2026-09-06T03:10:04Z'
+    checked_at: '2026-09-06T04:19:00Z'
     source: propagate from robinhood.com
     data:
       from: robinhood.com
@@ -172,9 +177,15 @@ domains:
   - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
   reasons:
   - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T04:28:33Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'consistent: Robinhood''s own media site, propagated from robinhood.com with a seen backlink'
 provenance:
   generated_by: build_entities/0.2
   policy_version: policy.py@a10d2a0
   label_source: wikidata:Q18155123
   reviewed_by: []
   source_issue: null
+  last_revalidated_by: revalidate/0.1
