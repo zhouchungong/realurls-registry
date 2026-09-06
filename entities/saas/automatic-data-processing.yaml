@@ -1,0 +1,114 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:automatic-data-processing
+names:
+  en: Automatic Data Processing
+aliases: []
+category:
+- saas
+wikidata: Q489080
+canonical:
+  github_org: null
+  wikidata: Q489080
+  sources:
+  - wikidata:Q489080/P856
+domains:
+- domain: adp.com
+  role: primary
+  status: verified
+  confidence: 0.7816
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:38Z'
+  ttl_days: 30
+  age_days: 12858
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T07:08:21Z'
+    source: https://itunes.apple.com/search?term=Automatic%20Data%20Processing&entity=software
+    data:
+      app: ADP RUN
+      track_id: 388928133
+      seller: ADP, Inc
+      artist: ADP, Inc
+      seller_url: http://www.adp.com/mobilepayroll/
+      released: '2010-09-13'
+      age_days: 5837
+      ratings: 50482
+      apps_for_domain: 5
+      apps:
+      - app: ADP RUN
+        seller: ADP, Inc
+        released: '2010-09-13'
+        age_days: 5837
+        ratings: 50482
+      - app: ADP Mobile Solutions
+        seller: ADP, Inc
+        released: '2011-07-13'
+        age_days: 5533
+        ratings: 4422194
+      - app: ADP My Work
+        seller: ADP, Inc
+        released: '2019-12-09'
+        age_days: 2462
+        ratings: 10537
+  - code: A3
+    checked_at: '2026-09-06T07:08:20Z'
+    source: https://rdap.org/domain/adp.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '1991-06-24'
+      expires: '2027-06-30'
+      remaining_days: 297
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T07:08:20Z'
+    source: TLS handshake adp.com:443
+    data:
+      subject_org: Automatic Data Processing, Inc.
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 16
+  - code: B1
+    checked_at: '2026-09-06T07:08:19Z'
+    source: https://www.wikidata.org/wiki/Q489080
+    data:
+      qid: Q489080
+      label: Automatic Data Processing
+      kind: organization
+      site: http://www.adp.com/
+      sitelinks: 13
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T07:08:19Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 2347
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T07:08:36Z'
+    source: http://web.archive.org/cdx/search/cdx?url=adp.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1996-12-26'
+      history_days: 10846
+  rejected_evidence:
+  - 'A9: neither the seller (ADP, Inc) nor the app (ADP RUN) is named like the anchored entity (Automatic Data Processing)'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q489080
+  reviewed_by: []
+  source_issue: null

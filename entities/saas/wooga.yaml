@@ -1,0 +1,115 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:wooga
+names:
+  en: Wooga
+aliases: []
+category:
+- saas
+wikidata: Q974657
+canonical:
+  github_org: null
+  wikidata: Q974657
+  sources:
+  - wikidata:Q974657/P856
+domains:
+- domain: wooga.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:41Z'
+  ttl_days: 30
+  age_days: 9657
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T07:58:48Z'
+    source: https://itunes.apple.com/search?term=Wooga&entity=software
+    data:
+      app: 'Jelly Splash: Fun Puzzle Game'
+      track_id: 645949180
+      seller: wooga gmbh
+      artist: wooga
+      seller_url: https://www.wooga.com
+      released: '2013-08-21'
+      age_days: 4763
+      ratings: 64389
+      apps_for_domain: 4
+      apps:
+      - app: 'Jelly Splash: Fun Puzzle Game'
+        seller: wooga gmbh
+        released: '2013-08-21'
+        age_days: 4763
+        ratings: 64389
+      - app: Pearl's Peril - Hidden Objects
+        seller: wooga gmbh
+        released: '2015-05-06'
+        age_days: 4140
+        ratings: 40237
+      - app: 'Tropicats: Match 3 Puzzle Game'
+        seller: wooga gmbh
+        released: '2017-11-15'
+        age_days: 3216
+        ratings: 8373
+  - code: A3
+    checked_at: '2026-09-06T07:59:22Z'
+    source: https://rdap.org/domain/wooga.com
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2000-03-28'
+      expires: '2027-03-28'
+      remaining_days: 203
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T07:58:47Z'
+    source: TLS handshake wooga.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T07:58:47Z'
+    source: https://www.wikidata.org/wiki/Q974657
+    data:
+      qid: Q974657
+      label: Wooga
+      kind: organization
+      site: https://www.wooga.com/
+      sitelinks: 4
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T07:58:47Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 10588
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T07:58:54Z'
+    source: http://web.archive.org/cdx/search/cdx?url=wooga.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2001-07-19'
+      history_days: 9180
+  rejected_evidence:
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q974657
+  reviewed_by: []
+  source_issue: null

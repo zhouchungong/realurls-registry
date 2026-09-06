@@ -1,0 +1,126 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:esri
+names:
+  en: Esri
+aliases:
+- esri
+category:
+- saas
+wikidata: Q1045778
+canonical:
+  github_org: esri
+  wikidata: Q1045778
+  sources:
+  - wikidata:Q1045778/P856
+  - wikidata:Q1045778/P2037
+domains:
+- domain: esri.com
+  role: primary
+  status: verified
+  confidence: 0.9345
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:29Z'
+  ttl_days: 30
+  age_days: 13290
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T07:02:14Z'
+    source: https://api.github.com/orgs/esri
+    data:
+      org: esri
+      org_verified: true
+      blog: https://www.esri.com
+      org_name: Esri
+      created_at: '2011-02-20T20:49:42Z'
+  - code: A9
+    checked_at: '2026-09-06T07:02:15Z'
+    source: https://itunes.apple.com/search?term=Esri&entity=software
+    data:
+      app: Esri Events
+      track_id: 620435017
+      seller: ESRI
+      artist: ESRI
+      seller_url: https://www.esri.com/en-us/about/events/index/events-app
+      released: '2013-03-22'
+      age_days: 4916
+      ratings: 1319
+      apps_for_domain: 13
+      apps:
+      - app: Esri Events
+        seller: ESRI
+        released: '2013-03-22'
+        age_days: 4916
+        ratings: 1319
+      - app: ArcGIS Survey123
+        seller: ESRI
+        released: '2015-05-23'
+        age_days: 4123
+        ratings: 213
+      - app: ArcGIS Field Maps
+        seller: ESRI
+        released: '2020-11-01'
+        age_days: 2135
+        ratings: 46
+  - code: A3
+    checked_at: '2026-09-06T07:02:37Z'
+    source: https://rdap.org/domain/esri.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '1990-04-18'
+      expires: '2028-04-19'
+      remaining_days: 590
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T07:02:14Z'
+    source: TLS handshake esri.com:443
+    data:
+      subject_org: Environmental Systems Research Institute, Inc.
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T07:02:14Z'
+    source: https://www.wikidata.org/wiki/Q1045778
+    data:
+      qid: Q1045778
+      label: Esri
+      kind: organization
+      site: https://www.esri.com
+      sitelinks: 29
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-06T07:02:14Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 6571
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T07:03:04Z'
+    source: http://web.archive.org/cdx/search/cdx?url=esri.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1996-11-04'
+      history_days: 10898
+  rejected_evidence:
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: certificate organization (Environmental Systems Research Institute, Inc.) is not the anchored entity (Esri,
+    esri)'
+  reasons:
+  - '2 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q1045778
+  reviewed_by: []
+  source_issue: null

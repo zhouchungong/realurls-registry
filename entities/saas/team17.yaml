@@ -1,0 +1,115 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:team17
+names:
+  en: Team17
+aliases: []
+category:
+- saas
+wikidata: Q1384984
+canonical:
+  github_org: null
+  wikidata: Q1384984
+  sources:
+  - wikidata:Q1384984/P856
+domains:
+- domain: team17.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:33Z'
+  ttl_days: 30
+  age_days: 11405
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T06:56:27Z'
+    source: https://itunes.apple.com/search?term=Team17&entity=software
+    data:
+      app: 'Escapists 2: Pocket Breakout'
+      track_id: 1356167732
+      seller: Team17 Digital Limited
+      artist: Team17 Digital Limited
+      seller_url: http://www.team17.com/
+      released: '2019-01-31'
+      age_days: 2774
+      ratings: 10279
+      apps_for_domain: 6
+      apps:
+      - app: 'Escapists 2: Pocket Breakout'
+        seller: Team17 Digital Limited
+        released: '2019-01-31'
+        age_days: 2774
+        ratings: 10279
+      - app: 'The Escapists: Prison Escape'
+        seller: Team17 Digital Limited
+        released: '2017-03-02'
+        age_days: 3474
+        ratings: 3313
+      - app: Worms™ 4
+        seller: Team17 Digital Limited
+        released: '2015-09-03'
+        age_days: 4020
+        ratings: 726
+  - code: A3
+    checked_at: '2026-09-06T06:57:09Z'
+    source: https://rdap.org/domain/team17.com
+    data:
+      registrar: CSC Corporate Domains, Inc.
+      created: '1995-06-16'
+      expires: '2027-06-15'
+      remaining_days: 281
+      locks:
+      - transfer
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-06T06:56:26Z'
+    source: TLS handshake team17.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T06:56:26Z'
+    source: https://www.wikidata.org/wiki/Q1384984
+    data:
+      qid: Q1384984
+      label: Team17
+      kind: organization
+      site: http://www.team17.com/
+      sitelinks: 21
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-06T06:56:26Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 119067
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T06:57:14Z'
+    source: http://web.archive.org/cdx/search/cdx?url=team17.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1996-10-18'
+      history_days: 10915
+  rejected_evidence:
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q1384984
+  reviewed_by: []
+  source_issue: null

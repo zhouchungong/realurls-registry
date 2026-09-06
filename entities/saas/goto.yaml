@@ -1,0 +1,170 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:goto
+names:
+  en: GoTo
+aliases: []
+category:
+- saas
+wikidata: Q823303
+canonical:
+  github_org: null
+  wikidata: Q823303
+  sources:
+  - wikidata:Q823303/P856
+domains:
+- domain: goto.com
+  role: primary
+  status: verified
+  confidence: 0.8883
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:33Z'
+  ttl_days: 30
+  age_days: 10314
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T07:36:09Z'
+    source: https://itunes.apple.com/search?term=GoTo&entity=software
+    data:
+      app: GoTo
+      track_id: 1465614785
+      seller: GoTo Group, Inc.
+      artist: GoTo Group, Inc.
+      seller_url: https://www.goto.com/connect/?c_name=lmi&c_prod=gotoconnect&c_cmp=products
+      released: '2019-09-17'
+      age_days: 2546
+      ratings: 143336
+      apps_for_domain: 1
+      apps:
+      - app: GoTo
+        seller: GoTo Group, Inc.
+        released: '2019-09-17'
+        age_days: 2546
+        ratings: 143336
+  - code: A3
+    checked_at: '2026-09-06T07:36:51Z'
+    source: https://rdap.org/domain/goto.com
+    data:
+      registrar: Nom-iq Ltd. dba COM LAUDE
+      created: '1998-06-11'
+      expires: '2027-06-10'
+      remaining_days: 276
+      locks:
+      - delete
+      - transfer
+      - update
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-06T07:36:08Z'
+    source: TLS handshake goto.com:443
+    data:
+      subject_org: GoTo Technologies USA, LLC
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T07:36:08Z'
+    source: https://www.wikidata.org/wiki/Q823303
+    data:
+      qid: Q823303
+      label: GoTo
+      kind: organization
+      site: https://www.goto.com/
+      sitelinks: 10
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T07:36:08Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 5583
+      source: top-1m list
+  rejected_evidence:
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  reasons:
+  - '2 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+- domain: gotowebinar.com
+  role: product
+  status: verified
+  confidence: 0.9131
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:33Z'
+  ttl_days: 30
+  age_days: 8472
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A3
+    checked_at: '2026-09-06T07:39:01Z'
+    source: https://rdap.org/domain/gotowebinar.com
+    data:
+      registrar: Nom-iq Ltd. dba COM LAUDE
+      created: '2003-06-26'
+      expires: '2027-06-26'
+      remaining_days: 293
+      locks:
+      - delete
+      - transfer
+      - update
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-06T07:38:17Z'
+    source: TLS handshake gotowebinar.com:443
+    data:
+      subject_org: GoTo Technologies USA, LLC
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 12
+  - code: B5
+    checked_at: '2026-09-06T07:38:17Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 2920
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T07:38:37Z'
+    source: http://web.archive.org/cdx/search/cdx?url=gotowebinar.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2006-10-31'
+      history_days: 7250
+  - code: A6
+    checked_at: '2026-09-06T07:39:01Z'
+    source: propagate from goto.com
+    data:
+      from: goto.com
+      from_status: verified
+      first_party_link: true
+      structural_links:
+      - shared_ns
+      san_count: 2
+      shared_ns:
+      - ns1.getgo.com
+      - ns2.getgo.com
+      - ns3.getgo.com
+      backlink: true
+  rejected_evidence:
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  reasons:
+  - '2 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q823303
+  reviewed_by: []
+  source_issue: null

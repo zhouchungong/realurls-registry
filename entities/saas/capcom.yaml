@@ -1,0 +1,101 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:capcom
+names:
+  en: Capcom
+aliases: []
+category:
+- saas
+wikidata: Q14428
+canonical:
+  github_org: null
+  wikidata: Q14428
+  sources:
+  - wikidata:Q14428/P856
+domains:
+- domain: capcom.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:31Z'
+  ttl_days: 30
+  age_days: 11132
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T06:42:39Z'
+    source: https://itunes.apple.com/search?term=Capcom&entity=software
+    data:
+      app: Monster Hunter Puzzles
+      track_id: 1591864714
+      seller: CAPCOM Co., Ltd
+      artist: CAPCOM
+      seller_url: https://mobile.capcom.com/mhpuzzle/
+      released: '2024-06-27'
+      age_days: 800
+      ratings: 5911
+      apps_for_domain: 1
+      apps:
+      - app: Monster Hunter Puzzles
+        seller: CAPCOM Co., Ltd
+        released: '2024-06-27'
+        age_days: 800
+        ratings: 5911
+  - code: A3
+    checked_at: '2026-09-06T06:42:39Z'
+    source: https://rdap.org/domain/capcom.com
+    data:
+      registrar: Japan Registry Services Co., Ltd.
+      created: '1996-03-15'
+      expires: '2027-03-16'
+      remaining_days: 190
+      locks: []
+  - code: A4
+    checked_at: '2026-09-06T06:42:38Z'
+    source: TLS handshake capcom.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: DigiCert Inc
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T06:42:38Z'
+    source: https://www.wikidata.org/wiki/Q14428
+    data:
+      qid: Q14428
+      label: Capcom
+      kind: organization
+      site: https://www.capcom.com/
+      sitelinks: 57
+      competing_items: 2
+  - code: B5
+    checked_at: '2026-09-06T06:42:38Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 19731
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T06:43:15Z'
+    source: http://web.archive.org/cdx/search/cdx?url=capcom.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1996-12-22'
+      history_days: 10850
+  rejected_evidence:
+  - 'A3: registrar (Japan Registry Services Co., Ltd.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q14428
+  reviewed_by: []
+  source_issue: null

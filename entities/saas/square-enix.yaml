@@ -1,0 +1,114 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:square-enix
+names:
+  en: Square Enix
+aliases: []
+category:
+- saas
+wikidata: Q207784
+canonical:
+  github_org: null
+  wikidata: Q207784
+  sources:
+  - wikidata:Q207784/P856
+domains:
+- domain: square-enix.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:29Z'
+  ttl_days: 30
+  age_days: 8685
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T06:42:41Z'
+    source: https://itunes.apple.com/search?term=Square%20Enix&entity=software
+    data:
+      app: FINAL FANTASY TACTICS :WotL
+      track_id: 446760220
+      seller: SQUARE ENIX Co., Ltd.
+      artist: SQUARE ENIX
+      seller_url: http://dlgames.square-enix.com/fft/
+      released: '2011-08-04'
+      age_days: 5511
+      ratings: 1622
+      apps_for_domain: 10
+      apps:
+      - app: FINAL FANTASY TACTICS :WotL
+        seller: SQUARE ENIX Co., Ltd.
+        released: '2011-08-04'
+        age_days: 5511
+        ratings: 1622
+      - app: FINAL FANTASY Ⅸ
+        seller: SQUARE ENIX Co., Ltd.
+        released: '2016-02-09'
+        age_days: 3861
+        ratings: 1401
+      - app: FINAL FANTASY VII
+        seller: SQUARE ENIX Co., Ltd.
+        released: '2015-08-20'
+        age_days: 4034
+        ratings: 1342
+  - code: A3
+    checked_at: '2026-09-06T06:42:41Z'
+    source: https://rdap.org/domain/square-enix.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2002-11-26'
+      expires: '2027-11-26'
+      remaining_days: 445
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T06:42:40Z'
+    source: TLS handshake square-enix.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: DigiCert Inc
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T06:42:40Z'
+    source: https://www.wikidata.org/wiki/Q207784
+    data:
+      qid: Q207784
+      label: Square Enix
+      kind: organization
+      site: https://www.square-enix.com/
+      sitelinks: 50
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T06:42:40Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 10700
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T06:43:19Z'
+    source: http://web.archive.org/cdx/search/cdx?url=square-enix.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2003-07-11'
+      history_days: 8458
+  rejected_evidence:
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q207784
+  reviewed_by: []
+  source_issue: null

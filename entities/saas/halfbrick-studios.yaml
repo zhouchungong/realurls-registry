@@ -1,0 +1,115 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:halfbrick-studios
+names:
+  en: Halfbrick Studios
+aliases: []
+category:
+- saas
+wikidata: Q3125951
+canonical:
+  github_org: null
+  wikidata: Q3125951
+  sources:
+  - wikidata:Q3125951/P856
+domains:
+- domain: halfbrick.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:33Z'
+  ttl_days: 30
+  age_days: 9493
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T07:01:30Z'
+    source: https://itunes.apple.com/search?term=Halfbrick%20Studios&entity=software
+    data:
+      app: Fruit Ninja Classic
+      track_id: 362949845
+      seller: Halfbrick
+      artist: Halfbrick Studios
+      seller_url: https://www.halfbrick.com/halfbrickplus
+      released: '2010-04-20'
+      age_days: 5982
+      ratings: 26944
+      apps_for_domain: 18
+      apps:
+      - app: Fruit Ninja Classic
+        seller: Halfbrick
+        released: '2010-04-20'
+        age_days: 5982
+        ratings: 26944
+      - app: Jetpack Joyride
+        seller: Halfbrick
+        released: '2011-09-01'
+        age_days: 5484
+        ratings: 102978
+      - app: Magic Brick Wars
+        seller: Halfbrick
+        released: '2018-12-20'
+        age_days: 2816
+        ratings: 4774
+  - code: A3
+    checked_at: '2026-09-06T07:01:29Z'
+    source: https://rdap.org/domain/halfbrick.com
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2000-09-08'
+      expires: '2026-09-08'
+      remaining_days: 2
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T07:01:28Z'
+    source: TLS handshake halfbrick.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T07:01:28Z'
+    source: https://www.wikidata.org/wiki/Q3125951
+    data:
+      qid: Q3125951
+      label: Halfbrick Studios
+      kind: organization
+      site: http://www.halfbrick.com/
+      sitelinks: 15
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T07:01:28Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 248806
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T07:01:50Z'
+    source: http://web.archive.org/cdx/search/cdx?url=halfbrick.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2001-04-02'
+      history_days: 9288
+  rejected_evidence:
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q3125951
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,125 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:avira
+names:
+  en: Avira
+aliases: []
+category:
+- saas
+wikidata: Q468381
+canonical:
+  github_org: null
+  wikidata: Q468381
+  sources:
+  - wikidata:Q468381/P856
+domains:
+- domain: avira.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:37Z'
+  ttl_days: 30
+  age_days: 9315
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T06:52:10Z'
+    source: https://api.github.com/orgs/avira
+    data:
+      org: avira
+      org_verified: false
+      blog: www.avira.com
+  - code: A9
+    checked_at: '2026-09-06T06:52:11Z'
+    source: https://itunes.apple.com/search?term=Avira&entity=software
+    data:
+      app: Avira Phantom VPN & Wifi Proxy
+      track_id: 1112484006
+      seller: Avira Holding GmbH & Co. KG
+      artist: Avira Holding
+      seller_url: https://www.avira.com/en/avira-phantom-vpn
+      released: '2016-06-21'
+      age_days: 3728
+      ratings: 6033
+      apps_for_domain: 3
+      apps:
+      - app: Avira Phantom VPN & Wifi Proxy
+        seller: Avira Holding GmbH & Co. KG
+        released: '2016-06-21'
+        age_days: 3728
+        ratings: 6033
+      - app: Avira Mobile Security
+        seller: Avira Holding GmbH & Co. KG
+        released: '2013-09-30'
+        age_days: 4724
+        ratings: 4656
+      - app: Avira Password Manager
+        seller: Avira Holding GmbH & Co. KG
+        released: '2016-12-08'
+        age_days: 3558
+        ratings: 535
+  - code: A3
+    checked_at: '2026-09-06T06:52:10Z'
+    source: https://rdap.org/domain/avira.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2001-03-05'
+      expires: '2026-10-10'
+      remaining_days: 34
+      locks:
+      - delete
+      - transfer
+      - update
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-06T06:52:10Z'
+    source: TLS handshake avira.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T06:52:10Z'
+    source: https://www.wikidata.org/wiki/Q468381
+    data:
+      qid: Q468381
+      label: Avira
+      kind: organization
+      site: https://www.avira.com/
+      sitelinks: 26
+      competing_items: 2
+  - code: B5
+    checked_at: '2026-09-06T06:52:10Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 1798
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T06:52:28Z'
+    source: http://web.archive.org/cdx/search/cdx?url=avira.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2001-03-12'
+      history_days: 9309
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q468381
+  reviewed_by: []
+  source_issue: null

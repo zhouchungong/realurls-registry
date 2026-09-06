@@ -1,0 +1,84 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:fidessa
+names:
+  en: Fidessa
+aliases: []
+category:
+- saas
+wikidata: Q1411344
+canonical:
+  github_org: null
+  wikidata: Q1411344
+  sources:
+  - wikidata:Q1411344/P856
+domains:
+- domain: fidessa.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:37Z'
+  ttl_days: 30
+  age_days: 10313
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A3
+    checked_at: '2026-09-06T08:13:24Z'
+    source: https://rdap.org/domain/fidessa.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '1998-06-12'
+      expires: '2031-08-27'
+      remaining_days: 1816
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T08:13:23Z'
+    source: TLS handshake fidessa.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T08:13:23Z'
+    source: https://www.wikidata.org/wiki/Q1411344
+    data:
+      qid: Q1411344
+      label: Fidessa
+      kind: organization
+      site: http://www.fidessa.com
+      sitelinks: 3
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T08:13:23Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 476622
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T08:13:29Z'
+    source: http://web.archive.org/cdx/search/cdx?url=fidessa.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2001-04-01'
+      history_days: 9289
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q1411344
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,96 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:innersloth
+names:
+  en: InnerSloth
+aliases: []
+category:
+- saas
+wikidata: Q98961329
+canonical:
+  github_org: null
+  wikidata: Q98961329
+  sources:
+  - wikidata:Q98961329/P856
+domains:
+- domain: innersloth.com
+  role: primary
+  status: verified
+  confidence: 0.6278
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:34Z'
+  ttl_days: 30
+  age_days: 4476
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T07:23:00Z'
+    source: https://itunes.apple.com/search?term=InnerSloth&entity=software
+    data:
+      app: Among Us!
+      track_id: 1351168404
+      seller: InnerSloth LLC
+      artist: InnerSloth LLC
+      seller_url: http://www.innersloth.com/gameAmongUs.html
+      released: '2018-07-25'
+      age_days: 2964
+      ratings: 842681
+      apps_for_domain: 1
+      apps:
+      - app: Among Us!
+        seller: InnerSloth LLC
+        released: '2018-07-25'
+        age_days: 2964
+        ratings: 842681
+  - code: A3
+    checked_at: '2026-09-06T07:23:00Z'
+    source: https://rdap.org/domain/innersloth.com
+    data:
+      registrar: NameCheap, Inc.
+      created: '2014-06-05'
+      expires: '2027-06-05'
+      remaining_days: 271
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T07:23:00Z'
+    source: TLS handshake innersloth.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T07:22:59Z'
+    source: https://www.wikidata.org/wiki/Q98961329
+    data:
+      qid: Q98961329
+      label: InnerSloth
+      kind: organization
+      site: https://innersloth.com/
+      sitelinks: 8
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T07:22:59Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 25618
+      source: top-1m list
+  rejected_evidence:
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q98961329
+  reviewed_by: []
+  source_issue: null

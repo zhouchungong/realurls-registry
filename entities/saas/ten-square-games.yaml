@@ -1,0 +1,123 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:ten-square-games
+names:
+  en: Ten Square Games
+aliases: []
+category:
+- saas
+wikidata: Q60860500
+canonical:
+  github_org: null
+  wikidata: Q60860500
+  sources:
+  - wikidata:Q60860500/P856
+domains:
+- domain: tensquaregames.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:33Z'
+  ttl_days: 30
+  age_days: 5458
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T08:04:57Z'
+    source: https://api.github.com/orgs/tensquaregames
+    data:
+      org: tensquaregames
+      org_verified: true
+      blog: https://tensquaregames.com
+      org_name: Ten Square Games
+      created_at: '2014-01-03T10:56:00Z'
+  - code: A9
+    checked_at: '2026-09-06T08:04:59Z'
+    source: https://itunes.apple.com/search?term=Ten%20Square%20Games&entity=software
+    data:
+      app: 'Wild Hunt: Hunter Simulator'
+      track_id: 1164890160
+      seller: Ten Square Games S.A.
+      artist: Ten Square Games S.A.
+      seller_url: https://tensquaregames.com
+      released: '2017-07-19'
+      age_days: 3335
+      ratings: 11035
+      apps_for_domain: 5
+      apps:
+      - app: 'Wild Hunt: Hunter Simulator'
+        seller: Ten Square Games S.A.
+        released: '2017-07-19'
+        age_days: 3335
+        ratings: 11035
+      - app: 'Fishing Clash: Sport Simulator'
+        seller: Ten Square Games S.A.
+        released: '2017-10-24'
+        age_days: 3238
+        ratings: 157588
+      - app: 'Hunting Clash: Sniper Game'
+        seller: Ten Square Games S.A.
+        released: '2020-08-24'
+        age_days: 2204
+        ratings: 49759
+  - code: A3
+    checked_at: '2026-09-06T08:04:58Z'
+    source: https://rdap.org/domain/tensquaregames.com
+    data:
+      registrar: Key-Systems GmbH
+      created: '2011-09-26'
+      expires: '2034-09-26'
+      remaining_days: 2942
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T08:04:58Z'
+    source: TLS handshake tensquaregames.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T08:04:57Z'
+    source: https://www.wikidata.org/wiki/Q60860500
+    data:
+      qid: Q60860500
+      label: Ten Square Games
+      kind: organization
+      site: https://tensquaregames.com/
+      sitelinks: 4
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T08:04:57Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 56201
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T08:05:08Z'
+    source: http://web.archive.org/cdx/search/cdx?url=tensquaregames.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2012-01-08'
+      history_days: 5355
+  rejected_evidence:
+  - 'A1: entity not anchored: no canonical GitHub organization from an independent authority; proof of control is
+    not proof of ownership'
+  - 'A3: registrar (Key-Systems GmbH) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q60860500
+  reviewed_by: []
+  source_issue: null

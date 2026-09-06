@@ -1,0 +1,126 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:hewlett-packard-enterprise
+names:
+  en: Hewlett Packard Enterprise
+aliases: []
+category:
+- saas
+wikidata: Q19923099
+canonical:
+  github_org: null
+  wikidata: Q19923099
+  sources:
+  - wikidata:Q19923099/P856
+domains:
+- domain: hpe.com
+  role: primary
+  status: verified
+  confidence: 0.7816
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:37Z'
+  ttl_days: 30
+  age_days: 11489
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T06:51:04Z'
+    source: https://api.github.com/orgs/hpe
+    data:
+      org: hpe
+      org_verified: false
+      blog: https://www.hpe.com/
+  - code: A9
+    checked_at: '2026-09-06T06:51:05Z'
+    source: https://itunes.apple.com/search?term=Hewlett%20Packard%20Enterprise&entity=software
+    data:
+      app: HPE Instant On
+      track_id: 6739608641
+      seller: Hewlett Packard Enterprise Company
+      artist: Hewlett Packard Enterprise Company
+      seller_url: https://instant-on.hpe.com
+      released: '2025-03-04'
+      age_days: 550
+      ratings: 17
+      apps_for_domain: 8
+      apps:
+      - app: HPE Instant On
+        seller: Hewlett Packard Enterprise Company
+        released: '2025-03-04'
+        age_days: 550
+        ratings: 17
+      - app: HPE Parts Validation
+        seller: Hewlett Packard Enterprise Company
+        released: '2017-09-28'
+        age_days: 3265
+        ratings: 11
+      - app: HPE OfficeConnect Wi-Fi Portal
+        seller: Hewlett Packard Enterprise Company
+        released: '2017-06-26'
+        age_days: 3358
+        ratings: 4
+  - code: A3
+    checked_at: '2026-09-06T06:51:37Z'
+    source: https://rdap.org/domain/hpe.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '1995-03-24'
+      expires: '2027-03-25'
+      remaining_days: 199
+      locks:
+      - delete
+      - transfer
+      - update
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-06T06:51:04Z'
+    source: TLS handshake hpe.com:443
+    data:
+      subject_org: Hewlett Packard Enterprise Company
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 21
+  - code: B1
+    checked_at: '2026-09-06T06:51:04Z'
+    source: https://www.wikidata.org/wiki/Q19923099
+    data:
+      qid: Q19923099
+      label: Hewlett Packard Enterprise
+      kind: organization
+      site: https://www.hpe.com/
+      sitelinks: 30
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T06:51:04Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 2098
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T06:51:14Z'
+    source: http://web.archive.org/cdx/search/cdx?url=hpe.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1996-12-23'
+      history_days: 10849
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A9: no listing meets the App Store history bar (at least 2 years on the store and 1000 ratings); strongest:
+    HPE Instant On 550 days, 17 ratings'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q19923099
+  reviewed_by: []
+  source_issue: null

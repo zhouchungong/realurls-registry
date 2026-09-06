@@ -1,0 +1,104 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:opera
+names:
+  en: Opera
+aliases: []
+category:
+- saas
+wikidata: Q41242
+canonical:
+  github_org: null
+  wikidata: Q41242
+  sources:
+  - wikidata:Q41242/P856
+domains:
+- domain: opera.com
+  role: primary
+  status: verified
+  confidence: 0.6278
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:33Z'
+  ttl_days: 30
+  age_days: 10007
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T06:44:04Z'
+    source: https://itunes.apple.com/search?term=Opera&entity=software
+    data:
+      app: 'Opera News: Breaking & Local'
+      track_id: 1444253126
+      seller: Opera Norway AS
+      artist: Opera Norway AS
+      seller_url: https://www.opera.com
+      released: '2019-02-03'
+      age_days: 2772
+      ratings: 28580
+      apps_for_domain: 2
+      apps:
+      - app: 'Opera News: Breaking & Local'
+        seller: Opera Norway AS
+        released: '2019-02-03'
+        age_days: 2772
+        ratings: 28580
+      - app: Opera GX
+        seller: Opera Norway AS
+        released: '2021-06-15'
+        age_days: 1908
+        ratings: 96764
+  - code: A3
+    checked_at: '2026-09-06T06:44:03Z'
+    source: https://rdap.org/domain/opera.com
+    data:
+      registrar: NameWeb BVBA
+      created: '1999-04-14'
+      expires: '2027-04-14'
+      remaining_days: 219
+      locks:
+      - transfer
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-06T06:44:03Z'
+    source: TLS handshake opera.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Trust Provider B.V.
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T06:44:03Z'
+    source: https://www.wikidata.org/wiki/Q41242
+    data:
+      qid: Q41242
+      label: Opera
+      kind: software
+      site: https://www.opera.com
+      sitelinks: 90
+      competing_items: 2
+  - code: B5
+    checked_at: '2026-09-06T06:44:03Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 91
+      source: top-1m list
+  rejected_evidence:
+  - 'A3: registrar (NameWeb BVBA) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q41242
+  reviewed_by: []
+  source_issue: null

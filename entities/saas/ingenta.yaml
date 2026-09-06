@@ -1,0 +1,79 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:ingenta
+names:
+  en: Ingenta
+aliases: []
+category:
+- saas
+wikidata: Q6032249
+canonical:
+  github_org: null
+  wikidata: Q6032249
+  sources:
+  - wikidata:Q6032249/P856
+domains:
+- domain: ingenta.com
+  role: primary
+  status: verified
+  confidence: 0.7518
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:37Z'
+  ttl_days: 30
+  age_days: 10280
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A3
+    checked_at: '2026-09-06T08:09:02Z'
+    source: https://rdap.org/domain/ingenta.com
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '1998-07-15'
+      expires: '2027-10-27'
+      remaining_days: 416
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T08:09:02Z'
+    source: TLS handshake ingenta.com:443
+    data:
+      subject_org: Ingenta
+      validation_type: OV
+      issuer: Sectigo Limited
+      san_count: 3
+  - code: B1
+    checked_at: '2026-09-06T08:09:02Z'
+    source: https://www.wikidata.org/wiki/Q6032249
+    data:
+      qid: Q6032249
+      label: Ingenta
+      kind: organization
+      site: https://www.ingenta.com/
+      sitelinks: 3
+      competing_items: 4
+  - code: B5
+    checked_at: '2026-09-06T08:09:02Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 65286
+      source: top-1m list
+  rejected_evidence:
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q6032249
+  reviewed_by: []
+  source_issue: null

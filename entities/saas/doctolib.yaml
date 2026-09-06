@@ -1,0 +1,105 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:doctolib
+names:
+  en: Doctolib
+aliases: []
+category:
+- saas
+wikidata: Q22248343
+canonical:
+  github_org: null
+  wikidata: Q22248343
+  sources:
+  - wikidata:Q22248343/P856
+domains:
+- domain: doctolib.fr
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:39Z'
+  ttl_days: 30
+  age_days: 4806
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T08:07:16Z'
+    source: https://itunes.apple.com/search?term=Doctolib&entity=software
+    data:
+      app: Doctolib - Your health partner
+      track_id: 925339063
+      seller: Doctolib
+      artist: Doctolib
+      seller_url: https://www.doctolib.fr
+      released: '2020-03-11'
+      age_days: 2370
+      ratings: 1473
+      apps_for_domain: 1
+      apps:
+      - app: Doctolib - Your health partner
+        seller: Doctolib
+        released: '2020-03-11'
+        age_days: 2370
+        ratings: 1473
+  - code: A3
+    checked_at: '2026-09-06T08:07:30Z'
+    source: https://rdap.org/domain/doctolib.fr
+    data:
+      registrar: CSC CORPORATE DOMAINS INC.
+      created: '2013-07-09'
+      expires: '2026-09-13'
+      remaining_days: 7
+      locks:
+      - server update
+      - server transfer
+      - server delete
+      - server recover
+  - code: A4
+    checked_at: '2026-09-06T08:07:16Z'
+    source: TLS handshake doctolib.fr:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 4
+  - code: B1
+    checked_at: '2026-09-06T08:07:15Z'
+    source: https://www.wikidata.org/wiki/Q22248343
+    data:
+      qid: Q22248343
+      label: Doctolib
+      kind: organization
+      site: https://www.doctolib.fr/
+      sitelinks: 3
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T08:07:15Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 4847
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T08:07:26Z'
+    source: http://web.archive.org/cdx/search/cdx?url=doctolib.fr&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2014-02-08'
+      history_days: 4593
+  rejected_evidence:
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q22248343
+  reviewed_by: []
+  source_issue: null

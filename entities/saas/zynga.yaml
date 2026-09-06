@@ -1,0 +1,122 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:zynga
+names:
+  en: Zynga
+aliases: []
+category:
+- saas
+wikidata: Q245772
+canonical:
+  github_org: null
+  wikidata: Q245772
+  sources:
+  - wikidata:Q245772/P856
+domains:
+- domain: zynga.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:41Z'
+  ttl_days: 30
+  age_days: 6882
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T06:47:20Z'
+    source: https://api.github.com/orgs/zynga
+    data:
+      org: zynga
+      org_verified: false
+      blog: http://code.zynga.com
+  - code: A9
+    checked_at: '2026-09-06T06:47:22Z'
+    source: https://itunes.apple.com/search?term=Zynga&entity=software
+    data:
+      app: Classic Words With Friends
+      track_id: 321916506
+      seller: Zynga Inc.
+      artist: Zynga Inc.
+      seller_url: https://www.zynga.com/
+      released: '2009-07-19'
+      age_days: 6257
+      ratings: 85121
+      apps_for_domain: 20
+      apps:
+      - app: Classic Words With Friends
+        seller: Zynga Inc.
+        released: '2009-07-19'
+        age_days: 6257
+        ratings: 85121
+      - app: Zynga Poker ™ - Texas Hold'em
+        seller: Zynga Inc.
+        released: '2010-05-14'
+        age_days: 5958
+        ratings: 133576
+      - app: Solitaire·
+        seller: Zynga Inc.
+        released: '2013-01-30'
+        age_days: 4967
+        ratings: 710692
+  - code: A3
+    checked_at: '2026-09-06T06:47:21Z'
+    source: https://rdap.org/domain/zynga.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2007-11-02'
+      expires: '2027-11-02'
+      remaining_days: 422
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T06:47:20Z'
+    source: TLS handshake zynga.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 6
+  - code: B1
+    checked_at: '2026-09-06T06:47:20Z'
+    source: https://www.wikidata.org/wiki/Q245772
+    data:
+      qid: Q245772
+      label: Zynga
+      kind: organization
+      site: https://www.zynga.com/
+      sitelinks: 26
+      competing_items: 2
+  - code: B5
+    checked_at: '2026-09-06T06:47:20Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 3074
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T06:48:09Z'
+    source: http://web.archive.org/cdx/search/cdx?url=zynga.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2008-01-16'
+      history_days: 6808
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q245772
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,95 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:supermetrics-public
+names:
+  en: Supermetrics
+aliases:
+- Supermetrics for Community
+- supermetrics-public
+category:
+- saas
+wikidata: Q114661529
+canonical:
+  github_org: supermetrics-public
+  wikidata: Q114661529
+  sources:
+  - wikidata:Q114661529/P856
+  - wikidata:Q114661529/P2037
+domains:
+- domain: supermetrics.com
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:39Z'
+  ttl_days: 30
+  age_days: 6269
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T07:58:56Z'
+    source: https://api.github.com/orgs/supermetrics-public
+    data:
+      org: supermetrics-public
+      org_verified: true
+      blog: https://supermetrics.com/
+      org_name: Supermetrics for Community
+      created_at: '2020-08-07T11:37:59Z'
+  - code: A3
+    checked_at: '2026-09-06T07:59:17Z'
+    source: https://rdap.org/domain/supermetrics.com
+    data:
+      registrar: Cloudflare, Inc.
+      created: '2009-07-07'
+      expires: '2027-07-07'
+      remaining_days: 304
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T07:58:56Z'
+    source: TLS handshake supermetrics.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T07:58:56Z'
+    source: https://www.wikidata.org/wiki/Q114661529
+    data:
+      qid: Q114661529
+      label: Supermetrics
+      kind: organization
+      site: https://supermetrics.com/
+      sitelinks: 4
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T07:58:56Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 60978
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T07:58:57Z'
+    source: http://web.archive.org/cdx/search/cdx?url=supermetrics.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2010-03-12'
+      history_days: 6022
+  rejected_evidence:
+  - 'A3: registrar (Cloudflare, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q114661529
+  reviewed_by: []
+  source_issue: null

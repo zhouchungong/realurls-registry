@@ -1,0 +1,103 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:kiloo
+names:
+  en: Kiloo
+aliases: []
+category:
+- saas
+wikidata: Q4162513
+canonical:
+  github_org: null
+  wikidata: Q4162513
+  sources:
+  - wikidata:Q4162513/P856
+domains:
+- domain: kiloo.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:29Z'
+  ttl_days: 30
+  age_days: 9715
+  age_source: rdap
+  collection_incomplete: true
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T07:45:37Z'
+    source: https://itunes.apple.com/search?term=Kiloo&entity=software
+    data:
+      app: Smash Champs
+      track_id: 878085263
+      seller: Kiloo
+      artist: Kiloo
+      seller_url: http://www.kiloo.com/games
+      released: '2014-10-31'
+      age_days: 4327
+      ratings: 1191
+      apps_for_domain: 4
+      apps:
+      - app: Smash Champs
+        seller: Kiloo
+        released: '2014-10-31'
+        age_days: 4327
+        ratings: 1191
+      - app: Spellbinders
+        seller: Kiloo
+        released: '2016-04-27'
+        age_days: 3783
+        ratings: 756
+      - app: Dawnbringer
+        seller: Kiloo
+        released: '2016-06-15'
+        age_days: 3734
+        ratings: 151
+  - code: A3
+    checked_at: '2026-09-06T07:45:43Z'
+    source: https://rdap.org/domain/kiloo.com
+    data:
+      registrar: Key-Systems GmbH
+      created: '2000-01-31'
+      expires: '2028-01-31'
+      remaining_days: 511
+      locks:
+      - transfer
+  - code: B1
+    checked_at: '2026-09-06T07:45:36Z'
+    source: https://www.wikidata.org/wiki/Q4162513
+    data:
+      qid: Q4162513
+      label: Kiloo
+      kind: organization
+      site: http://www.kiloo.com
+      sitelinks: 10
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T07:45:36Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 400403
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T07:46:09Z'
+    source: http://web.archive.org/cdx/search/cdx?url=kiloo.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2002-01-21'
+      history_days: 8994
+  rejected_evidence:
+  - 'A3: registrar (Key-Systems GmbH) is not a brand-protection registrar'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q4162513
+  reviewed_by: []
+  source_issue: null

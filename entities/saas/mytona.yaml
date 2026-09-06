@@ -1,0 +1,109 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:mytona
+names:
+  en: Mytona
+aliases: []
+category:
+- saas
+wikidata: Q31803137
+canonical:
+  github_org: null
+  wikidata: Q31803137
+  sources:
+  - wikidata:Q31803137/P856
+domains:
+- domain: mytona.com
+  role: primary
+  status: verified
+  confidence: 0.6515
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:36Z'
+  ttl_days: 30
+  age_days: 5313
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T08:01:04Z'
+    source: https://itunes.apple.com/search?term=Mytona&entity=software
+    data:
+      app: 'Seekers Notes: Hidden Objects'
+      track_id: 940292587
+      seller: MYTONA Ltd.
+      artist: Mytona
+      seller_url: http://www.mytona.com/
+      released: '2015-07-30'
+      age_days: 4056
+      ratings: 95285
+      apps_for_domain: 4
+      apps:
+      - app: 'Seekers Notes: Hidden Objects'
+        seller: MYTONA Ltd.
+        released: '2015-07-30'
+        age_days: 4056
+        ratings: 95285
+      - app: Cooking Diary® Restaurant Game
+        seller: MYTONA Ltd.
+        released: '2018-08-07'
+        age_days: 2951
+        ratings: 163677
+      - app: 'Ravenhill: Find Hidden Objects'
+        seller: MYTONA Ltd.
+        released: '2018-11-09'
+        age_days: 2857
+        ratings: 41051
+  - code: A3
+    checked_at: '2026-09-06T08:01:24Z'
+    source: https://rdap.org/domain/mytona.com
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2012-02-18'
+      expires: '2031-02-18'
+      remaining_days: 1626
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T08:01:03Z'
+    source: TLS handshake mytona.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 9
+  - code: B1
+    checked_at: '2026-09-06T08:01:03Z'
+    source: https://www.wikidata.org/wiki/Q31803137
+    data:
+      qid: Q31803137
+      label: Mytona
+      kind: organization
+      site: https://mytona.com
+      sitelinks: 5
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-06T08:01:37Z'
+    source: http://web.archive.org/cdx/search/cdx?url=mytona.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2013-08-30'
+      history_days: 4755
+  rejected_evidence:
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q31803137
+  reviewed_by: []
+  source_issue: null

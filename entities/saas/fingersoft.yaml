@@ -1,0 +1,105 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:fingersoft
+names:
+  en: Fingersoft
+aliases: []
+category:
+- saas
+wikidata: Q23045055
+canonical:
+  github_org: null
+  wikidata: Q23045055
+  sources:
+  - wikidata:Q23045055/P856
+domains:
+- domain: fingersoft.com
+  role: primary
+  status: verified
+  confidence: 0.8883
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:38Z'
+  ttl_days: 30
+  age_days: 7076
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T07:27:28Z'
+    source: https://itunes.apple.com/search?term=Fingersoft&entity=software
+    data:
+      app: Hill Climb Racing
+      track_id: 564540143
+      seller: Fingersoft
+      artist: Fingersoft
+      seller_url: https://www.fingersoft.com
+      released: '2012-11-08'
+      age_days: 5049
+      ratings: 136271
+      apps_for_domain: 5
+      apps:
+      - app: Hill Climb Racing
+        seller: Fingersoft
+        released: '2012-11-08'
+        age_days: 5049
+        ratings: 136271
+      - app: Hill Climb Racing 2
+        seller: Fingersoft
+        released: '2016-12-07'
+        age_days: 3559
+        ratings: 185681
+      - app: Hill Climb Racing+
+        seller: Fingersoft
+        released: '2023-05-04'
+        age_days: 1221
+        ratings: 16574
+  - code: A3
+    checked_at: '2026-09-06T07:27:41Z'
+    source: https://rdap.org/domain/fingersoft.com
+    data:
+      registrar: eNom, LLC
+      created: '2007-04-22'
+      expires: '2027-04-22'
+      remaining_days: 228
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T07:27:27Z'
+    source: TLS handshake fingersoft.com:443
+    data:
+      subject_org: Fingersoft Oy
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T07:27:26Z'
+    source: https://www.wikidata.org/wiki/Q23045055
+    data:
+      qid: Q23045055
+      label: Fingersoft
+      kind: organization
+      site: https://fingersoft.com/
+      sitelinks: 8
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T07:27:26Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 435878
+      source: top-1m list
+  rejected_evidence:
+  - 'A3: registrar (eNom, LLC) is not a brand-protection registrar'
+  reasons:
+  - '2 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q23045055
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,123 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:game-insight
+names:
+  en: Game Insight
+aliases: []
+category:
+- saas
+wikidata: Q5519857
+canonical:
+  github_org: null
+  wikidata: Q5519857
+  sources:
+  - wikidata:Q5519857/P856
+domains:
+- domain: game-insight.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:41Z'
+  ttl_days: 30
+  age_days: 6127
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T07:57:22Z'
+    source: https://api.github.com/orgs/game-insight
+    data:
+      org: game-insight
+      org_verified: false
+      blog: http://www.game-insight.com
+  - code: A9
+    checked_at: '2026-09-06T07:57:23Z'
+    source: https://itunes.apple.com/search?term=Game%20Insight&entity=software
+    data:
+      app: 'The Tribez: Build a Village'
+      track_id: 494254145
+      seller: Game Insight UAB
+      artist: Game Insight
+      seller_url: https://www.game-insight.com/games/the-tribez
+      released: '2012-04-03'
+      age_days: 5268
+      ratings: 32444
+      apps_for_domain: 11
+      apps:
+      - app: 'The Tribez: Build a Village'
+        seller: Game Insight UAB
+        released: '2012-04-03'
+        age_days: 5268
+        ratings: 32444
+      - app: Airport City Manager Simulator
+        seller: Game Insight UAB
+        released: '2012-08-16'
+        age_days: 5133
+        ratings: 60069
+      - app: 'Paradise Island 2: Resort Sim'
+        seller: Game Insight UAB
+        released: '2014-12-17'
+        age_days: 4281
+        ratings: 31191
+  - code: A3
+    checked_at: '2026-09-06T07:57:23Z'
+    source: https://rdap.org/domain/game-insight.com
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2009-11-26'
+      expires: '2026-11-26'
+      remaining_days: 81
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T07:57:23Z'
+    source: TLS handshake game-insight.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: GoDaddy.com, Inc.
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T07:57:22Z'
+    source: https://www.wikidata.org/wiki/Q5519857
+    data:
+      qid: Q5519857
+      label: Game Insight
+      kind: organization
+      site: http://www.game-insight.com
+      sitelinks: 4
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T07:57:22Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 34504
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T07:57:36Z'
+    source: http://web.archive.org/cdx/search/cdx?url=game-insight.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2009-12-01'
+      history_days: 6123
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q5519857
+  reviewed_by: []
+  source_issue: null

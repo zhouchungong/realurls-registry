@@ -1,0 +1,86 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:sting
+names:
+  en: Sting
+aliases: []
+category:
+- saas
+wikidata: Q2983159
+canonical:
+  github_org: null
+  wikidata: Q2983159
+  sources:
+  - wikidata:Q2983159/P856
+domains:
+- domain: sting.co.jp
+  role: primary
+  status: verified
+  confidence: 0.7677
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:36Z'
+  ttl_days: 30
+  age_days: 10314
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T07:23:47Z'
+    source: https://itunes.apple.com/search?term=Sting&entity=software
+    data:
+      app: ナイツ・イン・ザ・ナイトメア
+      track_id: 1632140768
+      seller: sting co.,ltd
+      artist: sting co.,ltd
+      seller_url: https://www.sting.co.jp/knights_in_the_night_mare/
+      released: '2022-07-25'
+      age_days: 1504
+      ratings: 2
+      apps_for_domain: 1
+      apps:
+      - app: ナイツ・イン・ザ・ナイトメア
+        seller: sting co.,ltd
+        released: '2022-07-25'
+        age_days: 1504
+        ratings: 2
+  - code: A4
+    checked_at: '2026-09-06T07:23:46Z'
+    source: TLS handshake sting.co.jp:443
+    data:
+      subject_org: STING CO., LTD.
+      validation_type: OV
+      issuer: SECOM Trust Systems Co., Ltd.
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T07:23:46Z'
+    source: https://www.wikidata.org/wiki/Q2983159
+    data:
+      qid: Q2983159
+      label: Sting
+      kind: organization
+      site: https://www.sting.co.jp/
+      sitelinks: 11
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-06T07:25:04Z'
+    source: http://web.archive.org/cdx/search/cdx?url=sting.co.jp&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1998-06-11'
+      history_days: 10314
+  rejected_evidence:
+  - 'A9: no listing meets the App Store history bar (at least 2 years on the store and 1000 ratings); strongest:
+    ナイツ・イン・ザ・ナイトメア 1504 days, 2 ratings'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q2983159
+  reviewed_by: []
+  source_issue: null

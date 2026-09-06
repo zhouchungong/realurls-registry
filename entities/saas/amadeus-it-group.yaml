@@ -1,0 +1,76 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:amadeus-it-group
+names:
+  en: Amadeus IT Group
+aliases: []
+category:
+- saas
+wikidata: Q696061
+canonical:
+  github_org: null
+  wikidata: Q696061
+  sources:
+  - wikidata:Q696061/P856
+domains:
+- domain: amadeus.com
+  role: primary
+  status: verified
+  confidence: 0.7518
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:37Z'
+  ttl_days: 30
+  age_days: 12333
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A3
+    checked_at: '2026-09-06T06:54:10Z'
+    source: https://rdap.org/domain/amadeus.com
+    data:
+      registrar: Key-Systems GmbH
+      created: '1992-11-30'
+      expires: '2026-11-29'
+      remaining_days: 83
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T06:54:02Z'
+    source: TLS handshake amadeus.com:443
+    data:
+      subject_org: Amadeus GmbH
+      validation_type: OV
+      issuer: Sectigo Limited
+      san_count: 4
+  - code: B1
+    checked_at: '2026-09-06T06:54:01Z'
+    source: https://www.wikidata.org/wiki/Q696061
+    data:
+      qid: Q696061
+      label: Amadeus IT Group
+      kind: organization
+      site: https://amadeus.com
+      sitelinks: 24
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T06:54:01Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 13191
+      source: top-1m list
+  rejected_evidence:
+  - 'A3: registrar (Key-Systems GmbH) is not a brand-protection registrar'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q696061
+  reviewed_by: []
+  source_issue: null
