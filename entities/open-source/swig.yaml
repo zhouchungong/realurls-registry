@@ -1,0 +1,104 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:swig
+names:
+  en: SWIG
+aliases:
+- swig
+category:
+- open-source
+wikidata: Q548379
+canonical:
+  github_org: swig
+  wikidata: Q548379
+  sources:
+  - wikidata:Q548379/P856
+  - wikidata:Q548379/P1324
+domains:
+- domain: swig.org
+  role: primary
+  status: verified
+  confidence: 0.7088
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:28Z'
+  ttl_days: 30
+  age_days: 10447
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:18:09Z'
+    source: https://api.github.com/orgs/swig
+    data:
+      org: swig
+      org_verified: false
+      blog: http://www.swig.org
+  - code: A8
+    checked_at: '2026-09-06T03:18:09Z'
+    source: https://api.github.com/repos/swig/swig
+    data:
+      repo: swig/swig
+      org: swig
+      repo_anchored: true
+      homepage: http://www.swig.org
+      backlink: true
+      stars: 6317
+      age_days: 4998
+      contributors: 382
+  - code: A3
+    checked_at: '2026-09-06T03:18:10Z'
+    source: https://rdap.org/domain/swig.org
+    data:
+      registrar: Network Solutions, LLC
+      created: '1998-01-28'
+      expires: '2031-01-27'
+      remaining_days: 1604
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T03:18:10Z'
+    source: TLS handshake swig.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 61
+  - code: B1
+    checked_at: '2026-09-06T03:18:09Z'
+    source: https://www.wikidata.org/wiki/Q548379
+    data:
+      qid: Q548379
+      label: SWIG
+      site: http://www.swig.org
+      sitelinks: 13
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T03:18:09Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 137148
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:18:34Z'
+    source: http://web.archive.org/cdx/search/cdx?url=swig.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1998-12-05'
+      history_days: 10137
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Network Solutions, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T04:28:33Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: wikidata:Q548379
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,105 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:astropy
+names:
+  en: Astropy
+aliases:
+- The Astropy Project
+- astropy
+category:
+- open-source
+wikidata: Q16971196
+canonical:
+  github_org: astropy
+  wikidata: Q16971196
+  sources:
+  - wikidata:Q16971196/P856
+  - wikidata:Q16971196/P2037
+domains:
+- domain: astropy.org
+  role: primary
+  status: verified
+  confidence: 0.7088
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:28Z'
+  ttl_days: 30
+  age_days: 5526
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:45:42Z'
+    source: https://api.github.com/orgs/astropy
+    data:
+      org: astropy
+      org_verified: false
+      blog: http://www.astropy.org
+  - code: A8
+    checked_at: '2026-09-06T03:45:43Z'
+    source: https://api.github.com/repos/astropy/astropy
+    data:
+      repo: astropy/astropy
+      org: astropy
+      repo_anchored: true
+      homepage: https://www.astropy.org
+      backlink: true
+      stars: 5296
+      age_days: 5526
+      contributors: 639
+  - code: A3
+    checked_at: '2026-09-06T03:45:43Z'
+    source: https://rdap.org/domain/astropy.org
+    data:
+      registrar: NameCheap, Inc.
+      created: '2011-07-21'
+      expires: '2029-07-21'
+      remaining_days: 1048
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T03:45:43Z'
+    source: TLS handshake astropy.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T03:45:43Z'
+    source: https://www.wikidata.org/wiki/Q16971196
+    data:
+      qid: Q16971196
+      label: Astropy
+      site: https://www.astropy.org/
+      sitelinks: 3
+      competing_items: 4
+  - code: B5
+    checked_at: '2026-09-06T03:45:43Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 383090
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:46:17Z'
+    source: http://web.archive.org/cdx/search/cdx?url=astropy.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2012-04-22'
+      history_days: 5250
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T04:28:33Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: wikidata:Q16971196
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,87 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:jsfiddle
+names:
+  en: JSFiddle
+aliases:
+- jsfiddle
+category:
+- open-source
+wikidata: Q29364743
+canonical:
+  github_org: jsfiddle
+  wikidata: Q29364743
+  sources:
+  - wikidata:Q29364743/P856
+  - wikidata:Q29364743/P2037
+domains:
+- domain: jsfiddle.net
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:24Z'
+  ttl_days: 30
+  age_days: 6156
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:04:57Z'
+    source: https://api.github.com/orgs/jsfiddle
+    data:
+      org: jsfiddle
+      org_verified: true
+      blog: https://jsfiddle.net
+      org_name: JSFiddle
+      created_at: '2011-01-23T17:15:50Z'
+  - code: A3
+    checked_at: '2026-09-06T03:04:57Z'
+    source: https://rdap.org/domain/jsfiddle.net
+    data:
+      registrar: 1API GmbH
+      created: '2009-10-28'
+      expires: '2026-10-28'
+      remaining_days: 52
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T03:04:57Z'
+    source: TLS handshake jsfiddle.net:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T03:04:57Z'
+    source: https://www.wikidata.org/wiki/Q29364743
+    data:
+      qid: Q29364743
+      label: JSFiddle
+      site: https://jsfiddle.net
+      sitelinks: 4
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T03:04:57Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 11896
+      source: top-1m list
+  rejected_evidence:
+  - 'A3: registrar (1API GmbH) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T04:28:33Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: wikidata:Q29364743
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,108 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:misp
+names:
+  en: MISP Threat Sharing
+aliases:
+- MISP
+- MISP Project
+category:
+- open-source
+wikidata: Q63017823
+canonical:
+  github_org: MISP
+  wikidata: Q63017823
+  sources:
+  - wikidata:Q63017823/P856
+  - wikidata:Q63017823/P2037
+domains:
+- domain: misp-project.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:25Z'
+  ttl_days: 30
+  age_days: 4340
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:08:30Z'
+    source: https://api.github.com/orgs/MISP
+    data:
+      org: MISP
+      org_verified: true
+      blog: https://www.misp-project.org
+      org_name: MISP Project
+      created_at: '2013-04-12T08:27:29Z'
+  - code: A8
+    checked_at: '2026-09-06T03:08:30Z'
+    source: https://api.github.com/repos/MISP/MISP
+    data:
+      repo: MISP/MISP
+      org: MISP
+      repo_anchored: true
+      homepage: https://www.misp-project.org/
+      backlink: true
+      stars: 6503
+      age_days: 4958
+      contributors: 367
+  - code: A3
+    checked_at: '2026-09-06T03:08:31Z'
+    source: https://rdap.org/domain/misp-project.org
+    data:
+      registrar: OVH sas
+      created: '2014-10-18'
+      expires: '2027-10-18'
+      remaining_days: 407
+      locks:
+      - delete
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T03:08:30Z'
+    source: TLS handshake misp-project.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T03:08:30Z'
+    source: https://www.wikidata.org/wiki/Q63017823
+    data:
+      qid: Q63017823
+      label: MISP Threat Sharing
+      site: https://misp-project.org
+      sitelinks: 3
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T03:08:30Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 480621
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:08:35Z'
+    source: http://web.archive.org/cdx/search/cdx?url=misp-project.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2015-02-02'
+      history_days: 4234
+  rejected_evidence:
+  - 'A3: registrar (OVH sas) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T04:28:33Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: wikidata:Q63017823
+  reviewed_by: []
+  source_issue: null

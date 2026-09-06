@@ -1,0 +1,93 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:greenshot
+names:
+  en: Greenshot
+aliases:
+- greenshot
+category:
+- open-source
+wikidata: Q1544791
+canonical:
+  github_org: greenshot
+  wikidata: Q1544791
+  sources:
+  - wikidata:Q1544791/P856
+  - wikidata:Q1544791/P2037
+domains:
+- domain: getgreenshot.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:26Z'
+  ttl_days: 30
+  age_days: 6016
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:50:26Z'
+    source: https://api.github.com/orgs/greenshot
+    data:
+      org: greenshot
+      org_verified: true
+      blog: https://getgreenshot.org
+      org_name: Greenshot
+      created_at: '2013-10-04T20:26:25Z'
+  - code: A3
+    checked_at: '2026-09-06T03:50:27Z'
+    source: https://rdap.org/domain/getgreenshot.org
+    data:
+      registrar: united-domains GmbH
+      created: '2010-03-17'
+      expires: '2027-03-17'
+      remaining_days: 192
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T03:50:26Z'
+    source: TLS handshake getgreenshot.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T03:50:26Z'
+    source: https://www.wikidata.org/wiki/Q1544791
+    data:
+      qid: Q1544791
+      label: Greenshot
+      site: https://getgreenshot.org
+      sitelinks: 8
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T03:50:26Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 12844
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:50:35Z'
+    source: http://web.archive.org/cdx/search/cdx?url=getgreenshot.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2010-06-30'
+      history_days: 5912
+  rejected_evidence:
+  - 'A3: registrar (united-domains GmbH) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T04:28:33Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: wikidata:Q1544791
+  reviewed_by: []
+  source_issue: null

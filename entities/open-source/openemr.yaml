@@ -1,0 +1,106 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:openemr
+names:
+  en: OpenEMR
+aliases:
+- openemr
+category:
+- open-source
+wikidata: Q7095775
+canonical:
+  github_org: openemr
+  wikidata: Q7095775
+  sources:
+  - wikidata:Q7095775/P856
+  - wikidata:Q7095775/P1324
+domains:
+- domain: open-emr.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:28Z'
+  ttl_days: 30
+  age_days: 7143
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:31:40Z'
+    source: https://api.github.com/orgs/openemr
+    data:
+      org: openemr
+      org_verified: true
+      blog: https://open-emr.org
+      org_name: OpenEMR
+      created_at: '2010-05-21T06:43:46Z'
+  - code: A8
+    checked_at: '2026-09-06T03:31:40Z'
+    source: https://api.github.com/repos/openemr/openemr
+    data:
+      repo: openemr/openemr
+      org: openemr
+      repo_anchored: true
+      homepage: https://open-emr.org/
+      backlink: true
+      stars: 5412
+      age_days: 5951
+      contributors: 358
+  - code: A3
+    checked_at: '2026-09-06T03:31:44Z'
+    source: https://rdap.org/domain/open-emr.org
+    data:
+      registrar: NameCheap, Inc.
+      created: '2007-02-15'
+      expires: '2027-02-15'
+      remaining_days: 161
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T03:31:40Z'
+    source: TLS handshake open-emr.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T03:31:40Z'
+    source: https://www.wikidata.org/wiki/Q7095775
+    data:
+      qid: Q7095775
+      label: OpenEMR
+      site: https://www.open-emr.org/
+      sitelinks: 4
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T03:31:40Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 441304
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:32:12Z'
+    source: http://web.archive.org/cdx/search/cdx?url=open-emr.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2011-08-11'
+      history_days: 5505
+  rejected_evidence:
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T04:28:33Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: wikidata:Q7095775
+  reviewed_by: []
+  source_issue: null

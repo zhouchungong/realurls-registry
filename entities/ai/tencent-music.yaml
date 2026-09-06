@@ -1,0 +1,88 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:tencent-music
+names:
+  en: Tencent Music
+aliases:
+- Tencent Music Entertainment
+- tencentmusic
+category:
+- ai
+- infrastructure
+wikidata: Q56011958
+canonical:
+  github_org: null
+  wikidata: Q56011958
+  sources:
+  - wikidata:Q56011958/P856
+domains:
+- domain: tencentmusic.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:25Z'
+  ttl_days: 30
+  age_days: 4035
+  age_source: rdap
+  collection_incomplete: true
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:35:50Z'
+    source: https://api.github.com/orgs/tencentmusic
+    data:
+      org: tencentmusic
+      org_verified: false
+      blog: https://www.tencentmusic.com/
+  - code: A3
+    checked_at: '2026-09-06T03:36:12Z'
+    source: https://rdap.org/domain/tencentmusic.com
+    data:
+      registrar: MarkMonitor Information Technology (Shanghai) Co., Ltd.
+      created: '2015-08-19'
+      expires: '2034-08-19'
+      remaining_days: 2904
+      locks:
+      - delete
+      - transfer
+      - update
+      - server delete
+      - server transfer
+      - server update
+  - code: B1
+    checked_at: '2026-09-06T03:35:50Z'
+    source: https://www.wikidata.org/wiki/Q56011958
+    data:
+      qid: Q56011958
+      label: Tencent Music
+      site: https://www.tencentmusic.com/
+      sitelinks: 11
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T03:35:50Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 12437
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:36:45Z'
+    source: http://web.archive.org/cdx/search/cdx?url=tencentmusic.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2011-02-02'
+      history_days: 5695
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T04:28:33Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: wikidata:Q56011958
+  reviewed_by: []
+  source_issue: null

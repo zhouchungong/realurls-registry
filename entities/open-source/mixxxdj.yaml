@@ -1,0 +1,105 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:mixxxdj
+names:
+  en: Mixxx
+aliases:
+- Mixxx DJ Software
+- mixxxdj
+category:
+- open-source
+wikidata: Q1576579
+canonical:
+  github_org: mixxxdj
+  wikidata: Q1576579
+  sources:
+  - wikidata:Q1576579/P856
+  - wikidata:Q1576579/P1324
+domains:
+- domain: mixxx.org
+  role: primary
+  status: verified
+  confidence: 0.7088
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:28Z'
+  ttl_days: 30
+  age_days: 7140
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:02:41Z'
+    source: https://api.github.com/orgs/mixxxdj
+    data:
+      org: mixxxdj
+      org_verified: false
+      blog: http://mixxx.org
+  - code: A8
+    checked_at: '2026-09-06T03:02:41Z'
+    source: https://api.github.com/repos/mixxxdj/mixxx
+    data:
+      repo: mixxxdj/mixxx
+      org: mixxxdj
+      repo_anchored: true
+      homepage: http://mixxx.org
+      backlink: true
+      stars: 7126
+      age_days: 4859
+      contributors: 461
+  - code: A3
+    checked_at: '2026-09-06T03:03:03Z'
+    source: https://rdap.org/domain/mixxx.org
+    data:
+      registrar: Dynadot Inc
+      created: '2007-02-18'
+      expires: '2028-02-18'
+      remaining_days: 529
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T03:02:42Z'
+    source: TLS handshake mixxx.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T03:02:41Z'
+    source: https://www.wikidata.org/wiki/Q1576579
+    data:
+      qid: Q1576579
+      label: Mixxx
+      site: https://www.mixxx.org/
+      sitelinks: 11
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T03:02:41Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 141109
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:02:56Z'
+    source: http://web.archive.org/cdx/search/cdx?url=mixxx.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2008-02-18'
+      history_days: 6775
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Dynadot Inc) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T04:28:33Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: wikidata:Q1576579
+  reviewed_by: []
+  source_issue: null

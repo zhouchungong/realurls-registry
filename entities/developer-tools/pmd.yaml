@@ -1,0 +1,87 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:pmd
+names:
+  en: PMD
+aliases:
+- pmd
+category:
+- developer-tools
+wikidata: Q2044404
+canonical:
+  github_org: pmd
+  wikidata: Q2044404
+  sources:
+  - wikidata:Q2044404/P856
+  - wikidata:Q2044404/P2037
+domains:
+- domain: pmd.github.io
+  role: primary
+  status: verified
+  confidence: 0.6902
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:28Z'
+  ttl_days: 30
+  age_days: 4024
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:29:29Z'
+    source: https://api.github.com/orgs/pmd
+    data:
+      org: pmd
+      org_verified: false
+      blog: https://pmd.github.io
+  - code: A8
+    checked_at: '2026-09-06T03:29:29Z'
+    source: https://api.github.com/repos/pmd/pmd
+    data:
+      repo: pmd/pmd
+      org: pmd
+      repo_anchored: true
+      homepage: https://pmd.github.io
+      backlink: true
+      stars: 5483
+      age_days: 5169
+      contributors: 478
+  - code: A4
+    checked_at: '2026-09-06T03:29:29Z'
+    source: TLS handshake pmd.github.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 6
+  - code: B1
+    checked_at: '2026-09-06T03:29:29Z'
+    source: https://www.wikidata.org/wiki/Q2044404
+    data:
+      qid: Q2044404
+      label: PMD
+      site: https://pmd.github.io
+      sitelinks: 5
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-06T03:29:30Z'
+    source: http://web.archive.org/cdx/search/cdx?url=pmd.github.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2015-08-31'
+      history_days: 4024
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T04:28:33Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: wikidata:Q2044404
+  reviewed_by: []
+  source_issue: null

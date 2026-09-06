@@ -1,0 +1,106 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:haproxy
+names:
+  en: HAProxy
+aliases:
+- haproxy
+category:
+- open-source
+wikidata: Q5628948
+canonical:
+  github_org: haproxy
+  wikidata: Q5628948
+  sources:
+  - wikidata:Q5628948/P856
+  - wikidata:Q5628948/P1324
+domains:
+- domain: haproxy.org
+  role: primary
+  status: verified
+  confidence: 0.7088
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:26Z'
+  ttl_days: 30
+  age_days: 5245
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:08:13Z'
+    source: https://api.github.com/orgs/haproxy
+    data:
+      org: haproxy
+      org_verified: false
+      blog: http://haproxy.org/
+  - code: A8
+    checked_at: '2026-09-06T03:08:13Z'
+    source: https://api.github.com/repos/haproxy/haproxy
+    data:
+      repo: haproxy/haproxy
+      org: haproxy
+      repo_anchored: true
+      homepage: https://git.haproxy.org/
+      backlink: true
+      stars: 6834
+      age_days: 3071
+      contributors: 433
+  - code: A3
+    checked_at: '2026-09-06T03:08:29Z'
+    source: https://rdap.org/domain/haproxy.org
+    data:
+      registrar: DNC Holdings, Inc.
+      created: '2012-04-26'
+      expires: '2028-04-26'
+      remaining_days: 598
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T03:08:13Z'
+    source: TLS handshake haproxy.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Sectigo Limited
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T03:08:13Z'
+    source: https://www.wikidata.org/wiki/Q5628948
+    data:
+      qid: Q5628948
+      label: HAProxy
+      site: https://www.haproxy.org/
+      sitelinks: 14
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T03:08:13Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 6054
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:08:45Z'
+    source: http://web.archive.org/cdx/search/cdx?url=haproxy.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2009-02-22'
+      history_days: 6405
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (DNC Holdings, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T04:28:33Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: wikidata:Q5628948
+  reviewed_by: []
+  source_issue: null

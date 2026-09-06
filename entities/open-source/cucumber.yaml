@@ -1,0 +1,93 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:cucumber
+names:
+  en: Cucumber
+aliases:
+- cucumber
+category:
+- open-source
+wikidata: Q5192416
+canonical:
+  github_org: cucumber
+  wikidata: Q5192416
+  sources:
+  - wikidata:Q5192416/P856
+  - wikidata:Q5192416/P2037
+domains:
+- domain: cucumber.io
+  role: primary
+  status: verified
+  confidence: 0.7088
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:33Z'
+  ttl_days: 30
+  age_days: 4139
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:31:06Z'
+    source: https://api.github.com/orgs/cucumber
+    data:
+      org: cucumber
+      org_verified: false
+      blog: https://cucumber.io/
+  - code: A8
+    checked_at: '2026-09-06T03:31:07Z'
+    source: https://api.github.com/repos/cucumber/cucumber-ruby
+    data:
+      repo: cucumber/cucumber-ruby
+      org: cucumber
+      repo_anchored: true
+      homepage: https://cucumber.io
+      backlink: true
+      stars: 5213
+      age_days: 6715
+      contributors: 464
+  - code: A4
+    checked_at: '2026-09-06T03:31:07Z'
+    source: TLS handshake cucumber.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T03:31:07Z'
+    source: https://www.wikidata.org/wiki/Q5192416
+    data:
+      qid: Q5192416
+      label: Cucumber
+      site: https://cucumber.io
+      sitelinks: 5
+      competing_items: 2
+  - code: B5
+    checked_at: '2026-09-06T03:31:07Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 95659
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:31:50Z'
+    source: http://web.archive.org/cdx/search/cdx?url=cucumber.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2015-05-08'
+      history_days: 4139
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T04:28:33Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: wikidata:Q5192416
+  reviewed_by: []
+  source_issue: null

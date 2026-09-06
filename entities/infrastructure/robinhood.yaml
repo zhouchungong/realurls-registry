@@ -1,0 +1,191 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:robinhood
+names:
+  en: Robinhood
+aliases:
+- robinhood
+category:
+- infrastructure
+wikidata: Q18155123
+canonical:
+  github_org: robinhood
+  wikidata: Q18155123
+  sources:
+  - wikidata:Q18155123/P856
+  - wikidata:Q18155123/P2037
+domains:
+- domain: robinhood.com
+  role: primary
+  status: verified
+  confidence: 0.8526
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:26Z'
+  ttl_days: 30
+  age_days: 11237
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:08:07Z'
+    source: https://api.github.com/orgs/robinhood
+    data:
+      org: robinhood
+      org_verified: false
+      blog: https://www.robinhood.com/
+  - code: A9
+    checked_at: '2026-09-06T03:08:09Z'
+    source: https://itunes.apple.com/search?term=Robinhood&entity=software
+    data:
+      app: 'Robinhood: Trading & Investing'
+      track_id: 938003185
+      seller: Robinhood Markets Inc
+      artist: Robinhood Markets, Inc.
+      seller_url: https://robinhood.com/
+      released: '2014-12-11'
+      age_days: 4286
+      ratings: 4825094
+      apps_for_domain: 3
+      apps:
+      - app: 'Robinhood: Trading & Investing'
+        seller: Robinhood Markets Inc
+        released: '2014-12-11'
+        age_days: 4286
+        ratings: 4825094
+      - app: 'Robinhood Wallet: Swap Crypto'
+        seller: Robinhood Markets Inc
+        released: '2023-01-18'
+        age_days: 1326
+        ratings: 6384
+      - app: Robinhood Banking
+        seller: Robinhood Markets Inc
+        released: '2024-04-29'
+        age_days: 859
+        ratings: 84494
+  - code: A3
+    checked_at: '2026-09-06T03:08:08Z'
+    source: https://rdap.org/domain/robinhood.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '1995-11-30'
+      expires: '2033-11-29'
+      remaining_days: 2641
+      locks:
+      - delete
+      - transfer
+      - update
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-06T03:08:07Z'
+    source: TLS handshake robinhood.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 6
+  - code: B1
+    checked_at: '2026-09-06T03:08:07Z'
+    source: https://www.wikidata.org/wiki/Q18155123
+    data:
+      qid: Q18155123
+      label: Robinhood
+      site: https://www.robinhood.com
+      sitelinks: 22
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-06T03:08:07Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 2982
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:08:43Z'
+    source: http://web.archive.org/cdx/search/cdx?url=robinhood.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1999-05-08'
+      history_days: 9983
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '2 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T04:28:33Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+- domain: sherwood.news
+  role: product
+  status: verified
+  confidence: 0.7105
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:19:00Z'
+  ttl_days: 30
+  age_days: 1340
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A3
+    checked_at: '2026-09-06T04:20:17Z'
+    source: https://rdap.org/domain/sherwood.news
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2023-01-04'
+      expires: '2027-01-04'
+      remaining_days: 120
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T04:20:15Z'
+    source: TLS handshake sherwood.news:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 6
+  - code: B5
+    checked_at: '2026-09-06T04:20:16Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 80502
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T04:20:28Z'
+    source: http://web.archive.org/cdx/search/cdx?url=sherwood.news&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2021-12-23'
+      history_days: 1718
+  - code: A6
+    checked_at: '2026-09-06T04:19:00Z'
+    source: propagate from robinhood.com
+    data:
+      from: robinhood.com
+      from_status: verified
+      first_party_link: true
+      structural_links:
+      - cert_san
+      san_count: 6
+      shared_ns: []
+      backlink: true
+  rejected_evidence:
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T04:28:33Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'consistent: Robinhood''s own media site, propagated from robinhood.com with a seen backlink'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: wikidata:Q18155123
+  reviewed_by: []
+  source_issue: null
+  last_revalidated_by: revalidate/0.1

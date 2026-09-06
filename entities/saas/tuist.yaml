@@ -1,0 +1,116 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:tuist
+names:
+  en: Tuist
+aliases:
+- tuist
+- tuist/tuist
+category:
+- saas
+wikidata: null
+canonical:
+  github_org: tuist
+  wikidata: null
+  sources:
+  - github-history:tuist/tuist(age=8y,contrib=478,stars=5789)
+domains:
+- domain: tuist.dev
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:25Z'
+  ttl_days: 30
+  age_days: 843
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:18:06Z'
+    source: https://api.github.com/orgs/tuist
+    data:
+      org: tuist
+      org_verified: false
+      blog: https://tuist.dev
+  - code: A8
+    checked_at: '2026-09-06T03:18:06Z'
+    source: https://api.github.com/repos/tuist/tuist
+    data:
+      repo: tuist/tuist
+      org: tuist
+      repo_anchored: true
+      homepage: https://tuist.dev
+      backlink: true
+      stars: 5789
+      age_days: 3064
+      contributors: 478
+  - code: A9
+    checked_at: '2026-09-06T03:18:06Z'
+    source: https://itunes.apple.com/search?term=tuist&entity=software
+    data:
+      app: Tuist
+      track_id: 6748460335
+      seller: Tuist GmbH
+      artist: Tuist GmbH
+      seller_url: https://tuist.dev
+      released: '2025-07-17'
+      age_days: 415
+      ratings: 1
+      apps_for_domain: 1
+      apps:
+      - app: Tuist
+        seller: Tuist GmbH
+        released: '2025-07-17'
+        age_days: 415
+        ratings: 1
+  - code: A3
+    checked_at: '2026-09-06T03:18:07Z'
+    source: https://rdap.org/domain/tuist.dev
+    data:
+      registrar: CloudFlare, Inc.
+      created: '2024-05-15'
+      expires: '2031-05-15'
+      remaining_days: 1712
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T03:18:06Z'
+    source: TLS handshake tuist.dev:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 3
+  - code: B5
+    checked_at: '2026-09-06T03:18:06Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 440696
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:18:08Z'
+    source: http://web.archive.org/cdx/search/cdx?url=tuist.dev&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2024-11-18'
+      history_days: 657
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A9: no listing meets the App Store history bar (at least 2 years on the store and 1000 ratings); strongest:
+    Tuist 415 days, 1 ratings'
+  - 'A3: registrar (CloudFlare, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T04:28:33Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

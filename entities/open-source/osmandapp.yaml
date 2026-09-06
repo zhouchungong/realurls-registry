@@ -1,0 +1,120 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:osmandapp
+names:
+  en: OsmAnd
+aliases:
+- osmandapp
+category:
+- open-source
+wikidata: Q3087512
+canonical:
+  github_org: osmandapp
+  wikidata: Q3087512
+  sources:
+  - wikidata:Q3087512/P856
+  - wikidata:Q3087512/P2037
+domains:
+- domain: osmand.net
+  role: primary
+  status: verified
+  confidence: 0.8511
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:29Z'
+  ttl_days: 30
+  age_days: 5898
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:21:24Z'
+    source: https://api.github.com/orgs/osmandapp
+    data:
+      org: osmandapp
+      org_verified: false
+      blog: www.osmand.net
+  - code: A8
+    checked_at: '2026-09-06T03:21:24Z'
+    source: https://api.github.com/repos/osmandapp/OsmAnd
+    data:
+      repo: osmandapp/OsmAnd
+      org: osmandapp
+      repo_anchored: true
+      homepage: https://osmand.net
+      backlink: true
+      stars: 5958
+      age_days: 5712
+      contributors: 1801
+  - code: A9
+    checked_at: '2026-09-06T03:21:26Z'
+    source: https://itunes.apple.com/search?term=OsmAnd&entity=software
+    data:
+      app: OsmAnd Maps Travel & Navigate
+      track_id: 934850257
+      seller: OsmAND B.V.
+      artist: OsmAND B.V.
+      seller_url: http://osmand.net
+      released: '2015-04-21'
+      age_days: 4155
+      ratings: 5630
+      apps_for_domain: 1
+      apps:
+      - app: OsmAnd Maps Travel & Navigate
+        seller: OsmAND B.V.
+        released: '2015-04-21'
+        age_days: 4155
+        ratings: 5630
+  - code: A3
+    checked_at: '2026-09-06T03:22:08Z'
+    source: https://rdap.org/domain/osmand.net
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2010-07-13'
+      expires: '2035-07-13'
+      remaining_days: 3232
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T03:21:25Z'
+    source: TLS handshake osmand.net:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 3
+  - code: B1
+    checked_at: '2026-09-06T03:21:24Z'
+    source: https://www.wikidata.org/wiki/Q3087512
+    data:
+      qid: Q3087512
+      label: OsmAnd
+      site: https://osmand.net
+      sitelinks: 19
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-06T03:21:24Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 42150
+      source: top-1m list
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '2 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T04:28:33Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: wikidata:Q3087512
+  reviewed_by: []
+  source_issue: null

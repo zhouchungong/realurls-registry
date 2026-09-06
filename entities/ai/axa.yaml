@@ -1,0 +1,95 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:axa
+names:
+  en: AXA
+aliases:
+- axa-group
+category:
+- ai
+wikidata: Q160054
+canonical:
+  github_org: null
+  wikidata: Q160054
+  sources:
+  - wikidata:Q160054/P856
+domains:
+- domain: axa.com
+  role: primary
+  status: verified
+  confidence: 0.7816
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:27Z'
+  ttl_days: 30
+  age_days: 11274
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:09:40Z'
+    source: https://api.github.com/orgs/axa-group
+    data:
+      org: axa-group
+      org_verified: false
+      blog: https://www.axa.com
+  - code: A3
+    checked_at: '2026-09-06T03:09:40Z'
+    source: https://rdap.org/domain/axa.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '1995-10-24'
+      expires: '2026-10-23'
+      remaining_days: 47
+      locks:
+      - delete
+      - transfer
+      - update
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-06T03:09:40Z'
+    source: TLS handshake axa.com:443
+    data:
+      subject_org: AXA SA
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T03:09:40Z'
+    source: https://www.wikidata.org/wiki/Q160054
+    data:
+      qid: Q160054
+      label: AXA
+      site: https://www.axa.com/
+      sitelinks: 45
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T03:09:40Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 19303
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:10:25Z'
+    source: http://web.archive.org/cdx/search/cdx?url=axa.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1996-10-29'
+      history_days: 10904
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T04:28:33Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: wikidata:Q160054
+  reviewed_by: []
+  source_issue: null

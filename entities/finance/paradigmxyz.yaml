@@ -1,0 +1,102 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:paradigmxyz
+names:
+  en: Paradigm
+aliases:
+- paradigmxyz
+- paradigmxyz/reth
+category:
+- finance
+wikidata: null
+canonical:
+  github_org: paradigmxyz
+  wikidata: null
+  sources:
+  - github-history:paradigmxyz/reth(age=3y,contrib=815,stars=5764)
+domains:
+- domain: paradigm.xyz
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:23Z'
+  ttl_days: 30
+  age_days: 4308
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:21:48Z'
+    source: https://api.github.com/orgs/paradigmxyz
+    data:
+      org: paradigmxyz
+      org_verified: true
+      blog: https://paradigm.xyz
+      org_name: Paradigm
+      created_at: '2022-01-09T00:44:39Z'
+  - code: A8
+    checked_at: '2026-09-06T03:21:49Z'
+    source: https://api.github.com/repos/paradigmxyz/reth
+    data:
+      repo: paradigmxyz/reth
+      org: paradigmxyz
+      repo_anchored: true
+      homepage: https://reth.rs/
+      backlink: true
+      stars: 5764
+      age_days: 1451
+      contributors: 815
+  - code: A3
+    checked_at: '2026-09-06T03:21:49Z'
+    source: https://rdap.org/domain/paradigm.xyz
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2014-11-19'
+      expires: '2027-11-19'
+      remaining_days: 439
+      locks:
+      - server update
+      - server delete
+      - server transfer
+      - transfer
+      - update
+      - delete
+  - code: A4
+    checked_at: '2026-09-06T03:21:49Z'
+    source: TLS handshake paradigm.xyz:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-06T03:21:49Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 175892
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:22:16Z'
+    source: http://web.archive.org/cdx/search/cdx?url=paradigm.xyz&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2016-03-24'
+      history_days: 3818
+  rejected_evidence:
+  - 'A8: repository homepage (https://reth.rs/) does not point to this domain'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T04:28:33Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: seed_org_name(self-declared)
+  reviewed_by: []
+  source_issue: null

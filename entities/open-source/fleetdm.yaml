@@ -1,0 +1,97 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:fleetdm
+names:
+  en: Fleet Device Management
+aliases:
+- fleetdm
+- fleetdm/fleet
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: fleetdm
+  wikidata: null
+  sources:
+  - github-history:fleetdm/fleet(age=5y,contrib=488,stars=6813)
+domains:
+- domain: fleetdm.com
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:26Z'
+  ttl_days: 30
+  age_days: 2202
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:05:42Z'
+    source: https://api.github.com/orgs/fleetdm
+    data:
+      org: fleetdm
+      org_verified: true
+      blog: https://fleetdm.com
+      org_name: Fleet Device Management
+      created_at: '2020-08-26T09:53:11Z'
+  - code: A8
+    checked_at: '2026-09-06T03:05:42Z'
+    source: https://api.github.com/repos/fleetdm/fleet
+    data:
+      repo: fleetdm/fleet
+      org: fleetdm
+      repo_anchored: true
+      homepage: https://fleetdm.com
+      backlink: true
+      stars: 6813
+      age_days: 2132
+      contributors: 488
+  - code: A3
+    checked_at: '2026-09-06T03:06:25Z'
+    source: https://rdap.org/domain/fleetdm.com
+    data:
+      registrar: NameCheap, Inc.
+      created: '2020-08-26'
+      expires: '2027-08-26'
+      remaining_days: 353
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T03:05:42Z'
+    source: TLS handshake fleetdm.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-06T03:05:42Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 12067
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:05:43Z'
+    source: http://web.archive.org/cdx/search/cdx?url=fleetdm.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2015-09-12'
+      history_days: 4012
+  rejected_evidence:
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T04:28:33Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: seed_org_name(self-declared)
+  reviewed_by: []
+  source_issue: null

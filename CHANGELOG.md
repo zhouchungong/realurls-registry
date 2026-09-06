@@ -19,6 +19,11 @@ The dataset itself is released continuously as the rolling `latest` GitHub Relea
   projects it sponsors and vmware.com under RabbitMQ in the first full-category batch. An entity-agnostic anchor
   now counts only when at least one identity-bearing piece of evidence (A1/A2/A4/A5/A6/A8/A9/B1) passed too.
   Existing records: none change (checked with revalidate). New adversarial cases.
+- **A6 (propagation): a domain whose own Wikidata item is an organization is never propagated into.** The
+  second batch propagated courant.com, dailypress.com and mcall.com (three sister newspapers) into the Chicago
+  Tribune, and wikimediafoundation.org into the Wikimedia movement item. The Wikidata collector now records
+  whether the item is an organization or a product/website; product items (MediaWiki, jQuery UI) still
+  propagate. Adversarial case added.
 - **A6 (propagation): pooled name servers are not a link, and a domain another GitHub organization declares
   as its own is never propagated into.** cmake.org and kitware.com share only Namecheap's default name servers;
   matrix.org is run alongside element.io but belongs to the matrix-org organization, so it has to enter as its

@@ -1,0 +1,105 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:awesomewm
+names:
+  en: awesome
+aliases:
+- awesome window manager
+- awesomeWM
+category:
+- open-source
+wikidata: Q310135
+canonical:
+  github_org: awesomeWM
+  wikidata: Q310135
+  sources:
+  - wikidata:Q310135/P856
+  - wikidata:Q310135/P1324
+domains:
+- domain: awesomewm.org
+  role: primary
+  status: verified
+  confidence: 0.7088
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:25Z'
+  ttl_days: 30
+  age_days: 3991
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:05:28Z'
+    source: https://api.github.com/orgs/awesomeWM
+    data:
+      org: awesomeWM
+      org_verified: false
+      blog: https://awesomewm.org/
+  - code: A8
+    checked_at: '2026-09-06T03:05:28Z'
+    source: https://api.github.com/repos/awesomeWM/awesome
+    data:
+      repo: awesomeWM/awesome
+      org: awesomeWM
+      repo_anchored: true
+      homepage: https://awesomewm.org/
+      backlink: true
+      stars: 6950
+      age_days: 4569
+      contributors: 454
+  - code: A3
+    checked_at: '2026-09-06T03:05:28Z'
+    source: https://rdap.org/domain/awesomewm.org
+    data:
+      registrar: INWX GmbH
+      created: '2015-10-02'
+      expires: '2026-10-02'
+      remaining_days: 26
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T03:05:28Z'
+    source: TLS handshake awesomewm.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T03:05:28Z'
+    source: https://www.wikidata.org/wiki/Q310135
+    data:
+      qid: Q310135
+      label: awesome
+      site: https://awesomewm.org/
+      sitelinks: 20
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T03:05:28Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 520555
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:06:11Z'
+    source: http://web.archive.org/cdx/search/cdx?url=awesomewm.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2016-03-27'
+      history_days: 3815
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (INWX GmbH) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T04:28:33Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: wikidata:Q310135
+  reviewed_by: []
+  source_issue: null

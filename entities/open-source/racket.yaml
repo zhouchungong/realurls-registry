@@ -1,0 +1,108 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:racket
+names:
+  en: Racket
+aliases:
+- racket
+- racket/racket
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: racket
+  wikidata: null
+  sources:
+  - github-history:racket/racket(age=16y,contrib=468,stars=5204)
+domains:
+- domain: racket-lang.org
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:25Z'
+  ttl_days: 30
+  age_days: 6004
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:29:32Z'
+    source: https://api.github.com/orgs/racket
+    data:
+      org: racket
+      org_verified: true
+      blog: http://racket-lang.org/
+      org_name: Racket
+      created_at: '2010-03-29T04:45:04Z'
+  - code: A8
+    checked_at: '2026-09-06T03:29:32Z'
+    source: https://api.github.com/repos/racket/racket
+    data:
+      repo: racket/racket
+      org: racket
+      repo_anchored: true
+      homepage: https://racket-lang.org/
+      backlink: true
+      stars: 5204
+      age_days: 5984
+      contributors: 468
+  - code: A3
+    checked_at: '2026-09-06T03:30:00Z'
+    source: https://rdap.org/domain/racket-lang.org
+    data:
+      registrar: Squarespace Domains II LLC
+      created: '2010-03-29'
+      expires: '2027-03-29'
+      remaining_days: 204
+      locks:
+      - delete
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T03:29:32Z'
+    source: TLS handshake racket-lang.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T03:29:32Z'
+    source: https://www.wikidata.org/wiki/Q28975406
+    data:
+      qid: Q28975406
+      label: Racket
+      site: https://racket-lang.org/
+      sitelinks: 0
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T03:29:32Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 87959
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:29:33Z'
+    source: http://web.archive.org/cdx/search/cdx?url=racket-lang.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2010-05-30'
+      history_days: 5943
+  rejected_evidence:
+  - 'A3: registrar (Squarespace Domains II LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T04:28:33Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

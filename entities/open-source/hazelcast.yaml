@@ -1,0 +1,100 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:hazelcast
+names:
+  en: Hazelcast
+aliases:
+- hazelcast
+- hazelcast/hazelcast
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: hazelcast
+  wikidata: null
+  sources:
+  - github-history:hazelcast/hazelcast(age=14y,contrib=492,stars=6607)
+domains:
+- domain: hazelcast.com
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:28Z'
+  ttl_days: 30
+  age_days: 6791
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:15:59Z'
+    source: https://api.github.com/orgs/hazelcast
+    data:
+      org: hazelcast
+      org_verified: true
+      blog: hazelcast.com
+      org_name: Hazelcast
+      created_at: '2012-02-20T08:34:35Z'
+  - code: A8
+    checked_at: '2026-09-06T03:15:59Z'
+    source: https://api.github.com/repos/hazelcast/hazelcast
+    data:
+      repo: hazelcast/hazelcast
+      org: hazelcast
+      repo_anchored: true
+      homepage: https://www.hazelcast.com
+      backlink: true
+      stars: 6607
+      age_days: 5281
+      contributors: 492
+  - code: A3
+    checked_at: '2026-09-06T03:16:00Z'
+    source: https://rdap.org/domain/hazelcast.com
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2008-02-01'
+      expires: '2027-02-01'
+      remaining_days: 148
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T03:15:59Z'
+    source: TLS handshake hazelcast.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-06T03:15:59Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 100443
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:16:02Z'
+    source: http://web.archive.org/cdx/search/cdx?url=hazelcast.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2008-08-20'
+      history_days: 6591
+  rejected_evidence:
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T04:28:33Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

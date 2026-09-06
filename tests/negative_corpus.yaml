@@ -328,3 +328,12 @@ cases:
       - {code: B1, data: {qid: "Q22906785"}}
       - {code: B4, data: {history_days: 9900}}
       - {code: B5, data: {rank: 7500}}
+
+  - id: propagation-into-a-sister-organization
+    technique: 同一母公司旗下的姊妹报纸互相链接、共用基础设施；候选域名自己就是一个 Wikidata 组织条目（gh-02 真实形态：courant.com 被扩散给 Chicago Tribune）
+    facts: {domain: "courant[.]com", age_days: 9000, expected_wikidata: "Q47596", anchor_sources: ["wikidata:Q47596/P856"], expected_names: ["Chicago Tribune"]}
+    evidence:
+      - {code: A6, data: {from: "chicagotribune[.]com", from_status: verified, first_party_link: true, structural_links: ["shared_ns"], shared_ns: ["ns1.tribpub.example", "ns2.tribpub.example"], san_count: 3, backlink: true}}
+      - {code: B1, data: {qid: "Q1587159", label: "Hartford Courant", kind: organization}}
+      - {code: B4, data: {history_days: 9500}}
+      - {code: B5, data: {rank: 9000}}

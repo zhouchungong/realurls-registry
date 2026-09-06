@@ -1,0 +1,95 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:openshot
+names:
+  en: OpenShot Video Editor
+aliases:
+- OpenShot
+- OpenShot Studios, LLC
+category:
+- open-source
+wikidata: Q769346
+canonical:
+  github_org: OpenShot
+  wikidata: Q769346
+  sources:
+  - wikidata:Q769346/P856
+  - wikidata:Q769346/P2037
+domains:
+- domain: openshot.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:26Z'
+  ttl_days: 30
+  age_days: 6079
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:23:49Z'
+    source: https://api.github.com/orgs/OpenShot
+    data:
+      org: OpenShot
+      org_verified: true
+      blog: http://www.openshot.org
+      org_name: OpenShot Studios, LLC
+      created_at: '2013-09-26T18:03:01Z'
+  - code: A3
+    checked_at: '2026-09-06T03:24:01Z'
+    source: https://rdap.org/domain/openshot.org
+    data:
+      registrar: Tucows Domains Inc.
+      created: '2010-01-14'
+      expires: '2027-01-14'
+      remaining_days: 129
+      locks:
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T03:23:50Z'
+    source: TLS handshake openshot.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T03:23:50Z'
+    source: https://www.wikidata.org/wiki/Q769346
+    data:
+      qid: Q769346
+      label: OpenShot Video Editor
+      site: https://www.openshot.org/
+      sitelinks: 31
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T03:23:50Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 51215
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:24:07Z'
+    source: http://web.archive.org/cdx/search/cdx?url=openshot.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2010-10-07'
+      history_days: 5813
+  rejected_evidence:
+  - 'A3: registrar (Tucows Domains Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T04:28:33Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: wikidata:Q769346
+  reviewed_by: []
+  source_issue: null
