@@ -1,0 +1,111 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:bumble
+names:
+  en: Bumble
+aliases:
+- Bumble Holding Limited
+category:
+- saas
+wikidata: Q21233433
+canonical:
+  github_org: null
+  wikidata: Q21233433
+  sources:
+  - wikidata:Q21233433/P856
+domains:
+- domain: bumble.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:20Z'
+  ttl_days: 30
+  age_days: 10633
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T14:48:32Z'
+    source: https://itunes.apple.com/search?term=Bumble&entity=software
+    data:
+      app: 'Bumble Dating App: Meet & Date'
+      track_id: 930441707
+      seller: Bumble Holding Limited
+      artist: Bumble Holding Limited
+      seller_url: http://bumble.com/
+      released: '2014-11-19'
+      age_days: 4309
+      ratings: 1759692
+      apps_for_domain: 2
+      apps:
+      - app: 'Bumble Dating App: Meet & Date'
+        seller: Bumble Holding Limited
+        released: '2014-11-19'
+        age_days: 4309
+        ratings: 1759692
+      - app: 'BFF: Make friends & meet up'
+        seller: Geneva Technologies, Inc.
+        released: '2020-03-16'
+        age_days: 2365
+        ratings: 8157
+  - code: A3
+    checked_at: '2026-09-06T14:49:14Z'
+    source: https://rdap.org/domain/bumble.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '1997-07-27'
+      expires: '2027-07-26'
+      remaining_days: 322
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T14:48:31Z'
+    source: TLS handshake bumble.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T14:48:30Z'
+    source: https://www.wikidata.org/wiki/Q21233433
+    data:
+      qid: Q21233433
+      label: Bumble
+      kind: organization
+      site: http://bumble.com/
+      sitelinks: 14
+      competing_items: 2
+  - code: B5
+    checked_at: '2026-09-06T14:48:30Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 2935
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T14:48:36Z'
+    source: http://web.archive.org/cdx/search/cdx?url=bumble.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1996-12-28'
+      history_days: 10844
+  rejected_evidence:
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T15:41:43Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q21233433
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,116 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:choice-of-games
+names:
+  en: Choice of Games
+aliases: []
+category:
+- saas
+wikidata: Q39058513
+canonical:
+  github_org: null
+  wikidata: Q39058513
+  sources:
+  - wikidata:Q39058513/P856(sitelinks=2)
+  - appstore:Choice of Games LLC(Choice of Games,8y,1272 ratings)
+domains:
+- domain: choiceofgames.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:22Z'
+  ttl_days: 30
+  age_days: 6150
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T14:47:52Z'
+    source: https://itunes.apple.com/search?term=Choice%20of%20Games&entity=software
+    data:
+      app: Choice of Games
+      track_id: 1363309257
+      seller: Choice of Games LLC
+      artist: Choice of Games LLC
+      seller_url: https://www.choiceofgames.com/
+      released: '2018-04-05'
+      age_days: 3076
+      ratings: 1272
+      apps_for_domain: 13
+      apps:
+      - app: Choice of Games
+        seller: Choice of Games LLC
+        released: '2018-04-05'
+        age_days: 3076
+        ratings: 1272
+      - app: Choice of the Dragon
+        seller: Choice of Games LLC
+        released: '2010-01-07'
+        age_days: 6086
+        ratings: 873
+      - app: Creatures Such as We
+        seller: Choice of Games LLC
+        released: '2014-12-11'
+        age_days: 4286
+        ratings: 605
+  - code: A3
+    checked_at: '2026-09-06T14:47:56Z'
+    source: https://rdap.org/domain/choiceofgames.com
+    data:
+      registrar: DNC Holdings, Inc.
+      created: '2009-11-04'
+      expires: '2029-11-04'
+      remaining_days: 1154
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T14:47:52Z'
+    source: TLS handshake choiceofgames.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T14:47:52Z'
+    source: https://www.wikidata.org/wiki/Q39058513
+    data:
+      qid: Q39058513
+      label: Choice of Games
+      kind: organization
+      site: http://choiceofgames.com
+      sitelinks: 2
+      competing_items: 4
+  - code: B5
+    checked_at: '2026-09-06T14:47:52Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 157934
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T14:48:16Z'
+    source: http://web.archive.org/cdx/search/cdx?url=choiceofgames.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2010-04-10'
+      history_days: 5993
+  rejected_evidence:
+  - 'A3: registrar (DNC Holdings, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T15:41:43Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q39058513
+  reviewed_by: []
+  source_issue: null

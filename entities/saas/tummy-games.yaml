@@ -1,0 +1,108 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:tummy-games
+names:
+  en: Tummy Games
+aliases: []
+category:
+- saas
+wikidata: Q106322193
+canonical:
+  github_org: null
+  wikidata: Q106322193
+  sources:
+  - wikidata:Q106322193/P856(sitelinks=0)
+  - appstore:Tummy Games Doo Novi Sad(Volleyball Game - Volley Beans,7y,13474 ratings)
+domains:
+- domain: tummygames.com
+  role: primary
+  status: verified
+  confidence: 0.6515
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:14Z'
+  ttl_days: 30
+  age_days: 3610
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T15:03:42Z'
+    source: https://itunes.apple.com/search?term=Tummy%20Games&entity=software
+    data:
+      app: Volleyball Game - Volley Beans
+      track_id: 1457441561
+      seller: Tummy Games Doo Novi Sad
+      artist: Tummy Games
+      seller_url: http://tummygames.com
+      released: '2019-03-24'
+      age_days: 2722
+      ratings: 13474
+      apps_for_domain: 20
+      apps:
+      - app: Volleyball Game - Volley Beans
+        seller: Tummy Games Doo Novi Sad
+        released: '2019-03-24'
+        age_days: 2722
+        ratings: 13474
+      - app: Pancake Art
+        seller: Tummy Games Doo Novi Sad
+        released: '2019-12-09'
+        age_days: 2463
+        ratings: 19236
+      - app: Farm It!
+        seller: Tummy Games Doo Novi Sad
+        released: '2021-03-26'
+        age_days: 1990
+        ratings: 4986
+  - code: A3
+    checked_at: '2026-09-06T15:03:43Z'
+    source: https://rdap.org/domain/tummygames.com
+    data:
+      registrar: NameCheap, Inc.
+      created: '2016-10-18'
+      expires: '2026-10-18'
+      remaining_days: 41
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T15:03:42Z'
+    source: TLS handshake tummygames.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T15:03:42Z'
+    source: https://www.wikidata.org/wiki/Q106322193
+    data:
+      qid: Q106322193
+      label: Tummy Games
+      kind: organization
+      site: https://tummygames.com/
+      sitelinks: 0
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-06T15:03:54Z'
+    source: http://web.archive.org/cdx/search/cdx?url=tummygames.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2017-04-06'
+      history_days: 3440
+  rejected_evidence:
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T15:41:43Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q106322193
+  reviewed_by: []
+  source_issue: null

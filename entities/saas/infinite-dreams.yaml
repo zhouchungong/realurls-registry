@@ -1,0 +1,113 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:infinite-dreams
+names:
+  en: Infinite Dreams
+aliases: []
+category:
+- saas
+wikidata: Q11712407
+canonical:
+  github_org: null
+  wikidata: Q11712407
+  sources:
+  - wikidata:Q11712407/P856(sitelinks=2)
+  - appstore:Infinite Dreams(Let's Create! Pottery HD Lite,15y,7062 ratings)
+domains:
+- domain: idreams.pl
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:31Z'
+  ttl_days: 30
+  age_days: 8248
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T14:55:54Z'
+    source: https://itunes.apple.com/search?term=Infinite%20Dreams&entity=software
+    data:
+      app: Let's Create! Pottery HD Lite
+      track_id: 397756644
+      seller: Infinite Dreams
+      artist: Infinite Dreams Inc.
+      seller_url: http://www.idreams.pl/our-products/show/product/21-Lets-Create-Pottery
+      released: '2010-10-21'
+      age_days: 5799
+      ratings: 7062
+      apps_for_domain: 13
+      apps:
+      - app: Let's Create! Pottery HD Lite
+        seller: Infinite Dreams
+        released: '2010-10-21'
+        age_days: 5799
+        ratings: 7062
+      - app: Sky Force Reloaded
+        seller: Infinite Dreams
+        released: '2016-04-15'
+        age_days: 3796
+        ratings: 11434
+      - app: Crazy Dino Park
+        seller: Infinite Dreams
+        released: '2018-11-07'
+        age_days: 2859
+        ratings: 13078
+  - code: A3
+    checked_at: '2026-09-06T14:56:06Z'
+    source: https://rdap.org/domain/idreams.pl
+    data:
+      registrar: OVH SAS
+      created: '2004-02-06'
+      expires: '2028-02-06'
+      remaining_days: 517
+      locks: []
+  - code: A4
+    checked_at: '2026-09-06T14:55:55Z'
+    source: TLS handshake idreams.pl:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T14:55:54Z'
+    source: https://www.wikidata.org/wiki/Q11712407
+    data:
+      qid: Q11712407
+      label: Infinite Dreams
+      kind: organization
+      site: http://www.idreams.pl/
+      sitelinks: 2
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-06T14:55:54Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 354112
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T14:56:08Z'
+    source: http://web.archive.org/cdx/search/cdx?url=idreams.pl&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2004-02-12'
+      history_days: 8242
+  rejected_evidence:
+  - 'A3: registrar (OVH SAS) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T15:41:43Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q11712407
+  reviewed_by: []
+  source_issue: null

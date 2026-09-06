@@ -1,0 +1,104 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:old-skull-games
+names:
+  en: Old Skull Games
+aliases: []
+category:
+- saas
+wikidata: Q105658587
+canonical:
+  github_org: null
+  wikidata: Q105658587
+  sources:
+  - wikidata:Q105658587/P856(sitelinks=0)
+  - 'appstore:Old Skull Games(Tiny Worlds: Dragon Idle games,6y,2303 ratings)'
+domains:
+- domain: oldskullgames.com
+  role: primary
+  status: verified
+  confidence: 0.6515
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:14Z'
+  ttl_days: 30
+  age_days: 5403
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T14:57:45Z'
+    source: https://itunes.apple.com/search?term=Old%20Skull%20Games&entity=software
+    data:
+      app: 'Tiny Worlds: Dragon Idle games'
+      track_id: 1518207993
+      seller: Old Skull Games
+      artist: Old Skull Games
+      seller_url: http://www.oldskullgames.com
+      released: '2020-08-03'
+      age_days: 2225
+      ratings: 2303
+      apps_for_domain: 2
+      apps:
+      - app: 'Tiny Worlds: Dragon Idle games'
+        seller: Old Skull Games
+        released: '2020-08-03'
+        age_days: 2225
+        ratings: 2303
+      - app: 'Treasure Digger: Adventure RPG'
+        seller: Old Skull Games
+        released: '2021-04-06'
+        age_days: 1979
+        ratings: 3
+  - code: A3
+    checked_at: '2026-09-06T14:57:46Z'
+    source: https://rdap.org/domain/oldskullgames.com
+    data:
+      registrar: OVH sas
+      created: '2011-11-20'
+      expires: '2026-11-20'
+      remaining_days: 75
+      locks:
+      - delete
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T14:57:45Z'
+    source: TLS handshake oldskullgames.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T14:57:45Z'
+    source: https://www.wikidata.org/wiki/Q105658587
+    data:
+      qid: Q105658587
+      label: Old Skull Games
+      kind: organization
+      site: https://oldskullgames.com/
+      sitelinks: 0
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-06T14:58:08Z'
+    source: http://web.archive.org/cdx/search/cdx?url=oldskullgames.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2012-07-04'
+      history_days: 5177
+  rejected_evidence:
+  - 'A3: registrar (OVH sas) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T15:41:43Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q105658587
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,125 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:7shifts
+names:
+  en: 7shifts
+aliases: []
+category:
+- saas
+wikidata: Q126034261
+canonical:
+  github_org: null
+  wikidata: Q126034261
+  sources:
+  - wikidata:Q126034261/P856(sitelinks=2)
+  - 'appstore:7shifts, Inc.(7shifts: Employee Scheduling,12y,29531 ratings)'
+domains:
+- domain: 7shifts.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:22Z'
+  ttl_days: 30
+  age_days: 7673
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T14:42:26Z'
+    source: https://api.github.com/orgs/7shifts
+    data:
+      org: 7shifts
+      org_verified: true
+      blog: https://www.7shifts.com
+      org_name: 7shifts
+      created_at: '2013-02-02T16:40:28Z'
+  - code: A9
+    checked_at: '2026-09-06T14:42:27Z'
+    source: https://itunes.apple.com/search?term=7shifts&entity=software
+    data:
+      app: '7shifts: Employee Scheduling'
+      track_id: 731444612
+      seller: 7shifts, Inc.
+      artist: 7shifts, Inc.
+      seller_url: https://www.7shifts.com/
+      released: '2013-10-30'
+      age_days: 4693
+      ratings: 29531
+      apps_for_domain: 3
+      apps:
+      - app: '7shifts: Employee Scheduling'
+        seller: 7shifts, Inc.
+        released: '2013-10-30'
+        age_days: 4693
+        ratings: 29531
+      - app: 7punches
+        seller: 7shifts, Inc.
+        released: '2013-12-14'
+        age_days: 4649
+        ratings: 53
+      - app: '7tasks: Easy Task Management'
+        seller: 7shifts, Inc.
+        released: '2019-12-11'
+        age_days: 2461
+        ratings: 12
+  - code: A3
+    checked_at: '2026-09-06T14:42:27Z'
+    source: https://rdap.org/domain/7shifts.com
+    data:
+      registrar: NameCheap, Inc.
+      created: '2005-09-02'
+      expires: '2027-09-02'
+      remaining_days: 361
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T14:42:27Z'
+    source: TLS handshake 7shifts.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 3
+  - code: B1
+    checked_at: '2026-09-06T14:42:27Z'
+    source: https://www.wikidata.org/wiki/Q126034261
+    data:
+      qid: Q126034261
+      label: 7shifts
+      kind: organization
+      site: https://www.7shifts.com/
+      sitelinks: 2
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T14:42:27Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 31503
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T14:42:28Z'
+    source: http://web.archive.org/cdx/search/cdx?url=7shifts.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2005-09-30'
+      history_days: 7646
+  rejected_evidence:
+  - 'A1: entity not anchored: no canonical GitHub organization from an independent authority; proof of control is
+    not proof of ownership'
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T15:41:43Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q126034261
+  reviewed_by: []
+  source_issue: null

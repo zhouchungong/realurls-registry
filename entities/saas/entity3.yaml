@@ -1,0 +1,111 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:entity3
+names:
+  en: Entity3
+aliases: []
+category:
+- saas
+wikidata: Q110829127
+canonical:
+  github_org: null
+  wikidata: Q110829127
+  sources:
+  - wikidata:Q110829127/P856(sitelinks=0)
+  - appstore:Entity3 Limited(Axe Champ!,8y,24059 ratings)
+domains:
+- domain: entity3.com
+  role: primary
+  status: verified
+  confidence: 0.6515
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:14Z'
+  ttl_days: 30
+  age_days: 4210
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T14:48:16Z'
+    source: https://itunes.apple.com/search?term=Entity3&entity=software
+    data:
+      app: Axe Champ!
+      track_id: 1419954157
+      seller: Entity3 Limited
+      artist: Entity3 Limited
+      seller_url: https://www.entity3.com/
+      released: '2018-08-27'
+      age_days: 2931
+      ratings: 24059
+      apps_for_domain: 7
+      apps:
+      - app: Axe Champ!
+        seller: Entity3 Limited
+        released: '2018-08-27'
+        age_days: 2931
+        ratings: 24059
+      - app: Gang Blast
+        seller: Entity3 Limited
+        released: '2020-08-04'
+        age_days: 2224
+        ratings: 11158
+      - app: Paper Bad
+        seller: Entity3 Limited
+        released: '2021-12-28'
+        age_days: 1713
+        ratings: 375
+  - code: A3
+    checked_at: '2026-09-06T14:48:18Z'
+    source: https://rdap.org/domain/entity3.com
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2015-02-25'
+      expires: '2029-02-25'
+      remaining_days: 903
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T14:48:17Z'
+    source: TLS handshake entity3.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T14:48:16Z'
+    source: https://www.wikidata.org/wiki/Q110829127
+    data:
+      qid: Q110829127
+      label: Entity3
+      kind: organization
+      site: http://www.entity3.com/
+      sitelinks: 0
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-06T14:48:44Z'
+    source: http://web.archive.org/cdx/search/cdx?url=entity3.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2001-02-02'
+      history_days: 9347
+  rejected_evidence:
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T15:41:43Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q110829127
+  reviewed_by: []
+  source_issue: null

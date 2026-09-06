@@ -1,0 +1,103 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:inlogic-software
+names:
+  en: InLogic Software
+aliases: []
+category:
+- saas
+wikidata: Q25441778
+canonical:
+  github_org: null
+  wikidata: Q25441778
+  sources:
+  - wikidata:Q25441778/P856(sitelinks=1)
+  - appstore:Inlogic software s.r.o(Roulette VIP - Casino Online,8y,17794 ratings)
+domains:
+- domain: inlogic.sk
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:20Z'
+  ttl_days: 30
+  age_days: 8177
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T15:01:50Z'
+    source: https://itunes.apple.com/search?term=InLogic%20Software&entity=software
+    data:
+      app: Roulette VIP - Casino Online
+      track_id: 1413080779
+      seller: Inlogic software s.r.o
+      artist: Inlogic Software s.r.o.
+      seller_url: https://www.inlogic.sk
+      released: '2018-08-05'
+      age_days: 2954
+      ratings: 17794
+      apps_for_domain: 16
+      apps:
+      - app: Roulette VIP - Casino Online
+        seller: Inlogic software s.r.o
+        released: '2018-08-05'
+        age_days: 2954
+        ratings: 17794
+      - app: Tennis World Open 2026 - Sport
+        seller: Inlogic software s.r.o
+        released: '2019-07-09'
+        age_days: 2616
+        ratings: 17245
+      - app: 'Soccer Cup 2026: Football Game'
+        seller: Inlogic software s.r.o
+        released: '2019-08-11'
+        age_days: 2583
+        ratings: 33194
+  - code: A4
+    checked_at: '2026-09-06T15:01:51Z'
+    source: TLS handshake inlogic.sk:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: ZeroSSL
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T15:01:50Z'
+    source: https://www.wikidata.org/wiki/Q25441778
+    data:
+      qid: Q25441778
+      label: InLogic Software
+      kind: organization
+      site: http://www.inlogic.sk
+      sitelinks: 1
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T15:01:50Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 653382
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T15:02:07Z'
+    source: http://web.archive.org/cdx/search/cdx?url=inlogic.sk&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2004-04-17'
+      history_days: 8177
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T15:41:43Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q25441778
+  reviewed_by: []
+  source_issue: null

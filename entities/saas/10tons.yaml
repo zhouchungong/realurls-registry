@@ -1,0 +1,111 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:10tons
+names:
+  en: 10tons
+aliases: []
+category:
+- saas
+wikidata: Q28721400
+canonical:
+  github_org: null
+  wikidata: Q28721400
+  sources:
+  - wikidata:Q28721400/P856(sitelinks=2)
+  - appstore:10tons Ltd.(Spellspire,10y,3414 ratings)
+domains:
+- domain: 10tons.com
+  role: primary
+  status: verified
+  confidence: 0.6515
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:31Z'
+  ttl_days: 30
+  age_days: 9553
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T14:42:37Z'
+    source: https://itunes.apple.com/search?term=10tons&entity=software
+    data:
+      app: Spellspire
+      track_id: 834993441
+      seller: 10tons Ltd.
+      artist: 10tons Ltd
+      seller_url: http://www.10tons.com/Game/spellspire.html
+      released: '2016-04-13'
+      age_days: 3798
+      ratings: 3414
+      apps_for_domain: 5
+      apps:
+      - app: Spellspire
+        seller: 10tons Ltd.
+        released: '2016-04-13'
+        age_days: 3798
+        ratings: 3414
+      - app: Sparkle Epic
+        seller: 10tons Ltd.
+        released: '2015-01-14'
+        age_days: 4253
+        ratings: 915
+      - app: Sparkle 2
+        seller: 10tons Ltd.
+        released: '2013-06-06'
+        age_days: 4840
+        ratings: 321
+  - code: A3
+    checked_at: '2026-09-06T14:43:21Z'
+    source: https://rdap.org/domain/10tons.com
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2000-07-10'
+      expires: '2027-07-10'
+      remaining_days: 307
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T14:42:37Z'
+    source: TLS handshake 10tons.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 11
+  - code: B1
+    checked_at: '2026-09-06T14:42:37Z'
+    source: https://www.wikidata.org/wiki/Q28721400
+    data:
+      qid: Q28721400
+      label: 10tons
+      kind: organization
+      site: https://www.10tons.com
+      sitelinks: 2
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-06T14:42:38Z'
+    source: http://web.archive.org/cdx/search/cdx?url=10tons.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2001-03-01'
+      history_days: 9320
+  rejected_evidence:
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T15:41:43Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q28721400
+  reviewed_by: []
+  source_issue: null

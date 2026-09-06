@@ -1,0 +1,111 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:crisp-app-studio
+names:
+  en: Crisp App Studio
+aliases: []
+category:
+- saas
+wikidata: Q111255230
+canonical:
+  github_org: null
+  wikidata: Q111255230
+  sources:
+  - wikidata:Q111255230/P856(sitelinks=0)
+  - appstore:CRISP APP STUDIO LLC(Hidden Objects Sherlock Holmes,10y,28647 ratings)
+domains:
+- domain: crispapp.com
+  role: primary
+  status: verified
+  confidence: 0.6515
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:22Z'
+  ttl_days: 30
+  age_days: 5772
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T14:48:22Z'
+    source: https://itunes.apple.com/search?term=Crisp%20App%20Studio&entity=software
+    data:
+      app: Hidden Objects Sherlock Holmes
+      track_id: 1032952756
+      seller: CRISP APP STUDIO LLC
+      artist: Crisp App Studio
+      seller_url: http://www.crispapp.com
+      released: '2015-09-14'
+      age_days: 4010
+      ratings: 28647
+      apps_for_domain: 23
+      apps:
+      - app: Hidden Objects Sherlock Holmes
+        seller: CRISP APP STUDIO LLC
+        released: '2015-09-14'
+        age_days: 4010
+        ratings: 28647
+      - app: 'Time Trap: Hidden Object Games'
+        seller: CRISP APP STUDIO LLC
+        released: '2015-12-21'
+        age_days: 3912
+        ratings: 5156
+      - app: Through The Looking-Glass Game
+        seller: CRISP APP STUDIO LLC
+        released: '2016-07-13'
+        age_days: 3707
+        ratings: 6067
+  - code: A3
+    checked_at: '2026-09-06T14:48:23Z'
+    source: https://rdap.org/domain/crispapp.com
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2010-11-16'
+      expires: '2026-11-16'
+      remaining_days: 71
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T14:48:23Z'
+    source: TLS handshake crispapp.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: GoDaddy.com
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T14:48:22Z'
+    source: https://www.wikidata.org/wiki/Q111255230
+    data:
+      qid: Q111255230
+      label: Crisp App Studio
+      kind: organization
+      site: http://crispapp.com
+      sitelinks: 0
+      competing_items: 4
+  - code: B4
+    checked_at: '2026-09-06T14:48:25Z'
+    source: http://web.archive.org/cdx/search/cdx?url=crispapp.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2010-12-05'
+      history_days: 5754
+  rejected_evidence:
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T15:41:43Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q111255230
+  reviewed_by: []
+  source_issue: null

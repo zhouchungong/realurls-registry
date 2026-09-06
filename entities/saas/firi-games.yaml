@@ -1,0 +1,108 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:firi-games
+names:
+  en: Firi Games
+aliases: []
+category:
+- saas
+wikidata: Q110571305
+canonical:
+  github_org: null
+  wikidata: Q110571305
+  sources:
+  - wikidata:Q110571305/P856(sitelinks=0)
+  - appstore:Firi Games(Phoenix 2,10y,25769 ratings)
+domains:
+- domain: firigames.com
+  role: primary
+  status: verified
+  confidence: 0.6515
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:14Z'
+  ttl_days: 30
+  age_days: 6540
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T14:48:49Z'
+    source: https://itunes.apple.com/search?term=Firi%20Games&entity=software
+    data:
+      app: Phoenix 2
+      track_id: 1134895689
+      seller: Firi Games
+      artist: Firi Games
+      seller_url: http://www.firigames.com/phoenix2
+      released: '2016-07-28'
+      age_days: 3692
+      ratings: 25769
+      apps_for_domain: 3
+      apps:
+      - app: Phoenix 2
+        seller: Firi Games
+        released: '2016-07-28'
+        age_days: 3692
+        ratings: 25769
+      - app: Phoenix HD
+        seller: Firi Games
+        released: '2011-08-12'
+        age_days: 5504
+        ratings: 1021
+      - app: Flare Elite
+        seller: Firi Games
+        released: '2010-03-13'
+        age_days: 6021
+        ratings: 4
+  - code: A3
+    checked_at: '2026-09-06T14:48:50Z'
+    source: https://rdap.org/domain/firigames.com
+    data:
+      registrar: Cloudflare, Inc.
+      created: '2008-10-09'
+      expires: '2026-10-09'
+      remaining_days: 33
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T14:48:49Z'
+    source: TLS handshake firigames.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Sectigo Limited
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T14:48:49Z'
+    source: https://www.wikidata.org/wiki/Q110571305
+    data:
+      qid: Q110571305
+      label: Firi Games
+      kind: organization
+      site: https://firigames.com/
+      sitelinks: 0
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-06T14:49:03Z'
+    source: http://web.archive.org/cdx/search/cdx?url=firigames.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2010-02-23'
+      history_days: 6039
+  rejected_evidence:
+  - 'A3: registrar (Cloudflare, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T15:41:43Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q110571305
+  reviewed_by: []
+  source_issue: null

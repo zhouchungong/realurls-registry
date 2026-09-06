@@ -1,0 +1,109 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:plug-in-digital
+names:
+  en: Plug In Digital
+aliases: []
+category:
+- saas
+wikidata: Q59222994
+canonical:
+  github_org: null
+  wikidata: Q59222994
+  sources:
+  - wikidata:Q59222994/P856(sitelinks=2)
+  - appstore:Plug In Digital(Machinika Museum,5y,3785 ratings)
+domains:
+- domain: plugindigital.com
+  role: primary
+  status: verified
+  confidence: 0.6515
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:31Z'
+  ttl_days: 30
+  age_days: 5208
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T15:03:11Z'
+    source: https://itunes.apple.com/search?term=Plug%20In%20Digital&entity=software
+    data:
+      app: Machinika Museum
+      track_id: 1543204967
+      seller: Plug In Digital
+      artist: Plug In Digital
+      seller_url: https://plugindigital.com/
+      released: '2021-04-20'
+      age_days: 1965
+      ratings: 3785
+      apps_for_domain: 14
+      apps:
+      - app: Machinika Museum
+        seller: Plug In Digital
+        released: '2021-04-20'
+        age_days: 1965
+        ratings: 3785
+      - app: Turnip Boy Commits T*x Evasion
+        seller: Plug In Digital
+        released: '2022-05-24'
+        age_days: 1566
+        ratings: 16053
+      - app: Abandon Ship
+        seller: Plug In Digital
+        released: '2022-06-14'
+        age_days: 1545
+        ratings: 1706
+  - code: A3
+    checked_at: '2026-09-06T15:03:12Z'
+    source: https://rdap.org/domain/plugindigital.com
+    data:
+      registrar: OVH sas
+      created: '2012-06-02'
+      expires: '2027-06-02'
+      remaining_days: 269
+      locks:
+      - delete
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T15:03:12Z'
+    source: TLS handshake plugindigital.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T15:03:11Z'
+    source: https://www.wikidata.org/wiki/Q59222994
+    data:
+      qid: Q59222994
+      label: Plug In Digital
+      kind: organization
+      site: https://plugindigital.com/
+      sitelinks: 2
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-06T15:03:25Z'
+    source: http://web.archive.org/cdx/search/cdx?url=plugindigital.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2019-08-28'
+      history_days: 2566
+  rejected_evidence:
+  - 'A3: registrar (OVH sas) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T15:41:43Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q59222994
+  reviewed_by: []
+  source_issue: null

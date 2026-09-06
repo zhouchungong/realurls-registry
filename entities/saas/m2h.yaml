@@ -1,0 +1,107 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:m2h
+names:
+  en: M2H
+aliases: []
+category:
+- saas
+wikidata: Q30595072
+canonical:
+  github_org: null
+  wikidata: Q30595072
+  sources:
+  - wikidata:Q30595072/P856(sitelinks=2)
+  - appstore:M2H B.V.(Crash Drive 2,12y,3173 ratings)
+domains:
+- domain: m2h.nl
+  role: primary
+  status: verified
+  confidence: 0.6515
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:31Z'
+  ttl_days: 30
+  age_days: 8235
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T14:57:26Z'
+    source: https://itunes.apple.com/search?term=M2H&entity=software
+    data:
+      app: Crash Drive 2
+      track_id: 728452378
+      seller: M2H B.V.
+      artist: M2H B.V.
+      seller_url: https://www.m2h.nl/crashdrive-2/
+      released: '2013-11-24'
+      age_days: 4669
+      ratings: 3173
+      apps_for_domain: 7
+      apps:
+      - app: Crash Drive 2
+        seller: M2H B.V.
+        released: '2013-11-24'
+        age_days: 4669
+        ratings: 3173
+      - app: Jigsaw Puzzles!
+        seller: M2H B.V.
+        released: '2011-07-01'
+        age_days: 5546
+        ratings: 2750
+      - app: Crash Drive 3
+        seller: M2H B.V.
+        released: '2021-07-08'
+        age_days: 1886
+        ratings: 1445
+  - code: A3
+    checked_at: '2026-09-06T14:58:10Z'
+    source: https://rdap.org/domain/m2h.nl
+    data:
+      registrar: LeaseWeb Netherlands B.V.
+      created: '2004-02-19'
+      expires: null
+      remaining_days: 0
+      locks: []
+  - code: A4
+    checked_at: '2026-09-06T14:57:27Z'
+    source: TLS handshake m2h.nl:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T14:57:26Z'
+    source: https://www.wikidata.org/wiki/Q30595072
+    data:
+      qid: Q30595072
+      label: M2H
+      kind: organization
+      site: https://www.m2h.nl/
+      sitelinks: 2
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-06T14:57:41Z'
+    source: http://web.archive.org/cdx/search/cdx?url=m2h.nl&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2004-03-24'
+      history_days: 8201
+  rejected_evidence:
+  - 'A3: registrar (LeaseWeb Netherlands B.V.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T15:41:43Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q30595072
+  reviewed_by: []
+  source_issue: null

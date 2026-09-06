@@ -1,0 +1,104 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:browsec
+names:
+  en: Browsec
+aliases: []
+category:
+- saas
+wikidata: Q139386864
+canonical:
+  github_org: null
+  wikidata: Q139386864
+  sources:
+  - wikidata:Q139386864/P856(sitelinks=0)
+  - 'appstore:Browsec Inc(Browsec VPN: Fast & Ads Free,11y,16932 ratings)'
+domains:
+- domain: browsec.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:22Z'
+  ttl_days: 30
+  age_days: 5050
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T14:46:14Z'
+    source: https://itunes.apple.com/search?term=Browsec&entity=software
+    data:
+      app: 'Browsec VPN: Fast & Ads Free'
+      track_id: 978583103
+      seller: Browsec Inc
+      artist: Browsec Inc
+      seller_url: https://browsec.com/
+      released: '2015-04-15'
+      age_days: 4161
+      ratings: 16932
+      apps_for_domain: 1
+      apps:
+      - app: 'Browsec VPN: Fast & Ads Free'
+        seller: Browsec Inc
+        released: '2015-04-15'
+        age_days: 4161
+        ratings: 16932
+  - code: A3
+    checked_at: '2026-09-06T14:46:15Z'
+    source: https://rdap.org/domain/browsec.com
+    data:
+      registrar: Internet Domain Service BS Corp
+      created: '2012-11-08'
+      expires: '2026-11-08'
+      remaining_days: 62
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T14:46:14Z'
+    source: TLS handshake browsec.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T14:46:14Z'
+    source: https://www.wikidata.org/wiki/Q139386864
+    data:
+      qid: Q139386864
+      label: Browsec
+      kind: organization
+      site: https://browsec.com
+      sitelinks: 0
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T14:46:14Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 37548
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T14:46:59Z'
+    source: http://web.archive.org/cdx/search/cdx?url=browsec.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2013-08-25'
+      history_days: 4760
+  rejected_evidence:
+  - 'A3: registrar (Internet Domain Service BS Corp) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T15:41:43Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q139386864
+  reviewed_by: []
+  source_issue: null

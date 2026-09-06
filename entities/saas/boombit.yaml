@@ -1,0 +1,114 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:boombit
+names:
+  en: BoomBit
+aliases: []
+category:
+- saas
+wikidata: Q113989998
+canonical:
+  github_org: null
+  wikidata: Q113989998
+  sources:
+  - wikidata:Q113989998/P856(sitelinks=1)
+  - appstore:BoomBit, Inc.(Car Driving School Simulator,9y,59726 ratings)
+domains:
+- domain: boombit.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:14Z'
+  ttl_days: 30
+  age_days: 5222
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T14:43:22Z'
+    source: https://itunes.apple.com/search?term=BoomBit&entity=software
+    data:
+      app: Car Driving School Simulator
+      track_id: 1186801988
+      seller: BoomBit, Inc.
+      artist: BoomBit, Inc.
+      seller_url: https://boombit.com
+      released: '2017-08-09'
+      age_days: 3315
+      ratings: 59726
+      apps_for_domain: 17
+      apps:
+      - app: Car Driving School Simulator
+        seller: BoomBit, Inc.
+        released: '2017-08-09'
+        age_days: 3315
+        ratings: 59726
+      - app: Tiny Gladiators 2
+        seller: BoomBit, Inc.
+        released: '2018-11-29'
+        age_days: 2838
+        ratings: 3474
+      - app: Ramp Car Jumping
+        seller: BoomBit, Inc.
+        released: '2019-12-18'
+        age_days: 2454
+        ratings: 15940
+  - code: A3
+    checked_at: '2026-09-06T14:43:23Z'
+    source: https://rdap.org/domain/boombit.com
+    data:
+      registrar: IONOS SE
+      created: '2012-05-19'
+      expires: '2027-05-19'
+      remaining_days: 255
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T14:43:23Z'
+    source: TLS handshake boombit.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Sectigo Limited
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T14:43:22Z'
+    source: https://www.wikidata.org/wiki/Q113989998
+    data:
+      qid: Q113989998
+      label: BoomBit
+      kind: organization
+      site: https://boombit.com
+      sitelinks: 1
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T14:43:22Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 72366
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T14:43:35Z'
+    source: http://web.archive.org/cdx/search/cdx?url=boombit.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2003-02-04'
+      history_days: 8615
+  rejected_evidence:
+  - 'A3: registrar (IONOS SE) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T15:41:43Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q113989998
+  reviewed_by: []
+  source_issue: null

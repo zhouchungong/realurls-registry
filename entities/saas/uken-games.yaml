@@ -1,0 +1,122 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:uken-games
+names:
+  en: Uken Games
+aliases: []
+category:
+- saas
+wikidata: Q16958749
+canonical:
+  github_org: null
+  wikidata: Q16958749
+  sources:
+  - wikidata:Q16958749/P856(sitelinks=2)
+  - appstore:Uken Inc.(Kings of Pool,9y,21575 ratings)
+domains:
+- domain: uken.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:14Z'
+  ttl_days: 30
+  age_days: 10036
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T15:04:01Z'
+    source: https://api.github.com/orgs/uken
+    data:
+      org: uken
+      org_verified: false
+      blog: www.uken.com
+  - code: A9
+    checked_at: '2026-09-06T15:04:01Z'
+    source: https://itunes.apple.com/search?term=Uken%20Games&entity=software
+    data:
+      app: Kings of Pool
+      track_id: 1049420215
+      seller: Uken Inc.
+      artist: Uken Inc.
+      seller_url: http://www.uken.com
+      released: '2017-02-21'
+      age_days: 3483
+      ratings: 21575
+      apps_for_domain: 7
+      apps:
+      - app: Kings of Pool
+        seller: Uken Inc.
+        released: '2017-02-21'
+        age_days: 3483
+        ratings: 21575
+      - app: Jeopardy! Trivia TV Game Show
+        seller: Uken Inc.
+        released: '2017-05-17'
+        age_days: 3398
+        ratings: 87576
+      - app: 'Millionaire Quiz: Trivia Game'
+        seller: Uken Inc.
+        released: '2018-09-25'
+        age_days: 2903
+        ratings: 49524
+  - code: A3
+    checked_at: '2026-09-06T15:04:02Z'
+    source: https://rdap.org/domain/uken.com
+    data:
+      registrar: Amazon Registrar, Inc.
+      created: '1999-03-16'
+      expires: '2027-06-01'
+      remaining_days: 267
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T15:04:01Z'
+    source: TLS handshake uken.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 3
+  - code: B1
+    checked_at: '2026-09-06T15:04:01Z'
+    source: https://www.wikidata.org/wiki/Q16958749
+    data:
+      qid: Q16958749
+      label: Uken Games
+      kind: organization
+      site: http://uken.com/
+      sitelinks: 2
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T15:04:01Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 120269
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T15:04:16Z'
+    source: http://web.archive.org/cdx/search/cdx?url=uken.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2002-01-20'
+      history_days: 8995
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Amazon Registrar, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T15:41:43Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q16958749
+  reviewed_by: []
+  source_issue: null

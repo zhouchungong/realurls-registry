@@ -1,0 +1,103 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:haegin
+names:
+  en: Haegin
+aliases: []
+category:
+- saas
+wikidata: Q114264210
+canonical:
+  github_org: null
+  wikidata: Q114264210
+  sources:
+  - wikidata:Q114264210/P856(sitelinks=0)
+  - appstore:HAEGIN Co., Ltd.(Homerun Clash,7y,23281 ratings)
+domains:
+- domain: haegin.kr
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:14Z'
+  ttl_days: 30
+  age_days: 3214
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T14:49:40Z'
+    source: https://itunes.apple.com/search?term=Haegin&entity=software
+    data:
+      app: Homerun Clash
+      track_id: 1345750763
+      seller: HAEGIN Co., Ltd.
+      artist: HAEGIN Co., Ltd.
+      seller_url: http://haegin.kr
+      released: '2019-01-03'
+      age_days: 2803
+      ratings: 23281
+      apps_for_domain: 8
+      apps:
+      - app: Homerun Clash
+        seller: HAEGIN Co., Ltd.
+        released: '2019-01-03'
+        age_days: 2803
+        ratings: 23281
+      - app: OVERDOX
+        seller: HAEGIN Co., Ltd.
+        released: '2019-11-07'
+        age_days: 2495
+        ratings: 4281
+      - app: Extreme Golf - 4 Player Battle
+        seller: HAEGIN Co., Ltd.
+        released: '2020-04-23'
+        age_days: 2327
+        ratings: 4376
+  - code: A4
+    checked_at: '2026-09-06T14:49:41Z'
+    source: TLS handshake haegin.kr:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T14:49:40Z'
+    source: https://www.wikidata.org/wiki/Q114264210
+    data:
+      qid: Q114264210
+      label: Haegin
+      kind: organization
+      site: http://www.haegin.kr/
+      sitelinks: 0
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T14:49:40Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 204076
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T14:49:50Z'
+    source: http://web.archive.org/cdx/search/cdx?url=haegin.kr&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2017-11-18'
+      history_days: 3214
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T15:41:43Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q114264210
+  reviewed_by: []
+  source_issue: null

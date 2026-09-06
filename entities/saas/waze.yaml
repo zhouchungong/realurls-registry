@@ -1,0 +1,106 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:waze
+names:
+  en: Waze
+aliases:
+- Waze Mobile
+category:
+- saas
+wikidata: Q942327
+canonical:
+  github_org: null
+  wikidata: Q942327
+  sources:
+  - wikidata:Q942327/P856
+domains:
+- domain: waze.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:31Z'
+  ttl_days: 30
+  age_days: 9654
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T15:11:06Z'
+    source: https://itunes.apple.com/search?term=Waze&entity=software
+    data:
+      app: Waze Navigation & Live Traffic
+      track_id: 323229106
+      seller: waze
+      artist: Waze Inc.
+      seller_url: http://www.waze.com
+      released: '2009-08-01'
+      age_days: 6244
+      ratings: 3189051
+      apps_for_domain: 1
+      apps:
+      - app: Waze Navigation & Live Traffic
+        seller: waze
+        released: '2009-08-01'
+        age_days: 6244
+        ratings: 3189051
+  - code: A3
+    checked_at: '2026-09-06T15:11:39Z'
+    source: https://rdap.org/domain/waze.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2000-04-01'
+      expires: '2027-04-01'
+      remaining_days: 206
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T15:11:05Z'
+    source: TLS handshake waze.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 6
+  - code: B1
+    checked_at: '2026-09-06T15:11:05Z'
+    source: https://www.wikidata.org/wiki/Q942327
+    data:
+      qid: Q942327
+      label: Waze
+      kind: software
+      site: https://www.waze.com
+      sitelinks: 37
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-06T15:11:05Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 1168
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T15:12:00Z'
+    source: http://web.archive.org/cdx/search/cdx?url=waze.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1999-10-12'
+      history_days: 9826
+  rejected_evidence:
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T15:41:43Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q942327
+  reviewed_by: []
+  source_issue: null

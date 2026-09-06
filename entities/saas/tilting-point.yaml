@@ -1,0 +1,122 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:tilting-point
+names:
+  en: Tilting Point
+aliases: []
+category:
+- saas
+wikidata: Q104863489
+canonical:
+  github_org: null
+  wikidata: Q104863489
+  sources:
+  - wikidata:Q104863489/P856(sitelinks=2)
+  - appstore:Tilting Point Media(Star Trek Timelines,10y,7489 ratings)
+domains:
+- domain: tiltingpoint.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:31Z'
+  ttl_days: 30
+  age_days: 5451
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T15:07:16Z'
+    source: https://api.github.com/orgs/tiltingpoint
+    data:
+      org: tiltingpoint
+      org_verified: false
+      blog: http://www.tiltingpoint.com/
+  - code: A9
+    checked_at: '2026-09-06T15:07:16Z'
+    source: https://itunes.apple.com/search?term=Tilting%20Point&entity=software
+    data:
+      app: Star Trek Timelines
+      track_id: 1001250333
+      seller: Tilting Point Media
+      artist: Tilting Point Media
+      seller_url: https://www.tiltingpoint.com/
+      released: '2016-01-13'
+      age_days: 3888
+      ratings: 7489
+      apps_for_domain: 13
+      apps:
+      - app: Star Trek Timelines
+        seller: Tilting Point Media
+        released: '2016-01-13'
+        age_days: 3888
+        ratings: 7489
+      - app: 'Narcos: Cartel Wars & Strategy'
+        seller: Tilting Point LLC
+        released: '2016-08-31'
+        age_days: 3658
+        ratings: 11406
+      - app: The Walking Dead Casino Slots
+        seller: Tilting Point LLC
+        released: '2018-12-06'
+        age_days: 2830
+        ratings: 9403
+  - code: A3
+    checked_at: '2026-09-06T15:07:16Z'
+    source: https://rdap.org/domain/tiltingpoint.com
+    data:
+      registrar: Amazon Registrar, Inc.
+      created: '2011-10-03'
+      expires: '2027-10-03'
+      remaining_days: 392
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T15:07:16Z'
+    source: TLS handshake tiltingpoint.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T15:07:16Z'
+    source: https://www.wikidata.org/wiki/Q104863489
+    data:
+      qid: Q104863489
+      label: Tilting Point
+      kind: organization
+      site: https://www.tiltingpoint.com/
+      sitelinks: 2
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T15:07:16Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 435960
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T15:07:27Z'
+    source: http://web.archive.org/cdx/search/cdx?url=tiltingpoint.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2013-02-17'
+      history_days: 4949
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Amazon Registrar, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T15:41:43Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q104863489
+  reviewed_by: []
+  source_issue: null

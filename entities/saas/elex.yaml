@@ -1,0 +1,97 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:elex
+names:
+  en: Elex
+aliases: []
+category:
+- saas
+wikidata: Q106977718
+canonical:
+  github_org: null
+  wikidata: Q106977718
+  sources:
+  - wikidata:Q106977718/P856(sitelinks=0)
+  - appstore:ELEX Technology Holdings Co., Ltd.(Clash of Kings - CoK,11y,3191 ratings)
+domains:
+- domain: elex-tech.com
+  role: primary
+  status: verified
+  confidence: 0.6278
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:22Z'
+  ttl_days: 30
+  age_days: 6424
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T14:49:49Z'
+    source: https://itunes.apple.com/search?term=Elex&entity=software
+    data:
+      app: Clash of Kings - CoK
+      track_id: 945274928
+      seller: ELEX Technology Holdings Co., Ltd.
+      artist: ELEX Wireless
+      seller_url: https://cok.elex-tech.com/en
+      released: '2014-12-30'
+      age_days: 4268
+      ratings: 3191
+      apps_for_domain: 1
+      apps:
+      - app: Clash of Kings - CoK
+        seller: ELEX Technology Holdings Co., Ltd.
+        released: '2014-12-30'
+        age_days: 4268
+        ratings: 3191
+  - code: A3
+    checked_at: '2026-09-06T14:49:49Z'
+    source: https://rdap.org/domain/elex-tech.com
+    data:
+      registrar: Alibaba Cloud Computing (Beijing) Co., Ltd.
+      created: '2009-02-03'
+      expires: '2027-02-03'
+      remaining_days: 149
+      locks: []
+  - code: A4
+    checked_at: '2026-09-06T14:49:49Z'
+    source: TLS handshake elex-tech.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: DNSPod, Inc.
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T14:49:49Z'
+    source: https://www.wikidata.org/wiki/Q106977718
+    data:
+      qid: Q106977718
+      label: Elex
+      kind: organization
+      site: https://www.elex-tech.com/
+      sitelinks: 0
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T14:49:49Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 263004
+      source: top-1m list
+  rejected_evidence:
+  - 'A3: registrar (Alibaba Cloud Computing (Beijing) Co., Ltd.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T15:41:43Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q106977718
+  reviewed_by: []
+  source_issue: null

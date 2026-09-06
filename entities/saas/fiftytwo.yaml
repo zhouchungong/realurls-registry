@@ -1,0 +1,108 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:fiftytwo
+names:
+  en: Fiftytwo
+aliases: []
+category:
+- saas
+wikidata: Q105154362
+canonical:
+  github_org: null
+  wikidata: Q105154362
+  sources:
+  - wikidata:Q105154362/P856(sitelinks=0)
+  - appstore:FIFTYTWO, OOO(Kenshō,8y,2726 ratings)
+domains:
+- domain: wefiftytwo.com
+  role: primary
+  status: verified
+  confidence: 0.6515
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:22Z'
+  ttl_days: 30
+  age_days: 4195
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T15:14:34Z'
+    source: https://itunes.apple.com/search?term=Fiftytwo&entity=software
+    data:
+      app: Kenshō
+      track_id: 1033471974
+      seller: FIFTYTWO, OOO
+      artist: FIFTYTWO
+      seller_url: https://kensho.wefiftytwo.com
+      released: '2017-09-17'
+      age_days: 3275
+      ratings: 2726
+      apps_for_domain: 3
+      apps:
+      - app: Kenshō
+        seller: FIFTYTWO, OOO
+        released: '2017-09-17'
+        age_days: 3275
+        ratings: 2726
+      - app: Populus Run
+        seller: FIFTYTWO, OOO
+        released: '2024-01-07'
+        age_days: 973
+        ratings: 1518
+      - app: JELLIES!
+        seller: FIFTYTWO, OOO
+        released: '2014-06-26'
+        age_days: 4455
+        ratings: 180
+  - code: A3
+    checked_at: '2026-09-06T15:14:35Z'
+    source: https://rdap.org/domain/wefiftytwo.com
+    data:
+      registrar: Registrar of Domain Names REG.RU LLC
+      created: '2015-03-13'
+      expires: '2027-03-13'
+      remaining_days: 187
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T15:14:34Z'
+    source: TLS handshake wefiftytwo.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: ZeroSSL GmbH
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T15:14:34Z'
+    source: https://www.wikidata.org/wiki/Q105154362
+    data:
+      qid: Q105154362
+      label: Fiftytwo
+      kind: organization
+      site: https://wefiftytwo.com/
+      sitelinks: 0
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-06T15:14:52Z'
+    source: http://web.archive.org/cdx/search/cdx?url=wefiftytwo.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2016-02-08'
+      history_days: 3863
+  rejected_evidence:
+  - 'A3: registrar (Registrar of Domain Names REG.RU LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T15:41:43Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q105154362
+  reviewed_by: []
+  source_issue: null

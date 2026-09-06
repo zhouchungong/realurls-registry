@@ -1,0 +1,119 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:borderleap
+names:
+  en: BorderLeap
+aliases: []
+category:
+- saas
+wikidata: Q116258896
+canonical:
+  github_org: null
+  wikidata: Q116258896
+  sources:
+  - wikidata:Q116258896/P856(sitelinks=0)
+  - appstore:BorderLeap, LLC(Alpha Omega,11y,5664 ratings)
+domains:
+- domain: borderleap.com
+  role: primary
+  status: verified
+  confidence: 0.6515
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:31Z'
+  ttl_days: 30
+  age_days: 5188
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T14:44:18Z'
+    source: https://api.github.com/orgs/borderleap
+    data:
+      org: borderleap
+      org_verified: false
+      blog: https://borderleap.com
+  - code: A9
+    checked_at: '2026-09-06T14:44:18Z'
+    source: https://itunes.apple.com/search?term=BorderLeap&entity=software
+    data:
+      app: Alpha Omega
+      track_id: 748048441
+      seller: BorderLeap, LLC
+      artist: BorderLeap
+      seller_url: https://borderleap.com
+      released: '2015-03-12'
+      age_days: 4196
+      ratings: 5664
+      apps_for_domain: 3
+      apps:
+      - app: Alpha Omega
+        seller: BorderLeap, LLC
+        released: '2015-03-12'
+        age_days: 4196
+        ratings: 5664
+      - app: Antitype
+        seller: BorderLeap, LLC
+        released: '2017-04-26'
+        age_days: 3419
+        ratings: 964
+      - app: har•mo•ny
+        seller: BorderLeap, LLC
+        released: '2013-10-10'
+        age_days: 4714
+        ratings: 130
+  - code: A3
+    checked_at: '2026-09-06T14:44:19Z'
+    source: https://rdap.org/domain/borderleap.com
+    data:
+      registrar: Wild West Domains, LLC
+      created: '2012-06-22'
+      expires: '2027-06-22'
+      remaining_days: 289
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T14:44:18Z'
+    source: TLS handshake borderleap.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T14:44:18Z'
+    source: https://www.wikidata.org/wiki/Q116258896
+    data:
+      qid: Q116258896
+      label: BorderLeap
+      kind: organization
+      site: https://www.borderleap.com/
+      sitelinks: 0
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-06T14:44:23Z'
+    source: http://web.archive.org/cdx/search/cdx?url=borderleap.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2006-06-22'
+      history_days: 7381
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Wild West Domains, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T15:41:43Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q116258896
+  reviewed_by: []
+  source_issue: null

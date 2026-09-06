@@ -1,0 +1,101 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:adikus
+names:
+  en: Adikus
+aliases: []
+category:
+- saas
+wikidata: Q106753220
+canonical:
+  github_org: null
+  wikidata: Q106753220
+  sources:
+  - wikidata:Q106753220/P856(sitelinks=0)
+  - appstore:Adikus(Backgammon Classic Board Live,13y,53060 ratings)
+domains:
+- domain: adikus.com
+  role: primary
+  status: verified
+  confidence: 0.6515
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:20Z'
+  ttl_days: 30
+  age_days: 6838
+  age_source: rdap
+  collection_incomplete: true
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T14:42:45Z'
+    source: https://itunes.apple.com/search?term=Adikus&entity=software
+    data:
+      app: Backgammon Classic Board Live
+      track_id: 544018782
+      seller: Adikus
+      artist: Adikus
+      seller_url: https://www.adikus.com
+      released: '2013-01-30'
+      age_days: 4966
+      ratings: 53060
+      apps_for_domain: 10
+      apps:
+      - app: Backgammon Classic Board Live
+        seller: Adikus
+        released: '2013-01-30'
+        age_days: 4966
+        ratings: 53060
+      - app: Backgammon+
+        seller: Adikus
+        released: '2021-04-02'
+        age_days: 1983
+        ratings: 11674
+      - app: Okey 101 - tile matching game
+        seller: Adikus
+        released: '2012-06-11'
+        age_days: 5200
+        ratings: 1491
+  - code: A3
+    checked_at: '2026-09-06T14:43:06Z'
+    source: https://rdap.org/domain/adikus.com
+    data:
+      registrar: DNC Holdings, Inc.
+      created: '2007-12-16'
+      expires: '2027-12-16'
+      remaining_days: 466
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: B1
+    checked_at: '2026-09-06T14:42:45Z'
+    source: https://www.wikidata.org/wiki/Q106753220
+    data:
+      qid: Q106753220
+      label: Adikus
+      kind: organization
+      site: https://www.adikus.com/
+      sitelinks: 0
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-06T14:42:53Z'
+    source: http://web.archive.org/cdx/search/cdx?url=adikus.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2008-01-16'
+      history_days: 6808
+  rejected_evidence:
+  - 'A3: registrar (DNC Holdings, Inc.) is not a brand-protection registrar'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T15:41:43Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q106753220
+  reviewed_by: []
+  source_issue: null

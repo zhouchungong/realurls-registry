@@ -1,0 +1,109 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:ankama
+names:
+  en: Ankama
+aliases:
+- Ankama Games
+category:
+- saas
+wikidata: Q556308
+canonical:
+  github_org: null
+  wikidata: Q556308
+  sources:
+  - wikidata:Q556308/P856
+domains:
+- domain: ankama.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:31Z'
+  ttl_days: 30
+  age_days: 9274
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T14:43:30Z'
+    source: https://itunes.apple.com/search?term=Ankama&entity=software
+    data:
+      app: Drag'n'Boom
+      track_id: 1249845602
+      seller: Ankama
+      artist: Ankama
+      seller_url: https://www.ankama.com/en/games/drag-boom
+      released: '2017-09-12'
+      age_days: 3281
+      ratings: 22300
+      apps_for_domain: 2
+      apps:
+      - app: Drag'n'Boom
+        seller: Ankama
+        released: '2017-09-12'
+        age_days: 3281
+        ratings: 22300
+      - app: Krosmoz
+        seller: Ankama
+        released: '2022-08-02'
+        age_days: 1496
+        ratings: 15
+  - code: A3
+    checked_at: '2026-09-06T14:43:29Z'
+    source: https://rdap.org/domain/ankama.com
+    data:
+      registrar: EuroDNS S.A.
+      created: '2001-04-15'
+      expires: '2027-04-15'
+      remaining_days: 221
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T14:43:29Z'
+    source: TLS handshake ankama.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 46
+  - code: B1
+    checked_at: '2026-09-06T14:43:29Z'
+    source: https://www.wikidata.org/wiki/Q556308
+    data:
+      qid: Q556308
+      label: Ankama
+      kind: organization
+      site: http://www.ankama.com/
+      sitelinks: 9
+      competing_items: 2
+  - code: B5
+    checked_at: '2026-09-06T14:43:29Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 27352
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T14:43:48Z'
+    source: http://web.archive.org/cdx/search/cdx?url=ankama.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2002-06-01'
+      history_days: 8863
+  rejected_evidence:
+  - 'A3: registrar (EuroDNS S.A.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T15:41:43Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q556308
+  reviewed_by: []
+  source_issue: null

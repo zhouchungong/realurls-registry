@@ -1,0 +1,125 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:hitgrab
+names:
+  en: HitGrab
+aliases: []
+category:
+- saas
+wikidata: Q101215211
+canonical:
+  github_org: null
+  wikidata: Q101215211
+  sources:
+  - wikidata:Q101215211/P856(sitelinks=0)
+  - appstore:HitGrab Inc.(Blackjack,9y,3178 ratings)
+domains:
+- domain: hitgrab.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:22Z'
+  ttl_days: 30
+  age_days: 7319
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T14:56:36Z'
+    source: https://api.github.com/orgs/hitgrab
+    data:
+      org: hitgrab
+      org_verified: false
+      blog: http://www.hitgrab.com/
+  - code: A9
+    checked_at: '2026-09-06T14:56:36Z'
+    source: https://itunes.apple.com/search?term=HitGrab&entity=software
+    data:
+      app: Blackjack
+      track_id: 1170103060
+      seller: HitGrab Inc.
+      artist: HitGrab Inc.
+      seller_url: http://www.hitgrab.com/
+      released: '2016-12-11'
+      age_days: 3555
+      ratings: 3178
+      apps_for_domain: 3
+      apps:
+      - app: Blackjack
+        seller: HitGrab Inc.
+        released: '2016-12-11'
+        age_days: 3555
+        ratings: 3178
+      - app: 'MouseHunt: Massive-Passive RPG'
+        seller: HitGrab Inc.
+        released: '2012-10-18'
+        age_days: 5071
+        ratings: 595
+      - app: MouseHunt PuzzleTrap
+        seller: HitGrab Inc.
+        released: '2016-06-10'
+        age_days: 3740
+        ratings: 7
+  - code: A3
+    checked_at: '2026-09-06T14:56:37Z'
+    source: https://rdap.org/domain/hitgrab.com
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2006-08-23'
+      expires: '2027-08-23'
+      remaining_days: 350
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T14:56:36Z'
+    source: TLS handshake hitgrab.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T14:56:36Z'
+    source: https://www.wikidata.org/wiki/Q101215211
+    data:
+      qid: Q101215211
+      label: HitGrab
+      kind: organization
+      site: https://hitgrab.com/
+      sitelinks: 0
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T14:56:36Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 333317
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T14:56:39Z'
+    source: http://web.archive.org/cdx/search/cdx?url=hitgrab.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2002-03-05'
+      history_days: 8951
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T15:41:43Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q101215211
+  reviewed_by: []
+  source_issue: null

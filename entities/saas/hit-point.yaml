@@ -1,0 +1,97 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:hit-point
+names:
+  en: Hit-Point
+aliases: []
+category:
+- saas
+wikidata: Q53310065
+canonical:
+  github_org: null
+  wikidata: Q53310065
+  sources:
+  - wikidata:Q53310065/P856(sitelinks=1)
+  - 'appstore:Hit-Point Co., Ltd.(Neko Atsume: Kitty Collector,11y,26656 ratings)'
+domains:
+- domain: hit-point.co.jp
+  role: primary
+  status: verified
+  confidence: 0.6515
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:31Z'
+  ttl_days: 30
+  age_days: 5980
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T14:53:33Z'
+    source: https://itunes.apple.com/search?term=Hit-Point&entity=software
+    data:
+      app: 'Neko Atsume: Kitty Collector'
+      track_id: 923917775
+      seller: Hit-Point Co., Ltd.
+      artist: Hit-Point Co., Ltd.
+      seller_url: http://www.hit-point.co.jp/
+      released: '2014-10-21'
+      age_days: 4338
+      ratings: 26656
+      apps_for_domain: 6
+      apps:
+      - app: 'Neko Atsume: Kitty Collector'
+        seller: Hit-Point Co., Ltd.
+        released: '2014-10-21'
+        age_days: 4338
+        ratings: 26656
+      - app: 旅かえる
+        seller: Hit-Point Co., Ltd.
+        released: '2017-12-06'
+        age_days: 3196
+        ratings: 2302
+      - app: Neko Atsume 2
+        seller: Hit-Point Co., Ltd.
+        released: '2024-10-20'
+        age_days: 686
+        ratings: 4586
+  - code: A4
+    checked_at: '2026-09-06T14:53:34Z'
+    source: TLS handshake hit-point.co.jp:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T14:53:33Z'
+    source: https://www.wikidata.org/wiki/Q53310065
+    data:
+      qid: Q53310065
+      label: Hit-Point
+      kind: organization
+      site: http://www.hit-point.co.jp/
+      sitelinks: 1
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-06T14:53:38Z'
+    source: http://web.archive.org/cdx/search/cdx?url=hit-point.co.jp&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2010-04-23'
+      history_days: 5980
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T15:41:43Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q53310065
+  reviewed_by: []
+  source_issue: null

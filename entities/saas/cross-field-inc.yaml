@@ -1,0 +1,97 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:cross-field-inc
+names:
+  en: Cross Field Inc.
+aliases: []
+category:
+- saas
+wikidata: Q126957608
+canonical:
+  github_org: null
+  wikidata: Q126957608
+  sources:
+  - wikidata:Q126957608/P856(sitelinks=0)
+  - appstore:Cross Field Inc.(Cat Room - Cute Cat Games,9y,5393 ratings)
+domains:
+- domain: crossfd.co.jp
+  role: primary
+  status: verified
+  confidence: 0.6515
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:20Z'
+  ttl_days: 30
+  age_days: 2771
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T14:53:38Z'
+    source: https://itunes.apple.com/search?term=Cross%20Field%20Inc.&entity=software
+    data:
+      app: Cat Room - Cute Cat Games
+      track_id: 1153929426
+      seller: Cross Field Inc.
+      artist: Cross Field Inc.
+      seller_url: https://crossfd.co.jp/
+      released: '2016-09-20'
+      age_days: 3637
+      ratings: 5393
+      apps_for_domain: 17
+      apps:
+      - app: Cat Room - Cute Cat Games
+        seller: Cross Field Inc.
+        released: '2016-09-20'
+        age_days: 3637
+        ratings: 5393
+      - app: Bingo Treasure! - BINGO GAMES
+        seller: Cross Field Inc.
+        released: '2020-10-25'
+        age_days: 2142
+        ratings: 2071
+      - app: Hamster Life
+        seller: Cross Field Inc.
+        released: '2015-10-04'
+        age_days: 3990
+        ratings: 746
+  - code: A4
+    checked_at: '2026-09-06T14:53:38Z'
+    source: TLS handshake crossfd.co.jp:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T14:53:38Z'
+    source: https://www.wikidata.org/wiki/Q126957608
+    data:
+      qid: Q126957608
+      label: Cross Field Inc.
+      kind: organization
+      site: https://crossfd.co.jp/
+      sitelinks: 0
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-06T14:54:28Z'
+    source: http://web.archive.org/cdx/search/cdx?url=crossfd.co.jp&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2019-02-04'
+      history_days: 2771
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T15:41:43Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q126957608
+  reviewed_by: []
+  source_issue: null

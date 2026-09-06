@@ -1,0 +1,111 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:doodle-jump
+names:
+  en: Doodle Jump
+aliases:
+- Lima Sky
+category:
+- saas
+wikidata: Q1165270
+canonical:
+  github_org: null
+  wikidata: Q1165270
+  sources:
+  - wikidata:Q1165270/P856
+domains:
+- domain: limasky.com
+  role: primary
+  status: verified
+  confidence: 0.6278
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:22Z'
+  ttl_days: 30
+  age_days: 7456
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T15:00:11Z'
+    source: https://itunes.apple.com/search?term=Doodle%20Jump&entity=software
+    data:
+      app: Doodle Jump - Insanely Good!
+      track_id: 456355158
+      seller: Lima Sky
+      artist: Lima Sky
+      seller_url: http://www.LimaSky.com
+      released: '2011-08-25'
+      age_days: 5491
+      ratings: 3160
+      apps_for_domain: 6
+      apps:
+      - app: Doodle Jump - Insanely Good!
+        seller: Lima Sky
+        released: '2011-08-25'
+        age_days: 5491
+        ratings: 3160
+      - app: Doodle Jump 2
+        seller: Lima Sky
+        released: '2020-12-20'
+        age_days: 2086
+        ratings: 38133
+      - app: Doodle Jump
+        seller: Lima Sky
+        released: '2009-03-27'
+        age_days: 6372
+        ratings: 830
+  - code: A3
+    checked_at: '2026-09-06T15:00:53Z'
+    source: https://rdap.org/domain/limasky.com
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2006-04-07'
+      expires: '2027-04-07'
+      remaining_days: 213
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T15:00:10Z'
+    source: TLS handshake limasky.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T15:00:10Z'
+    source: https://www.wikidata.org/wiki/Q1165270
+    data:
+      qid: Q1165270
+      label: Doodle Jump
+      kind: software
+      site: http://www.limasky.com
+      sitelinks: 27
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-06T15:00:10Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 122900
+      source: top-1m list
+  rejected_evidence:
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T15:41:43Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q1165270
+  reviewed_by: []
+  source_issue: null

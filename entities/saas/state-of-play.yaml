@@ -1,0 +1,102 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:state-of-play
+names:
+  en: State of Play
+aliases: []
+category:
+- saas
+wikidata: Q105161596
+canonical:
+  github_org: null
+  wikidata: Q105161596
+  sources:
+  - wikidata:Q105161596/P856(sitelinks=0)
+  - appstore:State of Play Games Ltd(KAMI 2,9y,15058 ratings)
+domains:
+- domain: stateofplaygames.com
+  role: primary
+  status: verified
+  confidence: 0.6515
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:20Z'
+  ttl_days: 30
+  age_days: 6945
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T15:29:09Z'
+    source: https://itunes.apple.com/search?term=State%20of%20Play&entity=software
+    data:
+      app: KAMI 2
+      track_id: 1133161444
+      seller: State of Play Games Ltd
+      artist: State of Play Games
+      seller_url: http://www.stateofplaygames.com
+      released: '2017-03-29'
+      age_days: 3447
+      ratings: 15058
+      apps_for_domain: 2
+      apps:
+      - app: KAMI 2
+        seller: State of Play Games Ltd
+        released: '2017-03-29'
+        age_days: 3447
+        ratings: 15058
+      - app: Lume
+        seller: State of Play Games Ltd
+        released: '2012-02-23'
+        age_days: 5309
+        ratings: 170
+  - code: A3
+    checked_at: '2026-09-06T15:29:19Z'
+    source: https://rdap.org/domain/stateofplaygames.com
+    data:
+      registrar: IONOS SE
+      created: '2007-09-01'
+      expires: '2027-09-01'
+      remaining_days: 359
+      locks: []
+  - code: A4
+    checked_at: '2026-09-06T15:29:10Z'
+    source: TLS handshake stateofplaygames.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T15:29:09Z'
+    source: https://www.wikidata.org/wiki/Q105161596
+    data:
+      qid: Q105161596
+      label: State of Play
+      kind: organization
+      site: https://www.stateofplaygames.com/
+      sitelinks: 0
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-06T15:29:50Z'
+    source: http://web.archive.org/cdx/search/cdx?url=stateofplaygames.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2008-08-29'
+      history_days: 6582
+  rejected_evidence:
+  - 'A3: registrar (IONOS SE) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T15:41:43Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q105161596
+  reviewed_by: []
+  source_issue: null

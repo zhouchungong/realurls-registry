@@ -1,0 +1,110 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:vivid-games
+names:
+  en: Vivid Games
+aliases: []
+category:
+- saas
+wikidata: Q110015978
+canonical:
+  github_org: null
+  wikidata: Q110015978
+  sources:
+  - wikidata:Q110015978/P856(sitelinks=1)
+  - 'appstore:Vivid Games S.A.(Real Boxing: KO Fight Club,13y,83372 ratings)'
+domains:
+- domain: vividgames.com
+  role: primary
+  status: verified
+  confidence: 0.6278
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:20Z'
+  ttl_days: 30
+  age_days: 8388
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T15:36:42Z'
+    source: https://itunes.apple.com/search?term=Vivid%20Games&entity=software
+    data:
+      app: 'Real Boxing: KO Fight Club'
+      track_id: 534473264
+      seller: Vivid Games S.A.
+      artist: Vivid Games S.A.
+      seller_url: https://www.vividgames.com
+      released: '2012-11-15'
+      age_days: 5043
+      ratings: 83372
+      apps_for_domain: 8
+      apps:
+      - app: 'Real Boxing: KO Fight Club'
+        seller: Vivid Games S.A.
+        released: '2012-11-15'
+        age_days: 5043
+        ratings: 83372
+      - app: Real Boxing 2
+        seller: Vivid Games S.A.
+        released: '2015-11-18'
+        age_days: 3945
+        ratings: 37327
+      - app: Space Pioneer
+        seller: Vivid Games S.A.
+        released: '2018-05-29'
+        age_days: 3022
+        ratings: 8146
+  - code: A3
+    checked_at: '2026-09-06T15:37:49Z'
+    source: https://rdap.org/domain/vividgames.com
+    data:
+      registrar: DNC Holdings, Inc.
+      created: '2003-09-19'
+      expires: '2027-09-19'
+      remaining_days: 377
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T15:36:42Z'
+    source: TLS handshake vividgames.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T15:36:42Z'
+    source: https://www.wikidata.org/wiki/Q110015978
+    data:
+      qid: Q110015978
+      label: Vivid Games
+      kind: organization
+      site: https://vividgames.com/
+      sitelinks: 1
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T15:36:42Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 505662
+      source: top-1m list
+  rejected_evidence:
+  - 'A3: registrar (DNC Holdings, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T15:41:43Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q110015978
+  reviewed_by: []
+  source_issue: null

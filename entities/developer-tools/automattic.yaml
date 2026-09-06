@@ -3,40 +3,32 @@
 schema_version: '1.0'
 entity_id: org:automattic
 names:
-  en: Automattic
-aliases: []
+  en: WordPress.com
+aliases:
+- Darkania Works
 category:
-- developer-tools
-wikidata: Q2872634
+- saas
+wikidata: Q2001888
 canonical:
   github_org: Automattic
-  wikidata: Q2872634
+  wikidata: Q2001888
   sources:
-  - wikidata:Q2872634/P856
-  - github-history:Automattic/mongoose(age=16y,contrib=1075,stars=27475)
+  - wikidata:Q2001888/P856
+  - wikidata:Q2001888/P1324
 domains:
-- domain: automattic.com
+- domain: wordpress.com
   role: primary
   status: verified
-  confidence: 0.9256
-  first_seen: '2026-09-05'
-  last_verified: '2026-09-05T18:18:58Z'
+  confidence: 0.8325
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:14Z'
   ttl_days: 30
-  age_days: 8113
+  age_days: 9683
   age_source: rdap
   collection_incomplete: false
   evidence:
-  - code: A1
-    checked_at: '2026-09-05T19:41:38Z'
-    source: https://api.github.com/orgs/Automattic
-    data:
-      org: Automattic
-      org_verified: true
-      blog: https://automattic.com
-      org_name: Automattic
-      created_at: '2011-07-01T02:45:15Z'
   - code: A8
-    checked_at: '2026-09-05T19:41:38Z'
+    checked_at: '2026-09-06T15:05:03Z'
     source: https://api.github.com/repos/Automattic/mongoose
     data:
       repo: Automattic/mongoose
@@ -44,17 +36,36 @@ domains:
       repo_anchored: true
       homepage: https://mongoosejs.com
       backlink: false
-      stars: 27475
-      age_days: 5995
+      stars: 27473
+      age_days: 5996
       contributors: 1075
+  - code: A9
+    checked_at: '2026-09-06T15:05:05Z'
+    source: https://itunes.apple.com/search?term=WordPress.com&entity=software
+    data:
+      app: WordPress – Website Builder
+      track_id: 335703880
+      seller: Automattic, Inc.
+      artist: Automattic
+      seller_url: https://apps.wordpress.com/mobile/
+      released: '2009-10-29'
+      age_days: 6156
+      ratings: 22270
+      apps_for_domain: 1
+      apps:
+      - app: WordPress – Website Builder
+        seller: Automattic, Inc.
+        released: '2009-10-29'
+        age_days: 6156
+        ratings: 22270
   - code: A3
-    checked_at: '2026-09-05T19:41:38Z'
-    source: https://rdap.org/domain/automattic.com
+    checked_at: '2026-09-06T15:05:03Z'
+    source: https://rdap.org/domain/wordpress.com
     data:
       registrar: MarkMonitor Inc.
-      created: '2004-06-19'
-      expires: '2033-06-19'
-      remaining_days: 2478
+      created: '2000-03-03'
+      expires: '2033-03-03'
+      remaining_days: 2369
       locks:
       - delete
       - transfer
@@ -63,7 +74,77 @@ domains:
       - server transfer
       - server update
   - code: A4
-    checked_at: '2026-09-05T19:41:38Z'
+    checked_at: '2026-09-06T15:05:03Z'
+    source: TLS handshake wordpress.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T15:05:03Z'
+    source: https://www.wikidata.org/wiki/Q2001888
+    data:
+      qid: Q2001888
+      label: WordPress.com
+      kind: organization
+      site: https://wordpress.com/
+      sitelinks: 20
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T15:05:03Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 99
+      source: top-1m list
+  rejected_evidence:
+  - 'A8: wordpress.com is a platform domain and cannot be a project''s own site'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '2 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T15:41:43Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+- domain: automattic.com
+  role: product
+  status: verified
+  confidence: 0.9256
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-06T14:42:14Z'
+  ttl_days: 30
+  age_days: 8114
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T15:06:18Z'
+    source: https://api.github.com/orgs/Automattic
+    data:
+      org: Automattic
+      org_verified: true
+      blog: https://automattic.com
+      org_name: Automattic
+      created_at: '2011-07-01T02:45:15Z'
+  - code: A3
+    checked_at: '2026-09-06T15:06:44Z'
+    source: https://rdap.org/domain/automattic.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2004-06-19'
+      expires: '2033-06-19'
+      remaining_days: 2477
+      locks:
+      - delete
+      - transfer
+      - update
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-06T15:06:19Z'
     source: TLS handshake automattic.com:443
     data:
       subject_org: ''
@@ -71,33 +152,53 @@ domains:
       issuer: Let's Encrypt
       san_count: 2
   - code: B1
-    checked_at: '2026-09-05T19:41:39Z'
+    checked_at: '2026-09-06T15:06:24Z'
     source: https://www.wikidata.org/wiki/Q2872634
     data:
       qid: Q2872634
       label: Automattic
+      kind: organization
       site: https://automattic.com/
       sitelinks: 14
       competing_items: 0
   - code: B5
-    checked_at: '2026-09-05T19:41:39Z'
+    checked_at: '2026-09-06T15:06:18Z'
     source: https://tranco-list.eu/download/daily/top-1m.csv.zip
     data:
-      rank: 2085
+      rank: 2089
       source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T15:06:51Z'
+    source: http://web.archive.org/cdx/search/cdx?url=automattic.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2005-07-28'
+      history_days: 7710
+  - code: A6
+    checked_at: '2026-09-06T15:06:51Z'
+    source: propagate from wordpress.com
+    data:
+      from: wordpress.com
+      from_status: verified
+      first_party_link: true
+      structural_links: []
+      san_count: 2
+      shared_ns: []
+      backlink: true
   rejected_evidence:
-  - 'A8: repository homepage (https://mongoosejs.com) does not point to this domain'
   - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: item Q2872634 != entity canonical item Q2001888'
+  - 'A6: no structural link (need at least one of shared_ns / cert_san / shared_registrar)'
   reasons:
   - '2 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
   ai_review:
-    at: '2026-09-06T02:13:24Z'
-    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
-    verdict: pass
-    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+    at: '2026-09-06T15:41:43Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
 provenance:
   generated_by: build_entities/0.2
-  policy_version: policy.py@c1580b9
-  label_source: wikidata:Q2872634
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q2001888
   reviewed_by: []
   source_issue: null

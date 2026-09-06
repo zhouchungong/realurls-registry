@@ -1,0 +1,117 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:jam-city
+names:
+  en: Jam City
+aliases: []
+category:
+- saas
+wikidata: Q16927706
+canonical:
+  github_org: null
+  wikidata: Q16927706
+  sources:
+  - wikidata:Q16927706/P856(sitelinks=2)
+  - 'appstore:Jam City, Inc.(Bingo Pop: Play Online Games,13y,25862 ratings)'
+domains:
+- domain: jamcity.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:22Z'
+  ttl_days: 30
+  age_days: 9397
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T14:57:03Z'
+    source: https://itunes.apple.com/search?term=Jam%20City&entity=software
+    data:
+      app: 'Bingo Pop: Play Online Games'
+      track_id: 547305617
+      seller: Jam City, Inc.
+      artist: Jam City, Inc.
+      seller_url: https://www.jamcity.com/
+      released: '2013-02-18'
+      age_days: 4947
+      ratings: 25862
+      apps_for_domain: 16
+      apps:
+      - app: 'Bingo Pop: Play Online Games'
+        seller: Jam City, Inc.
+        released: '2013-02-18'
+        age_days: 4947
+        ratings: 25862
+      - app: Disney Frozen Free Fall Game
+        seller: Jam City, Inc.
+        released: '2013-11-21'
+        age_days: 4672
+        ratings: 79132
+      - app: Bubble Shooter - Panda Pop!
+        seller: Jam City, Inc.
+        released: '2013-12-11'
+        age_days: 4652
+        ratings: 487374
+  - code: A3
+    checked_at: '2026-09-06T14:57:43Z'
+    source: https://rdap.org/domain/jamcity.com
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2000-12-14'
+      expires: '2026-12-14'
+      remaining_days: 98
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T14:57:03Z'
+    source: TLS handshake jamcity.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: GoDaddy.com, Inc.
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T14:57:03Z'
+    source: https://www.wikidata.org/wiki/Q16927706
+    data:
+      qid: Q16927706
+      label: Jam City
+      kind: organization
+      site: http://jamcity.com
+      sitelinks: 2
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T14:57:03Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 147316
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T14:57:04Z'
+    source: http://web.archive.org/cdx/search/cdx?url=jamcity.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2001-02-01'
+      history_days: 9348
+  rejected_evidence:
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T15:41:43Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q16927706
+  reviewed_by: []
+  source_issue: null

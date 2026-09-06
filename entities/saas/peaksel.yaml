@@ -1,0 +1,108 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:peaksel
+names:
+  en: Peaksel
+aliases: []
+category:
+- saas
+wikidata: Q111649825
+canonical:
+  github_org: null
+  wikidata: Q111649825
+  sources:
+  - wikidata:Q111649825/P856(sitelinks=0)
+  - appstore:PEAKSEL doo(Pregnant Talking Cat Emma,8y,5195 ratings)
+domains:
+- domain: peaksel.com
+  role: primary
+  status: verified
+  confidence: 0.6515
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:22Z'
+  ttl_days: 30
+  age_days: 5225
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T15:05:43Z'
+    source: https://itunes.apple.com/search?term=Peaksel&entity=software
+    data:
+      app: Pregnant Talking Cat Emma
+      track_id: 1343726438
+      seller: PEAKSEL doo
+      artist: Peaksel
+      seller_url: https://peaksel.com/contact/
+      released: '2018-02-12'
+      age_days: 3127
+      ratings: 5195
+      apps_for_domain: 8
+      apps:
+      - app: Pregnant Talking Cat Emma
+        seller: PEAKSEL doo
+        released: '2018-02-12'
+        age_days: 3127
+        ratings: 5195
+      - app: 100 Doors Escape Game
+        seller: PEAKSEL doo
+        released: '2019-04-12'
+        age_days: 2703
+        ratings: 7364
+      - app: 100 Doors - Escape from Prison
+        seller: PEAKSEL doo
+        released: '2021-12-01'
+        age_days: 1740
+        ratings: 2842
+  - code: A3
+    checked_at: '2026-09-06T15:06:26Z'
+    source: https://rdap.org/domain/peaksel.com
+    data:
+      registrar: NameCheap, Inc.
+      created: '2012-05-17'
+      expires: '2027-05-17'
+      remaining_days: 252
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T15:05:43Z'
+    source: TLS handshake peaksel.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 48
+  - code: B1
+    checked_at: '2026-09-06T15:05:43Z'
+    source: https://www.wikidata.org/wiki/Q111649825
+    data:
+      qid: Q111649825
+      label: Peaksel
+      kind: organization
+      site: https://peaksel.com
+      sitelinks: 0
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-06T15:05:50Z'
+    source: http://web.archive.org/cdx/search/cdx?url=peaksel.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2013-08-16'
+      history_days: 4769
+  rejected_evidence:
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T15:41:43Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q111649825
+  reviewed_by: []
+  source_issue: null

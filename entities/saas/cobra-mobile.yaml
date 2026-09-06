@@ -1,0 +1,100 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:cobra-mobile
+names:
+  en: Cobra Mobile
+aliases: []
+category:
+- saas
+wikidata: Q105722121
+canonical:
+  github_org: null
+  wikidata: Q105722121
+  sources:
+  - wikidata:Q105722121/P856(sitelinks=0)
+  - appstore:Cobra Mobile Limited(Cobi Hoops 2,8y,2943 ratings)
+domains:
+- domain: cobramobile.com
+  role: primary
+  status: verified
+  confidence: 0.6515
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:20Z'
+  ttl_days: 30
+  age_days: 7858
+  age_source: rdap
+  collection_incomplete: true
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T14:52:52Z'
+    source: https://itunes.apple.com/search?term=Cobra%20Mobile&entity=software
+    data:
+      app: Cobi Hoops 2
+      track_id: 1264620108
+      seller: Cobra Mobile Limited
+      artist: Cobra Mobile Limited
+      seller_url: http://www.cobramobile.com
+      released: '2017-10-18'
+      age_days: 3244
+      ratings: 2943
+      apps_for_domain: 8
+      apps:
+      - app: Cobi Hoops 2
+        seller: Cobra Mobile Limited
+        released: '2017-10-18'
+        age_days: 3244
+        ratings: 2943
+      - app: Cobi Golf Shots
+        seller: Cobra Mobile Limited
+        released: '2018-04-12'
+        age_days: 3069
+        ratings: 1358
+      - app: Cobi Hoops
+        seller: Cobra Mobile Limited
+        released: '2016-11-24'
+        age_days: 3573
+        ratings: 157
+  - code: A3
+    checked_at: '2026-09-06T14:53:32Z'
+    source: https://rdap.org/domain/cobramobile.com
+    data:
+      registrar: Tucows Domains Inc.
+      created: '2005-03-02'
+      expires: '2027-03-02'
+      remaining_days: 176
+      locks:
+      - transfer
+      - update
+  - code: B1
+    checked_at: '2026-09-06T14:52:52Z'
+    source: https://www.wikidata.org/wiki/Q105722121
+    data:
+      qid: Q105722121
+      label: Cobra Mobile
+      kind: organization
+      site: http://www.cobramobile.com/
+      sitelinks: 0
+      competing_items: 3
+  - code: B4
+    checked_at: '2026-09-06T14:52:56Z'
+    source: http://web.archive.org/cdx/search/cdx?url=cobramobile.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2005-12-01'
+      history_days: 7584
+  rejected_evidence:
+  - 'A3: registrar (Tucows Domains Inc.) is not a brand-protection registrar'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T15:41:43Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q105722121
+  reviewed_by: []
+  source_issue: null

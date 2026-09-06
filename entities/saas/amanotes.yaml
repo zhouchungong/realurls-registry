@@ -1,0 +1,117 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:amanotes
+names:
+  en: Amanotes
+aliases: []
+category:
+- saas
+wikidata: Q106438156
+canonical:
+  github_org: null
+  wikidata: Q106438156
+  sources:
+  - wikidata:Q106438156/P856(sitelinks=0)
+  - 'appstore:Amanotes Pte Ltd(Tiles Hop: Music Ball Smash,8y,68656 ratings)'
+domains:
+- domain: amanotes.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:14Z'
+  ttl_days: 30
+  age_days: 4461
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T14:42:22Z'
+    source: https://itunes.apple.com/search?term=Amanotes&entity=software
+    data:
+      app: 'Tiles Hop: Music Ball Smash'
+      track_id: 1344702806
+      seller: Amanotes Pte Ltd
+      artist: Amanotes Pte. Ltd.
+      seller_url: https://amanotes.com/
+      released: '2018-03-06'
+      age_days: 3106
+      ratings: 68656
+      apps_for_domain: 12
+      apps:
+      - app: 'Tiles Hop: Music Ball Smash'
+        seller: Amanotes Pte Ltd
+        released: '2018-03-06'
+        age_days: 3106
+        ratings: 68656
+      - app: Magic Twist - Piano Hop Games
+        seller: Amanotes Pte Ltd
+        released: '2018-03-22'
+        age_days: 3089
+        ratings: 6253
+      - app: 'Magic Tiles 3™: Piano Game'
+        seller: Amanotes Pte Ltd
+        released: '2018-12-15'
+        age_days: 2822
+        ratings: 820671
+  - code: A3
+    checked_at: '2026-09-06T14:42:23Z'
+    source: https://rdap.org/domain/amanotes.com
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2014-06-20'
+      expires: '2028-06-20'
+      remaining_days: 652
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T14:42:23Z'
+    source: TLS handshake amanotes.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T14:42:22Z'
+    source: https://www.wikidata.org/wiki/Q106438156
+    data:
+      qid: Q106438156
+      label: Amanotes
+      kind: organization
+      site: https://amanotes.com/
+      sitelinks: 0
+      competing_items: 2
+  - code: B5
+    checked_at: '2026-09-06T14:42:22Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 158409
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T14:42:33Z'
+    source: http://web.archive.org/cdx/search/cdx?url=amanotes.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2014-11-17'
+      history_days: 4311
+  rejected_evidence:
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T15:41:43Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q106438156
+  reviewed_by: []
+  source_issue: null

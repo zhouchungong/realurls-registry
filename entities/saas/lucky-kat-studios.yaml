@@ -1,0 +1,111 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:lucky-kat-studios
+names:
+  en: Lucky Kat Studios
+aliases: []
+category:
+- saas
+wikidata: Q124463686
+canonical:
+  github_org: null
+  wikidata: Q124463686
+  sources:
+  - wikidata:Q124463686/P856(sitelinks=0)
+  - appstore:Lucky Kat Studios(Grumpy Cat's Worst Game Ever,9y,15659 ratings)
+domains:
+- domain: lucky-kat.com
+  role: primary
+  status: verified
+  confidence: 0.6515
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T14:42:20Z'
+  ttl_days: 30
+  age_days: 4245
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T15:04:29Z'
+    source: https://itunes.apple.com/search?term=Lucky%20Kat%20Studios&entity=software
+    data:
+      app: Grumpy Cat's Worst Game Ever
+      track_id: 1151747316
+      seller: Lucky Kat Studios
+      artist: Lucky Kat Studios
+      seller_url: http://www.lucky-kat.com
+      released: '2016-12-21'
+      age_days: 3545
+      ratings: 15659
+      apps_for_domain: 17
+      apps:
+      - app: Grumpy Cat's Worst Game Ever
+        seller: Lucky Kat Studios
+        released: '2016-12-21'
+        age_days: 3545
+        ratings: 15659
+      - app: Beat Street
+        seller: Lucky Kat Studios
+        released: '2017-11-15'
+        age_days: 3216
+        ratings: 24600
+      - app: Kaiju Rush
+        seller: Lucky Kat Studios
+        released: '2018-10-16'
+        age_days: 2881
+        ratings: 13305
+  - code: A3
+    checked_at: '2026-09-06T15:04:50Z'
+    source: https://rdap.org/domain/lucky-kat.com
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2015-01-22'
+      expires: '2028-01-22'
+      remaining_days: 502
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T15:04:29Z'
+    source: TLS handshake lucky-kat.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T15:04:29Z'
+    source: https://www.wikidata.org/wiki/Q124463686
+    data:
+      qid: Q124463686
+      label: Lucky Kat Studios
+      kind: organization
+      site: https://www.lucky-kat.com/
+      sitelinks: 0
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-06T15:05:15Z'
+    source: http://web.archive.org/cdx/search/cdx?url=lucky-kat.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2016-01-25'
+      history_days: 3877
+  rejected_evidence:
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T15:41:43Z'
+    model: claude-sonnet-5
+    verdict: skipped
+    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
+      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@495dbd4
+  label_source: wikidata:Q124463686
+  reviewed_by: []
+  source_issue: null
