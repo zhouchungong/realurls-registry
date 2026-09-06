@@ -1,0 +1,87 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:ionic-team
+names:
+  en: Ionic
+aliases:
+- ionic-team
+- ionic-team/ionic-framework
+category:
+- developer-tools
+wikidata: null
+canonical:
+  github_org: ionic-team
+  wikidata: null
+  sources:
+  - github-history:ionic-team/ionic-framework(age=13y,contrib=542,stars=52645)
+domains:
+- domain: ionic.io
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:52Z'
+  ttl_days: 30
+  age_days: 4550
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:31:42Z'
+    source: https://api.github.com/orgs/ionic-team
+    data:
+      org: ionic-team
+      org_verified: true
+      blog: https://ionic.io
+      org_name: Ionic
+      created_at: '2013-01-02T19:02:52Z'
+  - code: A8
+    checked_at: '2026-09-05T18:31:42Z'
+    source: https://api.github.com/repos/ionic-team/ionic-framework
+    data:
+      repo: ionic-team/ionic-framework
+      org: ionic-team
+      repo_anchored: true
+      homepage: https://ionicframework.com
+      backlink: true
+      stars: 52645
+      age_days: 4763
+      contributors: 542
+  - code: A4
+    checked_at: '2026-09-05T18:31:42Z'
+    source: TLS handshake ionic.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B5
+    checked_at: '2026-09-05T18:31:42Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 56030
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:31:57Z'
+    source: http://web.archive.org/cdx/search/cdx?url=ionic.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2014-03-22'
+      history_days: 4550
+  rejected_evidence:
+  - 'A8: repository homepage (https://ionicframework.com) does not point to this domain'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null
+  last_revalidated_by: revalidate/0.1

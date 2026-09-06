@@ -1,0 +1,189 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:smartcontractkit
+names:
+  en: Chainlink
+aliases:
+- SmartContract
+- smartcontractkit
+category:
+- finance
+wikidata: Q100804984
+canonical:
+  github_org: smartcontractkit
+  wikidata: Q100804984
+  sources:
+  - wikidata:Q100804984/P856
+  - wikidata:Q100804984/P2037
+domains:
+- domain: chain.link
+  role: primary
+  status: verified
+  confidence: 0.9345
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:53Z'
+  ttl_days: 30
+  age_days: 3327
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:12:31Z'
+    source: https://api.github.com/orgs/smartcontractkit
+    data:
+      org: smartcontractkit
+      org_verified: true
+      blog: https://chain.link/
+      org_name: SmartContract
+      created_at: '2017-01-13T22:15:46Z'
+  - code: A8
+    checked_at: '2026-09-05T20:12:32Z'
+    source: https://api.github.com/repos/smartcontractkit/chainlink
+    data:
+      repo: smartcontractkit/chainlink
+      org: smartcontractkit
+      repo_anchored: true
+      homepage: https://chain.link
+      backlink: true
+      stars: 8239
+      age_days: 3211
+      contributors: 332
+  - code: A3
+    checked_at: '2026-09-05T20:12:32Z'
+    source: https://rdap.org/domain/chain.link
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2017-07-27'
+      expires: '2033-07-27'
+      remaining_days: 2516
+      locks:
+      - transfer
+      - update
+      - delete
+  - code: A4
+    checked_at: '2026-09-05T20:12:32Z'
+    source: TLS handshake chain.link:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T20:12:32Z'
+    source: https://www.wikidata.org/wiki/Q100804984
+    data:
+      qid: Q100804984
+      label: Chainlink
+      site: https://chain.link/
+      sitelinks: 14
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:12:32Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 33839
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:12:41Z'
+    source: http://web.archive.org/cdx/search/cdx?url=chain.link&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2015-04-06'
+      history_days: 4170
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '2 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+- domain: chainlinklabs.com
+  role: product
+  status: verified
+  confidence: 0.7105
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T22:51:16Z'
+  ttl_days: 30
+  age_days: 2249
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A3
+    checked_at: '2026-09-05T22:52:16Z'
+    source: https://rdap.org/domain/chainlinklabs.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2020-07-09'
+      expires: '2027-07-09'
+      remaining_days: 306
+      locks:
+      - delete
+      - transfer
+      - update
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-05T22:52:12Z'
+    source: TLS handshake chainlinklabs.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T22:52:17Z'
+    source: https://www.wikidata.org/wiki/Q134810608
+    data:
+      qid: Q134810608
+      label: Chainlink Labs
+      site: https://chainlinklabs.com/
+      sitelinks: 0
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T22:52:11Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 652073
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T22:52:26Z'
+    source: http://web.archive.org/cdx/search/cdx?url=chainlinklabs.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2018-01-26'
+      history_days: 3144
+  - code: A6
+    checked_at: '2026-09-05T22:51:16Z'
+    source: propagate from chain.link
+    data:
+      from: chain.link
+      from_status: verified
+      first_party_link: true
+      structural_links:
+      - shared_ns
+      san_count: 1
+      shared_ns:
+      - mary.ns.cloudflare.com
+      - pete.ns.cloudflare.com
+      backlink: true
+  rejected_evidence:
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: item Q134810608 != entity canonical item Q100804984'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q100804984
+  reviewed_by: []
+  source_issue: null
+  last_revalidated_by: revalidate/0.1

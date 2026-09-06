@@ -1,0 +1,105 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:foundation
+names:
+  en: Foundation
+aliases:
+- foundation
+category:
+- open-source
+wikidata: Q5474308
+canonical:
+  github_org: foundation
+  wikidata: Q5474308
+  sources:
+  - wikidata:Q5474308/P856
+  - wikidata:Q5474308/P1324
+domains:
+- domain: get.foundation
+  role: primary
+  status: verified
+  confidence: 0.7088
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:52Z'
+  ttl_days: 30
+  age_days: 3138
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:08:56Z'
+    source: https://api.github.com/orgs/foundation
+    data:
+      org: foundation
+      org_verified: false
+      blog: https://get.foundation
+  - code: A8
+    checked_at: '2026-09-05T19:08:56Z'
+    source: https://api.github.com/repos/foundation/foundation-sites
+    data:
+      repo: foundation/foundation-sites
+      org: foundation
+      repo_anchored: true
+      homepage: https://get.foundation
+      backlink: true
+      stars: 29784
+      age_days: 5440
+      contributors: 1335
+  - code: A3
+    checked_at: '2026-09-05T19:08:58Z'
+    source: https://rdap.org/domain/get.foundation
+    data:
+      registrar: Tucows Domains Inc.
+      created: '2018-01-31'
+      expires: '2027-01-31'
+      remaining_days: 148
+      locks:
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T19:08:58Z'
+    source: TLS handshake get.foundation:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T19:08:58Z'
+    source: https://www.wikidata.org/wiki/Q5474308
+    data:
+      qid: Q5474308
+      label: Foundation
+      site: https://get.foundation/
+      sitelinks: 7
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T19:08:58Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 291245
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:09:14Z'
+    source: http://web.archive.org/cdx/search/cdx?url=get.foundation&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2018-08-08'
+      history_days: 2950
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Tucows Domains Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q5474308
+  reviewed_by: []
+  source_issue: null

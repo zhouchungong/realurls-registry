@@ -1,0 +1,93 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:socketio
+names:
+  en: Socket.IO
+aliases:
+- socketio
+category:
+- open-source
+wikidata: Q7552998
+canonical:
+  github_org: socketio
+  wikidata: Q7552998
+  sources:
+  - wikidata:Q7552998/P856
+  - wikidata:Q7552998/P1324
+domains:
+- domain: socket.io
+  role: primary
+  status: verified
+  confidence: 0.7088
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:49Z'
+  ttl_days: 30
+  age_days: 5955
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:35:27Z'
+    source: https://api.github.com/orgs/socketio
+    data:
+      org: socketio
+      org_verified: false
+      blog: https://socket.io
+  - code: A8
+    checked_at: '2026-09-05T18:35:27Z'
+    source: https://api.github.com/repos/socketio/socket.io
+    data:
+      repo: socketio/socket.io
+      org: socketio
+      repo_anchored: true
+      homepage: https://socket.io
+      backlink: true
+      stars: 63212
+      age_days: 6022
+      contributors: 568
+  - code: A4
+    checked_at: '2026-09-05T18:35:27Z'
+    source: TLS handshake socket.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T18:35:27Z'
+    source: https://www.wikidata.org/wiki/Q7552998
+    data:
+      qid: Q7552998
+      label: Socket.IO
+      site: http://socket.io
+      sitelinks: 12
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:35:27Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 24603
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:36:16Z'
+    source: http://web.archive.org/cdx/search/cdx?url=socket.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2010-05-17'
+      history_days: 5955
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q7552998
+  reviewed_by: []
+  source_issue: null

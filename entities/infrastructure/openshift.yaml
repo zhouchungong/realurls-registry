@@ -1,0 +1,100 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:openshift
+names:
+  en: OpenShift
+aliases:
+- openshift
+- openshift/origin
+- origin
+category:
+- infrastructure
+wikidata: null
+canonical:
+  github_org: openshift
+  wikidata: null
+  sources:
+  - github-history:openshift/origin(age=12y,contrib=807,stars=8685)
+domains:
+- domain: openshift.com
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 8991
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:53:26Z'
+    source: https://api.github.com/orgs/openshift
+    data:
+      org: openshift
+      org_verified: true
+      blog: https://openshift.com
+      org_name: OpenShift
+      created_at: '2011-05-17T02:01:03Z'
+  - code: A8
+    checked_at: '2026-09-05T20:53:26Z'
+    source: https://api.github.com/repos/openshift/origin
+    data:
+      repo: openshift/origin
+      org: openshift
+      repo_anchored: true
+      homepage: http://www.openshift.org
+      backlink: false
+      stars: 8685
+      age_days: 4420
+      contributors: 807
+  - code: A3
+    checked_at: '2026-09-05T20:53:59Z'
+    source: https://rdap.org/domain/openshift.com
+    data:
+      registrar: Nom-iq Ltd. dba COM LAUDE
+      created: '2002-01-23'
+      expires: '2027-01-23'
+      remaining_days: 139
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T20:53:59Z'
+    source: TLS handshake openshift.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B5
+    checked_at: '2026-09-05T20:53:59Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 25073
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:54:10Z'
+    source: http://web.archive.org/cdx/search/cdx?url=openshift.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2002-06-28'
+      history_days: 8835
+  rejected_evidence:
+  - 'A8: repository homepage (http://www.openshift.org) does not point to this domain'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

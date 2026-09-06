@@ -1,0 +1,107 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:quasarframework
+names:
+  en: Quasar Framework
+aliases:
+- quasarframework
+category:
+- open-source
+wikidata: Q77796696
+canonical:
+  github_org: quasarframework
+  wikidata: Q77796696
+  sources:
+  - wikidata:Q77796696/P856
+  - wikidata:Q77796696/P1324
+domains:
+- domain: quasar.dev
+  role: primary
+  status: verified
+  confidence: 0.7088
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:53Z'
+  ttl_days: 30
+  age_days: 2745
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:56:58Z'
+    source: https://api.github.com/orgs/quasarframework
+    data:
+      org: quasarframework
+      org_verified: false
+      blog: https://quasar.dev
+  - code: A8
+    checked_at: '2026-09-05T18:56:59Z'
+    source: https://api.github.com/repos/quasarframework/quasar
+    data:
+      repo: quasarframework/quasar
+      org: quasarframework
+      repo_anchored: true
+      homepage: https://quasar.dev
+      backlink: true
+      stars: 27206
+      age_days: 3988
+      contributors: 801
+  - code: A3
+    checked_at: '2026-09-05T18:56:59Z'
+    source: https://rdap.org/domain/quasar.dev
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2019-03-01'
+      expires: '2027-03-01'
+      remaining_days: 176
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T18:56:59Z'
+    source: TLS handshake quasar.dev:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T18:56:59Z'
+    source: https://www.wikidata.org/wiki/Q77796696
+    data:
+      qid: Q77796696
+      label: Quasar Framework
+      site: https://quasar.dev/
+      sitelinks: 3
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:56:59Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 297615
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:57:26Z'
+    source: http://web.archive.org/cdx/search/cdx?url=quasar.dev&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2019-05-28'
+      history_days: 2657
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q77796696
+  reviewed_by: []
+  source_issue: null

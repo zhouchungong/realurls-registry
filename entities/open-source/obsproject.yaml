@@ -1,0 +1,107 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:obsproject
+names:
+  en: OBS Project
+aliases:
+- OBS Studio
+- obsproject
+category:
+- open-source
+wikidata: Q21707789
+canonical:
+  github_org: obsproject
+  wikidata: Q21707789
+  sources:
+  - wikidata:Q21707789/P856
+  - wikidata:Q21707789/P2037
+domains:
+- domain: obsproject.com
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:49Z'
+  ttl_days: 30
+  age_days: 5086
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:30:14Z'
+    source: https://api.github.com/orgs/obsproject
+    data:
+      org: obsproject
+      org_verified: true
+      blog: https://obsproject.com
+      org_name: OBS Project
+      created_at: '2014-05-28T16:12:08Z'
+  - code: A8
+    checked_at: '2026-09-05T18:30:14Z'
+    source: https://api.github.com/repos/obsproject/obs-studio
+    data:
+      repo: obsproject/obs-studio
+      org: obsproject
+      repo_anchored: true
+      homepage: https://obsproject.com
+      backlink: true
+      stars: 75849
+      age_days: 4722
+      contributors: 746
+  - code: A3
+    checked_at: '2026-09-05T18:30:14Z'
+    source: https://rdap.org/domain/obsproject.com
+    data:
+      registrar: Cloudflare, Inc.
+      created: '2012-10-02'
+      expires: '2027-10-02'
+      remaining_days: 391
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:30:15Z'
+    source: TLS handshake obsproject.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 6
+  - code: B1
+    checked_at: '2026-09-05T18:30:15Z'
+    source: https://www.wikidata.org/wiki/Q21707789
+    data:
+      qid: Q21707789
+      label: 오픈 브로드캐스터 소프트웨어
+      site: https://obsproject.com/
+      sitelinks: 36
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:30:15Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 6226
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:30:24Z'
+    source: http://web.archive.org/cdx/search/cdx?url=obsproject.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2012-10-30'
+      history_days: 5058
+  rejected_evidence:
+  - 'A3: registrar (Cloudflare, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

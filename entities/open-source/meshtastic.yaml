@@ -1,0 +1,106 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:meshtastic
+names:
+  en: Meshtastic
+aliases:
+- meshtastic
+category:
+- open-source
+wikidata: Q115244018
+canonical:
+  github_org: meshtastic
+  wikidata: Q115244018
+  sources:
+  - wikidata:Q115244018/P856
+  - wikidata:Q115244018/P2037
+domains:
+- domain: meshtastic.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:54Z'
+  ttl_days: 30
+  age_days: 2419
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T21:01:40Z'
+    source: https://api.github.com/orgs/meshtastic
+    data:
+      org: meshtastic
+      org_verified: true
+      blog: https://meshtastic.org
+      org_name: Meshtastic
+      created_at: '2020-02-29T15:13:30Z'
+  - code: A8
+    checked_at: '2026-09-05T21:01:40Z'
+    source: https://api.github.com/repos/meshtastic/firmware
+    data:
+      repo: meshtastic/firmware
+      org: meshtastic
+      repo_anchored: true
+      homepage: https://meshtastic.org
+      backlink: true
+      stars: 8260
+      age_days: 2408
+      contributors: 464
+  - code: A3
+    checked_at: '2026-09-05T21:01:41Z'
+    source: https://rdap.org/domain/meshtastic.org
+    data:
+      registrar: Cloudflare, Inc.
+      created: '2020-01-21'
+      expires: '2027-01-21'
+      remaining_days: 137
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T21:01:41Z'
+    source: TLS handshake meshtastic.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T21:01:41Z'
+    source: https://www.wikidata.org/wiki/Q115244018
+    data:
+      qid: Q115244018
+      label: Meshtastic
+      site: https://meshtastic.org/
+      sitelinks: 15
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T21:01:41Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 61758
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T21:02:02Z'
+    source: http://web.archive.org/cdx/search/cdx?url=meshtastic.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2017-05-26'
+      history_days: 3389
+  rejected_evidence:
+  - 'A3: registrar (Cloudflare, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q115244018
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,110 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:facebook
+names:
+  en: Meta Platforms
+aliases:
+- Meta Llama
+- meta-llama
+category:
+- ai
+wikidata: Q380
+canonical:
+  github_org: facebook
+  wikidata: Q380
+  sources:
+  - wikidata:Q380/P856
+  - wikidata:Q380/P2037
+domains:
+- domain: meta.com
+  role: primary
+  status: verified
+  confidence: 0.7816
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:19:08Z'
+  ttl_days: 30
+  age_days: 13011
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:26:44Z'
+    source: https://api.github.com/orgs/meta-llama
+    data:
+      org: meta-llama
+      org_verified: false
+      blog: https://llama.meta.com/
+  - code: A8
+    checked_at: '2026-09-05T18:26:45Z'
+    source: https://api.github.com/repos/facebook/docusaurus
+    data:
+      repo: facebook/docusaurus
+      org: facebook
+      repo_anchored: true
+      homepage: https://docusaurus.io
+      backlink: false
+      stars: 66178
+      age_days: 3364
+      contributors: 1359
+  - code: A3
+    checked_at: '2026-09-05T18:26:45Z'
+    source: https://rdap.org/domain/meta.com
+    data:
+      registrar: RegistrarSafe, LLC
+      created: '1991-01-21'
+      expires: '2034-01-22'
+      remaining_days: 2695
+      locks:
+      - delete
+      - transfer
+      - update
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-05T18:26:45Z'
+    source: TLS handshake meta.com:443
+    data:
+      subject_org: Meta Platforms, Inc.
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:26:45Z'
+    source: https://www.wikidata.org/wiki/Q380
+    data:
+      qid: Q380
+      label: Meta Platforms
+      site: https://www.meta.com/
+      sitelinks: 85
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:26:45Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 768
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:26:48Z'
+    source: http://web.archive.org/cdx/search/cdx?url=meta.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2005-11-10'
+      history_days: 7604
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A8: repository homepage (https://docusaurus.io) does not point to this domain'
+  - 'A3: registrar (RegistrarSafe, LLC) is not a brand-protection registrar'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q380
+  reviewed_by: []
+  source_issue: null

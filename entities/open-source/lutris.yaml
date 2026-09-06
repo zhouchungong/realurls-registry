@@ -1,0 +1,105 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:lutris
+names:
+  en: Lutris
+aliases:
+- lutris
+category:
+- open-source
+wikidata: Q48767907
+canonical:
+  github_org: lutris
+  wikidata: Q48767907
+  sources:
+  - wikidata:Q48767907/P856
+  - wikidata:Q48767907/P2037
+domains:
+- domain: lutris.net
+  role: primary
+  status: verified
+  confidence: 0.7088
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:55Z'
+  ttl_days: 30
+  age_days: 6359
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:46:04Z'
+    source: https://api.github.com/orgs/lutris
+    data:
+      org: lutris
+      org_verified: false
+      blog: https://lutris.net
+  - code: A8
+    checked_at: '2026-09-05T20:46:05Z'
+    source: https://api.github.com/repos/lutris/lutris
+    data:
+      repo: lutris/lutris
+      org: lutris
+      repo_anchored: true
+      homepage: https://lutris.net
+      backlink: true
+      stars: 10219
+      age_days: 4715
+      contributors: 469
+  - code: A3
+    checked_at: '2026-09-05T20:46:06Z'
+    source: https://rdap.org/domain/lutris.net
+    data:
+      registrar: OVH sas
+      created: '2009-04-08'
+      expires: '2027-04-08'
+      remaining_days: 214
+      locks:
+      - delete
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T20:46:06Z'
+    source: TLS handshake lutris.net:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T20:46:06Z'
+    source: https://www.wikidata.org/wiki/Q48767907
+    data:
+      qid: Q48767907
+      label: Lutris
+      site: https://lutris.net
+      sitelinks: 11
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:46:06Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 91216
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:46:12Z'
+    source: http://web.archive.org/cdx/search/cdx?url=lutris.net&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2009-12-01'
+      history_days: 6122
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (OVH sas) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q48767907
+  reviewed_by: []
+  source_issue: null

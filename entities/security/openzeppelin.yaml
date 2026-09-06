@@ -1,0 +1,97 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:openzeppelin
+names:
+  en: OpenZeppelin
+aliases:
+- OpenZeppelin/openzeppelin-contracts
+- openzeppelin-contracts
+category:
+- security
+wikidata: null
+canonical:
+  github_org: OpenZeppelin
+  wikidata: null
+  sources:
+  - github-history:OpenZeppelin/openzeppelin-contracts(age=10y,contrib=499,stars=27229)
+domains:
+- domain: openzeppelin.com
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:53Z'
+  ttl_days: 30
+  age_days: 3685
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:53:26Z'
+    source: https://api.github.com/orgs/OpenZeppelin
+    data:
+      org: OpenZeppelin
+      org_verified: true
+      blog: https://openzeppelin.com
+      org_name: OpenZeppelin
+      created_at: '2016-08-03T16:32:25Z'
+  - code: A8
+    checked_at: '2026-09-05T18:53:26Z'
+    source: https://api.github.com/repos/OpenZeppelin/openzeppelin-contracts
+    data:
+      repo: OpenZeppelin/openzeppelin-contracts
+      org: OpenZeppelin
+      repo_anchored: true
+      homepage: https://openzeppelin.com/contracts
+      backlink: true
+      stars: 27229
+      age_days: 3686
+      contributors: 499
+  - code: A3
+    checked_at: '2026-09-05T18:53:26Z'
+    source: https://rdap.org/domain/openzeppelin.com
+    data:
+      registrar: NameCheap, Inc.
+      created: '2016-08-03'
+      expires: '2033-08-03'
+      remaining_days: 2523
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:53:26Z'
+    source: TLS handshake openzeppelin.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 1
+  - code: B5
+    checked_at: '2026-09-05T18:53:26Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 114872
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:53:59Z'
+    source: http://web.archive.org/cdx/search/cdx?url=openzeppelin.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2019-07-22'
+      history_days: 2602
+  rejected_evidence:
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

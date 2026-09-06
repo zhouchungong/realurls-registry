@@ -1,0 +1,97 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:forcedotcom
+names:
+  en: Salesforce
+aliases:
+- salesforce
+category:
+- ai
+wikidata: Q941127
+canonical:
+  github_org: forcedotcom
+  wikidata: Q941127
+  sources:
+  - wikidata:Q941127/P856
+  - wikidata:Q941127/P2037
+domains:
+- domain: salesforce.com
+  role: primary
+  status: verified
+  confidence: 0.9563
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 10139
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:58:06Z'
+    source: https://api.github.com/orgs/forcedotcom
+    data:
+      org: forcedotcom
+      org_verified: true
+      blog: https://developer.salesforce.com
+      org_name: Salesforce Platform
+      created_at: '2010-11-02T17:50:02Z'
+  - code: A3
+    checked_at: '2026-09-05T20:58:07Z'
+    source: https://rdap.org/domain/salesforce.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '1998-12-02'
+      expires: '2026-10-21'
+      remaining_days: 45
+      locks:
+      - delete
+      - transfer
+      - update
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-05T20:58:07Z'
+    source: TLS handshake salesforce.com:443
+    data:
+      subject_org: Salesforce, Inc.
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 73
+  - code: B1
+    checked_at: '2026-09-05T20:58:07Z'
+    source: https://www.wikidata.org/wiki/Q941127
+    data:
+      qid: Q941127
+      label: Salesforce
+      site: https://www.salesforce.com
+      sitelinks: 36
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:58:07Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 315
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:58:37Z'
+    source: http://web.archive.org/cdx/search/cdx?url=salesforce.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1999-11-28'
+      history_days: 9778
+  rejected_evidence:
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  reasons:
+  - '2 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q941127
+  reviewed_by: []
+  source_issue: null

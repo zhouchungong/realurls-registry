@@ -1,0 +1,95 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:redis
+names:
+  en: Redis
+aliases:
+- redis
+category:
+- infrastructure
+wikidata: Q2136322
+canonical:
+  github_org: redis
+  wikidata: Q2136322
+  sources:
+  - wikidata:Q2136322/P856
+  - wikidata:Q2136322/P2037
+domains:
+- domain: redis.io
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:52Z'
+  ttl_days: 30
+  age_days: 5939
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:22:47Z'
+    source: https://api.github.com/orgs/redis
+    data:
+      org: redis
+      org_verified: true
+      blog: https://redis.io
+      org_name: Redis
+      created_at: '2012-03-12T18:05:54Z'
+  - code: A8
+    checked_at: '2026-09-05T18:22:47Z'
+    source: https://api.github.com/repos/redis/redis
+    data:
+      repo: redis/redis
+      org: redis
+      repo_anchored: true
+      homepage: http://redis.io
+      backlink: true
+      stars: 76208
+      age_days: 6376
+      contributors: 949
+  - code: A4
+    checked_at: '2026-09-05T18:22:47Z'
+    source: TLS handshake redis.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:22:48Z'
+    source: https://www.wikidata.org/wiki/Q2136322
+    data:
+      qid: Q2136322
+      label: ردیس
+      site: https://redis.io
+      sitelinks: 27
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:22:48Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 2786
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:23:20Z'
+    source: http://web.archive.org/cdx/search/cdx?url=redis.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2010-06-02'
+      history_days: 5939
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q2136322
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,110 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:rocketchat
+names:
+  en: Rocket.Chat
+aliases:
+- RocketChat
+- RocketChat/Rocket.Chat
+category:
+- saas
+wikidata: null
+canonical:
+  github_org: RocketChat
+  wikidata: null
+  sources:
+  - github-history:RocketChat/Rocket.Chat(age=11y,contrib=1102,stars=46087)
+domains:
+- domain: rocket.chat
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:53Z'
+  ttl_days: 30
+  age_days: 4126
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:36:05Z'
+    source: https://api.github.com/orgs/RocketChat
+    data:
+      org: RocketChat
+      org_verified: true
+      blog: https://rocket.chat
+      org_name: Rocket.Chat
+      created_at: '2015-05-19T07:33:29Z'
+  - code: A8
+    checked_at: '2026-09-05T18:36:05Z'
+    source: https://api.github.com/repos/RocketChat/Rocket.Chat
+    data:
+      repo: RocketChat/Rocket.Chat
+      org: RocketChat
+      repo_anchored: true
+      homepage: https://rocket.chat/
+      backlink: true
+      stars: 46087
+      age_days: 4127
+      contributors: 1102
+  - code: A3
+    checked_at: '2026-09-05T18:36:05Z'
+    source: https://rdap.org/domain/rocket.chat
+    data:
+      registrar: Blue Razor Domains, LLC
+      created: '2015-05-20'
+      expires: '2027-05-20'
+      remaining_days: 256
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T18:36:06Z'
+    source: TLS handshake rocket.chat:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Sectigo Limited
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:36:06Z'
+    source: https://www.wikidata.org/wiki/Q24050001
+    data:
+      qid: Q24050001
+      label: Rocket.Chat
+      site: https://rocket.chat/
+      sitelinks: 2
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:36:06Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 28713
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:36:15Z'
+    source: http://web.archive.org/cdx/search/cdx?url=rocket.chat&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2015-06-01'
+      history_days: 4114
+  rejected_evidence:
+  - 'A3: registrar (Blue Razor Domains, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

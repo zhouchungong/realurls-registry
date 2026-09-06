@@ -1,0 +1,111 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:snapchat
+names:
+  en: Snap Inc.
+aliases:
+- Snapchat
+category:
+- open-source
+wikidata: Q27022329
+canonical:
+  github_org: Snapchat
+  wikidata: Q27022329
+  sources:
+  - wikidata:Q27022329/P856
+  - github-history:Snapchat/KeyDB(age=7y,contrib=627,stars=12509)
+domains:
+- domain: snap.com
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:53Z'
+  ttl_days: 30
+  age_days: 10789
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:46:12Z'
+    source: https://api.github.com/orgs/Snapchat
+    data:
+      org: Snapchat
+      org_verified: true
+      blog: https://snap.com
+      org_name: Snap Inc.
+      created_at: '2018-06-22T22:26:41Z'
+  - code: A8
+    checked_at: '2026-09-05T19:46:12Z'
+    source: https://api.github.com/repos/Snapchat/KeyDB
+    data:
+      repo: Snapchat/KeyDB
+      org: Snapchat
+      repo_anchored: true
+      homepage: https://keydb.dev
+      backlink: false
+      stars: 12509
+      age_days: 2773
+      contributors: 627
+  - code: A3
+    checked_at: '2026-09-05T19:46:12Z'
+    source: https://rdap.org/domain/snap.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '1997-02-20'
+      expires: '2027-02-21'
+      remaining_days: 168
+      locks:
+      - delete
+      - transfer
+      - update
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-05T19:46:12Z'
+    source: TLS handshake snap.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 29
+  - code: B1
+    checked_at: '2026-09-05T19:46:12Z'
+    source: https://www.wikidata.org/wiki/Q27022329
+    data:
+      qid: Q27022329
+      label: Snap Inc.
+      site: https://snap.com/
+      sitelinks: 22
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T19:46:12Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 12433
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:46:30Z'
+    source: http://web.archive.org/cdx/search/cdx?url=snap.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1998-05-23'
+      history_days: 10332
+  rejected_evidence:
+  - 'A8: repository homepage (https://keydb.dev) does not point to this domain'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q27022329
+  reviewed_by: []
+  source_issue: null

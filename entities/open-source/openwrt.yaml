@@ -1,0 +1,106 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:openwrt
+names:
+  en: OpenWrt
+aliases:
+- openwrt
+category:
+- open-source
+wikidata: Q1140401
+canonical:
+  github_org: openwrt
+  wikidata: Q1140401
+  sources:
+  - wikidata:Q1140401/P856
+  - wikidata:Q1140401/P2037
+domains:
+- domain: openwrt.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:55Z'
+  ttl_days: 30
+  age_days: 8190
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:07:54Z'
+    source: https://api.github.com/orgs/openwrt
+    data:
+      org: openwrt
+      org_verified: true
+      blog: https://openwrt.org/
+      org_name: OpenWrt
+      created_at: '2012-10-10T14:06:04Z'
+  - code: A8
+    checked_at: '2026-09-05T19:07:54Z'
+    source: https://api.github.com/repos/openwrt/openwrt
+    data:
+      repo: openwrt/openwrt
+      org: openwrt
+      repo_anchored: true
+      homepage: https://openwrt.org
+      backlink: false
+      stars: 28282
+      age_days: 3953
+      contributors: 1873
+  - code: A3
+    checked_at: '2026-09-05T19:07:55Z'
+    source: https://rdap.org/domain/openwrt.org
+    data:
+      registrar: Gandi SAS
+      created: '2004-04-02'
+      expires: '2027-04-02'
+      remaining_days: 209
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T19:07:55Z'
+    source: TLS handshake openwrt.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T19:07:55Z'
+    source: https://www.wikidata.org/wiki/Q1140401
+    data:
+      qid: Q1140401
+      label: OpenWrt
+      site: https://openwrt.org/
+      sitelinks: 31
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T19:07:55Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 10769
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:08:02Z'
+    source: http://web.archive.org/cdx/search/cdx?url=openwrt.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2004-08-15'
+      history_days: 8056
+  rejected_evidence:
+  - 'A8: this site does not link back to the GitHub organization; no reverse confirmation'
+  - 'A3: registrar (Gandi SAS) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q1140401
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,106 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:kotlin
+names:
+  en: Kotlin
+aliases: []
+category:
+- open-source
+wikidata: Q3816639
+canonical:
+  github_org: Kotlin
+  wikidata: Q3816639
+  sources:
+  - wikidata:Q3816639/P856
+  - wikidata:Q3816639/P2037
+domains:
+- domain: kotlinlang.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:55Z'
+  ttl_days: 30
+  age_days: 4723
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:13:32Z'
+    source: https://api.github.com/orgs/Kotlin
+    data:
+      org: Kotlin
+      org_verified: true
+      blog: https://kotlinlang.org
+      org_name: Kotlin
+      created_at: '2012-02-17T12:53:03Z'
+  - code: A8
+    checked_at: '2026-09-05T20:13:32Z'
+    source: https://api.github.com/repos/Kotlin/kotlinx.coroutines
+    data:
+      repo: Kotlin/kotlinx.coroutines
+      org: Kotlin
+      repo_anchored: true
+      homepage: ''
+      backlink: false
+      stars: 13813
+      age_days: 3727
+      contributors: 337
+  - code: A3
+    checked_at: '2026-09-05T20:13:33Z'
+    source: https://rdap.org/domain/kotlinlang.org
+    data:
+      registrar: Squarespace Domains II LLC
+      created: '2013-09-30'
+      expires: '2026-09-30'
+      remaining_days: 24
+      locks:
+      - delete
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T20:13:33Z'
+    source: TLS handshake kotlinlang.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 4
+  - code: B1
+    checked_at: '2026-09-05T20:13:33Z'
+    source: https://www.wikidata.org/wiki/Q3816639
+    data:
+      qid: Q3816639
+      label: Kotlin
+      site: https://kotlinlang.org/
+      sitelinks: 61
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:13:33Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 26454
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:13:37Z'
+    source: http://web.archive.org/cdx/search/cdx?url=kotlinlang.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2014-07-18'
+      history_days: 4432
+  rejected_evidence:
+  - 'A8: repository homepage () does not point to this domain'
+  - 'A3: registrar (Squarespace Domains II LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q3816639
+  reviewed_by: []
+  source_issue: null

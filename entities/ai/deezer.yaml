@@ -1,0 +1,91 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:deezer
+names:
+  en: Deezer
+aliases:
+- deezer
+category:
+- ai
+wikidata: Q602243
+canonical:
+  github_org: deezer
+  wikidata: Q602243
+  sources:
+  - wikidata:Q602243/P856
+  - wikidata:Q602243/P2037
+domains:
+- domain: deezer.com
+  role: primary
+  status: verified
+  confidence: 0.7816
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:53Z'
+  ttl_days: 30
+  age_days: 8254
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:50:14Z'
+    source: https://api.github.com/orgs/deezer
+    data:
+      org: deezer
+      org_verified: false
+      blog: http://developers.deezer.com/
+  - code: A3
+    checked_at: '2026-09-05T18:50:14Z'
+    source: https://rdap.org/domain/deezer.com
+    data:
+      registrar: Gandi SAS
+      created: '2004-01-29'
+      expires: '2027-01-29'
+      remaining_days: 146
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:50:14Z'
+    source: TLS handshake deezer.com:443
+    data:
+      subject_org: Deezer SA
+      validation_type: OV
+      issuer: Gandi SAS
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:50:14Z'
+    source: https://www.wikidata.org/wiki/Q602243
+    data:
+      qid: Q602243
+      label: Deezer
+      site: https://www.deezer.com
+      sitelinks: 39
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:50:14Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 1852
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:50:21Z'
+    source: http://web.archive.org/cdx/search/cdx?url=deezer.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2001-11-28'
+      history_days: 9047
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Gandi SAS) is not a brand-protection registrar'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q602243
+  reviewed_by: []
+  source_issue: null

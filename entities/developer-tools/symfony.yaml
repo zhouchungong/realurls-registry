@@ -1,0 +1,106 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:symfony
+names:
+  en: Symfony
+aliases:
+- symfony
+category:
+- developer-tools
+wikidata: Q1322933
+canonical:
+  github_org: symfony
+  wikidata: Q1322933
+  sources:
+  - wikidata:Q1322933/P856
+  - wikidata:Q1322933/P2037
+domains:
+- domain: symfony.com
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:55Z'
+  ttl_days: 30
+  age_days: 9495
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:59:38Z'
+    source: https://api.github.com/orgs/symfony
+    data:
+      org: symfony
+      org_verified: true
+      blog: https://symfony.com/
+      org_name: Symfony
+      created_at: '2009-10-24T04:05:23Z'
+  - code: A8
+    checked_at: '2026-09-05T18:59:39Z'
+    source: https://api.github.com/repos/symfony/symfony
+    data:
+      repo: symfony/symfony
+      org: symfony
+      repo_anchored: true
+      homepage: https://symfony.com
+      backlink: true
+      stars: 31146
+      age_days: 6088
+      contributors: 4865
+  - code: A3
+    checked_at: '2026-09-05T18:59:39Z'
+    source: https://rdap.org/domain/symfony.com
+    data:
+      registrar: Gandi SAS
+      created: '2000-09-05'
+      expires: '2030-09-05'
+      remaining_days: 1461
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:59:39Z'
+    source: TLS handshake symfony.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 5
+  - code: B1
+    checked_at: '2026-09-05T18:59:39Z'
+    source: https://www.wikidata.org/wiki/Q1322933
+    data:
+      qid: Q1322933
+      label: Symfony
+      site: https://symfony.com
+      sitelinks: 28
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:59:39Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 5956
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:59:45Z'
+    source: http://web.archive.org/cdx/search/cdx?url=symfony.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2011-01-28'
+      history_days: 5699
+  rejected_evidence:
+  - 'A3: registrar (Gandi SAS) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q1322933
+  reviewed_by: []
+  source_issue: null

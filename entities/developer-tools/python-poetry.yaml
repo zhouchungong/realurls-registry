@@ -1,0 +1,107 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:python-poetry
+names:
+  en: Poetry
+aliases:
+- python-poetry
+- python-poetry/poetry
+category:
+- developer-tools
+wikidata: null
+canonical:
+  github_org: python-poetry
+  wikidata: null
+  sources:
+  - github-history:python-poetry/poetry(age=8y,contrib=672,stars=34301)
+domains:
+- domain: python-poetry.org
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:54Z'
+  ttl_days: 30
+  age_days: 2508
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:55:17Z'
+    source: https://api.github.com/orgs/python-poetry
+    data:
+      org: python-poetry
+      org_verified: true
+      blog: https://python-poetry.org
+      org_name: Poetry
+      created_at: '2019-03-19T13:46:32Z'
+  - code: A8
+    checked_at: '2026-09-05T18:55:17Z'
+    source: https://api.github.com/repos/python-poetry/poetry
+    data:
+      repo: python-poetry/poetry
+      org: python-poetry
+      repo_anchored: true
+      homepage: https://python-poetry.org
+      backlink: true
+      stars: 34301
+      age_days: 3111
+      contributors: 672
+  - code: A3
+    checked_at: '2026-09-05T18:55:17Z'
+    source: https://rdap.org/domain/python-poetry.org
+    data:
+      registrar: Gandi SAS
+      created: '2019-10-23'
+      expires: '2026-10-23'
+      remaining_days: 48
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:55:17Z'
+    source: TLS handshake python-poetry.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T18:55:17Z'
+    source: https://www.wikidata.org/wiki/Q70481196
+    data:
+      qid: Q70481196
+      label: poetry
+      site: https://python-poetry.org/
+      sitelinks: 0
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:55:17Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 125229
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:55:21Z'
+    source: http://web.archive.org/cdx/search/cdx?url=python-poetry.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2019-12-12'
+      history_days: 2459
+  rejected_evidence:
+  - 'A3: registrar (Gandi SAS) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

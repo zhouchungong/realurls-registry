@@ -1,0 +1,97 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:nim-lang
+names:
+  en: The Nim programming language
+aliases:
+- nim-lang
+- nim-lang/Nim
+category:
+- developer-tools
+wikidata: null
+canonical:
+  github_org: nim-lang
+  wikidata: null
+  sources:
+  - github-history:nim-lang/Nim(age=16y,contrib=983,stars=18217)
+domains:
+- domain: nim-lang.org
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:52Z'
+  ttl_days: 30
+  age_days: 4600
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:38:26Z'
+    source: https://api.github.com/orgs/nim-lang
+    data:
+      org: nim-lang
+      org_verified: true
+      blog: http://nim-lang.org
+      org_name: The Nim programming language
+      created_at: '2011-02-06T23:45:19Z'
+  - code: A8
+    checked_at: '2026-09-05T19:38:26Z'
+    source: https://api.github.com/repos/nim-lang/Nim
+    data:
+      repo: nim-lang/Nim
+      org: nim-lang
+      repo_anchored: true
+      homepage: https://nim-lang.org
+      backlink: true
+      stars: 18217
+      age_days: 5863
+      contributors: 983
+  - code: A3
+    checked_at: '2026-09-05T19:38:27Z'
+    source: https://rdap.org/domain/nim-lang.org
+    data:
+      registrar: NameCheap, Inc.
+      created: '2014-01-31'
+      expires: '2027-01-31'
+      remaining_days: 147
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T19:38:27Z'
+    source: TLS handshake nim-lang.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-05T19:38:27Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 208583
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:38:29Z'
+    source: http://web.archive.org/cdx/search/cdx?url=nim-lang.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2014-09-18'
+      history_days: 4370
+  rejected_evidence:
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

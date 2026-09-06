@@ -291,3 +291,40 @@ cases:
       - {code: A6, data: {from: "python[.]org", from_status: verified, first_party_link: true, structural_links: ["shared_ns"], san_count: 0, backlink: null}}
       - {code: B4, data: {history_days: 5800}}
       - {code: B5, data: {rank: 900}}
+
+  - id: sponsor-domain-corporate-fingerprint-only
+    technique: 开源项目首页链接到赞助商大站；大站有品牌保护注册商、长历史、高排名，但没有任何证据指名本实体（gh-01 批次真实误报：anthropic.com 判给 python，digitalocean.com 判给 gogs/phalcon/nodejs）
+    facts: {domain: "big-sponsor[.]example", age_days: 6000, expected_github_org: "python", expected_wikidata: "Q599384", anchor_sources: ["wikidata:Q599384/P856"], expected_names: ["Python", "python"]}
+    evidence:
+      - {code: A1, data: {org: "sponsorcorp", is_verified: true}}
+      - {code: A3, data: {registrar: "MarkMonitor Inc.", remaining_days: 2000, locks: ["clientDeleteProhibited", "clientTransferProhibited"]}}
+      - {code: A6, data: {from: "python[.]org", from_status: verified, first_party_link: true, structural_links: [], san_count: 3, backlink: false}}
+      - {code: B1, data: {qid: "Q116758847"}}
+      - {code: B4, data: {history_days: 5800}}
+      - {code: B5, data: {rank: 900}}
+
+  - id: gov-tld-fingerprint-only
+    technique: 政府域名（受限 TLD）被问到与它无关的实体名下：A7 + 历史 + 排名，没有任何证据指名实体
+    facts: {domain: "some-agency.gov", age_days: 8000, expected_github_org: "python", expected_wikidata: "Q599384", anchor_sources: ["wikidata:Q599384/P856"], expected_names: ["Python"]}
+    evidence:
+      - {code: A7, data: {}}
+      - {code: B4, data: {history_days: 7000}}
+      - {code: B5, data: {rank: 5000}}
+
+  - id: propagation-pooled-name-servers
+    technique: 两个域名恰好都用 Namecheap 默认 NS（dns1/dns2.registrar-servers.com），互相链接；共享的是注册商，不是基础设施（gh-01：cmake.org ← kitware.com 的结构链接就是这种）
+    facts: {domain: "partner[.]example", age_days: 4000, expected_github_org: "python", expected_wikidata: "Q599384", anchor_sources: ["wikidata:Q599384/P856"], expected_names: ["Python"]}
+    evidence:
+      - {code: A6, data: {from: "python[.]org", from_status: verified, first_party_link: true, structural_links: ["shared_ns"], shared_ns: ["dns1.registrar-servers.com", "dns2.registrar-servers.com"], san_count: 0, backlink: true}}
+      - {code: B4, data: {history_days: 3900}}
+      - {code: B5, data: {rank: 20000}}
+
+  - id: propagation-into-a-domain-with-its-own-github-org
+    technique: 紧密合作的两个组织（同一 Cloudflare 账号、互相链接），但候选域名被另一个 GitHub 组织声明为自己的站点（gh-01 真实误报：matrix.org 被判给 element-hq）
+    facts: {domain: "matrix[.]org", age_days: 9000, expected_github_org: "element-hq", anchor_sources: ["github-history:element-hq/element-web"], expected_names: ["Element", "element-hq"]}
+    evidence:
+      - {code: A6, data: {from: "element[.]io", from_status: verified, first_party_link: true, structural_links: ["shared_ns"], shared_ns: ["derek.ns.cloudflare.com", "laura.ns.cloudflare.com"], san_count: 2, backlink: true}}
+      - {code: A1, data: {org: "matrix-org", org_verified: false, blog: "https://www.matrix[.]org"}}
+      - {code: B1, data: {qid: "Q22906785"}}
+      - {code: B4, data: {history_days: 9900}}
+      - {code: B5, data: {rank: 7500}}

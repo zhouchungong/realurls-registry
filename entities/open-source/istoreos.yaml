@@ -1,0 +1,94 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:istoreos
+names:
+  en: iStoreOS
+aliases:
+- istoreos
+- istoreos/istoreos
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: istoreos
+  wikidata: null
+  sources:
+  - github-history:istoreos/istoreos(age=4y,contrib=1603,stars=8040)
+domains:
+- domain: istoreos.com
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:19:08Z'
+  ttl_days: 30
+  age_days: 1543
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T21:29:20Z'
+    source: https://api.github.com/orgs/istoreos
+    data:
+      org: istoreos
+      org_verified: false
+      blog: https://www.istoreos.com
+  - code: A8
+    checked_at: '2026-09-05T21:29:20Z'
+    source: https://api.github.com/repos/istoreos/istoreos
+    data:
+      repo: istoreos/istoreos
+      org: istoreos
+      repo_anchored: true
+      homepage: https://site.istoreos.com
+      backlink: true
+      stars: 8040
+      age_days: 1634
+      contributors: 1603
+  - code: A3
+    checked_at: '2026-09-05T21:29:21Z'
+    source: https://rdap.org/domain/istoreos.com
+    data:
+      registrar: Alibaba Cloud Computing Ltd. d/b/a HiChina (www.net.cn)
+      created: '2022-06-15'
+      expires: '2027-06-15'
+      remaining_days: 282
+      locks: []
+  - code: A4
+    checked_at: '2026-09-05T21:29:21Z'
+    source: TLS handshake istoreos.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-05T21:29:22Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 927459
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T21:29:36Z'
+    source: http://web.archive.org/cdx/search/cdx?url=istoreos.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2022-12-07'
+      history_days: 1368
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Alibaba Cloud Computing Ltd. d/b/a HiChina (www.net.cn)) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,94 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:nushell
+names:
+  en: Nushell Project
+aliases:
+- nushell
+- nushell/nushell
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: nushell
+  wikidata: null
+  sources:
+  - github-history:nushell/nushell(age=7y,contrib=931,stars=40417)
+domains:
+- domain: nushell.sh
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:59Z'
+  ttl_days: 30
+  age_days: 2561
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:48:42Z'
+    source: https://api.github.com/orgs/nushell
+    data:
+      org: nushell
+      org_verified: false
+      blog: https://www.nushell.sh/
+  - code: A8
+    checked_at: '2026-09-05T18:48:42Z'
+    source: https://api.github.com/repos/nushell/nushell
+    data:
+      repo: nushell/nushell
+      org: nushell
+      repo_anchored: true
+      homepage: https://www.nushell.sh/
+      backlink: true
+      stars: 40417
+      age_days: 2675
+      contributors: 931
+  - code: A4
+    checked_at: '2026-09-05T18:48:42Z'
+    source: TLS handshake nushell.sh:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:48:42Z'
+    source: https://www.wikidata.org/wiki/Q103695637
+    data:
+      qid: Q103695637
+      label: Nushell
+      site: https://www.nushell.sh/
+      sitelinks: 1
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:48:42Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 457290
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:48:44Z'
+    source: http://web.archive.org/cdx/search/cdx?url=nushell.sh&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2019-09-01'
+      history_days: 2561
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

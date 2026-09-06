@@ -1,0 +1,99 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:zeromq
+names:
+  en: ZeroMQ
+aliases:
+- The ZeroMQ project
+- zeromq
+category:
+- open-source
+wikidata: Q8079189
+canonical:
+  github_org: zeromq
+  wikidata: Q8079189
+  sources:
+  - wikidata:Q8079189/P856
+  - wikidata:Q8079189/P1324
+domains:
+- domain: zeromq.org
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:19:00Z'
+  ttl_days: 30
+  age_days: 7058
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T21:05:31Z'
+    source: https://api.github.com/orgs/zeromq
+    data:
+      org: zeromq
+      org_verified: false
+      blog: http://www.zeromq.org/
+  - code: A8
+    checked_at: '2026-09-05T21:05:32Z'
+    source: https://api.github.com/repos/zeromq/libzmq
+    data:
+      repo: zeromq/libzmq
+      org: zeromq
+      repo_anchored: true
+      homepage: https://www.zeromq.org
+      backlink: true
+      stars: 10981
+      age_days: 6247
+      contributors: 654
+  - code: A3
+    checked_at: '2026-09-05T21:05:32Z'
+    source: https://rdap.org/domain/zeromq.org
+    data:
+      registrar: Gandi SAS
+      created: '2007-05-10'
+      expires: '2031-05-10'
+      remaining_days: 1707
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T21:05:33Z'
+    source: TLS handshake zeromq.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T21:05:33Z'
+    source: https://www.wikidata.org/wiki/Q8079189
+    data:
+      qid: Q8079189
+      label: ZeroMQ
+      site: http://www.zeromq.org
+      sitelinks: 8
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T21:05:33Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 127812
+      source: top-1m list
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Gandi SAS) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q8079189
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,104 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:nestjs
+names:
+  en: NestJS
+aliases:
+- nestjs
+category:
+- developer-tools
+wikidata: Q107015664
+canonical:
+  github_org: nestjs
+  wikidata: Q107015664
+  sources:
+  - wikidata:Q107015664/P856
+  - wikidata:Q107015664/P1324
+domains:
+- domain: nestjs.com
+  role: primary
+  status: verified
+  confidence: 0.7088
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:19:00Z'
+  ttl_days: 30
+  age_days: 3408
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:38:43Z'
+    source: https://api.github.com/orgs/nestjs
+    data:
+      org: nestjs
+      org_verified: false
+      blog: https://nestjs.com/
+  - code: A8
+    checked_at: '2026-09-05T18:38:44Z'
+    source: https://api.github.com/repos/nestjs/nest
+    data:
+      repo: nestjs/nest
+      org: nestjs
+      repo_anchored: true
+      homepage: https://nestjs.com
+      backlink: true
+      stars: 76576
+      age_days: 3499
+      contributors: 734
+  - code: A3
+    checked_at: '2026-09-05T18:39:27Z'
+    source: https://rdap.org/domain/nestjs.com
+    data:
+      registrar: 1API GmbH
+      created: '2017-05-07'
+      expires: '2027-05-07'
+      remaining_days: 243
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:39:27Z'
+    source: TLS handshake nestjs.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:39:28Z'
+    source: https://www.wikidata.org/wiki/Q107015664
+    data:
+      qid: Q107015664
+      label: NestJS
+      site: https://nestjs.com/
+      sitelinks: 9
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:39:28Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 85412
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:39:31Z'
+    source: http://web.archive.org/cdx/search/cdx?url=nestjs.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2017-05-12'
+      history_days: 3403
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (1API GmbH) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q107015664
+  reviewed_by: []
+  source_issue: null

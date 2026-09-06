@@ -1,0 +1,93 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:floorp-projects
+names:
+  en: Floorp
+aliases:
+- Floorp-Projects
+category:
+- open-source
+wikidata: Q111893936
+canonical:
+  github_org: Floorp-Projects
+  wikidata: Q111893936
+  sources:
+  - wikidata:Q111893936/P856
+  - wikidata:Q111893936/P2037
+domains:
+- domain: floorp.app
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 1217
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T21:38:23Z'
+    source: https://api.github.com/orgs/Floorp-Projects
+    data:
+      org: Floorp-Projects
+      org_verified: true
+      blog: https://floorp.app
+      org_name: Floorp
+      created_at: '2021-11-24T06:38:45Z'
+  - code: A3
+    checked_at: '2026-09-05T21:38:26Z'
+    source: https://rdap.org/domain/floorp.app
+    data:
+      registrar: CloudFlare, Inc.
+      created: '2023-05-07'
+      expires: '2027-05-07'
+      remaining_days: 243
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T21:38:26Z'
+    source: TLS handshake floorp.app:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T21:38:26Z'
+    source: https://www.wikidata.org/wiki/Q111893936
+    data:
+      qid: Q111893936
+      label: Floorp
+      site: https://floorp.app
+      sitelinks: 11
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T21:38:26Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 226415
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T21:38:27Z'
+    source: http://web.archive.org/cdx/search/cdx?url=floorp.app&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2023-05-10'
+      history_days: 1214
+  rejected_evidence:
+  - 'A3: registrar (CloudFlare, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q111893936
+  reviewed_by: []
+  source_issue: null

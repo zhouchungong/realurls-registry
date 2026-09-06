@@ -1,0 +1,101 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:zephyrproject-rtos
+names:
+  en: Zephyr
+aliases:
+- Zephyr Project
+- zephyrproject-rtos
+category:
+- hardware
+wikidata: Q22909895
+canonical:
+  github_org: zephyrproject-rtos
+  wikidata: Q22909895
+  sources:
+  - wikidata:Q22909895/P856
+  - wikidata:Q22909895/P2037
+domains:
+- domain: zephyrproject.org
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:49Z'
+  ttl_days: 30
+  age_days: 4914
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:38:25Z'
+    source: https://api.github.com/orgs/zephyrproject-rtos
+    data:
+      org: zephyrproject-rtos
+      org_verified: true
+      blog: https://www.zephyrproject.org
+      org_name: Zephyr Project
+      created_at: '2016-05-26T17:49:00Z'
+  - code: A8
+    checked_at: '2026-09-05T19:38:27Z'
+    source: https://api.github.com/repos/zephyrproject-rtos/zephyr
+    data:
+      repo: zephyrproject-rtos/zephyr
+      org: zephyrproject-rtos
+      repo_anchored: true
+      homepage: https://docs.zephyrproject.org
+      backlink: true
+      stars: 16407
+      age_days: 3754
+      contributors: 4547
+  - code: A3
+    checked_at: '2026-09-05T19:38:28Z'
+    source: https://rdap.org/domain/zephyrproject.org
+    data:
+      registrar: 1API GmbH
+      created: '2013-03-23'
+      expires: '2027-03-23'
+      remaining_days: 198
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T19:38:28Z'
+    source: TLS handshake zephyrproject.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T19:38:28Z'
+    source: https://www.wikidata.org/wiki/Q22909895
+    data:
+      qid: Q22909895
+      label: Zephyr
+      site: https://www.zephyrproject.org
+      sitelinks: 11
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T19:38:28Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 133452
+      source: top-1m list
+  rejected_evidence:
+  - 'A3: registrar (1API GmbH) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q22909895
+  reviewed_by: []
+  source_issue: null

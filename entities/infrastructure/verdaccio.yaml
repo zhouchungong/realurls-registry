@@ -1,0 +1,98 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:verdaccio
+names:
+  en: Verdaccio
+aliases:
+- verdaccio
+- verdaccio/verdaccio
+category:
+- infrastructure
+wikidata: null
+canonical:
+  github_org: verdaccio
+  wikidata: null
+  sources:
+  - github-history:verdaccio/verdaccio(age=10y,contrib=344,stars=17863)
+domains:
+- domain: verdaccio.org
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 3498
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:24:50Z'
+    source: https://api.github.com/orgs/verdaccio
+    data:
+      org: verdaccio
+      org_verified: false
+      blog: https://www.verdaccio.org
+  - code: A8
+    checked_at: '2026-09-05T20:24:50Z'
+    source: https://api.github.com/repos/verdaccio/verdaccio
+    data:
+      repo: verdaccio/verdaccio
+      org: verdaccio
+      repo_anchored: true
+      homepage: https://www.verdaccio.org/
+      backlink: true
+      stars: 17863
+      age_days: 3795
+      contributors: 344
+  - code: A3
+    checked_at: '2026-09-05T20:24:51Z'
+    source: https://rdap.org/domain/verdaccio.org
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2017-02-06'
+      expires: '2028-02-06'
+      remaining_days: 518
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T20:24:51Z'
+    source: TLS handshake verdaccio.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-05T20:24:52Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 941600
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:24:54Z'
+    source: http://web.archive.org/cdx/search/cdx?url=verdaccio.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2011-09-06'
+      history_days: 5478
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

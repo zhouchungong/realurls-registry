@@ -1,0 +1,314 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:jpmorgan-chase
+names:
+  en: JPMorgan Chase
+aliases:
+- JPMorganChase
+- jpmorganchase
+category:
+- open-source
+wikidata: Q192314
+canonical:
+  github_org: null
+  wikidata: Q192314
+  sources:
+  - wikidata:Q192314/P856
+domains:
+- domain: jpmorganchase.com
+  role: primary
+  status: verified
+  confidence: 0.7816
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 9488
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:45:53Z'
+    source: https://api.github.com/orgs/jpmorganchase
+    data:
+      org: jpmorganchase
+      org_verified: false
+      blog: https://www.jpmorganchase.com
+  - code: A3
+    checked_at: '2026-09-05T20:45:54Z'
+    source: https://rdap.org/domain/jpmorganchase.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2000-09-12'
+      expires: '2027-09-12'
+      remaining_days: 372
+      locks:
+      - delete
+      - transfer
+      - update
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-05T20:45:54Z'
+    source: TLS handshake jpmorganchase.com:443
+    data:
+      subject_org: JPMorgan Chase & Co.
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 64
+  - code: B1
+    checked_at: '2026-09-05T20:45:54Z'
+    source: https://www.wikidata.org/wiki/Q192314
+    data:
+      qid: Q192314
+      label: JPMorgan Chase
+      site: https://www.jpmorganchase.com/
+      sitelinks: 58
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:45:54Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 8338
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:45:57Z'
+    source: http://web.archive.org/cdx/search/cdx?url=jpmorganchase.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2001-04-04'
+      history_days: 9285
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+- domain: chase.com
+  role: product
+  status: verified
+  confidence: 0.9131
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 11287
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A3
+    checked_at: '2026-09-05T20:46:42Z'
+    source: https://rdap.org/domain/chase.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '1995-10-11'
+      expires: '2027-10-10'
+      remaining_days: 399
+      locks:
+      - delete
+      - transfer
+      - update
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-05T20:46:43Z'
+    source: TLS handshake chase.com:443
+    data:
+      subject_org: JPMorgan Chase & Co.
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 3
+  - code: B1
+    checked_at: '2026-09-05T20:46:43Z'
+    source: https://www.wikidata.org/wiki/Q524629
+    data:
+      qid: Q524629
+      label: Chase Bank
+      site: https://www.chase.com/
+      sitelinks: 23
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:46:43Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 3129
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:46:46Z'
+    source: http://web.archive.org/cdx/search/cdx?url=chase.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1996-11-15'
+      history_days: 10886
+  - code: A6
+    checked_at: '2026-09-05T20:46:46Z'
+    source: propagate from jpmorganchase.com
+    data:
+      from: jpmorganchase.com
+      from_status: verified
+      first_party_link: true
+      structural_links:
+      - shared_ns
+      san_count: 64
+      backlink: true
+  rejected_evidence:
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'B1: item Q524629 != entity canonical item Q192314'
+  reasons:
+  - '2 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+- domain: jpmchase.com
+  role: product
+  status: verified
+  confidence: 0.7105
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T22:51:16Z'
+  ttl_days: 30
+  age_days: 9489
+  age_source: rdap
+  collection_incomplete: true
+  evidence:
+  - code: A3
+    checked_at: '2026-09-05T22:53:59Z'
+    source: https://rdap.org/domain/jpmchase.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2000-09-12'
+      expires: '2028-09-12'
+      remaining_days: 737
+      locks:
+      - delete
+      - transfer
+      - update
+      - server delete
+      - server transfer
+      - server update
+  - code: B5
+    checked_at: '2026-09-05T22:53:58Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 19128
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T22:54:26Z'
+    source: http://web.archive.org/cdx/search/cdx?url=jpmchase.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2001-04-11'
+      history_days: 9278
+  - code: A6
+    checked_at: '2026-09-05T22:51:16Z'
+    source: propagate from jpmorganchase.com
+    data:
+      from: jpmorganchase.com
+      from_status: verified
+      first_party_link: true
+      structural_links:
+      - shared_ns
+      - cert_san
+      san_count: 64
+      shared_ns:
+      - ns05.jpmorganchase.com
+      - ns06.jpmorganchase.com
+      - ns1.jpmorganchase.com
+      - ns2.jpmorganchase.com
+      backlink: true
+  rejected_evidence:
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+- domain: jpmorgan.com
+  role: product
+  status: verified
+  confidence: 0.9131
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 12552
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A3
+    checked_at: '2026-09-05T20:47:33Z'
+    source: https://rdap.org/domain/jpmorgan.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '1992-04-24'
+      expires: '2028-04-25'
+      remaining_days: 597
+      locks:
+      - delete
+      - transfer
+      - update
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-05T20:47:33Z'
+    source: TLS handshake jpmorgan.com:443
+    data:
+      subject_org: JPMorgan Chase & Co.
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 64
+  - code: B1
+    checked_at: '2026-09-05T20:47:33Z'
+    source: https://www.wikidata.org/wiki/Q93355994
+    data:
+      qid: Q93355994
+      label: JPMX
+      site: https://www.jpmorgan.com
+      sitelinks: 0
+      competing_items: 4
+  - code: B5
+    checked_at: '2026-09-05T20:47:33Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 5834
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:47:44Z'
+    source: http://web.archive.org/cdx/search/cdx?url=jpmorgan.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1997-06-16'
+      history_days: 10673
+  - code: A6
+    checked_at: '2026-09-05T20:47:44Z'
+    source: propagate from jpmorganchase.com
+    data:
+      from: jpmorganchase.com
+      from_status: verified
+      first_party_link: true
+      structural_links:
+      - shared_ns
+      - cert_san
+      san_count: 64
+      backlink: true
+  rejected_evidence:
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'B1: item Q93355994 != entity canonical item Q192314'
+  reasons:
+  - '2 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q192314
+  reviewed_by: []
+  source_issue: null
+  last_revalidated_by: revalidate/0.1

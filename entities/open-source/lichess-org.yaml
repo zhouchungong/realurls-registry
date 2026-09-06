@@ -1,0 +1,101 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:lichess-org
+names:
+  en: Lichess
+aliases:
+- lichess-org
+category:
+- open-source
+wikidata: Q19831807
+canonical:
+  github_org: lichess-org
+  wikidata: Q19831807
+  sources:
+  - wikidata:Q19831807/P856
+  - wikidata:Q19831807/P2037
+domains:
+- domain: lichess.org
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:53Z'
+  ttl_days: 30
+  age_days: 5927
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:32:28Z'
+    source: https://api.github.com/orgs/lichess-org
+    data:
+      org: lichess-org
+      org_verified: true
+      blog: https://lichess.org
+      org_name: Lichess
+      created_at: '2015-12-30T16:56:14Z'
+  - code: A8
+    checked_at: '2026-09-05T19:32:29Z'
+    source: https://api.github.com/repos/lichess-org/lila
+    data:
+      repo: lichess-org/lila
+      org: lichess-org
+      repo_anchored: true
+      homepage: https://lichess.org
+      backlink: true
+      stars: 18705
+      age_days: 5309
+      contributors: 633
+  - code: A3
+    checked_at: '2026-09-05T19:32:30Z'
+    source: https://rdap.org/domain/lichess.org
+    data:
+      registrar: OVH sas
+      created: '2010-06-14'
+      expires: '2027-06-14'
+      remaining_days: 281
+      locks:
+      - delete
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T19:32:30Z'
+    source: TLS handshake lichess.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 91
+  - code: B1
+    checked_at: '2026-09-05T19:32:30Z'
+    source: https://www.wikidata.org/wiki/Q19831807
+    data:
+      qid: Q19831807
+      label: Lichess
+      site: https://lichess.org
+      sitelinks: 35
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-05T19:32:30Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 1220
+      source: top-1m list
+  rejected_evidence:
+  - 'A3: registrar (OVH sas) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q19831807
+  reviewed_by: []
+  source_issue: null

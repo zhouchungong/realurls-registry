@@ -1,0 +1,110 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:unoplatform
+names:
+  en: Uno Platform
+aliases:
+- unoplatform
+- unoplatform/uno
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: unoplatform
+  wikidata: null
+  sources:
+  - github-history:unoplatform/uno(age=8y,contrib=354,stars=10036)
+domains:
+- domain: platform.uno
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:49Z'
+  ttl_days: 30
+  age_days: 3504
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:38:15Z'
+    source: https://api.github.com/orgs/unoplatform
+    data:
+      org: unoplatform
+      org_verified: true
+      blog: https://platform.uno
+      org_name: Uno Platform
+      created_at: '2019-06-26T03:34:32Z'
+  - code: A8
+    checked_at: '2026-09-05T20:38:15Z'
+    source: https://api.github.com/repos/unoplatform/uno
+    data:
+      repo: unoplatform/uno
+      org: unoplatform
+      repo_anchored: true
+      homepage: https://platform.uno
+      backlink: true
+      stars: 10036
+      age_days: 3043
+      contributors: 354
+  - code: A3
+    checked_at: '2026-09-05T20:38:15Z'
+    source: https://rdap.org/domain/platform.uno
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2017-01-31'
+      expires: '2027-01-30'
+      remaining_days: 147
+      locks:
+      - update
+      - delete
+      - renew
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T20:38:15Z'
+    source: TLS handshake platform.uno:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 3
+  - code: B1
+    checked_at: '2026-09-05T20:38:15Z'
+    source: https://www.wikidata.org/wiki/Q60774063
+    data:
+      qid: Q60774063
+      label: Uno
+      site: https://platform.uno/
+      sitelinks: 1
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:38:15Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 407607
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:38:20Z'
+    source: http://web.archive.org/cdx/search/cdx?url=platform.uno&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2018-05-08'
+      history_days: 3042
+  rejected_evidence:
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

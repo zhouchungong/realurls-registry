@@ -1,0 +1,97 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:codesandbox
+names:
+  en: CodeSandbox
+aliases:
+- codesandbox
+- codesandbox-client
+- codesandbox/codesandbox-client
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: codesandbox
+  wikidata: null
+  sources:
+  - github-history:codesandbox/codesandbox-client(age=9y,contrib=324,stars=13640)
+domains:
+- domain: codesandbox.io
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 3381
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:32:33Z'
+    source: https://api.github.com/orgs/codesandbox
+    data:
+      org: codesandbox
+      org_verified: true
+      blog: https://codesandbox.io
+      org_name: CodeSandbox
+      created_at: '2017-10-17T17:55:58Z'
+  - code: A8
+    checked_at: '2026-09-05T20:32:33Z'
+    source: https://api.github.com/repos/codesandbox/codesandbox-client
+    data:
+      repo: codesandbox/codesandbox-client
+      org: codesandbox
+      repo_anchored: true
+      homepage: https://codesandbox.io
+      backlink: true
+      stars: 13640
+      age_days: 3539
+      contributors: 324
+  - code: A4
+    checked_at: '2026-09-05T20:32:33Z'
+    source: TLS handshake codesandbox.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T20:32:33Z'
+    source: https://www.wikidata.org/wiki/Q117230892
+    data:
+      qid: Q117230892
+      label: CodeSandbox
+      site: https://codesandbox.io/
+      sitelinks: 2
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:32:33Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 21319
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:32:59Z'
+    source: http://web.archive.org/cdx/search/cdx?url=codesandbox.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2017-06-03'
+      history_days: 3381
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

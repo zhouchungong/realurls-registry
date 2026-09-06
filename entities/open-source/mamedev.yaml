@@ -1,0 +1,106 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:mamedev
+names:
+  en: MAME
+aliases:
+- MAMEdev
+- mamedev
+category:
+- open-source
+wikidata: Q1054055
+canonical:
+  github_org: mamedev
+  wikidata: Q1054055
+  sources:
+  - wikidata:Q1054055/P856
+  - wikidata:Q1054055/P1324
+domains:
+- domain: mamedev.org
+  role: primary
+  status: verified
+  confidence: 0.7088
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:52Z'
+  ttl_days: 30
+  age_days: 7792
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:47:04Z'
+    source: https://api.github.com/orgs/mamedev
+    data:
+      org: mamedev
+      org_verified: false
+      blog: https://www.mamedev.org/
+  - code: A8
+    checked_at: '2026-09-05T20:47:05Z'
+    source: https://api.github.com/repos/mamedev/mame
+    data:
+      repo: mamedev/mame
+      org: mamedev
+      repo_anchored: true
+      homepage: https://www.mamedev.org/
+      backlink: true
+      stars: 10451
+      age_days: 4681
+      contributors: 781
+  - code: A3
+    checked_at: '2026-09-05T20:47:07Z'
+    source: https://rdap.org/domain/mamedev.org
+    data:
+      registrar: Tucows Domains Inc.
+      created: '2005-05-06'
+      expires: '2028-05-06'
+      remaining_days: 608
+      locks:
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T20:47:07Z'
+    source: TLS handshake mamedev.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 22
+  - code: B1
+    checked_at: '2026-09-05T20:47:07Z'
+    source: https://www.wikidata.org/wiki/Q1054055
+    data:
+      qid: Q1054055
+      label: MAME
+      site: https://www.mamedev.org
+      sitelinks: 24
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:47:07Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 68611
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:47:27Z'
+    source: http://web.archive.org/cdx/search/cdx?url=mamedev.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2005-10-18'
+      history_days: 7627
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Tucows Domains Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q1054055
+  reviewed_by: []
+  source_issue: null

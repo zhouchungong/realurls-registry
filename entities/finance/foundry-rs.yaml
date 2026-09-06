@@ -1,0 +1,85 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:foundry-rs
+names:
+  en: Foundry
+aliases:
+- foundry-rs
+- foundry-rs/foundry
+category:
+- finance
+- developer-tools
+wikidata: null
+canonical:
+  github_org: foundry-rs
+  wikidata: null
+  sources:
+  - github-history:foundry-rs/foundry(age=4y,contrib=720,stars=10579)
+domains:
+- domain: getfoundry.sh
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:59Z'
+  ttl_days: 30
+  age_days: 1613
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:53:41Z'
+    source: https://api.github.com/orgs/foundry-rs
+    data:
+      org: foundry-rs
+      org_verified: false
+      blog: https://getfoundry.sh
+  - code: A8
+    checked_at: '2026-09-05T20:53:41Z'
+    source: https://api.github.com/repos/foundry-rs/foundry
+    data:
+      repo: foundry-rs/foundry
+      org: foundry-rs
+      repo_anchored: true
+      homepage: https://getfoundry.sh/
+      backlink: true
+      stars: 10579
+      age_days: 1823
+      contributors: 720
+  - code: A4
+    checked_at: '2026-09-05T20:54:03Z'
+    source: TLS handshake getfoundry.sh:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B5
+    checked_at: '2026-09-05T20:54:03Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 586145
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:54:07Z'
+    source: http://web.archive.org/cdx/search/cdx?url=getfoundry.sh&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2022-04-06'
+      history_days: 1613
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

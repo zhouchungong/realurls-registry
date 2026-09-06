@@ -1,0 +1,96 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:phalcon
+names:
+  en: Phalcon
+aliases:
+- The Phalcon PHP Framework
+- phalcon
+category:
+- developer-tools
+wikidata: Q15840357
+canonical:
+  github_org: phalcon
+  wikidata: Q15840357
+  sources:
+  - wikidata:Q15840357/P856
+  - wikidata:Q15840357/P2037
+domains:
+- domain: phalcon.io
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 4206
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T21:33:16Z'
+    source: https://api.github.com/orgs/phalcon
+    data:
+      org: phalcon
+      org_verified: true
+      blog: https://phalcon.io
+      org_name: The Phalcon PHP Framework
+      created_at: '2011-11-26T05:51:57Z'
+  - code: A8
+    checked_at: '2026-09-05T21:33:17Z'
+    source: https://api.github.com/repos/phalcon/cphalcon
+    data:
+      repo: phalcon/cphalcon
+      org: phalcon
+      repo_anchored: true
+      homepage: https://phalcon.io
+      backlink: true
+      stars: 10829
+      age_days: 5397
+      contributors: 366
+  - code: A4
+    checked_at: '2026-09-05T21:33:18Z'
+    source: TLS handshake phalcon.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T21:33:18Z'
+    source: https://www.wikidata.org/wiki/Q15840357
+    data:
+      qid: Q15840357
+      label: Phalcon
+      site: https://phalcon.io/
+      sitelinks: 11
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T21:33:18Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 894603
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T21:33:22Z'
+    source: http://web.archive.org/cdx/search/cdx?url=phalcon.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2015-03-01'
+      history_days: 4206
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q15840357
+  reviewed_by: []
+  source_issue: null

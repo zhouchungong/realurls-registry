@@ -1,0 +1,101 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:realsenseai
+names:
+  en: RealSenseAI
+aliases:
+- librealsense
+- realsenseai
+- realsenseai/librealsense
+category:
+- ai
+- hardware
+- developer-tools
+wikidata: null
+canonical:
+  github_org: realsenseai
+  wikidata: null
+  sources:
+  - github-history:realsenseai/librealsense(age=10y,contrib=456,stars=8998)
+domains:
+- domain: realsenseai.com
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:52Z'
+  ttl_days: 30
+  age_days: 667
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:51:40Z'
+    source: https://api.github.com/orgs/realsenseai
+    data:
+      org: realsenseai
+      org_verified: false
+      blog: https://realsenseai.com
+  - code: A8
+    checked_at: '2026-09-05T20:51:40Z'
+    source: https://api.github.com/repos/realsenseai/librealsense
+    data:
+      repo: realsenseai/librealsense
+      org: realsenseai
+      repo_anchored: true
+      homepage: https://realsenseai.com/
+      backlink: true
+      stars: 8998
+      age_days: 3945
+      contributors: 456
+  - code: A3
+    checked_at: '2026-09-05T20:51:41Z'
+    source: https://rdap.org/domain/realsenseai.com
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2024-11-07'
+      expires: '2027-11-07'
+      remaining_days: 427
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T20:51:41Z'
+    source: TLS handshake realsenseai.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 5
+  - code: B5
+    checked_at: '2026-09-05T20:51:41Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 869309
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:51:41Z'
+    source: http://web.archive.org/cdx/search/cdx?url=realsenseai.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2025-03-05'
+      history_days: 549
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

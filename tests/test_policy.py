@@ -80,7 +80,8 @@ def test_propagated_sibling_domain_is_verified():
         facts,
         [
             ev("A6", **{"from": "anthropic.com", "from_status": "verified",
-                        "first_party_link": True, "structural_links": ["shared_ns"], "backlink": True}),
+                        "first_party_link": True, "structural_links": ["shared_ns"], "backlink": True,
+                        "shared_ns": ["isla.ns.cloudflare.com", "randy.ns.cloudflare.com"]}),
             ev("B5", rank=120),
             ev("B4", history_days=1400),
         ],
@@ -373,7 +374,8 @@ def test_a4_name_matching_ignores_legal_suffixes_and_punctuation():
 
 
 def _a6(**over):
-    data = {"from": "anthropic.com", "from_status": "verified", "first_party_link": True, "structural_links": ["shared_ns"]}
+    data = {"from": "anthropic.com", "from_status": "verified", "first_party_link": True, "structural_links": ["shared_ns"],
+            "shared_ns": ["isla.ns.cloudflare.com", "randy.ns.cloudflare.com"]}
     data.update(over)
     return ev("A6", **data)
 
@@ -434,3 +436,27 @@ def test_a9_rejects_young_or_thin_listings_and_wrong_urls():
 def test_a9_needs_an_anchored_entity():
     d = decide(DomainFacts(domain="claude.ai", age_days=1500), [_a9(), ev("B5", rank=120), ev("B4", history_days=1400)], now=NOW)
     assert "A9" not in d.anchors and not d.is_official
+
+
+def test_a6_pooled_or_unrecorded_name_servers_are_not_a_link():
+    facts = DomainFacts(domain="claude.ai", age_days=1500, **ANTHROPIC_ANCHOR)
+    pooled = decide(facts, [_a6(backlink=True, shared_ns=["dns1.registrar-servers.com", "dns2.registrar-servers.com"]),
+                            ev("B5", rank=120), ev("B4", history_days=1400)], now=NOW)
+    assert "A6" not in pooled.anchors and any("provider's defaults" in r for r in pooled.rejected)
+    unrecorded = decide(facts, [_a6(backlink=True, shared_ns=[]), ev("B5", rank=120), ev("B4", history_days=1400)], now=NOW)
+    assert "A6" not in unrecorded.anchors
+
+
+def test_a6_refused_when_another_github_org_declares_the_domain():
+    """matrix.org is run with element.io (same Cloudflare account, mutual links) but org matrix-org declares
+    it as its site: it is its own entity, not a sibling of element-hq."""
+    facts = DomainFacts(domain="matrix.org", age_days=9000, expected_github_org="element-hq",
+                        anchor_sources=("github-history:element-hq/element-web",), expected_names=("Element", "element-hq"))
+    d = decide(facts, [_a6(**{"from": "element.io", "backlink": True}),
+                       ev("A1", org="matrix-org", org_verified=False, blog="https://www.matrix.org"),
+                       ev("B5", rank=7000), ev("B4", history_days=9000)], now=NOW)
+    assert "A6" not in d.anchors and d.status != "verified"
+    same = decide(facts, [_a6(**{"from": "element.io", "backlink": True}),
+                          ev("A1", org="element-hq", org_verified=False, blog="https://matrix.org"),
+                          ev("B5", rank=7000), ev("B4", history_days=9000)], now=NOW)
+    assert same.anchors == ["A6"]

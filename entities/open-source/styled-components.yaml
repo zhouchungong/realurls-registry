@@ -1,0 +1,122 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:styled-components
+names:
+  en: styled-components
+aliases:
+- styled-components/styled-components
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: styled-components
+  wikidata: null
+  sources:
+  - github-history:styled-components/styled-components(age=10y,contrib=390,stars=41123)
+domains:
+- domain: styled-components.com
+  role: primary
+  status: verified
+  confidence: 0.6956
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:56Z'
+  ttl_days: 30
+  age_days: 3617
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:43:39Z'
+    source: https://api.github.com/orgs/styled-components
+    data:
+      org: styled-components
+      org_verified: false
+      blog: https://styled-components.com
+  - code: A8
+    checked_at: '2026-09-05T18:43:39Z'
+    source: https://api.github.com/repos/styled-components/styled-components
+    data:
+      repo: styled-components/styled-components
+      org: styled-components
+      repo_anchored: true
+      homepage: https://styled-components.com
+      backlink: true
+      stars: 41123
+      age_days: 3672
+      contributors: 390
+  - code: B2
+    checked_at: '2026-09-05T18:43:39Z'
+    source: https://registry.npmjs.org/styled-components
+    data:
+      package: styled-components
+      homepage: https://styled-components.com
+  - code: A2
+    checked_at: '2026-09-05T18:43:39Z'
+    source: https://registry.npmjs.org/-/npm/v1/attestations/styled-components@6.5.3
+    data:
+      package: styled-components
+      version: 6.5.3
+      provenance_verified: true
+      provenance_check: registry-tls
+      chain_org: npm
+      chain_org_verified: false
+      chain_blog: ''
+  - code: A3
+    checked_at: '2026-09-05T18:44:14Z'
+    source: https://rdap.org/domain/styled-components.com
+    data:
+      registrar: Amazon Registrar, Inc.
+      created: '2016-10-10'
+      expires: '2027-10-10'
+      remaining_days: 399
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:44:14Z'
+    source: TLS handshake styled-components.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T18:44:14Z'
+    source: https://www.wikidata.org/wiki/Q95969528
+    data:
+      qid: Q95969528
+      label: styled-components
+      site: https://styled-components.com/
+      sitelinks: 0
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:44:14Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 256987
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:45:20Z'
+    source: http://web.archive.org/cdx/search/cdx?url=styled-components.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2017-05-22'
+      history_days: 3393
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A2: GitHub organization at the end of the provenance chain has not verified this domain'
+  - 'A3: registrar (Amazon Registrar, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

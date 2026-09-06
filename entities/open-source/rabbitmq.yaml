@@ -1,0 +1,106 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:rabbitmq
+names:
+  en: RabbitMQ
+aliases:
+- rabbitmq
+category:
+- open-source
+wikidata: Q2081413
+canonical:
+  github_org: rabbitmq
+  wikidata: Q2081413
+  sources:
+  - wikidata:Q2081413/P856
+  - wikidata:Q2081413/P1324
+domains:
+- domain: rabbitmq.com
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:19:08Z'
+  ttl_days: 30
+  age_days: 7225
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:37:03Z'
+    source: https://api.github.com/orgs/rabbitmq
+    data:
+      org: rabbitmq
+      org_verified: true
+      blog: https://rabbitmq.com
+      org_name: RabbitMQ
+      created_at: '2009-06-18T13:01:29Z'
+  - code: A8
+    checked_at: '2026-09-05T20:37:04Z'
+    source: https://api.github.com/repos/rabbitmq/rabbitmq-server
+    data:
+      repo: rabbitmq/rabbitmq-server
+      org: rabbitmq
+      repo_anchored: true
+      homepage: https://www.rabbitmq.com/
+      backlink: true
+      stars: 13839
+      age_days: 5829
+      contributors: 434
+  - code: A3
+    checked_at: '2026-09-05T20:37:04Z'
+    source: https://rdap.org/domain/rabbitmq.com
+    data:
+      registrar: CSC Corporate Domains, Inc.
+      created: '2006-11-24'
+      expires: '2026-11-24'
+      remaining_days: 79
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T20:37:04Z'
+    source: TLS handshake rabbitmq.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T20:37:04Z'
+    source: https://www.wikidata.org/wiki/Q2081413
+    data:
+      qid: Q2081413
+      label: RabbitMQ
+      site: https://www.rabbitmq.com/
+      sitelinks: 16
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:37:04Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 29122
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:37:33Z'
+    source: http://web.archive.org/cdx/search/cdx?url=rabbitmq.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2007-01-11'
+      history_days: 7177
+  rejected_evidence:
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q2081413
+  reviewed_by: []
+  source_issue: null

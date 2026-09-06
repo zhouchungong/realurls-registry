@@ -1,0 +1,104 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:numpy
+names:
+  en: NumPy
+aliases:
+- numpy
+category:
+- open-source
+wikidata: Q197520
+canonical:
+  github_org: numpy
+  wikidata: Q197520
+  sources:
+  - wikidata:Q197520/P856
+  - wikidata:Q197520/P1324
+domains:
+- domain: numpy.org
+  role: primary
+  status: verified
+  confidence: 0.7088
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:57Z'
+  ttl_days: 30
+  age_days: 9655
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:59:57Z'
+    source: https://api.github.com/orgs/numpy
+    data:
+      org: numpy
+      org_verified: false
+      blog: http://www.numpy.org/
+  - code: A8
+    checked_at: '2026-09-05T18:59:57Z'
+    source: https://api.github.com/repos/numpy/numpy
+    data:
+      repo: numpy/numpy
+      org: numpy
+      repo_anchored: true
+      homepage: https://numpy.org
+      backlink: true
+      stars: 32660
+      age_days: 5835
+      contributors: 2125
+  - code: A3
+    checked_at: '2026-09-05T18:59:58Z'
+    source: https://rdap.org/domain/numpy.org
+    data:
+      registrar: NameCheap, Inc.
+      created: '2000-03-29'
+      expires: '2029-03-29'
+      remaining_days: 936
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:59:58Z'
+    source: TLS handshake numpy.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:59:58Z'
+    source: https://www.wikidata.org/wiki/Q197520
+    data:
+      qid: Q197520
+      label: NumPy
+      site: https://numpy.org/
+      sitelinks: 31
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:59:58Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 20155
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:00:22Z'
+    source: http://web.archive.org/cdx/search/cdx?url=numpy.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2001-05-02'
+      history_days: 9257
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q197520
+  reviewed_by: []
+  source_issue: null

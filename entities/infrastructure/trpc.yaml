@@ -1,0 +1,96 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:trpc
+names:
+  en: tRPC
+aliases:
+- trpc
+- trpc/trpc
+category:
+- infrastructure
+wikidata: null
+canonical:
+  github_org: trpc
+  wikidata: null
+  sources:
+  - github-history:trpc/trpc(age=6y,contrib=521,stars=40580)
+domains:
+- domain: trpc.io
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:55Z'
+  ttl_days: 30
+  age_days: 2009
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:42:37Z'
+    source: https://api.github.com/orgs/trpc
+    data:
+      org: trpc
+      org_verified: true
+      blog: https://trpc.io
+      org_name: tRPC
+      created_at: '2021-01-26T06:20:00Z'
+  - code: A8
+    checked_at: '2026-09-05T18:42:37Z'
+    source: https://api.github.com/repos/trpc/trpc
+    data:
+      repo: trpc/trpc
+      org: trpc
+      repo_anchored: true
+      homepage: https://tRPC.io
+      backlink: true
+      stars: 40580
+      age_days: 2240
+      contributors: 521
+  - code: A4
+    checked_at: '2026-09-05T18:42:37Z'
+    source: TLS handshake trpc.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T18:42:37Z'
+    source: https://www.wikidata.org/wiki/Q118629404
+    data:
+      qid: Q118629404
+      label: trpc
+      site: https://trpc.io/
+      sitelinks: 0
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-05T18:42:37Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 604999
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:42:38Z'
+    source: http://web.archive.org/cdx/search/cdx?url=trpc.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2021-03-06'
+      history_days: 2009
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

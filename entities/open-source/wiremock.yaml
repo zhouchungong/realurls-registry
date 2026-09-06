@@ -1,0 +1,95 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:wiremock
+names:
+  en: WireMock
+aliases:
+- wiremock
+- wiremock/wiremock
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: wiremock
+  wikidata: null
+  sources:
+  - github-history:wiremock/wiremock(age=14y,contrib=309,stars=7357)
+domains:
+- domain: wiremock.org
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:55Z'
+  ttl_days: 30
+  age_days: 5022
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T21:21:44Z'
+    source: https://api.github.com/orgs/wiremock
+    data:
+      org: wiremock
+      org_verified: false
+      blog: https://wiremock.org/
+  - code: A8
+    checked_at: '2026-09-05T21:21:44Z'
+    source: https://api.github.com/repos/wiremock/wiremock
+    data:
+      repo: wiremock/wiremock
+      org: wiremock
+      repo_anchored: true
+      homepage: https://wiremock.org/
+      backlink: true
+      stars: 7357
+      age_days: 5445
+      contributors: 309
+  - code: A3
+    checked_at: '2026-09-05T21:21:51Z'
+    source: https://rdap.org/domain/wiremock.org
+    data:
+      registrar: 1API GmbH
+      created: '2012-12-04'
+      expires: '2026-12-04'
+      remaining_days: 90
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T21:21:51Z'
+    source: TLS handshake wiremock.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-05T21:21:52Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 633345
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T21:21:56Z'
+    source: http://web.archive.org/cdx/search/cdx?url=wiremock.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2013-01-01'
+      history_days: 4995
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (1API GmbH) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

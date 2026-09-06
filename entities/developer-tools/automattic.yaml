@@ -1,0 +1,103 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:automattic
+names:
+  en: Automattic
+aliases: []
+category:
+- developer-tools
+wikidata: Q2872634
+canonical:
+  github_org: Automattic
+  wikidata: Q2872634
+  sources:
+  - wikidata:Q2872634/P856
+  - github-history:Automattic/mongoose(age=16y,contrib=1075,stars=27475)
+domains:
+- domain: automattic.com
+  role: primary
+  status: verified
+  confidence: 0.9256
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 8113
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:41:38Z'
+    source: https://api.github.com/orgs/Automattic
+    data:
+      org: Automattic
+      org_verified: true
+      blog: https://automattic.com
+      org_name: Automattic
+      created_at: '2011-07-01T02:45:15Z'
+  - code: A8
+    checked_at: '2026-09-05T19:41:38Z'
+    source: https://api.github.com/repos/Automattic/mongoose
+    data:
+      repo: Automattic/mongoose
+      org: Automattic
+      repo_anchored: true
+      homepage: https://mongoosejs.com
+      backlink: false
+      stars: 27475
+      age_days: 5995
+      contributors: 1075
+  - code: A3
+    checked_at: '2026-09-05T19:41:38Z'
+    source: https://rdap.org/domain/automattic.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2004-06-19'
+      expires: '2033-06-19'
+      remaining_days: 2478
+      locks:
+      - delete
+      - transfer
+      - update
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-05T19:41:38Z'
+    source: TLS handshake automattic.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T19:41:39Z'
+    source: https://www.wikidata.org/wiki/Q2872634
+    data:
+      qid: Q2872634
+      label: Automattic
+      site: https://automattic.com/
+      sitelinks: 14
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T19:41:39Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 2085
+      source: top-1m list
+  rejected_evidence:
+  - 'A8: repository homepage (https://mongoosejs.com) does not point to this domain'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '2 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q2872634
+  reviewed_by: []
+  source_issue: null

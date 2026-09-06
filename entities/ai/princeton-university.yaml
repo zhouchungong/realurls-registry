@@ -1,0 +1,80 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:princeton-university
+names:
+  en: Princeton University
+aliases:
+- 'Formerly: Harvard Intelligent Probabilistic Systems Group -- Now at Princeton'
+- HIPS
+category:
+- ai
+wikidata: Q21578
+canonical:
+  github_org: null
+  wikidata: Q21578
+  sources:
+  - wikidata:Q21578/P856
+domains:
+- domain: princeton.edu
+  role: primary
+  status: verified
+  confidence: 0.7816
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:57Z'
+  ttl_days: 30
+  age_days: 10852
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T21:16:58Z'
+    source: https://api.github.com/orgs/HIPS
+    data:
+      org: HIPS
+      org_verified: false
+      blog: https://lips.cs.princeton.edu
+  - code: A4
+    checked_at: '2026-09-05T21:16:58Z'
+    source: TLS handshake princeton.edu:443
+    data:
+      subject_org: The Trustees of Princeton University
+      validation_type: OV
+      issuer: InCommon, LLC
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T21:16:58Z'
+    source: https://www.wikidata.org/wiki/Q21578
+    data:
+      qid: Q21578
+      label: Princeton University
+      site: https://princeton.edu
+      sitelinks: 99
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T21:16:58Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 873
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T21:17:11Z'
+    source: http://web.archive.org/cdx/search/cdx?url=princeton.edu&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1996-12-19'
+      history_days: 10852
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q21578
+  reviewed_by: []
+  source_issue: null

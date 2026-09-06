@@ -1,0 +1,84 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:pmndrs
+names:
+  en: Poimandres
+aliases:
+- pmndrs
+- pmndrs/zustand
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: pmndrs
+  wikidata: null
+  sources:
+  - github-history:pmndrs/zustand(age=7y,contrib=344,stars=58643)
+domains:
+- domain: pmnd.rs
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:56Z'
+  ttl_days: 30
+  age_days: 2134
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:27:37Z'
+    source: https://api.github.com/orgs/pmndrs
+    data:
+      org: pmndrs
+      org_verified: false
+      blog: pmnd.rs
+  - code: A8
+    checked_at: '2026-09-05T18:27:37Z'
+    source: https://api.github.com/repos/pmndrs/zustand
+    data:
+      repo: pmndrs/zustand
+      org: pmndrs
+      repo_anchored: true
+      homepage: https://zustand-demo.pmnd.rs/
+      backlink: true
+      stars: 58643
+      age_days: 2706
+      contributors: 344
+  - code: A4
+    checked_at: '2026-09-05T18:27:38Z'
+    source: TLS handshake pmnd.rs:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-05T18:27:38Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 339047
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:28:07Z'
+    source: http://web.archive.org/cdx/search/cdx?url=pmnd.rs&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2020-11-01'
+      history_days: 2134
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

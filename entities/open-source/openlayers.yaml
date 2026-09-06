@@ -1,0 +1,104 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:openlayers
+names:
+  en: OpenLayers
+aliases:
+- openlayers
+category:
+- open-source
+wikidata: Q736666
+canonical:
+  github_org: openlayers
+  wikidata: Q736666
+  sources:
+  - wikidata:Q736666/P856
+  - wikidata:Q736666/P2037
+domains:
+- domain: openlayers.org
+  role: primary
+  status: verified
+  confidence: 0.7088
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 7731
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:59:26Z'
+    source: https://api.github.com/orgs/openlayers
+    data:
+      org: openlayers
+      org_verified: false
+      blog: https://openlayers.org/
+  - code: A8
+    checked_at: '2026-09-05T20:59:26Z'
+    source: https://api.github.com/repos/openlayers/openlayers
+    data:
+      repo: openlayers/openlayers
+      org: openlayers
+      repo_anchored: true
+      homepage: https://openlayers.org
+      backlink: true
+      stars: 12566
+      age_days: 5190
+      contributors: 563
+  - code: A3
+    checked_at: '2026-09-05T21:00:10Z'
+    source: https://rdap.org/domain/openlayers.org
+    data:
+      registrar: pair Networks, Inc. d/b/a pair Domains
+      created: '2005-07-06'
+      expires: '2027-07-06'
+      remaining_days: 303
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T21:00:10Z'
+    source: TLS handshake openlayers.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T21:00:10Z'
+    source: https://www.wikidata.org/wiki/Q736666
+    data:
+      qid: Q736666
+      label: OpenLayers
+      site: https://openlayers.org
+      sitelinks: 17
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T21:00:10Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 60825
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T21:00:18Z'
+    source: http://web.archive.org/cdx/search/cdx?url=openlayers.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2005-11-06'
+      history_days: 7608
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (pair Networks, Inc. d/b/a pair Domains) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q736666
+  reviewed_by: []
+  source_issue: null

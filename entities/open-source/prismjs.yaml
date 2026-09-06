@@ -1,0 +1,106 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:prismjs
+names:
+  en: Prism.js
+aliases:
+- PrismJS
+- PrismJS/prism
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: PrismJS
+  wikidata: null
+  sources:
+  - github-history:PrismJS/prism(age=14y,contrib=406,stars=13039)
+domains:
+- domain: prismjs.com
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:59Z'
+  ttl_days: 30
+  age_days: 5149
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:21:18Z'
+    source: https://api.github.com/orgs/PrismJS
+    data:
+      org: PrismJS
+      org_verified: false
+      blog: https://prismjs.com
+  - code: A8
+    checked_at: '2026-09-05T20:21:18Z'
+    source: https://api.github.com/repos/PrismJS/prism
+    data:
+      repo: PrismJS/prism
+      org: PrismJS
+      repo_anchored: true
+      homepage: https://prismjs.com
+      backlink: true
+      stars: 13039
+      age_days: 5170
+      contributors: 406
+  - code: A3
+    checked_at: '2026-09-05T20:21:18Z'
+    source: https://rdap.org/domain/prismjs.com
+    data:
+      registrar: Porkbun LLC
+      created: '2012-07-30'
+      expires: '2027-07-30'
+      remaining_days: 328
+      locks:
+      - delete
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T20:21:19Z'
+    source: TLS handshake prismjs.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 3
+  - code: B1
+    checked_at: '2026-09-05T20:21:19Z'
+    source: https://www.wikidata.org/wiki/Q116250407
+    data:
+      qid: Q116250407
+      label: prismjs
+      site: https://prismjs.com/
+      sitelinks: 0
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:21:19Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 108536
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:22:05Z'
+    source: http://web.archive.org/cdx/search/cdx?url=prismjs.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2012-08-01'
+      history_days: 5148
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Porkbun LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

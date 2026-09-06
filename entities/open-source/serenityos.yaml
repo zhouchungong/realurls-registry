@@ -1,0 +1,97 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:serenityos
+names:
+  en: SerenityOS
+aliases: []
+category:
+- open-source
+wikidata: Q65115406
+canonical:
+  github_org: SerenityOS
+  wikidata: Q65115406
+  sources:
+  - wikidata:Q65115406/P856
+  - wikidata:Q65115406/P2037
+domains:
+- domain: serenityos.org
+  role: primary
+  status: verified
+  confidence: 0.6902
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:53Z'
+  ttl_days: 30
+  age_days: 2623
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:45:59Z'
+    source: https://api.github.com/orgs/SerenityOS
+    data:
+      org: SerenityOS
+      org_verified: false
+      blog: https://www.serenityos.org/
+  - code: A8
+    checked_at: '2026-09-05T18:46:00Z'
+    source: https://api.github.com/repos/SerenityOS/serenity
+    data:
+      repo: SerenityOS/serenity
+      org: SerenityOS
+      repo_anchored: true
+      homepage: https://serenityos.org
+      backlink: true
+      stars: 33815
+      age_days: 2833
+      contributors: 1405
+  - code: A3
+    checked_at: '2026-09-05T18:46:01Z'
+    source: https://rdap.org/domain/serenityos.org
+    data:
+      registrar: NameCheap, Inc.
+      created: '2019-07-01'
+      expires: '2027-07-01'
+      remaining_days: 298
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:46:01Z'
+    source: TLS handshake serenityos.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:46:01Z'
+    source: https://www.wikidata.org/wiki/Q65115406
+    data:
+      qid: Q65115406
+      label: SerenityOS
+      site: https://www.serenityos.org/
+      sitelinks: 16
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-05T18:46:11Z'
+    source: http://web.archive.org/cdx/search/cdx?url=serenityos.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2019-10-10'
+      history_days: 2522
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q65115406
+  reviewed_by: []
+  source_issue: null

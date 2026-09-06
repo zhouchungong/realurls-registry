@@ -1,0 +1,100 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:vowpalwabbit
+names:
+  en: Vowpal Wabbit
+aliases:
+- VowpalWabbit
+category:
+- ai
+wikidata: Q7942323
+canonical:
+  github_org: VowpalWabbit
+  wikidata: Q7942323
+  sources:
+  - wikidata:Q7942323/P856
+  - wikidata:Q7942323/P2037
+domains:
+- domain: vowpalwabbit.org
+  role: primary
+  status: verified
+  confidence: 0.8451
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:53Z'
+  ttl_days: 30
+  age_days: 2789
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:41:07Z'
+    source: https://api.github.com/orgs/VowpalWabbit
+    data:
+      org: VowpalWabbit
+      org_verified: true
+      blog: https://vowpalwabbit.org
+      org_name: Vowpal Wabbit
+      created_at: '2018-10-01T14:54:11Z'
+  - code: A8
+    checked_at: '2026-09-05T20:41:07Z'
+    source: https://api.github.com/repos/VowpalWabbit/vowpal_wabbit
+    data:
+      repo: VowpalWabbit/vowpal_wabbit
+      org: VowpalWabbit
+      repo_anchored: true
+      homepage: https://vowpalwabbit.org
+      backlink: true
+      stars: 8709
+      age_days: 6245
+      contributors: 343
+  - code: A3
+    checked_at: '2026-09-05T20:41:07Z'
+    source: https://rdap.org/domain/vowpalwabbit.org
+    data:
+      registrar: Register.com - Network Solutions, LLC
+      created: '2019-01-16'
+      expires: '2032-01-16'
+      remaining_days: 1958
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T20:41:07Z'
+    source: TLS handshake vowpalwabbit.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T20:41:07Z'
+    source: https://www.wikidata.org/wiki/Q7942323
+    data:
+      qid: Q7942323
+      label: Vowpal Wabbit
+      site: https://vowpalwabbit.org/
+      sitelinks: 3
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-05T20:41:11Z'
+    source: http://web.archive.org/cdx/search/cdx?url=vowpalwabbit.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2019-09-18'
+      history_days: 2544
+  rejected_evidence:
+  - 'A3: registrar (Register.com - Network Solutions, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q7942323
+  reviewed_by: []
+  source_issue: null

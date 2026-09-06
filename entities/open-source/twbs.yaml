@@ -1,0 +1,109 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:twbs
+names:
+  en: Bootstrap
+aliases:
+- twbs
+category:
+- open-source
+wikidata: Q893195
+canonical:
+  github_org: twbs
+  wikidata: Q893195
+  sources:
+  - wikidata:Q893195/P856
+  - wikidata:Q893195/P1324
+domains:
+- domain: getbootstrap.com
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 5351
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:18:58Z'
+    source: https://api.github.com/orgs/twbs
+    data:
+      org: twbs
+      org_verified: true
+      blog: https://getbootstrap.com
+      org_name: Bootstrap
+      created_at: '2012-11-29T05:47:03Z'
+  - code: A8
+    checked_at: '2026-09-05T18:18:59Z'
+    source: https://api.github.com/repos/twbs/bootstrap
+    data:
+      repo: twbs/bootstrap
+      org: twbs
+      repo_anchored: true
+      homepage: https://getbootstrap.com
+      backlink: true
+      stars: 174724
+      age_days: 5516
+      contributors: 1657
+  - code: A3
+    checked_at: '2026-09-05T18:19:20Z'
+    source: https://rdap.org/domain/getbootstrap.com
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2012-01-10'
+      expires: '2027-01-10'
+      remaining_days: 127
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T18:19:20Z'
+    source: TLS handshake getbootstrap.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:19:21Z'
+    source: https://www.wikidata.org/wiki/Q893195
+    data:
+      qid: Q893195
+      label: Bootstrap
+      site: https://getbootstrap.com
+      sitelinks: 49
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:19:21Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 2081
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:19:49Z'
+    source: http://web.archive.org/cdx/search/cdx?url=getbootstrap.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2013-07-29'
+      history_days: 4786
+  rejected_evidence:
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q893195
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,109 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:swiftlang
+names:
+  en: Swift
+aliases:
+- The Swift Programming Language
+- swiftlang
+category:
+- open-source
+wikidata: Q17118377
+canonical:
+  github_org: swiftlang
+  wikidata: Q17118377
+  sources:
+  - wikidata:Q17118377/P856
+  - wikidata:Q17118377/P2037
+domains:
+- domain: swift.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 10858
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:44:11Z'
+    source: https://api.github.com/orgs/swiftlang
+    data:
+      org: swiftlang
+      org_verified: true
+      blog: https://swift.org
+      org_name: The Swift Programming Language
+      created_at: '2018-08-29T18:48:25Z'
+  - code: A8
+    checked_at: '2026-09-05T18:44:12Z'
+    source: https://api.github.com/repos/swiftlang/swift
+    data:
+      repo: swiftlang/swift
+      org: swiftlang
+      repo_anchored: true
+      homepage: https://swift.org
+      backlink: false
+      stars: 70322
+      age_days: 3969
+      contributors: 1652
+  - code: A3
+    checked_at: '2026-09-05T18:44:12Z'
+    source: https://rdap.org/domain/swift.org
+    data:
+      registrar: Nom-iq Ltd. dba COM LAUDE
+      created: '1996-12-13'
+      expires: '2026-12-12'
+      remaining_days: 97
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T18:44:12Z'
+    source: TLS handshake swift.org:443
+    data:
+      subject_org: Apple Inc.
+      validation_type: OV
+      issuer: Apple Inc.
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:44:12Z'
+    source: https://www.wikidata.org/wiki/Q17118377
+    data:
+      qid: Q17118377
+      label: Swift
+      site: https://www.swift.org/
+      sitelinks: 58
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:44:12Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 27244
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:44:15Z'
+    source: http://web.archive.org/cdx/search/cdx?url=swift.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1998-12-06'
+      history_days: 10135
+  rejected_evidence:
+  - 'A8: this site does not link back to the GitHub organization; no reverse confirmation'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: certificate organization (Apple Inc.) is not the anchored entity (Swift, swiftlang)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q17118377
+  reviewed_by: []
+  source_issue: null

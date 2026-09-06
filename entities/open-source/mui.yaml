@@ -1,0 +1,116 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:mui
+names:
+  en: MUI
+aliases:
+- material-ui
+- mui
+- mui/material-ui
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: mui
+  wikidata: null
+  sources:
+  - github-history:mui/material-ui(age=12y,contrib=3473,stars=99013)
+domains:
+- domain: mui.com
+  role: primary
+  status: verified
+  confidence: 0.8478
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 10724
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:34:08Z'
+    source: https://api.github.com/orgs/mui
+    data:
+      org: mui
+      org_verified: true
+      blog: https://mui.com
+      org_name: MUI
+      created_at: '2017-11-14T15:51:41Z'
+  - code: A8
+    checked_at: '2026-09-05T18:34:08Z'
+    source: https://api.github.com/repos/mui/material-ui
+    data:
+      repo: mui/material-ui
+      org: mui
+      repo_anchored: true
+      homepage: https://mui.com/material-ui/
+      backlink: true
+      stars: 99013
+      age_days: 4400
+      contributors: 3473
+  - code: B2
+    checked_at: '2026-09-05T18:34:08Z'
+    source: https://registry.npmjs.org/@mui/material
+    data:
+      package: '@mui/material'
+      homepage: https://mui.com/material-ui/
+  - code: A2
+    checked_at: '2026-09-05T18:34:08Z'
+    source: https://registry.npmjs.org/-/npm/v1/attestations/@mui/material@9.4.0
+    data:
+      package: '@mui/material'
+      version: 9.4.0
+      provenance_verified: true
+      provenance_check: registry-tls
+      chain_org: npm
+      chain_org_verified: false
+      chain_blog: ''
+  - code: A3
+    checked_at: '2026-09-05T18:34:10Z'
+    source: https://rdap.org/domain/mui.com
+    data:
+      registrar: NameCheap, Inc.
+      created: '1997-04-26'
+      expires: '2028-04-27'
+      remaining_days: 599
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:34:10Z'
+    source: TLS handshake mui.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-05T18:34:10Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 55590
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:34:33Z'
+    source: http://web.archive.org/cdx/search/cdx?url=mui.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1998-12-05'
+      history_days: 10136
+  rejected_evidence:
+  - 'A2: GitHub organization at the end of the provenance chain has not verified this domain'
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,79 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:massachusetts-institute-of-technology
+names:
+  en: Massachusetts Institute of Technology
+aliases:
+- mlfoundations
+category:
+- ai
+wikidata: Q49108
+canonical:
+  github_org: null
+  wikidata: Q49108
+  sources:
+  - wikidata:Q49108/P856
+domains:
+- domain: mit.edu
+  role: primary
+  status: verified
+  confidence: 0.7816
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:56Z'
+  ttl_days: 30
+  age_days: 10701
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:41:56Z'
+    source: https://api.github.com/orgs/mlfoundations
+    data:
+      org: mlfoundations
+      org_verified: false
+      blog: https://people.csail.mit.edu/ludwigs/
+  - code: A4
+    checked_at: '2026-09-05T20:41:56Z'
+    source: TLS handshake mit.edu:443
+    data:
+      subject_org: Massachusetts Institute Of Technology
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 34
+  - code: B1
+    checked_at: '2026-09-05T20:41:56Z'
+    source: https://www.wikidata.org/wiki/Q49108
+    data:
+      qid: Q49108
+      label: Massachusetts Institute of Technology
+      site: https://mit.edu
+      sitelinks: 112
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:41:56Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 217
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:42:07Z'
+    source: http://web.archive.org/cdx/search/cdx?url=mit.edu&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1997-05-19'
+      history_days: 10701
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q49108
+  reviewed_by: []
+  source_issue: null

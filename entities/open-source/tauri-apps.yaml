@@ -1,0 +1,106 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:tauri-apps
+names:
+  en: Tauri
+aliases:
+- tauri-apps
+category:
+- open-source
+wikidata: Q124047549
+canonical:
+  github_org: tauri-apps
+  wikidata: Q124047549
+  sources:
+  - wikidata:Q124047549/P856
+  - wikidata:Q124047549/P1324
+domains:
+- domain: tauri.app
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:55Z'
+  ttl_days: 30
+  age_days: 1977
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:22:49Z'
+    source: https://api.github.com/orgs/tauri-apps
+    data:
+      org: tauri-apps
+      org_verified: true
+      blog: https://tauri.app
+      org_name: Tauri
+      created_at: '2019-08-26T11:24:46Z'
+  - code: A8
+    checked_at: '2026-09-05T18:22:50Z'
+    source: https://api.github.com/repos/tauri-apps/tauri
+    data:
+      repo: tauri-apps/tauri
+      org: tauri-apps
+      repo_anchored: true
+      homepage: https://tauri.app
+      backlink: true
+      stars: 110825
+      age_days: 2611
+      contributors: 583
+  - code: A3
+    checked_at: '2026-09-05T18:22:50Z'
+    source: https://rdap.org/domain/tauri.app
+    data:
+      registrar: Namecheap Inc.
+      created: '2021-04-07'
+      expires: '2031-04-07'
+      remaining_days: 1674
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:22:50Z'
+    source: TLS handshake tauri.app:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 3
+  - code: B1
+    checked_at: '2026-09-05T18:22:50Z'
+    source: https://www.wikidata.org/wiki/Q124047549
+    data:
+      qid: Q124047549
+      label: Tauri
+      site: https://tauri.app
+      sitelinks: 6
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:22:50Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 126363
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:23:05Z'
+    source: http://web.archive.org/cdx/search/cdx?url=tauri.app&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2022-04-23'
+      history_days: 1596
+  rejected_evidence:
+  - 'A3: registrar (Namecheap Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q124047549
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,110 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:hacker0x01
+names:
+  en: HackerOne
+aliases:
+- Hacker0x01
+category:
+- security
+wikidata: Q22022648
+canonical:
+  github_org: Hacker0x01
+  wikidata: Q22022648
+  sources:
+  - wikidata:Q22022648/P856
+  - github-history:Hacker0x01/react-datepicker(age=12y,contrib=505,stars=8382)
+domains:
+- domain: hackerone.com
+  role: primary
+  status: verified
+  confidence: 0.9563
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:19:08Z'
+  ttl_days: 30
+  age_days: 6858
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:30:00Z'
+    source: https://api.github.com/orgs/Hacker0x01
+    data:
+      org: Hacker0x01
+      org_verified: true
+      blog: https://www.hackerone.com
+      org_name: HackerOne
+      created_at: '2012-12-11T09:00:21Z'
+  - code: A8
+    checked_at: '2026-09-05T20:30:00Z'
+    source: https://api.github.com/repos/Hacker0x01/react-datepicker
+    data:
+      repo: Hacker0x01/react-datepicker
+      org: Hacker0x01
+      repo_anchored: true
+      homepage: https://reactdatepicker.com/
+      backlink: false
+      stars: 8382
+      age_days: 4458
+      contributors: 505
+  - code: A3
+    checked_at: '2026-09-05T20:30:15Z'
+    source: https://rdap.org/domain/hackerone.com
+    data:
+      registrar: Cloudflare, Inc.
+      created: '2007-11-26'
+      expires: '2027-11-26'
+      remaining_days: 446
+      locks:
+      - delete
+      - transfer
+      - update
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-05T20:30:15Z'
+    source: TLS handshake hackerone.com:443
+    data:
+      subject_org: HackerOne Inc.
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 4
+  - code: B1
+    checked_at: '2026-09-05T20:30:15Z'
+    source: https://www.wikidata.org/wiki/Q22022648
+    data:
+      qid: Q22022648
+      label: HackerOne
+      site: https://hackerone.com
+      sitelinks: 5
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:30:15Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 11626
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:30:24Z'
+    source: http://web.archive.org/cdx/search/cdx?url=hackerone.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2005-02-09'
+      history_days: 7878
+  rejected_evidence:
+  - 'A8: repository homepage (https://reactdatepicker.com/) does not point to this domain'
+  - 'A3: registrar (Cloudflare, Inc.) is not a brand-protection registrar'
+  reasons:
+  - '2 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q22022648
+  reviewed_by: []
+  source_issue: null

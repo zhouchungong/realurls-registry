@@ -1,0 +1,99 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:nativescript
+names:
+  en: NativeScript
+aliases: []
+category:
+- open-source
+wikidata: Q28127049
+canonical:
+  github_org: NativeScript
+  wikidata: Q28127049
+  sources:
+  - wikidata:Q28127049/P856
+  - wikidata:Q28127049/P2037
+domains:
+- domain: nativescript.org
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:54Z'
+  ttl_days: 30
+  age_days: 4484
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:09:51Z'
+    source: https://api.github.com/orgs/NativeScript
+    data:
+      org: NativeScript
+      org_verified: true
+      blog: https://www.nativescript.org
+      org_name: NativeScript
+      created_at: '2014-04-24T06:53:58Z'
+  - code: A8
+    checked_at: '2026-09-05T19:09:52Z'
+    source: https://api.github.com/repos/NativeScript/NativeScript
+    data:
+      repo: NativeScript/NativeScript
+      org: NativeScript
+      repo_anchored: true
+      homepage: https://nativescript.org
+      backlink: false
+      stars: 25638
+      age_days: 4206
+      contributors: 305
+  - code: A3
+    checked_at: '2026-09-05T19:09:52Z'
+    source: https://rdap.org/domain/nativescript.org
+    data:
+      registrar: Key-Systems GmbH
+      created: '2014-05-27'
+      expires: '2027-05-27'
+      remaining_days: 263
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T19:09:52Z'
+    source: TLS handshake nativescript.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T19:09:52Z'
+    source: https://www.wikidata.org/wiki/Q28127049
+    data:
+      qid: Q28127049
+      label: NativeScript
+      site: https://nativescript.org/
+      sitelinks: 10
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T19:09:52Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 276951
+      source: top-1m list
+  rejected_evidence:
+  - 'A8: this site does not link back to the GitHub organization; no reverse confirmation'
+  - 'A3: registrar (Key-Systems GmbH) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q28127049
+  reviewed_by: []
+  source_issue: null

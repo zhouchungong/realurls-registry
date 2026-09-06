@@ -1,0 +1,95 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:getsentry
+names:
+  en: Sentry
+aliases:
+- getsentry
+- getsentry/sentry
+category:
+- infrastructure
+wikidata: null
+canonical:
+  github_org: getsentry
+  wikidata: null
+  sources:
+  - github-history:getsentry/sentry(age=16y,contrib=1081,stars=44733)
+domains:
+- domain: sentry.io
+  role: primary
+  status: verified
+  confidence: 0.9504
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:52Z'
+  ttl_days: 30
+  age_days: 3748
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:40:20Z'
+    source: https://api.github.com/orgs/getsentry
+    data:
+      org: getsentry
+      org_verified: true
+      blog: https://sentry.io
+      org_name: Sentry
+      created_at: '2012-02-01T06:56:22Z'
+  - code: A8
+    checked_at: '2026-09-05T18:40:20Z'
+    source: https://api.github.com/repos/getsentry/sentry
+    data:
+      repo: getsentry/sentry
+      org: getsentry
+      repo_anchored: true
+      homepage: https://sentry.io
+      backlink: true
+      stars: 44733
+      age_days: 5849
+      contributors: 1081
+  - code: A4
+    checked_at: '2026-09-05T18:40:21Z'
+    source: TLS handshake sentry.io:443
+    data:
+      subject_org: Sentry
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:40:21Z'
+    source: https://www.wikidata.org/wiki/Q140835305
+    data:
+      qid: Q140835305
+      label: Sentry
+      site: https://sentry.io
+      sitelinks: 0
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:40:21Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 97
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:41:00Z'
+    source: http://web.archive.org/cdx/search/cdx?url=sentry.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2016-06-01'
+      history_days: 3748
+  rejected_evidence:
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '2 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,161 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:go-gitea
+names:
+  en: Gitea
+aliases:
+- go-gitea
+category:
+- infrastructure
+wikidata: Q28714270
+canonical:
+  github_org: go-gitea
+  wikidata: Q28714270
+  sources:
+  - wikidata:Q28714270/P856
+  - wikidata:Q28714270/P2037
+domains:
+- domain: gitea.com
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 6340
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:48:39Z'
+    source: https://api.github.com/orgs/go-gitea
+    data:
+      org: go-gitea
+      org_verified: true
+      blog: https://gitea.com
+      org_name: Gitea
+      created_at: '2015-06-03T02:47:41Z'
+  - code: A8
+    checked_at: '2026-09-05T18:48:40Z'
+    source: https://api.github.com/repos/go-gitea/gitea
+    data:
+      repo: go-gitea/gitea
+      org: go-gitea
+      repo_anchored: true
+      homepage: https://gitea.com
+      backlink: true
+      stars: 57835
+      age_days: 3595
+      contributors: 1839
+  - code: A3
+    checked_at: '2026-09-05T18:48:40Z'
+    source: https://rdap.org/domain/gitea.com
+    data:
+      registrar: Dynadot Inc
+      created: '2009-04-27'
+      expires: '2030-04-27'
+      remaining_days: 1329
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:48:40Z'
+    source: TLS handshake gitea.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T18:48:40Z'
+    source: https://www.wikidata.org/wiki/Q28714270
+    data:
+      qid: Q28714270
+      label: Gitea
+      site: https://gitea.com
+      sitelinks: 16
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-05T18:48:40Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 3696
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:48:46Z'
+    source: http://web.archive.org/cdx/search/cdx?url=gitea.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2004-03-22'
+      history_days: 8202
+  rejected_evidence:
+  - 'A3: registrar (Dynadot Inc) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+- domain: gitea.io
+  role: product
+  status: verified
+  confidence: 0.7105
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T22:51:16Z'
+  ttl_days: 30
+  age_days: 4100
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A4
+    checked_at: '2026-09-05T22:52:14Z'
+    source: TLS handshake gitea.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-05T22:52:14Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 6904
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T22:52:17Z'
+    source: http://web.archive.org/cdx/search/cdx?url=gitea.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2015-06-15'
+      history_days: 4100
+  - code: A6
+    checked_at: '2026-09-05T22:51:16Z'
+    source: propagate from gitea.com
+    data:
+      from: gitea.com
+      from_status: verified
+      first_party_link: true
+      structural_links:
+      - shared_ns
+      san_count: 1
+      shared_ns:
+      - emily.ns.cloudflare.com
+      - watson.ns.cloudflare.com
+      backlink: true
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q28714270
+  reviewed_by: []
+  source_issue: null
+  last_revalidated_by: revalidate/0.1

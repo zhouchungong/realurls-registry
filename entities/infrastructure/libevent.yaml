@@ -1,0 +1,106 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:libevent
+names:
+  en: libevent
+aliases:
+- libevent/libevent
+category:
+- infrastructure
+wikidata: null
+canonical:
+  github_org: libevent
+  wikidata: null
+  sources:
+  - github-history:libevent/libevent(age=15y,contrib=341,stars=11947)
+domains:
+- domain: libevent.org
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:49Z'
+  ttl_days: 30
+  age_days: 6085
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:18:04Z'
+    source: https://api.github.com/orgs/libevent
+    data:
+      org: libevent
+      org_verified: true
+      blog: https://libevent.org
+      org_name: libevent
+      created_at: '2011-06-06T21:41:51Z'
+  - code: A8
+    checked_at: '2026-09-05T20:18:04Z'
+    source: https://api.github.com/repos/libevent/libevent
+    data:
+      repo: libevent/libevent
+      org: libevent
+      repo_anchored: true
+      homepage: https://libevent.org
+      backlink: true
+      stars: 11947
+      age_days: 5569
+      contributors: 341
+  - code: A3
+    checked_at: '2026-09-05T20:18:05Z'
+    source: https://rdap.org/domain/libevent.org
+    data:
+      registrar: CSL Computer Service Langenbach GmbH d/b/a joker.com
+      created: '2010-01-07'
+      expires: '2028-01-07'
+      remaining_days: 488
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T20:18:06Z'
+    source: TLS handshake libevent.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T20:18:06Z'
+    source: https://www.wikidata.org/wiki/Q6542245
+    data:
+      qid: Q6542245
+      label: libevent
+      site: https://libevent.org
+      sitelinks: 2
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:18:06Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 323190
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:18:30Z'
+    source: http://web.archive.org/cdx/search/cdx?url=libevent.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2011-06-26'
+      history_days: 5550
+  rejected_evidence:
+  - 'A3: registrar (CSL Computer Service Langenbach GmbH d/b/a joker.com) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_login
+  reviewed_by: []
+  source_issue: null

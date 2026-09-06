@@ -1,0 +1,115 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:faker-js
+names:
+  en: faker-js
+aliases:
+- faker
+- faker-js/faker
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: faker-js
+  wikidata: null
+  sources:
+  - github-history:faker-js/faker(age=4y,contrib=560,stars=15483)
+domains:
+- domain: fakerjs.dev
+  role: primary
+  status: verified
+  confidence: 0.8478
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:59Z'
+  ttl_days: 30
+  age_days: 1698
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:06:55Z'
+    source: https://api.github.com/orgs/faker-js
+    data:
+      org: faker-js
+      org_verified: true
+      blog: https://fakerjs.dev/
+      org_name: faker-js
+      created_at: '2022-01-05T11:04:19Z'
+  - code: A8
+    checked_at: '2026-09-05T20:06:55Z'
+    source: https://api.github.com/repos/faker-js/faker
+    data:
+      repo: faker-js/faker
+      org: faker-js
+      repo_anchored: true
+      homepage: https://fakerjs.dev
+      backlink: true
+      stars: 15483
+      age_days: 1702
+      contributors: 560
+  - code: B2
+    checked_at: '2026-09-05T20:06:55Z'
+    source: https://registry.npmjs.org/@faker-js/faker
+    data:
+      package: '@faker-js/faker'
+      homepage: https://fakerjs.dev
+  - code: A2
+    checked_at: '2026-09-05T20:06:55Z'
+    source: https://registry.npmjs.org/-/npm/v1/attestations/@faker-js/faker@10.6.0
+    data:
+      package: '@faker-js/faker'
+      version: 10.6.0
+      provenance_verified: true
+      provenance_check: registry-tls
+      chain_org: npm
+      chain_org_verified: false
+      chain_blog: ''
+  - code: A3
+    checked_at: '2026-09-05T20:06:56Z'
+    source: https://rdap.org/domain/fakerjs.dev
+    data:
+      registrar: Name.com, Inc.
+      created: '2022-01-11'
+      expires: '2027-01-11'
+      remaining_days: 127
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T20:06:56Z'
+    source: TLS handshake fakerjs.dev:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-05T20:06:56Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 600553
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:08:05Z'
+    source: http://web.archive.org/cdx/search/cdx?url=fakerjs.dev&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2022-01-13'
+      history_days: 1696
+  rejected_evidence:
+  - 'A2: GitHub organization at the end of the provenance chain has not verified this domain'
+  - 'A3: registrar (Name.com, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

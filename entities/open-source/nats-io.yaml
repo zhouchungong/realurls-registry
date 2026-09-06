@@ -1,0 +1,83 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:nats-io
+names:
+  en: NATS
+aliases:
+- NATS - The Edge & Cloud Native Messaging System
+- nats-io
+category:
+- open-source
+wikidata: Q25327044
+canonical:
+  github_org: nats-io
+  wikidata: Q25327044
+  sources:
+  - wikidata:Q25327044/P856
+  - wikidata:Q25327044/P1324
+domains:
+- domain: nats.io
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:52Z'
+  ttl_days: 30
+  age_days: 4416
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:51:23Z'
+    source: https://api.github.com/orgs/nats-io
+    data:
+      org: nats-io
+      org_verified: true
+      blog: https://nats.io
+      org_name: NATS - The Edge & Cloud Native Messaging System
+      created_at: '2014-12-16T02:38:52Z'
+  - code: A4
+    checked_at: '2026-09-05T19:51:24Z'
+    source: TLS handshake nats.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T19:51:24Z'
+    source: https://www.wikidata.org/wiki/Q25327044
+    data:
+      qid: Q25327044
+      label: NATS
+      site: https://nats.io/
+      sitelinks: 3
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T19:51:24Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 193404
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:52:28Z'
+    source: http://web.archive.org/cdx/search/cdx?url=nats.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2014-08-03'
+      history_days: 4416
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q25327044
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,108 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:pallets
+names:
+  en: Pallets
+aliases:
+- flask
+- pallets
+- pallets/flask
+category:
+- developer-tools
+wikidata: null
+canonical:
+  github_org: pallets
+  wikidata: null
+  sources:
+  - github-history:pallets/flask(age=16y,contrib=864,stars=72170)
+domains:
+- domain: palletsprojects.com
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 3807
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:30:20Z'
+    source: https://api.github.com/orgs/pallets
+    data:
+      org: pallets
+      org_verified: true
+      blog: https://palletsprojects.com
+      org_name: Pallets
+      created_at: '2016-01-17T21:29:18Z'
+  - code: A8
+    checked_at: '2026-09-05T18:30:20Z'
+    source: https://api.github.com/repos/pallets/flask
+    data:
+      repo: pallets/flask
+      org: pallets
+      repo_anchored: true
+      homepage: https://flask.palletsprojects.com
+      backlink: true
+      stars: 72170
+      age_days: 5996
+      contributors: 864
+  - code: A3
+    checked_at: '2026-09-05T18:30:36Z'
+    source: https://rdap.org/domain/palletsprojects.com
+    data:
+      registrar: Gandi SAS
+      created: '2016-04-03'
+      expires: '2031-04-03'
+      remaining_days: 1670
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:30:37Z'
+    source: TLS handshake palletsprojects.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T18:30:37Z'
+    source: https://www.wikidata.org/wiki/Q107383393
+    data:
+      qid: Q107383393
+      label: Pallets-Sphinx-Themes
+      site: https://palletsprojects.com/
+      sitelinks: 0
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-05T18:30:37Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 15576
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:31:27Z'
+    source: http://web.archive.org/cdx/search/cdx?url=palletsprojects.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2016-09-12'
+      history_days: 3645
+  rejected_evidence:
+  - 'A3: registrar (Gandi SAS) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

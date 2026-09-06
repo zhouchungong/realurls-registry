@@ -1,0 +1,86 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:dapr
+names:
+  en: Dapr
+aliases:
+- dapr
+- dapr/dapr
+category:
+- infrastructure
+wikidata: null
+canonical:
+  github_org: dapr
+  wikidata: null
+  sources:
+  - github-history:dapr/dapr(age=7y,contrib=343,stars=26074)
+domains:
+- domain: dapr.io
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:49Z'
+  ttl_days: 30
+  age_days: 2515
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:57:54Z'
+    source: https://api.github.com/orgs/dapr
+    data:
+      org: dapr
+      org_verified: true
+      blog: https://dapr.io
+      org_name: Dapr
+      created_at: '2019-06-17T21:50:10Z'
+  - code: A8
+    checked_at: '2026-09-05T18:57:54Z'
+    source: https://api.github.com/repos/dapr/dapr
+    data:
+      repo: dapr/dapr
+      org: dapr
+      repo_anchored: true
+      homepage: https://dapr.io
+      backlink: true
+      stars: 26074
+      age_days: 2635
+      contributors: 343
+  - code: A4
+    checked_at: '2026-09-05T18:57:55Z'
+    source: TLS handshake dapr.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-05T18:57:55Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 358762
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:57:59Z'
+    source: http://web.archive.org/cdx/search/cdx?url=dapr.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2019-10-17'
+      history_days: 2515
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

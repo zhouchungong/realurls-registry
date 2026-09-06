@@ -1,0 +1,106 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:meteor
+names:
+  en: Meteor
+aliases:
+- meteor
+category:
+- developer-tools
+wikidata: Q14246221
+canonical:
+  github_org: meteor
+  wikidata: Q14246221
+  sources:
+  - wikidata:Q14246221/P856
+  - wikidata:Q14246221/P2037
+domains:
+- domain: meteor.com
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:52Z'
+  ttl_days: 30
+  age_days: 11510
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:43:17Z'
+    source: https://api.github.com/orgs/meteor
+    data:
+      org: meteor
+      org_verified: true
+      blog: https://meteor.com/
+      org_name: Meteor
+      created_at: '2011-05-15T18:34:06Z'
+  - code: A8
+    checked_at: '2026-09-05T18:43:17Z'
+    source: https://api.github.com/repos/meteor/meteor
+    data:
+      repo: meteor/meteor
+      org: meteor
+      repo_anchored: true
+      homepage: https://meteor.com
+      backlink: false
+      stars: 44812
+      age_days: 5343
+      contributors: 987
+  - code: A3
+    checked_at: '2026-09-05T18:43:17Z'
+    source: https://rdap.org/domain/meteor.com
+    data:
+      registrar: Amazon Registrar, Inc.
+      created: '1995-03-02'
+      expires: '2027-03-03'
+      remaining_days: 178
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:43:18Z'
+    source: TLS handshake meteor.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:43:18Z'
+    source: https://www.wikidata.org/wiki/Q14246221
+    data:
+      qid: Q14246221
+      label: Meteor
+      site: https://www.meteor.com
+      sitelinks: 13
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:43:18Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 29479
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:43:47Z'
+    source: http://web.archive.org/cdx/search/cdx?url=meteor.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1997-03-29'
+      history_days: 10752
+  rejected_evidence:
+  - 'A8: this site does not link back to the GitHub organization; no reverse confirmation'
+  - 'A3: registrar (Amazon Registrar, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q14246221
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,103 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:i3
+names:
+  en: i3
+aliases: []
+category:
+- open-source
+wikidata: Q1652973
+canonical:
+  github_org: i3
+  wikidata: Q1652973
+  sources:
+  - wikidata:Q1652973/P856
+  - wikidata:Q1652973/P2037
+domains:
+- domain: i3wm.org
+  role: primary
+  status: verified
+  confidence: 0.7088
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:19:00Z'
+  ttl_days: 30
+  age_days: 5710
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T21:18:15Z'
+    source: https://api.github.com/orgs/i3
+    data:
+      org: i3
+      org_verified: false
+      blog: https://i3wm.org/
+  - code: A8
+    checked_at: '2026-09-05T21:18:15Z'
+    source: https://api.github.com/repos/i3/i3
+    data:
+      repo: i3/i3
+      org: i3
+      repo_anchored: true
+      homepage: https://i3wm.org/
+      backlink: true
+      stars: 10558
+      age_days: 4231
+      contributors: 372
+  - code: A3
+    checked_at: '2026-09-05T21:18:37Z'
+    source: https://rdap.org/domain/i3wm.org
+    data:
+      registrar: INWX GmbH
+      created: '2011-01-17'
+      expires: '2030-01-17'
+      remaining_days: 1229
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T21:18:38Z'
+    source: TLS handshake i3wm.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T21:18:38Z'
+    source: https://www.wikidata.org/wiki/Q1652973
+    data:
+      qid: Q1652973
+      label: i3
+      site: https://i3wm.org/
+      sitelinks: 21
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T21:18:38Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 166002
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T21:18:43Z'
+    source: http://web.archive.org/cdx/search/cdx?url=i3wm.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2011-05-03'
+      history_days: 5604
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (INWX GmbH) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q1652973
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,100 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:wordpress
+names:
+  en: WordPress
+aliases: []
+category:
+- open-source
+wikidata: Q13166
+canonical:
+  github_org: WordPress
+  wikidata: Q13166
+  sources:
+  - wikidata:Q13166/P856
+  - wikidata:Q13166/P2037
+domains:
+- domain: wordpress.org
+  role: primary
+  status: verified
+  confidence: 0.6278
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:55Z'
+  ttl_days: 30
+  age_days: 8562
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:26:25Z'
+    source: https://api.github.com/orgs/WordPress
+    data:
+      org: WordPress
+      org_verified: false
+      blog: https://wordpress.org/
+  - code: A8
+    checked_at: '2026-09-05T19:26:26Z'
+    source: https://api.github.com/repos/WordPress/gutenberg
+    data:
+      repo: WordPress/gutenberg
+      org: WordPress
+      repo_anchored: true
+      homepage: https://wordpress.org/gutenberg/
+      backlink: false
+      stars: 11747
+      age_days: 3500
+      contributors: 1576
+  - code: A3
+    checked_at: '2026-09-05T19:26:27Z'
+    source: https://rdap.org/domain/wordpress.org
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2003-03-28'
+      expires: '2035-03-28'
+      remaining_days: 3125
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T19:26:27Z'
+    source: TLS handshake wordpress.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T19:26:27Z'
+    source: https://www.wikidata.org/wiki/Q13166
+    data:
+      qid: Q13166
+      label: ووردبريس
+      site: https://wordpress.org
+      sitelinks: 97
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-05T19:26:27Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 48
+      source: top-1m list
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A8: this site does not link back to the GitHub organization; no reverse confirmation'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q13166
+  reviewed_by: []
+  source_issue: null
+  last_revalidated_by: revalidate/0.1

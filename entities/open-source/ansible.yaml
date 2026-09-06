@@ -1,0 +1,108 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:ansible
+names:
+  en: Ansible
+aliases:
+- ansible
+category:
+- open-source
+wikidata: Q2852503
+canonical:
+  github_org: ansible
+  wikidata: Q2852503
+  sources:
+  - wikidata:Q2852503/P856
+  - wikidata:Q2852503/P2037
+domains:
+- domain: ansible.com
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:52Z'
+  ttl_days: 30
+  age_days: 11537
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:27:33Z'
+    source: https://api.github.com/orgs/ansible
+    data:
+      org: ansible
+      org_verified: true
+      blog: https://www.ansible.com/
+      org_name: Ansible
+      created_at: '2012-03-06T14:55:51Z'
+  - code: A8
+    checked_at: '2026-09-05T18:27:33Z'
+    source: https://api.github.com/repos/ansible/ansible
+    data:
+      repo: ansible/ansible
+      org: ansible
+      repo_anchored: true
+      homepage: https://www.ansible.com/
+      backlink: false
+      stars: 70590
+      age_days: 5296
+      contributors: 6949
+  - code: A3
+    checked_at: '2026-09-05T18:27:33Z'
+    source: https://rdap.org/domain/ansible.com
+    data:
+      registrar: Nom-iq Ltd. dba COM LAUDE
+      created: '1995-02-03'
+      expires: '2027-02-04'
+      remaining_days: 151
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T18:27:33Z'
+    source: TLS handshake ansible.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T18:27:33Z'
+    source: https://www.wikidata.org/wiki/Q2852503
+    data:
+      qid: Q2852503
+      label: Ansible
+      site: https://www.ansible.com/
+      sitelinks: 23
+      competing_items: 2
+  - code: B5
+    checked_at: '2026-09-05T18:27:33Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 11498
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:28:36Z'
+    source: http://web.archive.org/cdx/search/cdx?url=ansible.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1998-01-10'
+      history_days: 10465
+  rejected_evidence:
+  - 'A8: this site does not link back to the GitHub organization; no reverse confirmation'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q2852503
+  reviewed_by: []
+  source_issue: null

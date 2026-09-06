@@ -1,0 +1,107 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:99designs
+names:
+  en: 99designs
+aliases: []
+category:
+- developer-tools
+wikidata: Q16800556
+canonical:
+  github_org: 99designs
+  wikidata: Q16800556
+  sources:
+  - wikidata:Q16800556/P856
+  - github-history:99designs/gqlgen(age=8y,contrib=483,stars=10759)
+domains:
+- domain: 99designs.com
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:19:00Z'
+  ttl_days: 30
+  age_days: 7880
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T21:14:24Z'
+    source: https://api.github.com/orgs/99designs
+    data:
+      org: 99designs
+      org_verified: true
+      blog: https://99designs.com/
+      org_name: 99designs
+      created_at: '2008-07-16T03:56:33Z'
+  - code: A8
+    checked_at: '2026-09-05T21:14:24Z'
+    source: https://api.github.com/repos/99designs/gqlgen
+    data:
+      repo: 99designs/gqlgen
+      org: 99designs
+      repo_anchored: true
+      homepage: https://gqlgen.com
+      backlink: false
+      stars: 10759
+      age_days: 3128
+      contributors: 483
+  - code: A3
+    checked_at: '2026-09-05T21:14:25Z'
+    source: https://rdap.org/domain/99designs.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2005-02-07'
+      expires: '2028-02-07'
+      remaining_days: 519
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T21:14:25Z'
+    source: TLS handshake 99designs.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 86
+  - code: B1
+    checked_at: '2026-09-05T21:14:25Z'
+    source: https://www.wikidata.org/wiki/Q16800556
+    data:
+      qid: Q16800556
+      label: 99designs
+      site: https://99designs.com
+      sitelinks: 8
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T21:14:25Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 15929
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T21:14:31Z'
+    source: http://web.archive.org/cdx/search/cdx?url=99designs.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2001-02-17'
+      history_days: 9331
+  rejected_evidence:
+  - 'A8: repository homepage (https://gqlgen.com) does not point to this domain'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q16800556
+  reviewed_by: []
+  source_issue: null

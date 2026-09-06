@@ -1,0 +1,98 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:lmax-exchange
+names:
+  en: LMAX Exchange
+aliases:
+- LMAX Group
+- LMAX-Exchange
+category:
+- open-source
+wikidata: Q16257801
+canonical:
+  github_org: LMAX-Exchange
+  wikidata: Q16257801
+  sources:
+  - wikidata:Q16257801/P856
+  - wikidata:Q16257801/P2037
+domains:
+- domain: lmax.com
+  role: primary
+  status: verified
+  confidence: 0.9345
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:49Z'
+  ttl_days: 30
+  age_days: 10037
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:32:27Z'
+    source: https://api.github.com/orgs/LMAX-Exchange
+    data:
+      org: LMAX-Exchange
+      org_verified: true
+      blog: https://lmax.com
+      org_name: LMAX Group
+      created_at: '2012-09-21T10:07:28Z'
+  - code: A3
+    checked_at: '2026-09-05T19:32:27Z'
+    source: https://rdap.org/domain/lmax.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '1999-03-14'
+      expires: '2033-03-14'
+      remaining_days: 2381
+      locks:
+      - delete
+      - transfer
+      - update
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-05T19:32:27Z'
+    source: TLS handshake lmax.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T19:32:28Z'
+    source: https://www.wikidata.org/wiki/Q16257801
+    data:
+      qid: Q16257801
+      label: LMAX Exchange
+      site: http://www.lmax.com/
+      sitelinks: 3
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T19:32:28Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 254656
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:32:33Z'
+    source: http://web.archive.org/cdx/search/cdx?url=lmax.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2004-09-01'
+      history_days: 8039
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '2 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q16257801
+  reviewed_by: []
+  source_issue: null

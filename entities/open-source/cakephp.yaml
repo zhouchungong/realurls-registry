@@ -1,0 +1,109 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:cakephp
+names:
+  en: CakePHP
+aliases:
+- cakephp
+category:
+- open-source
+wikidata: Q647055
+canonical:
+  github_org: cakephp
+  wikidata: Q647055
+  sources:
+  - wikidata:Q647055/P856
+  - wikidata:Q647055/P2037
+domains:
+- domain: cakephp.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:53Z'
+  ttl_days: 30
+  age_days: 7753
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:39:08Z'
+    source: https://api.github.com/orgs/cakephp
+    data:
+      org: cakephp
+      org_verified: true
+      blog: http://cakephp.org
+      org_name: CakePHP
+      created_at: '2008-09-08T15:21:00Z'
+  - code: A8
+    checked_at: '2026-09-05T20:39:08Z'
+    source: https://api.github.com/repos/cakephp/cakephp
+    data:
+      repo: cakephp/cakephp
+      org: cakephp
+      repo_anchored: true
+      homepage: http://cakephp.org
+      backlink: true
+      stars: 8797
+      age_days: 5964
+      contributors: 862
+  - code: A3
+    checked_at: '2026-09-05T20:39:09Z'
+    source: https://rdap.org/domain/cakephp.org
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2005-06-13'
+      expires: '2030-06-13'
+      remaining_days: 1377
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T20:39:09Z'
+    source: TLS handshake cakephp.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T20:39:09Z'
+    source: https://www.wikidata.org/wiki/Q647055
+    data:
+      qid: Q647055
+      label: CakePHP
+      site: https://cakephp.org
+      sitelinks: 29
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:39:09Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 41063
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:39:47Z'
+    source: http://web.archive.org/cdx/search/cdx?url=cakephp.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2005-07-08'
+      history_days: 7729
+  rejected_evidence:
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q647055
+  reviewed_by: []
+  source_issue: null

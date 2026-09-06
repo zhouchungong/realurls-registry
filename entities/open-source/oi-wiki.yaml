@@ -1,0 +1,97 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:oi-wiki
+names:
+  en: OI Wiki
+aliases:
+- OI-wiki
+- OI-wiki/OI-wiki
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: OI-wiki
+  wikidata: null
+  sources:
+  - github-history:OI-wiki/OI-wiki(age=8y,contrib=1207,stars=26614)
+domains:
+- domain: oi-wiki.org
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:53Z'
+  ttl_days: 30
+  age_days: 2939
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:00:02Z'
+    source: https://api.github.com/orgs/OI-wiki
+    data:
+      org: OI-wiki
+      org_verified: true
+      blog: https://oi-wiki.org
+      org_name: OI Wiki
+      created_at: '2018-07-11T03:09:13Z'
+  - code: A8
+    checked_at: '2026-09-05T19:00:02Z'
+    source: https://api.github.com/repos/OI-wiki/OI-wiki
+    data:
+      repo: OI-wiki/OI-wiki
+      org: OI-wiki
+      repo_anchored: true
+      homepage: https://oi-wiki.org
+      backlink: true
+      stars: 26614
+      age_days: 2978
+      contributors: 1207
+  - code: A3
+    checked_at: '2026-09-05T19:00:03Z'
+    source: https://rdap.org/domain/oi-wiki.org
+    data:
+      registrar: NameSilo, LLC
+      created: '2018-08-19'
+      expires: '2028-08-19'
+      remaining_days: 713
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T19:00:03Z'
+    source: TLS handshake oi-wiki.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-05T19:00:03Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 384994
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:01:14Z'
+    source: http://web.archive.org/cdx/search/cdx?url=oi-wiki.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2018-08-26'
+      history_days: 2932
+  rejected_evidence:
+  - 'A3: registrar (NameSilo, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

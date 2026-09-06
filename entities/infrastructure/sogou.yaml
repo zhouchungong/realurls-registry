@@ -1,0 +1,97 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:sogou
+names:
+  en: Sogou
+aliases:
+- C++ Workflow Project and Ecosystem
+- sogou
+category:
+- infrastructure
+wikidata: Q7554565
+canonical:
+  github_org: null
+  wikidata: Q7554565
+  sources:
+  - wikidata:Q7554565/P856
+domains:
+- domain: sogou.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:55Z'
+  ttl_days: 30
+  age_days: 9026
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:05:54Z'
+    source: https://api.github.com/orgs/sogou
+    data:
+      org: sogou
+      org_verified: false
+      blog: https://www.sogou.com
+  - code: A3
+    checked_at: '2026-09-05T20:05:55Z'
+    source: https://rdap.org/domain/sogou.com
+    data:
+      registrar: MarkMonitor Information Technology (Shanghai) Co., Ltd.
+      created: '2001-12-19'
+      expires: '2032-12-19'
+      remaining_days: 2296
+      locks:
+      - delete
+      - transfer
+      - update
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-05T20:05:55Z'
+    source: TLS handshake sogou.com:443
+    data:
+      subject_org: Shenzhen Tencent Computer Systems Company Limited
+      validation_type: OV
+      issuer: DigiCert, Inc.
+      san_count: 18
+  - code: B1
+    checked_at: '2026-09-05T20:05:55Z'
+    source: https://www.wikidata.org/wiki/Q7554565
+    data:
+      qid: Q7554565
+      label: Sogou
+      site: https://www.sogou.com/
+      sitelinks: 7
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:05:55Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 2098
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:06:03Z'
+    source: http://web.archive.org/cdx/search/cdx?url=sogou.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2002-09-03'
+      history_days: 8768
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A4: certificate organization (Shenzhen Tencent Computer Systems Company Limited) is not the anchored entity
+    (Sogou)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q7554565
+  reviewed_by: []
+  source_issue: null

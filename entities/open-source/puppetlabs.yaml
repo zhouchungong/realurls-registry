@@ -1,0 +1,109 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:puppetlabs
+names:
+  en: Puppet
+aliases:
+- puppetlabs
+category:
+- open-source
+wikidata: Q2095962
+canonical:
+  github_org: puppetlabs
+  wikidata: Q2095962
+  sources:
+  - wikidata:Q2095962/P856
+  - wikidata:Q2095962/P1324
+domains:
+- domain: puppet.com
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:52Z'
+  ttl_days: 30
+  age_days: 11105
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T21:02:57Z'
+    source: https://api.github.com/orgs/puppetlabs
+    data:
+      org: puppetlabs
+      org_verified: true
+      blog: http://www.puppet.com/community
+      org_name: Puppet
+      created_at: '2010-03-31T16:38:23Z'
+  - code: A8
+    checked_at: '2026-09-05T21:02:57Z'
+    source: https://api.github.com/repos/puppetlabs/puppet
+    data:
+      repo: puppetlabs/puppet
+      org: puppetlabs
+      repo_anchored: true
+      homepage: https://puppet.com/open-source/#osp
+      backlink: false
+      stars: 7928
+      age_days: 5835
+      contributors: 855
+  - code: A3
+    checked_at: '2026-09-05T21:03:04Z'
+    source: https://rdap.org/domain/puppet.com
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '1996-04-10'
+      expires: '2027-04-11'
+      remaining_days: 217
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T21:03:04Z'
+    source: TLS handshake puppet.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 9
+  - code: B1
+    checked_at: '2026-09-05T21:03:04Z'
+    source: https://www.wikidata.org/wiki/Q2095962
+    data:
+      qid: Q2095962
+      label: Puppet
+      site: https://www.puppet.com/
+      sitelinks: 17
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-05T21:03:04Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 27831
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T21:03:09Z'
+    source: http://web.archive.org/cdx/search/cdx?url=puppet.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1998-12-02'
+      history_days: 10139
+  rejected_evidence:
+  - 'A8: this site does not link back to the GitHub organization; no reverse confirmation'
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q2095962
+  reviewed_by: []
+  source_issue: null

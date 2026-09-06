@@ -1,0 +1,109 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:dbt-labs
+names:
+  en: dbt Labs
+aliases:
+- dbt-labs
+- dbt-labs/dbt-core
+category:
+- saas
+wikidata: null
+canonical:
+  github_org: dbt-labs
+  wikidata: null
+  sources:
+  - github-history:dbt-labs/dbt-core(age=10y,contrib=450,stars=13784)
+domains:
+- domain: getdbt.com
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:52Z'
+  ttl_days: 30
+  age_days: 3681
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:10:39Z'
+    source: https://api.github.com/orgs/dbt-labs
+    data:
+      org: dbt-labs
+      org_verified: true
+      blog: getdbt.com
+      org_name: dbt Labs
+      created_at: '2016-04-08T01:29:30Z'
+  - code: A8
+    checked_at: '2026-09-05T20:10:39Z'
+    source: https://api.github.com/repos/dbt-labs/dbt-core
+    data:
+      repo: dbt-labs/dbt-core
+      org: dbt-labs
+      repo_anchored: true
+      homepage: https://getdbt.com
+      backlink: true
+      stars: 13784
+      age_days: 3831
+      contributors: 450
+  - code: A3
+    checked_at: '2026-09-05T20:10:39Z'
+    source: https://rdap.org/domain/getdbt.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2016-08-07'
+      expires: '2028-08-07'
+      remaining_days: 701
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T20:10:39Z'
+    source: TLS handshake getdbt.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T20:10:39Z'
+    source: https://www.wikidata.org/wiki/Q107384807
+    data:
+      qid: Q107384807
+      label: dbt-core
+      site: https://www.getdbt.com/
+      sitelinks: 0
+      competing_items: 4
+  - code: B5
+    checked_at: '2026-09-05T20:10:39Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 41907
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:10:42Z'
+    source: http://web.archive.org/cdx/search/cdx?url=getdbt.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2017-06-27'
+      history_days: 3357
+  rejected_evidence:
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,95 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:bagisto
+names:
+  en: Bagisto
+aliases:
+- bagisto
+- bagisto/bagisto
+category:
+- saas
+wikidata: null
+canonical:
+  github_org: bagisto
+  wikidata: null
+  sources:
+  - github-history:bagisto/bagisto(age=7y,contrib=315,stars=28090)
+domains:
+- domain: bagisto.com
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 2937
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:32:48Z'
+    source: https://api.github.com/orgs/bagisto
+    data:
+      org: bagisto
+      org_verified: false
+      blog: https://bagisto.com
+  - code: A8
+    checked_at: '2026-09-05T19:32:48Z'
+    source: https://api.github.com/repos/bagisto/bagisto
+    data:
+      repo: bagisto/bagisto
+      org: bagisto
+      repo_anchored: true
+      homepage: https://bagisto.com
+      backlink: true
+      stars: 28090
+      age_days: 2917
+      contributors: 315
+  - code: A3
+    checked_at: '2026-09-05T19:32:48Z'
+    source: https://rdap.org/domain/bagisto.com
+    data:
+      registrar: Name.com, Inc.
+      created: '2018-08-21'
+      expires: '2027-08-21'
+      remaining_days: 349
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T19:32:49Z'
+    source: TLS handshake bagisto.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-05T19:32:49Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 471752
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:32:54Z'
+    source: http://web.archive.org/cdx/search/cdx?url=bagisto.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2018-08-29'
+      history_days: 2929
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Name.com, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

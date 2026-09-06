@@ -1,0 +1,106 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:pointcloudlibrary
+names:
+  en: PCL
+aliases:
+- Point Cloud Library (PCL)
+- PointCloudLibrary
+category:
+- ai
+wikidata: Q4817319
+canonical:
+  github_org: PointCloudLibrary
+  wikidata: Q4817319
+  sources:
+  - wikidata:Q4817319/P856
+  - wikidata:Q4817319/P1324
+domains:
+- domain: pointclouds.org
+  role: primary
+  status: verified
+  confidence: 0.7088
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:53Z'
+  ttl_days: 30
+  age_days: 5756
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:34:16Z'
+    source: https://api.github.com/orgs/PointCloudLibrary
+    data:
+      org: PointCloudLibrary
+      org_verified: false
+      blog: http://www.pointclouds.org
+  - code: A8
+    checked_at: '2026-09-05T20:34:17Z'
+    source: https://api.github.com/repos/PointCloudLibrary/pcl
+    data:
+      repo: PointCloudLibrary/pcl
+      org: PointCloudLibrary
+      repo_anchored: true
+      homepage: https://pointclouds.org/
+      backlink: true
+      stars: 11106
+      age_days: 4953
+      contributors: 717
+  - code: A3
+    checked_at: '2026-09-05T20:34:18Z'
+    source: https://rdap.org/domain/pointclouds.org
+    data:
+      registrar: Tucows Domains Inc.
+      created: '2010-12-01'
+      expires: '2026-12-01'
+      remaining_days: 87
+      locks:
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T20:34:18Z'
+    source: TLS handshake pointclouds.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T20:34:18Z'
+    source: https://www.wikidata.org/wiki/Q4817319
+    data:
+      qid: Q4817319
+      label: PCL
+      site: http://www.pointclouds.org
+      sitelinks: 9
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:34:18Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 572258
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:34:35Z'
+    source: http://web.archive.org/cdx/search/cdx?url=pointclouds.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2011-04-30'
+      history_days: 5607
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Tucows Domains Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q4817319
+  reviewed_by: []
+  source_issue: null

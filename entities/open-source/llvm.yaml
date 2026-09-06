@@ -1,0 +1,101 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:llvm
+names:
+  en: LLVM
+aliases:
+- llvm
+category:
+- open-source
+wikidata: Q223490
+canonical:
+  github_org: llvm
+  wikidata: Q223490
+  sources:
+  - wikidata:Q223490/P856
+  - wikidata:Q223490/P2037
+domains:
+- domain: llvm.org
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 8211
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:09:18Z'
+    source: https://api.github.com/orgs/llvm
+    data:
+      org: llvm
+      org_verified: true
+      blog: https://llvm.org
+      org_name: LLVM
+      created_at: '2016-02-09T20:55:22Z'
+  - code: A8
+    checked_at: '2026-09-05T19:09:18Z'
+    source: https://api.github.com/repos/llvm/llvm-project
+    data:
+      repo: llvm/llvm-project
+      org: llvm
+      repo_anchored: true
+      homepage: http://llvm.org
+      backlink: true
+      stars: 40127
+      age_days: 3559
+      contributors: 9642
+  - code: A3
+    checked_at: '2026-09-05T19:09:19Z'
+    source: https://rdap.org/domain/llvm.org
+    data:
+      registrar: Netregistry Wholesale Pty Ltd
+      created: '2004-03-13'
+      expires: '2027-03-13'
+      remaining_days: 188
+      locks:
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T19:09:19Z'
+    source: TLS handshake llvm.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 20
+  - code: B1
+    checked_at: '2026-09-05T19:09:19Z'
+    source: https://www.wikidata.org/wiki/Q223490
+    data:
+      qid: Q223490
+      label: LLVM
+      site: https://llvm.org
+      sitelinks: 34
+      competing_items: 3
+  - code: B5
+    checked_at: '2026-09-05T19:09:19Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 16402
+      source: top-1m list
+  rejected_evidence:
+  - 'A3: registrar (Netregistry Wholesale Pty Ltd) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q223490
+  reviewed_by: []
+  source_issue: null

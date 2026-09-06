@@ -1,0 +1,90 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:vlang
+names:
+  en: V
+aliases:
+- The V Programming Language
+- vlang
+category:
+- developer-tools
+wikidata: Q61632937
+canonical:
+  github_org: vlang
+  wikidata: Q61632937
+  sources:
+  - wikidata:Q61632937/P856
+  - wikidata:Q61632937/P2037
+domains:
+- domain: vlang.io
+  role: primary
+  status: verified
+  confidence: 0.8451
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:57Z'
+  ttl_days: 30
+  age_days: 2762
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:55:18Z'
+    source: https://api.github.com/orgs/vlang
+    data:
+      org: vlang
+      org_verified: true
+      blog: https://vlang.io
+      org_name: The V Programming Language
+      created_at: '2019-01-06T06:45:23Z'
+  - code: A8
+    checked_at: '2026-09-05T18:55:21Z'
+    source: https://api.github.com/repos/vlang/v
+    data:
+      repo: vlang/v
+      org: vlang
+      repo_anchored: true
+      homepage: ''
+      backlink: true
+      stars: 37818
+      age_days: 2766
+      contributors: 922
+  - code: A4
+    checked_at: '2026-09-05T18:55:21Z'
+    source: TLS handshake vlang.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:55:21Z'
+    source: https://www.wikidata.org/wiki/Q61632937
+    data:
+      qid: Q61632937
+      label: V
+      site: https://vlang.io/
+      sitelinks: 9
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-05T18:55:23Z'
+    source: http://web.archive.org/cdx/search/cdx?url=vlang.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2019-02-12'
+      history_days: 2762
+  rejected_evidence:
+  - 'A8: repository homepage () does not point to this domain'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q61632937
+  reviewed_by: []
+  source_issue: null

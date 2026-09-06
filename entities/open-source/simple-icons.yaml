@@ -1,0 +1,97 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:simple-icons
+names:
+  en: Simple Icons
+aliases:
+- simple-icons
+- simple-icons/simple-icons
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: simple-icons
+  wikidata: null
+  sources:
+  - github-history:simple-icons/simple-icons(age=13y,contrib=901,stars=25795)
+domains:
+- domain: simpleicons.org
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 4961
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:52:39Z'
+    source: https://api.github.com/orgs/simple-icons
+    data:
+      org: simple-icons
+      org_verified: true
+      blog: https://simpleicons.org
+      org_name: Simple Icons
+      created_at: '2017-07-03T20:10:32Z'
+  - code: A8
+    checked_at: '2026-09-05T19:52:39Z'
+    source: https://api.github.com/repos/simple-icons/simple-icons
+    data:
+      repo: simple-icons/simple-icons
+      org: simple-icons
+      repo_anchored: true
+      homepage: https://simpleicons.org
+      backlink: false
+      stars: 25795
+      age_days: 5041
+      contributors: 901
+  - code: A3
+    checked_at: '2026-09-05T19:52:40Z'
+    source: https://rdap.org/domain/simpleicons.org
+    data:
+      registrar: NameCheap, Inc.
+      created: '2013-02-04'
+      expires: '2031-02-04'
+      remaining_days: 1612
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T19:52:40Z'
+    source: TLS handshake simpleicons.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 1
+  - code: B5
+    checked_at: '2026-09-05T19:52:41Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 63270
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:53:27Z'
+    source: http://web.archive.org/cdx/search/cdx?url=simpleicons.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2013-02-08'
+      history_days: 4957
+  rejected_evidence:
+  - 'A8: this site does not link back to the GitHub organization; no reverse confirmation'
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

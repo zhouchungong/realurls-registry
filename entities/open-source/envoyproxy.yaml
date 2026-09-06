@@ -1,0 +1,94 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:envoyproxy
+names:
+  en: Envoy Proxy - CNCF
+aliases:
+- envoyproxy
+- envoyproxy/envoy
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: envoyproxy
+  wikidata: null
+  sources:
+  - github-history:envoyproxy/envoy(age=10y,contrib=1722,stars=28860)
+domains:
+- domain: envoyproxy.io
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:53Z'
+  ttl_days: 30
+  age_days: 3236
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:56:21Z'
+    source: https://api.github.com/orgs/envoyproxy
+    data:
+      org: envoyproxy
+      org_verified: false
+      blog: https://www.envoyproxy.io/
+  - code: A8
+    checked_at: '2026-09-05T18:56:21Z'
+    source: https://api.github.com/repos/envoyproxy/envoy
+    data:
+      repo: envoyproxy/envoy
+      org: envoyproxy
+      repo_anchored: true
+      homepage: https://www.envoyproxy.io
+      backlink: true
+      stars: 28860
+      age_days: 3680
+      contributors: 1722
+  - code: A4
+    checked_at: '2026-09-05T18:56:21Z'
+    source: TLS handshake envoyproxy.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:56:22Z'
+    source: https://www.wikidata.org/wiki/Q124842894
+    data:
+      qid: Q124842894
+      label: Envoy
+      site: https://www.envoyproxy.io
+      sitelinks: 0
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:56:22Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 119603
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:56:25Z'
+    source: http://web.archive.org/cdx/search/cdx?url=envoyproxy.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2017-10-26'
+      history_days: 3236
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

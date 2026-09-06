@@ -1,0 +1,95 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:swagger-api
+names:
+  en: Swagger
+aliases:
+- swagger-api
+category:
+- open-source
+wikidata: Q39069667
+canonical:
+  github_org: swagger-api
+  wikidata: Q39069667
+  sources:
+  - wikidata:Q39069667/P856
+  - wikidata:Q39069667/P2037
+domains:
+- domain: swagger.io
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:19:00Z'
+  ttl_days: 30
+  age_days: 4377
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:13:45Z'
+    source: https://api.github.com/orgs/swagger-api
+    data:
+      org: swagger-api
+      org_verified: true
+      blog: http://swagger.io
+      org_name: Swagger
+      created_at: '2014-05-21T13:21:27Z'
+  - code: A8
+    checked_at: '2026-09-05T19:13:45Z'
+    source: https://api.github.com/repos/swagger-api/swagger-ui
+    data:
+      repo: swagger-api/swagger-ui
+      org: swagger-api
+      repo_anchored: true
+      homepage: https://swagger.io
+      backlink: false
+      stars: 29000
+      age_days: 5530
+      contributors: 628
+  - code: A4
+    checked_at: '2026-09-05T19:13:52Z'
+    source: TLS handshake swagger.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T19:13:52Z'
+    source: https://www.wikidata.org/wiki/Q39069667
+    data:
+      qid: Q39069667
+      label: Swagger
+      site: https://swagger.io/
+      sitelinks: 12
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T19:13:52Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 15989
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:15:10Z'
+    source: http://web.archive.org/cdx/search/cdx?url=swagger.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2014-09-11'
+      history_days: 4377
+  rejected_evidence:
+  - 'A8: this site does not link back to the GitHub organization; no reverse confirmation'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q39069667
+  reviewed_by: []
+  source_issue: null

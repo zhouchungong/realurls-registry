@@ -1,0 +1,100 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:pipedreamhq
+names:
+  en: Pipedream
+aliases:
+- PipedreamHQ
+- PipedreamHQ/pipedream
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: PipedreamHQ
+  wikidata: null
+  sources:
+  - github-history:PipedreamHQ/pipedream(age=6y,contrib=332,stars=11673)
+domains:
+- domain: pipedream.com
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:55Z'
+  ttl_days: 30
+  age_days: 10323
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:32:35Z'
+    source: https://api.github.com/orgs/PipedreamHQ
+    data:
+      org: PipedreamHQ
+      org_verified: true
+      blog: https://pipedream.com
+      org_name: Pipedream
+      created_at: '2018-10-02T17:45:22Z'
+  - code: A8
+    checked_at: '2026-09-05T20:32:35Z'
+    source: https://api.github.com/repos/PipedreamHQ/pipedream
+    data:
+      repo: PipedreamHQ/pipedream
+      org: PipedreamHQ
+      repo_anchored: true
+      homepage: https://pipedream.com
+      backlink: true
+      stars: 11673
+      age_days: 2418
+      contributors: 332
+  - code: A3
+    checked_at: '2026-09-05T20:32:35Z'
+    source: https://rdap.org/domain/pipedream.com
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '1998-06-01'
+      expires: '2030-05-31'
+      remaining_days: 1363
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T20:32:36Z'
+    source: TLS handshake pipedream.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-05T20:32:36Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 57090
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:32:36Z'
+    source: http://web.archive.org/cdx/search/cdx?url=pipedream.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2000-10-18'
+      history_days: 9453
+  rejected_evidence:
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

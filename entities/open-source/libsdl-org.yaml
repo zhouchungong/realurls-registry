@@ -1,0 +1,107 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:libsdl-org
+names:
+  en: Simple DirectMedia Layer
+aliases:
+- Simple Directmedia Layer
+- libsdl-org
+category:
+- open-source
+wikidata: Q727439
+canonical:
+  github_org: libsdl-org
+  wikidata: Q727439
+  sources:
+  - wikidata:Q727439/P856
+  - wikidata:Q727439/P2037
+domains:
+- domain: libsdl.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 9592
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:59:54Z'
+    source: https://api.github.com/orgs/libsdl-org
+    data:
+      org: libsdl-org
+      org_verified: true
+      blog: https://libsdl.org/
+      org_name: Simple Directmedia Layer
+      created_at: '2021-01-19T15:19:03Z'
+  - code: A8
+    checked_at: '2026-09-05T19:59:54Z'
+    source: https://api.github.com/repos/libsdl-org/SDL
+    data:
+      repo: libsdl-org/SDL
+      org: libsdl-org
+      repo_anchored: true
+      homepage: https://libsdl.org
+      backlink: true
+      stars: 16511
+      age_days: 2059
+      contributors: 955
+  - code: A3
+    checked_at: '2026-09-05T20:00:38Z'
+    source: https://rdap.org/domain/libsdl.org
+    data:
+      registrar: Domain.com - Network Solutions, LLC
+      created: '2000-06-01'
+      expires: '2027-06-01'
+      remaining_days: 268
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T20:00:39Z'
+    source: TLS handshake libsdl.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 17
+  - code: B1
+    checked_at: '2026-09-05T20:00:39Z'
+    source: https://www.wikidata.org/wiki/Q727439
+    data:
+      qid: Q727439
+      label: Simple DirectMedia Layer
+      site: https://www.libsdl.org/
+      sitelinks: 26
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:00:39Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 39096
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:00:48Z'
+    source: http://web.archive.org/cdx/search/cdx?url=libsdl.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2000-08-15'
+      history_days: 9517
+  rejected_evidence:
+  - 'A3: registrar (Domain.com - Network Solutions, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q727439
+  reviewed_by: []
+  source_issue: null

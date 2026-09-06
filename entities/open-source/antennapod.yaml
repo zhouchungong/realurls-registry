@@ -1,0 +1,105 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:antennapod
+names:
+  en: AntennaPod
+aliases: []
+category:
+- open-source
+wikidata: Q16927599
+canonical:
+  github_org: AntennaPod
+  wikidata: Q16927599
+  sources:
+  - wikidata:Q16927599/P856
+  - wikidata:Q16927599/P2037
+domains:
+- domain: antennapod.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:54Z'
+  ttl_days: 30
+  age_days: 5160
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T21:02:39Z'
+    source: https://api.github.com/orgs/AntennaPod
+    data:
+      org: AntennaPod
+      org_verified: true
+      blog: https://antennapod.org/
+      org_name: AntennaPod
+      created_at: '2015-01-26T18:53:01Z'
+  - code: A8
+    checked_at: '2026-09-05T21:02:39Z'
+    source: https://api.github.com/repos/AntennaPod/AntennaPod
+    data:
+      repo: AntennaPod/AntennaPod
+      org: AntennaPod
+      repo_anchored: true
+      homepage: https://antennapod.org
+      backlink: true
+      stars: 8128
+      age_days: 5149
+      contributors: 342
+  - code: A3
+    checked_at: '2026-09-05T21:02:40Z'
+    source: https://rdap.org/domain/antennapod.org
+    data:
+      registrar: Ascio Technologies, Inc. Danmark - Filial af Ascio technologies, Inc. USA
+      created: '2012-07-20'
+      expires: '2027-07-20'
+      remaining_days: 317
+      locks: []
+  - code: A4
+    checked_at: '2026-09-05T21:02:40Z'
+    source: TLS handshake antennapod.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T21:02:40Z'
+    source: https://www.wikidata.org/wiki/Q16927599
+    data:
+      qid: Q16927599
+      label: AntennaPod
+      site: https://antennapod.org
+      sitelinks: 8
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T21:02:40Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 258341
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T21:02:54Z'
+    source: http://web.archive.org/cdx/search/cdx?url=antennapod.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2015-02-23'
+      history_days: 4212
+  rejected_evidence:
+  - 'A3: registrar (Ascio Technologies, Inc. Danmark - Filial af Ascio technologies, Inc. USA) is not a brand-protection
+    registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q16927599
+  reviewed_by: []
+  source_issue: null

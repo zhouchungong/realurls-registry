@@ -1,0 +1,100 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:monero-project
+names:
+  en: Monero
+aliases:
+- The Monero Project
+- monero-project
+category:
+- finance
+- security
+wikidata: Q19893485
+canonical:
+  github_org: monero-project
+  wikidata: Q19893485
+  sources:
+  - wikidata:Q19893485/P856
+  - wikidata:Q19893485/P2037
+domains:
+- domain: getmonero.org
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:49Z'
+  ttl_days: 30
+  age_days: 4468
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:29:01Z'
+    source: https://api.github.com/orgs/monero-project
+    data:
+      org: monero-project
+      org_verified: false
+      blog: https://getmonero.org
+  - code: A8
+    checked_at: '2026-09-05T20:29:01Z'
+    source: https://api.github.com/repos/monero-project/monero
+    data:
+      repo: monero-project/monero
+      org: monero-project
+      repo_anchored: true
+      homepage: https://getmonero.org
+      backlink: true
+      stars: 10829
+      age_days: 4511
+      contributors: 452
+  - code: A3
+    checked_at: '2026-09-05T20:29:02Z'
+    source: https://rdap.org/domain/getmonero.org
+    data:
+      registrar: Gandi SAS
+      created: '2014-06-12'
+      expires: '2029-06-12'
+      remaining_days: 1010
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T20:29:02Z'
+    source: TLS handshake getmonero.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T20:29:02Z'
+    source: https://www.wikidata.org/wiki/Q19893485
+    data:
+      qid: Q19893485
+      label: Monero
+      site: https://getmonero.org
+      sitelinks: 92
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:29:02Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 24077
+      source: top-1m list
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Gandi SAS) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q19893485
+  reviewed_by: []
+  source_issue: null

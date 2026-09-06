@@ -1,0 +1,106 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:mapbox
+names:
+  en: Mapbox
+aliases:
+- mapbox
+category:
+- open-source
+wikidata: Q17068357
+canonical:
+  github_org: mapbox
+  wikidata: Q17068357
+  sources:
+  - wikidata:Q17068357/P856
+  - wikidata:Q17068357/P2037
+domains:
+- domain: mapbox.com
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:52Z'
+  ttl_days: 30
+  age_days: 8318
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:21:41Z'
+    source: https://api.github.com/orgs/mapbox
+    data:
+      org: mapbox
+      org_verified: true
+      blog: https://www.mapbox.com
+      org_name: Mapbox
+      created_at: '2011-02-04T19:02:13Z'
+  - code: A8
+    checked_at: '2026-09-05T20:21:41Z'
+    source: https://api.github.com/repos/mapbox/mapbox-gl-js
+    data:
+      repo: mapbox/mapbox-gl-js
+      org: mapbox
+      repo_anchored: true
+      homepage: https://docs.mapbox.com/mapbox-gl-js/
+      backlink: true
+      stars: 12397
+      age_days: 4930
+      contributors: 465
+  - code: A3
+    checked_at: '2026-09-05T20:21:41Z'
+    source: https://rdap.org/domain/mapbox.com
+    data:
+      registrar: Amazon Registrar, Inc.
+      created: '2003-11-27'
+      expires: '2026-11-27'
+      remaining_days: 82
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T20:21:41Z'
+    source: TLS handshake mapbox.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: GlobalSign nv-sa
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T20:21:41Z'
+    source: https://www.wikidata.org/wiki/Q17068357
+    data:
+      qid: Q17068357
+      label: Mapbox
+      site: https://www.mapbox.com/
+      sitelinks: 12
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:21:41Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 1943
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:22:19Z'
+    source: http://web.archive.org/cdx/search/cdx?url=mapbox.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2002-09-23'
+      history_days: 8748
+  rejected_evidence:
+  - 'A3: registrar (Amazon Registrar, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q17068357
+  reviewed_by: []
+  source_issue: null

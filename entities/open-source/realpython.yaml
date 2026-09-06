@@ -1,0 +1,97 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:realpython
+names:
+  en: Real Python
+aliases:
+- realpython
+- realpython/python-guide
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: realpython
+  wikidata: null
+  sources:
+  - github-history:realpython/python-guide(age=15y,contrib=479,stars=29793)
+domains:
+- domain: realpython.com
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:53Z'
+  ttl_days: 30
+  age_days: 5142
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:53:47Z'
+    source: https://api.github.com/orgs/realpython
+    data:
+      org: realpython
+      org_verified: true
+      blog: https://realpython.com
+      org_name: Real Python
+      created_at: '2013-09-12T23:06:33Z'
+  - code: A8
+    checked_at: '2026-09-05T18:53:47Z'
+    source: https://api.github.com/repos/realpython/python-guide
+    data:
+      repo: realpython/python-guide
+      org: realpython
+      repo_anchored: true
+      homepage: https://docs.python-guide.org
+      backlink: true
+      stars: 29793
+      age_days: 5653
+      contributors: 479
+  - code: A3
+    checked_at: '2026-09-05T18:53:47Z'
+    source: https://rdap.org/domain/realpython.com
+    data:
+      registrar: 1API GmbH
+      created: '2012-08-06'
+      expires: '2027-08-06'
+      remaining_days: 335
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:53:47Z'
+    source: TLS handshake realpython.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-05T18:53:47Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 29116
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:54:42Z'
+    source: http://web.archive.org/cdx/search/cdx?url=realpython.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2012-10-02'
+      history_days: 5086
+  rejected_evidence:
+  - 'A8: repository homepage (https://docs.python-guide.org) does not point to this domain'
+  - 'A3: registrar (1API GmbH) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

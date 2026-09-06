@@ -1,0 +1,95 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:magit
+names:
+  en: Magit
+aliases:
+- magit
+category:
+- open-source
+wikidata: Q52157847
+canonical:
+  github_org: magit
+  wikidata: Q52157847
+  sources:
+  - wikidata:Q52157847/P856
+  - wikidata:Q52157847/P2037
+domains:
+- domain: magit.vc
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:53Z'
+  ttl_days: 30
+  age_days: 4177
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:51:50Z'
+    source: https://api.github.com/orgs/magit
+    data:
+      org: magit
+      org_verified: true
+      blog: https://magit.vc
+      org_name: Magit
+      created_at: '2011-04-25T10:44:38Z'
+  - code: A8
+    checked_at: '2026-09-05T20:51:50Z'
+    source: https://api.github.com/repos/magit/magit
+    data:
+      repo: magit/magit
+      org: magit
+      repo_anchored: true
+      homepage: https://magit.vc
+      backlink: true
+      stars: 7217
+      age_days: 5965
+      contributors: 409
+  - code: A4
+    checked_at: '2026-09-05T20:51:50Z'
+    source: TLS handshake magit.vc:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T20:51:51Z'
+    source: https://www.wikidata.org/wiki/Q52157847
+    data:
+      qid: Q52157847
+      label: Magit
+      site: https://magit.vc/
+      sitelinks: 3
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:51:51Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 613543
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:52:10Z'
+    source: http://web.archive.org/cdx/search/cdx?url=magit.vc&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2015-03-30'
+      history_days: 4177
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q52157847
+  reviewed_by: []
+  source_issue: null

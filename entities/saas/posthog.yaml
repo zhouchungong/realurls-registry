@@ -1,0 +1,97 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:posthog
+names:
+  en: PostHog
+aliases:
+- PostHog/posthog
+- posthog
+category:
+- saas
+wikidata: null
+canonical:
+  github_org: PostHog
+  wikidata: null
+  sources:
+  - github-history:PostHog/posthog(age=6y,contrib=578,stars=39596)
+domains:
+- domain: posthog.com
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 2416
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:48:39Z'
+    source: https://api.github.com/orgs/PostHog
+    data:
+      org: PostHog
+      org_verified: true
+      blog: https://posthog.com
+      org_name: PostHog
+      created_at: '2020-01-26T23:21:40Z'
+  - code: A8
+    checked_at: '2026-09-05T18:48:39Z'
+    source: https://api.github.com/repos/PostHog/posthog
+    data:
+      repo: PostHog/posthog
+      org: PostHog
+      repo_anchored: true
+      homepage: https://posthog.com
+      backlink: true
+      stars: 39596
+      age_days: 2416
+      contributors: 578
+  - code: A3
+    checked_at: '2026-09-05T18:48:39Z'
+    source: https://rdap.org/domain/posthog.com
+    data:
+      registrar: Amazon Registrar, Inc.
+      created: '2020-01-23'
+      expires: '2027-01-23'
+      remaining_days: 140
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:48:39Z'
+    source: TLS handshake posthog.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B5
+    checked_at: '2026-09-05T18:48:40Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 2196
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:49:29Z'
+    source: http://web.archive.org/cdx/search/cdx?url=posthog.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2011-01-28'
+      history_days: 5699
+  rejected_evidence:
+  - 'A3: registrar (Amazon Registrar, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

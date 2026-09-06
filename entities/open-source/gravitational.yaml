@@ -1,0 +1,107 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:gravitational
+names:
+  en: Teleport
+aliases:
+- gravitational
+- gravitational/teleport
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: gravitational
+  wikidata: null
+  sources:
+  - github-history:gravitational/teleport(age=11y,contrib=375,stars=20886)
+domains:
+- domain: goteleport.com
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:54Z'
+  ttl_days: 30
+  age_days: 3073
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:25:27Z'
+    source: https://api.github.com/orgs/gravitational
+    data:
+      org: gravitational
+      org_verified: true
+      blog: https://goteleport.com/
+      org_name: Teleport
+      created_at: '2015-01-31T01:51:24Z'
+  - code: A8
+    checked_at: '2026-09-05T19:25:27Z'
+    source: https://api.github.com/repos/gravitational/teleport
+    data:
+      repo: gravitational/teleport
+      org: gravitational
+      repo_anchored: true
+      homepage: https://goteleport.com
+      backlink: true
+      stars: 20886
+      age_days: 4204
+      contributors: 375
+  - code: A3
+    checked_at: '2026-09-05T19:25:27Z'
+    source: https://rdap.org/domain/goteleport.com
+    data:
+      registrar: Amazon Registrar, Inc.
+      created: '2018-04-07'
+      expires: '2028-04-07'
+      remaining_days: 579
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T19:25:27Z'
+    source: TLS handshake goteleport.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T19:25:27Z'
+    source: https://www.wikidata.org/wiki/Q96407919
+    data:
+      qid: Q96407919
+      label: Teleport
+      site: https://goteleport.com
+      sitelinks: 2
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T19:25:27Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 35003
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:25:40Z'
+    source: http://web.archive.org/cdx/search/cdx?url=goteleport.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2013-06-09'
+      history_days: 4836
+  rejected_evidence:
+  - 'A3: registrar (Amazon Registrar, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

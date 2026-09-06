@@ -1,0 +1,104 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:nvidia
+names:
+  en: Nvidia
+aliases:
+- NVIDIA
+- NVIDIA Corporation
+category:
+- ai
+wikidata: Q182477
+canonical:
+  github_org: NVIDIA
+  wikidata: Q182477
+  sources:
+  - wikidata:Q182477/P856
+  - wikidata:Q182477/P2037
+domains:
+- domain: nvidia.com
+  role: primary
+  status: verified
+  confidence: 0.9256
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:53Z'
+  ttl_days: 30
+  age_days: 12191
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:13:08Z'
+    source: https://api.github.com/orgs/NVIDIA
+    data:
+      org: NVIDIA
+      org_verified: true
+      blog: https://nvidia.com
+      org_name: NVIDIA Corporation
+      created_at: '2012-05-10T22:06:34Z'
+  - code: A8
+    checked_at: '2026-09-05T19:13:08Z'
+    source: https://api.github.com/repos/NVIDIA/Megatron-LM
+    data:
+      repo: NVIDIA/Megatron-LM
+      org: NVIDIA
+      repo_anchored: true
+      homepage: https://docs.nvidia.com/megatron-core/developer-guide/latest/get-started/quickstart.html
+      backlink: false
+      stars: 17751
+      age_days: 2725
+      contributors: 406
+  - code: A3
+    checked_at: '2026-09-05T19:13:08Z'
+    source: https://rdap.org/domain/nvidia.com
+    data:
+      registrar: SafeNames Ltd.
+      created: '1993-04-20'
+      expires: '2034-04-21'
+      remaining_days: 2784
+      locks:
+      - delete
+      - transfer
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-05T19:13:08Z'
+    source: TLS handshake nvidia.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 10
+  - code: B1
+    checked_at: '2026-09-05T19:13:08Z'
+    source: https://www.wikidata.org/wiki/Q182477
+    data:
+      qid: Q182477
+      label: Nvidia
+      site: https://www.nvidia.com/
+      sitelinks: 81
+      competing_items: 4
+  - code: B5
+    checked_at: '2026-09-05T19:13:08Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 367
+      source: top-1m list
+  rejected_evidence:
+  - 'A8: this site does not link back to the GitHub organization; no reverse confirmation'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '2 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q182477
+  reviewed_by: []
+  source_issue: null

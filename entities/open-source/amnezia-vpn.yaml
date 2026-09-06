@@ -1,0 +1,157 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:amnezia-vpn
+names:
+  en: Amnezia VPN
+aliases:
+- amnezia-vpn
+category:
+- open-source
+wikidata: Q119575323
+canonical:
+  github_org: amnezia-vpn
+  wikidata: Q119575323
+  sources:
+  - wikidata:Q119575323/P856
+  - wikidata:Q119575323/P1324
+domains:
+- domain: amnezia.org
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:52Z'
+  ttl_days: 30
+  age_days: 2111
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:05:33Z'
+    source: https://api.github.com/orgs/amnezia-vpn
+    data:
+      org: amnezia-vpn
+      org_verified: true
+      blog: https://amnezia.org
+      org_name: Amnezia VPN
+      created_at: '2020-11-22T12:24:47Z'
+  - code: A3
+    checked_at: '2026-09-05T20:05:50Z'
+    source: https://rdap.org/domain/amnezia.org
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2020-11-24'
+      expires: '2034-11-24'
+      remaining_days: 3001
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T20:05:50Z'
+    source: TLS handshake amnezia.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T20:05:50Z'
+    source: https://www.wikidata.org/wiki/Q119575323
+    data:
+      qid: Q119575323
+      label: Amnezia VPN
+      site: https://amnezia.org/
+      sitelinks: 3
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:05:50Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 58371
+      source: top-1m list
+  rejected_evidence:
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+- domain: amnezia.host
+  role: product
+  status: verified
+  confidence: 0.7105
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T22:51:16Z'
+  ttl_days: 30
+  age_days: 1130
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A3
+    checked_at: '2026-09-05T22:53:07Z'
+    source: https://rdap.org/domain/amnezia.host
+    data:
+      registrar: Porkbun LLC
+      created: '2023-08-02'
+      expires: '2027-08-02'
+      remaining_days: 331
+      locks:
+      - delete
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T22:53:04Z'
+    source: TLS handshake amnezia.host:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-05T22:53:03Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 368851
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T22:53:09Z'
+    source: http://web.archive.org/cdx/search/cdx?url=amnezia.host&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2024-05-22'
+      history_days: 836
+  - code: A6
+    checked_at: '2026-09-05T22:51:16Z'
+    source: propagate from amnezia.org
+    data:
+      from: amnezia.org
+      from_status: verified
+      first_party_link: true
+      structural_links:
+      - shared_ns
+      san_count: 2
+      shared_ns:
+      - brad.ns.cloudflare.com
+      - ulla.ns.cloudflare.com
+      backlink: true
+  rejected_evidence:
+  - 'A3: registrar (Porkbun LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q119575323
+  reviewed_by: []
+  source_issue: null
+  last_revalidated_by: revalidate/0.1

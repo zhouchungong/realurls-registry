@@ -1,0 +1,84 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:dropwizard
+names:
+  en: Dropwizard
+aliases:
+- dropwizard
+- dropwizard/dropwizard
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: dropwizard
+  wikidata: null
+  sources:
+  - github-history:dropwizard/dropwizard(age=15y,contrib=517,stars=8577)
+domains:
+- domain: dropwizard.io
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:19:00Z'
+  ttl_days: 30
+  age_days: 4729
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T21:28:22Z'
+    source: https://api.github.com/orgs/dropwizard
+    data:
+      org: dropwizard
+      org_verified: false
+      blog: https://www.dropwizard.io
+  - code: A8
+    checked_at: '2026-09-05T21:28:22Z'
+    source: https://api.github.com/repos/dropwizard/dropwizard
+    data:
+      repo: dropwizard/dropwizard
+      org: dropwizard
+      repo_anchored: true
+      homepage: https://www.dropwizard.io
+      backlink: true
+      stars: 8577
+      age_days: 5708
+      contributors: 517
+  - code: A4
+    checked_at: '2026-09-05T21:28:23Z'
+    source: TLS handshake dropwizard.io:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B5
+    checked_at: '2026-09-05T21:28:23Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 449651
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T21:28:24Z'
+    source: http://web.archive.org/cdx/search/cdx?url=dropwizard.io&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2013-09-24'
+      history_days: 4729
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,95 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:vim
+names:
+  en: Vim
+aliases:
+- Vim - the text editor
+- vim
+category:
+- open-source
+wikidata: Q131382
+canonical:
+  github_org: vim
+  wikidata: Q131382
+  sources:
+  - wikidata:Q131382/P856
+  - wikidata:Q131382/P2037
+domains:
+- domain: vim.org
+  role: primary
+  status: verified
+  confidence: 0.7088
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:53Z'
+  ttl_days: 30
+  age_days: 10582
+  age_source: rdap
+  collection_incomplete: true
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:37:28Z'
+    source: https://api.github.com/orgs/vim
+    data:
+      org: vim
+      org_verified: false
+      blog: http://www.vim.org
+  - code: A8
+    checked_at: '2026-09-05T18:37:29Z'
+    source: https://api.github.com/repos/vim/vim
+    data:
+      repo: vim/vim
+      org: vim
+      repo_anchored: true
+      homepage: https://www.vim.org
+      backlink: true
+      stars: 40856
+      age_days: 4035
+      contributors: 859
+  - code: A3
+    checked_at: '2026-09-05T18:37:29Z'
+    source: https://rdap.org/domain/vim.org
+    data:
+      registrar: Gandi SAS
+      created: '1997-09-15'
+      expires: '2026-09-14'
+      remaining_days: 8
+      locks: []
+  - code: B1
+    checked_at: '2026-09-05T18:37:30Z'
+    source: https://www.wikidata.org/wiki/Q131382
+    data:
+      qid: Q131382
+      label: விம்
+      site: https://www.vim.org/
+      sitelinks: 69
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:37:30Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 13402
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:37:36Z'
+    source: http://web.archive.org/cdx/search/cdx?url=vim.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1998-01-31'
+      history_days: 10444
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Gandi SAS) is not a brand-protection registrar'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q131382
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,97 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:flyway
+names:
+  en: Flyway
+aliases:
+- Flyway by Redgate
+- flyway
+category:
+- infrastructure
+wikidata: Q21113187
+canonical:
+  github_org: flyway
+  wikidata: Q21113187
+  sources:
+  - wikidata:Q21113187/P856
+  - wikidata:Q21113187/P1324
+domains:
+- domain: flywaydb.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:59Z'
+  ttl_days: 30
+  age_days: 5142
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T21:06:38Z'
+    source: https://api.github.com/orgs/flyway
+    data:
+      org: flyway
+      org_verified: true
+      blog: https://flywaydb.org
+      org_name: Flyway by Redgate
+      created_at: '2012-08-07T11:20:49Z'
+  - code: A3
+    checked_at: '2026-09-05T21:06:39Z'
+    source: https://rdap.org/domain/flywaydb.org
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2012-08-07'
+      expires: '2027-08-07'
+      remaining_days: 335
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T21:06:39Z'
+    source: TLS handshake flywaydb.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T21:06:39Z'
+    source: https://www.wikidata.org/wiki/Q21113187
+    data:
+      qid: Q21113187
+      label: Flyway
+      site: https://flywaydb.org/
+      sitelinks: 5
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T21:06:39Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 345653
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T21:06:46Z'
+    source: http://web.archive.org/cdx/search/cdx?url=flywaydb.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2012-10-29'
+      history_days: 5059
+  rejected_evidence:
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q21113187
+  reviewed_by: []
+  source_issue: null

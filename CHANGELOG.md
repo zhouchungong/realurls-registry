@@ -6,7 +6,29 @@ The dataset itself is released continuously as the rolling `latest` GitHub Relea
 
 ## 2026-09-06
 
+### Fixed
+- **AI review recorded "review unavailable" as a pass.** The anthropic SDK 1.x dropped the `temperature`
+  argument, every call raised, and the fallback wrote `verdict: pass`. An unavailable review is now
+  `skipped`, counted separately, and the run fails when nothing was reviewed. The first full-category batch
+  was re-reviewed after the fix.
+
 ### Rules
+- **A3 never anchors on its own; nor does A7 when the entity has an identity of its own.** A brand-protection registrar or a restricted TLD proves that
+  *someone* substantial holds the domain, not who; together with B4 (history) and B5 (rank), neither of which
+  names the entity either, they verified anthropic.com under the Python project, digitalocean.com under five
+  projects it sponsors and vmware.com under RabbitMQ in the first full-category batch. An entity-agnostic anchor
+  now counts only when at least one identity-bearing piece of evidence (A1/A2/A4/A5/A6/A8/A9/B1) passed too.
+  Existing records: none change (checked with revalidate). New adversarial cases.
+- **A6 (propagation): pooled name servers are not a link, and a domain another GitHub organization declares
+  as its own is never propagated into.** cmake.org and kitware.com share only Namecheap's default name servers;
+  matrix.org is run alongside element.io but belongs to the matrix-org organization, so it has to enter as its
+  own entity. Records whose shared name servers were not recorded (older collector) lose the link until
+  re-collected. Two adversarial cases.
+- **Labels: `names.en` is always English.** The batch had shown Arabic, Korean and Tamil Wikidata labels
+  for WordPress, Docker, Vim and 21 others, and product names (Next.js, javascript) for organizations
+  (Vercel, Airbnb). Wikidata's English label wins only when it names the organization; otherwise the
+  organization's own name is used and the Wikidata label becomes an alias. `src.relabel` applies the same
+  chain to stored records.
 - **A6 (propagation): shared name servers alone now need a backlink that was actually seen.** The first
   full-category batch propagated anthropic.com, digitalocean.com, alibabacloud.com, vmware.com and others
   from open-source projects that merely link to their sponsors, because those sites answer 403 to the

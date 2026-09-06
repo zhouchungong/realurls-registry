@@ -1,0 +1,99 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:remix-run
+names:
+  en: Remix
+aliases:
+- remix-run
+- remix-run/react-router
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: remix-run
+  wikidata: null
+  sources:
+  - github-history:remix-run/react-router(age=12y,contrib=1304,stars=56578)
+domains:
+- domain: remix.run
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:53Z'
+  ttl_days: 30
+  age_days: 2745
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:25:37Z'
+    source: https://api.github.com/orgs/remix-run
+    data:
+      org: remix-run
+      org_verified: true
+      blog: https://remix.run
+      org_name: Remix
+      created_at: '2020-04-24T00:24:40Z'
+  - code: A8
+    checked_at: '2026-09-05T18:25:37Z'
+    source: https://api.github.com/repos/remix-run/react-router
+    data:
+      repo: remix-run/react-router
+      org: remix-run
+      repo_anchored: true
+      homepage: https://reactrouter.com
+      backlink: true
+      stars: 56578
+      age_days: 4494
+      contributors: 1304
+  - code: A3
+    checked_at: '2026-09-05T18:25:37Z'
+    source: https://rdap.org/domain/remix.run
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2019-02-28'
+      expires: '2028-02-28'
+      remaining_days: 541
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T18:25:37Z'
+    source: TLS handshake remix.run:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B5
+    checked_at: '2026-09-05T18:25:37Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 208513
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:25:57Z'
+    source: http://web.archive.org/cdx/search/cdx?url=remix.run&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2020-04-23'
+      history_days: 2326
+  rejected_evidence:
+  - 'A8: repository homepage (https://reactrouter.com) does not point to this domain'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

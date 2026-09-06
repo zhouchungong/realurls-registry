@@ -1,0 +1,95 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:microg
+names:
+  en: microG
+aliases:
+- microG Project
+- microg
+category:
+- open-source
+wikidata: Q83159306
+canonical:
+  github_org: microG
+  wikidata: Q83159306
+  sources:
+  - wikidata:Q83159306/P856
+  - wikidata:Q83159306/P2037
+domains:
+- domain: microg.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:19:00Z'
+  ttl_days: 30
+  age_days: 4606
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:34:58Z'
+    source: https://api.github.com/orgs/microG
+    data:
+      org: microG
+      org_verified: true
+      blog: https://microg.org
+      org_name: microG Project
+      created_at: '2012-11-09T11:52:49Z'
+  - code: A3
+    checked_at: '2026-09-05T20:35:21Z'
+    source: https://rdap.org/domain/microg.org
+    data:
+      registrar: Porkbun LLC
+      created: '2014-01-24'
+      expires: '2028-01-24'
+      remaining_days: 506
+      locks:
+      - delete
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T20:35:21Z'
+    source: TLS handshake microg.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T20:35:21Z'
+    source: https://www.wikidata.org/wiki/Q83159306
+    data:
+      qid: Q83159306
+      label: microG
+      site: https://microg.org/
+      sitelinks: 8
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:35:21Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 177683
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:35:27Z'
+    source: http://web.archive.org/cdx/search/cdx?url=microg.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2016-02-03'
+      history_days: 3867
+  rejected_evidence:
+  - 'A3: registrar (Porkbun LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q83159306
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,97 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:ampproject
+names:
+  en: AMP
+aliases:
+- ampproject
+- ampproject/amphtml
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: ampproject
+  wikidata: null
+  sources:
+  - github-history:ampproject/amphtml(age=11y,contrib=1304,stars=14905)
+domains:
+- domain: amp.dev
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:49Z'
+  ttl_days: 30
+  age_days: 3034
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:49:47Z'
+    source: https://api.github.com/orgs/ampproject
+    data:
+      org: ampproject
+      org_verified: false
+      blog: https://amp.dev
+  - code: A8
+    checked_at: '2026-09-05T19:49:47Z'
+    source: https://api.github.com/repos/ampproject/amphtml
+    data:
+      repo: ampproject/amphtml
+      org: ampproject
+      repo_anchored: true
+      homepage: https://amp.dev
+      backlink: true
+      stars: 14905
+      age_days: 4021
+      contributors: 1304
+  - code: A3
+    checked_at: '2026-09-05T19:49:47Z'
+    source: https://rdap.org/domain/amp.dev
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2018-05-16'
+      expires: '2027-05-16'
+      remaining_days: 252
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T19:49:47Z'
+    source: TLS handshake amp.dev:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 3
+  - code: B5
+    checked_at: '2026-09-05T19:49:47Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 39277
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:50:49Z'
+    source: http://web.archive.org/cdx/search/cdx?url=amp.dev&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2019-04-09'
+      history_days: 2706
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

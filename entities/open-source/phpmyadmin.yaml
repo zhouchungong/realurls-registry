@@ -1,0 +1,106 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:phpmyadmin
+names:
+  en: phpMyAdmin
+aliases:
+- phpmyadmin
+category:
+- open-source
+wikidata: Q188104
+canonical:
+  github_org: phpmyadmin
+  wikidata: Q188104
+  sources:
+  - wikidata:Q188104/P856
+  - wikidata:Q188104/P2037
+domains:
+- domain: phpmyadmin.net
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:19:08Z'
+  ttl_days: 30
+  age_days: 8922
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T21:33:27Z'
+    source: https://api.github.com/orgs/phpmyadmin
+    data:
+      org: phpmyadmin
+      org_verified: true
+      blog: https://www.phpmyadmin.net/
+      org_name: phpMyAdmin
+      created_at: '2012-01-19T08:04:26Z'
+  - code: A8
+    checked_at: '2026-09-05T21:33:27Z'
+    source: https://api.github.com/repos/phpmyadmin/phpmyadmin
+    data:
+      repo: phpmyadmin/phpmyadmin
+      org: phpmyadmin
+      repo_anchored: true
+      homepage: https://www.phpmyadmin.net/
+      backlink: true
+      stars: 7928
+      age_days: 5343
+      contributors: 2263
+  - code: A3
+    checked_at: '2026-09-05T21:33:27Z'
+    source: https://rdap.org/domain/phpmyadmin.net
+    data:
+      registrar: Gandi SAS
+      created: '2002-04-02'
+      expires: '2027-04-02'
+      remaining_days: 208
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T21:33:28Z'
+    source: TLS handshake phpmyadmin.net:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T21:33:28Z'
+    source: https://www.wikidata.org/wiki/Q188104
+    data:
+      qid: Q188104
+      label: phpMyAdmin
+      site: https://www.phpmyadmin.net/
+      sitelinks: 43
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T21:33:28Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 5003
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T21:33:33Z'
+    source: http://web.archive.org/cdx/search/cdx?url=phpmyadmin.net&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2001-03-08'
+      history_days: 9312
+  rejected_evidence:
+  - 'A3: registrar (Gandi SAS) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q188104
+  reviewed_by: []
+  source_issue: null

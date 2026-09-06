@@ -1,0 +1,105 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:octoprint
+names:
+  en: OctoPrint
+aliases:
+- OctoPrint/OctoPrint
+category:
+- hardware
+wikidata: null
+canonical:
+  github_org: OctoPrint
+  wikidata: null
+  sources:
+  - github-history:OctoPrint/OctoPrint(age=13y,contrib=314,stars=9086)
+domains:
+- domain: octoprint.org
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:55Z'
+  ttl_days: 30
+  age_days: 4940
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:56:30Z'
+    source: https://api.github.com/orgs/OctoPrint
+    data:
+      org: OctoPrint
+      org_verified: true
+      blog: https://octoprint.org/
+      org_name: OctoPrint
+      created_at: '2013-11-19T16:48:59Z'
+  - code: A8
+    checked_at: '2026-09-05T20:56:30Z'
+    source: https://api.github.com/repos/OctoPrint/OctoPrint
+    data:
+      repo: OctoPrint/OctoPrint
+      org: OctoPrint
+      repo_anchored: true
+      homepage: https://octoprint.org
+      backlink: true
+      stars: 9086
+      age_days: 4996
+      contributors: 314
+  - code: A3
+    checked_at: '2026-09-05T20:56:32Z'
+    source: https://rdap.org/domain/octoprint.org
+    data:
+      registrar: Vautron Rechenzentrum AG
+      created: '2013-02-25'
+      expires: '2027-02-25'
+      remaining_days: 172
+      locks: []
+  - code: A4
+    checked_at: '2026-09-05T20:56:32Z'
+    source: TLS handshake octoprint.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T20:56:33Z'
+    source: https://www.wikidata.org/wiki/Q63285356
+    data:
+      qid: Q63285356
+      label: OctoPrint
+      site: https://octoprint.org/
+      sitelinks: 2
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:56:33Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 35410
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:57:21Z'
+    source: http://web.archive.org/cdx/search/cdx?url=octoprint.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2013-04-20'
+      history_days: 4886
+  rejected_evidence:
+  - 'A3: registrar (Vautron Rechenzentrum AG) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,106 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:django
+names:
+  en: Django
+aliases:
+- django
+category:
+- developer-tools
+wikidata: Q842014
+canonical:
+  github_org: django
+  wikidata: Q842014
+  sources:
+  - wikidata:Q842014/P856
+  - wikidata:Q842014/P2037
+domains:
+- domain: djangoproject.com
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 7823
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:29:23Z'
+    source: https://api.github.com/orgs/django
+    data:
+      org: django
+      org_verified: true
+      blog: https://www.djangoproject.com/
+      org_name: Django
+      created_at: '2008-10-06T19:43:18Z'
+  - code: A8
+    checked_at: '2026-09-05T18:29:23Z'
+    source: https://api.github.com/repos/django/django
+    data:
+      repo: django/django
+      org: django
+      repo_anchored: true
+      homepage: https://www.djangoproject.com/
+      backlink: true
+      stars: 89938
+      age_days: 5243
+      contributors: 3492
+  - code: A3
+    checked_at: '2026-09-05T18:29:41Z'
+    source: https://rdap.org/domain/djangoproject.com
+    data:
+      registrar: Gandi SAS
+      created: '2005-04-04'
+      expires: '2028-04-04'
+      remaining_days: 577
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:29:41Z'
+    source: TLS handshake djangoproject.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 8
+  - code: B1
+    checked_at: '2026-09-05T18:29:41Z'
+    source: https://www.wikidata.org/wiki/Q842014
+    data:
+      qid: Q842014
+      label: Django
+      site: https://www.djangoproject.com/
+      sitelinks: 47
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:29:41Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 7231
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:29:53Z'
+    source: http://web.archive.org/cdx/search/cdx?url=djangoproject.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2005-07-17'
+      history_days: 7720
+  rejected_evidence:
+  - 'A3: registrar (Gandi SAS) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q842014
+  reviewed_by: []
+  source_issue: null

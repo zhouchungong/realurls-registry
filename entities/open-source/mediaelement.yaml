@@ -1,0 +1,86 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:mediaelement
+names:
+  en: MediaElement.js
+aliases:
+- mediaelement
+- mediaelement/mediaelement
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: mediaelement
+  wikidata: null
+  sources:
+  - github-history:mediaelement/mediaelement(age=16y,contrib=316,stars=8299)
+domains:
+- domain: mediaelementjs.com
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 5888
+  age_source: rdap
+  collection_incomplete: true
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T21:39:15Z'
+    source: https://api.github.com/orgs/mediaelement
+    data:
+      org: mediaelement
+      org_verified: false
+      blog: http://www.mediaelementjs.com
+  - code: A8
+    checked_at: '2026-09-05T21:39:15Z'
+    source: https://api.github.com/repos/mediaelement/mediaelement
+    data:
+      repo: mediaelement/mediaelement
+      org: mediaelement
+      repo_anchored: true
+      homepage: http://mediaelementjs.com/
+      backlink: true
+      stars: 8299
+      age_days: 5883
+      contributors: 316
+  - code: A3
+    checked_at: '2026-09-05T21:39:17Z'
+    source: https://rdap.org/domain/mediaelementjs.com
+    data:
+      registrar: NameCheap, Inc.
+      created: '2010-07-23'
+      expires: '2027-07-23'
+      remaining_days: 320
+      locks:
+      - transfer
+  - code: B5
+    checked_at: '2026-09-05T21:39:17Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 673377
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T21:39:45Z'
+    source: http://web.archive.org/cdx/search/cdx?url=mediaelementjs.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2010-09-24'
+      history_days: 5825
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: github_org_display_name(self-declared)
+  reviewed_by: []
+  source_issue: null

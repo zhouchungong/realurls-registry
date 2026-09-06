@@ -1,0 +1,106 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:sqlalchemy
+names:
+  en: SQLAlchemy
+aliases:
+- sqlalchemy
+category:
+- infrastructure
+wikidata: Q1092514
+canonical:
+  github_org: sqlalchemy
+  wikidata: Q1092514
+  sources:
+  - wikidata:Q1092514/P856
+  - wikidata:Q1092514/P1324
+domains:
+- domain: sqlalchemy.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:53Z'
+  ttl_days: 30
+  age_days: 7769
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:20:20Z'
+    source: https://api.github.com/orgs/sqlalchemy
+    data:
+      org: sqlalchemy
+      org_verified: true
+      blog: https://www.sqlalchemy.org
+      org_name: SQLAlchemy
+      created_at: '2013-11-26T18:02:51Z'
+  - code: A8
+    checked_at: '2026-09-05T20:20:20Z'
+    source: https://api.github.com/repos/sqlalchemy/sqlalchemy
+    data:
+      repo: sqlalchemy/sqlalchemy
+      org: sqlalchemy
+      repo_anchored: true
+      homepage: https://www.sqlalchemy.org
+      backlink: true
+      stars: 12134
+      age_days: 2839
+      contributors: 864
+  - code: A3
+    checked_at: '2026-09-05T20:20:20Z'
+    source: https://rdap.org/domain/sqlalchemy.org
+    data:
+      registrar: NameCheap, Inc.
+      created: '2005-05-28'
+      expires: '2027-05-28'
+      remaining_days: 265
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T20:20:21Z'
+    source: TLS handshake sqlalchemy.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T20:20:21Z'
+    source: https://www.wikidata.org/wiki/Q1092514
+    data:
+      qid: Q1092514
+      label: SQLAlchemy
+      site: https://www.sqlalchemy.org/
+      sitelinks: 17
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:20:21Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 54951
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:20:27Z'
+    source: http://web.archive.org/cdx/search/cdx?url=sqlalchemy.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2005-12-25'
+      history_days: 7559
+  rejected_evidence:
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q1092514
+  reviewed_by: []
+  source_issue: null

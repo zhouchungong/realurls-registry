@@ -1,0 +1,104 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:openrefine
+names:
+  en: OpenRefine
+aliases: []
+category:
+- open-source
+wikidata: Q5583871
+canonical:
+  github_org: OpenRefine
+  wikidata: Q5583871
+  sources:
+  - wikidata:Q5583871/P856
+  - wikidata:Q5583871/P2037
+domains:
+- domain: openrefine.org
+  role: primary
+  status: verified
+  confidence: 0.7088
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:19:00Z'
+  ttl_days: 30
+  age_days: 5077
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:59:54Z'
+    source: https://api.github.com/orgs/OpenRefine
+    data:
+      org: OpenRefine
+      org_verified: false
+      blog: https://openrefine.org
+  - code: A8
+    checked_at: '2026-09-05T20:59:54Z'
+    source: https://api.github.com/repos/OpenRefine/OpenRefine
+    data:
+      repo: OpenRefine/OpenRefine
+      org: OpenRefine
+      repo_anchored: true
+      homepage: https://openrefine.org/
+      backlink: true
+      stars: 11982
+      age_days: 5073
+      contributors: 424
+  - code: A3
+    checked_at: '2026-09-05T20:59:55Z'
+    source: https://rdap.org/domain/openrefine.org
+    data:
+      registrar: Squarespace Domains II LLC
+      created: '2012-10-11'
+      expires: '2026-10-11'
+      remaining_days: 35
+      locks:
+      - delete
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T20:59:55Z'
+    source: TLS handshake openrefine.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T20:59:55Z'
+    source: https://www.wikidata.org/wiki/Q5583871
+    data:
+      qid: Q5583871
+      label: OpenRefine
+      site: https://openrefine.org/
+      sitelinks: 21
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:59:55Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 268905
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:59:57Z'
+    source: http://web.archive.org/cdx/search/cdx?url=openrefine.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2012-10-30'
+      history_days: 5058
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Squarespace Domains II LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q5583871
+  reviewed_by: []
+  source_issue: null

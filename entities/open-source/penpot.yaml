@@ -1,0 +1,98 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:penpot
+names:
+  en: Penpot
+aliases:
+- penpot
+category:
+- open-source
+wikidata: Q111586053
+canonical:
+  github_org: penpot
+  wikidata: Q111586053
+  sources:
+  - wikidata:Q111586053/P856
+  - wikidata:Q111586053/P2037
+domains:
+- domain: penpot.app
+  role: primary
+  status: verified
+  confidence: 0.6691
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:52Z'
+  ttl_days: 30
+  age_days: 2293
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:35:49Z'
+    source: https://api.github.com/orgs/penpot
+    data:
+      org: penpot
+      org_verified: false
+      blog: https://penpot.app
+  - code: A8
+    checked_at: '2026-09-05T18:35:49Z'
+    source: https://api.github.com/repos/penpot/penpot
+    data:
+      repo: penpot/penpot
+      org: penpot
+      repo_anchored: true
+      homepage: https://penpot.app
+      backlink: true
+      stars: 59631
+      age_days: 3902
+      contributors: 341
+  - code: A3
+    checked_at: '2026-09-05T18:36:10Z'
+    source: https://rdap.org/domain/penpot.app
+    data:
+      registrar: Gandi SAS
+      created: '2020-05-26'
+      expires: '2027-05-26'
+      remaining_days: 262
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T18:36:10Z'
+    source: TLS handshake penpot.app:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:36:10Z'
+    source: https://www.wikidata.org/wiki/Q111586053
+    data:
+      qid: Q111586053
+      label: Penpot
+      site: https://penpot.app
+      sitelinks: 4
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-05T18:36:10Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 108396
+      source: top-1m list
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Gandi SAS) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q111586053
+  reviewed_by: []
+  source_issue: null

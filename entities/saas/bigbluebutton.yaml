@@ -1,0 +1,106 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:bigbluebutton
+names:
+  en: BigBlueButton
+aliases:
+- bigbluebutton
+category:
+- saas
+wikidata: Q4904858
+canonical:
+  github_org: BigBlueButton
+  wikidata: Q4904858
+  sources:
+  - wikidata:Q4904858/P856
+  - wikidata:Q4904858/P2037
+domains:
+- domain: bigbluebutton.org
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 6721
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T20:50:16Z'
+    source: https://api.github.com/orgs/BigBlueButton
+    data:
+      org: BigBlueButton
+      org_verified: true
+      blog: https://bigbluebutton.org/
+      org_name: BigBlueButton
+      created_at: '2010-03-25T14:24:09Z'
+  - code: A8
+    checked_at: '2026-09-05T20:50:18Z'
+    source: https://api.github.com/repos/bigbluebutton/bigbluebutton
+    data:
+      repo: bigbluebutton/bigbluebutton
+      org: BigBlueButton
+      repo_anchored: true
+      homepage: https://bigbluebutton.org
+      backlink: true
+      stars: 9210
+      age_days: 5947
+      contributors: 344
+  - code: A3
+    checked_at: '2026-09-05T20:50:40Z'
+    source: https://rdap.org/domain/bigbluebutton.org
+    data:
+      registrar: Network Solutions, LLC
+      created: '2008-04-11'
+      expires: '2027-04-11'
+      remaining_days: 217
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T20:50:40Z'
+    source: TLS handshake bigbluebutton.org:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T20:50:40Z'
+    source: https://www.wikidata.org/wiki/Q4904858
+    data:
+      qid: Q4904858
+      label: BigBlueButton
+      site: https://bigbluebutton.org/
+      sitelinks: 14
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T20:50:40Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 53402
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T20:51:05Z'
+    source: http://web.archive.org/cdx/search/cdx?url=bigbluebutton.org&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2008-09-25'
+      history_days: 6554
+  rejected_evidence:
+  - 'A3: registrar (Network Solutions, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q4904858
+  reviewed_by: []
+  source_issue: null
