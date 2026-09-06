@@ -3,9 +3,9 @@
 schema_version: '1.0'
 entity_id: org:secdev
 names:
-  en: SecDev
+  en: Scapy
 aliases:
-- Scapy
+- SecDev
 - secdev
 category:
 - open-source
@@ -89,9 +89,14 @@ domains:
   - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
   reasons:
   - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
 provenance:
   generated_by: build_entities/0.2
   policy_version: policy.py@c1580b9
-  label_source: github_org_display_name(self-declared)
+  label_source: wikidata:Q2645567
   reviewed_by: []
   source_issue: null

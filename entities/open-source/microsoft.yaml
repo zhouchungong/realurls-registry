@@ -98,6 +98,11 @@ domains:
   - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
   reasons:
   - '2 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
 - domain: copilot.com
   role: product
   status: verified
@@ -167,6 +172,11 @@ domains:
   - 'A6: certificate has 163 SANs > 25; looks like a shared CDN certificate'
   reasons:
   - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
 - domain: xbox.com
   role: product
   status: verified
@@ -236,6 +246,11 @@ domains:
   - 'A6: no structural link (need at least one of shared_ns / cert_san / shared_registrar)'
   reasons:
   - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
 provenance:
   generated_by: build_entities/0.2
   policy_version: policy.py@c1580b9

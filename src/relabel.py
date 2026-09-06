@@ -57,9 +57,13 @@ def relabel(path: Path) -> tuple[str, str, str] | None:
     seed_org_name = old if str(prov.get("label_source", "")).startswith("seed_org_name") else ""
     repo_label = next((s.split(":", 1)[1].split("(", 1)[0] for s in canonical.get("sources", [])
                        if s.startswith("github-history:")), "")
-    primary = next((d["domain"] for d in doc.get("domains", []) if d.get("role") == "primary"), "")
+    primary_rec = next((d for d in doc.get("domains", []) if d.get("role") == "primary"), {})
+    primary = primary_rec.get("domain", "")
+    names_primary = bool(qid) and any(e.get("code") == "B1" and e.get("data", {}).get("qid") == qid
+                                      for e in primary_rec.get("evidence", []))
     label, source = choose_label(wikidata=qid, wikidata_label=wl, github_org=gh, gh_display=gh_display,
-                                 org_name=seed_org_name, repo_label=repo_label, domain=primary)
+                                 org_name=seed_org_name, repo_label=repo_label, domain=primary,
+                                 wikidata_names_primary=names_primary)
     if label == old and prov.get("label_source") == source:
         return None
     aliases = sorted({a for a in [*(doc.get("aliases") or []), old, wl, gh_display, gh]

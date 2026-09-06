@@ -103,9 +103,11 @@ def build_one(seed: dict, now: datetime) -> tuple[dict | None, str]:
 
     org_name = (seed.get("org_name") or "").strip()
     gh_display = next((str(e.data.get("org_name") or "").strip() for e in result.evidence if e.code == "A1"), "")
+    names_primary = any(e.code == "B1" and e.data.get("qid") == ent.wikidata for e in result.evidence) if ent.wikidata else False
     label, label_source = choose_label(wikidata=ent.wikidata, wikidata_label=ent.label if ent.wikidata else "",
                                        github_org=ent.github_org, gh_display=gh_display, org_name=org_name,
-                                       repo_label=ent.label if not ent.wikidata else "", domain=domain)
+                                       repo_label=ent.label if not ent.wikidata else "", domain=domain,
+                                       wikidata_names_primary=names_primary)
     aliases = sorted({a for a in (org_name, seed.get("github_org", ""), ent.label or "", gh_display)
                       if a and a != label and not re.fullmatch(r"Q\d+", a)})
 
@@ -194,14 +196,17 @@ def build_one(seed: dict, now: datetime) -> tuple[dict | None, str]:
 
 
 def choose_label(*, wikidata: str | None, wikidata_label: str, github_org: str | None, gh_display: str,
-                 org_name: str, repo_label: str, domain: str) -> tuple[str, str]:
+                 org_name: str, repo_label: str, domain: str, wikidata_names_primary: bool = False) -> tuple[str, str]:
     """The display name and where it came from (POLICY.md §0).
 
     Wikidata's English label wins when it names the organization: it is the one source nobody self-declares.
     It loses when the item is a *product* of the organization (vercel.com resolved to the Next.js item,
     airbnb.tech to the style-guide repository): then the entity is the organization and the organization's
     own name (GitHub display name, then login) is the label, with the Wikidata label kept as an alias. A
-    "org/repo" from project-history anchoring is never a display name.
+    "org/repo" from project-history anchoring is never a display name. When the item's official website *is*
+    the primary domain (``wikidata_names_primary``), a label matching the domain itself is enough (bridgecrewio's
+    display name is "PANW AppSec"; paloaltonetworks.com is Palo Alto Networks'). Labels are still not taken on
+    faith: Wikidata's English label for PHP read "Zend Engine" and xAI's "SpaceXAI" at the time of writing.
     """
     from src.policy import _name_key
     wl = (wikidata_label or "").strip()
@@ -216,6 +221,8 @@ def choose_label(*, wikidata: str | None, wikidata_label: str, github_org: str |
         ka, kb = _name_key(a), _name_key(b)
         return bool(ka and kb) and (ka in kb or kb in ka)
 
+    if wikidata_names_primary and domain:
+        org_names.append(domain.split(".")[0])   # the item's site is this domain: its label may match the domain itself
     if wl and (not gh_login or any(_matches(wl, n) for n in org_names)):
         return wl, f"wikidata:{wikidata}"
     if org_name and org_name.lower() != gh_login.lower():

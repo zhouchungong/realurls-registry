@@ -83,6 +83,11 @@ domains:
   - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
   reasons:
   - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
 - domain: chase.com
   role: product
   status: verified
@@ -154,6 +159,11 @@ domains:
   - 'B1: item Q524629 != entity canonical item Q192314'
   reasons:
   - '2 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
 - domain: jpmchase.com
   role: product
   status: verified
@@ -213,6 +223,11 @@ domains:
   - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
   reasons:
   - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
 - domain: jpmorgan.com
   role: product
   status: verified
@@ -285,6 +300,11 @@ domains:
   - 'B1: item Q93355994 != entity canonical item Q192314'
   reasons:
   - '2 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
 provenance:
   generated_by: build_entities/0.2
   policy_version: policy.py@c1580b9
