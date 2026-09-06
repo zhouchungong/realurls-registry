@@ -100,11 +100,10 @@ domains:
   reasons:
   - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
   ai_review:
-    at: '2026-09-06T15:41:43Z'
-    model: claude-sonnet-5
-    verdict: skipped
-    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
-      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+    at: '2026-09-06T16:10:53Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
 provenance:
   generated_by: build_entities/0.2
   policy_version: policy.py@495dbd4

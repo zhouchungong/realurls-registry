@@ -20,14 +20,14 @@ domains:
   status: verified
   confidence: 0.6724
   first_seen: '2026-09-06'
-  last_verified: '2026-09-06T14:42:31Z'
+  last_verified: '2026-09-06T16:02:26Z'
   ttl_days: 30
   age_days: 9274
   age_source: rdap
   collection_incomplete: false
   evidence:
   - code: A9
-    checked_at: '2026-09-06T14:43:30Z'
+    checked_at: '2026-09-06T16:02:29Z'
     source: https://itunes.apple.com/search?term=Ankama&entity=software
     data:
       app: Drag'n'Boom
@@ -37,21 +37,21 @@ domains:
       seller_url: https://www.ankama.com/en/games/drag-boom
       released: '2017-09-12'
       age_days: 3281
-      ratings: 22300
+      ratings: 22299
       apps_for_domain: 2
       apps:
       - app: Drag'n'Boom
         seller: Ankama
         released: '2017-09-12'
         age_days: 3281
-        ratings: 22300
+        ratings: 22299
       - app: Krosmoz
         seller: Ankama
         released: '2022-08-02'
         age_days: 1496
         ratings: 15
   - code: A3
-    checked_at: '2026-09-06T14:43:29Z'
+    checked_at: '2026-09-06T16:02:32Z'
     source: https://rdap.org/domain/ankama.com
     data:
       registrar: EuroDNS S.A.
@@ -61,7 +61,7 @@ domains:
       locks:
       - transfer
   - code: A4
-    checked_at: '2026-09-06T14:43:29Z'
+    checked_at: '2026-09-06T16:02:28Z'
     source: TLS handshake ankama.com:443
     data:
       subject_org: ''
@@ -69,7 +69,7 @@ domains:
       issuer: Amazon
       san_count: 46
   - code: B1
-    checked_at: '2026-09-06T14:43:29Z'
+    checked_at: '2026-09-06T16:02:28Z'
     source: https://www.wikidata.org/wiki/Q556308
     data:
       qid: Q556308
@@ -79,13 +79,13 @@ domains:
       sitelinks: 9
       competing_items: 2
   - code: B5
-    checked_at: '2026-09-06T14:43:29Z'
+    checked_at: '2026-09-06T16:02:28Z'
     source: https://tranco-list.eu/download/daily/top-1m.csv.zip
     data:
-      rank: 27352
+      rank: 27361
       source: top-1m list
   - code: B4
-    checked_at: '2026-09-06T14:43:48Z'
+    checked_at: '2026-09-06T16:02:47Z'
     source: http://web.archive.org/cdx/search/cdx?url=ankama.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2002-06-01'
@@ -96,14 +96,13 @@ domains:
   reasons:
   - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
   ai_review:
-    at: '2026-09-06T15:41:43Z'
-    model: claude-sonnet-5
-    verdict: skipped
-    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
-      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+    at: '2026-09-06T16:10:53Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
 provenance:
   generated_by: build_entities/0.2
-  policy_version: policy.py@495dbd4
+  policy_version: policy.py@e0b9a5c
   label_source: wikidata:Q556308
   reviewed_by: []
   source_issue: null

@@ -29,3 +29,23 @@ def test_label_prefers_the_organizations_own_name_over_a_non_organization_item()
                             gh_display="PANW AppSec", org_name="", repo_label="", domain="paloaltonetworks.com",
                             wikidata_names_primary=True, wikidata_is_org=True)
     assert label == "Palo Alto Networks"
+
+
+
+def test_write_refuses_to_overwrite_a_stored_entity_with_another_identity(tmp_path, monkeypatch):
+    import pytest
+    import yaml
+
+    from src import build_entities as be
+    monkeypatch.setattr(be, "ENTITIES", tmp_path)
+    old = {"entity_id": "org:automattic", "names": {"en": "Automattic"}, "category": ["saas"],
+           "canonical": {"wikidata": "Q2872634", "github_org": "Automattic", "sources": []},
+           "domains": [{"domain": "automattic.com", "role": "primary", "status": "verified", "first_seen": "2026-01-01"}]}
+    (tmp_path / "saas").mkdir()
+    (tmp_path / "saas" / "automattic.yaml").write_text(yaml.safe_dump(old), encoding="utf-8")
+    new = {"entity_id": "org:automattic", "names": {"en": "WordPress.com"}, "category": ["saas"],
+           "canonical": {"wikidata": "Q2001888", "github_org": "Automattic", "sources": []},
+           "domains": [{"domain": "wordpress.com", "role": "primary", "status": "verified", "first_seen": "2026-09-06"}]}
+    with pytest.raises(be.IdentityConflict):
+        be.write(new)
+    assert yaml.safe_load((tmp_path / "saas" / "automattic.yaml").read_text(encoding="utf-8"))["names"]["en"] == "Automattic"

@@ -1,0 +1,122 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:ndemic-creations
+names:
+  en: Ndemic Creations
+aliases: []
+category:
+- saas
+wikidata: Q29227659
+canonical:
+  github_org: null
+  wikidata: Q29227659
+  sources:
+  - wikidata:Q29227659/P856(sitelinks=0)
+  - 'appstore:Ndemic Creations LTD(Plague Inc: Scenario Creator,9y,1075 ratings)'
+domains:
+- domain: ndemiccreations.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T15:44:16Z'
+  ttl_days: 30
+  age_days: 5332
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T15:48:01Z'
+    source: https://api.github.com/orgs/ndemiccreations
+    data:
+      org: ndemiccreations
+      org_verified: false
+      blog: http://www.ndemiccreations.com/en/
+  - code: A9
+    checked_at: '2026-09-06T15:48:02Z'
+    source: https://itunes.apple.com/search?term=Ndemic%20Creations&entity=software
+    data:
+      app: 'Plague Inc: Scenario Creator'
+      track_id: 1113002956
+      seller: Ndemic Creations LTD
+      artist: Ndemic Creations
+      seller_url: http://www.ndemiccreations.com/
+      released: '2017-04-11'
+      age_days: 3434
+      ratings: 1075
+      apps_for_domain: 3
+      apps:
+      - app: 'Plague Inc: Scenario Creator'
+        seller: Ndemic Creations LTD
+        released: '2017-04-11'
+        age_days: 3434
+        ratings: 1075
+      - app: 'Rebel Inc: Scenario Creator'
+        seller: Ndemic Creations LTD
+        released: '2022-05-11'
+        age_days: 1579
+        ratings: 19
+      - app: After Inc. Scenario Creator
+        seller: Ndemic Creations LTD
+        released: '2026-08-30'
+        age_days: 7
+        ratings: 1
+  - code: A3
+    checked_at: '2026-09-06T15:48:12Z'
+    source: https://rdap.org/domain/ndemiccreations.com
+    data:
+      registrar: Squarespace Domains LLC
+      created: '2012-01-31'
+      expires: '2027-01-31'
+      remaining_days: 146
+      locks:
+      - delete
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T15:48:02Z'
+    source: TLS handshake ndemiccreations.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 13
+  - code: B1
+    checked_at: '2026-09-06T15:48:02Z'
+    source: https://www.wikidata.org/wiki/Q29227659
+    data:
+      qid: Q29227659
+      label: Ndemic Creations
+      kind: organization
+      site: https://www.ndemiccreations.com/
+      sitelinks: 0
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T15:48:02Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 97280
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T15:48:24Z'
+    source: http://web.archive.org/cdx/search/cdx?url=ndemiccreations.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2012-05-30'
+      history_days: 5212
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Squarespace Domains LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T16:10:53Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@e0b9a5c
+  label_source: wikidata:Q29227659
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,114 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:oh-bibi
+names:
+  en: Oh Bibi
+aliases: []
+category:
+- saas
+wikidata: Q85678252
+canonical:
+  github_org: null
+  wikidata: Q85678252
+  sources:
+  - wikidata:Q85678252/P856(sitelinks=0)
+  - appstore:Oh BiBi(SUP Multiplayer Racing,9y,59559 ratings)
+domains:
+- domain: ohbibi.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T15:44:16Z'
+  ttl_days: 30
+  age_days: 5205
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T15:49:30Z'
+    source: https://itunes.apple.com/search?term=Oh%20Bibi&entity=software
+    data:
+      app: SUP Multiplayer Racing
+      track_id: 1128327441
+      seller: Oh BiBi
+      artist: Oh BiBi
+      seller_url: https://www.ohbibi.com
+      released: '2017-05-30'
+      age_days: 3385
+      ratings: 59559
+      apps_for_domain: 5
+      apps:
+      - app: SUP Multiplayer Racing
+        seller: Oh BiBi
+        released: '2017-05-30'
+        age_days: 3385
+        ratings: 59559
+      - app: FRAG Pro Shooter
+        seller: Oh BiBi
+        released: '2019-03-05'
+        age_days: 2742
+        ratings: 74729
+      - app: 'Motor World: Car Factory'
+        seller: Oh BiBi
+        released: '2013-02-15'
+        age_days: 4950
+        ratings: 2789
+  - code: A3
+    checked_at: '2026-09-06T15:49:30Z'
+    source: https://rdap.org/domain/ohbibi.com
+    data:
+      registrar: OVH sas
+      created: '2012-06-06'
+      expires: '2027-06-06'
+      remaining_days: 272
+      locks:
+      - delete
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T15:49:35Z'
+    source: TLS handshake ohbibi.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T15:49:30Z'
+    source: https://www.wikidata.org/wiki/Q85678252
+    data:
+      qid: Q85678252
+      label: Oh Bibi
+      kind: organization
+      site: https://www.ohbibi.com/
+      sitelinks: 0
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T15:49:29Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 391494
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T15:49:34Z'
+    source: http://web.archive.org/cdx/search/cdx?url=ohbibi.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2002-09-28'
+      history_days: 8744
+  rejected_evidence:
+  - 'A3: registrar (OVH sas) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T16:10:53Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@e0b9a5c
+  label_source: wikidata:Q85678252
+  reviewed_by: []
+  source_issue: null

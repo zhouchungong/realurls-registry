@@ -1,19 +1,19 @@
 # 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
 # generated_by: build_entities/0.2
 schema_version: '1.0'
-entity_id: org:newzik
+entity_id: org:syncsing
 names:
-  en: Newzik
+  en: SyncSing
 aliases:
-- SyncSing
+- Newzik
 category:
 - saas
-wikidata: Q140173071
+wikidata: Q140185032
 canonical:
   github_org: null
-  wikidata: Q140173071
+  wikidata: Q140185032
   sources:
-  - wikidata:Q140173071/P856(sitelinks=0)
+  - wikidata:Q140185032/P856(sitelinks=0)
   - 'appstore:Syncsing - Newzik(Newzik: Sheet Music Reader,10y,1500 ratings)'
 domains:
 - domain: newzik.com
@@ -21,14 +21,14 @@ domains:
   status: verified
   confidence: 0.6515
   first_seen: '2026-09-06'
-  last_verified: '2026-09-06T14:42:14Z'
+  last_verified: '2026-09-06T16:02:26Z'
   ttl_days: 30
   age_days: 8825
   age_source: rdap
   collection_incomplete: false
   evidence:
   - code: A1
-    checked_at: '2026-09-06T14:56:26Z'
+    checked_at: '2026-09-06T16:07:44Z'
     source: https://api.github.com/orgs/newzik
     data:
       org: newzik
@@ -37,8 +37,8 @@ domains:
       org_name: Newzik
       created_at: '2013-01-03T14:35:15Z'
   - code: A9
-    checked_at: '2026-09-06T14:56:26Z'
-    source: https://itunes.apple.com/search?term=Newzik&entity=software
+    checked_at: '2026-09-06T16:07:44Z'
+    source: https://itunes.apple.com/search?term=SyncSing&entity=software
     data:
       app: 'Newzik: Sheet Music Reader'
       track_id: 966963109
@@ -56,7 +56,7 @@ domains:
         age_days: 3882
         ratings: 1500
   - code: A3
-    checked_at: '2026-09-06T14:56:47Z'
+    checked_at: '2026-09-06T16:07:45Z'
     source: https://rdap.org/domain/newzik.com
     data:
       registrar: OVH sas
@@ -67,7 +67,7 @@ domains:
       - delete
       - transfer
   - code: A4
-    checked_at: '2026-09-06T14:56:26Z'
+    checked_at: '2026-09-06T16:07:45Z'
     source: TLS handshake newzik.com:443
     data:
       subject_org: ''
@@ -75,17 +75,17 @@ domains:
       issuer: Google Trust Services
       san_count: 1
   - code: B1
-    checked_at: '2026-09-06T14:56:26Z'
-    source: https://www.wikidata.org/wiki/Q140173071
+    checked_at: '2026-09-06T16:07:44Z'
+    source: https://www.wikidata.org/wiki/Q140185032
     data:
-      qid: Q140173071
-      label: Newzik
-      kind: software
+      qid: Q140185032
+      label: SyncSing
+      kind: organization
       site: https://newzik.com/
       sitelinks: 0
       competing_items: 3
   - code: B4
-    checked_at: '2026-09-06T14:56:30Z'
+    checked_at: '2026-09-06T16:08:12Z'
     source: http://web.archive.org/cdx/search/cdx?url=newzik.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '2001-03-06'
@@ -98,14 +98,13 @@ domains:
   reasons:
   - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
   ai_review:
-    at: '2026-09-06T15:41:43Z'
-    model: claude-sonnet-5
-    verdict: skipped
-    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
-      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+    at: '2026-09-06T16:10:53Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
 provenance:
   generated_by: build_entities/0.2
-  policy_version: policy.py@495dbd4
-  label_source: github_org_display_name(self-declared)
+  policy_version: policy.py@e0b9a5c
+  label_source: wikidata:Q140185032
   reviewed_by: []
   source_issue: null

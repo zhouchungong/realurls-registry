@@ -1,34 +1,34 @@
 # 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
 # generated_by: build_entities/0.2
 schema_version: '1.0'
-entity_id: org:waze
+entity_id: org:waze-mobile
 names:
-  en: Waze
-aliases:
-- Waze Mobile
+  en: Waze Mobile
+aliases: []
 category:
 - saas
-wikidata: Q942327
+wikidata: Q16523799
 canonical:
   github_org: null
-  wikidata: Q942327
+  wikidata: Q16523799
   sources:
-  - wikidata:Q942327/P856
+  - wikidata:Q16523799/P856(sitelinks=1)
+  - appstore:waze(Waze Navigation & Live Traffic,17y,3189051 ratings)
 domains:
 - domain: waze.com
   role: primary
   status: verified
   confidence: 0.6724
   first_seen: '2026-09-06'
-  last_verified: '2026-09-06T14:42:31Z'
+  last_verified: '2026-09-06T16:02:26Z'
   ttl_days: 30
   age_days: 9654
   age_source: rdap
   collection_incomplete: false
   evidence:
   - code: A9
-    checked_at: '2026-09-06T15:11:06Z'
-    source: https://itunes.apple.com/search?term=Waze&entity=software
+    checked_at: '2026-09-06T16:09:36Z'
+    source: https://itunes.apple.com/search?term=Waze%20Mobile&entity=software
     data:
       app: Waze Navigation & Live Traffic
       track_id: 323229106
@@ -46,7 +46,7 @@ domains:
         age_days: 6244
         ratings: 3189051
   - code: A3
-    checked_at: '2026-09-06T15:11:39Z'
+    checked_at: '2026-09-06T16:09:37Z'
     source: https://rdap.org/domain/waze.com
     data:
       registrar: MarkMonitor Inc.
@@ -58,7 +58,7 @@ domains:
       - transfer
       - update
   - code: A4
-    checked_at: '2026-09-06T15:11:05Z'
+    checked_at: '2026-09-06T16:09:36Z'
     source: TLS handshake waze.com:443
     data:
       subject_org: ''
@@ -66,23 +66,23 @@ domains:
       issuer: Google Trust Services
       san_count: 6
   - code: B1
-    checked_at: '2026-09-06T15:11:05Z'
-    source: https://www.wikidata.org/wiki/Q942327
+    checked_at: '2026-09-06T16:09:36Z'
+    source: https://www.wikidata.org/wiki/Q16523799
     data:
-      qid: Q942327
-      label: Waze
-      kind: software
-      site: https://www.waze.com
-      sitelinks: 37
+      qid: Q16523799
+      label: Waze Mobile
+      kind: organization
+      site: https://www.waze.com/
+      sitelinks: 1
       competing_items: 1
   - code: B5
-    checked_at: '2026-09-06T15:11:05Z'
+    checked_at: '2026-09-06T16:09:36Z'
     source: https://tranco-list.eu/download/daily/top-1m.csv.zip
     data:
-      rank: 1168
+      rank: 1167
       source: top-1m list
   - code: B4
-    checked_at: '2026-09-06T15:12:00Z'
+    checked_at: '2026-09-06T16:09:43Z'
     source: http://web.archive.org/cdx/search/cdx?url=waze.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
     data:
       first_snapshot: '1999-10-12'
@@ -93,14 +93,13 @@ domains:
   reasons:
   - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
   ai_review:
-    at: '2026-09-06T15:41:43Z'
-    model: claude-sonnet-5
-    verdict: skipped
-    reason: 'review unavailable: BadRequestError: Error code: 400 - {''type'': ''error'', ''error'': {''type'':
-      ''invalid_request_error'', ''message'': ''Your credit balance is too lo'
+    at: '2026-09-06T16:10:53Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
 provenance:
   generated_by: build_entities/0.2
-  policy_version: policy.py@495dbd4
-  label_source: wikidata:Q942327
+  policy_version: policy.py@e0b9a5c
+  label_source: wikidata:Q16523799
   reviewed_by: []
   source_issue: null

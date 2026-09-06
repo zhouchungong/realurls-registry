@@ -1,0 +1,121 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:fdg-entertainment
+names:
+  en: FDG Entertainment
+aliases: []
+category:
+- saas
+wikidata: Q85691737
+canonical:
+  github_org: null
+  wikidata: Q85691737
+  sources:
+  - wikidata:Q85691737/P856(sitelinks=0)
+  - appstore:FDG Entertainment GmbH & Co.KG(Banana Kong,13y,34683 ratings)
+domains:
+- domain: fdg-entertainment.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T15:44:16Z'
+  ttl_days: 30
+  age_days: 6626
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T15:46:51Z'
+    source: https://api.github.com/orgs/fdgentertainment
+    data:
+      org: fdgentertainment
+      org_verified: false
+      blog: http://www.fdg-entertainment.com
+  - code: A9
+    checked_at: '2026-09-06T15:46:51Z'
+    source: https://itunes.apple.com/search?term=FDG%20Entertainment&entity=software
+    data:
+      app: Banana Kong
+      track_id: 510040874
+      seller: FDG Entertainment GmbH & Co.KG
+      artist: FDG Entertainment GmbH & Co.KG
+      seller_url: https://www.fdg-entertainment.com
+      released: '2013-01-24'
+      age_days: 4973
+      ratings: 34683
+      apps_for_domain: 15
+      apps:
+      - app: Banana Kong
+        seller: FDG Entertainment GmbH & Co.KG
+        released: '2013-01-24'
+        age_days: 4973
+        ratings: 34683
+      - app: Red Ball 4
+        seller: FDG Entertainment GmbH & Co.KG
+        released: '2014-07-17'
+        age_days: 4434
+        ratings: 7593
+      - app: Tentacle Wars ™
+        seller: FDG Entertainment GmbH & Co.KG
+        released: '2016-03-09'
+        age_days: 3832
+        ratings: 7129
+  - code: A3
+    checked_at: '2026-09-06T15:46:55Z'
+    source: https://rdap.org/domain/fdg-entertainment.com
+    data:
+      registrar: IONOS SE
+      created: '2008-07-15'
+      expires: '2027-07-15'
+      remaining_days: 312
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T15:46:52Z'
+    source: TLS handshake fdg-entertainment.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Sectigo Limited
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T15:46:51Z'
+    source: https://www.wikidata.org/wiki/Q85691737
+    data:
+      qid: Q85691737
+      label: FDG Entertainment
+      kind: organization
+      site: https://www.fdg-entertainment.com/
+      sitelinks: 0
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T15:46:51Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 354327
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T15:46:57Z'
+    source: http://web.archive.org/cdx/search/cdx?url=fdg-entertainment.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2008-12-05'
+      history_days: 6484
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (IONOS SE) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T16:10:53Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@e0b9a5c
+  label_source: wikidata:Q85691737
+  reviewed_by: []
+  source_issue: null
