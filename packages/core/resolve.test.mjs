@@ -110,3 +110,18 @@ test("withGuidance: only official carries URLs; queued and examined are distingu
   const look = withGuidance({ verdict: "not_official", domain: "claude-desktop.io", looks_like: { name: "Anthropic" }, official_domains: ["claude.ai"] });
   assert.match(look.say_to_user, /not a known domain of Anthropic/);
 });
+
+test("lookalike: different short words are not lookalikes (kagi.com is not klei.com)", () => {
+  const ds = JSON.parse(JSON.stringify(dataset));
+  ds.entities["org:klei"] = { name: "Klei Entertainment", aliases: [], category: ["games"], domains: [{ domain: "klei.com", role: "primary", status: "verified" }] };
+  ds.entities["org:notion"] = { name: "Notion", aliases: [], category: ["saas"], domains: [{ domain: "notion.so", role: "primary", status: "verified" }] };
+  ds.domains["klei.com"] = { entity_id: "org:klei", name: "Klei Entertainment", status: "verified", official: true, confidence: 0.8 };
+  ds.domains["notion.so"] = { entity_id: "org:notion", name: "Notion", status: "verified", official: true, confidence: 0.8 };
+  const r2 = new Resolver(ds);
+  assert.equal(r2.resolve("kagi.com").verdict, "unknown");
+  assert.equal(r2.resolve("motion.com").verdict, "unknown");
+  assert.equal(r2.resolve("n0tion.com").verdict, "not_official");      // homoglyph
+  assert.equal(r2.resolve("notoin.com").verdict, "not_official");      // transposition
+  assert.equal(r2.resolve("anthroppic.com").verdict, "not_official");  // doubled letter
+  assert.equal(r2.resolve("anthropc.com").verdict, "not_official");    // brand ≥ 8 letters: any single edit
+});

@@ -7,6 +7,13 @@ The dataset itself is released continuously as the rolling `latest` GitHub Relea
 ## 2026-09-06
 
 ### Fixed
+- **Lookalike hint: two different short words are no longer "lookalikes".** kagi.com was answered
+  "not official, resembles klei.com" because any label within edit distance 2 counted, and with hundreds of
+  short brands in the registry every short unknown domain collided with one. The bar now scales with the
+  brand: a brand under 5 letters is matched only exactly after confusable folding; a longer one by a
+  one-step typo (transposition, doubled letter, homoglyph substitution, rn→m); a brand of 8+ letters by any
+  single edit; containment (claude-desktop ⊃ claude) needs a brand of 5+ letters. Unknown domains go back to
+  "don't know" and into the examination queue.
 - **Categories: companies and public bodies no longer land in `open-source` because they came in through
   a GitHub organization.** When topics say nothing, the Wikidata item's type decides: government bodies and
   restricted TLDs → `government`, game studios and publishers → `games` (new), newspapers, broadcasters and

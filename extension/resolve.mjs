@@ -209,14 +209,58 @@ export function closestLabel(labels, domain, host = domain) {
     if (label.length < 3) continue;
     for (const v of labels) {
       if (v.domain === domain) continue;
-      const contains = label.includes(v.label) || v.label.includes(label);
-      const dist = levenshtein(label, v.label);
-      // containment (claude-desktop ⊃ claude) scores 2; otherwise plain edit distance ≤ 2 counts as similar
-      const score = contains && v.label.length >= 4 ? Math.min(dist, 2) : dist;
-      if (score <= 2 && (!best || score < best.distance)) best = { ...v, distance: score, matched: label };
+      const score = similarity(label, v.label);
+      if (score !== null && (!best || score < best.distance)) best = { ...v, distance: score, matched: label };
     }
   }
   return best;
+}
+
+/** Confusable character classes: a substitution inside one class is a typo or a homoglyph, not a different word. */
+const CONFUSABLE = ["o0", "l1i", "s5", "e3", "a4", "g9q", "z2", "t7", "b8"];
+const sameClass = (x, y) => x === y || CONFUSABLE.some(c => c.includes(x) && c.includes(y));
+
+/** Is `label` a one-step typo of `brand`: adjacent transposition, a doubled or dropped letter, a confusable
+ *  substitution, or rn→m / vv→w? "gooogle", "anthropc", "arnazon" are; "kagi"→"klei", "motion"→"notion" are not:
+ *  two real words a letter apart are different brands, not lookalikes. */
+export function isTypo(label, brand) {
+  if (label === brand) return false;
+  const pairs = [["rn", "m"], ["vv", "w"], ["cl", "d"]];
+  for (const [a, b] of pairs) {
+    if (label.replace(a, b) === brand || brand.replace(a, b) === label) return true;
+  }
+  if (label.length === brand.length) {
+    const diff = [];
+    for (let k = 0; k < label.length; k++) if (label[k] !== brand[k]) diff.push(k);
+    if (diff.length === 1) return sameClass(label[diff[0]], brand[diff[0]]);
+    if (diff.length === 2 && diff[1] === diff[0] + 1) {
+      return label[diff[0]] === brand[diff[1]] && label[diff[1]] === brand[diff[0]];   // transposition
+    }
+    return false;
+  }
+  const [long, short] = label.length > brand.length ? [label, brand] : [brand, label];
+  if (long.length !== short.length + 1) return false;
+  for (let k = 0; k < long.length; k++) {
+    if (long.slice(0, k) + long.slice(k + 1) === short) {
+      return long[k] === long[k - 1] || long[k] === long[k + 1];   // doubled letter (gooogle, anthroppic), not any insertion
+    }
+  }
+  return false;
+}
+
+/** Lookalike score of an input label against a verified brand label, or null when they are simply different
+ *  words. The bar scales with how much of the brand is there to imitate: a 4-letter brand can only be matched
+ *  exactly (after confusable folding), a longer one by a one-step typo, a long one (≥ 8) by any single edit;
+ *  containment (claude-desktop ⊃ claude) counts for brands of at least 5 letters. With hundreds of short
+ *  brands in the registry, "edit distance ≤ 2" called kagi.com a lookalike of klei.com. */
+export function similarity(label, brand) {
+  if (label === brand) return 0;
+  const contains = brand.length >= 5 && (label.includes(brand) || (brand.includes(label) && label.length >= 5));
+  if (contains) return 2;
+  if (brand.length < 5) return null;
+  if (isTypo(label, brand)) return 1;                                   // one mistake, even when it spans two characters
+  if (brand.length >= 8 && levenshtein(label, brand) === 1) return 1;   // a long brand: any single edit
+  return null;
 }
 
 export const EVIDENCE_LABELS = {
