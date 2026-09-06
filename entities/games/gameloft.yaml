@@ -1,0 +1,308 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:gameloft
+names:
+  en: Gameloft
+aliases: []
+category:
+- games
+wikidata: Q689093
+canonical:
+  github_org: null
+  wikidata: Q689093
+  sources:
+  - wikidata:Q689093/P856
+domains:
+- domain: gameloft.com
+  role: primary
+  status: verified
+  confidence: 0.9017
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:37Z'
+  ttl_days: 30
+  age_days: 10013
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T06:45:02Z'
+    source: https://api.github.com/orgs/gameloft
+    data:
+      org: gameloft
+      org_verified: true
+      blog: http://www.gameloft.com
+      org_name: Gameloft
+      created_at: '2016-05-19T15:36:15Z'
+  - code: A9
+    checked_at: '2026-09-06T06:45:03Z'
+    source: https://itunes.apple.com/search?term=Gameloft&entity=software
+    data:
+      app: Gangstar Vegas - Mafia action
+      track_id: 571393580
+      seller: Gameloft
+      artist: Gameloft
+      seller_url: http://www.gameloft.com
+      released: '2013-06-07'
+      age_days: 4838
+      ratings: 152500
+      apps_for_domain: 10
+      apps:
+      - app: Gangstar Vegas - Mafia action
+        seller: Gameloft
+        released: '2013-06-07'
+        age_days: 4838
+        ratings: 152500
+      - app: 'Minion Rush: Running game'
+        seller: Gameloft
+        released: '2013-06-13'
+        age_days: 4832
+        ratings: 296244
+      - app: 'Asphalt 8: Airborne'
+        seller: Gameloft
+        released: '2013-08-22'
+        age_days: 4762
+        ratings: 228489
+  - code: A3
+    checked_at: '2026-09-06T06:45:02Z'
+    source: https://rdap.org/domain/gameloft.com
+    data:
+      registrar: Gandi SAS
+      created: '1999-04-08'
+      expires: '2028-04-08'
+      remaining_days: 579
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T06:45:02Z'
+    source: TLS handshake gameloft.com:443
+    data:
+      subject_org: DIVERTISSEMENTS GAMELOFT INC
+      validation_type: OV
+      issuer: Sectigo Limited
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T06:45:02Z'
+    source: https://www.wikidata.org/wiki/Q689093
+    data:
+      qid: Q689093
+      label: Gameloft
+      kind: organization
+      site: http://www.gameloft.com/
+      sitelinks: 43
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-06T06:45:02Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 3439
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T06:45:03Z'
+    source: http://web.archive.org/cdx/search/cdx?url=gameloft.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2000-03-01'
+      history_days: 9685
+  rejected_evidence:
+  - 'A1: entity not anchored: no canonical GitHub organization from an independent authority; proof of control is
+    not proof of ownership'
+  - 'A3: registrar (Gandi SAS) is not a brand-protection registrar'
+  reasons:
+  - '2 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+- domain: disneydreamlightvalley.com
+  role: product
+  status: verified
+  confidence: 0.6278
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:37Z'
+  ttl_days: 30
+  age_days: 2103
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T06:45:47Z'
+    source: https://itunes.apple.com/search?term=Gameloft&entity=software
+    data:
+      app: Disney Dreamlight Valley
+      track_id: 6456945575
+      seller: Gameloft
+      artist: Gameloft
+      seller_url: https://disneydreamlightvalley.com/
+      released: '2023-12-05'
+      age_days: 1005
+      ratings: 21816
+      apps_for_domain: 1
+      apps:
+      - app: Disney Dreamlight Valley
+        seller: Gameloft
+        released: '2023-12-05'
+        age_days: 1005
+        ratings: 21816
+  - code: A3
+    checked_at: '2026-09-06T06:46:22Z'
+    source: https://rdap.org/domain/disneydreamlightvalley.com
+    data:
+      registrar: CSC Corporate Domains, Inc.
+      created: '2020-12-02'
+      expires: '2026-12-02'
+      remaining_days: 87
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T06:45:46Z'
+    source: TLS handshake disneydreamlightvalley.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T06:45:49Z'
+    source: https://www.wikidata.org/wiki/Q111828779
+    data:
+      qid: Q111828779
+      label: Disney Dreamlight Valley
+      kind: software
+      site: https://www.disneydreamlightvalley.com
+      sitelinks: 7
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T06:45:46Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 107573
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T06:45:55Z'
+    source: http://web.archive.org/cdx/search/cdx?url=disneydreamlightvalley.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2021-12-01'
+      history_days: 1740
+  - code: A6
+    checked_at: '2026-09-06T06:46:22Z'
+    source: propagate from gameloft.com
+    data:
+      from: gameloft.com
+      from_status: verified
+      first_party_link: true
+      structural_links: []
+      san_count: 2
+      shared_ns: []
+      backlink: true
+  rejected_evidence:
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: item Q111828779 != entity canonical item Q689093'
+  - 'A6: no structural link (need at least one of shared_ns / cert_san / shared_registrar)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+- domain: disneyspeedstorm.com
+  role: product
+  status: verified
+  confidence: 0.6278
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:37Z'
+  ttl_days: 30
+  age_days: 1761
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T06:46:25Z'
+    source: https://itunes.apple.com/search?term=Gameloft&entity=software
+    data:
+      app: Disney Speedstorm
+      track_id: 6449708682
+      seller: Gameloft
+      artist: Gameloft
+      seller_url: https://disneyspeedstorm.com/
+      released: '2024-07-11'
+      age_days: 786
+      ratings: 16105
+      apps_for_domain: 1
+      apps:
+      - app: Disney Speedstorm
+        seller: Gameloft
+        released: '2024-07-11'
+        age_days: 786
+        ratings: 16105
+  - code: A3
+    checked_at: '2026-09-06T06:46:46Z'
+    source: https://rdap.org/domain/disneyspeedstorm.com
+    data:
+      registrar: CSC Corporate Domains, Inc.
+      created: '2021-11-10'
+      expires: '2026-11-10'
+      remaining_days: 64
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T06:46:25Z'
+    source: TLS handshake disneyspeedstorm.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T06:46:28Z'
+    source: https://www.wikidata.org/wiki/Q111208417
+    data:
+      qid: Q111208417
+      label: Disney Speedstorm
+      kind: software
+      site: https://disneyspeedstorm.com/
+      sitelinks: 10
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T06:46:25Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 984611
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T06:47:00Z'
+    source: http://web.archive.org/cdx/search/cdx?url=disneyspeedstorm.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2021-11-29'
+      history_days: 1742
+  - code: A6
+    checked_at: '2026-09-06T06:47:00Z'
+    source: propagate from gameloft.com
+    data:
+      from: gameloft.com
+      from_status: verified
+      first_party_link: true
+      structural_links: []
+      san_count: 2
+      shared_ns: []
+      backlink: true
+  rejected_evidence:
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: item Q111208417 != entity canonical item Q689093'
+  - 'A6: no structural link (need at least one of shared_ns / cert_san / shared_registrar)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q689093
+  reviewed_by: []
+  source_issue: null

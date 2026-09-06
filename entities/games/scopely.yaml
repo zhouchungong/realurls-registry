@@ -1,0 +1,126 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:scopely
+names:
+  en: Scopely
+aliases: []
+category:
+- games
+wikidata: Q17108073
+canonical:
+  github_org: null
+  wikidata: Q17108073
+  sources:
+  - wikidata:Q17108073/P856
+domains:
+- domain: scopely.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:37Z'
+  ttl_days: 30
+  age_days: 5804
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T07:59:12Z'
+    source: https://api.github.com/orgs/scopely
+    data:
+      org: scopely
+      org_verified: true
+      blog: https://www.scopely.com
+      org_name: Scopely
+      created_at: '2011-02-15T10:28:50Z'
+  - code: A9
+    checked_at: '2026-09-06T07:59:13Z'
+    source: https://itunes.apple.com/search?term=Scopely&entity=software
+    data:
+      app: 'Dice With Buddies: Social Game'
+      track_id: 432750508
+      seller: Scopely, Inc.
+      artist: Scopely, Inc.
+      seller_url: http://www.scopely.com
+      released: '2011-05-06'
+      age_days: 5601
+      ratings: 32546
+      apps_for_domain: 14
+      apps:
+      - app: 'Dice With Buddies: Social Game'
+        seller: Scopely, Inc.
+        released: '2011-05-06'
+        age_days: 5601
+        ratings: 32546
+      - app: Royal Lounge Casino | GSN slot
+        seller: Scopely, Inc.
+        released: '2011-12-16'
+        age_days: 5378
+        ratings: 56117
+      - app: 'Bingo Bash: Live Bingo Games'
+        seller: Scopely, Inc.
+        released: '2012-06-15'
+        age_days: 5195
+        ratings: 57932
+  - code: A3
+    checked_at: '2026-09-06T07:59:33Z'
+    source: https://rdap.org/domain/scopely.com
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2010-10-16'
+      expires: '2026-10-16'
+      remaining_days: 39
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T07:59:12Z'
+    source: TLS handshake scopely.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T07:59:12Z'
+    source: https://www.wikidata.org/wiki/Q17108073
+    data:
+      qid: Q17108073
+      label: Scopely
+      kind: organization
+      site: https://scopely.com
+      sitelinks: 5
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T07:59:12Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 24735
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T07:59:15Z'
+    source: http://web.archive.org/cdx/search/cdx?url=scopely.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2011-08-12'
+      history_days: 5504
+  rejected_evidence:
+  - 'A1: entity not anchored: no canonical GitHub organization from an independent authority; proof of control is
+    not proof of ownership'
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q17108073
+  reviewed_by: []
+  source_issue: null

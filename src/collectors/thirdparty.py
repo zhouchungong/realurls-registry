@@ -152,6 +152,101 @@ def english_label(qid: str, sparql_label: str = "") -> str:
         return ""
 
 
+_FLAGS_KEY = "wikidata:flags2:{}"
+_CLAIMS_KEY = "wikidata:p31p279:{}"
+_FLAG_NAMES = ("isOrg", "isGov", "isEdu", "isGame", "isMedia", "isSoftwareCo", "isSoftware")
+#: Root classes each flag stands for (matched through the P279 subclass chain, depth-limited).
+_FLAG_ROOTS = {
+    "isOrg": {"Q43229"},
+    "isGov": {"Q327333", "Q2659904"},
+    "isEdu": {"Q2385804", "Q31855"},
+    "isGame": {"Q210167", "Q1137109", "Q7889"},
+    "isMedia": {"Q11032", "Q15265344", "Q1002697"},
+    "isSoftwareCo": {"Q1058914"},
+}
+#: Types that count only when they are the item's *direct* P31 (their subclass trees are too wide to trust:
+#: Wikidata makes a newspaper a kind of software).
+_DIRECT_ONLY = {
+    "isMedia": {"Q1193236", "Q2085381", "Q1616075", "Q14350", "Q41298"},
+    "isSoftware": {"Q7397", "Q341", "Q1130645", "Q7889", "Q9135", "Q271680", "Q188860", "Q1668024", "Q131093"},
+}
+_MAX_DEPTH = 8
+
+
+def _claims(qids: list[str]) -> dict[str, dict[str, list[str]]]:
+    """P31 and P279 targets per item, from the entity API (50 per call, cached 30 days). The query service was
+    tried first: a dozen P279* EXISTS per item time out in batches and get rate-limited one by one."""
+    out: dict[str, dict[str, list[str]]] = {}
+    todo = []
+    for q in dict.fromkeys(q for q in qids if q):
+        cached = cache_get(_CLAIMS_KEY.format(q), 24 * 30)
+        if cached is not None:
+            out[q] = cached
+        else:
+            todo.append(q)
+    for i in range(0, len(todo), 50):
+        chunk = todo[i:i + 50]
+        try:
+            doc = fetch_json(f"https://www.wikidata.org/w/api.php?action=wbgetentities&ids={'|'.join(chunk)}"
+                             f"&props=claims&format=json", ttl_hours=24 * 30)
+        except FetchError:
+            continue
+        for q, ent in doc.get("entities", {}).items():
+            claims = ent.get("claims", {})
+            rec = {p: [c["mainsnak"]["datavalue"]["value"]["id"] for c in claims.get(p, [])
+                       if c.get("mainsnak", {}).get("datavalue", {}).get("value", {}).get("id")]
+                   for p in ("P31", "P279")}
+            cache_put(_CLAIMS_KEY.format(q), rec)
+            out[q] = rec
+    return out
+
+
+def _superclasses(classes: list[str]) -> set[str]:
+    """Transitive P279 closure of the given classes, depth-limited, fetched in breadth-first batches."""
+    seen: set[str] = set(classes)
+    frontier = list(classes)
+    for _ in range(_MAX_DEPTH):
+        if not frontier:
+            break
+        claims = _claims(frontier)
+        nxt = []
+        for c in frontier:
+            for parent in claims.get(c, {}).get("P279", []):
+                if parent not in seen:
+                    seen.add(parent)
+                    nxt.append(parent)
+        frontier = nxt
+    return seen
+
+
+def item_flags(qids: list[str]) -> dict[str, dict[str, bool]]:
+    """What kind of thing each item is: organization / government body / educational institution / game studio
+    or publisher / media outlet / software company / software. Used for categories and for choosing between a
+    Wikidata label and a GitHub display name; never as evidence. Unknown items (API failed) are absent."""
+    out: dict[str, dict[str, bool]] = {}
+    todo = []
+    for q in dict.fromkeys(q for q in qids if q):
+        cached = cache_get(_FLAGS_KEY.format(q), 24 * 30)
+        if cached is not None:
+            out[q] = cached
+        else:
+            todo.append(q)
+    if not todo:
+        return out
+    claims = _claims(todo)
+    for q in todo:
+        if q not in claims:
+            continue
+        direct = set(claims[q].get("P31", []))
+        closure = _superclasses(sorted(direct))
+        flags = {name: bool(closure & roots) for name, roots in _FLAG_ROOTS.items()}
+        for name, types in _DIRECT_ONLY.items():
+            flags[name] = flags.get(name, False) or bool(direct & types)
+        cache_put(_FLAGS_KEY.format(q), flags)
+        out[q] = flags
+    return out
+
+
 def wikidata(domain: str) -> Result:
     """Reverse lookup: which Wikidata item declares this domain as its official website (P856)."""
     r = Result()

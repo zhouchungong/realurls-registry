@@ -1,0 +1,259 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:microsoft
+names:
+  en: Microsoft
+aliases:
+- PowerShell
+- PowerShell Team
+category:
+- saas
+wikidata: Q2283
+canonical:
+  github_org: microsoft
+  wikidata: Q2283
+  sources:
+  - wikidata:Q2283/P856
+  - wikidata:Q2283/P2037
+domains:
+- domain: microsoft.com
+  role: primary
+  status: verified
+  confidence: 0.9563
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 12910
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T18:34:48Z'
+    source: https://api.github.com/orgs/microsoft
+    data:
+      org: microsoft
+      org_verified: true
+      blog: https://opensource.microsoft.com
+      org_name: Microsoft
+      created_at: '2013-12-10T19:06:48Z'
+  - code: A8
+    checked_at: '2026-09-05T18:34:49Z'
+    source: https://api.github.com/repos/microsoft/vscode
+    data:
+      repo: microsoft/vscode
+      org: microsoft
+      repo_anchored: true
+      homepage: https://code.visualstudio.com
+      backlink: false
+      stars: 190899
+      age_days: 4019
+      contributors: 3223
+  - code: A3
+    checked_at: '2026-09-05T18:34:49Z'
+    source: https://rdap.org/domain/microsoft.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '1991-05-02'
+      expires: '2027-05-03'
+      remaining_days: 239
+      locks:
+      - delete
+      - transfer
+      - update
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-05T18:34:50Z'
+    source: TLS handshake microsoft.com:443
+    data:
+      subject_org: Microsoft Corporation
+      validation_type: OV
+      issuer: Microsoft Corporation
+      san_count: 163
+  - code: B1
+    checked_at: '2026-09-05T18:34:50Z'
+    source: https://www.wikidata.org/wiki/Q2283
+    data:
+      qid: Q2283
+      label: Microsoft
+      site: https://www.microsoft.com/
+      sitelinks: 177
+      competing_items: 4
+  - code: B5
+    checked_at: '2026-09-05T18:34:50Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 5
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:35:06Z'
+    source: http://web.archive.org/cdx/search/cdx?url=microsoft.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1996-10-20'
+      history_days: 10912
+  rejected_evidence:
+  - 'A8: repository homepage (https://code.visualstudio.com) does not point to this domain'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  reasons:
+  - '2 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+- domain: copilot.com
+  role: product
+  status: verified
+  confidence: 0.7518
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 11312
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A3
+    checked_at: '2026-09-05T18:36:21Z'
+    source: https://rdap.org/domain/copilot.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '1995-09-16'
+      expires: '2027-06-01'
+      remaining_days: 268
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-05T18:36:21Z'
+    source: TLS handshake copilot.com:443
+    data:
+      subject_org: Microsoft Corporation
+      validation_type: OV
+      issuer: Microsoft Corporation
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-05T18:36:21Z'
+    source: https://www.wikidata.org/wiki/Q116793893
+    data:
+      qid: Q116793893
+      label: Microsoft Copilot
+      site: https://copilot.com/
+      sitelinks: 54
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:36:21Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 7614
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:37:35Z'
+    source: http://web.archive.org/cdx/search/cdx?url=copilot.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1996-11-01'
+      history_days: 10900
+  - code: A6
+    checked_at: '2026-09-05T18:37:35Z'
+    source: propagate from microsoft.com
+    data:
+      from: microsoft.com
+      from_status: verified
+      first_party_link: true
+      structural_links:
+      - cert_san
+      san_count: 163
+      backlink: true
+  rejected_evidence:
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'B1: item Q116793893 != entity canonical item Q2283'
+  - 'A6: certificate has 163 SANs > 25; looks like a shared CDN certificate'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+- domain: xbox.com
+  role: product
+  status: verified
+  confidence: 0.7518
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 10853
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A3
+    checked_at: '2026-09-05T18:38:29Z'
+    source: https://rdap.org/domain/xbox.com
+    data:
+      registrar: CSC Corporate Domains, Inc.
+      created: '1996-12-18'
+      expires: '2026-12-17'
+      remaining_days: 102
+      locks:
+      - transfer
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-05T18:38:31Z'
+    source: TLS handshake xbox.com:443
+    data:
+      subject_org: Microsoft Corporation
+      validation_type: OV
+      issuer: Microsoft Corporation
+      san_count: 190
+  - code: B1
+    checked_at: '2026-09-05T18:38:31Z'
+    source: https://www.wikidata.org/wiki/Q130752292
+    data:
+      qid: Q130752292
+      label: Xbox.com
+      site: https://www.xbox.com
+      sitelinks: 0
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T18:38:31Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 810
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T18:38:39Z'
+    source: http://web.archive.org/cdx/search/cdx?url=xbox.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1998-11-11'
+      history_days: 10160
+  - code: A6
+    checked_at: '2026-09-05T18:38:39Z'
+    source: propagate from microsoft.com
+    data:
+      from: microsoft.com
+      from_status: verified
+      first_party_link: true
+      structural_links: []
+      san_count: 163
+      backlink: true
+  rejected_evidence:
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'B1: item Q130752292 != entity canonical item Q2283'
+  - 'A6: no structural link (need at least one of shared_ns / cert_san / shared_registrar)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q2283
+  reviewed_by: []
+  source_issue: null

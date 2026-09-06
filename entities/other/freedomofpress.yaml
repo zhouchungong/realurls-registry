@@ -1,0 +1,93 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:freedomofpress
+names:
+  en: Freedom of the Press Foundation
+aliases:
+- freedomofpress
+category:
+- other
+wikidata: Q5500827
+canonical:
+  github_org: freedomofpress
+  wikidata: Q5500827
+  sources:
+  - wikidata:Q5500827/P856
+  - wikidata:Q5500827/P2037
+domains:
+- domain: freedom.press
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:31Z'
+  ttl_days: 30
+  age_days: 4365
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:26:18Z'
+    source: https://api.github.com/orgs/freedomofpress
+    data:
+      org: freedomofpress
+      org_verified: true
+      blog: https://freedom.press
+      org_name: Freedom of the Press Foundation
+      created_at: '2013-09-05T04:19:37Z'
+  - code: A3
+    checked_at: '2026-09-06T03:26:19Z'
+    source: https://rdap.org/domain/freedom.press
+    data:
+      registrar: Gandi SAS
+      created: '2014-09-23'
+      expires: '2027-09-23'
+      remaining_days: 382
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T03:26:18Z'
+    source: TLS handshake freedom.press:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T03:26:18Z'
+    source: https://www.wikidata.org/wiki/Q5500827
+    data:
+      qid: Q5500827
+      label: Freedom of the Press Foundation
+      site: https://freedom.press/
+      sitelinks: 17
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T03:26:18Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 78210
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:27:17Z'
+    source: http://web.archive.org/cdx/search/cdx?url=freedom.press&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2014-10-04'
+      history_days: 4355
+  rejected_evidence:
+  - 'A3: registrar (Gandi SAS) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T04:28:33Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: wikidata:Q5500827
+  reviewed_by: []
+  source_issue: null

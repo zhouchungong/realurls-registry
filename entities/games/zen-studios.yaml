@@ -1,0 +1,107 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:zen-studios
+names:
+  en: Zen Studios
+aliases: []
+category:
+- games
+wikidata: Q779114
+canonical:
+  github_org: null
+  wikidata: Q779114
+  sources:
+  - wikidata:Q779114/P856
+domains:
+- domain: zenstudios.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:41Z'
+  ttl_days: 30
+  age_days: 8463
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T07:47:42Z'
+    source: https://itunes.apple.com/search?term=Zen%20Studios&entity=software
+    data:
+      app: Zen Pinball Party
+      track_id: 1536783591
+      seller: ZEN Studios Ltd.
+      artist: ZEN Studios
+      seller_url: https://zenstudios.com/games/zen-pinball-party/
+      released: '2021-09-03'
+      age_days: 1829
+      ratings: 14221
+      apps_for_domain: 2
+      apps:
+      - app: Zen Pinball Party
+        seller: ZEN Studios Ltd.
+        released: '2021-09-03'
+        age_days: 1829
+        ratings: 14221
+      - app: Pinball FX GO
+        seller: ZEN Studios Ltd.
+        released: '2024-12-11'
+        age_days: 633
+        ratings: 1204
+  - code: A3
+    checked_at: '2026-09-06T07:47:45Z'
+    source: https://rdap.org/domain/zenstudios.com
+    data:
+      registrar: DomainSpot LLC
+      created: '2003-07-05'
+      expires: '2027-07-05'
+      remaining_days: 302
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T07:47:42Z'
+    source: TLS handshake zenstudios.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T07:47:40Z'
+    source: https://www.wikidata.org/wiki/Q779114
+    data:
+      qid: Q779114
+      label: Zen Studios
+      kind: organization
+      site: https://zenstudios.com/
+      sitelinks: 6
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T07:47:40Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 179630
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T07:47:48Z'
+    source: http://web.archive.org/cdx/search/cdx?url=zenstudios.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2001-04-21'
+      history_days: 9269
+  rejected_evidence:
+  - 'A3: registrar (DomainSpot LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q779114
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,127 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:vmware
+names:
+  en: VMware
+aliases:
+- vmware
+category:
+- other
+wikidata: Q11407
+canonical:
+  github_org: vmware
+  wikidata: Q11407
+  sources:
+  - wikidata:Q11407/P856
+  - wikidata:Q11407/P2037
+domains:
+- domain: vmware.com
+  role: primary
+  status: verified
+  confidence: 0.9345
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:49:36Z'
+  ttl_days: 30
+  age_days: 10446
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T06:01:03Z'
+    source: https://api.github.com/orgs/vmware
+    data:
+      org: vmware
+      org_verified: true
+      blog: https://vmware.com
+      org_name: VMware
+      created_at: '2010-11-09T00:29:40Z'
+  - code: A9
+    checked_at: '2026-09-06T06:01:04Z'
+    source: https://itunes.apple.com/search?term=VMware&entity=software
+    data:
+      app: vSphere Mobile Client
+      track_id: 1459517032
+      seller: VMware, Inc.
+      artist: VMware, Inc.
+      seller_url: https://flings.vmware.com/vsphere-mobile-client
+      released: '2019-10-17'
+      age_days: 2515
+      ratings: 45
+      apps_for_domain: 3
+      apps:
+      - app: vSphere Mobile Client
+        seller: VMware, Inc.
+        released: '2019-10-17'
+        age_days: 2515
+        ratings: 45
+      - app: VMware Explore 2026
+        seller: Broadcom Inc
+        released: '2026-08-13'
+        age_days: 23
+        ratings: 1
+      - app: VMware vSAN Live
+        seller: VMware, Inc.
+        released: '2019-11-11'
+        age_days: 2490
+        ratings: 1
+  - code: A3
+    checked_at: '2026-09-06T06:01:03Z'
+    source: https://rdap.org/domain/vmware.com
+    data:
+      registrar: CSC Corporate Domains, Inc.
+      created: '1998-01-30'
+      expires: '2030-01-29'
+      remaining_days: 1240
+      locks:
+      - transfer
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-06T06:01:03Z'
+    source: TLS handshake vmware.com:443
+    data:
+      subject_org: Broadcom Inc.
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 205
+  - code: B1
+    checked_at: '2026-09-06T06:01:03Z'
+    source: https://www.wikidata.org/wiki/Q11407
+    data:
+      qid: Q11407
+      label: VMware
+      kind: organization
+      site: https://www.vmware.com/
+      sitelinks: 44
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T06:01:03Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 1784
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T06:01:22Z'
+    source: http://web.archive.org/cdx/search/cdx?url=vmware.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1999-01-25'
+      history_days: 10086
+  rejected_evidence:
+  - 'A9: no listing meets the App Store history bar (at least 2 years on the store and 1000 ratings); strongest:
+    vSphere Mobile Client 2515 days, 45 ratings'
+  - 'A4: certificate organization (Broadcom Inc.) is not the anchored entity (VMware, vmware)'
+  reasons:
+  - '2 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T06:28:19Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@1cc8464
+  label_source: wikidata:Q11407
+  reviewed_by: []
+  source_issue: null

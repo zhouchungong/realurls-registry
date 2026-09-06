@@ -1,0 +1,115 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:g5-entertainment
+names:
+  en: G5 Entertainment
+aliases: []
+category:
+- games
+wikidata: Q10501780
+canonical:
+  github_org: null
+  wikidata: Q10501780
+  sources:
+  - wikidata:Q10501780/P856
+domains:
+- domain: g5e.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:33Z'
+  ttl_days: 30
+  age_days: 7768
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T07:58:13Z'
+    source: https://itunes.apple.com/search?term=G5%20Entertainment&entity=software
+    data:
+      app: The Island Castaway®
+      track_id: 767324855
+      seller: G5 Entertainment AB
+      artist: G5 Entertainment AB
+      seller_url: http://www.g5e.com
+      released: '2014-02-27'
+      age_days: 4573
+      ratings: 15117
+      apps_for_domain: 9
+      apps:
+      - app: The Island Castaway®
+        seller: G5 Entertainment AB
+        released: '2014-02-27'
+        age_days: 4573
+        ratings: 15117
+      - app: The Paranormal Society
+        seller: G5 Entertainment AB
+        released: '2016-04-15'
+        age_days: 3795
+        ratings: 11002
+      - app: Twin Moons®
+        seller: G5 Entertainment AB
+        released: '2016-10-06'
+        age_days: 3621
+        ratings: 5836
+  - code: A3
+    checked_at: '2026-09-06T07:58:39Z'
+    source: https://rdap.org/domain/g5e.com
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2005-05-30'
+      expires: '2027-08-05'
+      remaining_days: 333
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T07:58:11Z'
+    source: TLS handshake g5e.com:443
+    data:
+      subject_org: G5 Holdings Limited
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 18
+  - code: B1
+    checked_at: '2026-09-06T07:58:11Z'
+    source: https://www.wikidata.org/wiki/Q10501780
+    data:
+      qid: Q10501780
+      label: G5 Entertainment
+      kind: organization
+      site: https://www.g5e.com
+      sitelinks: 5
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T07:58:11Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 13454
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T07:58:25Z'
+    source: http://web.archive.org/cdx/search/cdx?url=g5e.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2003-02-09'
+      history_days: 8610
+  rejected_evidence:
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: certificate organization (G5 Holdings Limited) is not the anchored entity (G5 Entertainment)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q10501780
+  reviewed_by: []
+  source_issue: null

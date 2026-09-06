@@ -1,0 +1,117 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:mckinsey-company
+names:
+  en: McKinsey & Company
+aliases:
+- Open Source by McKinsey
+- mckinsey
+category:
+- other
+wikidata: Q310207
+canonical:
+  github_org: null
+  wikidata: Q310207
+  sources:
+  - wikidata:Q310207/P856
+domains:
+- domain: mckinsey.com
+  role: primary
+  status: verified
+  confidence: 0.9017
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:49:41Z'
+  ttl_days: 30
+  age_days: 13256
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T05:25:25Z'
+    source: https://api.github.com/orgs/mckinsey
+    data:
+      org: mckinsey
+      org_verified: true
+      blog: https://mckinsey.com
+      org_name: Open Source by McKinsey
+      created_at: '2013-04-26T13:26:55Z'
+  - code: A9
+    checked_at: '2026-09-06T05:25:26Z'
+    source: https://itunes.apple.com/search?term=McKinsey%20%26%20Company&entity=software
+    data:
+      app: McKinsey Insights
+      track_id: 674902075
+      seller: McKinsey & Company, Inc.
+      artist: McKinsey & Company
+      seller_url: https://www.mckinsey.com/about-us/overview/mckinsey-insights-app
+      released: '2013-08-29'
+      age_days: 4755
+      ratings: 1241
+      apps_for_domain: 1
+      apps:
+      - app: McKinsey Insights
+        seller: McKinsey & Company, Inc.
+        released: '2013-08-29'
+        age_days: 4755
+        ratings: 1241
+  - code: A3
+    checked_at: '2026-09-06T05:25:37Z'
+    source: https://rdap.org/domain/mckinsey.com
+    data:
+      registrar: CSC Corporate Domains, Inc.
+      created: '1990-05-22'
+      expires: '2028-05-23'
+      remaining_days: 624
+      locks:
+      - transfer
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-06T05:25:25Z'
+    source: TLS handshake mckinsey.com:443
+    data:
+      subject_org: McKinsey & Company
+      validation_type: OV
+      issuer: Sectigo Limited
+      san_count: 3
+  - code: B1
+    checked_at: '2026-09-06T05:25:25Z'
+    source: https://www.wikidata.org/wiki/Q310207
+    data:
+      qid: Q310207
+      label: McKinsey & Company
+      kind: organization
+      site: https://www.mckinsey.com/
+      sitelinks: 39
+      competing_items: 2
+  - code: B5
+    checked_at: '2026-09-06T05:25:25Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 776
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T05:25:35Z'
+    source: http://web.archive.org/cdx/search/cdx?url=mckinsey.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1996-12-19'
+      history_days: 10853
+  rejected_evidence:
+  - 'A1: entity not anchored: no canonical GitHub organization from an independent authority; proof of control is
+    not proof of ownership'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  reasons:
+  - '2 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T06:28:19Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@1cc8464
+  label_source: wikidata:Q310207
+  reviewed_by: []
+  source_issue: null

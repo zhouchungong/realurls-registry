@@ -1,0 +1,105 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:new-star-games
+names:
+  en: New Star Games
+aliases: []
+category:
+- games
+wikidata: Q4826137
+canonical:
+  github_org: null
+  wikidata: Q4826137
+  sources:
+  - wikidata:Q4826137/P856
+domains:
+- domain: newstargames.com
+  role: primary
+  status: verified
+  confidence: 0.6515
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:33Z'
+  ttl_days: 30
+  age_days: 8261
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T08:04:12Z'
+    source: https://itunes.apple.com/search?term=New%20Star%20Games&entity=software
+    data:
+      app: New Star Soccer
+      track_id: 498973162
+      seller: New Star Games
+      artist: New Star Games
+      seller_url: https://www.newstargames.com/
+      released: '2012-03-13'
+      age_days: 5290
+      ratings: 22912
+      apps_for_domain: 6
+      apps:
+      - app: New Star Soccer
+        seller: New Star Games
+        released: '2012-03-13'
+        age_days: 5290
+        ratings: 22912
+      - app: New Star Manager
+        seller: New Star Publishing Ltd.
+        released: '2018-08-07'
+        age_days: 2951
+        ratings: 8196
+      - app: New Star Baseball
+        seller: New Star Publishing Ltd.
+        released: '2020-11-27'
+        age_days: 2109
+        ratings: 3780
+  - code: A3
+    checked_at: '2026-09-06T08:04:20Z'
+    source: https://rdap.org/domain/newstargames.com
+    data:
+      registrar: 123-Reg Limited
+      created: '2004-01-23'
+      expires: '2030-01-23'
+      remaining_days: 1235
+      locks: []
+  - code: A4
+    checked_at: '2026-09-06T08:04:11Z'
+    source: TLS handshake newstargames.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T08:04:11Z'
+    source: https://www.wikidata.org/wiki/Q4826137
+    data:
+      qid: Q4826137
+      label: New Star Games
+      kind: organization
+      site: https://www.newstargames.com/
+      sitelinks: 4
+      competing_items: 2
+  - code: B4
+    checked_at: '2026-09-06T08:04:32Z'
+    source: http://web.archive.org/cdx/search/cdx?url=newstargames.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2004-06-04'
+      history_days: 8129
+  rejected_evidence:
+  - 'A3: registrar (123-Reg Limited) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q4826137
+  reviewed_by: []
+  source_issue: null

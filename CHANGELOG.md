@@ -7,6 +7,13 @@ The dataset itself is released continuously as the rolling `latest` GitHub Relea
 ## 2026-09-06
 
 ### Fixed
+- **Categories: companies and public bodies no longer land in `open-source` because they came in through
+  a GitHub organization.** When topics say nothing, the Wikidata item's type decides: government bodies and
+  restricted TLDs → `government`, game studios and publishers → `games` (new), newspapers, broadcasters and
+  publishers → `media` (new), software companies → `saas`, other companies → `other`, software → `open-source`.
+  `src.recategorize` applies the same rule to stored records whose category was a fallback.
+- **Labels: a Wikidata item that is not an organization no longer names the entity** when the GitHub
+  organization has a display name of its own ("Wikimedia movement" → Wikimedia).
 - **AI review recorded "review unavailable" as a pass.** The anthropic SDK 1.x dropped the `temperature`
   argument, every call raised, and the fallback wrote `verdict: pass`. An unavailable review is now
   `skipped`, counted separately, and the run fails when nothing was reviewed. The first full-category batch

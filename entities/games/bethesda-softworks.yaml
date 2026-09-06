@@ -1,0 +1,115 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:bethesda-softworks
+names:
+  en: Bethesda Softworks
+aliases: []
+category:
+- games
+wikidata: Q684425
+canonical:
+  github_org: null
+  wikidata: Q684425
+  sources:
+  - wikidata:Q684425/P856
+domains:
+- domain: bethesda.net
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:37Z'
+  ttl_days: 30
+  age_days: 10741
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T06:43:30Z'
+    source: https://itunes.apple.com/search?term=Bethesda%20Softworks&entity=software
+    data:
+      app: DOOM
+      track_id: 336347946
+      seller: Bethesda Softworks LLC
+      artist: Bethesda
+      seller_url: https://slayersclub.bethesda.net/en
+      released: '2009-10-31'
+      age_days: 6154
+      ratings: 1802
+      apps_for_domain: 3
+      apps:
+      - app: DOOM
+        seller: Bethesda Softworks LLC
+        released: '2009-10-31'
+        age_days: 6154
+        ratings: 1802
+      - app: 'The Elder Scrolls: Castles'
+        seller: Bethesda Softworks LLC
+        released: '2024-09-09'
+        age_days: 726
+        ratings: 13197
+      - app: DOOM II
+        seller: Bethesda Softworks LLC
+        released: '2019-07-30'
+        age_days: 2594
+        ratings: 395
+  - code: A3
+    checked_at: '2026-09-06T06:44:12Z'
+    source: https://rdap.org/domain/bethesda.net
+    data:
+      registrar: CSC Corporate Domains, Inc.
+      created: '1997-04-10'
+      expires: '2028-04-11'
+      remaining_days: 582
+      locks:
+      - transfer
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-06T06:43:29Z'
+    source: TLS handshake bethesda.net:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 6
+  - code: B1
+    checked_at: '2026-09-06T06:43:29Z'
+    source: https://www.wikidata.org/wiki/Q684425
+    data:
+      qid: Q684425
+      label: Bethesda Softworks
+      kind: organization
+      site: https://bethesda.net/
+      sitelinks: 44
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T06:43:29Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 7847
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T06:43:43Z'
+    source: http://web.archive.org/cdx/search/cdx?url=bethesda.net&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2001-05-02'
+      history_days: 9258
+  rejected_evidence:
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q684425
+  reviewed_by: []
+  source_issue: null

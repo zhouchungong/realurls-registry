@@ -1,0 +1,107 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:kalypso-media
+names:
+  en: Kalypso Media
+aliases: []
+category:
+- games
+wikidata: Q26188
+canonical:
+  github_org: null
+  wikidata: Q26188
+  sources:
+  - wikidata:Q26188/P856
+domains:
+- domain: kalypsomedia.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:32Z'
+  ttl_days: 30
+  age_days: 7402
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T07:05:37Z'
+    source: https://itunes.apple.com/search?term=Kalypso%20Media&entity=software
+    data:
+      app: Ski Jumping Pro
+      track_id: 585599497
+      seller: Kalypso Media Group GmbH
+      artist: Kalypso Media Group GmbH
+      seller_url: http://www.kalypsomedia.com
+      released: '2013-01-31'
+      age_days: 4965
+      ratings: 5211
+      apps_for_domain: 2
+      apps:
+      - app: Ski Jumping Pro
+        seller: Kalypso Media Group GmbH
+        released: '2013-01-31'
+        age_days: 4965
+        ratings: 5211
+      - app: Crazy Maze -  Puzzle Action
+        seller: Kalypso Media Group GmbH
+        released: '2016-03-30'
+        age_days: 3811
+        ratings: 4
+  - code: A3
+    checked_at: '2026-09-06T07:05:57Z'
+    source: https://rdap.org/domain/kalypsomedia.com
+    data:
+      registrar: IONOS SE
+      created: '2006-05-31'
+      expires: '2027-05-31'
+      remaining_days: 267
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T07:05:36Z'
+    source: TLS handshake kalypsomedia.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T07:05:36Z'
+    source: https://www.wikidata.org/wiki/Q26188
+    data:
+      qid: Q26188
+      label: Kalypso Media
+      kind: organization
+      site: https://www.kalypsomedia.com/
+      sitelinks: 15
+      competing_items: 4
+  - code: B5
+    checked_at: '2026-09-06T07:05:36Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 285732
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T07:05:39Z'
+    source: http://web.archive.org/cdx/search/cdx?url=kalypsomedia.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2006-10-27'
+      history_days: 7254
+  rejected_evidence:
+  - 'A3: registrar (IONOS SE) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q26188
+  reviewed_by: []
+  source_issue: null

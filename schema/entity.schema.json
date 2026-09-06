@@ -29,7 +29,7 @@
       "minItems": 1,
       "items": {
         "enum": ["ai", "developer-tools", "saas", "security", "infrastructure",
-                 "open-source", "hardware", "finance", "government", "other"]
+                 "open-source", "hardware", "finance", "government", "games", "media", "other"]
       }
     },
     "wikidata": { "type": ["string", "null"], "pattern": "^Q[0-9]+$" },

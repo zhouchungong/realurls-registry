@@ -1,0 +1,97 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:thinking-machines-lab
+names:
+  en: Thinking Machines Lab
+aliases:
+- Thinking Machines
+- thinking-machines-lab
+category:
+- other
+wikidata: Q132532850
+canonical:
+  github_org: null
+  wikidata: Q132532850
+  sources:
+  - wikidata:Q132532850/P856
+domains:
+- domain: thinkingmachines.ai
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:49:43Z'
+  ttl_days: 30
+  age_days: 788
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T05:09:21Z'
+    source: https://api.github.com/orgs/thinking-machines-lab
+    data:
+      org: thinking-machines-lab
+      org_verified: false
+      blog: thinkingmachines.ai
+  - code: A3
+    checked_at: '2026-09-06T05:09:28Z'
+    source: https://rdap.org/domain/thinkingmachines.ai
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2024-07-09'
+      expires: '2030-07-09'
+      remaining_days: 1402
+      locks:
+      - delete
+      - server delete
+      - transfer
+      - server transfer
+      - update
+      - server update
+  - code: A4
+    checked_at: '2026-09-06T05:09:21Z'
+    source: TLS handshake thinkingmachines.ai:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T05:09:21Z'
+    source: https://www.wikidata.org/wiki/Q132532850
+    data:
+      qid: Q132532850
+      label: Thinking Machines Lab
+      kind: organization
+      site: https://thinkingmachines.ai/
+      sitelinks: 11
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T05:09:21Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 127547
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T05:09:39Z'
+    source: http://web.archive.org/cdx/search/cdx?url=thinkingmachines.ai&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2024-04-17'
+      history_days: 872
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T06:28:19Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@1cc8464
+  label_source: wikidata:Q132532850
+  reviewed_by: []
+  source_issue: null
