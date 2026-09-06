@@ -248,15 +248,30 @@ export function isTypo(label, brand) {
   return false;
 }
 
+/** Words typosquats bolt onto a brand. "claude-desktop" and "loginanthropic" contain the brand as a word;
+ *  "promotion" merely contains the letters of "emotion" and is a different word. */
+const BAIT = ["login", "signin", "secure", "security", "download", "downloads", "official", "app", "apps", "get", "my",
+  "the", "support", "help", "update", "updates", "verify", "verification", "account", "accounts", "mail", "pay",
+  "payment", "free", "install", "installer", "desktop", "cloud", "portal", "online", "pro", "plus", "hq", "store",
+  "shop", "team", "auth", "id", "web", "site", "center", "centre", "service", "services", "billing", "wallet", "setup"];
+
+export function containsAsWord(label, brand) {
+  const i = label.indexOf(brand);
+  if (i < 0 || label === brand) return false;
+  const before = label.slice(0, i), after = label.slice(i + brand.length);
+  const isBoundary = s => s === "" || /^[-_0-9]+$/.test(s) || BAIT.includes(s.replace(/^[-_0-9]+|[-_0-9]+$/g, ""));
+  return isBoundary(before) && isBoundary(after);
+}
+
 /** Lookalike score of an input label against a verified brand label, or null when they are simply different
  *  words. The bar scales with how much of the brand is there to imitate: a 4-letter brand can only be matched
  *  exactly (after confusable folding), a longer one by a one-step typo, a long one (≥ 8) by any single edit;
- *  containment (claude-desktop ⊃ claude) counts for brands of at least 5 letters. With hundreds of short
+ *  containment counts when the brand appears as a whole word with a separator or bait word around it
+ *  (claude-desktop, loginanthropic), for brands of at least 5 letters. With hundreds of short
  *  brands in the registry, "edit distance ≤ 2" called kagi.com a lookalike of klei.com. */
 export function similarity(label, brand) {
   if (label === brand) return 0;
-  const contains = brand.length >= 5 && (label.includes(brand) || (brand.includes(label) && label.length >= 5));
-  if (contains) return 2;
+  if (brand.length >= 5 && containsAsWord(label, brand)) return 2;
   if (brand.length < 5) return null;
   if (isTypo(label, brand)) return 1;                                   // one mistake, even when it spans two characters
   if (brand.length >= 8 && levenshtein(label, brand) === 1) return 1;   // a long brand: any single edit

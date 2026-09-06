@@ -124,4 +124,12 @@ test("lookalike: different short words are not lookalikes (kagi.com is not klei.
   assert.equal(r2.resolve("notoin.com").verdict, "not_official");      // transposition
   assert.equal(r2.resolve("anthroppic.com").verdict, "not_official");  // doubled letter
   assert.equal(r2.resolve("anthropc.com").verdict, "not_official");    // brand ≥ 8 letters: any single edit
+  ds.entities["org:emotion"] = { name: "emotion", aliases: [], category: ["open-source"], domains: [{ domain: "emotion.sh", role: "primary", status: "verified" }] };
+  ds.domains["emotion.sh"] = { entity_id: "org:emotion", name: "emotion", status: "verified", official: true, confidence: 0.8 };
+  const r3 = new Resolver(ds);
+  assert.equal(r3.resolve("motion.com").verdict, "unknown");           // the brand contains the word; not the other way round
+  assert.equal(r3.resolve("promotion.com").verdict, "unknown");        // letters in common, different word
+  assert.equal(r3.resolve("emotion-login.com").verdict, "not_official");
+  assert.equal(r3.resolve("getemotion.com").verdict, "not_official");
+  assert.equal(r3.resolve("claude-desktop.io").verdict, "not_official");
 });
