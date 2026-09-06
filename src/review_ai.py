@@ -106,7 +106,7 @@ def _compact(data: dict) -> dict:
 def ask(client: Any, model: str, dsr: dict) -> dict:
     """One question, one JSON answer. ``client`` is an ``anthropic.Anthropic`` (or a test double)."""
     msg = client.messages.create(
-        model=model, max_tokens=300, temperature=0, system=SYSTEM,
+        model=model, max_tokens=300, system=SYSTEM,
         messages=[{"role": "user", "content": json.dumps(dsr, ensure_ascii=False)}],
     )
     text = "".join(getattr(b, "text", "") for b in msg.content)
@@ -225,7 +225,7 @@ def main(argv: list[str] | None = None) -> int:
     wanted = {d.strip() for d in args.only.split(",")} if args.only else None
     changed = _changed_files(args.changed_since) if args.changed_since else None
 
-    rows, flagged, seen = [], 0, 0
+    rows, flagged, seen, errors = [], 0, 0, 0
     for path, ent in _load():
         if changed is not None and str(path.relative_to(ROOT)).replace("\\", "/") not in changed:
             continue
@@ -236,11 +236,12 @@ def main(argv: list[str] | None = None) -> int:
             seen += 1
             try:
                 answer = ask(client, args.model, dossier(ent, dom))
-            except Exception as exc:  # an API failure is not a verdict
-                answer = {"verdict": "pass", "reason": f"review unavailable: {type(exc).__name__}", "error": True}
+            except Exception as exc:  # an API failure is not a verdict, and it is not a pass either
+                answer = {"verdict": "skipped", "reason": f"review unavailable: {type(exc).__name__}: {str(exc)[:120]}", "error": True}
+                errors += 1
             new, changed_status = apply_review(dom, answer, args.model, now)
             rows.append({"domain": dom["domain"], "entity": ent.get("entity_id"), **answer, "demoted": changed_status})
-            mark = "⚑" if answer["verdict"] == "flag" else "·"
+            mark = {"flag": "⚑", "skipped": "⚠"}.get(answer["verdict"], "·")
             print(f"  {mark} {dom['domain']:<28} {answer['verdict']:<5} {answer.get('reason', '')}", file=sys.stderr)
             if changed_status:
                 flagged += 1
@@ -252,8 +253,11 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.json:
         args.json.write_text(json.dumps(rows, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"# review_ai: {seen} verified records reviewed, {flagged} moved to review_required"
-          f"{' (dry run)' if args.dry_run else ''}", file=sys.stderr)
+    print(f"# review_ai: {seen - errors} verified records reviewed, {flagged} moved to review_required, "
+          f"{errors} skipped (review unavailable){' (dry run)' if args.dry_run else ''}", file=sys.stderr)
+    if errors and errors == seen:
+        print("# review_ai: every call failed; nothing was reviewed", file=sys.stderr)
+        return 3
     return 2 if flagged else 0
 
 

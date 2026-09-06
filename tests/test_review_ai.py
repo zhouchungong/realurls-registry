@@ -73,14 +73,14 @@ class _Client:
     def __init__(self, text): self.messages = _Messages(text)
 
 
-def test_ask_sends_only_the_dossier_and_temperature_zero():
+def test_ask_sends_only_the_dossier():
     client = _Client('{"verdict": "pass", "reason": "consistent"}')
     ent = {"entity_id": "org:example", "names": {"en": "Example"}, "canonical": {"github_org": "exampleorg"},
            "domains": [old_record()]}
     out = ask(client, MODEL, dossier(ent, ent["domains"][0]))
     assert out == {"verdict": "pass", "reason": "consistent"}
     call = client.messages.calls[0]
-    assert call["temperature"] == 0 and call["model"] == MODEL
+    assert "temperature" not in call and call["model"] == MODEL   # SDK 1.x dropped the argument
     assert "example.com" in call["messages"][0]["content"] and "exampleorg" in call["messages"][0]["content"]
 
 

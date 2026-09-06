@@ -141,7 +141,7 @@
           "properties": {
             "at": { "type": "string", "format": "date-time" },
             "model": { "type": "string" },
-            "verdict": { "enum": ["pass", "flag"] },
+            "verdict": { "enum": ["pass", "flag", "skipped"] },
             "reason": { "type": "string" },
             "hold": { "type": "boolean", "description": "true while a flag awaits human review; daily re-verification keeps review_required" },
             "cleared": {
