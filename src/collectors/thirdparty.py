@@ -6,10 +6,9 @@
 
 from __future__ import annotations
 
-import re
-
 import json
 import os
+import re
 import urllib.parse
 import urllib.request
 from datetime import UTC, datetime
