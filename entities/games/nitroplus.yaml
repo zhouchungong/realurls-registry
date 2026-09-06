@@ -1,0 +1,71 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:nitroplus
+names:
+  en: Nitroplus
+aliases: []
+category:
+- games
+wikidata: Q1092500
+canonical:
+  github_org: null
+  wikidata: Q1092500
+  sources:
+  - wikidata:Q1092500/P856
+domains:
+- domain: nitroplus.co.jp
+  role: primary
+  status: verified
+  confidence: 0.7816
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:39Z'
+  ttl_days: 30
+  age_days: 8568
+  age_source: wayback_lower_bound
+  collection_incomplete: false
+  evidence:
+  - code: A4
+    checked_at: '2026-09-06T07:03:19Z'
+    source: TLS handshake nitroplus.co.jp:443
+    data:
+      subject_org: NITROPLUS Co.,Ltd.
+      validation_type: OV
+      issuer: Cybertrust Japan Co., Ltd.
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T07:03:18Z'
+    source: https://www.wikidata.org/wiki/Q1092500
+    data:
+      qid: Q1092500
+      label: Nitroplus
+      kind: organization
+      site: https://www.nitroplus.co.jp/
+      sitelinks: 18
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T07:03:18Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 368096
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T07:03:44Z'
+    source: http://web.archive.org/cdx/search/cdx?url=nitroplus.co.jp&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2003-03-23'
+      history_days: 8568
+  rejected_evidence: []
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q1092500
+  reviewed_by: []
+  source_issue: null

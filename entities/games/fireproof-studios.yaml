@@ -1,0 +1,109 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:fireproof-studios
+names:
+  en: Fireproof Studios
+aliases: []
+category:
+- games
+wikidata: Q15070334
+canonical:
+  github_org: null
+  wikidata: Q15070334
+  sources:
+  - wikidata:Q15070334/P856
+domains:
+- domain: fireproofgames.com
+  role: primary
+  status: verified
+  confidence: 0.6278
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:38Z'
+  ttl_days: 30
+  age_days: 5428
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T07:50:15Z'
+    source: https://itunes.apple.com/search?term=Fireproof%20Studios&entity=software
+    data:
+      app: The Room Pocket
+      track_id: 573156739
+      seller: Fireproof Studios Limited
+      artist: Fireproof Studios Limited
+      seller_url: http://www.FireproofGames.com
+      released: '2012-12-13'
+      age_days: 5014
+      ratings: 10427
+      apps_for_domain: 4
+      apps:
+      - app: The Room Pocket
+        seller: Fireproof Studios Limited
+        released: '2012-12-13'
+        age_days: 5014
+        ratings: 10427
+      - app: The Room Two
+        seller: Fireproof Studios Limited
+        released: '2013-12-12'
+        age_days: 4650
+        ratings: 16632
+      - app: The Room Three
+        seller: Fireproof Studios Limited
+        released: '2015-11-04'
+        age_days: 3958
+        ratings: 33866
+  - code: A3
+    checked_at: '2026-09-06T07:50:14Z'
+    source: https://rdap.org/domain/fireproofgames.com
+    data:
+      registrar: 123-Reg Limited
+      created: '2011-10-26'
+      expires: '2029-10-26'
+      remaining_days: 1146
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T07:50:14Z'
+    source: TLS handshake fireproofgames.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T07:50:14Z'
+    source: https://www.wikidata.org/wiki/Q15070334
+    data:
+      qid: Q15070334
+      label: Fireproof Studios
+      kind: organization
+      site: https://www.fireproofgames.com/
+      sitelinks: 5
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-06T07:50:14Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 698997
+      source: top-1m list
+  rejected_evidence:
+  - 'A3: registrar (123-Reg Limited) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q15070334
+  reviewed_by: []
+  source_issue: null

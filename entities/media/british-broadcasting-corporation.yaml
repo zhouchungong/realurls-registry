@@ -1,0 +1,198 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:british-broadcasting-corporation
+names:
+  en: British Broadcasting Corporation
+aliases:
+- BBC
+- bbc
+category:
+- media
+wikidata: Q9531
+canonical:
+  github_org: null
+  wikidata: Q9531
+  sources:
+  - wikidata:Q9531/P856
+domains:
+- domain: bbc.co.uk
+  role: primary
+  status: verified
+  confidence: 0.7816
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:49:39Z'
+  ttl_days: 30
+  age_days: 11590
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T05:47:27Z'
+    source: https://api.github.com/orgs/bbc
+    data:
+      org: bbc
+      org_verified: true
+      blog: https://bbc.co.uk/opensource/
+      org_name: BBC
+      created_at: '2011-06-04T01:31:11Z'
+  - code: A3
+    checked_at: '2026-09-06T05:47:27Z'
+    source: https://rdap.org/domain/bbc.co.uk
+    data:
+      registrar: British Broadcasting Corporation
+      created: '1994-12-13'
+      expires: '2034-12-13'
+      remaining_days: 3019
+      locks:
+      - server delete
+      - server update
+      - server transfer
+  - code: A4
+    checked_at: '2026-09-06T05:47:27Z'
+    source: TLS handshake bbc.co.uk:443
+    data:
+      subject_org: BRITISH BROADCASTING CORPORATION
+      validation_type: OV
+      issuer: GlobalSign nv-sa
+      san_count: 22
+  - code: B1
+    checked_at: '2026-09-06T05:47:27Z'
+    source: https://www.wikidata.org/wiki/Q9531
+    data:
+      qid: Q9531
+      label: British Broadcasting Corporation
+      kind: organization
+      site: https://bbc.co.uk
+      sitelinks: 149
+      competing_items: 2
+  - code: B5
+    checked_at: '2026-09-06T05:47:27Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 224
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T05:47:29Z'
+    source: http://web.archive.org/cdx/search/cdx?url=bbc.co.uk&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1996-12-21'
+      history_days: 10851
+  rejected_evidence:
+  - 'A1: entity not anchored: no canonical GitHub organization from an independent authority; proof of control is
+    not proof of ownership'
+  - 'A3: registrar (British Broadcasting Corporation) is not a brand-protection registrar'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T06:28:19Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+- domain: bbc.com
+  role: product
+  status: verified
+  confidence: 0.9236
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:49:39Z'
+  ttl_days: 30
+  age_days: 13567
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T05:47:29Z'
+    source: https://itunes.apple.com/search?term=British%20Broadcasting%20Corporation&entity=software
+    data:
+      app: 'BBC: World News & Stories'
+      track_id: 364147881
+      seller: BBC Studios Distribution Ltd.
+      artist: BBC Studios Distribution Ltd.
+      seller_url: http://www.bbc.com
+      released: '2010-04-01'
+      age_days: 6001
+      ratings: 85948
+      apps_for_domain: 1
+      apps:
+      - app: 'BBC: World News & Stories'
+        seller: BBC Studios Distribution Ltd.
+        released: '2010-04-01'
+        age_days: 6001
+        ratings: 85948
+  - code: A3
+    checked_at: '2026-09-06T05:47:29Z'
+    source: https://rdap.org/domain/bbc.com
+    data:
+      registrar: Tucows Domains Inc.
+      created: '1989-07-15'
+      expires: '2030-07-14'
+      remaining_days: 1406
+      locks:
+      - transfer
+      - update
+      - server delete
+      - server transfer
+  - code: A4
+    checked_at: '2026-09-06T05:47:29Z'
+    source: TLS handshake bbc.com:443
+    data:
+      subject_org: BRITISH BROADCASTING CORPORATION
+      validation_type: OV
+      issuer: GlobalSign nv-sa
+      san_count: 22
+  - code: B1
+    checked_at: '2026-09-06T05:47:40Z'
+    source: https://www.wikidata.org/wiki/Q9531
+    data:
+      qid: Q9531
+      label: British Broadcasting Corporation
+      kind: organization
+      site: https://bbc.com
+      sitelinks: 149
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-06T05:47:29Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 211
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T05:47:36Z'
+    source: http://web.archive.org/cdx/search/cdx?url=bbc.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2000-03-01'
+      history_days: 9685
+  - code: A6
+    checked_at: '2026-09-06T05:47:40Z'
+    source: propagate from bbc.co.uk
+    data:
+      from: bbc.co.uk
+      from_status: verified
+      first_party_link: true
+      structural_links:
+      - shared_ns
+      - cert_san
+      san_count: 22
+      shared_ns:
+      - ddns0.bbc.co.uk
+      - ddns0.bbc.com
+      - ddns1.bbc.co.uk
+      - ddns1.bbc.com
+      backlink: true
+  rejected_evidence:
+  - 'A9: neither the seller (BBC Studios Distribution Ltd.) nor the app (BBC: World News & Stories) is named like
+    the anchored entity (British Broadcasting Corporation)'
+  - 'A3: registrar (Tucows Domains Inc.) is not a brand-protection registrar'
+  reasons:
+  - '2 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T06:28:19Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@1cc8464
+  label_source: wikidata:Q9531
+  reviewed_by: []
+  source_issue: null

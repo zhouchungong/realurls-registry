@@ -1,0 +1,111 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:microsoft-casual-games
+names:
+  en: Microsoft Casual Games
+aliases: []
+category:
+- games
+wikidata: Q56348898
+canonical:
+  github_org: null
+  wikidata: Q56348898
+  sources:
+  - wikidata:Q56348898/P856
+domains:
+- domain: microsoftcasualgames.com
+  role: primary
+  status: verified
+  confidence: 0.9017
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:32Z'
+  ttl_days: 30
+  age_days: 7690
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T08:09:56Z'
+    source: https://itunes.apple.com/search?term=Microsoft%20Casual%20Games&entity=software
+    data:
+      app: Microsoft Wordament
+      track_id: 580935508
+      seller: Microsoft Corporation
+      artist: Microsoft Corporation
+      seller_url: http://microsoftcasualgames.com
+      released: '2012-12-21'
+      age_days: 5006
+      ratings: 12366
+      apps_for_domain: 4
+      apps:
+      - app: Microsoft Wordament
+        seller: Microsoft Corporation
+        released: '2012-12-21'
+        age_days: 5006
+        ratings: 12366
+      - app: Microsoft Solitaire Collection
+        seller: Microsoft Corporation
+        released: '2016-11-23'
+        age_days: 3574
+        ratings: 254378
+      - app: Microsoft Sudoku
+        seller: Microsoft Corporation
+        released: '2020-02-24'
+        age_days: 2386
+        ratings: 7467
+  - code: A3
+    checked_at: '2026-09-06T08:09:55Z'
+    source: https://rdap.org/domain/microsoftcasualgames.com
+    data:
+      registrar: CSC Corporate Domains, Inc.
+      created: '2005-08-16'
+      expires: '2027-08-16'
+      remaining_days: 344
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T08:09:55Z'
+    source: TLS handshake microsoftcasualgames.com:443
+    data:
+      subject_org: Microsoft Corporation
+      validation_type: OV
+      issuer: Microsoft Corporation
+      san_count: 146
+  - code: B1
+    checked_at: '2026-09-06T08:09:54Z'
+    source: https://www.wikidata.org/wiki/Q56348898
+    data:
+      qid: Q56348898
+      label: Microsoft Casual Games
+      kind: organization
+      site: https://www.microsoftcasualgames.com/
+      sitelinks: 3
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T08:09:54Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 5896
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T08:10:07Z'
+    source: http://web.archive.org/cdx/search/cdx?url=microsoftcasualgames.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2007-02-25'
+      history_days: 7133
+  rejected_evidence:
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  reasons:
+  - '2 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q56348898
+  reviewed_by: []
+  source_issue: null

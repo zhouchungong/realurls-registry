@@ -1,0 +1,114 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:hitcents
+names:
+  en: Hitcents
+aliases: []
+category:
+- games
+wikidata: Q5871728
+canonical:
+  github_org: null
+  wikidata: Q5871728
+  sources:
+  - wikidata:Q5871728/P856
+domains:
+- domain: hitcents.com
+  role: primary
+  status: verified
+  confidence: 0.6515
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:39Z'
+  ttl_days: 30
+  age_days: 9742
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T08:11:00Z'
+    source: https://api.github.com/orgs/hitcents
+    data:
+      org: hitcents
+      org_verified: false
+      blog: http://hitcents.com
+  - code: A9
+    checked_at: '2026-09-06T08:11:01Z'
+    source: https://itunes.apple.com/search?term=Hitcents&entity=software
+    data:
+      app: Hanx Writer
+      track_id: 868326899
+      seller: Hitcents.com, Inc
+      artist: Hitcents.com, Inc.
+      seller_url: http://hitcents.com/hanx-writer
+      released: '2014-08-14'
+      age_days: 4406
+      ratings: 1534
+      apps_for_domain: 3
+      apps:
+      - app: Hanx Writer
+        seller: Hitcents.com, Inc
+        released: '2014-08-14'
+        age_days: 4406
+        ratings: 1534
+      - app: Verticus
+        seller: Hitcents.com, Inc
+        released: '2012-11-15'
+        age_days: 5043
+        ratings: 1171
+      - app: Charlie Charlie
+        seller: Hitcents.com, Inc
+        released: '2015-06-07'
+        age_days: 4109
+        ratings: 403
+  - code: A3
+    checked_at: '2026-09-06T08:11:21Z'
+    source: https://rdap.org/domain/hitcents.com
+    data:
+      registrar: Cloudflare, Inc.
+      created: '2000-01-03'
+      expires: '2028-01-03'
+      remaining_days: 484
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T08:11:00Z'
+    source: TLS handshake hitcents.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Google Trust Services
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T08:11:00Z'
+    source: https://www.wikidata.org/wiki/Q5871728
+    data:
+      qid: Q5871728
+      label: Hitcents
+      kind: organization
+      site: http://hitcents.com
+      sitelinks: 3
+      competing_items: 0
+  - code: B4
+    checked_at: '2026-09-06T08:11:01Z'
+    source: http://web.archive.org/cdx/search/cdx?url=hitcents.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2000-05-11'
+      history_days: 9614
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Cloudflare, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q5871728
+  reviewed_by: []
+  source_issue: null

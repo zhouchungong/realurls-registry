@@ -1,0 +1,127 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:zeptolab
+names:
+  en: ZeptoLab
+aliases:
+- Zeptolab
+category:
+- games
+wikidata: Q4053573
+canonical:
+  github_org: null
+  wikidata: Q4053573
+  sources:
+  - wikidata:Q4053573/P856
+domains:
+- domain: zeptolab.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:41Z'
+  ttl_days: 30
+  age_days: 6772
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T07:14:16Z'
+    source: https://api.github.com/orgs/zeptolab
+    data:
+      org: zeptolab
+      org_verified: true
+      blog: https://zeptolab.com
+      org_name: Zeptolab
+      created_at: '2012-04-05T06:12:54Z'
+  - code: A9
+    checked_at: '2026-09-06T07:14:17Z'
+    source: https://itunes.apple.com/search?term=ZeptoLab&entity=software
+    data:
+      app: 'Cut the Rope: Time Travel'
+      track_id: 735945527
+      seller: ZeptoLab UK Limited
+      artist: ZeptoLab UK Limited
+      seller_url: https://www.zeptolab.com/
+      released: '2013-12-11'
+      age_days: 4651
+      ratings: 32469
+      apps_for_domain: 10
+      apps:
+      - app: 'Cut the Rope: Time Travel'
+        seller: ZeptoLab UK Limited
+        released: '2013-12-11'
+        age_days: 4651
+        ratings: 32469
+      - app: 'Cut the Rope: Physics Puzzle'
+        seller: ZeptoLab UK Limited
+        released: '2015-09-23'
+        age_days: 4000
+        ratings: 283659
+      - app: 'Cut the Rope 2: Om Nom''s Quest'
+        seller: ZeptoLab UK Limited
+        released: '2016-01-21'
+        age_days: 3880
+        ratings: 57357
+  - code: A3
+    checked_at: '2026-09-06T07:14:18Z'
+    source: https://rdap.org/domain/zeptolab.com
+    data:
+      registrar: NameCheap, Inc.
+      created: '2008-02-20'
+      expires: '2031-02-20'
+      remaining_days: 1628
+      locks:
+      - transfer
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-06T07:14:16Z'
+    source: TLS handshake zeptolab.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: ZeroSSL GmbH
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T07:14:16Z'
+    source: https://www.wikidata.org/wiki/Q4053573
+    data:
+      qid: Q4053573
+      label: ZeptoLab
+      kind: organization
+      site: http://zeptolab.com/
+      sitelinks: 10
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T07:14:16Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 112538
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T07:14:36Z'
+    source: http://web.archive.org/cdx/search/cdx?url=zeptolab.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2004-03-01'
+      history_days: 8224
+  rejected_evidence:
+  - 'A1: entity not anchored: no canonical GitHub organization from an independent authority; proof of control is
+    not proof of ownership'
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q4053573
+  reviewed_by: []
+  source_issue: null

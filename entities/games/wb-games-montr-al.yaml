@@ -1,0 +1,87 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:wb-games-montr-al
+names:
+  en: WB Games Montréal
+aliases: []
+category:
+- games
+wikidata: Q14239494
+canonical:
+  github_org: null
+  wikidata: Q14239494
+  sources:
+  - wikidata:Q14239494/P856
+domains:
+- domain: wbgamesmontreal.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:38Z'
+  ttl_days: 30
+  age_days: 5601
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A3
+    checked_at: '2026-09-06T07:03:18Z'
+    source: https://rdap.org/domain/wbgamesmontreal.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '2011-05-06'
+      expires: '2031-05-06'
+      remaining_days: 1703
+      locks:
+      - delete
+      - transfer
+      - update
+      - server delete
+      - server transfer
+      - server update
+  - code: A4
+    checked_at: '2026-09-06T07:02:57Z'
+    source: TLS handshake wbgamesmontreal.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-06T07:02:56Z'
+    source: https://www.wikidata.org/wiki/Q14239494
+    data:
+      qid: Q14239494
+      label: WB Games Montréal
+      kind: organization
+      site: http://wbgamesmontreal.com/
+      sitelinks: 16
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T07:02:56Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 458929
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T07:03:30Z'
+    source: http://web.archive.org/cdx/search/cdx?url=wbgamesmontreal.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2011-10-17'
+      history_days: 5438
+  rejected_evidence:
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q14239494
+  reviewed_by: []
+  source_issue: null

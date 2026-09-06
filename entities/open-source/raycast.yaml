@@ -1,0 +1,122 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:raycast
+names:
+  en: Raycast
+aliases:
+- raycast/extensions
+category:
+- open-source
+wikidata: null
+canonical:
+  github_org: raycast
+  wikidata: null
+  sources:
+  - github-history:raycast/extensions(age=4y,contrib=3919,stars=7728)
+domains:
+- domain: raycast.com
+  role: primary
+  status: verified
+  confidence: 0.8346
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T21:45:09Z'
+  ttl_days: 30
+  age_days: 9741
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T21:45:22Z'
+    source: https://api.github.com/orgs/raycast
+    data:
+      org: raycast
+      org_verified: true
+      blog: https://raycast.com
+      org_name: Raycast
+      created_at: '2019-11-23T17:37:03Z'
+  - code: A8
+    checked_at: '2026-09-05T21:45:22Z'
+    source: https://api.github.com/repos/raycast/extensions
+    data:
+      repo: raycast/extensions
+      org: raycast
+      repo_anchored: true
+      homepage: https://developers.raycast.com
+      backlink: true
+      stars: 7728
+      age_days: 1810
+      contributors: 3919
+  - code: A9
+    checked_at: '2026-09-05T21:45:23Z'
+    source: https://itunes.apple.com/search?term=raycast&entity=software
+    data:
+      app: 'Raycast: AI, Notes and more'
+      track_id: 6503428327
+      seller: Raycast Technologies Inc
+      artist: Raycast Technologies
+      seller_url: https://www.raycast.com/
+      released: '2025-04-30'
+      age_days: 493
+      ratings: 241
+      apps_for_domain: 1
+      apps:
+      - app: 'Raycast: AI, Notes and more'
+        seller: Raycast Technologies Inc
+        released: '2025-04-30'
+        age_days: 493
+        ratings: 241
+  - code: A3
+    checked_at: '2026-09-05T21:45:23Z'
+    source: https://rdap.org/domain/raycast.com
+    data:
+      registrar: NameCheap, Inc.
+      created: '2000-01-04'
+      expires: '2028-01-04'
+      remaining_days: 485
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T21:45:23Z'
+    source: TLS handshake raycast.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T21:45:23Z'
+    source: https://www.wikidata.org/wiki/Q124372806
+    data:
+      qid: Q124372806
+      label: Raycast
+      site: https://www.raycast.com/
+      sitelinks: 2
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T21:45:26Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 18161
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T21:45:23Z'
+    source: http://web.archive.org/cdx/search/cdx?url=raycast.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2000-04-07'
+      history_days: 9647
+  rejected_evidence:
+  - 'A9: no listing meets the App Store history bar (at least 2 years on the store and 1000 ratings); strongest:
+    Raycast: AI, Notes and more 493 days, 241 ratings'
+  - 'A3: registrar (NameCheap, Inc.) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  - 'B1: entity not anchored: no canonical Wikidata item, so an arbitrary item''s P856 cannot corroborate'
+  reasons:
+  - 'correlated anchors merged: A8 not independent of the kept one, counted once'
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@b38ad85
+  label_source: seed_org_name(self-declared)
+  reviewed_by: []
+  source_issue: null

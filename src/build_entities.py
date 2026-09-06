@@ -38,7 +38,8 @@ ENTITIES = ROOT / "entities"
 PIPELINE_VERSION = "build_entities/0.2"
 MAX_PROPAGATE = 8   # outbound domains tried per verified primary
 
-CATEGORIES = {"ai", "developer-tools", "saas", "security", "infrastructure", "open-source", "hardware", "finance", "government", "other"}
+CATEGORIES = {"ai", "developer-tools", "saas", "security", "infrastructure", "open-source", "hardware", "finance",
+              "government", "games", "media", "other"}
 
 #: GitHub topic → schema category. Unmapped topics fall back to ``open-source`` for GitHub-sourced seeds
 #: (the organisation is known to us through a repository) and ``saas`` for Wikidata software companies.
@@ -70,7 +71,11 @@ def _slug(text: str) -> str:
     return s or "unnamed"
 
 
-def _categories(topics: list[str], source: str | None = None) -> list[str]:
+def _categories(topics: list[str], source: str | None = None, flags: dict[str, bool] | None = None,
+                domain: str = "") -> list[str]:
+    """Topics decide when they say anything. Otherwise what the entity *is* (its Wikidata item's type, or a
+    restricted government TLD) decides: NetEase and the IRS used to land in ``open-source`` because they came in
+    through a GitHub organization. Only entities we know nothing about fall back on the seed source."""
     cats = []
     for t in topics:
         c = TOPIC_CATEGORY.get(t) or (t if t in CATEGORIES else None)   # a category name is its own topic
@@ -78,11 +83,32 @@ def _categories(topics: list[str], source: str | None = None) -> list[str]:
             cats.append(c)
     if cats:
         return cats
+    return [fallback_category(source, flags, domain)]
+
+
+def fallback_category(source: str | None, flags: dict[str, bool] | None, domain: str = "") -> str:
+    from src.policy import RESTRICTED_GOV_SUFFIXES
+    d = (domain or "").lower().rstrip(".")
+    if any(d == s or d.endswith("." + s) for s in RESTRICTED_GOV_SUFFIXES):
+        return "government"
+    f = flags or {}
+    if f.get("isGov"):
+        return "government"
+    if f.get("isEdu"):
+        return "other"          # universities and research institutes: no category of their own yet
+    if f.get("isGame"):
+        return "games"
+    if f.get("isMedia"):
+        return "media"
+    if f.get("isOrg"):
+        return "saas" if (f.get("isSoftwareCo") or source == "wikidata") else "other"
+    if f.get("isSoftware"):
+        return "open-source"
     if source == "wikidata":
-        return ["saas"]
+        return "saas"
     if source == "github":
-        return ["open-source"]
-    return ["developer-tools"] if source in (None, "topics") else ["other"]   # cold-start topic seeds only
+        return "open-source"
+    return "developer-tools" if source in (None, "topics") else "other"   # cold-start topic seeds only
 
 
 def _iso(dt: datetime | None) -> str:
@@ -104,10 +130,12 @@ def build_one(seed: dict, now: datetime) -> tuple[dict | None, str]:
     org_name = (seed.get("org_name") or "").strip()
     gh_display = next((str(e.data.get("org_name") or "").strip() for e in result.evidence if e.code == "A1"), "")
     names_primary = any(e.code == "B1" and e.data.get("qid") == ent.wikidata for e in result.evidence) if ent.wikidata else False
+    from src.collectors.thirdparty import item_flags
+    flags = item_flags([ent.wikidata]).get(ent.wikidata) if ent.wikidata else None
     label, label_source = choose_label(wikidata=ent.wikidata, wikidata_label=ent.label if ent.wikidata else "",
                                        github_org=ent.github_org, gh_display=gh_display, org_name=org_name,
                                        repo_label=ent.label if not ent.wikidata else "", domain=domain,
-                                       wikidata_names_primary=names_primary)
+                                       wikidata_names_primary=names_primary, wikidata_is_org=(flags or {}).get("isOrg"))
     aliases = sorted({a for a in (org_name, seed.get("github_org", ""), ent.label or "", gh_display)
                       if a and a != label and not re.fullmatch(r"Q\d+", a)})
 
@@ -117,7 +145,7 @@ def build_one(seed: dict, now: datetime) -> tuple[dict | None, str]:
         "entity_id": entity_id,
         "names": {"en": label},
         "aliases": aliases,
-        "category": _categories(seed.get("topics", []), seed.get("source")),
+        "category": _categories(seed.get("topics", []), seed.get("source"), flags, domain),
         "wikidata": ent.wikidata,
         "canonical": {
             "github_org": ent.github_org,
@@ -196,7 +224,8 @@ def build_one(seed: dict, now: datetime) -> tuple[dict | None, str]:
 
 
 def choose_label(*, wikidata: str | None, wikidata_label: str, github_org: str | None, gh_display: str,
-                 org_name: str, repo_label: str, domain: str, wikidata_names_primary: bool = False) -> tuple[str, str]:
+                 org_name: str, repo_label: str, domain: str, wikidata_names_primary: bool = False,
+                 wikidata_is_org: bool | None = None) -> tuple[str, str]:
     """The display name and where it came from (POLICY.md §0).
 
     Wikidata's English label wins when it names the organization: it is the one source nobody self-declares.
@@ -223,6 +252,10 @@ def choose_label(*, wikidata: str | None, wikidata_label: str, github_org: str |
 
     if wikidata_names_primary and domain:
         org_names.append(domain.split(".")[0])   # the item's site is this domain: its label may match the domain itself
+    if wl and wikidata_is_org is False and gh_display:
+        # The item is not an organization (a movement, a protocol, a product): the organization's own name is
+        # the label and the item's name an alias. "Wikimedia movement" (Q3568028) is not what wikimedia.org calls itself.
+        return gh_display, "github_org_display_name(self-declared)"
     if wl and (not gh_login or any(_matches(wl, n) for n in org_names)):
         return wl, f"wikidata:{wikidata}"
     if org_name and org_name.lower() != gh_login.lower():

@@ -1,0 +1,110 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:oreilly
+names:
+  en: O’Reilly Media
+aliases:
+- Natural Language Processing with Transformers
+- nlp-with-transformers
+category:
+- media
+wikidata: Q1065097
+canonical:
+  github_org: oreilly
+  wikidata: Q1065097
+  sources:
+  - wikidata:Q1065097/P856
+  - wikidata:Q1065097/P2037
+domains:
+- domain: oreilly.com
+  role: primary
+  status: verified
+  confidence: 0.6278
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T04:49:35Z'
+  ttl_days: 30
+  age_days: 10694
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T04:52:00Z'
+    source: https://api.github.com/orgs/nlp-with-transformers
+    data:
+      org: nlp-with-transformers
+      org_verified: false
+      blog: https://learning.oreilly.com/library/view/natural-language-processing/9781098103231/
+  - code: A9
+    checked_at: '2026-09-06T04:52:01Z'
+    source: https://itunes.apple.com/search?term=O%E2%80%99Reilly%20Media&entity=software
+    data:
+      app: O'Reilly
+      track_id: 881697395
+      seller: O'Reilly Media, Inc
+      artist: O'Reilly Media, Inc.
+      seller_url: http://www.oreilly.com/
+      released: '2014-11-14'
+      age_days: 4313
+      ratings: 33823
+      apps_for_domain: 1
+      apps:
+      - app: O'Reilly
+        seller: O'Reilly Media, Inc
+        released: '2014-11-14'
+        age_days: 4313
+        ratings: 33823
+  - code: A3
+    checked_at: '2026-09-06T04:52:01Z'
+    source: https://rdap.org/domain/oreilly.com
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '1997-05-27'
+      expires: '2027-05-26'
+      remaining_days: 261
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T04:52:01Z'
+    source: TLS handshake oreilly.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 85
+  - code: B1
+    checked_at: '2026-09-06T04:52:01Z'
+    source: https://www.wikidata.org/wiki/Q1065097
+    data:
+      qid: Q1065097
+      label: O’Reilly Media
+      kind: organization
+      site: https://www.oreilly.com/
+      sitelinks: 23
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T04:52:01Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 2003
+      source: top-1m list
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T06:28:19Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@1cc8464
+  label_source: wikidata:Q1065097
+  reviewed_by: []
+  source_issue: null

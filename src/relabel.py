@@ -25,7 +25,7 @@ import yaml
 from src.build_entities import ENTITIES, ROOT, choose_label
 from src.collectors.base import FetchError, fetch_json
 from src.collectors.github import API, _headers
-from src.collectors.thirdparty import english_label
+from src.collectors.thirdparty import english_label, item_flags
 
 
 def _gh_display(login: str) -> str:
@@ -61,9 +61,10 @@ def relabel(path: Path) -> tuple[str, str, str] | None:
     primary = primary_rec.get("domain", "")
     names_primary = bool(qid) and any(e.get("code") == "B1" and e.get("data", {}).get("qid") == qid
                                       for e in primary_rec.get("evidence", []))
+    flags = item_flags([qid]).get(qid) if qid else None
     label, source = choose_label(wikidata=qid, wikidata_label=wl, github_org=gh, gh_display=gh_display,
                                  org_name=seed_org_name, repo_label=repo_label, domain=primary,
-                                 wikidata_names_primary=names_primary)
+                                 wikidata_names_primary=names_primary, wikidata_is_org=(flags or {}).get("isOrg"))
     if label == old and prov.get("label_source") == source:
         return None
     aliases = sorted({a for a in [*(doc.get("aliases") or []), old, wl, gh_display, gh]

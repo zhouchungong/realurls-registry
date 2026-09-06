@@ -1,0 +1,103 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:plaion
+names:
+  en: Plaion
+aliases: []
+category:
+- games
+wikidata: Q555273
+canonical:
+  github_org: null
+  wikidata: Q555273
+  sources:
+  - wikidata:Q555273/P856
+domains:
+- domain: plaion.com
+  role: primary
+  status: verified
+  confidence: 0.7816
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:38Z'
+  ttl_days: 30
+  age_days: 1964
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T06:58:46Z'
+    source: https://itunes.apple.com/search?term=Plaion&entity=software
+    data:
+      app: Snowboard Hero
+      track_id: 413472707
+      seller: PLAION GmbH
+      artist: Plaion GmbH
+      seller_url: https://www.plaion.com
+      released: '2011-03-30'
+      age_days: 5638
+      ratings: 116
+      apps_for_domain: 1
+      apps:
+      - app: Snowboard Hero
+        seller: PLAION GmbH
+        released: '2011-03-30'
+        age_days: 5638
+        ratings: 116
+  - code: A3
+    checked_at: '2026-09-06T06:59:07Z'
+    source: https://rdap.org/domain/plaion.com
+    data:
+      registrar: united-domains GmbH
+      created: '2021-04-20'
+      expires: '2027-04-20'
+      remaining_days: 226
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T06:58:45Z'
+    source: TLS handshake plaion.com:443
+    data:
+      subject_org: PLAION GmbH
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T06:58:45Z'
+    source: https://www.wikidata.org/wiki/Q555273
+    data:
+      qid: Q555273
+      label: Plaion
+      kind: organization
+      site: https://plaion.com
+      sitelinks: 16
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T06:58:45Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 251729
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T06:58:48Z'
+    source: http://web.archive.org/cdx/search/cdx?url=plaion.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2011-02-07'
+      history_days: 5690
+  rejected_evidence:
+  - 'A9: no listing meets the App Store history bar (at least 2 years on the store and 1000 ratings); strongest:
+    Snowboard Hero 5638 days, 116 ratings'
+  - 'A3: registrar (united-domains GmbH) is not a brand-protection registrar'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q555273
+  reviewed_by: []
+  source_issue: null

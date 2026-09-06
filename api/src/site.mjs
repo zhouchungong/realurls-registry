@@ -23,7 +23,8 @@ const SITE = "https://realurls.org";
 
 const CATEGORY_LABELS = {
   ai: "AI", "developer-tools": "Developer tools", infrastructure: "Infrastructure", "open-source": "Open source",
-  saas: "SaaS", security: "Security", hardware: "Hardware", finance: "Finance", government: "Government", other: "Other",
+  saas: "SaaS", security: "Security", hardware: "Hardware", finance: "Finance", government: "Government",
+  games: "Games", media: "Media", other: "Other",
 };
 const categoryLabel = c => CATEGORY_LABELS[c] || c;
 const PAGE_SIZE = 100;

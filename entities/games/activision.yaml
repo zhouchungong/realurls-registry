@@ -1,0 +1,113 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:activision
+names:
+  en: Activision
+aliases:
+- activision
+category:
+- games
+wikidata: Q200491
+canonical:
+  github_org: activision
+  wikidata: Q200491
+  sources:
+  - wikidata:Q200491/P856
+  - wikidata:Q200491/P2037
+domains:
+- domain: activision.com
+  role: primary
+  status: verified
+  confidence: 0.9017
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:33Z'
+  ttl_days: 30
+  age_days: 12003
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T06:45:34Z'
+    source: https://api.github.com/orgs/activision
+    data:
+      org: activision
+      org_verified: false
+      blog: https://www.activision.com
+  - code: A9
+    checked_at: '2026-09-06T06:45:36Z'
+    source: https://itunes.apple.com/search?term=Activision&entity=software
+    data:
+      app: 'Call of Duty®: Mobile'
+      track_id: 1287282214
+      seller: Activision Publishing, Inc.
+      artist: Activision Publishing, Inc.
+      seller_url: http://www.activision.com
+      released: '2019-09-30'
+      age_days: 2532
+      ratings: 2009558
+      apps_for_domain: 1
+      apps:
+      - app: 'Call of Duty®: Mobile'
+        seller: Activision Publishing, Inc.
+        released: '2019-09-30'
+        age_days: 2532
+        ratings: 2009558
+  - code: A3
+    checked_at: '2026-09-06T06:45:54Z'
+    source: https://rdap.org/domain/activision.com
+    data:
+      registrar: MarkMonitor Inc.
+      created: '1993-10-26'
+      expires: '2026-10-25'
+      remaining_days: 48
+      locks:
+      - delete
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T06:45:35Z'
+    source: TLS handshake activision.com:443
+    data:
+      subject_org: Activision Publishing, Inc.
+      validation_type: OV
+      issuer: DigiCert Inc
+      san_count: 57
+  - code: B1
+    checked_at: '2026-09-06T06:45:34Z'
+    source: https://www.wikidata.org/wiki/Q200491
+    data:
+      qid: Q200491
+      label: Activision
+      kind: organization
+      site: https://www.activision.com
+      sitelinks: 57
+      competing_items: 4
+  - code: B5
+    checked_at: '2026-09-06T06:45:34Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 5054
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T06:45:42Z'
+    source: http://web.archive.org/cdx/search/cdx?url=activision.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '1996-10-23'
+      history_days: 10910
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  reasons:
+  - '2 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q200491
+  reviewed_by: []
+  source_issue: null

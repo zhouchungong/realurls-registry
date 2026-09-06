@@ -1,0 +1,120 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:feral-interactive
+names:
+  en: Feral Interactive
+aliases:
+- FeralInteractive
+category:
+- games
+wikidata: Q863618
+canonical:
+  github_org: null
+  wikidata: Q863618
+  sources:
+  - wikidata:Q863618/P856
+domains:
+- domain: feralinteractive.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T03:02:31Z'
+  ttl_days: 30
+  age_days: 8404
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T03:21:33Z'
+    source: https://api.github.com/orgs/FeralInteractive
+    data:
+      org: FeralInteractive
+      org_verified: false
+      blog: http://www.feralinteractive.com/
+  - code: A9
+    checked_at: '2026-09-06T03:21:34Z'
+    source: https://itunes.apple.com/search?term=Feral%20Interactive&entity=software
+    data:
+      app: 'ROME: Total War'
+      track_id: 1106831630
+      seller: Feral Interactive Ltd
+      artist: Feral Interactive Ltd
+      seller_url: https://www.feralinteractive.com/en/games/rometw-ios/?utm_source=ios&amp;utm_medium=link&amp;utm_campaign=ios_rometw_minisite
+      released: '2016-11-10'
+      age_days: 3587
+      ratings: 18864
+      apps_for_domain: 11
+      apps:
+      - app: 'ROME: Total War'
+        seller: Feral Interactive Ltd
+        released: '2016-11-10'
+        age_days: 3587
+        ratings: 18864
+      - app: Company of Heroes
+        seller: Feral Interactive Ltd
+        released: '2020-02-13'
+        age_days: 2396
+        ratings: 6530
+      - app: GRID™ Autosport
+        seller: Feral Interactive Ltd
+        released: '2017-11-26'
+        age_days: 3205
+        ratings: 2848
+  - code: A3
+    checked_at: '2026-09-06T03:21:54Z'
+    source: https://rdap.org/domain/feralinteractive.com
+    data:
+      registrar: Gandi SAS
+      created: '2003-09-02'
+      expires: '2027-09-02'
+      remaining_days: 361
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T03:21:33Z'
+    source: TLS handshake feralinteractive.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T03:21:33Z'
+    source: https://www.wikidata.org/wiki/Q863618
+    data:
+      qid: Q863618
+      label: Feral Interactive
+      site: https://www.feralinteractive.com/
+      sitelinks: 18
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T03:21:33Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 111192
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T03:22:24Z'
+    source: http://web.archive.org/cdx/search/cdx?url=feralinteractive.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2003-10-29'
+      history_days: 8348
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (Gandi SAS) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T04:28:33Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@a10d2a0
+  label_source: wikidata:Q863618
+  reviewed_by: []
+  source_issue: null

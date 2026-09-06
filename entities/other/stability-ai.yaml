@@ -1,0 +1,93 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:stability-ai
+names:
+  en: Stability AI
+aliases:
+- Stability-AI
+category:
+- other
+wikidata: Q123592234
+canonical:
+  github_org: Stability-AI
+  wikidata: Q123592234
+  sources:
+  - wikidata:Q123592234/P856
+  - wikidata:Q123592234/P2037
+domains:
+- domain: stability.ai
+  role: primary
+  status: verified
+  confidence: 0.8544
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05T18:18:58Z'
+  ttl_days: 30
+  age_days: 2495
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-05T19:38:12Z'
+    source: https://api.github.com/orgs/Stability-AI
+    data:
+      org: Stability-AI
+      org_verified: true
+      blog: https://stability.ai/
+      org_name: Stability AI
+      created_at: '2022-03-04T14:43:29Z'
+  - code: A3
+    checked_at: '2026-09-05T19:38:19Z'
+    source: https://rdap.org/domain/stability.ai
+    data:
+      registrar: CSC Corporate Domains, Inc.
+      created: '2019-11-06'
+      expires: '2027-11-06'
+      remaining_days: 426
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-05T19:38:19Z'
+    source: TLS handshake stability.ai:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 1
+  - code: B1
+    checked_at: '2026-09-05T19:38:19Z'
+    source: https://www.wikidata.org/wiki/Q123592234
+    data:
+      qid: Q123592234
+      label: Stability AI
+      site: https://www.stability.ai
+      sitelinks: 11
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-05T19:38:19Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 18575
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-05T19:38:21Z'
+    source: http://web.archive.org/cdx/search/cdx?url=stability.ai&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2020-09-16'
+      history_days: 2180
+  rejected_evidence:
+  - 'A3: fewer than 1095 days until expiry; not the long prepaid term typical of corporate registrations'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T02:13:24Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@c1580b9
+  label_source: wikidata:Q123592234
+  reviewed_by: []
+  source_issue: null

@@ -1,0 +1,111 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:nitrome
+names:
+  en: Nitrome
+aliases: []
+category:
+- games
+wikidata: Q582666
+canonical:
+  github_org: null
+  wikidata: Q582666
+  sources:
+  - wikidata:Q582666/P856
+domains:
+- domain: nitrome.com
+  role: primary
+  status: verified
+  confidence: 0.6724
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:32Z'
+  ttl_days: 30
+  age_days: 8095
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T07:04:22Z'
+    source: https://itunes.apple.com/search?term=Nitrome&entity=software
+    data:
+      app: Leap Day
+      track_id: 1083451870
+      seller: Nitrome
+      artist: Nitrome
+      seller_url: http://www.nitrome.com/mobile/
+      released: '2016-05-11'
+      age_days: 3769
+      ratings: 18229
+      apps_for_domain: 20
+      apps:
+      - app: Leap Day
+        seller: Nitrome
+        released: '2016-05-11'
+        age_days: 3769
+        ratings: 18229
+      - app: Flat Pack
+        seller: Nitrome
+        released: '2017-09-17'
+        age_days: 3275
+        ratings: 4398
+      - app: Redungeon
+        seller: Nitrome
+        released: '2016-06-22'
+        age_days: 3727
+        ratings: 1355
+  - code: A3
+    checked_at: '2026-09-06T07:05:01Z'
+    source: https://rdap.org/domain/nitrome.com
+    data:
+      registrar: 123-Reg Limited
+      created: '2004-07-07'
+      expires: '2033-07-07'
+      remaining_days: 2496
+      locks: []
+  - code: A4
+    checked_at: '2026-09-06T07:04:21Z'
+    source: TLS handshake nitrome.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Amazon
+      san_count: 4
+  - code: B1
+    checked_at: '2026-09-06T07:04:21Z'
+    source: https://www.wikidata.org/wiki/Q582666
+    data:
+      qid: Q582666
+      label: Nitrome
+      kind: organization
+      site: http://www.nitrome.com/
+      sitelinks: 16
+      competing_items: 1
+  - code: B5
+    checked_at: '2026-09-06T07:04:21Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 190444
+      source: top-1m list
+  - code: B4
+    checked_at: '2026-09-06T07:04:39Z'
+    source: http://web.archive.org/cdx/search/cdx?url=nitrome.com&output=json&fl=timestamp&filter=statuscode:200&limit=1
+    data:
+      first_snapshot: '2004-11-28'
+      history_days: 7952
+  rejected_evidence:
+  - 'A3: registrar (123-Reg Limited) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 3 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q582666
+  reviewed_by: []
+  source_issue: null

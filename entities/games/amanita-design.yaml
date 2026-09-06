@@ -1,0 +1,109 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:amanita-design
+names:
+  en: Amanita Design
+aliases: []
+category:
+- games
+wikidata: Q2540486
+canonical:
+  github_org: null
+  wikidata: Q2540486
+  sources:
+  - wikidata:Q2540486/P856
+domains:
+- domain: amanita-design.net
+  role: primary
+  status: verified
+  confidence: 0.6278
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:38Z'
+  ttl_days: 30
+  age_days: 7044
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A9
+    checked_at: '2026-09-06T07:05:20Z'
+    source: https://itunes.apple.com/search?term=Amanita%20Design&entity=software
+    data:
+      app: Creaks
+      track_id: 1466040723
+      seller: Amanita Design s.r.o.
+      artist: Amanita Design s.r.o.
+      seller_url: https://amanita-design.net/
+      released: '2020-07-10'
+      age_days: 2249
+      ratings: 2118
+      apps_for_domain: 9
+      apps:
+      - app: Creaks
+        seller: Amanita Design s.r.o.
+        released: '2020-07-10'
+        age_days: 2249
+        ratings: 2118
+      - app: Machinarium
+        seller: Amanita Design s.r.o.
+        released: '2011-09-08'
+        age_days: 5477
+        ratings: 994
+      - app: CHUCHEL
+        seller: Amanita Design s.r.o.
+        released: '2018-11-29'
+        age_days: 2837
+        ratings: 631
+  - code: A3
+    checked_at: '2026-09-06T07:05:23Z'
+    source: https://rdap.org/domain/amanita-design.net
+    data:
+      registrar: GoDaddy.com, LLC
+      created: '2007-05-24'
+      expires: '2034-05-24'
+      remaining_days: 2817
+      locks:
+      - delete
+      - renew
+      - transfer
+      - update
+  - code: A4
+    checked_at: '2026-09-06T07:05:20Z'
+    source: TLS handshake amanita-design.net:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 4
+  - code: B1
+    checked_at: '2026-09-06T07:05:19Z'
+    source: https://www.wikidata.org/wiki/Q2540486
+    data:
+      qid: Q2540486
+      label: Amanita Design
+      kind: organization
+      site: https://amanita-design.net/
+      sitelinks: 15
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T07:05:19Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 141888
+      source: top-1m list
+  rejected_evidence:
+  - 'A3: registrar (GoDaddy.com, LLC) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q2540486
+  reviewed_by: []
+  source_issue: null

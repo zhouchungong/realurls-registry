@@ -1,0 +1,114 @@
+# 本文件由流水线生成，请勿手工编辑（SECURITY.md §1）。
+# generated_by: build_entities/0.2
+schema_version: '1.0'
+entity_id: org:dinosaur-polo-club
+names:
+  en: Dinosaur Polo Club
+aliases: []
+category:
+- games
+wikidata: Q26715541
+canonical:
+  github_org: null
+  wikidata: Q26715541
+  sources:
+  - wikidata:Q26715541/P856
+domains:
+- domain: dinopoloclub.com
+  role: primary
+  status: verified
+  confidence: 0.6278
+  first_seen: '2026-09-06'
+  last_verified: '2026-09-06T06:42:41Z'
+  ttl_days: 30
+  age_days: 4855
+  age_source: rdap
+  collection_incomplete: false
+  evidence:
+  - code: A1
+    checked_at: '2026-09-06T07:51:48Z'
+    source: https://api.github.com/orgs/dinopoloclub
+    data:
+      org: dinopoloclub
+      org_verified: false
+      blog: https://dinopoloclub.com/
+  - code: A9
+    checked_at: '2026-09-06T07:51:49Z'
+    source: https://itunes.apple.com/search?term=Dinosaur%20Polo%20Club&entity=software
+    data:
+      app: Mini Metro
+      track_id: 837860959
+      seller: Dinosaur Polo Club Limited
+      artist: Dinosaur Polo Club
+      seller_url: https://dinopoloclub.com/press/mini-metro/
+      released: '2015-12-25'
+      age_days: 3907
+      ratings: 31594
+      apps_for_domain: 4
+      apps:
+      - app: Mini Metro
+        seller: Dinosaur Polo Club Limited
+        released: '2015-12-25'
+        age_days: 3907
+        ratings: 31594
+      - app: Mini Motorways
+        seller: Dinosaur Polo Club Limited
+        released: '2019-09-19'
+        age_days: 2544
+        ratings: 7002
+      - app: Mini Metro+
+        seller: Dinosaur Polo Club Limited
+        released: '2021-04-02'
+        age_days: 1983
+        ratings: 418
+  - code: A3
+    checked_at: '2026-09-06T07:51:48Z'
+    source: https://rdap.org/domain/dinopoloclub.com
+    data:
+      registrar: 1API GmbH
+      created: '2013-05-22'
+      expires: '2027-05-22'
+      remaining_days: 257
+      locks:
+      - transfer
+  - code: A4
+    checked_at: '2026-09-06T07:51:48Z'
+    source: TLS handshake dinopoloclub.com:443
+    data:
+      subject_org: ''
+      validation_type: DV
+      issuer: Let's Encrypt
+      san_count: 2
+  - code: B1
+    checked_at: '2026-09-06T07:51:48Z'
+    source: https://www.wikidata.org/wiki/Q26715541
+    data:
+      qid: Q26715541
+      label: Dinosaur Polo Club
+      kind: organization
+      site: http://www.dinopoloclub.com
+      sitelinks: 4
+      competing_items: 0
+  - code: B5
+    checked_at: '2026-09-06T07:51:48Z'
+    source: https://tranco-list.eu/download/daily/top-1m.csv.zip
+    data:
+      rank: 417348
+      source: top-1m list
+  rejected_evidence:
+  - 'A1: GitHub organization has not verified this domain (is_verified != true)'
+  - 'A3: registrar (1API GmbH) is not a brand-protection registrar'
+  - 'A4: DV certificate carries no organization name (most modern tech companies use DV; this is expected)'
+  reasons:
+  - '1 independent anchor(s) + 2 independent corroboration(s): meets the verified threshold'
+  ai_review:
+    at: '2026-09-06T08:58:14Z'
+    model: claude-fable-5-1 (Claude Code, manual run 2026-09-06)
+    verdict: pass
+    reason: 'dossier internally consistent: entity, canonical organisation and domain agree'
+provenance:
+  generated_by: build_entities/0.2
+  policy_version: policy.py@04e980e
+  label_source: wikidata:Q26715541
+  reviewed_by: []
+  source_issue: null
